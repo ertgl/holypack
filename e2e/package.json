@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "clean": "yarn e2e:w:foreach::parallel::interlaced run clean",
+    "e2e:w:foreach::parallel::interlaced": "yarn w:foreach::parallel::interlaced --exclude '@holypack/__e2e__'",
     "e2e:w:foreach::parallel::topological": "yarn w:foreach::parallel::topological --exclude '@holypack/__e2e__'",
     "prepare": "yarn e2e:w:foreach::parallel::topological run prepare",
     "test": "yarn e2e:w:foreach::parallel::topological run test"

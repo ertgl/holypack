@@ -134,7 +134,7 @@ in mind.
 
 | Name | Package | Status |
 | ---- | ------- | ------ |
-| [Babel](https://babeljs.io/) | | Planned |
+| [Babel](https://babeljs.io/) | [@holypack/integration-babel](integrations/babel) | Work in progress |
 | [TypeScript](https://www.typescriptlang.org/) | [@holypack/integration-typescript](integrations/typescript) | Work in progress |
 | [SWC](https://swc.rs/) | | Planned |
 | [JavaScript Obfuscator](https://obfuscator.io/) | | Planned |
