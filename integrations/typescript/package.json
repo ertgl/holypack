@@ -1,0 +1,19 @@
+{
+  "name": "@holypack/integration-typescript",
+  "scripts": {
+    "tsc:build::types": "cd $INIT_CWD && tsc --project ./tsconfig.output.types.json && node -e \"console.log('Successfully built types')\"",
+    "tsc:check::types": "cd $INIT_CWD && tsc --noEmit"
+  },
+  "dependencies": {
+    "typescript": "^5.8.3"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./presets/*.json": "./src/presets/*.json",
+    "./*.json": "./src/*.json"
+  },
+  "files": [
+    "./src/",
+    "./package.json"
+  ]
+}
