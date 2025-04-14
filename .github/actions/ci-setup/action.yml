@@ -42,7 +42,7 @@ runs:
       id: determine-build-cache-key
       shell: bash
       env:
-        FINAL_BUILD_CACHE_KEY: ${{ inputs.build-cache-key || format('build-cache-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock', 'integrations/**/dist/**/*', 'internal/*/*/dist/**/*', 'yarn.lock')) }}
+        FINAL_BUILD_CACHE_KEY: ${{ inputs.build-cache-key || format('build-cache-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock', 'integrations/*/dist/**/*', 'internal/*/*/dist/**/*', 'yarn.lock')) }}
       run: echo "final-build-cache-key=$(echo "$FINAL_BUILD_CACHE_KEY")" >> $GITHUB_OUTPUT
 
     - name: Determine node_modules cache key
@@ -68,17 +68,24 @@ runs:
       uses: actions/cache/restore@v4
       with:
         path: |
-          node_modules
-          e2e/node_modules
+          node_modules/
+          e2e/node_modules/
+          e2e/*/*/node_modules/
+          integrations/*/node_modules/
+          internal/*/*/node_modules/
         key: ${{ steps.determine-node-modules-cache-key.outputs.final-node-modules-cache-key }}
 
     - name: Install dependencies
       id: install-dependencies
       if: ${{ steps.restore-node-modules-cache.outputs.cache-hit != 'true' }}
       shell: bash
-      run: |
-        yarn install --immutable
-        yarn e2e:yarn install --immutable
+      run: yarn install --immutable
+
+    - name: Install E2E dependencies
+      id: install-e2e-dependencies
+      if: ${{ steps.restore-node-modules-cache.outputs.cache-hit != 'true' && steps.install-dependencies.conclusion == 'success' }}
+      shell: bash
+      run: yarn e2e:yarn install --immutable
 
     - name: Cache node_modules
       id: cache-node-modules
@@ -86,8 +93,11 @@ runs:
       uses: actions/cache/save@v4
       with:
         path: |
-          node_modules
-          e2e/node_modules
+          node_modules/
+          e2e/node_modules/
+          e2e/*/*/node_modules/
+          integrations/*/node_modules/
+          internal/*/*/node_modules/
         key: ${{ steps.determine-node-modules-cache-key.outputs.final-node-modules-cache-key }}
 
     - name: Restore build cache
@@ -96,29 +106,42 @@ runs:
       uses: actions/cache/restore@v4
       with:
         path: |
-          integrations/**/dist/
+          e2e/*/*/dist/
+          integrations/*/dist/
           internal/*/*/dist/
         key: ${{ steps.determine-build-cache-key.outputs.final-build-cache-key }}
 
     - name: Prepare
+      id: prepare
       if: ${{ steps.restore-build-cache.outputs.cache-hit != 'true' }}
       shell: bash
-      run: |
-        yarn prepare
-        yarn e2e:prepare
+      run: yarn prepare
 
     - name: Build
       id: build
-      if: steps.restore-build-cache.outputs.cache-hit != 'true'
+      if: ${{ steps.restore-build-cache.outputs.cache-hit != 'true' && steps.prepare.conclusion == 'success' }}
       shell: bash
       run: yarn build
 
+    - name: Prepare E2E
+      id: prepare-e2e
+      if: ${{ steps.restore-build-cache.outputs.cache-hit != 'true' && steps.build.conclusion == 'success' }}
+      shell: bash
+      run: yarn e2e:prepare
+
+    - name: Build E2E
+      id: build-e2e
+      if: ${{ steps.restore-build-cache.outputs.cache-hit != 'true' && steps.prepare-e2e.conclusion == 'success' }}
+      shell: bash
+      run: yarn e2e:build
+
     - name: Cache build
       id: cache-build
-      if: ${{ inputs.cache-build == 'true' && steps.restore-build-cache.outputs.cache-hit != 'true' && steps.build.conclusion == 'success' }}
+      if: ${{ inputs.cache-build == 'true' && steps.restore-build-cache.outputs.cache-hit != 'true' && steps.build.conclusion == 'success' && steps.build-e2e.conclusion == 'success' }}
       uses: actions/cache/save@v4
       with:
         path: |
-          integrations/**/dist/
+          e2e/*/*/dist/
+          integrations/*/dist/
           internal/*/*/dist/
         key: ${{ steps.determine-build-cache-key.outputs.final-build-cache-key }}
