@@ -1,0 +1,18 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "10:00"
+      timezone: "Europe/Istanbul"
+    groups:
+      eslint:
+        patterns:
+          - "@cspell/*"
+          - "@eslint/*"
+          - "eslint"
+          - "eslint-*"
+          - "*-eslint"
+          - "*/eslint-*"
+          - "globals"
