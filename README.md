@@ -39,7 +39,9 @@
   - [Polyfills](#polyfills)
   - [Testing](#testing)
   - [Release Tools](#release-tools)
+- [Core Packages](#core-packages)
 - [Installation](#installation)
+- [Name](#name)
 - [License](#license)
 
 ## Overview
@@ -54,7 +56,7 @@ and efficient distribution: Making the code and assets production-ready from
 the start, while also providing a modern development environment in order to
 achieve high-quality outcomes.
 
-**TODO:** More clarification will be provided in the future.
+**TODO:** Project scope will be clarified at a later stage.
 
 ### Principles
 
@@ -115,51 +117,60 @@ in mind.
 
 | Name | Package | Status |
 | ---- | ------- | ------ |
-| [ESLint](https://eslint.org/) | [@holypack/integration-eslint](integrations/eslint) | Planned |
-| [aXe-core](https://github.com/dequelabs/axe-core) | [@holypack/integration-axe-core](integrations/axe-core) | Planned |
-| [Stylelint](https://stylelint.io/) | [@holypack/integration-stylelint](integrations/stylelint) | Planned |
-| [commitlint](https://commitlint.js.org/) | [@holypack/integration-commitlint](integrations/commitlint) | Planned |
+| [ESLint](https://eslint.org/) | [@holypack/integration-eslint](integrations/eslint) | Work in progress |
+| [axe-core](https://github.com/dequelabs/axe-core) | | Planned |
+| [Stylelint](https://stylelint.io/) | | Planned |
+| [commitlint](https://commitlint.js.org/) | | Planned |
+| [Husky](https://typicode.github.io/husky/) | | Planned |
 
 #### Frameworks and Libraries
 
 | Name | Package | Status |
 | ---- | ------- | ------ |
-| [Express](https://expressjs.com/) | [@holypack/integration-express](integrations/express) | Planned |
-| [React](https://react.dev/) | [@holypack/integration-react](integrations/react) | Planned |
+| [Express](https://expressjs.com/) | | Planned |
+| [React](https://react.dev/) | | Planned |
 
 #### Build Tools and Helpers
 
 | Name | Package | Status |
 | ---- | ------- | ------ |
-| [Babel](https://babeljs.io/) | [@holypack/integration-babel](integrations/babel) | Planned |
-| [TypeScript](https://www.typescriptlang.org/) | [@holypack/integration-typescript](integrations/typescript) | Planned |
-| [SWC](https://swc.rs/) | [@holypack/integration-swc](integrations/swc) | Planned |
-| [JavaScript Obfuscator](https://obfuscator.io/) | [@holypack/integration-obfuscator](integrations/obfuscator) | Planned |
-| [PostCSS](https://postcss.org/) | [@holypack/integration-postcss](integrations/postcss) | Planned |
-| [Lightning CSS](https://lightningcss.dev/) | [@holypack/integration-lightningcss](integrations/lightningcss) | Planned |
-| [Sass](https://sass-lang.com/) | [@holypack/integration-sass](integrations/sass) | Planned |
-| [SCSS](https://sass-lang.com/documentation/syntax/#scss) | [@holypack/integration-scss](integrations/scss) | Planned |
-| [Browserslist](https://browsersl.ist/) | [@holypack/integration-browserslist](integrations/browserslist) | Planned |
-| [webpack](https://webpack.js.org/) | [@holypack/integration-webpack](integrations/webpack) | Planned |
+| [Babel](https://babeljs.io/) | | Planned |
+| [TypeScript](https://www.typescriptlang.org/) | [@holypack/integration-typescript](integrations/typescript) | Work in progress |
+| [SWC](https://swc.rs/) | | Planned |
+| [JavaScript Obfuscator](https://obfuscator.io/) | | Planned |
+| [PostCSS](https://postcss.org/) | | Planned |
+| [Lightning CSS](https://lightningcss.dev/) | | Planned |
+| [Sass](https://sass-lang.com/) | | Planned |
+| [SCSS](https://sass-lang.com/documentation/syntax/#scss) | | Planned |
+| [Browserslist](https://browsersl.ist/) | | Planned |
+| [webpack](https://webpack.js.org/) | | Planned |
 
 #### Polyfills
 
 | Name | Package | Status |
 | ---- | ------- | ------ |
-| [core-js](https://github.com/zloirock/core-js) | [@holypack/integration-corejs](integrations/corejs) | Planned |
-| [trusted-types](https://github.com/w3c/trusted-types) | [@holypack/integration-trusted-types](integrations/trusted-types) | Planned |
+| [core-js](https://github.com/zloirock/core-js) | | Planned |
+| [trusted-types](https://github.com/w3c/trusted-types) | | Planned |
 
 #### Testing
 
 | Name | Package | Status |
 | ---- | ------- | ------ |
-| [Jest](https://jestjs.io/) | [@holypack/integration-jest](integrations/jest) | Planned |
+| [Jest](https://jestjs.io/) | | Planned |
 
 #### Release Tools
 
 | Name | Package | Status |
 | ---- | ------- | ------ |
-| [changesets](https://github.com/changesets/changesets) | [@holypack/integration-changesets](integrations/changesets) | Planned |
+| [changesets](https://github.com/changesets/changesets) | | Planned |
+
+## Core Packages
+
+| Package | Status |
+| ------- | ------ |
+| [@holypack/cli](packages/cli) | Planned |
+| [@holypack/core](packages/core) | Planned |
+| [holypack](packages/prelude) | Planned |
 
 ## Installation
 
