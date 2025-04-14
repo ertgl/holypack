@@ -19,9 +19,11 @@
   },
   "workspaces": [
     "./integrations/*",
-    "./internal/*/*"
+    "./internal/*/*",
+    "./packages/*"
   ],
   "resolutions": {
+    "@holypack/core": "portal:./packages/core",
     "@holypack/integration-babel": "portal:./integrations/babel",
     "@holypack/integration-eslint": "portal:./integrations/eslint",
     "@holypack/integration-typescript": "portal:./integrations/typescript",

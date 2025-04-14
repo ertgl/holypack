@@ -1877,6 +1877,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@holypack/core@workspace:packages/core":
+  version: 0.0.0-use.local
+  resolution: "@holypack/core@workspace:packages/core"
+  dependencies:
+    "@holypack/integration-babel": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@holypack/integration-babel@portal:./integrations/babel::locator=%40holypack%2F__monorepo__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@holypack/integration-babel@portal:./integrations/babel::locator=%40holypack%2F__monorepo__%40workspace%3A."

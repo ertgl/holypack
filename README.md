@@ -169,7 +169,7 @@ in mind.
 | Package | Status |
 | ------- | ------ |
 | [@holypack/cli](packages/cli) | Planned |
-| [@holypack/core](packages/core) | Planned |
+| [@holypack/core](packages/core) | Work in progress |
 | [holypack](packages/prelude) | Planned |
 
 ## Installation
