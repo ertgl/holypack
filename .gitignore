@@ -1,0 +1,10 @@
+# Environment-specific
+.env
+.env.*
+
+# Log files
+*.log*
+
+# Package manager artifacts
+.yarn/
+node_modules/

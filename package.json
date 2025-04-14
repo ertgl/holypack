@@ -1,0 +1,15 @@
+{
+  "name": "@holypack/__monorepo__",
+  "private": true,
+  "packageManager": "yarn@4.7.0",
+  "type": "module",
+  "scripts": {
+    "prepare": "yarn w:foreach::parallel::topological run prepare"
+  },
+  "workspaces": [
+    "./internal/*/*"
+  ],
+  "resolutions": {
+    "@holypack/internal-integration-yarn": "portal:./internal/integrations/yarn"
+  }
+}
