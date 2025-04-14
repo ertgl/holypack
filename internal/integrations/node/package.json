@@ -1,0 +1,16 @@
+{
+  "name": "@holypack/internal-integration-node",
+  "private": true,
+  "scripts": {
+    "cmd:node": "cd $INIT_CWD && node"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1"
+  },
+  "exports": {
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "./package.json"
+  ]
+}

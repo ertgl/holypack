@@ -12,6 +12,7 @@
   ],
   "resolutions": {
     "@holypack/integration-typescript": "portal:./integrations/typescript",
+    "@holypack/internal-integration-node": "portal:./internal/integrations/node",
     "@holypack/internal-integration-yarn": "portal:./internal/integrations/yarn"
   }
 }
