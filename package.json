@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "build": "yarn w:foreach::parallel::topological::interlaced run build",
-    "e2e:yarn": "yarn --cwd ./e2e",
+    "clean": "yarn w:foreach::parallel::interlaced run clean",
+    "e2e:clean": "yarn e2e:yarn clean",
     "e2e:prepare": "yarn e2e:yarn prepare",
     "e2e:test": "yarn e2e:yarn test",
+    "e2e:yarn": "yarn --cwd ./e2e",
     "format": "yarn lint::fix",
     "lint": "yarn eslint:lint",
     "lint::fix": "yarn eslint:lint::fix",
@@ -19,6 +21,7 @@
     "./internal/*/*"
   ],
   "resolutions": {
+    "@holypack/integration-babel": "portal:./integrations/babel",
     "@holypack/integration-eslint": "portal:./integrations/eslint",
     "@holypack/integration-typescript": "portal:./integrations/typescript",
     "@holypack/internal-integration-node": "portal:./internal/integrations/node",

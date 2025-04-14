@@ -8,3 +8,6 @@
 # Package manager artifacts
 .yarn/
 node_modules/
+
+# TypeScript artifacts
+*.tsbuildinfo
