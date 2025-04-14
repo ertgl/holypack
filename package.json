@@ -7,9 +7,11 @@
     "prepare": "yarn w:foreach::parallel::topological run prepare"
   },
   "workspaces": [
+    "./integrations/*",
     "./internal/*/*"
   ],
   "resolutions": {
+    "@holypack/integration-typescript": "portal:./integrations/typescript",
     "@holypack/internal-integration-yarn": "portal:./internal/integrations/yarn"
   }
 }

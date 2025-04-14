@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.partial.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler"
+  },
+  "include": [
+    "${configDir}/**/*"
+  ],
+  "exclude": [
+    "${configDir}/.git/**/*",
+    "${configDir}/.yarn/**/*",
+    "${configDir}/node_modules/**/*"
+  ]
+}
