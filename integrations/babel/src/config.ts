@@ -43,10 +43,7 @@ export async function resolveConfig(
     },
   };
 
-  /**
-   * @type {TransformOptions}
-   */
-  return {
+  const transformOptions: TransformOptions = {
     plugins: [
       [
         require.resolve("babel-plugin-transform-import-source"),
@@ -78,4 +75,6 @@ export async function resolveConfig(
 
     sourceMaps: true,
   };
+
+  return transformOptions;
 }

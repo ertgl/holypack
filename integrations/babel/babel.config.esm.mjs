@@ -1,7 +1,7 @@
 // Note:
 // This file is used to build the Babel integration. The other packages that
-// need to be built using the Babel integration will use the configuration
-// resolved by the integration. So, this file is bootstrap-phase only.
+// need to be built with Babel will use the configuration resolved by the
+// integration. So, this file is bootstrap-phase only.
 
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
