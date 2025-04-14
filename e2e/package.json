@@ -1,0 +1,16 @@
+{
+  "name": "@holypack/__e2e__",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "e2e:w:foreach::parallel::topological": "yarn w:foreach::parallel::topological --exclude '@holypack/__e2e__'",
+    "prepare": "yarn e2e:w:foreach::parallel::topological run prepare",
+    "test": "yarn e2e:w:foreach::parallel::topological run test"
+  },
+  "workspaces": [
+    "../internal/integrations/yarn"
+  ],
+  "resolutions": {
+    "@holypack/internal-integration-yarn": "portal:../internal/integrations/yarn"
+  }
+}

@@ -4,10 +4,15 @@
   "packageManager": "yarn@4.7.0",
   "type": "module",
   "scripts": {
+    "build": "yarn w:foreach::parallel::topological::interlaced run build",
+    "e2e:yarn": "yarn --cwd ./e2e",
+    "e2e:prepare": "yarn e2e:yarn prepare",
+    "e2e:test": "yarn e2e:yarn test",
     "format": "yarn lint::fix",
     "lint": "yarn eslint:lint",
     "lint::fix": "yarn eslint:lint::fix",
-    "prepare": "yarn w:foreach::parallel::topological run prepare"
+    "prepare": "yarn w:foreach::parallel::topological run prepare",
+    "test": "yarn w:foreach::parallel::topological run test"
   },
   "workspaces": [
     "./integrations/*",
