@@ -4,6 +4,9 @@
   "packageManager": "yarn@4.7.0",
   "type": "module",
   "scripts": {
+    "format": "yarn lint::fix",
+    "lint": "yarn eslint:lint",
+    "lint::fix": "yarn eslint:lint::fix",
     "prepare": "yarn w:foreach::parallel::topological run prepare"
   },
   "workspaces": [
@@ -11,6 +14,7 @@
     "./internal/*/*"
   ],
   "resolutions": {
+    "@holypack/integration-eslint": "portal:./integrations/eslint",
     "@holypack/integration-typescript": "portal:./integrations/typescript",
     "@holypack/internal-integration-node": "portal:./internal/integrations/node",
     "@holypack/internal-integration-yarn": "portal:./internal/integrations/yarn"
