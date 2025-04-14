@@ -1,0 +1,52 @@
+{
+  "name": "@holypack/integration-eslint",
+  "scripts": {
+    "cmd:eslint": "cd $INIT_CWD && eslint --config ./eslint.config.mjs",
+    "eslint:lint": "cd $PROJECT_CWD && yarn cmd:eslint",
+    "eslint:lint::fix": "cd $PROJECT_CWD  && yarn cmd:eslint --fix"
+  },
+  "peerDependencies": {
+    "typescript": "*"
+  },
+  "dependencies": {
+    "@cspell/dict-bash": "^4.2.0",
+    "@cspell/dict-css": "^4.0.17",
+    "@cspell/dict-en-common-misspellings": "^2.0.10",
+    "@cspell/dict-en-gb": "^4.1.64",
+    "@cspell/dict-en_us": "^4.4.1",
+    "@cspell/dict-filetypes": "^3.0.11",
+    "@cspell/dict-git": "^3.0.4",
+    "@cspell/dict-html": "^4.0.11",
+    "@cspell/dict-html-symbol-entities": "^4.0.3",
+    "@cspell/dict-markdown": "^2.0.10",
+    "@cspell/dict-node": "^5.0.7",
+    "@cspell/dict-npm": "^5.2.0",
+    "@cspell/dict-shell": "^1.1.0",
+    "@cspell/dict-typescript": "^3.2.1",
+    "@cspell/eslint-plugin": "^8.18.1",
+    "@eslint/js": "^9.24.0",
+    "@eslint/json": "^0.11.0",
+    "@eslint/markdown": "^6.3.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "eslint": "^9.24.0",
+    "eslint-plugin-perfectionist": "^4.11.0",
+    "eslint-plugin-yml": "^1.17.0",
+    "fast-glob": "^3.3.3",
+    "globals": "^16.0.0",
+    "typescript-eslint": "^8.29.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "type": "module",
+  "module": "./src/index.mjs",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.mjs",
+    "./*.mjs": "./src/*.mjs"
+  },
+  "files": [
+    "./src/",
+    "./package.json"
+  ]
+}
