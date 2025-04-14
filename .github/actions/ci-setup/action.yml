@@ -42,7 +42,7 @@ runs:
       id: determine-build-cache-key
       shell: bash
       env:
-        FINAL_BUILD_CACHE_KEY: ${{ inputs.build-cache-key || format('build-cache-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock', 'integrations/*/dist/**/*', 'internal/*/*/dist/**/*', 'yarn.lock')) }}
+        FINAL_BUILD_CACHE_KEY: ${{ inputs.build-cache-key || format('build-cache-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock', 'integrations/*/dist/**/*', 'internal/*/*/dist/**/*', 'packages/*/dist/**/*', 'yarn.lock')) }}
       run: echo "final-build-cache-key=$(echo "$FINAL_BUILD_CACHE_KEY")" >> $GITHUB_OUTPUT
 
     - name: Determine node_modules cache key
@@ -73,6 +73,7 @@ runs:
           e2e/*/*/node_modules/
           integrations/*/node_modules/
           internal/*/*/node_modules/
+          packages/*/node_modules/
         key: ${{ steps.determine-node-modules-cache-key.outputs.final-node-modules-cache-key }}
 
     - name: Install dependencies
@@ -98,6 +99,7 @@ runs:
           e2e/*/*/node_modules/
           integrations/*/node_modules/
           internal/*/*/node_modules/
+          packages/*/node_modules/
         key: ${{ steps.determine-node-modules-cache-key.outputs.final-node-modules-cache-key }}
 
     - name: Restore build cache
@@ -109,6 +111,7 @@ runs:
           e2e/*/*/dist/
           integrations/*/dist/
           internal/*/*/dist/
+          packages/*/dist/
         key: ${{ steps.determine-build-cache-key.outputs.final-build-cache-key }}
 
     - name: Prepare
@@ -144,4 +147,5 @@ runs:
           e2e/*/*/dist/
           integrations/*/dist/
           internal/*/*/dist/
+          packages/*/dist/
         key: ${{ steps.determine-build-cache-key.outputs.final-build-cache-key }}
