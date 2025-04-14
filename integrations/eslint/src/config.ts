@@ -2,7 +2,6 @@
 
 import { createRequire } from "node:module";
 import {
-  dirname,
   relative as getRelativePath,
   join as joinPaths,
   resolve as resolvePath,
@@ -14,30 +13,24 @@ import javascriptPlugin from "@eslint/js";
 import jsonPlugin from "@eslint/json";
 import markdownPlugin from "@eslint/markdown";
 import stylisticPlugin from "@stylistic/eslint-plugin";
+import type { StylisticCustomizeOptions } from "@stylistic/eslint-plugin";
+import type { Linter } from "eslint";
 import perfectionistPlugin from "eslint-plugin-perfectionist";
 import ymlPlugin from "eslint-plugin-yml";
+import type fastGlobType from "fast-glob";
 import globals from "globals";
-import typescriptPlugin from "typescript-eslint";
+import {
+  type Config,
+  default as typescriptPlugin,
+} from "typescript-eslint";
 
-/**
- * @import { type StylisticCustomizeOptions } from "@stylistic/eslint-plugin";
- * @import { type Linter } from "eslint";
- * @import { type default as fastGlobModule } from "fast-glob";
- * @import { type Config } from "typescript-eslint";
- */
+import type { ConfigResolutionOptions } from "./config-resolution-options";
 
 const __filename = fileURLToPath(import.meta.url);
 
-const __dirname = dirname(__filename);
+const require = createRequire(__filename);
 
-const require = createRequire(__dirname);
-
-/**
- * @type {typeof fastGlobModule}
- */
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-const fastGlob = require("fast-glob");
-const { glob } = fastGlob;
+const { glob } = require("fast-glob") as typeof fastGlobType;
 
 const PATTERN_ALL = "**/*";
 
@@ -61,38 +54,25 @@ const PATTERN_MD = "**/*.md";
 
 const PATTERN_YAML_YML = "**/*.{yaml,yml}";
 
-/**
- * @typedef {object} ConfigResolutionOptions
- * @property {string | null} [cwd]
- */
-
-/**
- * @param {ConfigResolutionOptions | null} [options]
- * @returns {Promise<Config>}
- */
 export async function resolveConfig(
-  options,
-)
+  options?: ConfigResolutionOptions | null,
+): Promise<Config>
 {
   options ??= {};
 
   const cwd = options.cwd ?? process.cwd();
 
-  /**
-   * @type {Record<string, unknown>}
-   */
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const packageJSON = require(
     resolvePath(
       cwd,
       "package.json",
     ),
-  );
+  ) as Record<string, unknown>;
 
   const workspaceDirPaths = (
-    Array.isArray(packageJSON.workspaces)
+    packageJSON.workspaces != null && Array.isArray(packageJSON.workspaces as string[])
       ? await glob(
-        packageJSON.workspaces,
+        packageJSON.workspaces as string[],
         {
           absolute: true,
           cwd,
@@ -102,10 +82,7 @@ export async function resolveConfig(
       : []
   );
 
-  /**
-   * @type {Linter.Config["languageOptions"]}
-   */
-  const eslintBaseLanguageOptions = {
+  const eslintBaseLanguageOptions: Linter.Config["languageOptions"] = {
     parserOptions: {
       projectService: true,
       tsconfigRootDir: cwd,
@@ -113,10 +90,7 @@ export async function resolveConfig(
     },
   };
 
-  /**
-   * @type {StylisticCustomizeOptions}
-   */
-  const stylisticBaseCustomizationOptions = {
+  const stylisticBaseCustomizationOptions: StylisticCustomizeOptions = {
     arrowParens: true,
     blockSpacing: true,
     braceStyle: "allman",
@@ -128,9 +102,6 @@ export async function resolveConfig(
     semi: true,
   };
 
-  /**
-   * @type {Config}
-   */
   return typescriptPlugin.config([
     {
       files: [

@@ -1,6 +1,8 @@
 {
   "name": "@holypack/integration-eslint",
   "scripts": {
+    "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types",
+    "clean": "rm -fr dist",
     "cmd:eslint": "cd $INIT_CWD && eslint --config ./eslint.config.mjs",
     "eslint:lint": "cd $PROJECT_CWD && yarn cmd:eslint",
     "eslint:lint::fix": "cd $PROJECT_CWD  && yarn cmd:eslint --fix"
@@ -36,16 +38,64 @@
     "typescript-eslint": "^8.29.1"
   },
   "devDependencies": {
+    "@holypack/integration-babel": "workspace:*",
     "typescript": "^5.8.3"
   },
   "type": "module",
-  "module": "./src/index.mjs",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
-    ".": "./src/index.mjs",
-    "./*.mjs": "./src/*.mjs"
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "default": "./src/index.ts"
+    },
+    "./*.d.ts": {
+      "types": "./dist/types/*.d.ts",
+      "default": "./src/*.ts"
+    },
+    "./*.cjs": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/esm/*.mjs",
+      "require": "./dist/cjs/*.cjs",
+      "default": "./src/*.ts"
+    },
+    "./*.js": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/esm/*.mjs",
+      "require": "./dist/cjs/*.cjs",
+      "default": "./src/*.ts"
+    },
+    "./*.mjs": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/esm/*.mjs",
+      "require": "./dist/cjs/*.cjs",
+      "default": "./src/*.ts"
+    },
+    "./*.ts": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/esm/*.mjs",
+      "require": "./dist/cjs/*.cjs",
+      "default": "./src/*.ts"
+    },
+    "./*/": {
+      "types": "./dist/types/*/index.d.ts",
+      "import": "./dist/esm/*/index.mjs",
+      "require": "./dist/cjs/*/index.cjs",
+      "default": "./src/*/index.ts"
+    },
+    "./*": {
+      "types": "./dist/types/*",
+      "import": "./dist/esm/*",
+      "require": "./dist/cjs/*",
+      "default": "./src/*"
+    }
   },
   "files": [
+    "./dist/",
     "./src/",
     "./package.json"
   ]
