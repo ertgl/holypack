@@ -1,9 +1,9 @@
 import type { Config } from "./config";
-import type { ConfigFunction } from "./config-function";
+import type { ConfigDefinitionFunction } from "./config-definition-function";
 
 export type ConfigInput<
   C extends Config = Config,
 > = (
   | C
-  | ConfigFunction<C>
+  | ConfigDefinitionFunction<C>
 );

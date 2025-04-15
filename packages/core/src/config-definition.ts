@@ -1,31 +1,23 @@
 import type { Config } from "./config";
-import type { ConfigFunction } from "./config-function";
-
-export function defineConfig<
-  I extends null = null,
->(
-  config?: I,
-): I;
+import type { ConfigDefinitionFunction } from "./config-definition-function";
 
 export function defineConfig<
   C extends Config = Config,
-  I extends C = C,
+  F extends ConfigDefinitionFunction<C> = ConfigDefinitionFunction<C>,
 >(
-  config: I,
-): I;
+  config: F,
+): F;
 
 export function defineConfig<
   C extends Config = Config,
-  F extends ConfigFunction<C> = ConfigFunction<C>,
-  I extends F = F,
 >(
-  config: I,
-): I;
+  config: C,
+): C;
 
 export function defineConfig<
   C extends Config = Config,
-  F extends ConfigFunction<C> = ConfigFunction<C>,
-  I extends C | F | null = C | F | null,
+  F extends ConfigDefinitionFunction<C> = ConfigDefinitionFunction<C>,
+  I extends C | F = C | F,
 >(
   config?: I,
 ): I

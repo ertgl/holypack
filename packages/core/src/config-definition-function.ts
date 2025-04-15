@@ -1,20 +1,20 @@
 import type { Config } from "./config";
 import type { ConfigContext } from "./config-context";
 
-export type ConfigAsyncFunction<
+export type ConfigDefinitionAsyncFunction<
   C extends Config = Config,
 > = (
   context: ConfigContext,
 ) => Promise<C>;
 
-export type ConfigFunction<
+export type ConfigDefinitionFunction<
   C extends Config = Config,
 > = (
-  | ConfigAsyncFunction<C>
-  | ConfigSyncFunction<C>
+  | ConfigDefinitionAsyncFunction<C>
+  | ConfigDefinitionSyncFunction<C>
 );
 
-export type ConfigSyncFunction<
+export type ConfigDefinitionSyncFunction<
   C extends Config = Config,
 > = (
   context: ConfigContext,

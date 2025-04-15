@@ -4,6 +4,9 @@
     "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types",
     "clean": "rm -fr dist"
   },
+  "dependencies": {
+    "cosmiconfig": "^9.0.0"
+  },
   "devDependencies": {
     "@holypack/integration-babel": "workspace:*"
   },

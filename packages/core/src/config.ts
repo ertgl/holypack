@@ -3,8 +3,8 @@ export type Config = (
   & ConfigCustomProperties
 );
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export type ConfigBaseProperties = {};
+// TODO(ertgl): Narrow down the type of ConfigBaseProperties.
+export type ConfigBaseProperties = object;
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface ConfigCustomProperties
