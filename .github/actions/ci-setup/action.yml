@@ -42,7 +42,7 @@ runs:
       id: determine-build-cache-key
       shell: bash
       env:
-        FINAL_BUILD_CACHE_KEY: ${{ inputs.build-cache-key || format('build-cache-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock', 'integrations/*/dist/**/*', 'internal/*/*/dist/**/*', 'packages/*/dist/**/*', 'yarn.lock')) }}
+        FINAL_BUILD_CACHE_KEY: ${{ inputs.build-cache-key || format('build-cache-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock', 'integrations/**/*', 'internal/**/*', 'packages/**/*', 'yarn.lock')) }}
       run: echo "final-build-cache-key=$(echo "$FINAL_BUILD_CACHE_KEY")" >> $GITHUB_OUTPUT
 
     - name: Determine node_modules cache key
