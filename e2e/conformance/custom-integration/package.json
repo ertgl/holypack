@@ -1,0 +1,5 @@
+{
+  "name": "@holypack/e2e-conformance-custom-integration",
+  "private": true,
+  "type": "module"
+}
