@@ -10,7 +10,7 @@ export function bindIntegration(
 {
   if (!integration.name)
   {
-    const err = new Error(`Integration name is not defined.`);
+    const err = new Error("Integration name is not defined.");
     err.cause = {
       integration,
     };
@@ -19,7 +19,7 @@ export function bindIntegration(
 
   if (context.integrations.has(integration.name))
   {
-    const err = new Error(`Integration is already bound.`);
+    const err = new Error("Integration is already bound.");
     err.cause = {
       integration,
     };

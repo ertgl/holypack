@@ -14,7 +14,7 @@ export function generateHookSubscriptionIDForIntegration(
   {
     if (!hook.name)
     {
-      const err = new Error(`Hook name is not defined.`);
+      const err = new Error("Hook name is not defined.");
       err.cause = {
         hook,
       };

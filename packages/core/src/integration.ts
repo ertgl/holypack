@@ -23,4 +23,4 @@ export interface Integration
   ) => Promise<void> | void;
 }
 
-export type IntegrationName = string; ;
+export type IntegrationName = string;

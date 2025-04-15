@@ -22,4 +22,5 @@ export type ResolvedConfig = (
 export type ResolvedConfigBaseProperties = {};
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface ResolvedConfigCustomProperties {};
+export interface ResolvedConfigCustomProperties
+{};

@@ -37,7 +37,7 @@ export async function loadConfig(
   }
   else
   {
-    config = configInput;
+    config = configInput as Config;
   }
 
   return config;
