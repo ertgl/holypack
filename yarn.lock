@@ -1883,6 +1883,9 @@ __metadata:
   dependencies:
     "@holypack/integration-babel": "workspace:*"
     cosmiconfig: "npm:^9.0.0"
+    tapable: "npm:^2.2.1"
+  peerDependencies:
+    tapable: "*"
   languageName: unknown
   linkType: soft
 
@@ -5077,6 +5080,13 @@ __metadata:
     "@pkgr/core": "npm:^0.2.0"
     tslib: "npm:^2.8.1"
   checksum: 10c0/9855d10231ae9b69c3aa08d46c96bd4befdcac33da44e29fb80e5c1430e453b5a33b8c073cdd25cfe9578f1d625c7d60c394ece1e202237116c1484def614041
+  languageName: node
+  linkType: hard
+
+"tapable@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "tapable@npm:2.2.1"
+  checksum: 10c0/bc40e6efe1e554d075469cedaba69a30eeb373552aaf41caeaaa45bf56ffacc2674261b106245bd566b35d8f3329b52d838e851ee0a852120acae26e622925c9
   languageName: node
   linkType: hard
 

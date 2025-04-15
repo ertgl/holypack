@@ -1,10 +1,13 @@
+import type { Integration } from "./integration";
+
 export type Config = (
   & ConfigBaseProperties
   & ConfigCustomProperties
 );
 
-// TODO(ertgl): Narrow down the type of ConfigBaseProperties.
-export type ConfigBaseProperties = object;
+export type ConfigBaseProperties = {
+  integrations?: (false | Integration | null | undefined)[] | null;
+};
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface ConfigCustomProperties

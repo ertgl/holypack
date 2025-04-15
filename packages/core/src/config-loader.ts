@@ -1,34 +1,44 @@
-import type { ResolvedConfig } from "./config";
-import {
-  type ConfigResolutionOptions,
-  resolveConfig,
-} from "./config-resolution";
-import { searchConfig } from "./config-searcher";
+import type { Config } from "./config";
+import { loadConfigInput } from "./config-input-loader";
+import type { ConfigLoaderOptions } from "./config-loader-options";
+import { getCWD } from "./cwd";
+import { _maybeAwait } from "./function-tools";
 
 export async function loadConfig(
-  configFilePath?: null | string,
-  options?: null | Omit<ConfigResolutionOptions, "configInput">,
-): Promise<ResolvedConfig>
+  options?: ConfigLoaderOptions | null,
+): Promise<Config>
 {
-  configFilePath ??= "";
-
   options ??= {};
 
-  const configSearchResult = await searchConfig(
-    null,
-    {
-      searchPlaces: (
-        configFilePath !== ""
-          ? [configFilePath]
-          : undefined
-      ),
-    },
+  const configFilePath = options.configFilePath ?? "";
+
+  const cwd = options.cwd ?? getCWD();
+
+  const configInput = (
+    options.configInput
+    ?? loadConfigInput(
+      {
+        configFilePath,
+        cwd,
+      },
+    )
   );
 
-  const resolvedConfig = await resolveConfig({
-    ...options,
-    configInput: configSearchResult.configInput,
-  });
+  let config: Config;
 
-  return resolvedConfig;
+  if (typeof configInput === "function")
+  {
+    const configContext = {
+      cwd,
+      ...options.configContext,
+    };
+
+    config = await _maybeAwait(configInput(configContext));
+  }
+  else
+  {
+    config = configInput;
+  }
+
+  return config;
 }

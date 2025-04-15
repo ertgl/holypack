@@ -7,8 +7,12 @@
   "dependencies": {
     "cosmiconfig": "^9.0.0"
   },
+  "peerDependencies": {
+    "tapable": "*"
+  },
   "devDependencies": {
-    "@holypack/integration-babel": "workspace:*"
+    "@holypack/integration-babel": "workspace:*",
+    "tapable": "^2.2.1"
   },
   "type": "module",
   "main": "./dist/cjs/index.cjs",

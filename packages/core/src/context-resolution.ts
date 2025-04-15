@@ -1,8 +1,14 @@
+import type { ConfigInput } from "./config-input";
+import { loadConfigInput } from "./config-input-loader";
 import { loadConfig } from "./config-loader";
 import type { Context } from "./context";
 import { getCWD } from "./cwd";
+import { createHookSet } from "./hook-set";
+import { bindIntegration } from "./integration-binder";
+import { createIntegrationMap } from "./integration-map";
 
 export type ContextResolutionOptions = {
+  config?: ConfigInput | null;
   configFilePath?: null | string;
   cwd?: null | string;
 };
@@ -13,19 +19,56 @@ export async function resolveContext(
 {
   options ??= {};
 
+  const configFilePath = options.configFilePath ?? "";
+
   const cwd = options.cwd ?? getCWD();
 
-  const resolvedConfig = await loadConfig(
-    options.configFilePath,
-    {
-      cwd,
-    },
+  const configInput = (
+    options.config
+    ?? await loadConfigInput(
+      {
+        configFilePath,
+        cwd,
+      },
+    )
   );
 
-  const context: Context = {
-    config: resolvedConfig,
+  const config = await loadConfig({
+    configInput,
     cwd,
+  });
+
+  const hooks = createHookSet();
+
+  const context: Context = {
+    config: {},
+    cwd,
+    hooks,
+    integrations: createIntegrationMap(),
   };
+
+  if (config.integrations != null)
+  {
+    for (const integration of config.integrations)
+    {
+      if (!integration)
+      {
+        continue;
+      }
+
+      bindIntegration(context, integration);
+    }
+  }
+
+  await context.hooks.resolveConfig.promise(
+    context,
+    config,
+  );
+
+  await context.hooks.resolveContext.promise(
+    context,
+    options,
+  );
 
   return context;
 }
