@@ -10,12 +10,20 @@ inputs:
     description: 'Cache key for node_modules directories'
     required: false
     default: ''
+  cache-key-for-yarn:
+    description: 'Cache key for yarn directories'
+    required: false
+    default: ''
   generate-cache-for-build:
     description: 'Should cache the build directories'
     required: false
     default: 'true'
   generate-cache-for-node-modules:
     description: 'Should cache node_modules directories'
+    required: false
+    default: 'true'
+  generate-cache-for-yarn:
+    description: 'Should cache yarn directories'
     required: false
     default: 'true'
   restore-cache-for-build:
@@ -26,6 +34,10 @@ inputs:
     description: 'Should restore cache for node_modules directories'
     required: false
     default: 'true'
+  restore-cache-for-yarn:
+    description: 'Should restore cache for yarn directories'
+    required: false
+    default: 'true'
 
 outputs:
   final-cache-key-for-build:
@@ -34,6 +46,9 @@ outputs:
   final-cache-key-for-node-modules:
     description: 'The final cache key for node_modules directories'
     value: ${{ steps.determine-cache-key-for-node-modules.outputs.final-cache-key-for-node-modules }}
+  final-cache-key-for-yarn:
+    description: 'The final cache key for yarn directories'
+    value: ${{ steps.determine-cache-key-for-yarn.outputs.final-cache-key-for-yarn }}
 
 runs:
   using: composite
@@ -52,6 +67,13 @@ runs:
         FINAL_CACHE_KEY_FOR_NODE_MODULES: ${{ inputs.cache-key-for-node-modules || format('node-modules-cache-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock', 'yarn.lock')) }}
       run: echo "final-cache-key-for-node-modules=$(echo "$FINAL_CACHE_KEY_FOR_NODE_MODULES")" >> $GITHUB_OUTPUT
 
+    - name: Determine yarn cache key
+      id: determine-cache-key-for-yarn
+      shell: bash
+      env:
+        FINAL_CACHE_KEY_FOR_YARN: ${{ inputs.cache-key-for-yarn || format('yarn-cache-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock', 'yarn.lock')) }}
+      run: echo "final-cache-key-for-yarn=$(echo "$FINAL_CACHE_KEY_FOR_YARN")" >> $GITHUB_OUTPUT
+
     - name: Setup Node.js LTS
       uses: actions/setup-node@v4
       with:
@@ -61,6 +83,20 @@ runs:
     - name: Enable Corepack
       shell: bash
       run: corepack enable
+
+    - name: Set variables for yarn cache directory paths
+      id: set-variables-for-yarn-cache-directory-paths
+      shell: bash
+      run: |
+        echo "yarn_cache_directory_for_root=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+        echo "yarn_cache_directory_for_e2e=$(yarn e2e:yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+    - name: Restore yarn cache
+      id: restore-cache-for-yarn
+      if: ${{ inputs.restore-cache-for-yarn == 'true' }}
+      uses: actions/cache/restore@v4
+      with:
+        key: ${{ steps.determine-cache-key-for-yarn.outputs.final-cache-key-for-yarn }}
 
     - name: Restore node_modules cache
       id: restore-cache-for-node-modules
@@ -80,6 +116,16 @@ runs:
       if: ${{ steps.restore-cache-for-node-modules.outputs.cache-hit != 'true' && steps.install-dependencies.conclusion == 'success' }}
       shell: bash
       run: yarn e2e:yarn install --immutable
+
+    - name: Cache yarn
+      id: generate-cache-for-yarn
+      if: ${{ inputs.generate-cache-for-yarn == 'true' && steps.set-variables-for-yarn-cache-directory-paths.conclusion == 'success' && steps.restore-cache-for-yarn.outputs.cache-hit != 'true' && steps.install-dependencies.conclusion == 'success' }}
+      uses: actions/cache/save@v4
+      with:
+        key: ${{ steps.determine-cache-key-for-yarn.outputs.final-cache-key-for-yarn }}
+        path: |
+          ${{ steps.set-variables-for-yarn-cache-directory-paths.outputs.yarn_cache_directory_for_root }}
+          ${{ steps.set-variables-for-yarn-cache-directory-paths.outputs.yarn_cache_directory_for_e2e }}
 
     - name: Cache node_modules
       id: generate-cache-for-node-modules
