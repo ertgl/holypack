@@ -1,5 +1,5 @@
-name: Setup CI
-description: Setup CI environment with a reusable composite action.
+name: Setup CI for E2E
+description: Setup CI environment with a reusable composite action for E2E testing.
 
 inputs:
   cache-key-for-build:
@@ -57,37 +57,27 @@ runs:
       id: determine-cache-key-for-build
       shell: bash
       env:
-        FINAL_CACHE_KEY_FOR_BUILD: ${{ inputs.cache-key-for-build || format('build-{0}-{1}', runner.os, hashFiles('integrations/**/*', 'internal/**/*', 'packages/**/*', 'yarn.lock')) }}
+        FINAL_CACHE_KEY_FOR_BUILD: ${{ inputs.cache-key-for-build || format('e2e-build-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock', 'e2e/*/**/*')) }}
       run: echo "final-cache-key-for-build=$(echo "$FINAL_CACHE_KEY_FOR_BUILD")" >> $GITHUB_OUTPUT
 
     - name: Determine node_modules cache key
       id: determine-cache-key-for-node-modules
       shell: bash
       env:
-        FINAL_CACHE_KEY_FOR_NODE_MODULES: ${{ inputs.cache-key-for-node-modules || format('node-modules-{0}-{1}', runner.os, hashFiles('yarn.lock')) }}
+        FINAL_CACHE_KEY_FOR_NODE_MODULES: ${{ inputs.cache-key-for-node-modules || format('e2e-node-modules-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock')) }}
       run: echo "final-cache-key-for-node-modules=$(echo "$FINAL_CACHE_KEY_FOR_NODE_MODULES")" >> $GITHUB_OUTPUT
 
     - name: Determine yarn cache key
       id: determine-cache-key-for-yarn
       shell: bash
       env:
-        FINAL_CACHE_KEY_FOR_YARN: ${{ inputs.cache-key-for-yarn || format('yarn-{0}-{1}', runner.os, hashFiles('yarn.lock')) }}
+        FINAL_CACHE_KEY_FOR_YARN: ${{ inputs.cache-key-for-yarn || format('e2e-yarn-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock')) }}
       run: echo "final-cache-key-for-yarn=$(echo "$FINAL_CACHE_KEY_FOR_YARN")" >> $GITHUB_OUTPUT
 
-    - name: Setup Node.js LTS
-      uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
-        registry-url: 'https://registry.npmjs.org'
-
-    - name: Enable Corepack
+    - name: Determine yarn cache directory path
+      id: determine-yarn-cache-directory-path
       shell: bash
-      run: corepack enable
-
-    - name: Determine node_modules cache key
-      id: determine-cache-key-for-node-modules
-      shell: bash
-      run: echo "yarn_cache_directory=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+      run: echo "yarn_cache_directory=$(yarn e2e:yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
     - name: Restore yarn cache
       id: restore-cache-for-yarn
@@ -95,7 +85,7 @@ runs:
       uses: actions/cache/restore@v4
       with:
         key: ${{ steps.determine-cache-key-for-yarn.outputs.final-cache-key-for-yarn }}
-        path: ${{ steps.determine-cache-key-for-node-modules.outputs.yarn_cache_directory }}
+        path: ${{ steps.determine-yarn-cache-directory-path.outputs.yarn_cache_directory }}
 
     - name: Restore node_modules cache
       id: restore-cache-for-node-modules
@@ -104,16 +94,14 @@ runs:
       with:
         key: ${{ steps.determine-cache-key-for-node-modules.outputs.final-cache-key-for-node-modules }}
         path: |
-          node_modules/
-          integrations/*/node_modules/
-          internal/*/*/node_modules/
-          packages/*/node_modules/
+          e2e/node_modules/
+          e2e/*/*/node_modules/
 
     - name: Install dependencies
       id: install-dependencies
       if: ${{ steps.restore-cache-for-node-modules.outputs.cache-hit != 'true' }}
       shell: bash
-      run: yarn install --immutable
+      run: yarn e2e:yarn install --immutable
 
     - name: Cache yarn
       id: generate-cache-for-yarn
@@ -121,7 +109,7 @@ runs:
       uses: actions/cache/save@v4
       with:
         key: ${{ steps.determine-cache-key-for-yarn.outputs.final-cache-key-for-yarn }}
-        path: ${{ steps.determine-cache-key-for-node-modules.outputs.yarn_cache_directory }}
+        path: ${{ steps.determine-yarn-cache-directory-path.outputs.yarn_cache_directory }}
 
     - name: Cache node_modules
       id: generate-cache-for-node-modules
@@ -130,10 +118,8 @@ runs:
       with:
         key: ${{ steps.determine-cache-key-for-node-modules.outputs.final-cache-key-for-node-modules }}
         path: |
-          node_modules/
-          integrations/*/node_modules/
-          internal/*/*/node_modules/
-          packages/*/node_modules/
+          e2e/node_modules/
+          e2e/*/*/node_modules/
 
     - name: Restore build cache
       id: restore-cache-for-build
@@ -141,22 +127,19 @@ runs:
       uses: actions/cache/restore@v4
       with:
         key: ${{ steps.determine-cache-key-for-build.outputs.final-cache-key-for-build }}
-        path: |
-          integrations/*/dist/
-          internal/*/*/dist/
-          packages/*/dist/
+        path: e2e/*/*/dist/
 
     - name: Prepare
       id: prepare
       if: ${{ steps.restore-cache-for-build.outputs.cache-hit != 'true' }}
       shell: bash
-      run: yarn prepare
+      run: yarn e2e:prepare
 
     - name: Build
       id: build
       if: ${{ steps.restore-cache-for-build.outputs.cache-hit != 'true' && steps.prepare.conclusion == 'success' }}
       shell: bash
-      run: yarn build
+      run: yarn e2e:build
 
     - name: Cache build
       id: generate-cache-for-build
@@ -164,7 +147,4 @@ runs:
       uses: actions/cache/save@v4
       with:
         key: ${{ steps.determine-cache-key-for-build.outputs.final-cache-key-for-build }}
-        path: |
-          integrations/*/dist/
-          internal/*/*/dist/
-          packages/*/dist/
+        path: e2e/*/*/dist/
