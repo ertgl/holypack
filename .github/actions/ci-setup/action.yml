@@ -84,8 +84,8 @@ runs:
       shell: bash
       run: corepack enable
 
-    - name: Determine node_modules cache key
-      id: determine-cache-key-for-node-modules
+    - name: Determine yarn cache directory path
+      id: determine-yarn-cache-directory-path
       shell: bash
       run: echo "yarn_cache_directory=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
@@ -95,7 +95,7 @@ runs:
       uses: actions/cache/restore@v4
       with:
         key: ${{ steps.determine-cache-key-for-yarn.outputs.final-cache-key-for-yarn }}
-        path: ${{ steps.determine-cache-key-for-node-modules.outputs.yarn_cache_directory }}
+        path: ${{ steps.determine-yarn-cache-directory-path.outputs.yarn_cache_directory }}
 
     - name: Restore node_modules cache
       id: restore-cache-for-node-modules
@@ -121,7 +121,7 @@ runs:
       uses: actions/cache/save@v4
       with:
         key: ${{ steps.determine-cache-key-for-yarn.outputs.final-cache-key-for-yarn }}
-        path: ${{ steps.determine-cache-key-for-node-modules.outputs.yarn_cache_directory }}
+        path: ${{ steps.determine-yarn-cache-directory-path.outputs.yarn_cache_directory }}
 
     - name: Cache node_modules
       id: generate-cache-for-node-modules
