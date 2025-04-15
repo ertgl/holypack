@@ -67,13 +67,6 @@ runs:
       if: ${{ inputs.restore-node-modules-cache == 'true' }}
       uses: actions/cache/restore@v4
       with:
-        path: |
-          node_modules/
-          e2e/node_modules/
-          e2e/*/*/node_modules/
-          integrations/*/node_modules/
-          internal/*/*/node_modules/
-          packages/*/node_modules/
         key: ${{ steps.determine-node-modules-cache-key.outputs.final-node-modules-cache-key }}
 
     - name: Install dependencies
@@ -93,6 +86,7 @@ runs:
       if: ${{ inputs.cache-node-modules == 'true' && steps.restore-node-modules-cache.outputs.cache-hit != 'true' && steps.install-dependencies.conclusion == 'success' }}
       uses: actions/cache/save@v4
       with:
+        key: ${{ steps.determine-node-modules-cache-key.outputs.final-node-modules-cache-key }}
         path: |
           node_modules/
           e2e/node_modules/
@@ -100,18 +94,12 @@ runs:
           integrations/*/node_modules/
           internal/*/*/node_modules/
           packages/*/node_modules/
-        key: ${{ steps.determine-node-modules-cache-key.outputs.final-node-modules-cache-key }}
 
     - name: Restore build cache
       id: restore-build-cache
       if: ${{ inputs.restore-build-cache == 'true' }}
       uses: actions/cache/restore@v4
       with:
-        path: |
-          e2e/*/*/dist/
-          integrations/*/dist/
-          internal/*/*/dist/
-          packages/*/dist/
         key: ${{ steps.determine-build-cache-key.outputs.final-build-cache-key }}
 
     - name: Prepare
@@ -143,9 +131,9 @@ runs:
       if: ${{ inputs.cache-build == 'true' && steps.restore-build-cache.outputs.cache-hit != 'true' && steps.build.conclusion == 'success' && steps.build-e2e.conclusion == 'success' }}
       uses: actions/cache/save@v4
       with:
+        key: ${{ steps.determine-build-cache-key.outputs.final-build-cache-key }}
         path: |
           e2e/*/*/dist/
           integrations/*/dist/
           internal/*/*/dist/
           packages/*/dist/
-        key: ${{ steps.determine-build-cache-key.outputs.final-build-cache-key }}
