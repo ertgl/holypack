@@ -57,21 +57,21 @@ runs:
       id: determine-cache-key-for-build
       shell: bash
       env:
-        FINAL_CACHE_KEY_FOR_BUILD: ${{ inputs.cache-key-for-build || format('build-cache-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock', 'integrations/**/*', 'internal/**/*', 'packages/**/*', 'yarn.lock')) }}
+        FINAL_CACHE_KEY_FOR_BUILD: ${{ inputs.cache-key-for-build || format('build-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock', 'integrations/**/*', 'internal/**/*', 'packages/**/*', 'yarn.lock')) }}
       run: echo "final-cache-key-for-build=$(echo "$FINAL_CACHE_KEY_FOR_BUILD")" >> $GITHUB_OUTPUT
 
     - name: Determine node_modules cache key
       id: determine-cache-key-for-node-modules
       shell: bash
       env:
-        FINAL_CACHE_KEY_FOR_NODE_MODULES: ${{ inputs.cache-key-for-node-modules || format('node-modules-cache-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock', 'yarn.lock')) }}
+        FINAL_CACHE_KEY_FOR_NODE_MODULES: ${{ inputs.cache-key-for-node-modules || format('node-modules-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock', 'yarn.lock')) }}
       run: echo "final-cache-key-for-node-modules=$(echo "$FINAL_CACHE_KEY_FOR_NODE_MODULES")" >> $GITHUB_OUTPUT
 
     - name: Determine yarn cache key
       id: determine-cache-key-for-yarn
       shell: bash
       env:
-        FINAL_CACHE_KEY_FOR_YARN: ${{ inputs.cache-key-for-yarn || format('yarn-cache-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock', 'yarn.lock')) }}
+        FINAL_CACHE_KEY_FOR_YARN: ${{ inputs.cache-key-for-yarn || format('yarn-{0}-{1}', runner.os, hashFiles('e2e/yarn.lock', 'yarn.lock')) }}
       run: echo "final-cache-key-for-yarn=$(echo "$FINAL_CACHE_KEY_FOR_YARN")" >> $GITHUB_OUTPUT
 
     - name: Setup Node.js LTS
@@ -162,7 +162,6 @@ runs:
           integrations/*/dist/
           internal/*/*/dist/
           packages/*/dist/
-
 
     - name: Prepare
       id: prepare
