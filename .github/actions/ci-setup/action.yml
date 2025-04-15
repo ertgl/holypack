@@ -97,6 +97,9 @@ runs:
       uses: actions/cache/restore@v4
       with:
         key: ${{ steps.determine-cache-key-for-yarn.outputs.final-cache-key-for-yarn }}
+        path: |
+          ${{ steps.set-variables-for-yarn-cache-directory-paths.outputs.yarn_cache_directory_for_root }}
+          ${{ steps.set-variables-for-yarn-cache-directory-paths.outputs.yarn_cache_directory_for_e2e }}
 
     - name: Restore node_modules cache
       id: restore-cache-for-node-modules
@@ -104,6 +107,13 @@ runs:
       uses: actions/cache/restore@v4
       with:
         key: ${{ steps.determine-cache-key-for-node-modules.outputs.final-cache-key-for-node-modules }}
+        path: |
+          node_modules/
+          e2e/node_modules/
+          e2e/*/*/node_modules/
+          integrations/*/node_modules/
+          internal/*/*/node_modules/
+          packages/*/node_modules/
 
     - name: Install dependencies
       id: install-dependencies
@@ -119,7 +129,7 @@ runs:
 
     - name: Cache yarn
       id: generate-cache-for-yarn
-      if: ${{ inputs.generate-cache-for-yarn == 'true' && steps.set-variables-for-yarn-cache-directory-paths.conclusion == 'success' && steps.restore-cache-for-yarn.outputs.cache-hit != 'true' && steps.install-dependencies.conclusion == 'success' }}
+      if: ${{ inputs.generate-cache-for-yarn == 'true' && steps.restore-cache-for-yarn.outputs.cache-hit != 'true' && steps.install-dependencies.conclusion == 'success' }}
       uses: actions/cache/save@v4
       with:
         key: ${{ steps.determine-cache-key-for-yarn.outputs.final-cache-key-for-yarn }}
@@ -147,6 +157,12 @@ runs:
       uses: actions/cache/restore@v4
       with:
         key: ${{ steps.determine-cache-key-for-build.outputs.final-cache-key-for-build }}
+        path: |
+          e2e/*/*/dist/
+          integrations/*/dist/
+          internal/*/*/dist/
+          packages/*/dist/
+
 
     - name: Prepare
       id: prepare
