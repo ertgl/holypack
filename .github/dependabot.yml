@@ -16,6 +16,7 @@ updates:
         patterns:
           - "@cspell/*"
           - "@eslint/*"
+          - "@types/node"
           - "eslint"
           - "eslint-*"
           - "*-eslint"
