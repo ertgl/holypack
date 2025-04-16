@@ -41,6 +41,10 @@
   - [Release Tools](#release-tools)
 - [Core Packages](#core-packages)
 - [Installation](#installation)
+- [Usage](#usage)
+  - [Configuration](#configuration)
+  - [Configuration exploration](#configuration-exploration)
+  - [Low-level API](#low-level-api)
 - [Name](#name)
 - [License](#license)
 
