@@ -1,74 +1,34 @@
 import type { Context } from "./context";
-import { _maybeAwait } from "./function-tools";
-import { generateHookSubscriptionIDForIntegration } from "./hook-subscription-id";
 import type { Integration } from "./integration";
+import { createIntegrationBinderLooseErrorFactory } from "./integration-binder-errors";
+import { type IntegrationBinderOptions } from "./integration-binder-options";
+import { getIntegrationRegistry } from "./integration-registry-getter";
+import { bindPlugin } from "./plugin-binder";
+import type { PluginBinderOptions } from "./plugin-binder-options";
 
 export function bindIntegration(
   context: Context,
   integration: Integration,
+  options?: IntegrationBinderOptions | null,
 ): void
 {
-  if (!integration.name)
-  {
-    const err = new Error("Integration name is not defined.");
-    err.cause = {
-      integration,
-    };
-    throw err;
-  }
+  options ??= {};
 
-  if (context.integrations.has(integration.name))
-  {
-    const err = new Error("Integration is already bound.");
-    err.cause = {
-      integration,
-    };
-    throw err;
-  }
+  const pluginBinderOptions: PluginBinderOptions = {
+    ...options,
+    looseErrorFactory: (
+      options.looseErrorFactory
+      ?? createIntegrationBinderLooseErrorFactory()
+    ),
+    registryGetter: (
+      options.registryGetter
+      ?? getIntegrationRegistry
+    ),
+  };
 
-  if (integration.resolveConfig != null)
-  {
-    context.hooks.resolveConfig.tapPromise(
-      generateHookSubscriptionIDForIntegration(
-        integration,
-        context.hooks.resolveConfig,
-      ),
-      async (
-        context,
-        config,
-      ) =>
-      {
-        await _maybeAwait(
-          integration.resolveConfig?.(
-            context,
-            config,
-          ),
-        );
-      },
-    );
-  }
-
-  if (integration.resolveContext != null)
-  {
-    context.hooks.resolveContext.tapPromise(
-      generateHookSubscriptionIDForIntegration(
-        integration,
-        context.hooks.resolveContext,
-      ),
-      async (
-        context,
-        options,
-      ) =>
-      {
-        await _maybeAwait(
-          integration.resolveContext?.(
-            context,
-            options,
-          ),
-        );
-      },
-    );
-  }
-
-  context.integrations.set(integration.name, integration);
+  bindPlugin(
+    context,
+    integration,
+    pluginBinderOptions,
+  );
 }
