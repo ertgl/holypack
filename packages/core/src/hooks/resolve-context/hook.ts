@@ -1,7 +1,7 @@
 import { AsyncParallelHook } from "tapable";
 
 import type { Context } from "../../context";
-import type { ContextResolutionOptions } from "../../context-resolution";
+import type { ContextResolutionOptions } from "../../context-resolution-options";
 
 export const HOOK_NAME_RESOLVE_CONTEXT = "resolveContext";
 

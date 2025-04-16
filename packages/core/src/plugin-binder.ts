@@ -85,5 +85,21 @@ export function bindPlugin(
     );
   }
 
+  if (plugin.onContextReady != null)
+  {
+    context.hooks.postResolveContext.tapPromise(
+      generateHookSubscriptionID(
+        plugin,
+        context.hooks.postResolveContext,
+      ),
+      async (
+        context,
+      ) =>
+      {
+        await _maybeAwait(plugin.onContextReady?.(context));
+      },
+    );
+  }
+
   registry.set(plugin.name, plugin);
 }

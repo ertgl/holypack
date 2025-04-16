@@ -1,7 +1,11 @@
-import type { ConfigInput } from "./config-input";
 import { loadConfigInput } from "./config-input-loader";
 import { loadConfig } from "./config-loader";
-import type { Context } from "./context";
+import type {
+  Context,
+  ResolvedContext,
+} from "./context";
+import type { ContextResolutionOptions } from "./context-resolution-options";
+import { bindDefaultCorePlugins } from "./core-plugin-binder";
 import { getCWD } from "./cwd";
 import { createHookSet } from "./hook-set";
 import { bindIntegration } from "./integration-binder";
@@ -9,21 +13,20 @@ import { createIntegrationMap } from "./integration-map";
 import { bindPlugin } from "./plugin-binder";
 import { createPluginMap } from "./plugin-map";
 
-export type ContextResolutionOptions = {
-  config?: ConfigInput | null;
-  configFilePath?: null | string;
-  cwd?: null | string;
-};
-
 export async function resolveContext(
   options?: ContextResolutionOptions | null,
-): Promise<Context>
+): Promise<ResolvedContext>
 {
   options ??= {};
 
   const configFilePath = options.configFilePath ?? "";
 
   const cwd = options.cwd ?? getCWD();
+
+  const bindCorePlugins = (
+    options.corePluginBinder
+    ?? bindDefaultCorePlugins
+  );
 
   const configInput = (
     options.config
@@ -49,6 +52,8 @@ export async function resolveContext(
     integrations: createIntegrationMap(),
     plugins: createPluginMap(),
   };
+
+  bindCorePlugins(context);
 
   if (config.plugins != null)
   {
@@ -86,5 +91,9 @@ export async function resolveContext(
     options,
   );
 
-  return context;
+  await context.hooks.postResolveContext.promise(
+    context as ResolvedContext,
+  );
+
+  return context as ResolvedContext;
 }

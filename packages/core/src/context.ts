@@ -19,3 +19,16 @@ export type ContextBaseProperties = {
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface ContextCustomProperties
 {}
+
+export type ResolvedContext = (
+  & ResolvedContextBaseProperties
+  & ResolvedContextCustomProperties
+);
+
+export type ResolvedContextBaseProperties = (
+  & ContextBaseProperties
+);
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface ResolvedContextCustomProperties
+{}
