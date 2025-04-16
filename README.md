@@ -58,9 +58,6 @@ that prioritizes portability, flexibility, and production-readiness from the
 start. It supports diverse project types, including SPAs, PWAs, SSR setups, and
 command-line tools without dictating architectural choices.
 
-Holypack aims to serve as a reliable foundation that adapts to your stack, not
-the other way around.
-
 ### Principles
 
 Holypack is designed to provide long-term maintainability, modern developer
@@ -72,14 +69,14 @@ architecture makes it easy to extend as the project grows.
 
 The core principles behind holypack include:
 
-  - **Production-ready from the start**: A straightforward setup by default,
-    with flexibility for customization when needed
-  - **Guided flexibility**: A mix of "convention over configuration" and
-    "configuration over convention."
+  - **Production-ready**: A straightforward setup by default, with flexibility
+    for customization when needed.
+  - **Guided flexibility**: A mix of "**convention over configuration**" and
+    "**configuration over convention**."
   - **Optimized for modern workflows**: Integrates with fast,
     developer-friendly tools that improve efficiency.
-  - **Built on proven technologies**: Utilizes industry best practices to
-    ensure scalability, reliability, and long-term sustainability.
+  - **Built on proven technologies**: Combined with the best practices to
+    ensure sustainable efficiency.
   - **Adaptable and non-restrictive**: Works with any project structure,
     without being restrictive.
 
