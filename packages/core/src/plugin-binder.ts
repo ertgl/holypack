@@ -1,6 +1,6 @@
 import type { Context } from "./context";
 import { _maybeAwait } from "./function-tools";
-import { generateHookSubscriptionIDForPlugin } from "./hook-subscription-id";
+import { generateHookSubscriptionIDForPlugin } from "./hook-subscription-id-generator";
 import type { Plugin } from "./plugin";
 import { createPluginBinderLooseErrorFactory } from "./plugin-binder-errors";
 import type { PluginBinderOptions } from "./plugin-binder-options";
@@ -36,10 +36,15 @@ export function bindPlugin(
     throw err;
   }
 
+  const generateHookSubscriptionID = (
+    options.hookSubscriptionIDGenerator
+    ?? generateHookSubscriptionIDForPlugin
+  );
+
   if (plugin.resolveConfig != null)
   {
     context.hooks.resolveConfig.tapPromise(
-      generateHookSubscriptionIDForPlugin(
+      generateHookSubscriptionID(
         plugin,
         context.hooks.resolveConfig,
       ),
@@ -61,7 +66,7 @@ export function bindPlugin(
   if (plugin.resolveContext != null)
   {
     context.hooks.resolveContext.tapPromise(
-      generateHookSubscriptionIDForPlugin(
+      generateHookSubscriptionID(
         plugin,
         context.hooks.resolveContext,
       ),
