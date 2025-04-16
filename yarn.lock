@@ -1899,6 +1899,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@holypack/eslint-plugin@workspace:external/eslint-plugin":
+  version: 0.0.0-use.local
+  resolution: "@holypack/eslint-plugin@workspace:external/eslint-plugin"
+  dependencies:
+    "@holypack/core": "workspace:*"
+    "@holypack/integration-babel": "workspace:*"
+    "@holypack/integration-eslint": "workspace:*"
+    eslint: "npm:^9.24.0"
+  peerDependencies:
+    "@holypack/core": "*"
+    "@holypack/integration-eslint": "*"
+    eslint: "*"
+  languageName: unknown
+  linkType: soft
+
 "@holypack/integration-babel@portal:./integrations/babel::locator=%40holypack%2F__monorepo__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@holypack/integration-babel@portal:./integrations/babel::locator=%40holypack%2F__monorepo__%40workspace%3A."
@@ -1929,6 +1944,41 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@holypack/integration-eslint@portal:./integrations/eslint::locator=%40holypack%2F__monorepo__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/integration-eslint@portal:./integrations/eslint::locator=%40holypack%2F__monorepo__%40workspace%3A."
+  dependencies:
+    "@cspell/dict-bash": "npm:^4.2.0"
+    "@cspell/dict-css": "npm:^4.0.17"
+    "@cspell/dict-en-common-misspellings": "npm:^2.0.10"
+    "@cspell/dict-en-gb": "npm:^4.1.64"
+    "@cspell/dict-en_us": "npm:^4.4.1"
+    "@cspell/dict-filetypes": "npm:^3.0.11"
+    "@cspell/dict-git": "npm:^3.0.4"
+    "@cspell/dict-html": "npm:^4.0.11"
+    "@cspell/dict-html-symbol-entities": "npm:^4.0.3"
+    "@cspell/dict-markdown": "npm:^2.0.10"
+    "@cspell/dict-node": "npm:^5.0.7"
+    "@cspell/dict-npm": "npm:^5.2.0"
+    "@cspell/dict-shell": "npm:^1.1.0"
+    "@cspell/dict-typescript": "npm:^3.2.1"
+    "@cspell/eslint-plugin": "npm:^8.18.1"
+    "@eslint/js": "npm:^9.24.0"
+    "@eslint/json": "npm:^0.11.0"
+    "@eslint/markdown": "npm:^6.3.0"
+    "@holypack/core": "workspace:*"
+    "@stylistic/eslint-plugin": "npm:^4.2.0"
+    eslint: "npm:^9.24.0"
+    eslint-plugin-perfectionist: "npm:^4.11.0"
+    eslint-plugin-yml: "npm:^1.17.0"
+    fast-glob: "npm:^3.3.3"
+    globals: "npm:^16.0.0"
+    typescript-eslint: "npm:^8.30.1"
+  peerDependencies:
+    typescript: "*"
+  languageName: node
+  linkType: soft
+
 "@holypack/integration-eslint@workspace:integrations/eslint":
   version: 0.0.0-use.local
   resolution: "@holypack/integration-eslint@workspace:integrations/eslint"
@@ -1951,6 +2001,7 @@ __metadata:
     "@eslint/js": "npm:^9.24.0"
     "@eslint/json": "npm:^0.11.0"
     "@eslint/markdown": "npm:^6.3.0"
+    "@holypack/core": "workspace:*"
     "@holypack/integration-babel": "workspace:*"
     "@stylistic/eslint-plugin": "npm:^4.2.0"
     eslint: "npm:^9.24.0"
