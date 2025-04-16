@@ -1,5 +1,9 @@
 {
   "name": "@holypack/integration-eslint",
+  "keywords": [
+    "holypack",
+    "holypack-integration"
+  ],
   "scripts": {
     "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types",
     "clean": "rm -fr dist",
@@ -29,6 +33,7 @@
     "@eslint/js": "^9.24.0",
     "@eslint/json": "^0.11.0",
     "@eslint/markdown": "^6.3.0",
+    "@holypack/core": "workspace:*",
     "@stylistic/eslint-plugin": "^4.2.0",
     "eslint": "^9.24.0",
     "eslint-plugin-perfectionist": "^4.11.0",
