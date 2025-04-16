@@ -11,13 +11,14 @@
     "test": "yarn e2e:w:foreach::parallel::topological run test"
   },
   "dependencies": {
-    "@holypack/core": "*"
+    "holypack": "*"
   },
   "workspaces": [
     "../internal/integrations/yarn"
   ],
   "resolutions": {
     "@holypack/core": "portal:../packages/core",
-    "@holypack/internal-integration-yarn": "portal:../internal/integrations/yarn"
+    "@holypack/internal-integration-yarn": "portal:../internal/integrations/yarn",
+    "holypack": "portal:../packages/prelude"
   }
 }

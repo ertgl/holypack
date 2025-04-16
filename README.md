@@ -170,12 +170,84 @@ in mind.
 | ------- | ------ |
 | [@holypack/cli](packages/cli) | Planned |
 | [@holypack/core](packages/core) | Work in progress |
-| [holypack](packages/prelude) | Planned |
+| [holypack](packages/prelude) | Work in progress |
 
 ## Installation
 
 Once the initial implementation phase is complete, the packages will be ready
 for installation.
+
+## Usage
+
+The final view of the usage of the packages will be provided at a later stage.
+
+### Configuration
+
+Multiple file formats are supported for configuration, including JSON, YAML,
+JavaScript and TypeScript.
+
+Example of configuration in `holypack.config.mjs`:
+
+```js
+import { defineConfig } from "holypack";
+
+import example from "#example-integration";
+
+const HOLYPACK_CONFIG = defineConfig({
+  integrations: [
+    example,
+  ],
+});
+
+export default HOLYPACK_CONFIG;
+```
+
+#### Configuration exploration
+
+The following file formats are supported for configuration, and the
+exploration order is as follows:
+
+- `package.json` (`holypack.config` property)
+- `holypack.config.ts`
+- `holypack.config.js`
+- `holypack.config.mts`
+- `holypack.config.mjs`
+- `holypack.config.cts`
+- `holypack.config.cjs`
+- `.holypackrc.ts`
+- `.holypackrc.js`
+- `.holypackrc.mts`
+- `.holypackrc.mjs`
+- `.holypackrc.cts`
+- `.holypackrc.cjs`
+- `.holypackrc.json`
+- `.holypackrc.yml`
+- `.holypackrc.yaml`
+- `.holypackrc`
+- `.config/holypackrc.ts`
+- `.config/holypackrc.js`
+- `.config/holypackrc.mts`
+- `.config/holypackrc.mjs`
+- `.config/holypackrc.cts`
+- `.config/holypackrc.cjs`
+- `.config/holypackrc.json`
+- `.config/holypackrc.yml`
+- `.config/holypackrc.yaml`
+- `.config/holypackrc`
+
+### Low-level API
+
+The following code snippets are examples of how to use the core packages.
+
+#### Context resolution
+
+Example:
+
+```ts
+import { resolveContext } from "@holypack/core";
+
+const context = await resolveContext();
+```
 
 ## Name
 

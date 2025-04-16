@@ -349,6 +349,7 @@ export async function resolveConfig(
             ignoreCase: false,
             internalPattern: [
               /^@holypack(?:[\\/].+)$/iu.source,
+              /^holypack$/iu.source,
             ],
             newlinesBetween: "always",
             tsconfigRootDir: cwd,

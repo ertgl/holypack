@@ -1,0 +1,71 @@
+{
+  "name": "holypack",
+  "scripts": {
+    "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types",
+    "clean": "rm -fr dist"
+  },
+  "dependencies": {
+    "@holypack/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@holypack/integration-babel": "workspace:*"
+  },
+  "type": "module",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "default": "./src/index.ts"
+    },
+    "./*.d.ts": {
+      "types": "./dist/types/*.d.ts",
+      "default": "./src/*.ts"
+    },
+    "./*.cjs": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/esm/*.mjs",
+      "require": "./dist/cjs/*.cjs",
+      "default": "./src/*.ts"
+    },
+    "./*.js": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/esm/*.mjs",
+      "require": "./dist/cjs/*.cjs",
+      "default": "./src/*.ts"
+    },
+    "./*.mjs": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/esm/*.mjs",
+      "require": "./dist/cjs/*.cjs",
+      "default": "./src/*.ts"
+    },
+    "./*.ts": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/esm/*.mjs",
+      "require": "./dist/cjs/*.cjs",
+      "default": "./src/*.ts"
+    },
+    "./*/": {
+      "types": "./dist/types/*/index.d.ts",
+      "import": "./dist/esm/*/index.mjs",
+      "require": "./dist/cjs/*/index.cjs",
+      "default": "./src/*/index.ts"
+    },
+    "./*": {
+      "types": "./dist/types/*",
+      "import": "./dist/esm/*",
+      "require": "./dist/cjs/*",
+      "default": "./src/*"
+    }
+  },
+  "files": [
+    "./dist/",
+    "./src/",
+    "./package.json"
+  ]
+}

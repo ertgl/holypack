@@ -1,4 +1,4 @@
-import { defineConfig } from "@holypack/core";
+import { defineConfig } from "holypack";
 
 import example from "./integration.mjs";
 

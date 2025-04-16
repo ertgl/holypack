@@ -1877,6 +1877,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@holypack/core@portal:./packages/core::locator=%40holypack%2F__monorepo__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/core@portal:./packages/core::locator=%40holypack%2F__monorepo__%40workspace%3A."
+  dependencies:
+    cosmiconfig: "npm:^9.0.0"
+  peerDependencies:
+    tapable: "*"
+  languageName: node
+  linkType: soft
+
 "@holypack/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@holypack/core@workspace:packages/core"
@@ -3531,6 +3541,15 @@ __metadata:
   checksum: 10c0/3769d434703b8ac66b209a4cca0737519925bbdb61dd887f93a16372b14694c63ff4e797686d87c90f08168e81082248b9b028bad60d4da9e0d1148766f56eb9
   languageName: node
   linkType: hard
+
+"holypack@workspace:packages/prelude":
+  version: 0.0.0-use.local
+  resolution: "holypack@workspace:packages/prelude"
+  dependencies:
+    "@holypack/core": "workspace:*"
+    "@holypack/integration-babel": "workspace:*"
+  languageName: unknown
+  linkType: soft
 
 "http-cache-semantics@npm:^4.1.1":
   version: 4.1.1

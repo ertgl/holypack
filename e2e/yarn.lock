@@ -27,7 +27,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/__e2e__@workspace:."
   dependencies:
-    "@holypack/core": "npm:*"
+    holypack: "npm:*"
   languageName: unknown
   linkType: soft
 
@@ -93,6 +93,14 @@ __metadata:
   checksum: 10c0/ba827f89369b4c93382cfca5a264d059dfefdaa56ecc5e338ffa58a6471f5ed93b71a20add1d52290a4873d92381174382658c885ac1a2305f7baca363ce9cce
   languageName: node
   linkType: hard
+
+"holypack@portal:../packages/prelude::locator=%40holypack%2F__e2e__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "holypack@portal:../packages/prelude::locator=%40holypack%2F__e2e__%40workspace%3A."
+  dependencies:
+    "@holypack/core": "workspace:*"
+  languageName: node
+  linkType: soft
 
 "import-fresh@npm:^3.3.0":
   version: 3.3.1

@@ -28,6 +28,7 @@
     "@holypack/integration-eslint": "portal:./integrations/eslint",
     "@holypack/integration-typescript": "portal:./integrations/typescript",
     "@holypack/internal-integration-node": "portal:./internal/integrations/node",
-    "@holypack/internal-integration-yarn": "portal:./internal/integrations/yarn"
+    "@holypack/internal-integration-yarn": "portal:./internal/integrations/yarn",
+    "holypack": "portal:./packages/prelude"
   }
 }
