@@ -7,3 +7,5 @@ declare module "../../config"
     repository?: null | Repository;
   }
 }
+
+export {};

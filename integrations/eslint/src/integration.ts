@@ -1,8 +1,4 @@
-import type {
-  Config,
-  Context,
-  Integration,
-} from "@holypack/core";
+import type { Integration } from "@holypack/core";
 
 import { ESLintIntegrationAPI } from "./integration-api";
 import type {
@@ -25,22 +21,6 @@ export class ESLintIntegration implements Integration
   {
     this.api = new ESLintIntegrationAPI(this);
     this.options = resolveOptions(options);
-  }
-
-  resolveConfig(
-    context: Context,
-    config: Config,
-  ): void
-  {
-    //
-  }
-
-  resolveContext(
-    context: Context,
-    config: Config,
-  ): void
-  {
-    //
   }
 }
 

@@ -13,8 +13,8 @@ export class RepositoryPlugin implements Plugin
     config: Config,
   ): void
   {
+    // TODO(ertgl): Implement repository resolution.
     context.repository = {
-      // TODO(ertgl): Implement repository resolution
       path: config.repository?.path || context.cwd,
     };
   }

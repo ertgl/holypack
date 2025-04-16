@@ -15,3 +15,5 @@ declare module "../../context"
     repository: ResolvedRepository;
   }
 }
+
+export {};

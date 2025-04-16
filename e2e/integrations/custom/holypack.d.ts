@@ -3,7 +3,7 @@ import type {
   ExampleContext,
   ExampleResolvedConfig,
   ExampleResolvedContext,
-} from "./example";
+} from "./src/example";
 
 declare module "@holypack/core"
 {
@@ -27,3 +27,5 @@ declare module "@holypack/core"
     example: ExampleResolvedContext;
   }
 }
+
+export {};

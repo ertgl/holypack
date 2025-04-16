@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.scope.project.json"
+    }
+  ]
+}
