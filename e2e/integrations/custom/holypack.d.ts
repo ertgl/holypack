@@ -10,14 +10,14 @@ export declare module "@holypack/core"
   export interface ContextCustomProperties
   {
     example: {
-      integrationSpecificContextData: string;
+      integrationSpecificContextData: Record<string, unknown>;
     };
   }
 
   export interface ResolvedConfigCustomProperties
   {
     example: {
-      integrationSpecificConfig: boolean;
+      integrationSpecificResolvedConfig: boolean;
     };
   }
 }

@@ -1,0 +1,12 @@
+{
+  "name": "@holypack/e2e-integration-eslint",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "eslint": "eslint"
+  },
+  "devDependencies": {
+    "@holypack/eslint-plugin": "*",
+    "eslint": "^9.24.0"
+  }
+}

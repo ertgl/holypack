@@ -1,4 +1,4 @@
-// TODO(ertgl): Convert the custom-integration example to a test.
+// TODO(ertgl): Convert the ESLint integration example to a test.
 
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";

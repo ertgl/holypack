@@ -1,0 +1,11 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.scope.src.json"
+    },
+    {
+      "path": "./tsconfig.scope.workspace.json"
+    }
+  ]
+}

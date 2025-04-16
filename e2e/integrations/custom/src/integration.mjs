@@ -14,7 +14,7 @@ export const exampleIntegration = {
   ) =>
   {
     context.config.example = {
-      integrationSpecificConfig: config.example.integrationSpecificConfig ?? false,
+      integrationSpecificResolvedConfig: config.example.integrationSpecificConfig ?? false,
     };
   },
 
@@ -24,7 +24,7 @@ export const exampleIntegration = {
   ) =>
   {
     context.example = {
-      integrationSpecificContextData: "DATA",
+      integrationSpecificContextData: {},
     };
   },
 };

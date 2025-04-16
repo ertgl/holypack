@@ -10,14 +10,23 @@
     "prepare": "yarn e2e:w:foreach::parallel::topological run prepare",
     "test": "yarn e2e:w:foreach::parallel::topological run test"
   },
-  "dependencies": {
-    "holypack": "*"
+  "devDependencies": {
+    "@holypack/core": "*",
+    "@holypack/integration-typescript": "*",
+    "holypack": "*",
+    "tapable": "^2.2.1"
   },
   "workspaces": [
-    "../internal/integrations/yarn"
+    "../internal/integrations/yarn",
+    "./integrations/*"
   ],
   "resolutions": {
     "@holypack/core": "portal:../packages/core",
+    "@holypack/e2e-integration-custom": "portal:./integrations/custom",
+    "@holypack/e2e-integration-eslint": "portal:./integrations/eslint",
+    "@holypack/eslint-plugin": "portal:../external/eslint-plugin",
+    "@holypack/integration-eslint": "portal:../integrations/eslint",
+    "@holypack/integration-typescript": "portal:../integrations/typescript",
     "@holypack/internal-integration-yarn": "portal:../internal/integrations/yarn",
     "holypack": "portal:../packages/prelude"
   }

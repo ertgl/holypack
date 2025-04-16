@@ -1,6 +1,6 @@
 import { defineConfig } from "holypack";
 
-import example from "./integration.mjs";
+import example from "./src/integration.mjs";
 
 const HOLYPACK_CONFIG = defineConfig({
   example: {
