@@ -4,7 +4,7 @@
   </h1>
   <picture>
     <img
-      alt="holycat - Image was generated using stabledifffusion.com"
+      alt="holycat, the mascot of holypack"
       src="assets/holycat.png"
       width="375px"
       height="375px"
@@ -39,79 +39,95 @@
 
 ## Overview
 
-Holypack is a build system for modern web projects, designed to efficiently
-bundle, optimize, and prepare code and frontend assets for transfer in a
-backend-agnostic way, while ensuring a good developer experience.
+Holypack is a backend-agnostic build system designed for scalable and
+accessible web projects. It focuses on bundling, transforming, and optimizing
+frontend assets with minimal setup and maximum flexibility. Built with modern
+tooling and enterprise-readiness in mind, it supports a wide range of project
+types (from progressive-enhancement-first architectures to single-page
+applications) without enforcing backend constraints. Holypack offers a modular
+plugin system, reliable defaults, and thoughtful integrations for linting,
+testing, and security.
 
 ### Scope
 
-Modern web development tools often aim to enhance developer experience for
-increased productivity. However, many either assume the backend is written in
-JavaScript/TypeScript or fail to provide a solid default setup for projects
-embracing the progressive enhancement approach, which is mostly needed for
-accessibility of the product and/or scalability of the project.
+Many modern tools either make strong assumptions about the backend environment
+(typically JavaScript or TypeScript) or overlook the needs of progressive
+enhancement, which is vital for accessibility and long-term scalability.
+Holypack is designed to fill this gap by offering a backend-agnostic approach
+that prioritizes portability, flexibility, and production-readiness from the
+start. It supports diverse project types, including SPAs, PWAs, SSR setups, and
+command-line tools without dictating architectural choices.
 
-To operate beyond the assumptions of either side, holypack is designed to be a
-build system for modern web projects, without being opinionated about the
-backend technology.
-
-The scope also extends to building CLI tools and libraries in JavaScript or
-TypeScript, intended for server-like environments.
-
-The goal is to provide a baseline that is production-ready from the start, and
-flexible enough to adapt to different needs. Reliability will be ensured by the
-built-in integrations for linting and testing processes.
+Holypack aims to serve as a reliable foundation that adapts to your stack, not
+the other way around.
 
 ### Principles
 
-The following principles are fundamentally taken into consideration:
+Holypack is designed to provide long-term maintainability, modern developer
+workflows, and a clear separation of concerns in mind. It uses proven
+technologies to keep things simple but flexible enough to handle different use
+cases. The configuration approach strikes a balance, avoiding unnecessary
+complexity while still allowing customization when needed. Plus, the modular
+architecture makes it easy to extend as the project grows.
 
-  - **Ready for production**: Minimal setup by default, with options to
-    customize.
-  - **Balanced defaults**: A mix of "convention over configuration" and
+The core principles behind holypack include:
+
+  - **Production-ready from the start**: A straightforward setup by default,
+    with flexibility for customization when needed
+  - **Guided flexibility**: A mix of "convention over configuration" and
     "configuration over convention."
-  - **Modern tools**: Integrates with faster tools designed to enhance the
-    developer experience.
-  - **Proven tech**: Combined with the best practices to ensure sustainable
-    efficiency.
-  - **Flexibility**: Works with any project, offering guidance without being
-    restrictive.
+  - **Optimized for modern workflows**: Integrates with fast,
+    developer-friendly tools that improve efficiency.
+  - **Built on proven technologies**: Utilizes industry best practices to
+    ensure scalability, reliability, and long-term sustainability.
+  - **Adaptable and non-restrictive**: Works with any project structure,
+    without being restrictive.
 
 ### Features
 
-- Modular and extensible plugin system, uses
-  [tapable](https://github.com/webpack/tapable)
-- Code/asset bundling with [webpack](https://webpack.js.org/), the bundler
-- [Babel](https://babeljs.io/) and [SWC](https://swc.rs/) for
-  JavaScript/TypeScript
-- [PostCSS](https://postcss.org/) and
-  [Lightning CSS](https://lightningcss.dev/) for CSS
-- [Sass](https://sass-lang.com/) and
+Holypack offers a set of enterprise-friendly features that balance performance,
+security, and developer experience. All designed to adapt to projects of any
+scale.
+
+#### Foundation
+
+- **Modular plugin system**, uses [tapable](https://github.com/webpack/tapable)
+- **Backend-agnostic architecture**, supports any backend in any language
+- **Project templates** for:
+  - Frontend-only (assets)
+  - Single Page Applications (SPA)
+  - Progressive Web Applications (PWA, service workers, navigation preloading)
+  - Server-Side Rendering (SSR) with progressive enhancement
+
+#### Build & Transform
+
+- Code and asset bundling via [webpack](https://webpack.js.org/)
+- JavaScript/TypeScript transpilation with [Babel](https://babeljs.io/) and
+  [SWC](https://swc.rs/)
+- CSS processing with [PostCSS](https://postcss.org/) and
+  [Lightning CSS](https://lightningcss.dev/)
+- Support for [Sass](https://sass-lang.com/) and
   [SCSS](https://sass-lang.com/documentation/syntax/#scss)
-- [CSS modules](https://github.com/css-modules/css-modules) (Backend-agnostic
-  way)
+- First-class [CSS modules](https://github.com/css-modules/css-modules) support
+
+#### Security & Integrity
+
 - [Subresource Integrity (SRI)](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity)
 - [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP)
-- [Trusted Types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/trusted-types)
-- Dual builds for modern and legacy
-- Graceful degradation
-- CLI applications with Node.js (including SSR)
-- Code obfuscation (beneficial for closed-source projects)
-- Single-file executables
-- Project starter templates for:
-  - Assets-only (frontend-only)
-  - Single Page Applications (SPA)
-  - Progressive Web Applications (PWA)
-  - Server-Side Rendering (SSR, progressive enhancement)
+- [Trusted Types](https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API)
+- Dual builds for **modern** and **legacy** environments
+- Built-in support for **graceful degradation**
+
+#### CLI & Distribution
+
+- Build CLI applications targeting Node.js (including SSR use cases)
+- Optional JavaScript **obfuscation** for closed-source environments
+- Support for bundling into **single-file** executables
 
 > [!WARNING]
-> Code obfuscation should not be considered as a security layer for protection
-> of an intellectual property. It can only be used as a deterrent.
->
-> Once the code is in the client-side, it can be reverse engineered. One aim is
-> to make it not worth the effort. And the most importantly, it might be also
-> used to prove that legal violations were based on conscious behavior instead
-> of innocent mistakes.
+> Code obfuscation is **not a security mechanism** for intellectual properties.
+> It serves as a deterrent and may support legal standing by demonstrating that
+> violations were deliberate rather than accidental.
 
 ## Integrations
 
@@ -122,10 +138,10 @@ The following principles are fundamentally taken into consideration:
     <th>Status</th>
   </tr>
   <tr>
-    <td colspan="3">&nbsp</td>
+    <td colspan="3" aria-hidden="true">&#8203;</td>
   </tr>
   <tr>
-    <th colspan="3">Linters</th>
+    <th align="left" colspan="3">Linters</th>
   </tr>
   <tr>
     <td><a href="https://eslint.org/">ESLint</a></td>
@@ -153,10 +169,10 @@ The following principles are fundamentally taken into consideration:
     <td align="center">Planned</td>
   </tr>
   <tr>
-    <td colspan="3">&nbsp</td>
+    <td colspan="3">&#8203;</td>
   </tr>
   <tr>
-    <th colspan="3">Build Tools</th>
+    <th align="left" colspan="3">Build Tools</th>
   </tr>
   <tr>
     <td><a href="https://www.typescriptlang.org/">TypeScript</a></td>
@@ -209,10 +225,10 @@ The following principles are fundamentally taken into consideration:
     <td align="center">Planned</td>
   </tr>
   <tr>
-    <td colspan="3">&nbsp</td>
+    <td colspan="3">&#8203;</td>
   </tr>
   <tr>
-    <th colspan="3">Testing Tools</th>
+    <th align="left" colspan="3">Testing Tools</th>
   </tr>
   <tr>
     <td><a href="https://jestjs.io/">Jest</a></td>
@@ -220,10 +236,10 @@ The following principles are fundamentally taken into consideration:
     <td align="center">Planned</td>
   </tr>
   <tr>
-    <td colspan="3">&nbsp</td>
+    <td colspan="3">&#8203;</td>
   </tr>
   <tr>
-    <th colspan="3">Release Tools</th>
+    <th align="left" colspan="3">Release Tools</th>
   </tr>
   <tr>
     <td><a href="https://github.com/changesets/changesets">changesets</a></td>
@@ -231,10 +247,10 @@ The following principles are fundamentally taken into consideration:
     <td align="center">Planned</td>
   </tr>
   <tr>
-    <td colspan="3">&nbsp</td>
+    <td colspan="3">&#8203;</td>
   </tr>
   <tr>
-    <th colspan="3">Libraries & Frameworks</th>
+    <th align="left" colspan="3">Libraries & Frameworks</th>
   </tr>
   <tr>
     <td><a href="https://expressjs.com/">Express</a></td>
@@ -247,10 +263,10 @@ The following principles are fundamentally taken into consideration:
     <td align="center">Planned</td>
   </tr>
   <tr>
-    <td colspan="3">&nbsp</td>
+    <td colspan="3">&#8203;</td>
   </tr>
   <tr>
-    <th colspan="3">Polyfills</th>
+    <th align="left" colspan="3">Polyfills</th>
   </tr>
   <tr>
     <td><a href="https://github.com/zloirock/core-js">core-js</a></td>
@@ -308,14 +324,30 @@ Example of configuration in `holypack.config.mjs`:
 import eslint from "@holypack/integration-eslint";
 import { defineConfig } from "holypack";
 
-const HOLYPACK_CONFIG = defineConfig({
+export default defineConfig({
   integrations: [
     eslint(),
   ],
 });
-
-export default HOLYPACK_CONFIG;
 ```
+
+<details>
+  <summary>
+    <b>
+      Toggle the <code>eslint.config.mjs</code> view for the above example
+    </b>
+  </summary>
+
+  ```js
+  import createHolypackPlugin from "@holypack/eslint-plugin";
+
+  const holypack = await createHolypackPlugin();
+
+  export default [
+    ...holypack.configs.recommended,
+  ];
+  ```
+</details>
 
 #### Configuration Exploration
 
