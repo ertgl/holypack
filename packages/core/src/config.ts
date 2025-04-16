@@ -1,4 +1,5 @@
 import type { Integration } from "./integration";
+import type { Plugin } from "./plugin";
 
 export type Config = (
   & ConfigBaseProperties
@@ -7,6 +8,7 @@ export type Config = (
 
 export type ConfigBaseProperties = {
   integrations?: (false | Integration | null | undefined)[] | null;
+  plugins?: (false | null | Plugin | undefined)[] | null;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type

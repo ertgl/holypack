@@ -6,6 +6,8 @@ import { getCWD } from "./cwd";
 import { createHookSet } from "./hook-set";
 import { bindIntegration } from "./integration-binder";
 import { createIntegrationMap } from "./integration-map";
+import { bindPlugin } from "./plugin-binder";
+import { createPluginMap } from "./plugin-map";
 
 export type ContextResolutionOptions = {
   config?: ConfigInput | null;
@@ -45,7 +47,21 @@ export async function resolveContext(
     cwd,
     hooks,
     integrations: createIntegrationMap(),
+    plugins: createPluginMap(),
   };
+
+  if (config.plugins != null)
+  {
+    for (const plugin of config.plugins)
+    {
+      if (!plugin)
+      {
+        continue;
+      }
+
+      bindPlugin(context, plugin);
+    }
+  }
 
   if (config.integrations != null)
   {
