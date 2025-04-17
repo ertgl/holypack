@@ -1,6 +1,6 @@
 import type { Config } from "../../config";
 import type { Context } from "../../context";
-import type { Plugin } from "../../plugin";
+import type { Plugin } from "../../plugin-system";
 
 export const PLUGIN_NAME_REPOSITORY = "@holypack/core:Repository";
 

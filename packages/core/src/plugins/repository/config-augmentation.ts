@@ -1,6 +1,6 @@
 import type { Repository } from "./repository";
 
-declare module "../../config"
+declare module "../../config/config"
 {
   interface ConfigCustomProperties
   {
