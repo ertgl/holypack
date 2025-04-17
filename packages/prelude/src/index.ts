@@ -1,2 +1,2 @@
-export * from "./config-definition";
-export * from "./context-resolution";
+export * from "./config";
+export * from "./context";
