@@ -3,7 +3,7 @@ import type {
   ResolvedRepository,
 } from "./repository";
 
-declare module "../../context"
+declare module "../../context/context"
 {
   interface ContextCustomProperties
   {
