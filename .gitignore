@@ -8,6 +8,9 @@ dist/
 # Log files
 *.log*
 
+# Misc
+.DS_Store
+
 # Package manager artifacts
 .yarn/
 node_modules/
