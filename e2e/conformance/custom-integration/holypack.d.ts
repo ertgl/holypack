@@ -1,40 +1,29 @@
-export type ExampleIntegrationConfig = {
-  flag?: boolean | null;
-};
+import type {
+  ExampleConfig,
+  ExampleContext,
+  ExampleResolvedConfig,
+  ExampleResolvedContext,
+} from "./example";
 
-export type ExampleIntegrationContext = {
-  custom?: null | number;
-};
-
-export type ExampleIntegrationResolvedConfig = {
-  flag: Exclude<ExampleIntegrationConfig["flag"], null | undefined>;
-};
-
-export type ExampleIntegrationResolvedContext = {
-  custom: Exclude<ExampleIntegrationContext["custom"], null | undefined>;
-};
-
-export declare module "@holypack/core"
+declare module "@holypack/core"
 {
-  export interface ConfigCustomProperties
+  interface ConfigCustomProperties
   {
-    example?: ExampleIntegrationConfig | null;
+    example?: ExampleConfig | null;
   }
 
-  export interface ContextCustomProperties
+  interface ContextCustomProperties
   {
-    example?: ExampleIntegrationContext | null;
+    example?: ExampleContext | null;
   }
 
-  export interface ResolvedConfigCustomProperties
+  interface ResolvedConfigCustomProperties
   {
-    example: ExampleIntegrationResolvedConfig;
+    example: ExampleResolvedConfig;
   }
 
-  export interface ResolvedContextCustomProperties
+  interface ResolvedContextCustomProperties
   {
-    example: ExampleIntegrationResolvedContext;
+    example: ExampleResolvedContext;
   }
 }
-
-export {};

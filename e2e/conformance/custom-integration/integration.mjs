@@ -21,7 +21,7 @@ export const exampleIntegration = {
   ) =>
   {
     context.config.example = {
-      flag: config.example.flag ?? false,
+      flag: config.example?.flag ?? false,
     };
   },
 

@@ -4,7 +4,7 @@ import example from "./integration.mjs";
 
 const HOLYPACK_CONFIG = defineConfig({
   example: {
-    integrationSpecificConfig: true,
+    flag: true,
   },
   integrations: [
     example,
