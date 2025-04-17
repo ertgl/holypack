@@ -1,13 +1,9 @@
+import eslint from "@holypack/integration-eslint";
 import { defineConfig } from "holypack";
 
-import example from "./integration.mjs";
-
 const HOLYPACK_CONFIG = defineConfig({
-  example: {
-    integrationSpecificConfig: true,
-  },
   integrations: [
-    example,
+    eslint(),
   ],
 });
 

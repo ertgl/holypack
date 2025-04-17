@@ -1,6 +1,9 @@
 import type { Config } from "./config";
-import type { Context } from "./context";
-import type { ContextResolutionOptions } from "./context-resolution";
+import type {
+  Context,
+  ResolvedContext,
+} from "./context";
+import type { ContextResolutionOptions } from "./context-resolution-options";
 import type { Hook } from "./hook";
 import type { HookSubscriptionID } from "./hook-subscription-id";
 
@@ -11,6 +14,10 @@ export interface Plugin
   ) => HookSubscriptionID;
 
   readonly name: PluginName;
+
+  readonly onContextReady?: (
+    context: ResolvedContext,
+  ) => Promise<void> | void;
 
   readonly resolveConfig?: (
     context: Context,

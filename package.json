@@ -18,12 +18,14 @@
     "test": "yarn w:foreach::parallel::topological run test"
   },
   "workspaces": [
+    "./external/*",
     "./integrations/*",
     "./internal/*/*",
     "./packages/*"
   ],
   "resolutions": {
     "@holypack/core": "portal:./packages/core",
+    "@holypack/eslint-plugin": "portal:./external/eslint-plugin",
     "@holypack/integration-babel": "portal:./integrations/babel",
     "@holypack/integration-eslint": "portal:./integrations/eslint",
     "@holypack/integration-typescript": "portal:./integrations/typescript",

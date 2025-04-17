@@ -1,4 +1,5 @@
 import type { Context } from "./context";
+import { generateHookSubscriptionIDForPlugin } from "./hook-subscription-id-generator";
 import type { Integration } from "./integration";
 import { createIntegrationBinderLooseErrorFactory } from "./integration-binder-errors";
 import { type IntegrationBinderOptions } from "./integration-binder-options";
@@ -16,6 +17,10 @@ export function bindIntegration(
 
   const pluginBinderOptions: PluginBinderOptions = {
     ...options,
+    hookSubscriptionIDGenerator: (
+      options.hookSubscriptionIDGenerator
+      ?? generateHookSubscriptionIDForPlugin
+    ),
     looseErrorFactory: (
       options.looseErrorFactory
       ?? createIntegrationBinderLooseErrorFactory()

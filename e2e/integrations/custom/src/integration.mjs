@@ -8,13 +8,20 @@
 export const exampleIntegration = {
   name: "example",
 
+  onContextReady: (
+    context,
+  ) =>
+  {
+    context.example.custom++;
+  },
+
   resolveConfig: (
     context,
     config,
   ) =>
   {
     context.config.example = {
-      integrationSpecificConfig: config.example.integrationSpecificConfig ?? false,
+      flag: config.example?.flag ?? false,
     };
   },
 
@@ -24,7 +31,7 @@ export const exampleIntegration = {
   ) =>
   {
     context.example = {
-      integrationSpecificContextData: "DATA",
+      custom: 0,
     };
   },
 };

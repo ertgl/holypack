@@ -57,7 +57,7 @@ runs:
       id: determine-cache-key-for-build
       shell: bash
       env:
-        FINAL_CACHE_KEY_FOR_BUILD: ${{ inputs.cache-key-for-build || format('build-{0}-{1}', runner.os, hashFiles('integrations/**/*', 'internal/**/*', 'packages/**/*', 'yarn.lock')) }}
+        FINAL_CACHE_KEY_FOR_BUILD: ${{ inputs.cache-key-for-build || format('build-{0}-{1}', runner.os, hashFiles('external/**/*', 'integrations/**/*', 'internal/**/*', 'packages/**/*', 'yarn.lock')) }}
       run: echo "final-cache-key-for-build=$(echo "$FINAL_CACHE_KEY_FOR_BUILD")" >> $GITHUB_OUTPUT
 
     - name: Determine node_modules cache key
@@ -105,6 +105,7 @@ runs:
         key: ${{ steps.determine-cache-key-for-node-modules.outputs.final-cache-key-for-node-modules }}
         path: |
           node_modules/
+          external/*/node_modules/
           integrations/*/node_modules/
           internal/*/*/node_modules/
           packages/*/node_modules/
@@ -131,6 +132,7 @@ runs:
         key: ${{ steps.determine-cache-key-for-node-modules.outputs.final-cache-key-for-node-modules }}
         path: |
           node_modules/
+          external/*/node_modules/
           integrations/*/node_modules/
           internal/*/*/node_modules/
           packages/*/node_modules/
@@ -142,6 +144,7 @@ runs:
       with:
         key: ${{ steps.determine-cache-key-for-build.outputs.final-cache-key-for-build }}
         path: |
+          external/*/dist/
           integrations/*/dist/
           internal/*/*/dist/
           packages/*/dist/
@@ -165,6 +168,7 @@ runs:
       with:
         key: ${{ steps.determine-cache-key-for-build.outputs.final-cache-key-for-build }}
         path: |
+          external/*/dist/
           integrations/*/dist/
           internal/*/*/dist/
           packages/*/dist/

@@ -1,6 +1,8 @@
 import {
+  createPostResolveContextHook,
   createResolveConfigHook,
   createResolveContextHook,
+  type PostResolveContextHook,
   type ResolveConfigHook,
   type ResolveContextHook,
 } from "./hooks";
@@ -11,6 +13,7 @@ export type HookSet = (
 );
 
 export type HookSetBaseProperties = {
+  postResolveContext: PostResolveContextHook;
   resolveConfig: ResolveConfigHook;
   resolveContext: ResolveContextHook;
 };
@@ -22,6 +25,7 @@ export interface HookSetCustomProperties
 export function createHookSet(): HookSet
 {
   return {
+    postResolveContext: createPostResolveContextHook(),
     resolveConfig: createResolveConfigHook(),
     resolveContext: createResolveContextHook(),
   };
