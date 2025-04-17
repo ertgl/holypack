@@ -69,7 +69,9 @@ export async function resolveConfig(
 
       [
         require.resolve("@babel/preset-typescript"),
-        {},
+        {
+          dts: true,
+        },
       ],
     ],
 
