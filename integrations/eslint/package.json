@@ -5,7 +5,7 @@
     "holypack-integration"
   ],
   "scripts": {
-    "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types",
+    "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn hack:update-package-exports",
     "clean": "rm -fr dist",
     "cmd:eslint": "cd $INIT_CWD && eslint --config ./eslint.config.mjs",
     "eslint:lint": "cd $PROJECT_CWD && yarn cmd:eslint",
@@ -57,6 +57,110 @@
       "import": "./dist/esm/index.mjs",
       "require": "./dist/cjs/index.cjs",
       "default": "./src/index.ts"
+    },
+    "./deprecated": {
+      "types": "./dist/types/deprecated/index.d.ts",
+      "import": "./dist/esm/deprecated/index.mjs",
+      "require": "./dist/cjs/deprecated/index.cjs",
+      "default": "./src/deprecated/index.ts"
+    },
+    "./deprecated/": {
+      "types": "./dist/types/deprecated/index.d.ts",
+      "import": "./dist/esm/deprecated/index.mjs",
+      "require": "./dist/cjs/deprecated/index.cjs",
+      "default": "./src/deprecated/index.ts"
+    },
+    "./deprecated/*.d.ts": {
+      "types": "./dist/types/deprecated/*.d.ts",
+      "default": "./src/deprecated/*.ts"
+    },
+    "./deprecated/*.cjs": {
+      "types": "./dist/types/deprecated/*.d.ts",
+      "import": "./dist/esm/deprecated/*.mjs",
+      "require": "./dist/cjs/deprecated/*.cjs",
+      "default": "./src/deprecated/*.ts"
+    },
+    "./deprecated/*.js": {
+      "types": "./dist/types/deprecated/*.d.ts",
+      "import": "./dist/esm/deprecated/*.mjs",
+      "require": "./dist/cjs/deprecated/*.cjs",
+      "default": "./src/deprecated/*.ts"
+    },
+    "./deprecated/*.mjs": {
+      "types": "./dist/types/deprecated/*.d.ts",
+      "import": "./dist/esm/deprecated/*.mjs",
+      "require": "./dist/cjs/deprecated/*.cjs",
+      "default": "./src/deprecated/*.ts"
+    },
+    "./deprecated/*.ts": {
+      "types": "./dist/types/deprecated/*.d.ts",
+      "import": "./dist/esm/deprecated/*.mjs",
+      "require": "./dist/cjs/deprecated/*.cjs",
+      "default": "./src/deprecated/*.ts"
+    },
+    "./deprecated/*/": {
+      "types": "./dist/types/deprecated/*/index.d.ts",
+      "import": "./dist/esm/*/deprecated/index.mjs",
+      "require": "./dist/cjs/deprecated/*/index.cjs",
+      "default": "./src/*/deprecated/index.ts"
+    },
+    "./deprecated/*": {
+      "types": "./dist/types/deprecated/*",
+      "import": "./dist/esm/deprecated/*",
+      "require": "./dist/cjs/deprecated/*",
+      "default": "./src/deprecated/*"
+    },
+    "./integration": {
+      "types": "./dist/types/integration/index.d.ts",
+      "import": "./dist/esm/integration/index.mjs",
+      "require": "./dist/cjs/integration/index.cjs",
+      "default": "./src/integration/index.ts"
+    },
+    "./integration/": {
+      "types": "./dist/types/integration/index.d.ts",
+      "import": "./dist/esm/integration/index.mjs",
+      "require": "./dist/cjs/integration/index.cjs",
+      "default": "./src/integration/index.ts"
+    },
+    "./integration/*.d.ts": {
+      "types": "./dist/types/integration/*.d.ts",
+      "default": "./src/integration/*.ts"
+    },
+    "./integration/*.cjs": {
+      "types": "./dist/types/integration/*.d.ts",
+      "import": "./dist/esm/integration/*.mjs",
+      "require": "./dist/cjs/integration/*.cjs",
+      "default": "./src/integration/*.ts"
+    },
+    "./integration/*.js": {
+      "types": "./dist/types/integration/*.d.ts",
+      "import": "./dist/esm/integration/*.mjs",
+      "require": "./dist/cjs/integration/*.cjs",
+      "default": "./src/integration/*.ts"
+    },
+    "./integration/*.mjs": {
+      "types": "./dist/types/integration/*.d.ts",
+      "import": "./dist/esm/integration/*.mjs",
+      "require": "./dist/cjs/integration/*.cjs",
+      "default": "./src/integration/*.ts"
+    },
+    "./integration/*.ts": {
+      "types": "./dist/types/integration/*.d.ts",
+      "import": "./dist/esm/integration/*.mjs",
+      "require": "./dist/cjs/integration/*.cjs",
+      "default": "./src/integration/*.ts"
+    },
+    "./integration/*/": {
+      "types": "./dist/types/integration/*/index.d.ts",
+      "import": "./dist/esm/*/integration/index.mjs",
+      "require": "./dist/cjs/integration/*/index.cjs",
+      "default": "./src/*/integration/index.ts"
+    },
+    "./integration/*": {
+      "types": "./dist/types/integration/*",
+      "import": "./dist/esm/integration/*",
+      "require": "./dist/cjs/integration/*",
+      "default": "./src/integration/*"
     },
     "./*.d.ts": {
       "types": "./dist/types/*.d.ts",
