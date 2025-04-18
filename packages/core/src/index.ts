@@ -1,5 +1,6 @@
 export * from "./config";
 export * from "./context";
+export * from "./fs";
 export * from "./hook-system";
 export * from "./hooks";
 export * from "./integration";
