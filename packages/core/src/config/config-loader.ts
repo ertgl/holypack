@@ -1,4 +1,4 @@
-import { getCWD } from "../process";
+import { resolveCWD } from "../process";
 import { maybeAwait } from "../promise";
 
 import type { Config } from "./config";
@@ -13,7 +13,7 @@ export async function loadConfig(
 
   const configFilePath = options.configFilePath ?? "";
 
-  const cwd = options.cwd ?? getCWD();
+  const cwd = resolveCWD(options.cwd);
 
   const configInput = (
     options.configInput

@@ -1,6 +1,6 @@
-import type { Repository } from "./repository";
+import type { Repository } from "../repository";
 
-declare module "../../config/config"
+declare module "../../../config/config"
 {
   interface ConfigCustomProperties
   {

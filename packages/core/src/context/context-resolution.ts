@@ -11,7 +11,7 @@ import {
   bindPlugin,
   createPluginMap,
 } from "../plugin-system";
-import { getCWD } from "../process";
+import { resolveCWD } from "../process";
 import { bindDefaultSystemPlugins } from "../system-defaults";
 
 import type {
@@ -28,7 +28,7 @@ export async function resolveContext(
 
   const configFilePath = options.configFilePath ?? "";
 
-  const cwd = options.cwd ?? getCWD();
+  const cwd = resolveCWD(options.cwd);
 
   const bindSystemPlugins = (
     options.systemPluginBinder
