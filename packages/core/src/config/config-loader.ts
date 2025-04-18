@@ -1,5 +1,5 @@
-import { resolveCWD } from "../process";
-import { maybeAwait } from "../promise";
+import { resolveCWD } from "../plugins/cwd";
+import { maybeAwait } from "../utils/promise";
 
 import type { Config } from "./config";
 import { loadConfigInput } from "./config-input-loader";

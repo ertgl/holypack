@@ -1,6 +1,6 @@
 import type { Config } from "../../config";
 import type { Context } from "../../context";
-import type { Plugin } from "../../plugin-system";
+import type { Plugin } from "../../extension";
 
 import { RepositoryPluginAPI } from "./repository-plugin-api";
 
@@ -26,6 +26,7 @@ export class RepositoryPlugin implements Plugin
 
     if (!rootPath)
     {
+      // TODO(ertgl): Maybe respect the `workspaces` field in the `package.json` file.
       rootPath = await this.api.findRootPath({
         cwd: context.cwd,
       });

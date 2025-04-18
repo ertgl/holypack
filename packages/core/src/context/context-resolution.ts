@@ -1,18 +1,18 @@
+import { bindDefaultSystemPlugins } from "../bootstrap";
 import {
   loadConfig,
   loadConfigInput,
 } from "../config";
-import { createHookSet } from "../hook-system";
+import { createHookSet } from "../eventing";
+import {
+  bindPlugin,
+  createPluginMap,
+} from "../extension";
 import {
   bindIntegration,
   createIntegrationMap,
 } from "../integration";
-import {
-  bindPlugin,
-  createPluginMap,
-} from "../plugin-system";
-import { resolveCWD } from "../process";
-import { bindDefaultSystemPlugins } from "../system-defaults";
+import { resolveCWD } from "../plugins/cwd";
 
 import type {
   Context,

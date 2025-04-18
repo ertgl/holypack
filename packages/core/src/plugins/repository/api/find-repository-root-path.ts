@@ -1,16 +1,32 @@
-import { resolveCWD } from "../../../process";
+import { resolveCWD } from "../../cwd";
+import { findRootPath, ROOT_PATH_FINDER_TARGET_OUTERMOST, type RootPathFinderFS } from "../../fs";
+
+export type RepositoryPathFinderFS = (
+  & RootPathFinderFS
+);
 
 export type RepositoryPathFinderOptions = {
   cwd?: null | string;
+  fs?: null | RepositoryPathFinderFS;
 };
 
-// eslint-disable-next-line @typescript-eslint/require-await
 export async function findRepositoryRootPath(
   options?: null | RepositoryPathFinderOptions,
 ): Promise<string>
 {
   options ??= {};
 
-  // TODO(ertgl): Search up the directory tree to find the root path of the repository.
-  return resolveCWD(options.cwd);
+  const cwd = resolveCWD(options.cwd);
+  const rootPath = findRootPath(
+    cwd,
+    [
+      "package.json",
+    ],
+    {
+      fs: options.fs,
+      target: ROOT_PATH_FINDER_TARGET_OUTERMOST,
+    },
+  );
+
+  return rootPath;
 }

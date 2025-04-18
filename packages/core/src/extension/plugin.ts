@@ -7,7 +7,7 @@ import type {
 import type {
   Hook,
   HookSubscriptionID,
-} from "../hook-system";
+} from "../eventing";
 
 export interface Plugin
 {

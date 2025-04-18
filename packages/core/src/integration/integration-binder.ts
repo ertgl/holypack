@@ -1,9 +1,9 @@
 import type { Context } from "../context";
-import { generateHookSubscriptionIDForPlugin } from "../hook-system";
+import { generateHookSubscriptionIDForPlugin } from "../eventing";
 import {
   bindPlugin,
   type PluginBinderOptions,
-} from "../plugin-system";
+} from "../extension";
 
 import type { Integration } from "./integration";
 import { createIntegrationBinderLooseErrorFactory } from "./integration-binder-loose-error-factory";

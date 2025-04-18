@@ -1,5 +1,5 @@
+import type { Plugin } from "../extension";
 import type { Integration } from "../integration";
-import type { Plugin } from "../plugin-system";
 
 export type Config = (
   & ConfigBaseProperties
