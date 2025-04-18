@@ -1871,6 +1871,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@holypack/__hack__@workspace:hack":
+  version: 0.0.0-use.local
+  resolution: "@holypack/__hack__@workspace:hack"
+  languageName: unknown
+  linkType: soft
+
 "@holypack/__monorepo__@workspace:.":
   version: 0.0.0-use.local
   resolution: "@holypack/__monorepo__@workspace:."

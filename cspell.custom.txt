@@ -7,6 +7,9 @@ ctsx
 mjsx
 mtsx
 
+# Node.js fs
+dirents
+
 # Project specific
 holypack
 
