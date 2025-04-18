@@ -1,4 +1,4 @@
-import type { HookSubscriptionIDGenerator } from "../hook-system";
+import type { HookSubscriptionIDGenerator } from "../eventing";
 
 import type { PluginBinderLooseErrorFactory } from "./plugin-binder-loose-error-factory";
 import type { PluginRegistryGetter } from "./plugin-registry-getter";

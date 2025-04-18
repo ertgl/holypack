@@ -3,3 +3,4 @@
 /.yarn/plugins/**/*  binary
 e2e/**               linguist-vendored
 dist/**              linguist-generated
+yarn.lock            linguist-vendored

@@ -1,4 +1,4 @@
-import { getCWD } from "../process";
+import { resolveCWD } from "../plugins/cwd";
 
 import type { ConfigInput } from "./config-input";
 import type { ConfigInputLoaderOptions } from "./config-input-loader-options";
@@ -12,7 +12,7 @@ export async function loadConfigInput(
 
   const configFilePath = options.configFilePath ?? "";
 
-  const cwd = options.cwd ?? getCWD();
+  const cwd = resolveCWD(options.cwd);
 
   const configSearchResult = await searchConfig(
     cwd,

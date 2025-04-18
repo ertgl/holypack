@@ -18,6 +18,7 @@
     "test": "yarn w:foreach::parallel::topological run test"
   },
   "workspaces": [
+    "./hack",
     "./external/*",
     "./integrations/*",
     "./internal/*/*",

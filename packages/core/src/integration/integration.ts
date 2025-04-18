@@ -1,7 +1,7 @@
 import type {
   Plugin,
   PluginName,
-} from "../plugin-system";
+} from "../extension";
 
 export interface Integration extends Plugin
 {

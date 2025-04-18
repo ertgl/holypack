@@ -1,18 +1,18 @@
+import { bindDefaultSystemPlugins } from "../bootstrap";
 import {
   loadConfig,
   loadConfigInput,
 } from "../config";
-import { createHookSet } from "../hook-system";
+import { createHookSet } from "../eventing";
+import {
+  bindPlugin,
+  createPluginMap,
+} from "../extension";
 import {
   bindIntegration,
   createIntegrationMap,
 } from "../integration";
-import {
-  bindPlugin,
-  createPluginMap,
-} from "../plugin-system";
-import { getCWD } from "../process";
-import { bindDefaultSystemPlugins } from "../system-defaults";
+import { resolveCWD } from "../plugins/cwd";
 
 import type {
   Context,
@@ -28,7 +28,7 @@ export async function resolveContext(
 
   const configFilePath = options.configFilePath ?? "";
 
-  const cwd = options.cwd ?? getCWD();
+  const cwd = resolveCWD(options.cwd);
 
   const bindSystemPlugins = (
     options.systemPluginBinder

@@ -1,7 +1,7 @@
 {
   "name": "holypack",
   "scripts": {
-    "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types",
+    "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn hack:update-package-exports",
     "clean": "rm -fr dist"
   },
   "dependencies": {
@@ -21,6 +21,110 @@
       "import": "./dist/esm/index.mjs",
       "require": "./dist/cjs/index.cjs",
       "default": "./src/index.ts"
+    },
+    "./config": {
+      "types": "./dist/types/config/index.d.ts",
+      "import": "./dist/esm/config/index.mjs",
+      "require": "./dist/cjs/config/index.cjs",
+      "default": "./src/config/index.ts"
+    },
+    "./config/": {
+      "types": "./dist/types/config/index.d.ts",
+      "import": "./dist/esm/config/index.mjs",
+      "require": "./dist/cjs/config/index.cjs",
+      "default": "./src/config/index.ts"
+    },
+    "./config/*.d.ts": {
+      "types": "./dist/types/config/*.d.ts",
+      "default": "./src/config/*.ts"
+    },
+    "./config/*.cjs": {
+      "types": "./dist/types/config/*.d.ts",
+      "import": "./dist/esm/config/*.mjs",
+      "require": "./dist/cjs/config/*.cjs",
+      "default": "./src/config/*.ts"
+    },
+    "./config/*.js": {
+      "types": "./dist/types/config/*.d.ts",
+      "import": "./dist/esm/config/*.mjs",
+      "require": "./dist/cjs/config/*.cjs",
+      "default": "./src/config/*.ts"
+    },
+    "./config/*.mjs": {
+      "types": "./dist/types/config/*.d.ts",
+      "import": "./dist/esm/config/*.mjs",
+      "require": "./dist/cjs/config/*.cjs",
+      "default": "./src/config/*.ts"
+    },
+    "./config/*.ts": {
+      "types": "./dist/types/config/*.d.ts",
+      "import": "./dist/esm/config/*.mjs",
+      "require": "./dist/cjs/config/*.cjs",
+      "default": "./src/config/*.ts"
+    },
+    "./config/*/": {
+      "types": "./dist/types/config/*/index.d.ts",
+      "import": "./dist/esm/*/config/index.mjs",
+      "require": "./dist/cjs/config/*/index.cjs",
+      "default": "./src/*/config/index.ts"
+    },
+    "./config/*": {
+      "types": "./dist/types/config/*",
+      "import": "./dist/esm/config/*",
+      "require": "./dist/cjs/config/*",
+      "default": "./src/config/*"
+    },
+    "./context": {
+      "types": "./dist/types/context/index.d.ts",
+      "import": "./dist/esm/context/index.mjs",
+      "require": "./dist/cjs/context/index.cjs",
+      "default": "./src/context/index.ts"
+    },
+    "./context/": {
+      "types": "./dist/types/context/index.d.ts",
+      "import": "./dist/esm/context/index.mjs",
+      "require": "./dist/cjs/context/index.cjs",
+      "default": "./src/context/index.ts"
+    },
+    "./context/*.d.ts": {
+      "types": "./dist/types/context/*.d.ts",
+      "default": "./src/context/*.ts"
+    },
+    "./context/*.cjs": {
+      "types": "./dist/types/context/*.d.ts",
+      "import": "./dist/esm/context/*.mjs",
+      "require": "./dist/cjs/context/*.cjs",
+      "default": "./src/context/*.ts"
+    },
+    "./context/*.js": {
+      "types": "./dist/types/context/*.d.ts",
+      "import": "./dist/esm/context/*.mjs",
+      "require": "./dist/cjs/context/*.cjs",
+      "default": "./src/context/*.ts"
+    },
+    "./context/*.mjs": {
+      "types": "./dist/types/context/*.d.ts",
+      "import": "./dist/esm/context/*.mjs",
+      "require": "./dist/cjs/context/*.cjs",
+      "default": "./src/context/*.ts"
+    },
+    "./context/*.ts": {
+      "types": "./dist/types/context/*.d.ts",
+      "import": "./dist/esm/context/*.mjs",
+      "require": "./dist/cjs/context/*.cjs",
+      "default": "./src/context/*.ts"
+    },
+    "./context/*/": {
+      "types": "./dist/types/context/*/index.d.ts",
+      "import": "./dist/esm/*/context/index.mjs",
+      "require": "./dist/cjs/context/*/index.cjs",
+      "default": "./src/*/context/index.ts"
+    },
+    "./context/*": {
+      "types": "./dist/types/context/*",
+      "import": "./dist/esm/context/*",
+      "require": "./dist/cjs/context/*",
+      "default": "./src/context/*"
     },
     "./*.d.ts": {
       "types": "./dist/types/*.d.ts",

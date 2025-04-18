@@ -1,4 +1,4 @@
-import { createPluginMap } from "../plugin-system";
+import { createPluginMap } from "../extension";
 
 import type {
   Integration,

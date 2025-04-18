@@ -1,9 +1,9 @@
 import type {
   Repository,
   ResolvedRepository,
-} from "./repository";
+} from "../repository";
 
-declare module "../../context/context"
+declare module "../../../context/context"
 {
   interface ContextCustomProperties
   {

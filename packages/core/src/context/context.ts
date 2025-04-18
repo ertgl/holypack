@@ -1,7 +1,7 @@
 import type { ResolvedConfig } from "../config";
-import type { HookSet } from "../hook-system";
+import type { HookSet } from "../eventing";
+import type { PluginMap } from "../extension";
 import type { IntegrationMap } from "../integration";
-import type { PluginMap } from "../plugin-system";
 
 export type Context = (
   & ContextBaseProperties

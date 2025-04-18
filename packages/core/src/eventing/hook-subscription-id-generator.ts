@@ -1,4 +1,4 @@
-import type { Plugin } from "../plugin-system";
+import type { Plugin } from "../extension";
 
 import { HookNameIsNotDefinedError } from "./errors";
 import type { Hook } from "./hook";

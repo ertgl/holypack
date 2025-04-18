@@ -8,7 +8,7 @@
     "holypack-external"
   ],
   "scripts": {
-    "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types",
+    "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn hack:update-package-exports",
     "clean": "rm -fr dist"
   },
   "peerDependencies": {
