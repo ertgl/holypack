@@ -1891,6 +1891,7 @@ __metadata:
   dependencies:
     cosmiconfig: "npm:^9.0.0"
   peerDependencies:
+    picomatch: "*"
     tapable: "*"
   languageName: node
   linkType: soft
@@ -1900,9 +1901,12 @@ __metadata:
   resolution: "@holypack/core@workspace:packages/core"
   dependencies:
     "@holypack/integration-babel": "workspace:*"
+    "@types/picomatch": "npm:^4"
     cosmiconfig: "npm:^9.0.0"
+    picomatch: "npm:^4.0.2"
     tapable: "npm:^2.2.1"
   peerDependencies:
+    picomatch: "*"
     tapable: "*"
   languageName: unknown
   linkType: soft
@@ -2334,6 +2338,13 @@ __metadata:
   dependencies:
     undici-types: "npm:~6.21.0"
   checksum: 10c0/d49c4d00403b1c2348cf0701b505fd636d80aabe18102105998dc62fdd36dcaf911e73c7a868c48c21c1022b825c67b475b65b1222d84b704d8244d152bb7f86
+  languageName: node
+  linkType: hard
+
+"@types/picomatch@npm:^4":
+  version: 4.0.0
+  resolution: "@types/picomatch@npm:4.0.0"
+  checksum: 10c0/6455234501d3829301cc7291d5322b1737fd96fae7f0617c3b3ec97a58c41a3a3f40df65117714e502c245f603184a4511883c74727b7a9f9957b3fec0777e97
   languageName: node
   linkType: hard
 

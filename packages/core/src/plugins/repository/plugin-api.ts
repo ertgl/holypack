@@ -1,11 +1,13 @@
-import {
-  findRepositoryRootPath,
-  type RepositoryPathFinderOptions,
-  type RepositoryResolutionOptions,
-  resolveRepository,
-} from "./api";
 import type { RepositoryPlugin } from "./plugin";
 import type { ResolvedRepository } from "./repository";
+import {
+  type RepositoryResolutionOptions,
+  resolveRepository,
+} from "./resolution";
+import {
+  findRepositoryRootPath,
+  type RepositoryRootPathFinderOptions,
+} from "./root-path-finder";
 
 export class RepositoryPluginAPI
 {
@@ -19,7 +21,7 @@ export class RepositoryPluginAPI
   }
 
   async findRootPath(
-    options?: null | RepositoryPathFinderOptions,
+    options?: null | RepositoryRootPathFinderOptions,
   ): Promise<string>
   {
     return await findRepositoryRootPath(options);

@@ -12,7 +12,7 @@ import {
   bindIntegration,
   createIntegrationMap,
 } from "../integration";
-import { resolveCWD } from "../plugins/cwd/api";
+import { resolveCWD } from "../utils/process/cwd";
 
 import type {
   Context,

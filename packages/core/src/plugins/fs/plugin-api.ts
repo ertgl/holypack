@@ -2,10 +2,14 @@ import type { PathLike } from "node:fs";
 
 import {
   checkIfPathExists,
-  findRootPath,
   type PathExistenceCheckerOptions,
+} from "../../utils/fs/path-existence-checker";
+import {
+  findRootPath,
   type RootPathFinderOptions,
-} from "./api";
+} from "../../utils/fs/root-path-finder";
+import { convertPathLikeToString } from "../../utils/path";
+
 import type { FileSystemPlugin } from "./plugin";
 
 export class FileSystemPluginAPI
@@ -28,6 +32,13 @@ export class FileSystemPluginAPI
       path,
       options,
     );
+  }
+
+  convertPathLikeToString(
+    path: PathLike,
+  ): string
+  {
+    return convertPathLikeToString(path);
   }
 
   async findRootPath(

@@ -1,12 +1,9 @@
-import type { PackageJSON } from "../package";
-
 export type Repository = (
   & RepositoryBaseProperties
   & RepositoryCustomProperties
 );
 
 export type RepositoryBaseProperties = {
-  packageJSON?: null | PackageJSON;
   path?: null | string;
 };
 
@@ -20,7 +17,6 @@ export type ResolvedRepository = (
 );
 
 export type ResolvedRepositoryBaseProperties = {
-  packageJSON: PackageJSON;
   path: string;
 };
 

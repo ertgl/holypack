@@ -1,5 +1,5 @@
-import type { RepositoryPathFinderFS } from "../api";
+import type { RepositoryRootPathFinderFS } from "../root-path-finder";
 
 export type RepositoryResolutionFS = (
-  & RepositoryPathFinderFS
+  & RepositoryRootPathFinderFS
 );
