@@ -1,6 +1,6 @@
 import type { Plugin } from "../../extension";
 
-import { FileSystemPluginAPI } from "./file-system-plugin-api";
+import { FileSystemPluginAPI } from "./plugin-api";
 
 export const PLUGIN_NAME_FILE_SYSTEM = "@holypack/core:FileSystem";
 

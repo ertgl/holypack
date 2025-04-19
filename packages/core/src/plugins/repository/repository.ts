@@ -1,10 +1,13 @@
+import type { PackageJSON } from "../package";
+
 export type Repository = (
   & RepositoryBaseProperties
   & RepositoryCustomProperties
 );
 
 export type RepositoryBaseProperties = {
-  path: string;
+  packageJSON?: null | PackageJSON;
+  path?: null | string;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
@@ -17,6 +20,7 @@ export type ResolvedRepository = (
 );
 
 export type ResolvedRepositoryBaseProperties = {
+  packageJSON: PackageJSON;
   path: string;
 };
 

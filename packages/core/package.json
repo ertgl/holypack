@@ -286,6 +286,58 @@
       "require": "./dist/cjs/plugins/fs/api/*",
       "default": "./src/plugins/fs/api/*"
     },
+    "./plugins/package/api": {
+      "types": "./dist/types/plugins/package/api/index.d.ts",
+      "import": "./dist/esm/plugins/package/api/index.mjs",
+      "require": "./dist/cjs/plugins/package/api/index.cjs",
+      "default": "./src/plugins/package/api/index.ts"
+    },
+    "./plugins/package/api/": {
+      "types": "./dist/types/plugins/package/api/index.d.ts",
+      "import": "./dist/esm/plugins/package/api/index.mjs",
+      "require": "./dist/cjs/plugins/package/api/index.cjs",
+      "default": "./src/plugins/package/api/index.ts"
+    },
+    "./plugins/package/api/*.d.ts": {
+      "types": "./dist/types/plugins/package/api/*.d.ts",
+      "default": "./src/plugins/package/api/*.ts"
+    },
+    "./plugins/package/api/*.cjs": {
+      "types": "./dist/types/plugins/package/api/*.d.ts",
+      "import": "./dist/esm/plugins/package/api/*.mjs",
+      "require": "./dist/cjs/plugins/package/api/*.cjs",
+      "default": "./src/plugins/package/api/*.ts"
+    },
+    "./plugins/package/api/*.js": {
+      "types": "./dist/types/plugins/package/api/*.d.ts",
+      "import": "./dist/esm/plugins/package/api/*.mjs",
+      "require": "./dist/cjs/plugins/package/api/*.cjs",
+      "default": "./src/plugins/package/api/*.ts"
+    },
+    "./plugins/package/api/*.mjs": {
+      "types": "./dist/types/plugins/package/api/*.d.ts",
+      "import": "./dist/esm/plugins/package/api/*.mjs",
+      "require": "./dist/cjs/plugins/package/api/*.cjs",
+      "default": "./src/plugins/package/api/*.ts"
+    },
+    "./plugins/package/api/*.ts": {
+      "types": "./dist/types/plugins/package/api/*.d.ts",
+      "import": "./dist/esm/plugins/package/api/*.mjs",
+      "require": "./dist/cjs/plugins/package/api/*.cjs",
+      "default": "./src/plugins/package/api/*.ts"
+    },
+    "./plugins/package/api/*/": {
+      "types": "./dist/types/plugins/package/api/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/package/api/index.mjs",
+      "require": "./dist/cjs/plugins/package/api/*/index.cjs",
+      "default": "./src/*/plugins/package/api/index.ts"
+    },
+    "./plugins/package/api/*": {
+      "types": "./dist/types/plugins/package/api/*",
+      "import": "./dist/esm/plugins/package/api/*",
+      "require": "./dist/cjs/plugins/package/api/*",
+      "default": "./src/plugins/package/api/*"
+    },
     "./plugins/repository/api": {
       "types": "./dist/types/plugins/repository/api/index.d.ts",
       "import": "./dist/esm/plugins/repository/api/index.mjs",
@@ -390,6 +442,58 @@
       "require": "./dist/cjs/plugins/repository/module-augmentation/*",
       "default": "./src/plugins/repository/module-augmentation/*"
     },
+    "./plugins/repository/resolution": {
+      "types": "./dist/types/plugins/repository/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/repository/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/repository/resolution/index.cjs",
+      "default": "./src/plugins/repository/resolution/index.ts"
+    },
+    "./plugins/repository/resolution/": {
+      "types": "./dist/types/plugins/repository/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/repository/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/repository/resolution/index.cjs",
+      "default": "./src/plugins/repository/resolution/index.ts"
+    },
+    "./plugins/repository/resolution/*.d.ts": {
+      "types": "./dist/types/plugins/repository/resolution/*.d.ts",
+      "default": "./src/plugins/repository/resolution/*.ts"
+    },
+    "./plugins/repository/resolution/*.cjs": {
+      "types": "./dist/types/plugins/repository/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/repository/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/repository/resolution/*.cjs",
+      "default": "./src/plugins/repository/resolution/*.ts"
+    },
+    "./plugins/repository/resolution/*.js": {
+      "types": "./dist/types/plugins/repository/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/repository/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/repository/resolution/*.cjs",
+      "default": "./src/plugins/repository/resolution/*.ts"
+    },
+    "./plugins/repository/resolution/*.mjs": {
+      "types": "./dist/types/plugins/repository/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/repository/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/repository/resolution/*.cjs",
+      "default": "./src/plugins/repository/resolution/*.ts"
+    },
+    "./plugins/repository/resolution/*.ts": {
+      "types": "./dist/types/plugins/repository/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/repository/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/repository/resolution/*.cjs",
+      "default": "./src/plugins/repository/resolution/*.ts"
+    },
+    "./plugins/repository/resolution/*/": {
+      "types": "./dist/types/plugins/repository/resolution/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/repository/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/repository/resolution/*/index.cjs",
+      "default": "./src/*/plugins/repository/resolution/index.ts"
+    },
+    "./plugins/repository/resolution/*": {
+      "types": "./dist/types/plugins/repository/resolution/*",
+      "import": "./dist/esm/plugins/repository/resolution/*",
+      "require": "./dist/cjs/plugins/repository/resolution/*",
+      "default": "./src/plugins/repository/resolution/*"
+    },
     "./plugins/cwd": {
       "types": "./dist/types/plugins/cwd/index.d.ts",
       "import": "./dist/esm/plugins/cwd/index.mjs",
@@ -493,6 +597,58 @@
       "import": "./dist/esm/plugins/fs/*",
       "require": "./dist/cjs/plugins/fs/*",
       "default": "./src/plugins/fs/*"
+    },
+    "./plugins/package": {
+      "types": "./dist/types/plugins/package/index.d.ts",
+      "import": "./dist/esm/plugins/package/index.mjs",
+      "require": "./dist/cjs/plugins/package/index.cjs",
+      "default": "./src/plugins/package/index.ts"
+    },
+    "./plugins/package/": {
+      "types": "./dist/types/plugins/package/index.d.ts",
+      "import": "./dist/esm/plugins/package/index.mjs",
+      "require": "./dist/cjs/plugins/package/index.cjs",
+      "default": "./src/plugins/package/index.ts"
+    },
+    "./plugins/package/*.d.ts": {
+      "types": "./dist/types/plugins/package/*.d.ts",
+      "default": "./src/plugins/package/*.ts"
+    },
+    "./plugins/package/*.cjs": {
+      "types": "./dist/types/plugins/package/*.d.ts",
+      "import": "./dist/esm/plugins/package/*.mjs",
+      "require": "./dist/cjs/plugins/package/*.cjs",
+      "default": "./src/plugins/package/*.ts"
+    },
+    "./plugins/package/*.js": {
+      "types": "./dist/types/plugins/package/*.d.ts",
+      "import": "./dist/esm/plugins/package/*.mjs",
+      "require": "./dist/cjs/plugins/package/*.cjs",
+      "default": "./src/plugins/package/*.ts"
+    },
+    "./plugins/package/*.mjs": {
+      "types": "./dist/types/plugins/package/*.d.ts",
+      "import": "./dist/esm/plugins/package/*.mjs",
+      "require": "./dist/cjs/plugins/package/*.cjs",
+      "default": "./src/plugins/package/*.ts"
+    },
+    "./plugins/package/*.ts": {
+      "types": "./dist/types/plugins/package/*.d.ts",
+      "import": "./dist/esm/plugins/package/*.mjs",
+      "require": "./dist/cjs/plugins/package/*.cjs",
+      "default": "./src/plugins/package/*.ts"
+    },
+    "./plugins/package/*/": {
+      "types": "./dist/types/plugins/package/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/package/index.mjs",
+      "require": "./dist/cjs/plugins/package/*/index.cjs",
+      "default": "./src/*/plugins/package/index.ts"
+    },
+    "./plugins/package/*": {
+      "types": "./dist/types/plugins/package/*",
+      "import": "./dist/esm/plugins/package/*",
+      "require": "./dist/cjs/plugins/package/*",
+      "default": "./src/plugins/package/*"
     },
     "./plugins/repository": {
       "types": "./dist/types/plugins/repository/index.d.ts",

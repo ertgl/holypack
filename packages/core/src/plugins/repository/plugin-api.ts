@@ -1,8 +1,11 @@
 import {
   findRepositoryRootPath,
   type RepositoryPathFinderOptions,
+  type RepositoryResolutionOptions,
+  resolveRepository,
 } from "./api";
-import type { RepositoryPlugin } from "./repository-plugin";
+import type { RepositoryPlugin } from "./plugin";
+import type { ResolvedRepository } from "./repository";
 
 export class RepositoryPluginAPI
 {
@@ -20,5 +23,12 @@ export class RepositoryPluginAPI
   ): Promise<string>
   {
     return await findRepositoryRootPath(options);
+  }
+
+  async resolve(
+    options?: null | RepositoryResolutionOptions,
+  ): Promise<ResolvedRepository>
+  {
+    return await resolveRepository(options);
   }
 }

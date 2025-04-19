@@ -2,6 +2,7 @@ import type { Context } from "../context";
 import { bindPlugin } from "../extension";
 import { createCWDPlugin } from "../plugins/cwd";
 import { createFileSystemPlugin } from "../plugins/fs";
+import { createPackagePlugin } from "../plugins/package";
 import { createRepositoryPlugin } from "../plugins/repository";
 
 export type SystemPluginBinder = (
@@ -14,5 +15,6 @@ export function bindDefaultSystemPlugins(
 {
   bindPlugin(context, createCWDPlugin());
   bindPlugin(context, createFileSystemPlugin());
+  bindPlugin(context, createPackagePlugin());
   bindPlugin(context, createRepositoryPlugin());
 }

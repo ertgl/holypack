@@ -6,7 +6,7 @@ import {
   type PathExistenceCheckerOptions,
   type RootPathFinderOptions,
 } from "./api";
-import type { FileSystemPlugin } from "./file-system-plugin";
+import type { FileSystemPlugin } from "./plugin";
 
 export class FileSystemPluginAPI
 {

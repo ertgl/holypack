@@ -1,6 +1,6 @@
 import type { Plugin } from "../../extension";
 
-import { CWDPluginAPI } from "./cwd-plugin-api";
+import { CWDPluginAPI } from "./plugin-api";
 
 export const PLUGIN_NAME_CWD = "@holypack/core:CWD";
 

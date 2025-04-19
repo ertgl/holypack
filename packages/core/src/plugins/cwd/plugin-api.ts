@@ -4,7 +4,7 @@ import {
   getProcessCWD,
   resolveCWD,
 } from "./api";
-import type { CWDPlugin } from "./cwd-plugin";
+import type { CWDPlugin } from "./plugin";
 
 export class CWDPluginAPI
 {

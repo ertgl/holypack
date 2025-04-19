@@ -1,5 +1,5 @@
 import type { PathLike } from "../../../fs";
-import { convertPathLikeToString } from "../../fs";
+import { convertPathLikeToString } from "../../fs/api";
 
 import { getProcessCWD } from "./get-process-cwd";
 
