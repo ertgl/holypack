@@ -7,11 +7,13 @@ import type {
 } from "./integration-options";
 import { resolveOptions } from "./integration-options-resolution";
 
+export const INTEGRATION_NAME_ESLINT = "@holypack/integration:ESLint";
+
 export class ESLintIntegration implements Integration
 {
   api: ESLintIntegrationAPI;
 
-  name = "eslint";
+  name = INTEGRATION_NAME_ESLINT;
 
   options: ResolvedOptions;
 

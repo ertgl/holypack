@@ -23,6 +23,11 @@
     "@types/babel__preset-env": "^7",
     "typescript": "^5.8.3"
   },
+  "files": [
+    "./dist/",
+    "./src/",
+    "./package.json"
+  ],
   "type": "module",
   "main": "./dist/cjs/index.cjs",
   "module": "./dist/esm/index.mjs",
@@ -75,10 +80,5 @@
       "require": "./dist/cjs/*",
       "default": "./src/*"
     }
-  },
-  "files": [
-    "./dist/",
-    "./src/",
-    "./package.json"
-  ]
+  }
 }

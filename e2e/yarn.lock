@@ -135,6 +135,7 @@ __metadata:
   dependencies:
     cosmiconfig: "npm:^9.0.0"
   peerDependencies:
+    picomatch: "*"
     tapable: "*"
   languageName: node
   linkType: soft

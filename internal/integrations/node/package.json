@@ -7,10 +7,10 @@
   "devDependencies": {
     "@types/node": "^22.14.1"
   },
-  "exports": {
-    "./package.json": "./package.json"
-  },
   "files": [
     "./package.json"
-  ]
+  ],
+  "exports": {
+    "./package.json": "./package.json"
+  }
 }

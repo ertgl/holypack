@@ -1,4 +1,4 @@
-import { resolveCWD } from "../plugins/cwd";
+import { resolveCWD } from "../utils/process/cwd";
 import { maybeAwait } from "../utils/promise";
 
 import type { Config } from "./config";

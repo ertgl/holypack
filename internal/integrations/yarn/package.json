@@ -8,10 +8,10 @@
     "w:foreach::parallel::topological": "cd $INIT_CWD && yarn w:foreach::parallel --topological-dev",
     "w:foreach::parallel::topological::interlaced": "cd $INIT_CWD && yarn w:foreach::parallel::topological --interlaced"
   },
-  "exports": {
-    "./package.json": "./package.json"
-  },
   "files": [
     "./package.json"
-  ]
+  ],
+  "exports": {
+    "./package.json": "./package.json"
+  }
 }

@@ -1,8 +1,10 @@
 import type { Context } from "../context";
 import { bindPlugin } from "../extension";
-import { createCWDPlugin } from "../plugins/cwd";
-import { createFileSystemPlugin } from "../plugins/fs";
-import { createRepositoryPlugin } from "../plugins/repository";
+import fs from "../plugins/fs";
+import package_ from "../plugins/package";
+import processCWD from "../plugins/process/cwd";
+import project from "../plugins/project";
+import repository from "../plugins/repository";
 
 export type SystemPluginBinder = (
   context: Context,
@@ -12,7 +14,9 @@ export function bindDefaultSystemPlugins(
   context: Context,
 ): void
 {
-  bindPlugin(context, createCWDPlugin());
-  bindPlugin(context, createFileSystemPlugin());
-  bindPlugin(context, createRepositoryPlugin());
+  bindPlugin(context, processCWD());
+  bindPlugin(context, fs());
+  bindPlugin(context, package_());
+  bindPlugin(context, repository());
+  bindPlugin(context, project());
 }

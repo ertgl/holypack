@@ -1,5 +1,7 @@
 import type { Linter } from "eslint";
 
+import type { ResolvedContext } from "@holypack/core";
+
 import type { ESLintIntegration } from "./integration";
 
 export class ESLintIntegrationAPI
@@ -14,7 +16,9 @@ export class ESLintIntegrationAPI
   }
 
   // eslint-disable-next-line @typescript-eslint/require-await
-  async generateConfig(): Promise<Linter.Config[]>
+  async generateConfig(
+    context: ResolvedContext,
+  ): Promise<Linter.Config[]>
   {
     return [];
   }
