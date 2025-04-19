@@ -4,9 +4,10 @@ import type {
 } from "eslint";
 
 import { resolveContext } from "@holypack/core";
-import type {
-  ESLintIntegration,
-  ESLintIntegrationAPI,
+import {
+  type ESLintIntegration,
+  type ESLintIntegrationAPI,
+  INTEGRATION_NAME_ESLINT,
 } from "@holypack/integration-eslint";
 
 import type { HolypackPluginOptions } from "./plugin-options";
@@ -38,7 +39,9 @@ export async function createHolypackPlugin(
 
   const context = await resolveContext(options.context);
 
-  const integration = context.integrations.get("eslint") as ESLintIntegration | undefined;
+  const integration = context.integrations.get(
+    INTEGRATION_NAME_ESLINT,
+  ) as ESLintIntegration | undefined;
 
   if (integration == null)
   {
@@ -54,7 +57,7 @@ export async function createHolypackPlugin(
 
   return {
     configs: {
-      recommended: await integration.api.generateConfig(),
+      recommended: await integration.api.generateConfig(context),
     },
     meta: {
       name: "@holypack/eslint-plugin",
