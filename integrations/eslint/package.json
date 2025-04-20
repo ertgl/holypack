@@ -68,6 +68,58 @@
       "require": "./dist/cjs/index.cjs",
       "default": "./src/index.ts"
     },
+    "./constants/glob-patterns": {
+      "types": "./dist/types/constants/glob-patterns/index.d.ts",
+      "import": "./dist/esm/constants/glob-patterns/index.mjs",
+      "require": "./dist/cjs/constants/glob-patterns/index.cjs",
+      "default": "./src/constants/glob-patterns/index.ts"
+    },
+    "./constants/glob-patterns/": {
+      "types": "./dist/types/constants/glob-patterns/index.d.ts",
+      "import": "./dist/esm/constants/glob-patterns/index.mjs",
+      "require": "./dist/cjs/constants/glob-patterns/index.cjs",
+      "default": "./src/constants/glob-patterns/index.ts"
+    },
+    "./constants/glob-patterns/*.d.ts": {
+      "types": "./dist/types/constants/glob-patterns/*.d.ts",
+      "default": "./src/constants/glob-patterns/*.ts"
+    },
+    "./constants/glob-patterns/*.cjs": {
+      "types": "./dist/types/constants/glob-patterns/*.d.ts",
+      "import": "./dist/esm/constants/glob-patterns/*.mjs",
+      "require": "./dist/cjs/constants/glob-patterns/*.cjs",
+      "default": "./src/constants/glob-patterns/*.ts"
+    },
+    "./constants/glob-patterns/*.js": {
+      "types": "./dist/types/constants/glob-patterns/*.d.ts",
+      "import": "./dist/esm/constants/glob-patterns/*.mjs",
+      "require": "./dist/cjs/constants/glob-patterns/*.cjs",
+      "default": "./src/constants/glob-patterns/*.ts"
+    },
+    "./constants/glob-patterns/*.mjs": {
+      "types": "./dist/types/constants/glob-patterns/*.d.ts",
+      "import": "./dist/esm/constants/glob-patterns/*.mjs",
+      "require": "./dist/cjs/constants/glob-patterns/*.cjs",
+      "default": "./src/constants/glob-patterns/*.ts"
+    },
+    "./constants/glob-patterns/*.ts": {
+      "types": "./dist/types/constants/glob-patterns/*.d.ts",
+      "import": "./dist/esm/constants/glob-patterns/*.mjs",
+      "require": "./dist/cjs/constants/glob-patterns/*.cjs",
+      "default": "./src/constants/glob-patterns/*.ts"
+    },
+    "./constants/glob-patterns/*/": {
+      "types": "./dist/types/constants/glob-patterns/*/index.d.ts",
+      "import": "./dist/esm/*/constants/glob-patterns/index.mjs",
+      "require": "./dist/cjs/constants/glob-patterns/*/index.cjs",
+      "default": "./src/*/constants/glob-patterns/index.ts"
+    },
+    "./constants/glob-patterns/*": {
+      "types": "./dist/types/constants/glob-patterns/*",
+      "import": "./dist/esm/constants/glob-patterns/*",
+      "require": "./dist/cjs/constants/glob-patterns/*",
+      "default": "./src/constants/glob-patterns/*"
+    },
     "./integration/module-augmentation": {
       "types": "./dist/types/integration/module-augmentation/index.d.ts",
       "import": "./dist/esm/integration/module-augmentation/index.mjs",
@@ -172,6 +224,110 @@
       "require": "./dist/cjs/plugins/cspell/module-augmentation/*",
       "default": "./src/plugins/cspell/module-augmentation/*"
     },
+    "./plugins/eslint/js/module-augmentation": {
+      "types": "./dist/types/plugins/eslint/js/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/eslint/js/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/js/module-augmentation/index.cjs",
+      "default": "./src/plugins/eslint/js/module-augmentation/index.ts"
+    },
+    "./plugins/eslint/js/module-augmentation/": {
+      "types": "./dist/types/plugins/eslint/js/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/eslint/js/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/js/module-augmentation/index.cjs",
+      "default": "./src/plugins/eslint/js/module-augmentation/index.ts"
+    },
+    "./plugins/eslint/js/module-augmentation/*.d.ts": {
+      "types": "./dist/types/plugins/eslint/js/module-augmentation/*.d.ts",
+      "default": "./src/plugins/eslint/js/module-augmentation/*.ts"
+    },
+    "./plugins/eslint/js/module-augmentation/*.cjs": {
+      "types": "./dist/types/plugins/eslint/js/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/js/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/js/module-augmentation/*.cjs",
+      "default": "./src/plugins/eslint/js/module-augmentation/*.ts"
+    },
+    "./plugins/eslint/js/module-augmentation/*.js": {
+      "types": "./dist/types/plugins/eslint/js/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/js/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/js/module-augmentation/*.cjs",
+      "default": "./src/plugins/eslint/js/module-augmentation/*.ts"
+    },
+    "./plugins/eslint/js/module-augmentation/*.mjs": {
+      "types": "./dist/types/plugins/eslint/js/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/js/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/js/module-augmentation/*.cjs",
+      "default": "./src/plugins/eslint/js/module-augmentation/*.ts"
+    },
+    "./plugins/eslint/js/module-augmentation/*.ts": {
+      "types": "./dist/types/plugins/eslint/js/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/js/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/js/module-augmentation/*.cjs",
+      "default": "./src/plugins/eslint/js/module-augmentation/*.ts"
+    },
+    "./plugins/eslint/js/module-augmentation/*/": {
+      "types": "./dist/types/plugins/eslint/js/module-augmentation/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/eslint/js/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/js/module-augmentation/*/index.cjs",
+      "default": "./src/*/plugins/eslint/js/module-augmentation/index.ts"
+    },
+    "./plugins/eslint/js/module-augmentation/*": {
+      "types": "./dist/types/plugins/eslint/js/module-augmentation/*",
+      "import": "./dist/esm/plugins/eslint/js/module-augmentation/*",
+      "require": "./dist/cjs/plugins/eslint/js/module-augmentation/*",
+      "default": "./src/plugins/eslint/js/module-augmentation/*"
+    },
+    "./plugins/eslint/js": {
+      "types": "./dist/types/plugins/eslint/js/index.d.ts",
+      "import": "./dist/esm/plugins/eslint/js/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/js/index.cjs",
+      "default": "./src/plugins/eslint/js/index.ts"
+    },
+    "./plugins/eslint/js/": {
+      "types": "./dist/types/plugins/eslint/js/index.d.ts",
+      "import": "./dist/esm/plugins/eslint/js/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/js/index.cjs",
+      "default": "./src/plugins/eslint/js/index.ts"
+    },
+    "./plugins/eslint/js/*.d.ts": {
+      "types": "./dist/types/plugins/eslint/js/*.d.ts",
+      "default": "./src/plugins/eslint/js/*.ts"
+    },
+    "./plugins/eslint/js/*.cjs": {
+      "types": "./dist/types/plugins/eslint/js/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/js/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/js/*.cjs",
+      "default": "./src/plugins/eslint/js/*.ts"
+    },
+    "./plugins/eslint/js/*.js": {
+      "types": "./dist/types/plugins/eslint/js/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/js/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/js/*.cjs",
+      "default": "./src/plugins/eslint/js/*.ts"
+    },
+    "./plugins/eslint/js/*.mjs": {
+      "types": "./dist/types/plugins/eslint/js/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/js/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/js/*.cjs",
+      "default": "./src/plugins/eslint/js/*.ts"
+    },
+    "./plugins/eslint/js/*.ts": {
+      "types": "./dist/types/plugins/eslint/js/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/js/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/js/*.cjs",
+      "default": "./src/plugins/eslint/js/*.ts"
+    },
+    "./plugins/eslint/js/*/": {
+      "types": "./dist/types/plugins/eslint/js/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/eslint/js/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/js/*/index.cjs",
+      "default": "./src/*/plugins/eslint/js/index.ts"
+    },
+    "./plugins/eslint/js/*": {
+      "types": "./dist/types/plugins/eslint/js/*",
+      "import": "./dist/esm/plugins/eslint/js/*",
+      "require": "./dist/cjs/plugins/eslint/js/*",
+      "default": "./src/plugins/eslint/js/*"
+    },
     "./plugins/cspell": {
       "types": "./dist/types/plugins/cspell/index.d.ts",
       "import": "./dist/esm/plugins/cspell/index.mjs",
@@ -223,6 +379,58 @@
       "import": "./dist/esm/plugins/cspell/*",
       "require": "./dist/cjs/plugins/cspell/*",
       "default": "./src/plugins/cspell/*"
+    },
+    "./plugins/eslint": {
+      "types": "./dist/types/plugins/eslint/index.d.ts",
+      "import": "./dist/esm/plugins/eslint/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/index.cjs",
+      "default": "./src/plugins/eslint/index.ts"
+    },
+    "./plugins/eslint/": {
+      "types": "./dist/types/plugins/eslint/index.d.ts",
+      "import": "./dist/esm/plugins/eslint/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/index.cjs",
+      "default": "./src/plugins/eslint/index.ts"
+    },
+    "./plugins/eslint/*.d.ts": {
+      "types": "./dist/types/plugins/eslint/*.d.ts",
+      "default": "./src/plugins/eslint/*.ts"
+    },
+    "./plugins/eslint/*.cjs": {
+      "types": "./dist/types/plugins/eslint/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/*.cjs",
+      "default": "./src/plugins/eslint/*.ts"
+    },
+    "./plugins/eslint/*.js": {
+      "types": "./dist/types/plugins/eslint/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/*.cjs",
+      "default": "./src/plugins/eslint/*.ts"
+    },
+    "./plugins/eslint/*.mjs": {
+      "types": "./dist/types/plugins/eslint/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/*.cjs",
+      "default": "./src/plugins/eslint/*.ts"
+    },
+    "./plugins/eslint/*.ts": {
+      "types": "./dist/types/plugins/eslint/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/*.cjs",
+      "default": "./src/plugins/eslint/*.ts"
+    },
+    "./plugins/eslint/*/": {
+      "types": "./dist/types/plugins/eslint/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/eslint/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/*/index.cjs",
+      "default": "./src/*/plugins/eslint/index.ts"
+    },
+    "./plugins/eslint/*": {
+      "types": "./dist/types/plugins/eslint/*",
+      "import": "./dist/esm/plugins/eslint/*",
+      "require": "./dist/cjs/plugins/eslint/*",
+      "default": "./src/plugins/eslint/*"
     },
     "./constants": {
       "types": "./dist/types/constants/index.d.ts",
