@@ -260,6 +260,7 @@ async function main(
   if (!packageJSONFilePath)
   {
     console.error("Please provide a path to package.json");
+    // eslint-disable-next-line n/no-process-exit
     process.exit(1);
   }
 
