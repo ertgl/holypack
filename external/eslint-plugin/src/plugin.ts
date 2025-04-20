@@ -3,10 +3,12 @@ import type {
   Linter,
 } from "eslint";
 
-import { resolveContext } from "@holypack/core";
 import {
-  type ESLintIntegration,
-  type ESLintIntegrationAPI,
+  requireIntegration,
+  resolveContext,
+} from "@holypack/core";
+import {
+  ESLintIntegration,
   INTEGRATION_NAME_ESLINT,
 } from "@holypack/integration-eslint";
 
@@ -16,17 +18,7 @@ export type HolypackPlugin = (
   & Omit<ESLint.Plugin, "configs">
   & {
     configs: {
-      recommended: (
-        ReturnType<ESLintIntegrationAPI["generateConfig"]> extends infer T
-          ? T extends Promise<infer U>
-            ? U extends Linter.Config[]
-              ? U
-              : never
-            : T extends Linter.Config[]
-              ? T
-              : never
-          : never
-      );
+      recommended: Linter.Config[];
     };
   }
 );
@@ -39,25 +31,14 @@ export async function createHolypackPlugin(
 
   const context = await resolveContext(options.context);
 
-  const integration = context.integrations.get(
+  requireIntegration<ESLintIntegration>(
+    context,
     INTEGRATION_NAME_ESLINT,
-  ) as ESLintIntegration | undefined;
-
-  if (integration == null)
-  {
-    const err = new Error(
-      "The ESLint integration is not available in the current context. Forgot to install the integration?",
-    );
-    err.cause = {
-      context,
-      options,
-    };
-    throw err;
-  }
+  );
 
   return {
     configs: {
-      recommended: await integration.api.generateConfig(context),
+      recommended: context.eslint.config,
     },
     meta: {
       name: "@holypack/eslint-plugin",

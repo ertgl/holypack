@@ -1,3 +1,6 @@
 {
-  "extends": "@holypack/integration-typescript/presets/tsconfig.scope.workspace.json"
+  "extends": "@holypack/integration-typescript/presets/tsconfig.scope.workspace.json",
+  "include": [
+    "./holypack.d.ts"
+  ]
 }

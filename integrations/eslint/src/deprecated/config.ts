@@ -15,6 +15,14 @@ import markdownPlugin from "@eslint/markdown";
 import stylisticPlugin from "@stylistic/eslint-plugin";
 import type { StylisticCustomizeOptions } from "@stylistic/eslint-plugin";
 import type { Linter } from "eslint";
+import {
+  createTypeScriptImportResolver as createTypeScriptResolverForPluginImportX,
+} from "eslint-import-resolver-typescript";
+import {
+  createNodeResolver as createNodeResolverForPluginImportX,
+  default as pluginImportX,
+} from "eslint-plugin-import-x";
+import nodePlugin from "eslint-plugin-n";
 import perfectionistPlugin from "eslint-plugin-perfectionist";
 import ymlPlugin from "eslint-plugin-yml";
 import type fastGlobType from "fast-glob";
@@ -229,6 +237,159 @@ export async function resolveConfig(
     },
 
     {
+      ...nodePlugin.configs["flat/recommended"],
+      files: [
+        PATTERN_JS_JSX_TS_TSX,
+      ],
+    },
+
+    {
+      ...nodePlugin.configs["flat/recommended-module"],
+      files: [
+        PATTERN_MJS_MJSX_MTS_MTSX,
+      ],
+    },
+
+    {
+      ...nodePlugin.configs["flat/recommended-script"],
+      files: [
+        PATTERN_CJS_CJSX_CTS_CTSX,
+      ],
+    },
+
+    {
+      files: [
+        PATTERN_CJS_CJSX_CTS_CTSX,
+        PATTERN_JS_JSX_TS_TSX,
+        PATTERN_MJS_MJSX_MTS_MTSX,
+      ],
+      settings: {
+        n: {
+          allowModules: [
+            ...Object.keys(packageJSON.devDependencies ?? {}),
+            ...Object.keys(packageJSON.resolution ?? {}),
+          ],
+          resolverConfig: {
+            extensions: [
+              ".ts",
+              ".tsx",
+              ".js",
+              ".jsx",
+              ".mts",
+              ".mtsx",
+              ".mjs",
+              ".mjsx",
+              ".cts",
+              ".ctsx",
+              ".cjs",
+              ".cjsx",
+              ".json",
+              ".node",
+            ],
+            modules: [
+              "node_modules",
+            ],
+            roots: [
+              cwd,
+            ],
+          },
+          tryExtensions: [
+            ".ts",
+            ".tsx",
+            ".js",
+            ".jsx",
+            ".mts",
+            ".mtsx",
+            ".mjs",
+            ".mjsx",
+            ".cts",
+            ".ctsx",
+            ".cjsx",
+            ".cjs",
+            ".json",
+            ".node",
+          ],
+        },
+      },
+    },
+
+    {
+      files: [
+        PATTERN_CJS_CJSX_CTS_CTSX,
+        PATTERN_JS_JSX_TS_TSX,
+        PATTERN_MJS_MJSX_MTS_MTSX,
+      ],
+      rules: {
+        "n/no-missing-import": "off",
+      },
+    },
+
+    {
+      ...pluginImportX.flatConfigs.recommended,
+      files: [
+        PATTERN_JS_JSX_TS_TSX,
+        PATTERN_MJS_MJSX_MTS_MTSX,
+      ],
+    },
+
+    {
+      ...pluginImportX.flatConfigs.typescript,
+      files: [
+        PATTERN_JS_JSX_TS_TSX,
+        PATTERN_MJS_MJSX_MTS_MTSX,
+      ],
+    },
+
+    {
+      settings: {
+        "import-x/extensions": [
+          ".d.ts",
+          ".ts",
+          ".tsx",
+          ".js",
+          ".jsx",
+          ".json",
+        ],
+        "import-x/internal-regex": /(?:^@holypack[\\/])/.source,
+        "import-x/parsers": {
+          "@typescript-eslint/parser": [
+            ".cjs",
+            ".cjsx",
+            ".cts",
+            ".ctsx",
+            ".js",
+            ".jsx",
+            ".mjs",
+            ".mjsx",
+            ".mts",
+            ".mtsx",
+            ".ts",
+            ".tsx",
+          ],
+        },
+        "import-x/resolver": {
+          node: {
+            extensions: [
+              ".mts",
+              ".mtsx",
+              ".mjs",
+              ".mjsx",
+              ".cts",
+              ".ctsx",
+              ".cjs",
+              ".cjsx",
+            ],
+          },
+          typescript: true,
+        },
+        "import-x/resolver-next": [
+          createTypeScriptResolverForPluginImportX(),
+          createNodeResolverForPluginImportX(),
+        ],
+      },
+    },
+
+    {
       files: [
         PATTERN_CJS_CJSX_CTS_CTSX,
       ],
@@ -268,6 +429,7 @@ export async function resolveConfig(
     },
 
     {
+      // eslint-disable-next-line import-x/no-named-as-default-member
       ...stylisticPlugin.configs.customize({
         ...stylisticBaseCustomizationOptions,
       }),
@@ -278,6 +440,7 @@ export async function resolveConfig(
     },
 
     {
+      // eslint-disable-next-line import-x/no-named-as-default-member
       ...stylisticPlugin.configs.customize({
         ...stylisticBaseCustomizationOptions,
         jsx: true,

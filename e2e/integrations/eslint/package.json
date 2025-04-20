@@ -6,7 +6,10 @@
     "eslint": "eslint"
   },
   "devDependencies": {
+    "@holypack/core": "*",
     "@holypack/eslint-plugin": "*",
-    "eslint": "^9.24.0"
+    "@holypack/integration-eslint": "*",
+    "eslint": "^9.24.0",
+    "holypack": "^9.24.0"
   }
 }

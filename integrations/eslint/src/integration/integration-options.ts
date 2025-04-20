@@ -1,23 +1,11 @@
-export type Options = (
-  & OptionsBaseProperties
-  & OptionsCustomProperties
+export type ESLintIntegrationOptions = (
+  & ESLintIntegrationOptionsBaseProperties
+  & ESLintIntegrationOptionsCustomProperties
 );
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export type OptionsBaseProperties = {};
+export type ESLintIntegrationOptionsBaseProperties = {};
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface OptionsCustomProperties
-{}
-
-export type ResolvedOptions = (
-  & ResolvedOptionsBaseProperties
-  & ResolvedOptionsCustomProperties
-);
-
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export type ResolvedOptionsBaseProperties = {};
-
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface ResolvedOptionsCustomProperties
+export interface ESLintIntegrationOptionsCustomProperties
 {}

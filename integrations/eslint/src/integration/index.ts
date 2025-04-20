@@ -1,4 +1,4 @@
 export * from "./integration";
-export * from "./integration-api";
 export * from "./integration-options";
-export * from "./integration-options-resolution";
+// eslint-disable-next-line import-x/export
+export * from "./module-augmentation";
