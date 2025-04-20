@@ -1,1 +1,1 @@
-export * from "./glob-patterns";
+export {};
