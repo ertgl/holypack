@@ -801,6 +801,7 @@ __metadata:
     "@holypack/core": "npm:*"
     "@holypack/eslint-plugin": "npm:*"
     "@holypack/integration-eslint": "npm:*"
+    "@holypack/integration-typescript": "npm:*"
     eslint: "npm:^9.24.0"
     holypack: "npm:^9.24.0"
   languageName: unknown
