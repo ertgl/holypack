@@ -1,4 +1,4 @@
 import type { HookSet } from "./hook-set";
 
-// TODO(ertgl): Rename type Hook as KnownHook.
+// TODO(ertgl): Maybe rename type `Hook` as `KnownHook`.
 export type Hook = HookSet[keyof HookSet];

@@ -11,24 +11,29 @@ import type {
 
 export interface Plugin
 {
-  readonly generateHookSubscriptionID?: (
+  generateHookSubscriptionID?: (
     hook: Hook,
   ) => HookSubscriptionID;
 
-  readonly name: PluginName;
+  name: PluginName;
 
-  readonly onContextReady?: (
+  onContextReady?: (
     context: ResolvedContext,
   ) => Promise<void> | void;
 
-  readonly resolveConfig?: (
+  resolveConfig?: (
     context: Context,
     config: Config,
   ) => Promise<void> | void;
 
-  readonly resolveContext?: (
+  resolveContext?: (
     context: Context,
     options: ContextResolutionOptions,
+  ) => Promise<void> | void;
+
+  setup?: (
+    context: Context,
+    config: Config,
   ) => Promise<void> | void;
 }
 

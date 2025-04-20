@@ -42,6 +42,28 @@ export function bindPlugin(
     ?? generateHookSubscriptionIDForPlugin
   );
 
+  if (plugin.setup != null)
+  {
+    context.hooks.setup.tapPromise(
+      generateHookSubscriptionID(
+        plugin,
+        context.hooks.setup,
+      ),
+      async (
+        context,
+        config,
+      ) =>
+      {
+        await maybeAwait(
+          plugin.setup?.(
+            context,
+            config,
+          ),
+        );
+      },
+    );
+  }
+
   if (plugin.resolveConfig != null)
   {
     context.hooks.resolveConfig.tapPromise(

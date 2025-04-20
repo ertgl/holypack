@@ -88,6 +88,11 @@ export async function resolveContext(
     }
   }
 
+  await context.hooks.setup.promise(
+    context,
+    config,
+  );
+
   await context.hooks.resolveConfig.promise(
     context,
     config,
