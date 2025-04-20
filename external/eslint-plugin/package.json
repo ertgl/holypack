@@ -20,7 +20,7 @@
     "@holypack/core": "workspace:*",
     "@holypack/integration-babel": "workspace:*",
     "@holypack/integration-eslint": "workspace:*",
-    "eslint": "^9.24.0"
+    "eslint": "^9.25.0"
   },
   "files": [
     "./dist/",

@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@holypack/integration-babel": "workspace:*",
-    "@types/picomatch": "^4",
+    "@types/picomatch": "^4.0.0",
     "picomatch": "^4.0.2",
     "tapable": "^2.2.1"
   },
