@@ -24,6 +24,9 @@
     "./internal/*/*",
     "./packages/*"
   ],
+  "devDependencies": {
+    "@holypack/integration-eslint": "workspace:*"
+  },
   "resolutions": {
     "@holypack/core": "portal:./packages/core",
     "@holypack/eslint-plugin": "portal:./external/eslint-plugin",
@@ -33,5 +36,8 @@
     "@holypack/internal-integration-node": "portal:./internal/integrations/node",
     "@holypack/internal-integration-yarn": "portal:./internal/integrations/yarn",
     "holypack": "portal:./packages/prelude"
+  },
+  "engines": {
+    "node": ">=22.14.0"
   }
 }
