@@ -59,6 +59,10 @@ export class ESLintIntegration implements Integration
     const { createESLintIntegrationCSpellPlugin } = await import("../plugins/cspell");
     const cspellPlugin = createESLintIntegrationCSpellPlugin();
     await bindSubIntegration(context, config, cspellPlugin);
+
+    const { createESLintIntegrationESLintJSPlugin } = await import("../plugins/eslint/js");
+    const eslintJSPlugin = createESLintIntegrationESLintJSPlugin();
+    await bindSubIntegration(context, config, eslintJSPlugin);
   }
 }
 
