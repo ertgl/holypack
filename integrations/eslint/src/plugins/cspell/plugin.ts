@@ -13,13 +13,13 @@ import {
 
 import { ESLintIntegrationCSpellPluginAPI } from "./plugin-api";
 
-export const INTEGRATION_PLUGIN_NAME_ESLINT_CSPELL = `${INTEGRATION_NAME_ESLINT}/CSpell`;
+export const INTEGRATION_NAME_ESLINT_CSPELL = `${INTEGRATION_NAME_ESLINT}/CSpell`;
 
 export class ESLintIntegrationCSpellPlugin extends BaseIntegration
 {
   api: ESLintIntegrationCSpellPluginAPI;
 
-  name = INTEGRATION_PLUGIN_NAME_ESLINT_CSPELL;
+  name = INTEGRATION_NAME_ESLINT_CSPELL;
 
   constructor()
   {
@@ -51,7 +51,7 @@ export class ESLintIntegrationCSpellPlugin extends BaseIntegration
     );
 
     eslintIntegration.hooks.configGeneration.tapPromise(
-      INTEGRATION_PLUGIN_NAME_ESLINT_CSPELL,
+      INTEGRATION_NAME_ESLINT_CSPELL,
       this.onESLintConfigGeneration.bind(
         this,
         eslintIntegration,

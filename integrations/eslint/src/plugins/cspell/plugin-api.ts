@@ -2,7 +2,7 @@ import type CSpellPluginModule from "@cspell/eslint-plugin";
 
 import type { ResolvedContext } from "@holypack/core";
 
-import { GLOB_PATTERN_ALL } from "../../constants";
+import { GLOB_PATTERN_ALL } from "../../constants/glob-patterns";
 
 import type { ESLintIntegrationCSpellPlugin } from "./plugin";
 import type { ESLintIntegrationCSpellPluginOptions } from "./plugin-options";
@@ -58,6 +58,7 @@ export class ESLintIntegrationCSpellPluginAPI
     }
     catch (err)
     {
+      // TODO(ertgl): Standardize the missing package error handling.
       const err2 = new Error(`Package could not be imported: ${packageName}`);
       err2.cause = err;
       process.emitWarning(err2);
