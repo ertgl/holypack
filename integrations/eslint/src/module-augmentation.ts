@@ -9,4 +9,6 @@ export type * from "./plugins/import-x/module-augmentation";
 // eslint-disable-next-line import-x/export
 export type * from "./plugins/n/module-augmentation";
 // eslint-disable-next-line import-x/export
+export type * from "./plugins/stylistic/module-augmentation";
+// eslint-disable-next-line import-x/export
 export type * from "./plugins/typescript/module-augmentation";

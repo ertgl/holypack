@@ -484,6 +484,58 @@
       "require": "./dist/cjs/plugins/n/module-augmentation/*",
       "default": "./src/plugins/n/module-augmentation/*"
     },
+    "./plugins/stylistic/module-augmentation": {
+      "types": "./dist/types/plugins/stylistic/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/stylistic/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/stylistic/module-augmentation/index.cjs",
+      "default": "./src/plugins/stylistic/module-augmentation/index.ts"
+    },
+    "./plugins/stylistic/module-augmentation/": {
+      "types": "./dist/types/plugins/stylistic/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/stylistic/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/stylistic/module-augmentation/index.cjs",
+      "default": "./src/plugins/stylistic/module-augmentation/index.ts"
+    },
+    "./plugins/stylistic/module-augmentation/*.d.ts": {
+      "types": "./dist/types/plugins/stylistic/module-augmentation/*.d.ts",
+      "default": "./src/plugins/stylistic/module-augmentation/*.ts"
+    },
+    "./plugins/stylistic/module-augmentation/*.cjs": {
+      "types": "./dist/types/plugins/stylistic/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/stylistic/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/stylistic/module-augmentation/*.cjs",
+      "default": "./src/plugins/stylistic/module-augmentation/*.ts"
+    },
+    "./plugins/stylistic/module-augmentation/*.js": {
+      "types": "./dist/types/plugins/stylistic/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/stylistic/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/stylistic/module-augmentation/*.cjs",
+      "default": "./src/plugins/stylistic/module-augmentation/*.ts"
+    },
+    "./plugins/stylistic/module-augmentation/*.mjs": {
+      "types": "./dist/types/plugins/stylistic/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/stylistic/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/stylistic/module-augmentation/*.cjs",
+      "default": "./src/plugins/stylistic/module-augmentation/*.ts"
+    },
+    "./plugins/stylistic/module-augmentation/*.ts": {
+      "types": "./dist/types/plugins/stylistic/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/stylistic/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/stylistic/module-augmentation/*.cjs",
+      "default": "./src/plugins/stylistic/module-augmentation/*.ts"
+    },
+    "./plugins/stylistic/module-augmentation/*/": {
+      "types": "./dist/types/plugins/stylistic/module-augmentation/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/stylistic/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/stylistic/module-augmentation/*/index.cjs",
+      "default": "./src/*/plugins/stylistic/module-augmentation/index.ts"
+    },
+    "./plugins/stylistic/module-augmentation/*": {
+      "types": "./dist/types/plugins/stylistic/module-augmentation/*",
+      "import": "./dist/esm/plugins/stylistic/module-augmentation/*",
+      "require": "./dist/cjs/plugins/stylistic/module-augmentation/*",
+      "default": "./src/plugins/stylistic/module-augmentation/*"
+    },
     "./plugins/typescript/module-augmentation": {
       "types": "./dist/types/plugins/typescript/module-augmentation/index.d.ts",
       "import": "./dist/esm/plugins/typescript/module-augmentation/index.mjs",
@@ -795,6 +847,58 @@
       "import": "./dist/esm/plugins/n/*",
       "require": "./dist/cjs/plugins/n/*",
       "default": "./src/plugins/n/*"
+    },
+    "./plugins/stylistic": {
+      "types": "./dist/types/plugins/stylistic/index.d.ts",
+      "import": "./dist/esm/plugins/stylistic/index.mjs",
+      "require": "./dist/cjs/plugins/stylistic/index.cjs",
+      "default": "./src/plugins/stylistic/index.ts"
+    },
+    "./plugins/stylistic/": {
+      "types": "./dist/types/plugins/stylistic/index.d.ts",
+      "import": "./dist/esm/plugins/stylistic/index.mjs",
+      "require": "./dist/cjs/plugins/stylistic/index.cjs",
+      "default": "./src/plugins/stylistic/index.ts"
+    },
+    "./plugins/stylistic/*.d.ts": {
+      "types": "./dist/types/plugins/stylistic/*.d.ts",
+      "default": "./src/plugins/stylistic/*.ts"
+    },
+    "./plugins/stylistic/*.cjs": {
+      "types": "./dist/types/plugins/stylistic/*.d.ts",
+      "import": "./dist/esm/plugins/stylistic/*.mjs",
+      "require": "./dist/cjs/plugins/stylistic/*.cjs",
+      "default": "./src/plugins/stylistic/*.ts"
+    },
+    "./plugins/stylistic/*.js": {
+      "types": "./dist/types/plugins/stylistic/*.d.ts",
+      "import": "./dist/esm/plugins/stylistic/*.mjs",
+      "require": "./dist/cjs/plugins/stylistic/*.cjs",
+      "default": "./src/plugins/stylistic/*.ts"
+    },
+    "./plugins/stylistic/*.mjs": {
+      "types": "./dist/types/plugins/stylistic/*.d.ts",
+      "import": "./dist/esm/plugins/stylistic/*.mjs",
+      "require": "./dist/cjs/plugins/stylistic/*.cjs",
+      "default": "./src/plugins/stylistic/*.ts"
+    },
+    "./plugins/stylistic/*.ts": {
+      "types": "./dist/types/plugins/stylistic/*.d.ts",
+      "import": "./dist/esm/plugins/stylistic/*.mjs",
+      "require": "./dist/cjs/plugins/stylistic/*.cjs",
+      "default": "./src/plugins/stylistic/*.ts"
+    },
+    "./plugins/stylistic/*/": {
+      "types": "./dist/types/plugins/stylistic/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/stylistic/index.mjs",
+      "require": "./dist/cjs/plugins/stylistic/*/index.cjs",
+      "default": "./src/*/plugins/stylistic/index.ts"
+    },
+    "./plugins/stylistic/*": {
+      "types": "./dist/types/plugins/stylistic/*",
+      "import": "./dist/esm/plugins/stylistic/*",
+      "require": "./dist/cjs/plugins/stylistic/*",
+      "default": "./src/plugins/stylistic/*"
     },
     "./plugins/typescript": {
       "types": "./dist/types/plugins/typescript/index.d.ts",
