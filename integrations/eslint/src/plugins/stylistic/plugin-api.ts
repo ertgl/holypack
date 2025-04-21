@@ -66,7 +66,22 @@ export class ESLintIntegrationStylisticPluginAPI
       return;
     }
 
+    const quoteType = (
+      resolvedOptions.overrides.quotes
+      ?? "double"
+    );
+
     context.eslint.config.push(
+      {
+        ...stylisticPlugin.configs.recommended,
+        files: [
+          GLOB_PATTERN_CJS_JS_MJS,
+          GLOB_PATTERN_CTS_MTS_TS,
+          GLOB_PATTERN_CJSX_JSX_MJSX,
+          GLOB_PATTERN_CTSX_MTSX_TSX,
+        ],
+      },
+
       {
         ...stylisticPlugin.configs.customize({
           ...resolvedOptions.overrides,
@@ -86,6 +101,26 @@ export class ESLintIntegrationStylisticPluginAPI
           GLOB_PATTERN_CJSX_JSX_MJSX,
           GLOB_PATTERN_CTSX_MTSX_TSX,
         ],
+      },
+
+      {
+        rules: {
+          "@stylistic/object-property-newline": [
+            "error",
+            {
+              allowAllPropertiesOnSameLine: false,
+            },
+          ],
+          "@stylistic/quotes": [
+            "error",
+            quoteType,
+            {
+              allowTemplateLiterals: true,
+              avoidEscape: false,
+              ignoreStringLiterals: false,
+            },
+          ],
+        },
       },
     );
   }
