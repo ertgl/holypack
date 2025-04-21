@@ -1,12 +1,12 @@
 import type {
-  ESLintIntegrationJSONPluginOptions,
-  ESLintIntegrationJSONPluginResolvedOptions,
+  ESLintIntegrationESLintJSONPluginOptions,
+  ESLintIntegrationESLintJSONPluginResolvedOptions,
 } from "./plugin-options";
 
-export function resolveESLintIntegrationJSONPluginOptions(
+export function resolveESLintIntegrationESLintJSONPluginOptions(
   cwd: string,
-  options?: boolean | ESLintIntegrationJSONPluginOptions | null,
-): ESLintIntegrationJSONPluginResolvedOptions | false
+  options?: boolean | ESLintIntegrationESLintJSONPluginOptions | null,
+): ESLintIntegrationESLintJSONPluginResolvedOptions | false
 {
   if (!options)
   {

@@ -1,23 +1,23 @@
-export type ESLintIntegrationJSONPluginOptions = (
-  & ESLintIntegrationJSONPluginOptionsBaseProperties
-  & ESLintIntegrationJSONPluginOptionsCustomProperties
+export type ESLintIntegrationESLintJSONPluginOptions = (
+  & ESLintIntegrationESLintJSONPluginOptionsBaseProperties
+  & ESLintIntegrationESLintJSONPluginOptionsCustomProperties
 );
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export type ESLintIntegrationJSONPluginOptionsBaseProperties = {};
+export type ESLintIntegrationESLintJSONPluginOptionsBaseProperties = {};
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface ESLintIntegrationJSONPluginOptionsCustomProperties
+export interface ESLintIntegrationESLintJSONPluginOptionsCustomProperties
 {}
 
-export type ESLintIntegrationJSONPluginResolvedOptions = (
-  & ESLintIntegrationJSONPluginResolvedOptionsBaseProperties
-  & ESLintIntegrationJSONPluginResolvedOptionsCustomProperties
+export type ESLintIntegrationESLintJSONPluginResolvedOptions = (
+  & ESLintIntegrationESLintJSONPluginResolvedOptionsBaseProperties
+  & ESLintIntegrationESLintJSONPluginResolvedOptionsCustomProperties
 );
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export type ESLintIntegrationJSONPluginResolvedOptionsBaseProperties = {};
+export type ESLintIntegrationESLintJSONPluginResolvedOptionsBaseProperties = {};
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface ESLintIntegrationJSONPluginResolvedOptionsCustomProperties
+export interface ESLintIntegrationESLintJSONPluginResolvedOptionsCustomProperties
 {}

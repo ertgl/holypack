@@ -91,6 +91,10 @@ export class ESLintIntegration implements Integration
     const { createESLintIntegrationJSDocPlugin } = await import("../plugins/jsdoc");
     const jsdocPlugin = createESLintIntegrationJSDocPlugin();
     await bindSubIntegration(context, config, jsdocPlugin);
+
+    const { createESLintIntegrationESLintJSONPlugin } = await import("../plugins/eslint/json");
+    const eslintJSONPlugin = createESLintIntegrationESLintJSONPlugin();
+    await bindSubIntegration(context, config, eslintJSONPlugin);
   }
 }
 

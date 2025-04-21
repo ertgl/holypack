@@ -11,20 +11,20 @@ import {
   INTEGRATION_NAME_ESLINT,
 } from "../../../integration";
 
-import { ESLintIntegrationJSONPluginAPI } from "./plugin-api";
+import { ESLintIntegrationESLintJSONPluginAPI } from "./plugin-api";
 
 export const INTEGRATION_NAME_ESLINT_JSON = `${INTEGRATION_NAME_ESLINT}/JSON`;
 
-export class ESLintIntegrationJSONPlugin extends BaseIntegration
+export class ESLintIntegrationESLintJSONPlugin extends BaseIntegration
 {
-  api: ESLintIntegrationJSONPluginAPI;
+  api: ESLintIntegrationESLintJSONPluginAPI;
 
   name = INTEGRATION_NAME_ESLINT_JSON;
 
   constructor()
   {
     super();
-    this.api = new ESLintIntegrationJSONPluginAPI(this);
+    this.api = new ESLintIntegrationESLintJSONPluginAPI(this);
   }
 
   async onESLintConfigGeneration(
@@ -60,7 +60,7 @@ export class ESLintIntegrationJSONPlugin extends BaseIntegration
   }
 }
 
-export function createESLintIntegrationJSONPlugin(): ESLintIntegrationJSONPlugin
+export function createESLintIntegrationESLintJSONPlugin(): ESLintIntegrationESLintJSONPlugin
 {
-  return new ESLintIntegrationJSONPlugin();
+  return new ESLintIntegrationESLintJSONPlugin();
 }

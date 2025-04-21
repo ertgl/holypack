@@ -8,16 +8,16 @@ import {
   GLOB_PATTERN_JSONC,
 } from "../../../constants/glob-patterns";
 
-import type { ESLintIntegrationJSONPlugin } from "./plugin";
-import type { ESLintIntegrationJSONPluginOptions } from "./plugin-options";
-import { resolveESLintIntegrationJSONPluginOptions } from "./plugin-options-resolver";
+import type { ESLintIntegrationESLintJSONPlugin } from "./plugin";
+import type { ESLintIntegrationESLintJSONPluginOptions } from "./plugin-options";
+import { resolveESLintIntegrationESLintJSONPluginOptions } from "./plugin-options-resolver";
 
-export class ESLintIntegrationJSONPluginAPI
+export class ESLintIntegrationESLintJSONPluginAPI
 {
-  plugin: ESLintIntegrationJSONPlugin;
+  plugin: ESLintIntegrationESLintJSONPlugin;
 
   constructor(
-    plugin: ESLintIntegrationJSONPlugin,
+    plugin: ESLintIntegrationESLintJSONPlugin,
   )
   {
     this.plugin = plugin;
@@ -25,7 +25,7 @@ export class ESLintIntegrationJSONPluginAPI
 
   async addESLintConfig(
     context: ResolvedContext,
-    options?: boolean | ESLintIntegrationJSONPluginOptions | null,
+    options?: boolean | ESLintIntegrationESLintJSONPluginOptions | null,
   ): Promise<void>
   {
     const packageName = "@eslint/json";
@@ -55,7 +55,7 @@ export class ESLintIntegrationJSONPluginAPI
       return;
     }
 
-    const resolvedOptions = resolveESLintIntegrationJSONPluginOptions(
+    const resolvedOptions = resolveESLintIntegrationESLintJSONPluginOptions(
       context.cwd,
       options,
     );

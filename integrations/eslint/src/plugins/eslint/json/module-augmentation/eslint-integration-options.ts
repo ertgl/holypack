@@ -1,15 +1,15 @@
-import type { ESLintIntegrationJSONPluginOptions } from "../plugin-options";
+import type { ESLintIntegrationESLintJSONPluginOptions } from "../plugin-options";
 
 declare module "../../../../integration/integration-options"
 {
   interface ESLintIntegrationOptionsCustomProperties
   {
-    json?: ESLintIntegrationJSONPluginOptions | null;
+    json?: ESLintIntegrationESLintJSONPluginOptions | null;
   }
 
   interface ESLintIntegrationResolvedOptionsCustomProperties
   {
-    json: ESLintIntegrationJSONPluginOptions;
+    json: ESLintIntegrationESLintJSONPluginOptions;
   }
 }
 
