@@ -75,6 +75,10 @@ export class ESLintIntegration implements Integration
     const { createESLintIntegrationImportXPlugin } = await import("../plugins/import-x");
     const importXPlugin = createESLintIntegrationImportXPlugin();
     await bindSubIntegration(context, config, importXPlugin);
+
+    const { createESLintIntegrationGlobalsPlugin } = await import("../plugins/globals");
+    const globalsPlugin = createESLintIntegrationGlobalsPlugin();
+    await bindSubIntegration(context, config, globalsPlugin);
   }
 }
 
