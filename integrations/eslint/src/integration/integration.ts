@@ -87,6 +87,10 @@ export class ESLintIntegration implements Integration
     const { createESLintIntegrationPerfectionistPlugin } = await import("../plugins/perfectionist");
     const perfectionistPlugin = createESLintIntegrationPerfectionistPlugin();
     await bindSubIntegration(context, config, perfectionistPlugin);
+
+    const { createESLintIntegrationJSDocPlugin } = await import("../plugins/jsdoc");
+    const jsdocPlugin = createESLintIntegrationJSDocPlugin();
+    await bindSubIntegration(context, config, jsdocPlugin);
   }
 }
 

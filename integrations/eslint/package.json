@@ -39,6 +39,7 @@
     "eslint": "^9.25.0",
     "eslint-import-resolver-typescript": "^4.3.3",
     "eslint-plugin-import-x": "^4.10.6",
+    "eslint-plugin-jsdoc": "^50.6.9",
     "eslint-plugin-n": "^17.17.0",
     "eslint-plugin-perfectionist": "^4.11.0",
     "eslint-plugin-yml": "^1.17.0",
@@ -431,6 +432,58 @@
       "import": "./dist/esm/plugins/import-x/module-augmentation/*",
       "require": "./dist/cjs/plugins/import-x/module-augmentation/*",
       "default": "./src/plugins/import-x/module-augmentation/*"
+    },
+    "./plugins/jsdoc/module-augmentation": {
+      "types": "./dist/types/plugins/jsdoc/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/jsdoc/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/jsdoc/module-augmentation/index.cjs",
+      "default": "./src/plugins/jsdoc/module-augmentation/index.ts"
+    },
+    "./plugins/jsdoc/module-augmentation/": {
+      "types": "./dist/types/plugins/jsdoc/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/jsdoc/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/jsdoc/module-augmentation/index.cjs",
+      "default": "./src/plugins/jsdoc/module-augmentation/index.ts"
+    },
+    "./plugins/jsdoc/module-augmentation/*.d.ts": {
+      "types": "./dist/types/plugins/jsdoc/module-augmentation/*.d.ts",
+      "default": "./src/plugins/jsdoc/module-augmentation/*.ts"
+    },
+    "./plugins/jsdoc/module-augmentation/*.cjs": {
+      "types": "./dist/types/plugins/jsdoc/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/jsdoc/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/jsdoc/module-augmentation/*.cjs",
+      "default": "./src/plugins/jsdoc/module-augmentation/*.ts"
+    },
+    "./plugins/jsdoc/module-augmentation/*.js": {
+      "types": "./dist/types/plugins/jsdoc/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/jsdoc/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/jsdoc/module-augmentation/*.cjs",
+      "default": "./src/plugins/jsdoc/module-augmentation/*.ts"
+    },
+    "./plugins/jsdoc/module-augmentation/*.mjs": {
+      "types": "./dist/types/plugins/jsdoc/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/jsdoc/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/jsdoc/module-augmentation/*.cjs",
+      "default": "./src/plugins/jsdoc/module-augmentation/*.ts"
+    },
+    "./plugins/jsdoc/module-augmentation/*.ts": {
+      "types": "./dist/types/plugins/jsdoc/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/jsdoc/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/jsdoc/module-augmentation/*.cjs",
+      "default": "./src/plugins/jsdoc/module-augmentation/*.ts"
+    },
+    "./plugins/jsdoc/module-augmentation/*/": {
+      "types": "./dist/types/plugins/jsdoc/module-augmentation/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/jsdoc/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/jsdoc/module-augmentation/*/index.cjs",
+      "default": "./src/*/plugins/jsdoc/module-augmentation/index.ts"
+    },
+    "./plugins/jsdoc/module-augmentation/*": {
+      "types": "./dist/types/plugins/jsdoc/module-augmentation/*",
+      "import": "./dist/esm/plugins/jsdoc/module-augmentation/*",
+      "require": "./dist/cjs/plugins/jsdoc/module-augmentation/*",
+      "default": "./src/plugins/jsdoc/module-augmentation/*"
     },
     "./plugins/n/module-augmentation": {
       "types": "./dist/types/plugins/n/module-augmentation/index.d.ts",
@@ -847,6 +900,58 @@
       "import": "./dist/esm/plugins/import-x/*",
       "require": "./dist/cjs/plugins/import-x/*",
       "default": "./src/plugins/import-x/*"
+    },
+    "./plugins/jsdoc": {
+      "types": "./dist/types/plugins/jsdoc/index.d.ts",
+      "import": "./dist/esm/plugins/jsdoc/index.mjs",
+      "require": "./dist/cjs/plugins/jsdoc/index.cjs",
+      "default": "./src/plugins/jsdoc/index.ts"
+    },
+    "./plugins/jsdoc/": {
+      "types": "./dist/types/plugins/jsdoc/index.d.ts",
+      "import": "./dist/esm/plugins/jsdoc/index.mjs",
+      "require": "./dist/cjs/plugins/jsdoc/index.cjs",
+      "default": "./src/plugins/jsdoc/index.ts"
+    },
+    "./plugins/jsdoc/*.d.ts": {
+      "types": "./dist/types/plugins/jsdoc/*.d.ts",
+      "default": "./src/plugins/jsdoc/*.ts"
+    },
+    "./plugins/jsdoc/*.cjs": {
+      "types": "./dist/types/plugins/jsdoc/*.d.ts",
+      "import": "./dist/esm/plugins/jsdoc/*.mjs",
+      "require": "./dist/cjs/plugins/jsdoc/*.cjs",
+      "default": "./src/plugins/jsdoc/*.ts"
+    },
+    "./plugins/jsdoc/*.js": {
+      "types": "./dist/types/plugins/jsdoc/*.d.ts",
+      "import": "./dist/esm/plugins/jsdoc/*.mjs",
+      "require": "./dist/cjs/plugins/jsdoc/*.cjs",
+      "default": "./src/plugins/jsdoc/*.ts"
+    },
+    "./plugins/jsdoc/*.mjs": {
+      "types": "./dist/types/plugins/jsdoc/*.d.ts",
+      "import": "./dist/esm/plugins/jsdoc/*.mjs",
+      "require": "./dist/cjs/plugins/jsdoc/*.cjs",
+      "default": "./src/plugins/jsdoc/*.ts"
+    },
+    "./plugins/jsdoc/*.ts": {
+      "types": "./dist/types/plugins/jsdoc/*.d.ts",
+      "import": "./dist/esm/plugins/jsdoc/*.mjs",
+      "require": "./dist/cjs/plugins/jsdoc/*.cjs",
+      "default": "./src/plugins/jsdoc/*.ts"
+    },
+    "./plugins/jsdoc/*/": {
+      "types": "./dist/types/plugins/jsdoc/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/jsdoc/index.mjs",
+      "require": "./dist/cjs/plugins/jsdoc/*/index.cjs",
+      "default": "./src/*/plugins/jsdoc/index.ts"
+    },
+    "./plugins/jsdoc/*": {
+      "types": "./dist/types/plugins/jsdoc/*",
+      "import": "./dist/esm/plugins/jsdoc/*",
+      "require": "./dist/cjs/plugins/jsdoc/*",
+      "default": "./src/plugins/jsdoc/*"
     },
     "./plugins/n": {
       "types": "./dist/types/plugins/n/index.d.ts",

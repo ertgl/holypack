@@ -7,6 +7,8 @@ export type * from "./plugins/globals/module-augmentation";
 // eslint-disable-next-line import-x/export
 export type * from "./plugins/import-x/module-augmentation";
 // eslint-disable-next-line import-x/export
+export type * from "./plugins/jsdoc/module-augmentation";
+// eslint-disable-next-line import-x/export
 export type * from "./plugins/n/module-augmentation";
 // eslint-disable-next-line import-x/export
 export type * from "./plugins/perfectionist/module-augmentation";
