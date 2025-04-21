@@ -329,6 +329,58 @@
       "require": "./dist/cjs/plugins/eslint/json/module-augmentation/*",
       "default": "./src/plugins/eslint/json/module-augmentation/*"
     },
+    "./plugins/eslint/markdown/module-augmentation": {
+      "types": "./dist/types/plugins/eslint/markdown/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/eslint/markdown/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/markdown/module-augmentation/index.cjs",
+      "default": "./src/plugins/eslint/markdown/module-augmentation/index.ts"
+    },
+    "./plugins/eslint/markdown/module-augmentation/": {
+      "types": "./dist/types/plugins/eslint/markdown/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/eslint/markdown/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/markdown/module-augmentation/index.cjs",
+      "default": "./src/plugins/eslint/markdown/module-augmentation/index.ts"
+    },
+    "./plugins/eslint/markdown/module-augmentation/*.d.ts": {
+      "types": "./dist/types/plugins/eslint/markdown/module-augmentation/*.d.ts",
+      "default": "./src/plugins/eslint/markdown/module-augmentation/*.ts"
+    },
+    "./plugins/eslint/markdown/module-augmentation/*.cjs": {
+      "types": "./dist/types/plugins/eslint/markdown/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/markdown/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/markdown/module-augmentation/*.cjs",
+      "default": "./src/plugins/eslint/markdown/module-augmentation/*.ts"
+    },
+    "./plugins/eslint/markdown/module-augmentation/*.js": {
+      "types": "./dist/types/plugins/eslint/markdown/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/markdown/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/markdown/module-augmentation/*.cjs",
+      "default": "./src/plugins/eslint/markdown/module-augmentation/*.ts"
+    },
+    "./plugins/eslint/markdown/module-augmentation/*.mjs": {
+      "types": "./dist/types/plugins/eslint/markdown/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/markdown/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/markdown/module-augmentation/*.cjs",
+      "default": "./src/plugins/eslint/markdown/module-augmentation/*.ts"
+    },
+    "./plugins/eslint/markdown/module-augmentation/*.ts": {
+      "types": "./dist/types/plugins/eslint/markdown/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/markdown/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/markdown/module-augmentation/*.cjs",
+      "default": "./src/plugins/eslint/markdown/module-augmentation/*.ts"
+    },
+    "./plugins/eslint/markdown/module-augmentation/*/": {
+      "types": "./dist/types/plugins/eslint/markdown/module-augmentation/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/eslint/markdown/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/markdown/module-augmentation/*/index.cjs",
+      "default": "./src/*/plugins/eslint/markdown/module-augmentation/index.ts"
+    },
+    "./plugins/eslint/markdown/module-augmentation/*": {
+      "types": "./dist/types/plugins/eslint/markdown/module-augmentation/*",
+      "import": "./dist/esm/plugins/eslint/markdown/module-augmentation/*",
+      "require": "./dist/cjs/plugins/eslint/markdown/module-augmentation/*",
+      "default": "./src/plugins/eslint/markdown/module-augmentation/*"
+    },
     "./plugins/eslint/js": {
       "types": "./dist/types/plugins/eslint/js/index.d.ts",
       "import": "./dist/esm/plugins/eslint/js/index.mjs",
@@ -432,6 +484,58 @@
       "import": "./dist/esm/plugins/eslint/json/*",
       "require": "./dist/cjs/plugins/eslint/json/*",
       "default": "./src/plugins/eslint/json/*"
+    },
+    "./plugins/eslint/markdown": {
+      "types": "./dist/types/plugins/eslint/markdown/index.d.ts",
+      "import": "./dist/esm/plugins/eslint/markdown/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/markdown/index.cjs",
+      "default": "./src/plugins/eslint/markdown/index.ts"
+    },
+    "./plugins/eslint/markdown/": {
+      "types": "./dist/types/plugins/eslint/markdown/index.d.ts",
+      "import": "./dist/esm/plugins/eslint/markdown/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/markdown/index.cjs",
+      "default": "./src/plugins/eslint/markdown/index.ts"
+    },
+    "./plugins/eslint/markdown/*.d.ts": {
+      "types": "./dist/types/plugins/eslint/markdown/*.d.ts",
+      "default": "./src/plugins/eslint/markdown/*.ts"
+    },
+    "./plugins/eslint/markdown/*.cjs": {
+      "types": "./dist/types/plugins/eslint/markdown/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/markdown/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/markdown/*.cjs",
+      "default": "./src/plugins/eslint/markdown/*.ts"
+    },
+    "./plugins/eslint/markdown/*.js": {
+      "types": "./dist/types/plugins/eslint/markdown/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/markdown/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/markdown/*.cjs",
+      "default": "./src/plugins/eslint/markdown/*.ts"
+    },
+    "./plugins/eslint/markdown/*.mjs": {
+      "types": "./dist/types/plugins/eslint/markdown/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/markdown/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/markdown/*.cjs",
+      "default": "./src/plugins/eslint/markdown/*.ts"
+    },
+    "./plugins/eslint/markdown/*.ts": {
+      "types": "./dist/types/plugins/eslint/markdown/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/markdown/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/markdown/*.cjs",
+      "default": "./src/plugins/eslint/markdown/*.ts"
+    },
+    "./plugins/eslint/markdown/*/": {
+      "types": "./dist/types/plugins/eslint/markdown/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/eslint/markdown/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/markdown/*/index.cjs",
+      "default": "./src/*/plugins/eslint/markdown/index.ts"
+    },
+    "./plugins/eslint/markdown/*": {
+      "types": "./dist/types/plugins/eslint/markdown/*",
+      "import": "./dist/esm/plugins/eslint/markdown/*",
+      "require": "./dist/cjs/plugins/eslint/markdown/*",
+      "default": "./src/plugins/eslint/markdown/*"
     },
     "./plugins/globals/module-augmentation": {
       "types": "./dist/types/plugins/globals/module-augmentation/index.d.ts",
