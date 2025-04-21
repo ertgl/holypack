@@ -4,8 +4,10 @@ import type PluginImportXModule from "eslint-plugin-import-x";
 import type { ResolvedContext } from "@holypack/core";
 
 import {
-  GLOB_PATTERN_JS_JSX_TS_TSX,
-  GLOB_PATTERN_MJS_MJSX_MTS_MTSX,
+  GLOB_PATTERN_CJS_JS_MJS,
+  GLOB_PATTERN_CJSX_JSX_MJSX,
+  GLOB_PATTERN_CTS_MTS_TS,
+  GLOB_PATTERN_CTSX_MTSX_TSX,
 } from "../../constants/glob-patterns";
 
 import type { ESLintIntegrationImportXPlugin } from "./plugin";
@@ -28,7 +30,19 @@ export class ESLintIntegrationImportXPluginAPI
     options?: boolean | ESLintIntegrationImportXPluginOptions | null,
   ): Promise<void>
   {
+    const resolvedOptions = resolveESLintIntegrationImportXPluginOptions(
+      context.cwd,
+      options,
+    );
+
+    if (resolvedOptions === false)
+    {
+      return;
+    }
+
     const packageName = "eslint-plugin-import-x";
+
+    let pluginImportX: null | typeof PluginImportXModule = null;
 
     try
     {
@@ -38,94 +52,7 @@ export class ESLintIntegrationImportXPluginAPI
         default: typeof PluginImportXModule;
       };
 
-      const pluginImportX = pluginImportXModule.default;
-
-      const resolvedOptions = resolveESLintIntegrationImportXPluginOptions(
-        context.cwd,
-        options,
-      );
-
-      if (resolvedOptions === false)
-      {
-        return;
-      }
-
-      const {
-        createTypeScriptImportResolver,
-      } = await import(
-        "eslint-import-resolver-typescript",
-      );
-
-      context.eslint.config.push(
-        {
-          ...pluginImportX.flatConfigs.recommended,
-          files: [
-            GLOB_PATTERN_JS_JSX_TS_TSX,
-            GLOB_PATTERN_MJS_MJSX_MTS_MTSX,
-          ],
-        } as Linter.Config,
-
-        {
-          ...pluginImportX.flatConfigs.typescript,
-          files: [
-            GLOB_PATTERN_JS_JSX_TS_TSX,
-            GLOB_PATTERN_MJS_MJSX_MTS_MTSX,
-          ],
-        } as Linter.Config,
-
-        {
-          settings: {
-            "import-x/extensions": [
-              ".d.ts",
-              ".ts",
-              ".tsx",
-              ".js",
-              ".jsx",
-              ".json",
-            ],
-            "import-x/internal-regex": resolvedOptions.internalRegexSource,
-            "import-x/parsers": {
-              "@typescript-eslint/parser": [
-                ".cjs",
-                ".cjsx",
-                ".cts",
-                ".ctsx",
-                ".js",
-                ".jsx",
-                ".mjs",
-                ".mjsx",
-                ".mts",
-                ".mtsx",
-                ".ts",
-                ".tsx",
-              ],
-            },
-            "import-x/resolver": {
-              node: {
-                extensions: [
-                  ".ts",
-                  ".tsx",
-                  ".js",
-                  ".jsx",
-                  ".mts",
-                  ".mtsx",
-                  ".mjs",
-                  ".mjsx",
-                  ".cts",
-                  ".ctsx",
-                  ".cjs",
-                  ".cjsx",
-                ],
-              },
-              typescript: true,
-            },
-            "import-x/resolver-next": [
-              pluginImportX.createNodeResolver(),
-              createTypeScriptImportResolver(),
-            ],
-          },
-        },
-      );
+      pluginImportX = pluginImportXModule.default;
     }
     catch (err)
     {
@@ -133,7 +60,82 @@ export class ESLintIntegrationImportXPluginAPI
       const err2 = new Error(`Package could not be imported: ${packageName}`);
       err2.cause = err;
       process.emitWarning(err2);
+    }
+
+    if (pluginImportX == null)
+    {
       return;
     }
+
+    // TODO(ertgl): Make `eslint-import-resolver-typescript` dependency optional.
+    const {
+      createTypeScriptImportResolver,
+    } = await import(
+      "eslint-import-resolver-typescript",
+    );
+
+    const extensions = [
+      ".d.ts",
+      ".ts",
+      ".tsx",
+      ".js",
+      ".jsx",
+      ".mts",
+      ".mtsx",
+      ".mjs",
+      ".mjsx",
+      ".cts",
+      ".ctsx",
+      ".cjs",
+      ".cjsx",
+      ".node",
+      ".json",
+    ];
+
+    const nodeExtensions = [
+      ".js",
+      ".mjs",
+      ".cjs",
+      ".node",
+      ".json",
+    ];
+
+    context.eslint.config.push(
+      {
+        settings: {
+          "import-x/extensions": extensions,
+          "import-x/internal-regex": resolvedOptions.internalPatternSource,
+          "import-x/parsers": {
+            "@typescript-eslint/parser": extensions,
+          },
+          "import-x/resolver": {
+            node: {
+              extensions: nodeExtensions,
+            },
+            typescript: true,
+          },
+          "import-x/resolver-next": [
+            pluginImportX.createNodeResolver(),
+            createTypeScriptImportResolver(),
+          ],
+        },
+      },
+
+      {
+        ...pluginImportX.flatConfigs.recommended,
+        files: [
+          GLOB_PATTERN_CJS_JS_MJS,
+          GLOB_PATTERN_CJSX_JSX_MJSX,
+        ],
+      } as Linter.Config,
+
+      {
+        ...pluginImportX.flatConfigs.typescript,
+        files: [
+          GLOB_PATTERN_CTS_MTS_TS,
+          GLOB_PATTERN_CTSX_MTSX_TSX,
+        ],
+      } as Linter.Config,
+    );
   }
 }

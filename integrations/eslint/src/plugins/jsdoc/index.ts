@@ -1,4 +1,3 @@
-// eslint-disable-next-line import-x/export
 export * from "./module-augmentation";
 export * from "./plugin";
 export { createESLintIntegrationJSDocPlugin as default } from "./plugin";

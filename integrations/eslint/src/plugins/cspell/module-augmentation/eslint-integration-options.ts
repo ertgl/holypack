@@ -4,7 +4,7 @@ declare module "../../../integration/integration-options"
 {
   interface ESLintIntegrationOptionsCustomProperties
   {
-    cspell?: ESLintIntegrationCSpellPluginOptions | null;
+    cspell?: boolean | ESLintIntegrationCSpellPluginOptions | null;
   }
 
   interface ESLintIntegrationResolvedOptionsCustomProperties

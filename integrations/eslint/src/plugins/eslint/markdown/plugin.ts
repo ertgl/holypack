@@ -34,7 +34,7 @@ export class ESLintIntegrationESLintMarkdownPlugin extends BaseIntegration
   {
     await this.api.addESLintConfig(
       resolvedContext,
-      eslintIntegration,
+      eslintIntegration.options.markdown,
     );
   }
 

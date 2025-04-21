@@ -10,7 +10,7 @@ export class PluginNameIsNotDefinedError extends Error
     plugin: Plugin,
   )
   {
-    super("Plugin name is not defined");
+    super(`Plugin name is not defined: ${plugin.constructor.name}`);
     this.name = ERROR_PLUGIN_NAME_IS_NOT_DEFINED;
     this.plugin = plugin;
   }

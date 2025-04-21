@@ -34,7 +34,7 @@ export class ESLintIntegrationJSDocPlugin extends BaseIntegration
   {
     await this.api.addESLintConfig(
       resolvedContext,
-      eslintIntegration,
+      eslintIntegration.options.jsdoc,
     );
   }
 

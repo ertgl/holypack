@@ -4,7 +4,7 @@ export type ESLintIntegrationImportXPluginOptions = (
 );
 
 export type ESLintIntegrationImportXPluginOptionsBaseProperties = {
-  internalRegex?: null | RegExp | string;
+  internalPattern?: null | RegExp | string;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
@@ -17,7 +17,7 @@ export type ESLintIntegrationImportXPluginResolvedOptions = (
 );
 
 export type ESLintIntegrationImportXPluginResolvedOptionsBaseProperties = {
-  internalRegexSource: null | string;
+  internalPatternSource: null | string;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type

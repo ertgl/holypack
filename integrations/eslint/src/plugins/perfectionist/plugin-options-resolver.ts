@@ -8,15 +8,15 @@ export function resolveESLintIntegrationPerfectionistPluginOptions(
   options?: boolean | ESLintIntegrationPerfectionistPluginOptions | null,
 ): ESLintIntegrationPerfectionistPluginResolvedOptions | false
 {
-  if (!options)
+  if (options === false)
   {
     return false;
   }
 
   const optionsObject = (
-    typeof options === "object"
-      ? options
-      : {}
+    options === true
+      ? {}
+      : options ?? {}
   );
 
   const internalPattern = (

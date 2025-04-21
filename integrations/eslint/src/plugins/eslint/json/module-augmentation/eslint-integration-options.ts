@@ -4,7 +4,7 @@ declare module "../../../../integration/integration-options"
 {
   interface ESLintIntegrationOptionsCustomProperties
   {
-    json?: ESLintIntegrationESLintJSONPluginOptions | null;
+    json?: boolean | ESLintIntegrationESLintJSONPluginOptions | null;
   }
 
   interface ESLintIntegrationResolvedOptionsCustomProperties

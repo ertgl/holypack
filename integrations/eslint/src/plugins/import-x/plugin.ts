@@ -34,7 +34,7 @@ export class ESLintIntegrationImportXPlugin extends BaseIntegration
   {
     await this.api.addESLintConfig(
       resolvedContext,
-      eslintIntegration,
+      eslintIntegration.options.importX,
     );
   }
 

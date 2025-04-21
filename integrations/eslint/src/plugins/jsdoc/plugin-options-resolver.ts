@@ -8,15 +8,15 @@ export function resolveESLintIntegrationJSDocPluginOptions(
   options?: boolean | ESLintIntegrationJSDocPluginOptions | null,
 ): ESLintIntegrationJSDocPluginResolvedOptions | false
 {
-  if (!options)
+  if (options === false)
   {
     return false;
   }
 
   const optionsObject = (
-    typeof options === "object"
-      ? options
-      : {}
+    options === true
+      ? {}
+      : options ?? {}
   );
 
   return {

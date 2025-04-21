@@ -4,7 +4,7 @@ declare module "../../../integration/integration-options"
 {
   interface ESLintIntegrationOptionsCustomProperties
   {
-    perfectionist?: ESLintIntegrationPerfectionistPluginOptions | null;
+    perfectionist?: boolean | ESLintIntegrationPerfectionistPluginOptions | null;
   }
 
   interface ESLintIntegrationResolvedOptionsCustomProperties

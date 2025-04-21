@@ -1,4 +1,3 @@
-// eslint-disable-next-line import-x/export
 export * from "./module-augmentation";
 export * from "./plugin";
 export { createESLintIntegrationESLintMarkdownPlugin as default } from "./plugin";

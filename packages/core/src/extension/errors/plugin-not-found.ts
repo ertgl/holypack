@@ -8,7 +8,7 @@ export class PluginNotFoundError extends Error
     pluginName: string,
   )
   {
-    super("Plugin not found");
+    super(`Plugin not found: ${pluginName}`);
     this.name = ERROR_PLUGIN_NOT_FOUND;
     this.pluginName = pluginName;
   }

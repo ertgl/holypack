@@ -34,7 +34,7 @@ export class ESLintIntegrationNPlugin extends BaseIntegration
   {
     await this.api.addESLintConfig(
       resolvedContext,
-      eslintIntegration,
+      eslintIntegration.options.n,
     );
   }
 

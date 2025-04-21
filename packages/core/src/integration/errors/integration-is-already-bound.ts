@@ -10,7 +10,7 @@ export class IntegrationIsAlreadyBoundError extends Error
     integration: Integration,
   )
   {
-    super("Integration is already bound");
+    super(`Integration is already bound: ${integration.name}`);
     this.name = ERROR_INTEGRATION_IS_ALREADY_BOUND;
     this.integration = integration;
   }

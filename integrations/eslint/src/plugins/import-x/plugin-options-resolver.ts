@@ -8,29 +8,27 @@ export function resolveESLintIntegrationImportXPluginOptions(
   options?: boolean | ESLintIntegrationImportXPluginOptions | null,
 ): ESLintIntegrationImportXPluginResolvedOptions | false
 {
-  if (!options)
+  if (options === false)
   {
     return false;
   }
 
   const optionsObject = (
-    typeof options === "object"
-      ? options
-      : {}
+    options === true
+      ? {}
+      : options ?? {}
   );
 
-  const internalRegex = (
-    optionsObject.internalRegex ?? null
-  );
+  const internalPattern = optionsObject.internalPattern ?? null;
 
-  const internalRegexSource = (
-    internalRegex instanceof RegExp
-      ? internalRegex.source
-      : internalRegex
+  const internalPatternSource = (
+    internalPattern instanceof RegExp
+      ? internalPattern.source
+      : internalPattern
   );
 
   return {
     ...optionsObject,
-    internalRegexSource,
+    internalPatternSource,
   };
 }

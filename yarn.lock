@@ -1933,7 +1933,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/__monorepo__@workspace:."
   dependencies:
+    "@holypack/eslint-plugin": "workspace:*"
     "@holypack/integration-eslint": "workspace:*"
+    holypack: "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -1961,6 +1963,16 @@ __metadata:
     picomatch: "*"
     tapable: "*"
   languageName: unknown
+  linkType: soft
+
+"@holypack/eslint-plugin@portal:./external/eslint-plugin::locator=%40holypack%2F__monorepo__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/eslint-plugin@portal:./external/eslint-plugin::locator=%40holypack%2F__monorepo__%40workspace%3A."
+  peerDependencies:
+    "@holypack/core": "*"
+    "@holypack/integration-eslint": "*"
+    eslint: "*"
+  languageName: node
   linkType: soft
 
 "@holypack/eslint-plugin@workspace:external/eslint-plugin":
@@ -4035,6 +4047,14 @@ __metadata:
   checksum: 10c0/3769d434703b8ac66b209a4cca0737519925bbdb61dd887f93a16372b14694c63ff4e797686d87c90f08168e81082248b9b028bad60d4da9e0d1148766f56eb9
   languageName: node
   linkType: hard
+
+"holypack@portal:./packages/prelude::locator=%40holypack%2F__monorepo__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "holypack@portal:./packages/prelude::locator=%40holypack%2F__monorepo__%40workspace%3A."
+  dependencies:
+    "@holypack/core": "workspace:*"
+  languageName: node
+  linkType: soft
 
 "holypack@workspace:packages/prelude":
   version: 0.0.0-use.local

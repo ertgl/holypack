@@ -34,7 +34,7 @@ export class ESLintIntegrationPerfectionistPlugin extends BaseIntegration
   {
     await this.api.addESLintConfig(
       resolvedContext,
-      eslintIntegration,
+      eslintIntegration.options.perfectionist,
     );
   }
 

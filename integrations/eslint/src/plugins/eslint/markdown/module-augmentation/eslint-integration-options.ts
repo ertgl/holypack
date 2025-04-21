@@ -4,7 +4,7 @@ declare module "../../../../integration/integration-options"
 {
   interface ESLintIntegrationOptionsCustomProperties
   {
-    markdown?: ESLintIntegrationESLintMarkdownPluginOptions | null;
+    markdown?: boolean | ESLintIntegrationESLintMarkdownPluginOptions | null;
   }
 
   interface ESLintIntegrationResolvedOptionsCustomProperties

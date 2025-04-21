@@ -4,7 +4,7 @@ declare module "../../../integration/integration-options"
 {
   interface ESLintIntegrationOptionsCustomProperties
   {
-    stylistic?: ESLintIntegrationStylisticPluginOptions | null;
+    stylistic?: boolean | ESLintIntegrationStylisticPluginOptions | null;
   }
 
   interface ESLintIntegrationResolvedOptionsCustomProperties

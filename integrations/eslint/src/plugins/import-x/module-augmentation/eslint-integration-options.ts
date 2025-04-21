@@ -4,7 +4,7 @@ declare module "../../../integration/integration-options"
 {
   interface ESLintIntegrationOptionsCustomProperties
   {
-    importX?: ESLintIntegrationImportXPluginOptions | null;
+    importX?: boolean | ESLintIntegrationImportXPluginOptions | null;
   }
 
   interface ESLintIntegrationResolvedOptionsCustomProperties

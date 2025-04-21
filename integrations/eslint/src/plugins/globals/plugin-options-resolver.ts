@@ -8,15 +8,15 @@ export function resolveESLintIntegrationGlobalsPluginOptions(
   options?: boolean | ESLintIntegrationGlobalsPluginOptions | null,
 ): ESLintIntegrationGlobalsPluginResolvedOptions | false
 {
-  if (!options)
+  if (options === false)
   {
     return false;
   }
 
   const optionsObject = (
-    typeof options === "object"
-      ? options
-      : {}
+    options === true
+      ? {}
+      : options ?? {}
   );
 
   return {

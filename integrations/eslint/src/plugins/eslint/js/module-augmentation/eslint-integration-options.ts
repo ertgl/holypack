@@ -4,7 +4,7 @@ declare module "../../../../integration/integration-options"
 {
   interface ESLintIntegrationOptionsCustomProperties
   {
-    js?: ESLintIntegrationESLintJSPluginOptions | null;
+    js?: boolean | ESLintIntegrationESLintJSPluginOptions | null;
   }
 
   interface ESLintIntegrationResolvedOptionsCustomProperties

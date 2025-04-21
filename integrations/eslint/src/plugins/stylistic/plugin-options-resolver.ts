@@ -8,15 +8,15 @@ export function resolveESLintIntegrationStylisticPluginOptions(
   options?: boolean | ESLintIntegrationStylisticPluginOptions | null,
 ): ESLintIntegrationStylisticPluginResolvedOptions | false
 {
-  if (!options)
+  if (options === false)
   {
     return false;
   }
 
   const optionsObject = (
-    typeof options === "object"
-      ? options
-      : {}
+    options === true
+      ? {}
+      : options ?? {}
   );
 
   const overrides = optionsObject.overrides ?? {};

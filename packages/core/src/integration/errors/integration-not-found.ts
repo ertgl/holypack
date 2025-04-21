@@ -8,7 +8,7 @@ export class IntegrationNotFoundError extends Error
     integrationName: string,
   )
   {
-    super("Integration name is not defined");
+    super(`Integration not found: ${integrationName}`);
     this.name = ERROR_INTEGRATION_NOT_FOUND;
     this.integrationName = integrationName;
   }

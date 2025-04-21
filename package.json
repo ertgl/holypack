@@ -25,7 +25,9 @@
     "./packages/*"
   ],
   "devDependencies": {
-    "@holypack/integration-eslint": "workspace:*"
+    "@holypack/eslint-plugin": "workspace:*",
+    "@holypack/integration-eslint": "workspace:*",
+    "holypack": "workspace:*"
   },
   "resolutions": {
     "@holypack/core": "portal:./packages/core",

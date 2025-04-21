@@ -34,7 +34,7 @@ export class ESLintIntegrationTypeScriptPlugin extends BaseIntegration
   {
     await this.api.addESLintConfig(
       resolvedContext,
-      eslintIntegration,
+      eslintIntegration.options.typescript,
     );
   }
 

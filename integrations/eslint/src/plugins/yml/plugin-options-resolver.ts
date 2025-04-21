@@ -8,15 +8,15 @@ export function resolveESLintIntegrationYMLPluginOptions(
   options?: boolean | ESLintIntegrationYMLPluginOptions | null,
 ): ESLintIntegrationYMLPluginResolvedOptions | false
 {
-  if (!options)
+  if (options === false)
   {
     return false;
   }
 
   const optionsObject = (
-    typeof options === "object"
-      ? options
-      : {}
+    options === true
+      ? {}
+      : options ?? {}
   );
 
   return {

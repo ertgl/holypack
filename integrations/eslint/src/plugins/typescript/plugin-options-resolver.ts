@@ -8,15 +8,15 @@ export function resolveESLintIntegrationTypeScriptPluginOptions(
   options?: boolean | ESLintIntegrationTypeScriptPluginOptions | null,
 ): ESLintIntegrationTypeScriptPluginResolvedOptions | false
 {
-  if (!options)
+  if (options === false)
   {
     return false;
   }
 
   const optionsObject = (
-    typeof options === "object"
-      ? options
-      : {}
+    options === true
+      ? {}
+      : options ?? {}
   );
 
   // TODO(ertgl): Consider creating a plugin for workspaces.
