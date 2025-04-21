@@ -294,7 +294,7 @@ async function main(
     newPackageJSON,
     null,
     2,
-  );
+  ) + "\n";
 
   if (shouldWriteToConsole)
   {
