@@ -144,7 +144,7 @@ scale.
   <tr>
     <td><a href="https://eslint.org/">ESLint</a></td>
     <td><a href="integrations/eslint">@holypack/integration-eslint</a></td>
-    <td align="center">Work in progress</td>
+    <td align="center">Completed</td>
   </tr>
   <tr>
     <td><a href="https://github.com/dequelabs/axe-core">axe-core</a></td>
