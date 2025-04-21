@@ -277,6 +277,58 @@
       "require": "./dist/cjs/plugins/eslint/js/module-augmentation/*",
       "default": "./src/plugins/eslint/js/module-augmentation/*"
     },
+    "./plugins/eslint/json/module-augmentation": {
+      "types": "./dist/types/plugins/eslint/json/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/eslint/json/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/json/module-augmentation/index.cjs",
+      "default": "./src/plugins/eslint/json/module-augmentation/index.ts"
+    },
+    "./plugins/eslint/json/module-augmentation/": {
+      "types": "./dist/types/plugins/eslint/json/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/eslint/json/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/json/module-augmentation/index.cjs",
+      "default": "./src/plugins/eslint/json/module-augmentation/index.ts"
+    },
+    "./plugins/eslint/json/module-augmentation/*.d.ts": {
+      "types": "./dist/types/plugins/eslint/json/module-augmentation/*.d.ts",
+      "default": "./src/plugins/eslint/json/module-augmentation/*.ts"
+    },
+    "./plugins/eslint/json/module-augmentation/*.cjs": {
+      "types": "./dist/types/plugins/eslint/json/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/json/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/json/module-augmentation/*.cjs",
+      "default": "./src/plugins/eslint/json/module-augmentation/*.ts"
+    },
+    "./plugins/eslint/json/module-augmentation/*.js": {
+      "types": "./dist/types/plugins/eslint/json/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/json/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/json/module-augmentation/*.cjs",
+      "default": "./src/plugins/eslint/json/module-augmentation/*.ts"
+    },
+    "./plugins/eslint/json/module-augmentation/*.mjs": {
+      "types": "./dist/types/plugins/eslint/json/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/json/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/json/module-augmentation/*.cjs",
+      "default": "./src/plugins/eslint/json/module-augmentation/*.ts"
+    },
+    "./plugins/eslint/json/module-augmentation/*.ts": {
+      "types": "./dist/types/plugins/eslint/json/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/json/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/json/module-augmentation/*.cjs",
+      "default": "./src/plugins/eslint/json/module-augmentation/*.ts"
+    },
+    "./plugins/eslint/json/module-augmentation/*/": {
+      "types": "./dist/types/plugins/eslint/json/module-augmentation/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/eslint/json/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/json/module-augmentation/*/index.cjs",
+      "default": "./src/*/plugins/eslint/json/module-augmentation/index.ts"
+    },
+    "./plugins/eslint/json/module-augmentation/*": {
+      "types": "./dist/types/plugins/eslint/json/module-augmentation/*",
+      "import": "./dist/esm/plugins/eslint/json/module-augmentation/*",
+      "require": "./dist/cjs/plugins/eslint/json/module-augmentation/*",
+      "default": "./src/plugins/eslint/json/module-augmentation/*"
+    },
     "./plugins/eslint/js": {
       "types": "./dist/types/plugins/eslint/js/index.d.ts",
       "import": "./dist/esm/plugins/eslint/js/index.mjs",
@@ -328,6 +380,58 @@
       "import": "./dist/esm/plugins/eslint/js/*",
       "require": "./dist/cjs/plugins/eslint/js/*",
       "default": "./src/plugins/eslint/js/*"
+    },
+    "./plugins/eslint/json": {
+      "types": "./dist/types/plugins/eslint/json/index.d.ts",
+      "import": "./dist/esm/plugins/eslint/json/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/json/index.cjs",
+      "default": "./src/plugins/eslint/json/index.ts"
+    },
+    "./plugins/eslint/json/": {
+      "types": "./dist/types/plugins/eslint/json/index.d.ts",
+      "import": "./dist/esm/plugins/eslint/json/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/json/index.cjs",
+      "default": "./src/plugins/eslint/json/index.ts"
+    },
+    "./plugins/eslint/json/*.d.ts": {
+      "types": "./dist/types/plugins/eslint/json/*.d.ts",
+      "default": "./src/plugins/eslint/json/*.ts"
+    },
+    "./plugins/eslint/json/*.cjs": {
+      "types": "./dist/types/plugins/eslint/json/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/json/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/json/*.cjs",
+      "default": "./src/plugins/eslint/json/*.ts"
+    },
+    "./plugins/eslint/json/*.js": {
+      "types": "./dist/types/plugins/eslint/json/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/json/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/json/*.cjs",
+      "default": "./src/plugins/eslint/json/*.ts"
+    },
+    "./plugins/eslint/json/*.mjs": {
+      "types": "./dist/types/plugins/eslint/json/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/json/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/json/*.cjs",
+      "default": "./src/plugins/eslint/json/*.ts"
+    },
+    "./plugins/eslint/json/*.ts": {
+      "types": "./dist/types/plugins/eslint/json/*.d.ts",
+      "import": "./dist/esm/plugins/eslint/json/*.mjs",
+      "require": "./dist/cjs/plugins/eslint/json/*.cjs",
+      "default": "./src/plugins/eslint/json/*.ts"
+    },
+    "./plugins/eslint/json/*/": {
+      "types": "./dist/types/plugins/eslint/json/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/eslint/json/index.mjs",
+      "require": "./dist/cjs/plugins/eslint/json/*/index.cjs",
+      "default": "./src/*/plugins/eslint/json/index.ts"
+    },
+    "./plugins/eslint/json/*": {
+      "types": "./dist/types/plugins/eslint/json/*",
+      "import": "./dist/esm/plugins/eslint/json/*",
+      "require": "./dist/cjs/plugins/eslint/json/*",
+      "default": "./src/plugins/eslint/json/*"
     },
     "./plugins/globals/module-augmentation": {
       "types": "./dist/types/plugins/globals/module-augmentation/index.d.ts",
@@ -484,58 +588,6 @@
       "import": "./dist/esm/plugins/jsdoc/module-augmentation/*",
       "require": "./dist/cjs/plugins/jsdoc/module-augmentation/*",
       "default": "./src/plugins/jsdoc/module-augmentation/*"
-    },
-    "./plugins/json/module-augmentation": {
-      "types": "./dist/types/plugins/json/module-augmentation/index.d.ts",
-      "import": "./dist/esm/plugins/json/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/json/module-augmentation/index.cjs",
-      "default": "./src/plugins/json/module-augmentation/index.ts"
-    },
-    "./plugins/json/module-augmentation/": {
-      "types": "./dist/types/plugins/json/module-augmentation/index.d.ts",
-      "import": "./dist/esm/plugins/json/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/json/module-augmentation/index.cjs",
-      "default": "./src/plugins/json/module-augmentation/index.ts"
-    },
-    "./plugins/json/module-augmentation/*.d.ts": {
-      "types": "./dist/types/plugins/json/module-augmentation/*.d.ts",
-      "default": "./src/plugins/json/module-augmentation/*.ts"
-    },
-    "./plugins/json/module-augmentation/*.cjs": {
-      "types": "./dist/types/plugins/json/module-augmentation/*.d.ts",
-      "import": "./dist/esm/plugins/json/module-augmentation/*.mjs",
-      "require": "./dist/cjs/plugins/json/module-augmentation/*.cjs",
-      "default": "./src/plugins/json/module-augmentation/*.ts"
-    },
-    "./plugins/json/module-augmentation/*.js": {
-      "types": "./dist/types/plugins/json/module-augmentation/*.d.ts",
-      "import": "./dist/esm/plugins/json/module-augmentation/*.mjs",
-      "require": "./dist/cjs/plugins/json/module-augmentation/*.cjs",
-      "default": "./src/plugins/json/module-augmentation/*.ts"
-    },
-    "./plugins/json/module-augmentation/*.mjs": {
-      "types": "./dist/types/plugins/json/module-augmentation/*.d.ts",
-      "import": "./dist/esm/plugins/json/module-augmentation/*.mjs",
-      "require": "./dist/cjs/plugins/json/module-augmentation/*.cjs",
-      "default": "./src/plugins/json/module-augmentation/*.ts"
-    },
-    "./plugins/json/module-augmentation/*.ts": {
-      "types": "./dist/types/plugins/json/module-augmentation/*.d.ts",
-      "import": "./dist/esm/plugins/json/module-augmentation/*.mjs",
-      "require": "./dist/cjs/plugins/json/module-augmentation/*.cjs",
-      "default": "./src/plugins/json/module-augmentation/*.ts"
-    },
-    "./plugins/json/module-augmentation/*/": {
-      "types": "./dist/types/plugins/json/module-augmentation/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/json/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/json/module-augmentation/*/index.cjs",
-      "default": "./src/*/plugins/json/module-augmentation/index.ts"
-    },
-    "./plugins/json/module-augmentation/*": {
-      "types": "./dist/types/plugins/json/module-augmentation/*",
-      "import": "./dist/esm/plugins/json/module-augmentation/*",
-      "require": "./dist/cjs/plugins/json/module-augmentation/*",
-      "default": "./src/plugins/json/module-augmentation/*"
     },
     "./plugins/n/module-augmentation": {
       "types": "./dist/types/plugins/n/module-augmentation/index.d.ts",
@@ -1004,58 +1056,6 @@
       "import": "./dist/esm/plugins/jsdoc/*",
       "require": "./dist/cjs/plugins/jsdoc/*",
       "default": "./src/plugins/jsdoc/*"
-    },
-    "./plugins/json": {
-      "types": "./dist/types/plugins/json/index.d.ts",
-      "import": "./dist/esm/plugins/json/index.mjs",
-      "require": "./dist/cjs/plugins/json/index.cjs",
-      "default": "./src/plugins/json/index.ts"
-    },
-    "./plugins/json/": {
-      "types": "./dist/types/plugins/json/index.d.ts",
-      "import": "./dist/esm/plugins/json/index.mjs",
-      "require": "./dist/cjs/plugins/json/index.cjs",
-      "default": "./src/plugins/json/index.ts"
-    },
-    "./plugins/json/*.d.ts": {
-      "types": "./dist/types/plugins/json/*.d.ts",
-      "default": "./src/plugins/json/*.ts"
-    },
-    "./plugins/json/*.cjs": {
-      "types": "./dist/types/plugins/json/*.d.ts",
-      "import": "./dist/esm/plugins/json/*.mjs",
-      "require": "./dist/cjs/plugins/json/*.cjs",
-      "default": "./src/plugins/json/*.ts"
-    },
-    "./plugins/json/*.js": {
-      "types": "./dist/types/plugins/json/*.d.ts",
-      "import": "./dist/esm/plugins/json/*.mjs",
-      "require": "./dist/cjs/plugins/json/*.cjs",
-      "default": "./src/plugins/json/*.ts"
-    },
-    "./plugins/json/*.mjs": {
-      "types": "./dist/types/plugins/json/*.d.ts",
-      "import": "./dist/esm/plugins/json/*.mjs",
-      "require": "./dist/cjs/plugins/json/*.cjs",
-      "default": "./src/plugins/json/*.ts"
-    },
-    "./plugins/json/*.ts": {
-      "types": "./dist/types/plugins/json/*.d.ts",
-      "import": "./dist/esm/plugins/json/*.mjs",
-      "require": "./dist/cjs/plugins/json/*.cjs",
-      "default": "./src/plugins/json/*.ts"
-    },
-    "./plugins/json/*/": {
-      "types": "./dist/types/plugins/json/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/json/index.mjs",
-      "require": "./dist/cjs/plugins/json/*/index.cjs",
-      "default": "./src/*/plugins/json/index.ts"
-    },
-    "./plugins/json/*": {
-      "types": "./dist/types/plugins/json/*",
-      "import": "./dist/esm/plugins/json/*",
-      "require": "./dist/cjs/plugins/json/*",
-      "default": "./src/plugins/json/*"
     },
     "./plugins/n": {
       "types": "./dist/types/plugins/n/index.d.ts",

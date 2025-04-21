@@ -6,7 +6,7 @@ import {
   GLOB_PATTERN_JSON,
   GLOB_PATTERN_JSON5,
   GLOB_PATTERN_JSONC,
-} from "../../constants/glob-patterns";
+} from "../../../constants/glob-patterns";
 
 import type { ESLintIntegrationJSONPlugin } from "./plugin";
 import type { ESLintIntegrationJSONPluginOptions } from "./plugin-options";

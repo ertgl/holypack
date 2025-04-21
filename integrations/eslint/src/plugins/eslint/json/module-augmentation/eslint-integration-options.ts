@@ -1,6 +1,6 @@
 import type { ESLintIntegrationJSONPluginOptions } from "../plugin-options";
 
-declare module "../../../integration/integration-options"
+declare module "../../../../integration/integration-options"
 {
   interface ESLintIntegrationOptionsCustomProperties
   {

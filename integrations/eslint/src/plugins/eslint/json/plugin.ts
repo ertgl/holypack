@@ -9,7 +9,7 @@ import {
 import {
   type ESLintIntegration,
   INTEGRATION_NAME_ESLINT,
-} from "../../integration";
+} from "../../../integration";
 
 import { ESLintIntegrationJSONPluginAPI } from "./plugin-api";
 
