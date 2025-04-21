@@ -3,7 +3,10 @@ import type PluginImportXModule from "eslint-plugin-import-x";
 
 import type { ResolvedContext } from "@holypack/core";
 
-import { GLOB_PATTERN_JS_JSX_TS_TSX, GLOB_PATTERN_MJS_MJSX_MTS_MTSX } from "../../constants/glob-patterns";
+import {
+  GLOB_PATTERN_JS_JSX_TS_TSX,
+  GLOB_PATTERN_MJS_MJSX_MTS_MTSX,
+} from "../../constants/glob-patterns";
 
 import type { ESLintIntegrationImportXPlugin } from "./plugin";
 import type { ESLintIntegrationImportXPluginOptions } from "./plugin-options";
