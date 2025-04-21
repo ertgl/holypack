@@ -484,6 +484,58 @@
       "require": "./dist/cjs/plugins/n/module-augmentation/*",
       "default": "./src/plugins/n/module-augmentation/*"
     },
+    "./plugins/perfectionist/module-augmentation": {
+      "types": "./dist/types/plugins/perfectionist/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/perfectionist/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/perfectionist/module-augmentation/index.cjs",
+      "default": "./src/plugins/perfectionist/module-augmentation/index.ts"
+    },
+    "./plugins/perfectionist/module-augmentation/": {
+      "types": "./dist/types/plugins/perfectionist/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/perfectionist/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/perfectionist/module-augmentation/index.cjs",
+      "default": "./src/plugins/perfectionist/module-augmentation/index.ts"
+    },
+    "./plugins/perfectionist/module-augmentation/*.d.ts": {
+      "types": "./dist/types/plugins/perfectionist/module-augmentation/*.d.ts",
+      "default": "./src/plugins/perfectionist/module-augmentation/*.ts"
+    },
+    "./plugins/perfectionist/module-augmentation/*.cjs": {
+      "types": "./dist/types/plugins/perfectionist/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/perfectionist/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/perfectionist/module-augmentation/*.cjs",
+      "default": "./src/plugins/perfectionist/module-augmentation/*.ts"
+    },
+    "./plugins/perfectionist/module-augmentation/*.js": {
+      "types": "./dist/types/plugins/perfectionist/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/perfectionist/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/perfectionist/module-augmentation/*.cjs",
+      "default": "./src/plugins/perfectionist/module-augmentation/*.ts"
+    },
+    "./plugins/perfectionist/module-augmentation/*.mjs": {
+      "types": "./dist/types/plugins/perfectionist/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/perfectionist/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/perfectionist/module-augmentation/*.cjs",
+      "default": "./src/plugins/perfectionist/module-augmentation/*.ts"
+    },
+    "./plugins/perfectionist/module-augmentation/*.ts": {
+      "types": "./dist/types/plugins/perfectionist/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/perfectionist/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/perfectionist/module-augmentation/*.cjs",
+      "default": "./src/plugins/perfectionist/module-augmentation/*.ts"
+    },
+    "./plugins/perfectionist/module-augmentation/*/": {
+      "types": "./dist/types/plugins/perfectionist/module-augmentation/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/perfectionist/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/perfectionist/module-augmentation/*/index.cjs",
+      "default": "./src/*/plugins/perfectionist/module-augmentation/index.ts"
+    },
+    "./plugins/perfectionist/module-augmentation/*": {
+      "types": "./dist/types/plugins/perfectionist/module-augmentation/*",
+      "import": "./dist/esm/plugins/perfectionist/module-augmentation/*",
+      "require": "./dist/cjs/plugins/perfectionist/module-augmentation/*",
+      "default": "./src/plugins/perfectionist/module-augmentation/*"
+    },
     "./plugins/stylistic/module-augmentation": {
       "types": "./dist/types/plugins/stylistic/module-augmentation/index.d.ts",
       "import": "./dist/esm/plugins/stylistic/module-augmentation/index.mjs",
@@ -847,6 +899,58 @@
       "import": "./dist/esm/plugins/n/*",
       "require": "./dist/cjs/plugins/n/*",
       "default": "./src/plugins/n/*"
+    },
+    "./plugins/perfectionist": {
+      "types": "./dist/types/plugins/perfectionist/index.d.ts",
+      "import": "./dist/esm/plugins/perfectionist/index.mjs",
+      "require": "./dist/cjs/plugins/perfectionist/index.cjs",
+      "default": "./src/plugins/perfectionist/index.ts"
+    },
+    "./plugins/perfectionist/": {
+      "types": "./dist/types/plugins/perfectionist/index.d.ts",
+      "import": "./dist/esm/plugins/perfectionist/index.mjs",
+      "require": "./dist/cjs/plugins/perfectionist/index.cjs",
+      "default": "./src/plugins/perfectionist/index.ts"
+    },
+    "./plugins/perfectionist/*.d.ts": {
+      "types": "./dist/types/plugins/perfectionist/*.d.ts",
+      "default": "./src/plugins/perfectionist/*.ts"
+    },
+    "./plugins/perfectionist/*.cjs": {
+      "types": "./dist/types/plugins/perfectionist/*.d.ts",
+      "import": "./dist/esm/plugins/perfectionist/*.mjs",
+      "require": "./dist/cjs/plugins/perfectionist/*.cjs",
+      "default": "./src/plugins/perfectionist/*.ts"
+    },
+    "./plugins/perfectionist/*.js": {
+      "types": "./dist/types/plugins/perfectionist/*.d.ts",
+      "import": "./dist/esm/plugins/perfectionist/*.mjs",
+      "require": "./dist/cjs/plugins/perfectionist/*.cjs",
+      "default": "./src/plugins/perfectionist/*.ts"
+    },
+    "./plugins/perfectionist/*.mjs": {
+      "types": "./dist/types/plugins/perfectionist/*.d.ts",
+      "import": "./dist/esm/plugins/perfectionist/*.mjs",
+      "require": "./dist/cjs/plugins/perfectionist/*.cjs",
+      "default": "./src/plugins/perfectionist/*.ts"
+    },
+    "./plugins/perfectionist/*.ts": {
+      "types": "./dist/types/plugins/perfectionist/*.d.ts",
+      "import": "./dist/esm/plugins/perfectionist/*.mjs",
+      "require": "./dist/cjs/plugins/perfectionist/*.cjs",
+      "default": "./src/plugins/perfectionist/*.ts"
+    },
+    "./plugins/perfectionist/*/": {
+      "types": "./dist/types/plugins/perfectionist/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/perfectionist/index.mjs",
+      "require": "./dist/cjs/plugins/perfectionist/*/index.cjs",
+      "default": "./src/*/plugins/perfectionist/index.ts"
+    },
+    "./plugins/perfectionist/*": {
+      "types": "./dist/types/plugins/perfectionist/*",
+      "import": "./dist/esm/plugins/perfectionist/*",
+      "require": "./dist/cjs/plugins/perfectionist/*",
+      "default": "./src/plugins/perfectionist/*"
     },
     "./plugins/stylistic": {
       "types": "./dist/types/plugins/stylistic/index.d.ts",
