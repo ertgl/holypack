@@ -4,7 +4,7 @@ export type Repository = (
 );
 
 export type RepositoryBaseProperties = {
-  path: string;
+  path?: null | string;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type

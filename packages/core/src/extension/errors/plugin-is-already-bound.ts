@@ -10,7 +10,7 @@ export class PluginIsAlreadyBoundError extends Error
     plugin: Plugin,
   )
   {
-    super("Plugin is already bound");
+    super(`Plugin is already bound: ${plugin.name}`);
     this.name = ERROR_PLUGIN_IS_ALREADY_BOUND;
     this.plugin = plugin;
   }

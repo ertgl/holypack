@@ -12,6 +12,8 @@
   },
   "devDependencies": {
     "@holypack/core": "*",
+    "@holypack/eslint-plugin": "*",
+    "@holypack/integration-eslint": "*",
     "@holypack/integration-typescript": "*",
     "holypack": "*",
     "tapable": "^2.2.1"
@@ -29,5 +31,8 @@
     "@holypack/integration-typescript": "portal:../integrations/typescript",
     "@holypack/internal-integration-yarn": "portal:../internal/integrations/yarn",
     "holypack": "portal:../packages/prelude"
+  },
+  "engines": {
+    "node": ">=22.14.0"
   }
 }

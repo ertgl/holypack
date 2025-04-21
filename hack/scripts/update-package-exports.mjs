@@ -22,8 +22,8 @@ const require = createRequire(__filename);
 
 /**
  * @param {string} packageRootPath
+ * @returns {Promise<Record<string, unknown>>}
  */
-
 async function generatePackageExports(
   packageRootPath,
 )
@@ -221,8 +221,8 @@ async function* iterateDirentsRecursively(
   );
 
   /**
-     * @type {Dirent[]}
-     */
+   * @type {Dirent[]}
+   */
   const deferredDirents = [];
 
   for (const dirent of dirents)
@@ -245,10 +245,9 @@ async function* iterateDirentsRecursively(
 }
 
 /**
- *
  * @param {null | string[]} [args]
+ * @returns {Promise<void>}
  */
-
 async function main(
   args,
 )
@@ -260,6 +259,7 @@ async function main(
   if (!packageJSONFilePath)
   {
     console.error("Please provide a path to package.json");
+    // eslint-disable-next-line n/no-process-exit
     process.exit(1);
   }
 
@@ -294,7 +294,7 @@ async function main(
     newPackageJSON,
     null,
     2,
-  );
+  ) + "\n";
 
   if (shouldWriteToConsole)
   {

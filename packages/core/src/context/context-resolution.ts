@@ -12,7 +12,7 @@ import {
   bindIntegration,
   createIntegrationMap,
 } from "../integration";
-import { resolveCWD } from "../plugins/cwd";
+import { resolveCWD } from "../utils/process/cwd";
 
 import type {
   Context,
@@ -87,6 +87,11 @@ export async function resolveContext(
       bindIntegration(context, integration);
     }
   }
+
+  await context.hooks.setup.promise(
+    context,
+    config,
+  );
 
   await context.hooks.resolveConfig.promise(
     context,

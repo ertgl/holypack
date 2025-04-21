@@ -7,9 +7,9 @@ export type ExampleContext = {
 };
 
 export type ExampleResolvedConfig = {
-  flag: NonNullable<ExampleConfig["flag"]>;
+  flag: boolean;
 };
 
 export type ExampleResolvedContext = {
-  custom: NonNullable<ExampleContext["custom"]>;
+  custom: number;
 };

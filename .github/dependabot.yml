@@ -17,6 +17,7 @@ updates:
           - "@cspell/*"
           - "@eslint/*"
           - "@types/node"
+          - "@types/picomatch"
           - "eslint"
           - "eslint-*"
           - "*-eslint"

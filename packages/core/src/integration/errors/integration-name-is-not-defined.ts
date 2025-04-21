@@ -10,7 +10,7 @@ export class IntegrationNameIsNotDefinedError extends Error
     integration: Integration,
   )
   {
-    super("Integration name is not defined");
+    super(`Integration name is not defined: ${integration.constructor.name}`);
     this.name = ERROR_INTEGRATION_NAME_IS_NOT_DEFINED;
     this.integration = integration;
   }

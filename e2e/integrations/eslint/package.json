@@ -6,7 +6,11 @@
     "eslint": "eslint"
   },
   "devDependencies": {
+    "@holypack/core": "*",
     "@holypack/eslint-plugin": "*",
-    "eslint": "^9.24.0"
+    "@holypack/integration-eslint": "*",
+    "@holypack/integration-typescript": "*",
+    "eslint": "^9.25.0",
+    "holypack": "*"
   }
 }
