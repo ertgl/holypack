@@ -901,6 +901,58 @@
       "require": "./dist/cjs/plugins/typescript/module-augmentation/*",
       "default": "./src/plugins/typescript/module-augmentation/*"
     },
+    "./plugins/yml/module-augmentation": {
+      "types": "./dist/types/plugins/yml/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/yml/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/yml/module-augmentation/index.cjs",
+      "default": "./src/plugins/yml/module-augmentation/index.ts"
+    },
+    "./plugins/yml/module-augmentation/": {
+      "types": "./dist/types/plugins/yml/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/yml/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/yml/module-augmentation/index.cjs",
+      "default": "./src/plugins/yml/module-augmentation/index.ts"
+    },
+    "./plugins/yml/module-augmentation/*.d.ts": {
+      "types": "./dist/types/plugins/yml/module-augmentation/*.d.ts",
+      "default": "./src/plugins/yml/module-augmentation/*.ts"
+    },
+    "./plugins/yml/module-augmentation/*.cjs": {
+      "types": "./dist/types/plugins/yml/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/yml/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/yml/module-augmentation/*.cjs",
+      "default": "./src/plugins/yml/module-augmentation/*.ts"
+    },
+    "./plugins/yml/module-augmentation/*.js": {
+      "types": "./dist/types/plugins/yml/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/yml/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/yml/module-augmentation/*.cjs",
+      "default": "./src/plugins/yml/module-augmentation/*.ts"
+    },
+    "./plugins/yml/module-augmentation/*.mjs": {
+      "types": "./dist/types/plugins/yml/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/yml/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/yml/module-augmentation/*.cjs",
+      "default": "./src/plugins/yml/module-augmentation/*.ts"
+    },
+    "./plugins/yml/module-augmentation/*.ts": {
+      "types": "./dist/types/plugins/yml/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/yml/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/yml/module-augmentation/*.cjs",
+      "default": "./src/plugins/yml/module-augmentation/*.ts"
+    },
+    "./plugins/yml/module-augmentation/*/": {
+      "types": "./dist/types/plugins/yml/module-augmentation/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/yml/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/yml/module-augmentation/*/index.cjs",
+      "default": "./src/*/plugins/yml/module-augmentation/index.ts"
+    },
+    "./plugins/yml/module-augmentation/*": {
+      "types": "./dist/types/plugins/yml/module-augmentation/*",
+      "import": "./dist/esm/plugins/yml/module-augmentation/*",
+      "require": "./dist/cjs/plugins/yml/module-augmentation/*",
+      "default": "./src/plugins/yml/module-augmentation/*"
+    },
     "./plugins/cspell": {
       "types": "./dist/types/plugins/cspell/index.d.ts",
       "import": "./dist/esm/plugins/cspell/index.mjs",
@@ -1368,6 +1420,58 @@
       "import": "./dist/esm/plugins/typescript/*",
       "require": "./dist/cjs/plugins/typescript/*",
       "default": "./src/plugins/typescript/*"
+    },
+    "./plugins/yml": {
+      "types": "./dist/types/plugins/yml/index.d.ts",
+      "import": "./dist/esm/plugins/yml/index.mjs",
+      "require": "./dist/cjs/plugins/yml/index.cjs",
+      "default": "./src/plugins/yml/index.ts"
+    },
+    "./plugins/yml/": {
+      "types": "./dist/types/plugins/yml/index.d.ts",
+      "import": "./dist/esm/plugins/yml/index.mjs",
+      "require": "./dist/cjs/plugins/yml/index.cjs",
+      "default": "./src/plugins/yml/index.ts"
+    },
+    "./plugins/yml/*.d.ts": {
+      "types": "./dist/types/plugins/yml/*.d.ts",
+      "default": "./src/plugins/yml/*.ts"
+    },
+    "./plugins/yml/*.cjs": {
+      "types": "./dist/types/plugins/yml/*.d.ts",
+      "import": "./dist/esm/plugins/yml/*.mjs",
+      "require": "./dist/cjs/plugins/yml/*.cjs",
+      "default": "./src/plugins/yml/*.ts"
+    },
+    "./plugins/yml/*.js": {
+      "types": "./dist/types/plugins/yml/*.d.ts",
+      "import": "./dist/esm/plugins/yml/*.mjs",
+      "require": "./dist/cjs/plugins/yml/*.cjs",
+      "default": "./src/plugins/yml/*.ts"
+    },
+    "./plugins/yml/*.mjs": {
+      "types": "./dist/types/plugins/yml/*.d.ts",
+      "import": "./dist/esm/plugins/yml/*.mjs",
+      "require": "./dist/cjs/plugins/yml/*.cjs",
+      "default": "./src/plugins/yml/*.ts"
+    },
+    "./plugins/yml/*.ts": {
+      "types": "./dist/types/plugins/yml/*.d.ts",
+      "import": "./dist/esm/plugins/yml/*.mjs",
+      "require": "./dist/cjs/plugins/yml/*.cjs",
+      "default": "./src/plugins/yml/*.ts"
+    },
+    "./plugins/yml/*/": {
+      "types": "./dist/types/plugins/yml/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/yml/index.mjs",
+      "require": "./dist/cjs/plugins/yml/*/index.cjs",
+      "default": "./src/*/plugins/yml/index.ts"
+    },
+    "./plugins/yml/*": {
+      "types": "./dist/types/plugins/yml/*",
+      "import": "./dist/esm/plugins/yml/*",
+      "require": "./dist/cjs/plugins/yml/*",
+      "default": "./src/plugins/yml/*"
     },
     "./constants": {
       "types": "./dist/types/constants/index.d.ts",

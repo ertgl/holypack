@@ -20,3 +20,5 @@ export type * from "./plugins/perfectionist/module-augmentation";
 export type * from "./plugins/stylistic/module-augmentation";
 // eslint-disable-next-line import-x/export
 export type * from "./plugins/typescript/module-augmentation";
+// eslint-disable-next-line import-x/export
+export type * from "./plugins/yml/module-augmentation";

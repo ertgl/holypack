@@ -56,6 +56,8 @@ export class ESLintIntegration implements Integration
     config: Config,
   ): Promise<void>
   {
+    // TODO(ertgl): Import ESLint integration plugins statically, without circular import issues (probably caused by importing `INTEGRATION_NAME_ESLINT`).
+
     const { createESLintIntegrationCSpellPlugin } = await import("../plugins/cspell");
     const cspellPlugin = createESLintIntegrationCSpellPlugin();
     await bindSubIntegration(context, config, cspellPlugin);
@@ -99,6 +101,10 @@ export class ESLintIntegration implements Integration
     const { createESLintIntegrationESLintMarkdownPlugin } = await import("../plugins/eslint/markdown");
     const eslintMarkdownPlugin = createESLintIntegrationESLintMarkdownPlugin();
     await bindSubIntegration(context, config, eslintMarkdownPlugin);
+
+    const { createESLintIntegrationYMLPlugin } = await import("../plugins/yml");
+    const ymlPlugin = createESLintIntegrationYMLPlugin();
+    await bindSubIntegration(context, config, ymlPlugin);
   }
 }
 
