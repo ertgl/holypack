@@ -772,6 +772,7 @@ __metadata:
   resolution: "@holypack/__e2e__@workspace:."
   dependencies:
     "@holypack/core": "npm:*"
+    "@holypack/eslint-plugin": "npm:*"
     "@holypack/integration-eslint": "npm:*"
     "@holypack/integration-typescript": "npm:*"
     holypack: "npm:*"
