@@ -16,6 +16,10 @@ export const GLOB_PATTERN_MJS_MJSX_MTS_MTSX = `**/*.{mjs,mjsx,mts,mtsx}`;
 
 export const GLOB_PATTERN_JSON = "**/*.json";
 
+export const GLOB_PATTERN_JSONC = "**/*.jsonc";
+
+export const GLOB_PATTERN_JSON5 = "**/*.json5";
+
 export const GLOB_PATTERN_MD = "**/*.md";
 
 export const GLOB_PATTERN_YAML_YML = "**/*.{yaml,yml}";

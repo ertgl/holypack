@@ -59,6 +59,10 @@ const PATTERN_MJS_MJSX_MTS_MTSX = `**/*.{mjs,mjsx,mts,mtsx}`;
 
 const PATTERN_JSON = "**/*.json";
 
+const PATTERN_JSON5 = "**/*.json5";
+
+const PATTERN_JSONC = "**/*.jsonc";
+
 const PATTERN_MD = "**/*.md";
 
 const PATTERN_YAML_YML = "**/*.{yaml,yml}";
@@ -648,8 +652,30 @@ export async function resolveConfig(
       ...jsonPlugin.configs.recommended,
       files: [
         PATTERN_JSON,
+        PATTERN_JSON5,
+        PATTERN_JSONC,
+      ],
+    },
+
+    {
+      files: [
+        PATTERN_JSON,
       ],
       language: "json/json",
+    },
+
+    {
+      files: [
+        PATTERN_JSON5,
+      ],
+      language: "json/json5",
+    },
+
+    {
+      files: [
+        PATTERN_JSONC,
+      ],
+      language: "json/jsonc",
     },
 
     ...markdownPlugin.configs.recommended.map(
