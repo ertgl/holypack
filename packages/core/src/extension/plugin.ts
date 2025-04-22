@@ -21,6 +21,11 @@ export interface Plugin
     context: ResolvedContext,
   ) => Promise<void> | void;
 
+  onWarningEmitted?: (
+    context: Context | ResolvedContext,
+    err: Error,
+  ) => Promise<void> | void;
+
   resolveConfig?: (
     context: Context,
     config: Config,

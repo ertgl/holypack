@@ -42,22 +42,38 @@ export function bindPlugin(
     ?? generateHookSubscriptionIDForPlugin
   );
 
-  if (plugin.setup != null)
+  if (plugin.onContextReady != null)
   {
-    context.hooks.setup.tapPromise(
+    context.hooks.postResolveContext.tapPromise(
       generateHookSubscriptionID(
         plugin,
-        context.hooks.setup,
+        context.hooks.postResolveContext,
       ),
       async (
         context,
-        config,
+      ) =>
+      {
+        await maybeAwait(plugin.onContextReady?.(context));
+      },
+    );
+  }
+
+  if (plugin.onWarningEmitted == null)
+  {
+    context.hooks.emitWarning.tapPromise(
+      generateHookSubscriptionID(
+        plugin,
+        context.hooks.emitWarning,
+      ),
+      async (
+        context,
+        err,
       ) =>
       {
         await maybeAwait(
-          plugin.setup?.(
+          plugin.onWarningEmitted?.(
             context,
-            config,
+            err,
           ),
         );
       },
@@ -108,18 +124,24 @@ export function bindPlugin(
     );
   }
 
-  if (plugin.onContextReady != null)
+  if (plugin.setup != null)
   {
-    context.hooks.postResolveContext.tapPromise(
+    context.hooks.setup.tapPromise(
       generateHookSubscriptionID(
         plugin,
-        context.hooks.postResolveContext,
+        context.hooks.setup,
       ),
       async (
         context,
+        config,
       ) =>
       {
-        await maybeAwait(plugin.onContextReady?.(context));
+        await maybeAwait(
+          plugin.setup?.(
+            context,
+            config,
+          ),
+        );
       },
     );
   }
