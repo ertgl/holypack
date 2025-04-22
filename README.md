@@ -24,6 +24,9 @@
 > product.
 >
 > Development is ongoing very actively.
+>
+> If you are interested, I would like to hear your thoughts. Contact
+> information is available on my profile.
 
 ## Table of Contents
 
