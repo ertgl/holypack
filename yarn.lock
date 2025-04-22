@@ -1396,7 +1396,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cspell/dict-en-gb@npm:^4.1.64, @cspell/dict-en-gb@npm:^4.1.65":
+"@cspell/dict-en-gb@npm:^4.1.65":
   version: 4.1.65
   resolution: "@cspell/dict-en-gb@npm:4.1.65"
   checksum: 10c0/36174d28e58eb89f338965cad387ef26e3ee5982cfae59535c1aaaa487839f642808ab698657b3771cc9eb261cf093e194834a3fd6cb8aa625d91c92a75dd952
@@ -2016,15 +2016,15 @@ __metadata:
     "@cspell/dict-bash": "npm:^4.2.0"
     "@cspell/dict-css": "npm:^4.0.17"
     "@cspell/dict-en-common-misspellings": "npm:^2.0.10"
-    "@cspell/dict-en-gb": "npm:^4.1.64"
-    "@cspell/dict-en_us": "npm:^4.4.2"
+    "@cspell/dict-en-gb": "npm:^4.1.65"
+    "@cspell/dict-en_us": "npm:^4.4.3"
     "@cspell/dict-filetypes": "npm:^3.0.11"
     "@cspell/dict-git": "npm:^3.0.4"
     "@cspell/dict-html": "npm:^4.0.11"
     "@cspell/dict-html-symbol-entities": "npm:^4.0.3"
     "@cspell/dict-markdown": "npm:^2.0.10"
     "@cspell/dict-node": "npm:^5.0.7"
-    "@cspell/dict-npm": "npm:^5.2.0"
+    "@cspell/dict-npm": "npm:^5.2.1"
     "@cspell/dict-shell": "npm:^1.1.0"
     "@cspell/dict-typescript": "npm:^3.2.1"
     "@cspell/eslint-plugin": "npm:^8.19.2"
@@ -2038,7 +2038,7 @@ __metadata:
     eslint-plugin-import-x: "npm:^4.10.6"
     eslint-plugin-jsdoc: "npm:^50.6.9"
     eslint-plugin-n: "npm:^17.17.0"
-    eslint-plugin-perfectionist: "npm:^4.12.0"
+    eslint-plugin-perfectionist: "npm:^4.12.1"
     eslint-plugin-yml: "npm:^1.17.0"
     fast-glob: "npm:^3.3.3"
     globals: "npm:^16.0.0"
@@ -3476,7 +3476,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-perfectionist@npm:^4.12.0, eslint-plugin-perfectionist@npm:^4.12.1":
+"eslint-plugin-perfectionist@npm:^4.12.1":
   version: 4.12.1
   resolution: "eslint-plugin-perfectionist@npm:4.12.1"
   dependencies:
