@@ -40,38 +40,36 @@
 
 ## Overview
 
-Holypack is a backend-agnostic build system designed for scalable and
-accessible web projects. It focuses on bundling, transforming, and optimizing
+Holypack is a backend-agnostic build system designed for accessible and
+scalable web projects. It focuses on transforming, optimizing, and bundling
 frontend assets with minimal setup and maximum flexibility. Built with modern
 tooling and enterprise-readiness in mind, it supports a wide range of project
 types (from progressive-enhancement-first architectures to single-page
-applications) without enforcing backend constraints. Holypack offers a modular
-plugin system, reliable defaults, and thoughtful integrations for linting,
-testing, and security.
+applications) without enforcing backend constraints. Holypack provides reliable
+defaults, thoughtful integrations for linting, testing, security and a modular
+plugin system for unrestricted extensibility.
 
 ### Scope
 
 Many modern tools either make strong assumptions about the backend environment
 (typically JavaScript or TypeScript) or overlook the needs of progressive
 enhancement, which is vital for accessibility and long-term scalability.
-Holypack is designed to fill this gap by offering a backend-agnostic approach
+Holypack is crafted to fill this gap by offering a backend-agnostic approach
 that prioritizes portability, flexibility, and production-readiness from the
 start. It supports diverse project types, including SPAs, PWAs, SSR setups, and
-command-line tools without dictating architectural choices.
+CLI tools without dictating architectural choices.
 
 ### Principles
 
-Holypack is designed to provide long-term maintainability, modern developer
-workflows, and a clear separation of concerns in mind. It uses proven
+Holypack is designed to help achieve long-term maintainability, modern
+developer workflows, and a clear separation of concerns. It uses proven
 technologies to keep things simple but flexible enough to handle different use
 cases. The configuration approach strikes a balance, avoiding unnecessary
-complexity while still allowing customization when needed. Plus, the modular
-architecture makes it easy to extend as the project grows.
+complexity while still allowing customization when needed.
 
 The core principles behind holypack include:
 
-  - **Production-ready**: A straightforward setup by default, with flexibility
-    for customization when needed.
+  - **Production-ready**: A straightforward setup by default.
   - **Guided flexibility**: A mix of "**convention over configuration**" and
     "**configuration over convention**."
   - **Optimized for modern workflows**: Integrates with fast,
@@ -90,6 +88,7 @@ scale.
 #### Foundation
 
 - **Modular plugin system**, uses [tapable](https://github.com/webpack/tapable)
+  under the hood
 - **Backend-agnostic architecture**, supports any backend in any language
 - **Project templates** for:
   - Frontend-only (assets)
@@ -119,7 +118,7 @@ scale.
 #### CLI & Distribution
 
 - Build CLI applications targeting Node.js (including SSR use cases)
-- Optional JavaScript **obfuscation** for closed-source environments
+- Optional JavaScript **obfuscation** for closed-source projects
 - Support for bundling into **single-file** executables
 
 > [!WARNING]
