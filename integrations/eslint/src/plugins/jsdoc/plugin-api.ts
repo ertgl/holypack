@@ -1,6 +1,8 @@
 import type PluginJSDocModule from "eslint-plugin-jsdoc";
 
 import type { ResolvedContext } from "@holypack/core";
+import { emitWarning } from "@holypack/core/context/warnings";
+import { ModuleNotFoundError } from "@holypack/core/module";
 
 import {
   GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
@@ -32,6 +34,16 @@ export class ESLintIntegrationJSDocPluginAPI
     options?: boolean | ESLintIntegrationJSDocPluginOptions | null,
   ): Promise<void>
   {
+    const resolvedOptions = resolveESLintIntegrationJSDocPluginOptions(
+      context.cwd,
+      options,
+    );
+
+    if (resolvedOptions === false)
+    {
+      return;
+    }
+
     const packageName = "eslint-plugin-jsdoc";
 
     let pluginJSDoc: null | typeof PluginJSDocModule = null;
@@ -48,23 +60,12 @@ export class ESLintIntegrationJSDocPluginAPI
     }
     catch (err)
     {
-      // TODO(ertgl): Standardize the missing package error handling.
-      const err2 = new Error(`Package could not be imported: ${packageName}`);
+      const err2 = new ModuleNotFoundError(packageName);
       err2.cause = err;
-      process.emitWarning(err2);
+      await emitWarning(context, err2);
     }
 
     if (pluginJSDoc == null)
-    {
-      return;
-    }
-
-    const resolvedOptions = resolveESLintIntegrationJSDocPluginOptions(
-      context.cwd,
-      options,
-    );
-
-    if (resolvedOptions === false)
     {
       return;
     }

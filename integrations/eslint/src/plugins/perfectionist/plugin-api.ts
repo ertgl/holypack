@@ -1,6 +1,8 @@
 import type PluginPerfectionistModule from "eslint-plugin-perfectionist";
 
 import type { ResolvedContext } from "@holypack/core";
+import { emitWarning } from "@holypack/core/context/warnings";
+import { ModuleNotFoundError } from "@holypack/core/module";
 
 import {
   GLOB_PATTERN_CJS_JS_MJS,
@@ -29,6 +31,16 @@ export class ESLintIntegrationPerfectionistPluginAPI
     options?: boolean | ESLintIntegrationPerfectionistPluginOptions | null,
   ): Promise<void>
   {
+    const resolvedOptions = resolveESLintIntegrationPerfectionistPluginOptions(
+      context.cwd,
+      options,
+    );
+
+    if (resolvedOptions === false)
+    {
+      return;
+    }
+
     const packageName = "eslint-plugin-perfectionist";
 
     let pluginPerfectionist: null | typeof PluginPerfectionistModule = null;
@@ -45,23 +57,12 @@ export class ESLintIntegrationPerfectionistPluginAPI
     }
     catch (err)
     {
-      // TODO(ertgl): Standardize the missing package error handling.
-      const err2 = new Error(`Package could not be imported: ${packageName}`);
+      const err2 = new ModuleNotFoundError(packageName);
       err2.cause = err;
-      process.emitWarning(err2);
+      await emitWarning(context, err2);
     }
 
     if (pluginPerfectionist == null)
-    {
-      return;
-    }
-
-    const resolvedOptions = resolveESLintIntegrationPerfectionistPluginOptions(
-      context.cwd,
-      options,
-    );
-
-    if (resolvedOptions === false)
     {
       return;
     }

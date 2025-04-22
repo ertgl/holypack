@@ -6,10 +6,8 @@ import {
   type ResolvedContext,
 } from "@holypack/core";
 
-import {
-  type ESLintIntegration,
-  INTEGRATION_NAME_ESLINT,
-} from "../../integration";
+import { type ESLintIntegration } from "../../integration";
+import { INTEGRATION_NAME_ESLINT } from "../../integration/integration-name";
 
 import { ESLintIntegrationPerfectionistPluginAPI } from "./plugin-api";
 

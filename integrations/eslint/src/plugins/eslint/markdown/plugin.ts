@@ -6,14 +6,12 @@ import {
   type ResolvedContext,
 } from "@holypack/core";
 
-import {
-  type ESLintIntegration,
-  INTEGRATION_NAME_ESLINT,
-} from "../../../integration";
+import { type ESLintIntegration } from "../../../integration";
+import { INTEGRATION_NAME_ESLINT } from "../../../integration/integration-name";
 
 import { ESLintIntegrationESLintMarkdownPluginAPI } from "./plugin-api";
 
-export const INTEGRATION_NAME_ESLINT_MARKDOWN = `${INTEGRATION_NAME_ESLINT}/Markdown`;
+export const INTEGRATION_NAME_ESLINT_MARKDOWN = `${INTEGRATION_NAME_ESLINT}/ESLint/Markdown`;
 
 export class ESLintIntegrationESLintMarkdownPlugin extends BaseIntegration
 {

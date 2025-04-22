@@ -1,6 +1,8 @@
 import type ESLintJSPluginModule from "@eslint/js";
 
 import type { ResolvedContext } from "@holypack/core";
+import { emitWarning } from "@holypack/core/context/warnings";
+import { ModuleNotFoundError } from "@holypack/core/module";
 
 import {
   GLOB_PATTERN_CJS_JS_MJS,
@@ -27,7 +29,19 @@ export class ESLintIntegrationESLintJSPluginAPI
     options?: boolean | ESLintIntegrationESLintJSPluginOptions | null,
   ): Promise<void>
   {
+    const resolvedOptions = resolveESLintIntegrationESLintJSPluginOptions(
+      context.cwd,
+      options,
+    );
+
+    if (resolvedOptions === false)
+    {
+      return;
+    }
+
     const packageName = "@eslint/js";
+
+    let eslintJSPlugin: null | typeof ESLintJSPluginModule = null;
 
     try
     {
@@ -37,48 +51,41 @@ export class ESLintIntegrationESLintJSPluginAPI
         default: typeof ESLintJSPluginModule;
       };
 
-      const eslintJSPlugin = eslintJSPluginModule.default;
-
-      const resolvedOptions = resolveESLintIntegrationESLintJSPluginOptions(
-        context.cwd,
-        options,
-      );
-
-      if (resolvedOptions === false)
-      {
-        return;
-      }
-
-      context.eslint.config.push({
-        ...eslintJSPlugin.configs.recommended,
-        files: [
-          GLOB_PATTERN_CJS_JS_MJS,
-          GLOB_PATTERN_CJSX_JSX_MJSX,
-        ],
-      },
-
-      {
-        files: [
-          GLOB_PATTERN_CJS_JS_MJS,
-          GLOB_PATTERN_CJSX_JSX_MJSX,
-        ],
-        rules: {
-          "no-unused-vars": [
-            "warn",
-            {
-              args: "none",
-            },
-          ],
-        },
-      });
+      eslintJSPlugin = eslintJSPluginModule.default;
     }
     catch (err)
     {
-      // TODO(ertgl): Standardize the missing package error handling.
-      const err2 = new Error(`Package could not be imported: ${packageName}`);
+      const err2 = new ModuleNotFoundError(packageName);
       err2.cause = err;
-      process.emitWarning(err2);
+      await emitWarning(context, err2);
+    }
+
+    if (eslintJSPlugin == null)
+    {
       return;
     }
+
+    context.eslint.config.push({
+      ...eslintJSPlugin.configs.recommended,
+      files: [
+        GLOB_PATTERN_CJS_JS_MJS,
+        GLOB_PATTERN_CJSX_JSX_MJSX,
+      ],
+    },
+
+    {
+      files: [
+        GLOB_PATTERN_CJS_JS_MJS,
+        GLOB_PATTERN_CJSX_JSX_MJSX,
+      ],
+      rules: {
+        "no-unused-vars": [
+          "warn",
+          {
+            args: "none",
+          },
+        ],
+      },
+    });
   }
 }

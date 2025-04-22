@@ -2,6 +2,8 @@ import type { Linter } from "eslint";
 import type PluginImportXModule from "eslint-plugin-import-x";
 
 import type { ResolvedContext } from "@holypack/core";
+import { emitWarning } from "@holypack/core/context/warnings";
+import { ModuleNotFoundError } from "@holypack/core/module";
 
 import {
   GLOB_PATTERN_CJS_JS_MJS,
@@ -56,10 +58,9 @@ export class ESLintIntegrationImportXPluginAPI
     }
     catch (err)
     {
-      // TODO(ertgl): Standardize the missing package error handling.
-      const err2 = new Error(`Package could not be imported: ${packageName}`);
+      const err2 = new ModuleNotFoundError(packageName);
       err2.cause = err;
-      process.emitWarning(err2);
+      await emitWarning(context, err2);
     }
 
     if (pluginImportX == null)

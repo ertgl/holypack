@@ -6,14 +6,12 @@ import {
   type ResolvedContext,
 } from "@holypack/core";
 
-import {
-  type ESLintIntegration,
-  INTEGRATION_NAME_ESLINT,
-} from "../../../integration";
+import { type ESLintIntegration } from "../../../integration";
+import { INTEGRATION_NAME_ESLINT } from "../../../integration/integration-name";
 
 import { ESLintIntegrationESLintJSPluginAPI } from "./plugin-api";
 
-export const INTEGRATION_NAME_ESLINT_ESLINT_JS = `${INTEGRATION_NAME_ESLINT}/js`;
+export const INTEGRATION_NAME_ESLINT_ESLINT_JS = `${INTEGRATION_NAME_ESLINT}/ESLint/JS`;
 
 export class ESLintIntegrationESLintJSPlugin extends BaseIntegration
 {

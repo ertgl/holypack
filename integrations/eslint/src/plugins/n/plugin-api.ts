@@ -3,6 +3,8 @@ import { join as joinPaths } from "node:path";
 import type NPluginModule from "eslint-plugin-n";
 
 import type { ResolvedContext } from "@holypack/core";
+import { emitWarning } from "@holypack/core/context/warnings";
+import { ModuleNotFoundError } from "@holypack/core/module";
 
 import {
   GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
@@ -30,6 +32,16 @@ export class ESLintIntegrationNPluginAPI
     options?: boolean | ESLintIntegrationNPluginOptions | null,
   ): Promise<void>
   {
+    const resolvedOptions = resolveESLintIntegrationNPluginOptions(
+      context.cwd,
+      options,
+    );
+
+    if (resolvedOptions === false)
+    {
+      return;
+    }
+
     const packageName = "eslint-plugin-n";
 
     let nodePlugin: null | typeof NPluginModule = null;
@@ -46,23 +58,12 @@ export class ESLintIntegrationNPluginAPI
     }
     catch (err)
     {
-      // TODO(ertgl): Standardize the missing package error handling.
-      const err2 = new Error(`Package could not be imported: ${packageName}`);
+      const err2 = new ModuleNotFoundError(packageName);
       err2.cause = err;
-      process.emitWarning(err2);
+      await emitWarning(context, err2);
     }
 
     if (nodePlugin == null)
-    {
-      return;
-    }
-
-    const resolvedOptions = resolveESLintIntegrationNPluginOptions(
-      context.cwd,
-      options,
-    );
-
-    if (resolvedOptions === false)
     {
       return;
     }

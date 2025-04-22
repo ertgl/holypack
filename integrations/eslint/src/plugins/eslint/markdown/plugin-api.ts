@@ -1,6 +1,8 @@
 import type MarkdownPluginModule from "@eslint/markdown";
 
 import type { ResolvedContext } from "@holypack/core";
+import { emitWarning } from "@holypack/core/context/warnings";
+import { ModuleNotFoundError } from "@holypack/core/module";
 
 import { GLOB_PATTERN_MD } from "../../../constants/glob-patterns";
 
@@ -24,6 +26,16 @@ export class ESLintIntegrationESLintMarkdownPluginAPI
     options?: boolean | ESLintIntegrationESLintMarkdownPluginOptions | null,
   ): Promise<void>
   {
+    const resolvedOptions = resolveESLintIntegrationESLintMarkdownPluginOptions(
+      context.cwd,
+      options,
+    );
+
+    if (resolvedOptions === false)
+    {
+      return;
+    }
+
     const packageName = "@eslint/markdown";
 
     let markdownPlugin: null | typeof MarkdownPluginModule = null;
@@ -40,23 +52,12 @@ export class ESLintIntegrationESLintMarkdownPluginAPI
     }
     catch (err)
     {
-      // TODO(ertgl): Standardize the missing package error handling.
-      const err2 = new Error(`Package could not be imported: ${packageName}`);
+      const err2 = new ModuleNotFoundError(packageName);
       err2.cause = err;
-      process.emitWarning(err2);
+      await emitWarning(context, err2);
     }
 
     if (markdownPlugin == null)
-    {
-      return;
-    }
-
-    const resolvedOptions = resolveESLintIntegrationESLintMarkdownPluginOptions(
-      context.cwd,
-      options,
-    );
-
-    if (resolvedOptions === false)
     {
       return;
     }

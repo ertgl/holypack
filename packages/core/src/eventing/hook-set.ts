@@ -1,8 +1,10 @@
 import {
+  createEmitWarningHook,
   createPostResolveContextHook,
   createResolveConfigHook,
   createResolveContextHook,
   createSetupHook,
+  type EmitWarningHook,
   type PostResolveContextHook,
   type ResolveConfigHook,
   type ResolveContextHook,
@@ -15,6 +17,7 @@ export type HookSet = (
 );
 
 export type HookSetBaseProperties = {
+  emitWarning: EmitWarningHook;
   postResolveContext: PostResolveContextHook;
   resolveConfig: ResolveConfigHook;
   resolveContext: ResolveContextHook;
@@ -28,6 +31,7 @@ export interface HookSetCustomProperties
 export function createHookSet(): HookSet
 {
   return {
+    emitWarning: createEmitWarningHook(),
     postResolveContext: createPostResolveContextHook(),
     resolveConfig: createResolveConfigHook(),
     resolveContext: createResolveContextHook(),

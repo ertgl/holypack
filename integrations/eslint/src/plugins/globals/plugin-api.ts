@@ -1,6 +1,8 @@
 import type GlobalsModule from "globals";
 
 import type { ResolvedContext } from "@holypack/core";
+import { emitWarning } from "@holypack/core/context/warnings";
+import { ModuleNotFoundError } from "@holypack/core/module";
 
 import {
   GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
@@ -28,7 +30,19 @@ export class ESLintIntegrationGlobalsPluginAPI
     options?: boolean | ESLintIntegrationGlobalsPluginOptions | null,
   ): Promise<void>
   {
+    const resolvedOptions = resolveESLintIntegrationGlobalsPluginOptions(
+      context.cwd,
+      options,
+    );
+
+    if (resolvedOptions === false)
+    {
+      return;
+    }
+
     const packageName = "globals";
+
+    let globals: null | typeof GlobalsModule = null;
 
     try
     {
@@ -38,66 +52,59 @@ export class ESLintIntegrationGlobalsPluginAPI
         default: typeof GlobalsModule;
       };
 
-      const globals = globalsModule.default;
-
-      const resolvedOptions = resolveESLintIntegrationGlobalsPluginOptions(
-        context.cwd,
-        options,
-      );
-
-      if (resolvedOptions === false)
-      {
-        return;
-      }
-
-      context.eslint.config.push(
-        {
-          files: [
-            GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
-          ],
-          languageOptions: {
-            globals: {
-              ...globals.builtin,
-              ...globals.commonjs,
-              ...globals.node,
-              ...globals.nodeBuiltin,
-            },
-          },
-        },
-
-        {
-          files: [
-            GLOB_PATTERN_JS_JSX_TS_TSX,
-          ],
-          languageOptions: {
-            globals: {
-              ...globals.builtin,
-              ...globals.commonjs,
-              ...globals.es2025,
-            },
-          },
-        },
-
-        {
-          files: [
-            GLOB_PATTERN_MJS_MJSX_MTS_MTSX,
-          ],
-          languageOptions: {
-            globals: {
-              ...globals.builtin,
-              ...globals.es2025,
-            },
-          },
-        },
-      );
+      globals = globalsModule.default;
     }
     catch (err)
     {
-      // TODO(ertgl): Standardize the missing package error handling.
-      const err2 = new Error(`Package could not be imported: ${packageName}`);
+      const err2 = new ModuleNotFoundError(packageName);
       err2.cause = err;
-      process.emitWarning(err2);
+      await emitWarning(context, err2);
+    }
+
+    if (globals == null)
+    {
       return;
     }
+
+    context.eslint.config.push(
+      {
+        files: [
+          GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
+        ],
+        languageOptions: {
+          globals: {
+            ...globals.builtin,
+            ...globals.commonjs,
+            ...globals.node,
+            ...globals.nodeBuiltin,
+          },
+        },
+      },
+
+      {
+        files: [
+          GLOB_PATTERN_JS_JSX_TS_TSX,
+        ],
+        languageOptions: {
+          globals: {
+            ...globals.builtin,
+            ...globals.commonjs,
+            ...globals.es2025,
+          },
+        },
+      },
+
+      {
+        files: [
+          GLOB_PATTERN_MJS_MJSX_MTS_MTSX,
+        ],
+        languageOptions: {
+          globals: {
+            ...globals.builtin,
+            ...globals.es2025,
+          },
+        },
+      },
+    );
   }
 }

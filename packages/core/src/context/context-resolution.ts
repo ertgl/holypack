@@ -53,6 +53,7 @@ export async function resolveContext(
   const hooks = createHookSet();
 
   const context: Context = {
+    // @ts-expect-error - The config in the context will be filled in by the plugins.
     config: {},
     cwd,
     hooks,

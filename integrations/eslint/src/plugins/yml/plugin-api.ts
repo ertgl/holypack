@@ -1,6 +1,8 @@
 import type PluginYMLModule from "eslint-plugin-yml";
 
 import type { ResolvedContext } from "@holypack/core";
+import { emitWarning } from "@holypack/core/context/warnings";
+import { ModuleNotFoundError } from "@holypack/core/module";
 
 import { GLOB_PATTERN_YAML_YML } from "../../constants/glob-patterns";
 
@@ -24,6 +26,16 @@ export class ESLintIntegrationYMLPluginAPI
     options?: boolean | ESLintIntegrationYMLPluginOptions | null,
   ): Promise<void>
   {
+    const resolvedOptions = resolveESLintIntegrationYMLPluginOptions(
+      context.cwd,
+      options,
+    );
+
+    if (resolvedOptions === false)
+    {
+      return;
+    }
+
     const packageName = "eslint-plugin-yml";
 
     let pluginYML: null | typeof PluginYMLModule = null;
@@ -40,23 +52,12 @@ export class ESLintIntegrationYMLPluginAPI
     }
     catch (err)
     {
-      // TODO(ertgl): Standardize the missing package error handling.
-      const err2 = new Error(`Package could not be imported: ${packageName}`);
+      const err2 = new ModuleNotFoundError(packageName);
       err2.cause = err;
-      process.emitWarning(err2);
+      await emitWarning(context, err2);
     }
 
     if (pluginYML == null)
-    {
-      return;
-    }
-
-    const resolvedOptions = resolveESLintIntegrationYMLPluginOptions(
-      context.cwd,
-      options,
-    );
-
-    if (resolvedOptions === false)
     {
       return;
     }

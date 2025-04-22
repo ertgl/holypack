@@ -11,10 +11,21 @@ import {
   createESLintIntegrationHookSet,
   type ESLintIntegrationHookSet,
 } from "../eventing";
+import createESLintIntegrationCSpellPlugin from "../plugins/cspell";
+import createESLintIntegrationESLintJSPlugin from "../plugins/eslint/js";
+import createESLintIntegrationESLintJSONPlugin from "../plugins/eslint/json";
+import createESLintIntegrationESLintMarkdownPlugin from "../plugins/eslint/markdown";
+import createESLintIntegrationGlobalsPlugin from "../plugins/globals";
+import createESLintIntegrationImportXPlugin from "../plugins/import-x";
+import createESLintIntegrationJSDocPlugin from "../plugins/jsdoc";
+import createESLintIntegrationNPlugin from "../plugins/n";
+import createESLintIntegrationPerfectionistPlugin from "../plugins/perfectionist";
+import createESLintIntegrationStylisticPlugin from "../plugins/stylistic";
+import createESLintIntegrationTypeScriptPlugin from "../plugins/typescript";
+import createESLintIntegrationYMLPlugin from "../plugins/yml";
 
+import { INTEGRATION_NAME_ESLINT } from "./integration-name";
 import type { ESLintIntegrationOptions } from "./integration-options";
-
-export const INTEGRATION_NAME_ESLINT = "@holypack/integration:ESLint";
 
 export class ESLintIntegration implements Integration
 {
@@ -56,53 +67,39 @@ export class ESLintIntegration implements Integration
     config: Config,
   ): Promise<void>
   {
-    // TODO(ertgl): Import ESLint integration plugins statically, without circular import issues (probably caused by importing `INTEGRATION_NAME_ESLINT`).
-
-    const { createESLintIntegrationCSpellPlugin } = await import("../plugins/cspell");
     const cspellPlugin = createESLintIntegrationCSpellPlugin();
     await bindSubIntegration(context, config, cspellPlugin);
 
-    const { createESLintIntegrationESLintJSPlugin } = await import("../plugins/eslint/js");
     const eslintJSPlugin = createESLintIntegrationESLintJSPlugin();
     await bindSubIntegration(context, config, eslintJSPlugin);
 
-    const { createESLintIntegrationTypeScriptPlugin } = await import("../plugins/typescript");
     const typescriptPlugin = createESLintIntegrationTypeScriptPlugin();
     await bindSubIntegration(context, config, typescriptPlugin);
 
-    const { createESLintIntegrationNPlugin } = await import("../plugins/n");
     const nPlugin = createESLintIntegrationNPlugin();
     await bindSubIntegration(context, config, nPlugin);
 
-    const { createESLintIntegrationImportXPlugin } = await import("../plugins/import-x");
     const importXPlugin = createESLintIntegrationImportXPlugin();
     await bindSubIntegration(context, config, importXPlugin);
 
-    const { createESLintIntegrationGlobalsPlugin } = await import("../plugins/globals");
     const globalsPlugin = createESLintIntegrationGlobalsPlugin();
     await bindSubIntegration(context, config, globalsPlugin);
 
-    const { createESLintIntegrationStylisticPlugin } = await import("../plugins/stylistic");
     const stylisticPlugin = createESLintIntegrationStylisticPlugin();
     await bindSubIntegration(context, config, stylisticPlugin);
 
-    const { createESLintIntegrationPerfectionistPlugin } = await import("../plugins/perfectionist");
     const perfectionistPlugin = createESLintIntegrationPerfectionistPlugin();
     await bindSubIntegration(context, config, perfectionistPlugin);
 
-    const { createESLintIntegrationJSDocPlugin } = await import("../plugins/jsdoc");
     const jsdocPlugin = createESLintIntegrationJSDocPlugin();
     await bindSubIntegration(context, config, jsdocPlugin);
 
-    const { createESLintIntegrationESLintJSONPlugin } = await import("../plugins/eslint/json");
     const eslintJSONPlugin = createESLintIntegrationESLintJSONPlugin();
     await bindSubIntegration(context, config, eslintJSONPlugin);
 
-    const { createESLintIntegrationESLintMarkdownPlugin } = await import("../plugins/eslint/markdown");
     const eslintMarkdownPlugin = createESLintIntegrationESLintMarkdownPlugin();
     await bindSubIntegration(context, config, eslintMarkdownPlugin);
 
-    const { createESLintIntegrationYMLPlugin } = await import("../plugins/yml");
     const ymlPlugin = createESLintIntegrationYMLPlugin();
     await bindSubIntegration(context, config, ymlPlugin);
   }

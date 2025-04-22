@@ -1,6 +1,8 @@
 import type StylisticPluginModule from "@stylistic/eslint-plugin";
 
 import type { ResolvedContext } from "@holypack/core";
+import { emitWarning } from "@holypack/core/context/warnings";
+import { ModuleNotFoundError } from "@holypack/core/module";
 
 import {
   GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
@@ -32,6 +34,16 @@ export class ESLintIntegrationStylisticPluginAPI
     options?: boolean | ESLintIntegrationStylisticPluginOptions | null,
   ): Promise<void>
   {
+    const resolvedOptions = resolveESLintIntegrationStylisticPluginOptions(
+      context.cwd,
+      options,
+    );
+
+    if (resolvedOptions === false)
+    {
+      return;
+    }
+
     const packageName = "@stylistic/eslint-plugin";
 
     let stylisticPlugin: null | typeof StylisticPluginModule = null;
@@ -48,23 +60,12 @@ export class ESLintIntegrationStylisticPluginAPI
     }
     catch (err)
     {
-      // TODO(ertgl): Standardize the missing package error handling.
-      const err2 = new Error(`Package could not be imported: ${packageName}`);
+      const err2 = new ModuleNotFoundError(packageName);
       err2.cause = err;
-      process.emitWarning(err2);
+      await emitWarning(context, err2);
     }
 
     if (stylisticPlugin == null)
-    {
-      return;
-    }
-
-    const resolvedOptions = resolveESLintIntegrationStylisticPluginOptions(
-      context.cwd,
-      options,
-    );
-
-    if (!resolvedOptions)
     {
       return;
     }

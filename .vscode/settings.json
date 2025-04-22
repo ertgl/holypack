@@ -22,5 +22,6 @@
   },
   "[yaml]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  }
+  },
+  "todo-tree.tree.scanMode": "workspace only"
 }

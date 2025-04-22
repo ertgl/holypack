@@ -2,6 +2,8 @@ import type { Linter } from "eslint";
 import type TypeScriptPluginModule from "typescript-eslint";
 
 import type { ResolvedContext } from "@holypack/core";
+import { emitWarning } from "@holypack/core/context/warnings";
+import { ModuleNotFoundError } from "@holypack/core/module";
 
 import {
   GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
@@ -31,7 +33,19 @@ export class ESLintIntegrationTypeScriptPluginAPI
     options?: boolean | ESLintIntegrationTypeScriptPluginOptions | null,
   ): Promise<void>
   {
+    const resolvedOptions = resolveESLintIntegrationTypeScriptPluginOptions(
+      context.cwd,
+      options,
+    );
+
+    if (resolvedOptions === false)
+    {
+      return;
+    }
+
     const packageName = "typescript-eslint";
+
+    let typescriptPlugin: null | typeof TypeScriptPluginModule = null;
 
     try
     {
@@ -41,108 +55,101 @@ export class ESLintIntegrationTypeScriptPluginAPI
         default: typeof TypeScriptPluginModule;
       };
 
-      const typescriptPlugin = typescriptPluginModule.default;
-
-      const resolvedOptions = resolveESLintIntegrationTypeScriptPluginOptions(
-        context.cwd,
-        options,
-      );
-
-      if (resolvedOptions === false)
-      {
-        return;
-      }
-
-      const eslintBaseLanguageOptions: Linter.Config["languageOptions"] = {
-        parserOptions: {
-          projectService: true,
-          tsconfigRootDir: resolvedOptions.tsconfigRootDir,
-          warnOnUnsupportedTypeScriptVersion: false,
-        },
-      };
-
-      context.eslint.config.push(
-        ...typescriptPlugin.config([
-          ...typescriptPlugin.configs.strictTypeChecked.map(
-            (config) =>
-            {
-              return {
-                ...config,
-                files: [
-                  GLOB_PATTERN_CJS_JS_MJS,
-                  GLOB_PATTERN_CJSX_JSX_MJSX,
-                  GLOB_PATTERN_CTS_MTS_TS,
-                  GLOB_PATTERN_CTSX_MTSX_TSX,
-                ],
-              };
-            },
-          ),
-
-          {
-            files: [
-              GLOB_PATTERN_CJS_JS_MJS,
-              GLOB_PATTERN_CJSX_JSX_MJSX,
-              GLOB_PATTERN_CTS_MTS_TS,
-              GLOB_PATTERN_CTSX_MTSX_TSX,
-            ],
-            rules: {
-              "@typescript-eslint/ban-ts-comment": "warn",
-              "@typescript-eslint/no-empty-object-type": "warn",
-              "@typescript-eslint/no-explicit-any": "warn",
-              "@typescript-eslint/no-unused-vars": [
-                "warn",
-                {
-                  args: "none",
-                },
-              ],
-            },
-          },
-
-          {
-            files: [
-              GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
-            ],
-            rules: {
-              "@typescript-eslint/no-require-imports": "off",
-            },
-          },
-
-          {
-            files: [
-              GLOB_PATTERN_CJS_JS_MJS,
-              GLOB_PATTERN_CTS_MTS_TS,
-            ],
-            languageOptions: {
-              ...eslintBaseLanguageOptions,
-            },
-          },
-
-          {
-            files: [
-              GLOB_PATTERN_CJSX_JSX_MJSX,
-              GLOB_PATTERN_CTSX_MTSX_TSX,
-            ],
-            languageOptions: {
-              ...eslintBaseLanguageOptions,
-              parserOptions: {
-                ...eslintBaseLanguageOptions.parserOptions,
-                ecmaFeatures: {
-                  ...eslintBaseLanguageOptions.parserOptions?.ecmaFeatures,
-                  jsx: true,
-                },
-              },
-            },
-          },
-        ]) as Linter.Config[],
-      );
+      typescriptPlugin = typescriptPluginModule.default;
     }
     catch (err)
     {
-      // TODO(ertgl): Standardize the missing package error handling.
-      const err2 = new Error(`Package could not be imported: ${packageName}`);
+      const err2 = new ModuleNotFoundError(packageName);
       err2.cause = err;
-      process.emitWarning(err2);
+      await emitWarning(context, err2);
+    }
+
+    if (typescriptPlugin == null)
+    {
       return;
     }
+
+    const eslintBaseLanguageOptions: Linter.Config["languageOptions"] = {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: resolvedOptions.tsconfigRootDir,
+        warnOnUnsupportedTypeScriptVersion: false,
+      },
+    };
+
+    context.eslint.config.push(
+      ...typescriptPlugin.config([
+        ...typescriptPlugin.configs.strictTypeChecked.map(
+          (config) =>
+          {
+            return {
+              ...config,
+              files: [
+                GLOB_PATTERN_CJS_JS_MJS,
+                GLOB_PATTERN_CJSX_JSX_MJSX,
+                GLOB_PATTERN_CTS_MTS_TS,
+                GLOB_PATTERN_CTSX_MTSX_TSX,
+              ],
+            };
+          },
+        ),
+
+        {
+          files: [
+            GLOB_PATTERN_CJS_JS_MJS,
+            GLOB_PATTERN_CJSX_JSX_MJSX,
+            GLOB_PATTERN_CTS_MTS_TS,
+            GLOB_PATTERN_CTSX_MTSX_TSX,
+          ],
+          rules: {
+            "@typescript-eslint/ban-ts-comment": "warn",
+            "@typescript-eslint/no-empty-object-type": "warn",
+            "@typescript-eslint/no-explicit-any": "warn",
+            "@typescript-eslint/no-unused-vars": [
+              "warn",
+              {
+                args: "none",
+              },
+            ],
+          },
+        },
+
+        {
+          files: [
+            GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
+          ],
+          rules: {
+            "@typescript-eslint/no-require-imports": "off",
+          },
+        },
+
+        {
+          files: [
+            GLOB_PATTERN_CJS_JS_MJS,
+            GLOB_PATTERN_CTS_MTS_TS,
+          ],
+          languageOptions: {
+            ...eslintBaseLanguageOptions,
+          },
+        },
+
+        {
+          files: [
+            GLOB_PATTERN_CJSX_JSX_MJSX,
+            GLOB_PATTERN_CTSX_MTSX_TSX,
+          ],
+          languageOptions: {
+            ...eslintBaseLanguageOptions,
+            parserOptions: {
+              ...eslintBaseLanguageOptions.parserOptions,
+              ecmaFeatures: {
+                ...eslintBaseLanguageOptions.parserOptions?.ecmaFeatures,
+                jsx: true,
+              },
+            },
+          },
+        },
+      ]) as Linter.Config[],
+    );
   }
 }
