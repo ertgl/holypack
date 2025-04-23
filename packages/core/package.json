@@ -8,12 +8,14 @@
     "cosmiconfig": "^9.0.0"
   },
   "peerDependencies": {
+    "fast-glob": "*",
     "picomatch": "*",
     "tapable": "*"
   },
   "devDependencies": {
     "@holypack/integration-babel": "workspace:*",
     "@types/picomatch": "^4.0.0",
+    "fast-glob": "^3.3.3",
     "picomatch": "^4.0.2",
     "tapable": "^2.2.1"
   },
@@ -762,6 +764,110 @@
       "require": "./dist/cjs/plugins/process/plugins/*",
       "default": "./src/plugins/process/plugins/*"
     },
+    "./plugins/project/eventing": {
+      "types": "./dist/types/plugins/project/eventing/index.d.ts",
+      "import": "./dist/esm/plugins/project/eventing/index.mjs",
+      "require": "./dist/cjs/plugins/project/eventing/index.cjs",
+      "default": "./src/plugins/project/eventing/index.ts"
+    },
+    "./plugins/project/eventing/": {
+      "types": "./dist/types/plugins/project/eventing/index.d.ts",
+      "import": "./dist/esm/plugins/project/eventing/index.mjs",
+      "require": "./dist/cjs/plugins/project/eventing/index.cjs",
+      "default": "./src/plugins/project/eventing/index.ts"
+    },
+    "./plugins/project/eventing/*.d.ts": {
+      "types": "./dist/types/plugins/project/eventing/*.d.ts",
+      "default": "./src/plugins/project/eventing/*.ts"
+    },
+    "./plugins/project/eventing/*.cjs": {
+      "types": "./dist/types/plugins/project/eventing/*.d.ts",
+      "import": "./dist/esm/plugins/project/eventing/*.mjs",
+      "require": "./dist/cjs/plugins/project/eventing/*.cjs",
+      "default": "./src/plugins/project/eventing/*.ts"
+    },
+    "./plugins/project/eventing/*.js": {
+      "types": "./dist/types/plugins/project/eventing/*.d.ts",
+      "import": "./dist/esm/plugins/project/eventing/*.mjs",
+      "require": "./dist/cjs/plugins/project/eventing/*.cjs",
+      "default": "./src/plugins/project/eventing/*.ts"
+    },
+    "./plugins/project/eventing/*.mjs": {
+      "types": "./dist/types/plugins/project/eventing/*.d.ts",
+      "import": "./dist/esm/plugins/project/eventing/*.mjs",
+      "require": "./dist/cjs/plugins/project/eventing/*.cjs",
+      "default": "./src/plugins/project/eventing/*.ts"
+    },
+    "./plugins/project/eventing/*.ts": {
+      "types": "./dist/types/plugins/project/eventing/*.d.ts",
+      "import": "./dist/esm/plugins/project/eventing/*.mjs",
+      "require": "./dist/cjs/plugins/project/eventing/*.cjs",
+      "default": "./src/plugins/project/eventing/*.ts"
+    },
+    "./plugins/project/eventing/*/": {
+      "types": "./dist/types/plugins/project/eventing/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/project/eventing/index.mjs",
+      "require": "./dist/cjs/plugins/project/eventing/*/index.cjs",
+      "default": "./src/*/plugins/project/eventing/index.ts"
+    },
+    "./plugins/project/eventing/*": {
+      "types": "./dist/types/plugins/project/eventing/*",
+      "import": "./dist/esm/plugins/project/eventing/*",
+      "require": "./dist/cjs/plugins/project/eventing/*",
+      "default": "./src/plugins/project/eventing/*"
+    },
+    "./plugins/project/hooks": {
+      "types": "./dist/types/plugins/project/hooks/index.d.ts",
+      "import": "./dist/esm/plugins/project/hooks/index.mjs",
+      "require": "./dist/cjs/plugins/project/hooks/index.cjs",
+      "default": "./src/plugins/project/hooks/index.ts"
+    },
+    "./plugins/project/hooks/": {
+      "types": "./dist/types/plugins/project/hooks/index.d.ts",
+      "import": "./dist/esm/plugins/project/hooks/index.mjs",
+      "require": "./dist/cjs/plugins/project/hooks/index.cjs",
+      "default": "./src/plugins/project/hooks/index.ts"
+    },
+    "./plugins/project/hooks/*.d.ts": {
+      "types": "./dist/types/plugins/project/hooks/*.d.ts",
+      "default": "./src/plugins/project/hooks/*.ts"
+    },
+    "./plugins/project/hooks/*.cjs": {
+      "types": "./dist/types/plugins/project/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/project/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/project/hooks/*.cjs",
+      "default": "./src/plugins/project/hooks/*.ts"
+    },
+    "./plugins/project/hooks/*.js": {
+      "types": "./dist/types/plugins/project/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/project/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/project/hooks/*.cjs",
+      "default": "./src/plugins/project/hooks/*.ts"
+    },
+    "./plugins/project/hooks/*.mjs": {
+      "types": "./dist/types/plugins/project/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/project/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/project/hooks/*.cjs",
+      "default": "./src/plugins/project/hooks/*.ts"
+    },
+    "./plugins/project/hooks/*.ts": {
+      "types": "./dist/types/plugins/project/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/project/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/project/hooks/*.cjs",
+      "default": "./src/plugins/project/hooks/*.ts"
+    },
+    "./plugins/project/hooks/*/": {
+      "types": "./dist/types/plugins/project/hooks/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/project/hooks/index.mjs",
+      "require": "./dist/cjs/plugins/project/hooks/*/index.cjs",
+      "default": "./src/*/plugins/project/hooks/index.ts"
+    },
+    "./plugins/project/hooks/*": {
+      "types": "./dist/types/plugins/project/hooks/*",
+      "import": "./dist/esm/plugins/project/hooks/*",
+      "require": "./dist/cjs/plugins/project/hooks/*",
+      "default": "./src/plugins/project/hooks/*"
+    },
     "./plugins/project/module-augmentation": {
       "types": "./dist/types/plugins/project/module-augmentation/index.d.ts",
       "import": "./dist/esm/plugins/project/module-augmentation/index.mjs",
@@ -1074,6 +1180,214 @@
       "require": "./dist/cjs/plugins/repository/root-path-finder/*",
       "default": "./src/plugins/repository/root-path-finder/*"
     },
+    "./plugins/workspace/module-augmentation": {
+      "types": "./dist/types/plugins/workspace/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/module-augmentation/index.cjs",
+      "default": "./src/plugins/workspace/module-augmentation/index.ts"
+    },
+    "./plugins/workspace/module-augmentation/": {
+      "types": "./dist/types/plugins/workspace/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/module-augmentation/index.cjs",
+      "default": "./src/plugins/workspace/module-augmentation/index.ts"
+    },
+    "./plugins/workspace/module-augmentation/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/module-augmentation/*.d.ts",
+      "default": "./src/plugins/workspace/module-augmentation/*.ts"
+    },
+    "./plugins/workspace/module-augmentation/*.cjs": {
+      "types": "./dist/types/plugins/workspace/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/module-augmentation/*.cjs",
+      "default": "./src/plugins/workspace/module-augmentation/*.ts"
+    },
+    "./plugins/workspace/module-augmentation/*.js": {
+      "types": "./dist/types/plugins/workspace/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/module-augmentation/*.cjs",
+      "default": "./src/plugins/workspace/module-augmentation/*.ts"
+    },
+    "./plugins/workspace/module-augmentation/*.mjs": {
+      "types": "./dist/types/plugins/workspace/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/module-augmentation/*.cjs",
+      "default": "./src/plugins/workspace/module-augmentation/*.ts"
+    },
+    "./plugins/workspace/module-augmentation/*.ts": {
+      "types": "./dist/types/plugins/workspace/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/module-augmentation/*.cjs",
+      "default": "./src/plugins/workspace/module-augmentation/*.ts"
+    },
+    "./plugins/workspace/module-augmentation/*/": {
+      "types": "./dist/types/plugins/workspace/module-augmentation/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/workspace/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/module-augmentation/*/index.cjs",
+      "default": "./src/*/plugins/workspace/module-augmentation/index.ts"
+    },
+    "./plugins/workspace/module-augmentation/*": {
+      "types": "./dist/types/plugins/workspace/module-augmentation/*",
+      "import": "./dist/esm/plugins/workspace/module-augmentation/*",
+      "require": "./dist/cjs/plugins/workspace/module-augmentation/*",
+      "default": "./src/plugins/workspace/module-augmentation/*"
+    },
+    "./plugins/workspace/registry-resolution": {
+      "types": "./dist/types/plugins/workspace/registry-resolution/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/registry-resolution/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/registry-resolution/index.cjs",
+      "default": "./src/plugins/workspace/registry-resolution/index.ts"
+    },
+    "./plugins/workspace/registry-resolution/": {
+      "types": "./dist/types/plugins/workspace/registry-resolution/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/registry-resolution/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/registry-resolution/index.cjs",
+      "default": "./src/plugins/workspace/registry-resolution/index.ts"
+    },
+    "./plugins/workspace/registry-resolution/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/registry-resolution/*.d.ts",
+      "default": "./src/plugins/workspace/registry-resolution/*.ts"
+    },
+    "./plugins/workspace/registry-resolution/*.cjs": {
+      "types": "./dist/types/plugins/workspace/registry-resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/registry-resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/registry-resolution/*.cjs",
+      "default": "./src/plugins/workspace/registry-resolution/*.ts"
+    },
+    "./plugins/workspace/registry-resolution/*.js": {
+      "types": "./dist/types/plugins/workspace/registry-resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/registry-resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/registry-resolution/*.cjs",
+      "default": "./src/plugins/workspace/registry-resolution/*.ts"
+    },
+    "./plugins/workspace/registry-resolution/*.mjs": {
+      "types": "./dist/types/plugins/workspace/registry-resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/registry-resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/registry-resolution/*.cjs",
+      "default": "./src/plugins/workspace/registry-resolution/*.ts"
+    },
+    "./plugins/workspace/registry-resolution/*.ts": {
+      "types": "./dist/types/plugins/workspace/registry-resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/registry-resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/registry-resolution/*.cjs",
+      "default": "./src/plugins/workspace/registry-resolution/*.ts"
+    },
+    "./plugins/workspace/registry-resolution/*/": {
+      "types": "./dist/types/plugins/workspace/registry-resolution/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/workspace/registry-resolution/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/registry-resolution/*/index.cjs",
+      "default": "./src/*/plugins/workspace/registry-resolution/index.ts"
+    },
+    "./plugins/workspace/registry-resolution/*": {
+      "types": "./dist/types/plugins/workspace/registry-resolution/*",
+      "import": "./dist/esm/plugins/workspace/registry-resolution/*",
+      "require": "./dist/cjs/plugins/workspace/registry-resolution/*",
+      "default": "./src/plugins/workspace/registry-resolution/*"
+    },
+    "./plugins/workspace/resolution": {
+      "types": "./dist/types/plugins/workspace/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/resolution/index.cjs",
+      "default": "./src/plugins/workspace/resolution/index.ts"
+    },
+    "./plugins/workspace/resolution/": {
+      "types": "./dist/types/plugins/workspace/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/resolution/index.cjs",
+      "default": "./src/plugins/workspace/resolution/index.ts"
+    },
+    "./plugins/workspace/resolution/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/resolution/*.d.ts",
+      "default": "./src/plugins/workspace/resolution/*.ts"
+    },
+    "./plugins/workspace/resolution/*.cjs": {
+      "types": "./dist/types/plugins/workspace/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/resolution/*.cjs",
+      "default": "./src/plugins/workspace/resolution/*.ts"
+    },
+    "./plugins/workspace/resolution/*.js": {
+      "types": "./dist/types/plugins/workspace/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/resolution/*.cjs",
+      "default": "./src/plugins/workspace/resolution/*.ts"
+    },
+    "./plugins/workspace/resolution/*.mjs": {
+      "types": "./dist/types/plugins/workspace/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/resolution/*.cjs",
+      "default": "./src/plugins/workspace/resolution/*.ts"
+    },
+    "./plugins/workspace/resolution/*.ts": {
+      "types": "./dist/types/plugins/workspace/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/resolution/*.cjs",
+      "default": "./src/plugins/workspace/resolution/*.ts"
+    },
+    "./plugins/workspace/resolution/*/": {
+      "types": "./dist/types/plugins/workspace/resolution/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/workspace/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/resolution/*/index.cjs",
+      "default": "./src/*/plugins/workspace/resolution/index.ts"
+    },
+    "./plugins/workspace/resolution/*": {
+      "types": "./dist/types/plugins/workspace/resolution/*",
+      "import": "./dist/esm/plugins/workspace/resolution/*",
+      "require": "./dist/cjs/plugins/workspace/resolution/*",
+      "default": "./src/plugins/workspace/resolution/*"
+    },
+    "./plugins/workspace/root-path-finder": {
+      "types": "./dist/types/plugins/workspace/root-path-finder/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/root-path-finder/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/root-path-finder/index.cjs",
+      "default": "./src/plugins/workspace/root-path-finder/index.ts"
+    },
+    "./plugins/workspace/root-path-finder/": {
+      "types": "./dist/types/plugins/workspace/root-path-finder/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/root-path-finder/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/root-path-finder/index.cjs",
+      "default": "./src/plugins/workspace/root-path-finder/index.ts"
+    },
+    "./plugins/workspace/root-path-finder/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/root-path-finder/*.d.ts",
+      "default": "./src/plugins/workspace/root-path-finder/*.ts"
+    },
+    "./plugins/workspace/root-path-finder/*.cjs": {
+      "types": "./dist/types/plugins/workspace/root-path-finder/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/root-path-finder/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/root-path-finder/*.cjs",
+      "default": "./src/plugins/workspace/root-path-finder/*.ts"
+    },
+    "./plugins/workspace/root-path-finder/*.js": {
+      "types": "./dist/types/plugins/workspace/root-path-finder/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/root-path-finder/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/root-path-finder/*.cjs",
+      "default": "./src/plugins/workspace/root-path-finder/*.ts"
+    },
+    "./plugins/workspace/root-path-finder/*.mjs": {
+      "types": "./dist/types/plugins/workspace/root-path-finder/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/root-path-finder/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/root-path-finder/*.cjs",
+      "default": "./src/plugins/workspace/root-path-finder/*.ts"
+    },
+    "./plugins/workspace/root-path-finder/*.ts": {
+      "types": "./dist/types/plugins/workspace/root-path-finder/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/root-path-finder/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/root-path-finder/*.cjs",
+      "default": "./src/plugins/workspace/root-path-finder/*.ts"
+    },
+    "./plugins/workspace/root-path-finder/*/": {
+      "types": "./dist/types/plugins/workspace/root-path-finder/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/workspace/root-path-finder/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/root-path-finder/*/index.cjs",
+      "default": "./src/*/plugins/workspace/root-path-finder/index.ts"
+    },
+    "./plugins/workspace/root-path-finder/*": {
+      "types": "./dist/types/plugins/workspace/root-path-finder/*",
+      "import": "./dist/esm/plugins/workspace/root-path-finder/*",
+      "require": "./dist/cjs/plugins/workspace/root-path-finder/*",
+      "default": "./src/plugins/workspace/root-path-finder/*"
+    },
     "./plugins/fs": {
       "types": "./dist/types/plugins/fs/index.d.ts",
       "import": "./dist/esm/plugins/fs/index.mjs",
@@ -1333,6 +1647,58 @@
       "import": "./dist/esm/plugins/repository/*",
       "require": "./dist/cjs/plugins/repository/*",
       "default": "./src/plugins/repository/*"
+    },
+    "./plugins/workspace": {
+      "types": "./dist/types/plugins/workspace/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/index.cjs",
+      "default": "./src/plugins/workspace/index.ts"
+    },
+    "./plugins/workspace/": {
+      "types": "./dist/types/plugins/workspace/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/index.cjs",
+      "default": "./src/plugins/workspace/index.ts"
+    },
+    "./plugins/workspace/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/*.d.ts",
+      "default": "./src/plugins/workspace/*.ts"
+    },
+    "./plugins/workspace/*.cjs": {
+      "types": "./dist/types/plugins/workspace/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/*.cjs",
+      "default": "./src/plugins/workspace/*.ts"
+    },
+    "./plugins/workspace/*.js": {
+      "types": "./dist/types/plugins/workspace/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/*.cjs",
+      "default": "./src/plugins/workspace/*.ts"
+    },
+    "./plugins/workspace/*.mjs": {
+      "types": "./dist/types/plugins/workspace/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/*.cjs",
+      "default": "./src/plugins/workspace/*.ts"
+    },
+    "./plugins/workspace/*.ts": {
+      "types": "./dist/types/plugins/workspace/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/*.cjs",
+      "default": "./src/plugins/workspace/*.ts"
+    },
+    "./plugins/workspace/*/": {
+      "types": "./dist/types/plugins/workspace/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/workspace/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/*/index.cjs",
+      "default": "./src/*/plugins/workspace/index.ts"
+    },
+    "./plugins/workspace/*": {
+      "types": "./dist/types/plugins/workspace/*",
+      "import": "./dist/esm/plugins/workspace/*",
+      "require": "./dist/cjs/plugins/workspace/*",
+      "default": "./src/plugins/workspace/*"
     },
     "./utils/fs/path-existence-checker": {
       "types": "./dist/types/utils/fs/path-existence-checker/index.d.ts",

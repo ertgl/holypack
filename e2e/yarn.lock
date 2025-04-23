@@ -775,6 +775,7 @@ __metadata:
   dependencies:
     cosmiconfig: "npm:^9.0.0"
   peerDependencies:
+    fast-glob: "*"
     picomatch: "*"
     tapable: "*"
   languageName: node

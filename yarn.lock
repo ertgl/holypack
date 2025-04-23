@@ -1934,6 +1934,7 @@ __metadata:
   dependencies:
     cosmiconfig: "npm:^9.0.0"
   peerDependencies:
+    fast-glob: "*"
     picomatch: "*"
     tapable: "*"
   languageName: node
@@ -1946,9 +1947,11 @@ __metadata:
     "@holypack/integration-babel": "workspace:*"
     "@types/picomatch": "npm:^4.0.0"
     cosmiconfig: "npm:^9.0.0"
+    fast-glob: "npm:^3.3.3"
     picomatch: "npm:^4.0.2"
     tapable: "npm:^2.2.1"
   peerDependencies:
+    fast-glob: "*"
     picomatch: "*"
     tapable: "*"
   languageName: unknown

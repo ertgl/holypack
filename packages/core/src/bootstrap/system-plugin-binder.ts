@@ -5,6 +5,7 @@ import { createPackagePlugin } from "../plugins/package";
 import { createProcessPlugin } from "../plugins/process";
 import { createProjectPlugin } from "../plugins/project";
 import { createRepositoryPlugin } from "../plugins/repository";
+import { createWorkspacePlugin } from "../plugins/workspace";
 
 export type SystemPluginBinder = (
   context: Context,
@@ -19,4 +20,5 @@ export function bindDefaultSystemPlugins(
   bindPlugin(context, createPackagePlugin());
   bindPlugin(context, createRepositoryPlugin());
   bindPlugin(context, createProjectPlugin());
+  bindPlugin(context, createWorkspacePlugin());
 }
