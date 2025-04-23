@@ -1,17 +1,17 @@
 import type { Plugin } from "../extension";
 
 import { HookNameIsNotDefinedError } from "./errors";
-import type { Hook } from "./hook";
 import type { HookSubscriptionID } from "./hook-subscription-id";
+import type { KnownHook } from "./known-hook";
 
 export type HookSubscriptionIDGenerator = (
   plugin: Plugin,
-  hook: Hook,
+  hook: KnownHook,
 ) => HookSubscriptionID;
 
 export function generateHookSubscriptionIDForPlugin(
   plugin: Plugin,
-  hook: Hook,
+  hook: KnownHook,
 ): HookSubscriptionID
 {
   if (!hook.name)

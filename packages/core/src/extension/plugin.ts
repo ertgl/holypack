@@ -5,14 +5,14 @@ import type {
   ResolvedContext,
 } from "../context";
 import type {
-  Hook,
   HookSubscriptionID,
+  KnownHook,
 } from "../eventing";
 
 export interface Plugin
 {
   generateHookSubscriptionID?: (
-    hook: Hook,
+    hook: KnownHook,
   ) => HookSubscriptionID;
 
   name: PluginName;

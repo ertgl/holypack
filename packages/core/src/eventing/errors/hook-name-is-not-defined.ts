@@ -1,13 +1,13 @@
-import type { Hook } from "../hook";
+import type { KnownHook } from "../known-hook";
 
 export const ERROR_HOOK_NAME_IS_NOT_DEFINED = "HookNameIsNotDefinedError";
 
 export class HookNameIsNotDefinedError extends Error
 {
-  hook: Hook;
+  hook: KnownHook;
 
   constructor(
-    hook: Hook,
+    hook: KnownHook,
   )
   {
     super("Hook name is not defined");
