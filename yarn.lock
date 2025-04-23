@@ -2039,7 +2039,7 @@ __metadata:
     eslint-plugin-jsdoc: "npm:^50.6.9"
     eslint-plugin-n: "npm:^17.17.0"
     eslint-plugin-perfectionist: "npm:^4.12.1"
-    eslint-plugin-yml: "npm:^1.17.0"
+    eslint-plugin-yml: "npm:^1.18.0"
     fast-glob: "npm:^3.3.3"
     globals: "npm:^16.0.0"
     typescript-eslint: "npm:^8.31.0"
@@ -2080,7 +2080,7 @@ __metadata:
     eslint-plugin-jsdoc: "npm:^50.6.9"
     eslint-plugin-n: "npm:^17.17.0"
     eslint-plugin-perfectionist: "npm:^4.12.1"
-    eslint-plugin-yml: "npm:^1.17.0"
+    eslint-plugin-yml: "npm:^1.18.0"
     fast-glob: "npm:^3.3.3"
     globals: "npm:^16.0.0"
     tapable: "npm:^2.2.1"
@@ -3489,9 +3489,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-yml@npm:^1.17.0":
-  version: 1.17.0
-  resolution: "eslint-plugin-yml@npm:1.17.0"
+"eslint-plugin-yml@npm:^1.18.0":
+  version: 1.18.0
+  resolution: "eslint-plugin-yml@npm:1.18.0"
   dependencies:
     debug: "npm:^4.3.2"
     escape-string-regexp: "npm:4.0.0"
@@ -3500,7 +3500,7 @@ __metadata:
     yaml-eslint-parser: "npm:^1.2.1"
   peerDependencies:
     eslint: ">=6.0.0"
-  checksum: 10c0/3923811eb214b44df80f8b203aa2773dc15d6a766706a5ca48e6511f1345372fada0d958c89fad656a1b699bfdf28f59d4c203a8614ad0366b3018258c3c0ace
+  checksum: 10c0/ff6619bb488c98f3b6639c58f135f375bba6a4e4763cfeded461c6bbe654164678055981d1a27949568efc5ca9f3904e3abdda593b837cabb96f58948cc2d6be
   languageName: node
   linkType: hard
 
