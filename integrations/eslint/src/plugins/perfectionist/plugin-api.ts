@@ -5,10 +5,9 @@ import { emitWarning } from "@holypack/core/context/warnings";
 import { ModuleNotFoundError } from "@holypack/core/module";
 
 import {
-  GLOB_PATTERN_CJS_JS_MJS,
-  GLOB_PATTERN_CJSX_JSX_MJSX,
-  GLOB_PATTERN_CTS_MTS_TS,
-  GLOB_PATTERN_CTSX_MTSX_TSX,
+  GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
+  GLOB_PATTERN_JS_JSX_TS_TSX,
+  GLOB_PATTERN_MJS_MJSX_MTS_MTSX,
 } from "../../constants/glob-patterns";
 
 import type { ESLintIntegrationPerfectionistPlugin } from "./plugin";
@@ -71,19 +70,17 @@ export class ESLintIntegrationPerfectionistPluginAPI
       {
         ...pluginPerfectionist.configs["recommended-natural"],
         files: [
-          GLOB_PATTERN_CJS_JS_MJS,
-          GLOB_PATTERN_CJSX_JSX_MJSX,
-          GLOB_PATTERN_CTS_MTS_TS,
-          GLOB_PATTERN_CTSX_MTSX_TSX,
+          GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
+          GLOB_PATTERN_JS_JSX_TS_TSX,
+          GLOB_PATTERN_MJS_MJSX_MTS_MTSX,
         ],
       },
 
       {
         files: [
-          GLOB_PATTERN_CJS_JS_MJS,
-          GLOB_PATTERN_CJSX_JSX_MJSX,
-          GLOB_PATTERN_CTS_MTS_TS,
-          GLOB_PATTERN_CTSX_MTSX_TSX,
+          GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
+          GLOB_PATTERN_JS_JSX_TS_TSX,
+          GLOB_PATTERN_MJS_MJSX_MTS_MTSX,
         ],
         rules: {
           "perfectionist/sort-imports": [
