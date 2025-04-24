@@ -1924,6 +1924,7 @@ __metadata:
   dependencies:
     "@holypack/eslint-plugin": "workspace:*"
     "@holypack/integration-eslint": "workspace:*"
+    "@holypack/integration-typescript": "workspace:*"
     holypack: "workspace:*"
   languageName: unknown
   linkType: soft
@@ -2099,11 +2100,25 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@holypack/integration-typescript@portal:./integrations/typescript::locator=%40holypack%2F__monorepo__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/integration-typescript@portal:./integrations/typescript::locator=%40holypack%2F__monorepo__%40workspace%3A."
+  dependencies:
+    typescript: "npm:^5.8.3"
+  peerDependencies:
+    "@holypack/core": "*"
+  languageName: node
+  linkType: soft
+
 "@holypack/integration-typescript@workspace:integrations/typescript":
   version: 0.0.0-use.local
   resolution: "@holypack/integration-typescript@workspace:integrations/typescript"
   dependencies:
+    "@holypack/core": "workspace:^"
+    "@holypack/integration-babel": "workspace:^"
     typescript: "npm:^5.8.3"
+  peerDependencies:
+    "@holypack/core": "*"
   languageName: unknown
   linkType: soft
 
