@@ -16,6 +16,7 @@ import createESLintIntegrationESLintJSPlugin from "../plugins/eslint/js";
 import createESLintIntegrationESLintJSONPlugin from "../plugins/eslint/json";
 import createESLintIntegrationESLintMarkdownPlugin from "../plugins/eslint/markdown";
 import createESLintIntegrationGlobalsPlugin from "../plugins/globals";
+import createESLintIntegrationIgnoresPlugin from "../plugins/ignores";
 import createESLintIntegrationImportXPlugin from "../plugins/import-x";
 import createESLintIntegrationJSDocPlugin from "../plugins/jsdoc";
 import createESLintIntegrationNPlugin from "../plugins/n";
@@ -102,6 +103,9 @@ export class ESLintIntegration implements Integration
 
     const ymlPlugin = createESLintIntegrationYMLPlugin();
     await bindSubIntegration(context, config, ymlPlugin);
+
+    const ignoresPlugin = createESLintIntegrationIgnoresPlugin();
+    await bindSubIntegration(context, config, ignoresPlugin);
   }
 }
 

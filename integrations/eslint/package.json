@@ -12,6 +12,7 @@
     "eslint:lint::fix": "cd $PROJECT_CWD && yarn cmd:eslint --fix"
   },
   "peerDependencies": {
+    "lodash.escaperegexp": "*",
     "tapable": "*",
     "typescript": "*"
   },
@@ -49,6 +50,8 @@
   },
   "devDependencies": {
     "@holypack/integration-babel": "workspace:*",
+    "@types/lodash.escaperegexp": "^4",
+    "lodash.escaperegexp": "^4.1.2",
     "tapable": "^2.2.1",
     "typescript": "^5.8.3"
   },
@@ -589,6 +592,58 @@
       "require": "./dist/cjs/plugins/globals/module-augmentation/*",
       "default": "./src/plugins/globals/module-augmentation/*"
     },
+    "./plugins/ignores/module-augmentation": {
+      "types": "./dist/types/plugins/ignores/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/ignores/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/ignores/module-augmentation/index.cjs",
+      "default": "./src/plugins/ignores/module-augmentation/index.ts"
+    },
+    "./plugins/ignores/module-augmentation/": {
+      "types": "./dist/types/plugins/ignores/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/ignores/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/ignores/module-augmentation/index.cjs",
+      "default": "./src/plugins/ignores/module-augmentation/index.ts"
+    },
+    "./plugins/ignores/module-augmentation/*.d.ts": {
+      "types": "./dist/types/plugins/ignores/module-augmentation/*.d.ts",
+      "default": "./src/plugins/ignores/module-augmentation/*.ts"
+    },
+    "./plugins/ignores/module-augmentation/*.cjs": {
+      "types": "./dist/types/plugins/ignores/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/ignores/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/ignores/module-augmentation/*.cjs",
+      "default": "./src/plugins/ignores/module-augmentation/*.ts"
+    },
+    "./plugins/ignores/module-augmentation/*.js": {
+      "types": "./dist/types/plugins/ignores/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/ignores/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/ignores/module-augmentation/*.cjs",
+      "default": "./src/plugins/ignores/module-augmentation/*.ts"
+    },
+    "./plugins/ignores/module-augmentation/*.mjs": {
+      "types": "./dist/types/plugins/ignores/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/ignores/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/ignores/module-augmentation/*.cjs",
+      "default": "./src/plugins/ignores/module-augmentation/*.ts"
+    },
+    "./plugins/ignores/module-augmentation/*.ts": {
+      "types": "./dist/types/plugins/ignores/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/ignores/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/ignores/module-augmentation/*.cjs",
+      "default": "./src/plugins/ignores/module-augmentation/*.ts"
+    },
+    "./plugins/ignores/module-augmentation/*/": {
+      "types": "./dist/types/plugins/ignores/module-augmentation/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/ignores/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/ignores/module-augmentation/*/index.cjs",
+      "default": "./src/*/plugins/ignores/module-augmentation/index.ts"
+    },
+    "./plugins/ignores/module-augmentation/*": {
+      "types": "./dist/types/plugins/ignores/module-augmentation/*",
+      "import": "./dist/esm/plugins/ignores/module-augmentation/*",
+      "require": "./dist/cjs/plugins/ignores/module-augmentation/*",
+      "default": "./src/plugins/ignores/module-augmentation/*"
+    },
     "./plugins/import-x/module-augmentation": {
       "types": "./dist/types/plugins/import-x/module-augmentation/index.d.ts",
       "import": "./dist/esm/plugins/import-x/module-augmentation/index.mjs",
@@ -1108,6 +1163,58 @@
       "import": "./dist/esm/plugins/globals/*",
       "require": "./dist/cjs/plugins/globals/*",
       "default": "./src/plugins/globals/*"
+    },
+    "./plugins/ignores": {
+      "types": "./dist/types/plugins/ignores/index.d.ts",
+      "import": "./dist/esm/plugins/ignores/index.mjs",
+      "require": "./dist/cjs/plugins/ignores/index.cjs",
+      "default": "./src/plugins/ignores/index.ts"
+    },
+    "./plugins/ignores/": {
+      "types": "./dist/types/plugins/ignores/index.d.ts",
+      "import": "./dist/esm/plugins/ignores/index.mjs",
+      "require": "./dist/cjs/plugins/ignores/index.cjs",
+      "default": "./src/plugins/ignores/index.ts"
+    },
+    "./plugins/ignores/*.d.ts": {
+      "types": "./dist/types/plugins/ignores/*.d.ts",
+      "default": "./src/plugins/ignores/*.ts"
+    },
+    "./plugins/ignores/*.cjs": {
+      "types": "./dist/types/plugins/ignores/*.d.ts",
+      "import": "./dist/esm/plugins/ignores/*.mjs",
+      "require": "./dist/cjs/plugins/ignores/*.cjs",
+      "default": "./src/plugins/ignores/*.ts"
+    },
+    "./plugins/ignores/*.js": {
+      "types": "./dist/types/plugins/ignores/*.d.ts",
+      "import": "./dist/esm/plugins/ignores/*.mjs",
+      "require": "./dist/cjs/plugins/ignores/*.cjs",
+      "default": "./src/plugins/ignores/*.ts"
+    },
+    "./plugins/ignores/*.mjs": {
+      "types": "./dist/types/plugins/ignores/*.d.ts",
+      "import": "./dist/esm/plugins/ignores/*.mjs",
+      "require": "./dist/cjs/plugins/ignores/*.cjs",
+      "default": "./src/plugins/ignores/*.ts"
+    },
+    "./plugins/ignores/*.ts": {
+      "types": "./dist/types/plugins/ignores/*.d.ts",
+      "import": "./dist/esm/plugins/ignores/*.mjs",
+      "require": "./dist/cjs/plugins/ignores/*.cjs",
+      "default": "./src/plugins/ignores/*.ts"
+    },
+    "./plugins/ignores/*/": {
+      "types": "./dist/types/plugins/ignores/*/index.d.ts",
+      "import": "./dist/esm/*/plugins/ignores/index.mjs",
+      "require": "./dist/cjs/plugins/ignores/*/index.cjs",
+      "default": "./src/*/plugins/ignores/index.ts"
+    },
+    "./plugins/ignores/*": {
+      "types": "./dist/types/plugins/ignores/*",
+      "import": "./dist/esm/plugins/ignores/*",
+      "require": "./dist/cjs/plugins/ignores/*",
+      "default": "./src/plugins/ignores/*"
     },
     "./plugins/import-x": {
       "types": "./dist/types/plugins/import-x/index.d.ts",

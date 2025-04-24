@@ -847,6 +847,7 @@ __metadata:
     globals: "npm:^16.0.0"
     typescript-eslint: "npm:^8.31.0"
   peerDependencies:
+    lodash.escaperegexp: "*"
     tapable: "*"
     typescript: "*"
   languageName: node

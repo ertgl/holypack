@@ -7,7 +7,10 @@ ctsx
 mjsx
 mtsx
 
-# Node.js fs
+# lodash
+escaperegexp
+
+# node:fs
 dirents
 
 # Project specific

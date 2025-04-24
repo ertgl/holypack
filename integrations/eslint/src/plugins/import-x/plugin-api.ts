@@ -34,6 +34,7 @@ export class ESLintIntegrationImportXPluginAPI
   {
     const resolvedOptions = resolveESLintIntegrationImportXPluginOptions(
       context.cwd,
+      context.workspaces,
       options,
     );
 
@@ -104,6 +105,12 @@ export class ESLintIntegrationImportXPluginAPI
     context.eslint.config.push(
       {
         settings: {
+          // TODO(ertgl): Never set this to `Infinity` if the process started by `eslint_d` or `webpack`. For webpack, we probably need call-tracing.
+          "import-x/cache": (
+            process.title === "eslint_d"
+              ? undefined
+              : Infinity
+          ),
           "import-x/extensions": extensions,
           "import-x/internal-regex": resolvedOptions.internalPatternSource,
           "import-x/parsers": {

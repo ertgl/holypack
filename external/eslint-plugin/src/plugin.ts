@@ -24,7 +24,7 @@ export type HolypackPlugin = (
 );
 
 export async function createHolypackPlugin(
-  options: HolypackPluginOptions | null,
+  options?: HolypackPluginOptions | null,
 ): Promise<HolypackPlugin>
 {
   options ??= {};

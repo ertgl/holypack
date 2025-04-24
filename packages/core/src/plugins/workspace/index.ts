@@ -5,3 +5,4 @@ export * from "./plugin-api";
 export * from "./registry-resolution";
 export * from "./resolution";
 export * from "./workspace";
+export * from "./workspace-registry";

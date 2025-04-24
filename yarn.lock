@@ -2047,6 +2047,7 @@ __metadata:
     globals: "npm:^16.0.0"
     typescript-eslint: "npm:^8.31.0"
   peerDependencies:
+    lodash.escaperegexp: "*"
     tapable: "*"
     typescript: "*"
   languageName: node
@@ -2077,6 +2078,7 @@ __metadata:
     "@holypack/core": "workspace:*"
     "@holypack/integration-babel": "workspace:*"
     "@stylistic/eslint-plugin": "npm:^4.2.0"
+    "@types/lodash.escaperegexp": "npm:^4"
     eslint: "npm:^9.25.1"
     eslint-import-resolver-typescript: "npm:^4.3.4"
     eslint-plugin-import-x: "npm:^4.10.6"
@@ -2086,10 +2088,12 @@ __metadata:
     eslint-plugin-yml: "npm:^1.18.0"
     fast-glob: "npm:^3.3.3"
     globals: "npm:^16.0.0"
+    lodash.escaperegexp: "npm:^4.1.2"
     tapable: "npm:^2.2.1"
     typescript: "npm:^5.8.3"
     typescript-eslint: "npm:^8.31.0"
   peerDependencies:
+    lodash.escaperegexp: "*"
     tapable: "*"
     typescript: "*"
   languageName: unknown
@@ -2407,6 +2411,22 @@ __metadata:
   version: 7.0.15
   resolution: "@types/json-schema@npm:7.0.15"
   checksum: 10c0/a996a745e6c5d60292f36731dd41341339d4eeed8180bb09226e5c8d23759067692b1d88e5d91d72ee83dfc00d3aca8e7bd43ea120516c17922cbcb7c3e252db
+  languageName: node
+  linkType: hard
+
+"@types/lodash.escaperegexp@npm:^4":
+  version: 4.1.9
+  resolution: "@types/lodash.escaperegexp@npm:4.1.9"
+  dependencies:
+    "@types/lodash": "npm:*"
+  checksum: 10c0/ff457cacac0fed3e199fa56e44930ce8e57edaa5706d14b3d1c8b13bf6cfbac2bcc629d68f7922cb20965ac6550616c59de9b5c747cdde0f169963377b49cb18
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:*":
+  version: 4.17.16
+  resolution: "@types/lodash@npm:4.17.16"
+  checksum: 10c0/cf017901b8ab1d7aabc86d5189d9288f4f99f19a75caf020c0e2c77b8d4cead4db0d0b842d009b029339f92399f49f34377dd7c2721053388f251778b4c23534
   languageName: node
   linkType: hard
 
@@ -4288,6 +4308,13 @@ __metadata:
   version: 4.0.8
   resolution: "lodash.debounce@npm:4.0.8"
   checksum: 10c0/762998a63e095412b6099b8290903e0a8ddcb353ac6e2e0f2d7e7d03abd4275fe3c689d88960eb90b0dde4f177554d51a690f22a343932ecbc50a5d111849987
+  languageName: node
+  linkType: hard
+
+"lodash.escaperegexp@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "lodash.escaperegexp@npm:4.1.2"
+  checksum: 10c0/484ad4067fa9119bb0f7c19a36ab143d0173a081314993fe977bd00cf2a3c6a487ce417a10f6bac598d968364f992153315f0dbe25c9e38e3eb7581dd333e087
   languageName: node
   linkType: hard
 

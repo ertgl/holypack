@@ -32,6 +32,7 @@ export class ESLintIntegrationPerfectionistPluginAPI
   {
     const resolvedOptions = resolveESLintIntegrationPerfectionistPluginOptions(
       context.cwd,
+      context.workspaces,
       options,
     );
 
@@ -126,9 +127,7 @@ export class ESLintIntegrationPerfectionistPluginAPI
               ignoreCase: false,
               internalPattern: resolvedOptions.internalPattern,
               newlinesBetween: "always",
-              // TODO(ertgl): Create workspace plugin, use it for determining `tsconfigRootDir`.
-              // TODO(ertgl): Create TypeScriptIntegration for tsconfigRootDir resolution.
-              tsconfigRootDir: context.project.path,
+              tsconfigRootDir: context.cwd,
             },
           ],
         },

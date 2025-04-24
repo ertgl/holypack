@@ -1,3 +1,7 @@
+import escapeRegExp from "lodash.escaperegexp";
+
+import type { WorkspaceRegistry } from "@holypack/core/plugins/workspace";
+
 import type {
   ESLintIntegrationImportXPluginOptions,
   ESLintIntegrationImportXPluginResolvedOptions,
@@ -5,6 +9,7 @@ import type {
 
 export function resolveESLintIntegrationImportXPluginOptions(
   cwd: string,
+  workspaces: WorkspaceRegistry,
   options?: boolean | ESLintIntegrationImportXPluginOptions | null,
 ): ESLintIntegrationImportXPluginResolvedOptions | false
 {
@@ -27,8 +32,24 @@ export function resolveESLintIntegrationImportXPluginOptions(
       : internalPattern
   );
 
+  let finalInternalPatternSource = "";
+  let operator = "";
+
+  if (internalPatternSource)
+  {
+    finalInternalPatternSource += `(?:${internalPatternSource})`;
+    operator = "|";
+  }
+
+  for (const workspace of workspaces.values())
+  {
+    const workspaceNameRegexp = escapeRegExp(workspace.name);
+    finalInternalPatternSource += `${operator}(?:^${workspaceNameRegexp}(?:[\\/]+.*)?$)`;
+    operator = "|";
+  }
+
   return {
     ...optionsObject,
-    internalPatternSource,
+    internalPatternSource: finalInternalPatternSource,
   };
 }
