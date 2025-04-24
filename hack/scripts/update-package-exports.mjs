@@ -250,6 +250,7 @@ async function generatePackageExports(
     default: "./src/*.ts",
     /* eslint-enable perfectionist/sort-objects */
   };
+
   packageExports["./*.mjs"] = {
     /* eslint-disable perfectionist/sort-objects */
     types: "./dist/types/*.d.ts",
