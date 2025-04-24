@@ -1,0 +1,10 @@
+{
+  "name": "@holypack/e2e-integration-typescript",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@holypack/core": "*",
+    "@holypack/integration-typescript": "*",
+    "holypack": "*"
+  }
+}
