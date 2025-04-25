@@ -6,9 +6,11 @@
     "babel:build::esm": "cd $INIT_CWD && yarn cmd:babel src --config-file ./babel.config.esm.mjs --copy-files --extensions '.cjs,.cts,.js,.mjs,.mts,.ts' --ignore '**/*.d.ts' --out-dir ./dist/esm --out-file-extension '.mjs'",
     "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn hack:update-package-exports",
     "clean": "rm -fr dist",
-    "cmd:babel": "cd $INIT_CWD && babel"
+    "cmd:babel": "cd $INIT_CWD && babel",
+    "prepare": "yarn build"
   },
   "peerDependencies": {
+    "@holypack/core": "workspace:^",
     "typescript": "*"
   },
   "dependencies": {
@@ -19,6 +21,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.27.0",
+    "@holypack/core": "workspace:^",
     "@types/babel__core": "^7.20.5",
     "@types/babel__preset-env": "^7.10.0",
     "typescript": "^5.8.3"
@@ -39,6 +42,144 @@
       "import": "./dist/esm/index.mjs",
       "require": "./dist/cjs/index.cjs",
       "default": "./src/index.ts"
+    },
+    "./integration/module-augmentation": {
+      "types": "./dist/types/integration/module-augmentation/index.d.ts",
+      "import": "./dist/esm/integration/module-augmentation/index.mjs",
+      "require": "./dist/cjs/integration/module-augmentation/index.cjs",
+      "default": "./src/integration/module-augmentation/index.ts"
+    },
+    "./integration/module-augmentation/": {
+      "types": "./dist/types/integration/module-augmentation/index.d.ts",
+      "import": "./dist/esm/integration/module-augmentation/index.mjs",
+      "require": "./dist/cjs/integration/module-augmentation/index.cjs",
+      "default": "./src/integration/module-augmentation/index.ts"
+    },
+    "./integration/module-augmentation/*.d.ts": {
+      "types": "./dist/types/integration/module-augmentation/*.d.ts",
+      "default": "./src/integration/module-augmentation/*.ts"
+    },
+    "./integration/module-augmentation/*.cjs": {
+      "types": "./dist/types/integration/module-augmentation/*.d.ts",
+      "import": "./dist/esm/integration/module-augmentation/*.mjs",
+      "require": "./dist/cjs/integration/module-augmentation/*.cjs",
+      "default": "./src/integration/module-augmentation/*.ts"
+    },
+    "./integration/module-augmentation/*.js": {
+      "types": "./dist/types/integration/module-augmentation/*.d.ts",
+      "import": "./dist/esm/integration/module-augmentation/*.mjs",
+      "require": "./dist/cjs/integration/module-augmentation/*.cjs",
+      "default": "./src/integration/module-augmentation/*.ts"
+    },
+    "./integration/module-augmentation/*.mjs": {
+      "types": "./dist/types/integration/module-augmentation/*.d.ts",
+      "import": "./dist/esm/integration/module-augmentation/*.mjs",
+      "require": "./dist/cjs/integration/module-augmentation/*.cjs",
+      "default": "./src/integration/module-augmentation/*.ts"
+    },
+    "./integration/module-augmentation/*.ts": {
+      "types": "./dist/types/integration/module-augmentation/*.d.ts",
+      "import": "./dist/esm/integration/module-augmentation/*.mjs",
+      "require": "./dist/cjs/integration/module-augmentation/*.cjs",
+      "default": "./src/integration/module-augmentation/*.ts"
+    },
+    "./integration/module-augmentation/*": {
+      "types": "./dist/types/integration/module-augmentation/*",
+      "import": "./dist/esm/integration/module-augmentation/*",
+      "require": "./dist/cjs/integration/module-augmentation/*",
+      "default": "./src/integration/module-augmentation/*"
+    },
+    "./context": {
+      "types": "./dist/types/context/index.d.ts",
+      "import": "./dist/esm/context/index.mjs",
+      "require": "./dist/cjs/context/index.cjs",
+      "default": "./src/context/index.ts"
+    },
+    "./context/": {
+      "types": "./dist/types/context/index.d.ts",
+      "import": "./dist/esm/context/index.mjs",
+      "require": "./dist/cjs/context/index.cjs",
+      "default": "./src/context/index.ts"
+    },
+    "./context/*.d.ts": {
+      "types": "./dist/types/context/*.d.ts",
+      "default": "./src/context/*.ts"
+    },
+    "./context/*.cjs": {
+      "types": "./dist/types/context/*.d.ts",
+      "import": "./dist/esm/context/*.mjs",
+      "require": "./dist/cjs/context/*.cjs",
+      "default": "./src/context/*.ts"
+    },
+    "./context/*.js": {
+      "types": "./dist/types/context/*.d.ts",
+      "import": "./dist/esm/context/*.mjs",
+      "require": "./dist/cjs/context/*.cjs",
+      "default": "./src/context/*.ts"
+    },
+    "./context/*.mjs": {
+      "types": "./dist/types/context/*.d.ts",
+      "import": "./dist/esm/context/*.mjs",
+      "require": "./dist/cjs/context/*.cjs",
+      "default": "./src/context/*.ts"
+    },
+    "./context/*.ts": {
+      "types": "./dist/types/context/*.d.ts",
+      "import": "./dist/esm/context/*.mjs",
+      "require": "./dist/cjs/context/*.cjs",
+      "default": "./src/context/*.ts"
+    },
+    "./context/*": {
+      "types": "./dist/types/context/*",
+      "import": "./dist/esm/context/*",
+      "require": "./dist/cjs/context/*",
+      "default": "./src/context/*"
+    },
+    "./integration": {
+      "types": "./dist/types/integration/index.d.ts",
+      "import": "./dist/esm/integration/index.mjs",
+      "require": "./dist/cjs/integration/index.cjs",
+      "default": "./src/integration/index.ts"
+    },
+    "./integration/": {
+      "types": "./dist/types/integration/index.d.ts",
+      "import": "./dist/esm/integration/index.mjs",
+      "require": "./dist/cjs/integration/index.cjs",
+      "default": "./src/integration/index.ts"
+    },
+    "./integration/*.d.ts": {
+      "types": "./dist/types/integration/*.d.ts",
+      "default": "./src/integration/*.ts"
+    },
+    "./integration/*.cjs": {
+      "types": "./dist/types/integration/*.d.ts",
+      "import": "./dist/esm/integration/*.mjs",
+      "require": "./dist/cjs/integration/*.cjs",
+      "default": "./src/integration/*.ts"
+    },
+    "./integration/*.js": {
+      "types": "./dist/types/integration/*.d.ts",
+      "import": "./dist/esm/integration/*.mjs",
+      "require": "./dist/cjs/integration/*.cjs",
+      "default": "./src/integration/*.ts"
+    },
+    "./integration/*.mjs": {
+      "types": "./dist/types/integration/*.d.ts",
+      "import": "./dist/esm/integration/*.mjs",
+      "require": "./dist/cjs/integration/*.cjs",
+      "default": "./src/integration/*.ts"
+    },
+    "./integration/*.ts": {
+      "types": "./dist/types/integration/*.d.ts",
+      "import": "./dist/esm/integration/*.mjs",
+      "require": "./dist/cjs/integration/*.cjs",
+      "default": "./src/integration/*.ts"
+    },
+    "./integration/*": {
+      "types": "./dist/types/integration/*",
+      "import": "./dist/esm/integration/*",
+      "require": "./dist/cjs/integration/*",
+      "default": "./src/integration/*"
     },
     "./*.d.ts": {
       "types": "./dist/types/*.d.ts",
