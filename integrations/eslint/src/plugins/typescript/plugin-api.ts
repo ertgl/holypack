@@ -36,6 +36,9 @@ export class ESLintIntegrationTypeScriptPluginAPI
     const resolvedOptions = resolveESLintIntegrationTypeScriptPluginOptions(
       context.cwd,
       options,
+      {
+        tsconfigRootDir: context.typescript.tsconfigRootDirectoryPath,
+      },
     );
 
     if (resolvedOptions === false)
@@ -73,7 +76,7 @@ export class ESLintIntegrationTypeScriptPluginAPI
       parserOptions: {
         projectService: true,
         tsconfigRootDir: resolvedOptions.tsconfigRootDir,
-        warnOnUnsupportedTypeScriptVersion: false,
+        warnOnUnsupportedTypeScriptVersion: resolvedOptions.warnOnUnsupportedTypeScriptVersion,
       },
     };
 

@@ -857,9 +857,14 @@ __metadata:
     globals: "npm:^16.0.0"
     typescript-eslint: "npm:^8.31.0"
   peerDependencies:
+    "@holypack/core": "*"
+    "@holypack/integration-typescript": "*"
     lodash.escaperegexp: "*"
     tapable: "*"
     typescript: "*"
+  peerDependenciesMeta:
+    "@holypack/integration-typescript":
+      optional: true
   languageName: node
   linkType: soft
 

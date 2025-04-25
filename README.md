@@ -177,7 +177,7 @@ scale.
   <tr>
     <td><a href="https://www.typescriptlang.org/">TypeScript</a></td>
     <td><a href="integrations/typescript">@holypack/integration-typescript</a></td>
-    <td align="center">Work in progress</td>
+    <td align="center">Completed</td>
   </tr>
   <tr>
     <td><a href="https://babeljs.io/">Babel</a></td>

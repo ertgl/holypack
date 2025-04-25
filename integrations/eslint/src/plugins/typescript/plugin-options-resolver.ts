@@ -6,6 +6,7 @@ import type {
 export function resolveESLintIntegrationTypeScriptPluginOptions(
   cwd: string,
   options?: boolean | ESLintIntegrationTypeScriptPluginOptions | null,
+  defaults?: ESLintIntegrationTypeScriptPluginOptions | null,
 ): ESLintIntegrationTypeScriptPluginResolvedOptions | false
 {
   if (options === false)
@@ -19,15 +20,23 @@ export function resolveESLintIntegrationTypeScriptPluginOptions(
       : options ?? {}
   );
 
-  // TODO(ertgl): Consider creating a plugin for workspaces.
-  // TODO(ertgl): Use `@holypack/core/utils/fs/root-path-finder` for tsconfigRootDir resolution.
+  defaults ??= {};
+
   const tsconfigRootDir = (
     optionsObject.tsconfigRootDir
+    ?? defaults.tsconfigRootDir
     ?? cwd
+  );
+
+  const warnOnUnsupportedTypeScriptVersion = (
+    optionsObject.warnOnUnsupportedTypeScriptVersion
+    ?? defaults.warnOnUnsupportedTypeScriptVersion
+    ?? false
   );
 
   return {
     ...optionsObject,
     tsconfigRootDir,
+    warnOnUnsupportedTypeScriptVersion,
   };
 }

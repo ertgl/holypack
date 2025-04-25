@@ -2048,9 +2048,14 @@ __metadata:
     globals: "npm:^16.0.0"
     typescript-eslint: "npm:^8.31.0"
   peerDependencies:
+    "@holypack/core": "*"
+    "@holypack/integration-typescript": "*"
     lodash.escaperegexp: "*"
     tapable: "*"
     typescript: "*"
+  peerDependenciesMeta:
+    "@holypack/integration-typescript":
+      optional: true
   languageName: node
   linkType: soft
 
@@ -2078,6 +2083,7 @@ __metadata:
     "@eslint/markdown": "npm:^6.4.0"
     "@holypack/core": "workspace:*"
     "@holypack/integration-babel": "workspace:*"
+    "@holypack/integration-typescript": "workspace:*"
     "@stylistic/eslint-plugin": "npm:^4.2.0"
     "@types/lodash.escaperegexp": "npm:^4"
     eslint: "npm:^9.25.1"
@@ -2094,9 +2100,14 @@ __metadata:
     typescript: "npm:^5.8.3"
     typescript-eslint: "npm:^8.31.0"
   peerDependencies:
+    "@holypack/core": "*"
+    "@holypack/integration-typescript": "*"
     lodash.escaperegexp: "*"
     tapable: "*"
     typescript: "*"
+  peerDependenciesMeta:
+    "@holypack/integration-typescript":
+      optional: true
   languageName: unknown
   linkType: soft
 

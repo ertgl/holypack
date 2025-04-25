@@ -11,11 +11,6 @@
     "eslint:lint": "cd $PROJECT_CWD && yarn cmd:eslint",
     "eslint:lint::fix": "cd $PROJECT_CWD && yarn cmd:eslint --fix"
   },
-  "peerDependencies": {
-    "lodash.escaperegexp": "*",
-    "tapable": "*",
-    "typescript": "*"
-  },
   "dependencies": {
     "@cspell/dict-bash": "^4.2.0",
     "@cspell/dict-css": "^4.0.17",
@@ -49,11 +44,25 @@
     "typescript-eslint": "^8.31.0"
   },
   "devDependencies": {
+    "@holypack/core": "workspace:*",
     "@holypack/integration-babel": "workspace:*",
+    "@holypack/integration-typescript": "workspace:*",
     "@types/lodash.escaperegexp": "^4",
     "lodash.escaperegexp": "^4.1.2",
     "tapable": "^2.2.1",
     "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "@holypack/core": "*",
+    "@holypack/integration-typescript": "*",
+    "lodash.escaperegexp": "*",
+    "tapable": "*",
+    "typescript": "*"
+  },
+  "peerDependenciesMeta": {
+    "@holypack/integration-typescript": {
+      "optional": true
+    }
   },
   "files": [
     "./dist/",
