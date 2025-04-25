@@ -76,7 +76,7 @@ The core principles behind holypack include:
   - **Guided flexibility**: A mix of "**convention over configuration**" and
     "**configuration over convention**."
   - **Optimized for modern workflows**: Integrates with fast,
-    developer-friendly tools that improve efficiency.
+    developer-friendly tools that improve productivity.
   - **Built on proven technologies**: Combined with the best practices to
     ensure sustainable efficiency.
   - **Adaptable and non-restrictive**: Works with any project structure,
@@ -106,7 +106,7 @@ scale.
   [SWC](https://swc.rs/)
 - CSS processing with [PostCSS](https://postcss.org/) and
   [Lightning CSS](https://lightningcss.dev/)
-- Support for [Sass](https://sass-lang.com/) and
+- Superpowered CSS, with [Sass](https://sass-lang.com/) and
   [SCSS](https://sass-lang.com/documentation/syntax/#scss)
 - First-class [CSS modules](https://github.com/css-modules/css-modules) support
 
@@ -291,7 +291,7 @@ scale.
   <tr>
     <td>core</td>
     <td><a href="packages/core">@holypack/core</a></td>
-    <td align="center">Work in progress</td>
+    <td align="center">Completed</td>
   </tr>
   <tr>
     <td>cli</td>
@@ -301,7 +301,7 @@ scale.
   <tr>
     <td>prelude</td>
     <td><a href="packages/prelude">holypack</a></td>
-    <td align="center">Work in progress</td>
+    <td align="center">Completed</td>
   </tr>
 </table>
 
