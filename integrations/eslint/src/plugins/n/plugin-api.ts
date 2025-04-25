@@ -94,6 +94,12 @@ export class ESLintIntegrationNPluginAPI
     );
 
     const sharedSettings = {
+      allowModules: Array.from(
+        new Set([
+          ...Object.keys(context.project.packageJSON.dependencies ?? {}),
+          ...Object.keys(context.project.packageJSON.devDependencies ?? {}),
+        ]),
+      ),
       resolverConfig: {
         extensions,
         modules: [
