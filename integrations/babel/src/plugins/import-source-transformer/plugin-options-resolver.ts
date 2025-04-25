@@ -5,6 +5,7 @@ import type {
 
 export function resolveBabelIntegrationImportSourceTransformerPluginOptions(
   cwd: string,
+  isLegacy: boolean,
   options?: BabelIntegrationImportSourceTransformerPluginOptions | boolean | null,
 ): BabelIntegrationImportSourceTransformerPluginResolvedOptions | false
 {
@@ -21,9 +22,16 @@ export function resolveBabelIntegrationImportSourceTransformerPluginOptions(
 
   const overrides = optionsObject.overrides ?? {};
 
+  const targetExtension = (
+    isLegacy
+      ? ".cjs"
+      : ".mjs"
+  );
+
   return {
     overrides: {
       ...overrides,
     },
+    targetExtension,
   };
 }

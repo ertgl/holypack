@@ -12,6 +12,10 @@ import type { BabelIntegrationImportSourceTransformerPlugin } from "./plugin";
 import type { BabelIntegrationImportSourceTransformerPluginOptions } from "./plugin-options";
 import { resolveBabelIntegrationImportSourceTransformerPluginOptions } from "./plugin-options-resolver";
 
+const PATTERN_ANY_RELATIVE_PATH = /^[.\\/]+.*$/;
+
+const PATTERN_ANY_JS_EXTENSION_OR_NO_EXTENSION = /(?:\.[cm]?[jt]s[x]?)?$/iu;
+
 export class BabelIntegrationImportSourceTransformerPluginAPI
 {
   plugin: BabelIntegrationImportSourceTransformerPlugin;
@@ -31,6 +35,7 @@ export class BabelIntegrationImportSourceTransformerPluginAPI
   {
     const resolvedOptions = resolveBabelIntegrationImportSourceTransformerPluginOptions(
       context.cwd,
+      context.legacy,
       options,
     );
 
@@ -61,18 +66,18 @@ export class BabelIntegrationImportSourceTransformerPluginAPI
       return;
     }
 
-    // TODO(ertgl): Create `LegacyPlugin` and augment the context with a flag that indicates whether the legacy mode is enabled.
-    // TODO(ertgl): Determine the target extension for `BabelImportSourceTransformerPlugin` using the context (requires `LegacyPlugin` to be ready).
-    const targetExtension = ".mjs";
-
     const importSourceTransformerPluginOptions: BabelImportSourceTransformerPluginOptions = {
+      ...resolvedOptions.overrides,
       transform: {
+        ...resolvedOptions.overrides.transform,
         rules: [
+          ...resolvedOptions.overrides.transform?.rules ?? [],
           {
-            find: /(?:\.[cm]?[jt]s[x]?)?$/iu,
-            replace: targetExtension,
+            find: PATTERN_ANY_JS_EXTENSION_OR_NO_EXTENSION,
+            replace: resolvedOptions.targetExtension,
             resolveIndex: true,
-            test: /^[.\\/]+.*$/,
+            // Match any relative path.
+            test: PATTERN_ANY_RELATIVE_PATH,
           },
         ],
       },
