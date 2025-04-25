@@ -189,6 +189,52 @@
       "require": "./dist/cjs/presets/*",
       "default": "./src/presets/*"
     },
+    "./tsconfig-root-directory-path-finder": {
+      "types": "./dist/types/tsconfig-root-directory-path-finder/index.d.ts",
+      "import": "./dist/esm/tsconfig-root-directory-path-finder/index.mjs",
+      "require": "./dist/cjs/tsconfig-root-directory-path-finder/index.cjs",
+      "default": "./src/tsconfig-root-directory-path-finder/index.ts"
+    },
+    "./tsconfig-root-directory-path-finder/": {
+      "types": "./dist/types/tsconfig-root-directory-path-finder/index.d.ts",
+      "import": "./dist/esm/tsconfig-root-directory-path-finder/index.mjs",
+      "require": "./dist/cjs/tsconfig-root-directory-path-finder/index.cjs",
+      "default": "./src/tsconfig-root-directory-path-finder/index.ts"
+    },
+    "./tsconfig-root-directory-path-finder/*.d.ts": {
+      "types": "./dist/types/tsconfig-root-directory-path-finder/*.d.ts",
+      "default": "./src/tsconfig-root-directory-path-finder/*.ts"
+    },
+    "./tsconfig-root-directory-path-finder/*.cjs": {
+      "types": "./dist/types/tsconfig-root-directory-path-finder/*.d.ts",
+      "import": "./dist/esm/tsconfig-root-directory-path-finder/*.mjs",
+      "require": "./dist/cjs/tsconfig-root-directory-path-finder/*.cjs",
+      "default": "./src/tsconfig-root-directory-path-finder/*.ts"
+    },
+    "./tsconfig-root-directory-path-finder/*.js": {
+      "types": "./dist/types/tsconfig-root-directory-path-finder/*.d.ts",
+      "import": "./dist/esm/tsconfig-root-directory-path-finder/*.mjs",
+      "require": "./dist/cjs/tsconfig-root-directory-path-finder/*.cjs",
+      "default": "./src/tsconfig-root-directory-path-finder/*.ts"
+    },
+    "./tsconfig-root-directory-path-finder/*.mjs": {
+      "types": "./dist/types/tsconfig-root-directory-path-finder/*.d.ts",
+      "import": "./dist/esm/tsconfig-root-directory-path-finder/*.mjs",
+      "require": "./dist/cjs/tsconfig-root-directory-path-finder/*.cjs",
+      "default": "./src/tsconfig-root-directory-path-finder/*.ts"
+    },
+    "./tsconfig-root-directory-path-finder/*.ts": {
+      "types": "./dist/types/tsconfig-root-directory-path-finder/*.d.ts",
+      "import": "./dist/esm/tsconfig-root-directory-path-finder/*.mjs",
+      "require": "./dist/cjs/tsconfig-root-directory-path-finder/*.cjs",
+      "default": "./src/tsconfig-root-directory-path-finder/*.ts"
+    },
+    "./tsconfig-root-directory-path-finder/*": {
+      "types": "./dist/types/tsconfig-root-directory-path-finder/*",
+      "import": "./dist/esm/tsconfig-root-directory-path-finder/*",
+      "require": "./dist/cjs/tsconfig-root-directory-path-finder/*",
+      "default": "./src/tsconfig-root-directory-path-finder/*"
+    },
     "./*.d.ts": {
       "types": "./dist/types/*.d.ts",
       "default": "./src/*.ts"

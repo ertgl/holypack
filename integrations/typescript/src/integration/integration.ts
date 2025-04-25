@@ -4,12 +4,15 @@ import type {
   Integration,
 } from "@holypack/core";
 
+import { TypeScriptIntegrationAPI } from "./integration-api";
 import type { TypeScriptIntegrationOptions } from "./integration-options";
 
 export const INTEGRATION_NAME_TYPESCRIPT = "@holypack/integration:TypeScript";
 
 export class TypeScriptIntegration implements Integration
 {
+  api: TypeScriptIntegrationAPI;
+
   name = INTEGRATION_NAME_TYPESCRIPT;
 
   options: TypeScriptIntegrationOptions;
@@ -18,16 +21,23 @@ export class TypeScriptIntegration implements Integration
     options?: null | TypeScriptIntegrationOptions,
   )
   {
+    this.api = new TypeScriptIntegrationAPI(this);
     this.options = options ?? {};
   }
 
-  resolveContext(
+  async resolveContext(
     context: Context,
     options: ContextResolutionOptions,
-  ): void
+  ): Promise<void>
   {
-    // TODO(ertgl): Resolve TypeScript related context.
-    context.typescript = {};
+    const tsconfigRootDirectoryPath = (
+      this.options.tsconfigRootDirectoryPath
+      ?? await this.api.findTSConfigRootDirectoryPath(context)
+    );
+
+    context.typescript = {
+      tsconfigRootDirectoryPath,
+    };
   }
 }
 

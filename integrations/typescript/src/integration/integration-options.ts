@@ -3,8 +3,9 @@ export type TypeScriptIntegrationOptions = (
   & TypeScriptIntegrationOptionsCustomProperties
 );
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export type TypeScriptIntegrationOptionsBaseProperties = {};
+export type TypeScriptIntegrationOptionsBaseProperties = {
+  tsconfigRootDirectoryPath?: null | string;
+};
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface TypeScriptIntegrationOptionsCustomProperties

@@ -4,7 +4,7 @@ export type TypeScriptContext = (
 );
 
 export type TypeScriptContextBaseProperties = {
-  tsconfigDirectoryPaths?: string[];
+  tsconfigRootDirectoryPath?: string;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
@@ -17,7 +17,7 @@ export type TypeScriptResolvedContext = (
 );
 
 export type TypeScriptResolvedContextBaseProperties = {
-  tsconfigDirectoryPaths: string[];
+  tsconfigRootDirectoryPath: string;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
