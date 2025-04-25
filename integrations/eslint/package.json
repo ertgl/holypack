@@ -45,7 +45,6 @@
   },
   "devDependencies": {
     "@holypack/core": "workspace:*",
-    "@holypack/integration-babel": "workspace:*",
     "@holypack/integration-typescript": "workspace:*",
     "@types/lodash.escaperegexp": "^4",
     "lodash.escaperegexp": "^4.1.2",

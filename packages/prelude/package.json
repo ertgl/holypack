@@ -4,11 +4,11 @@
     "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn hack:update-package-exports",
     "clean": "rm -fr dist"
   },
-  "dependencies": {
+  "devDependencies": {
     "@holypack/core": "workspace:*"
   },
-  "devDependencies": {
-    "@holypack/integration-babel": "workspace:*"
+  "peerDependencies": {
+    "@holypack/core": "*"
   },
   "files": [
     "./dist/",

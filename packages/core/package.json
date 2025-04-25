@@ -13,7 +13,6 @@
     "tapable": "*"
   },
   "devDependencies": {
-    "@holypack/integration-babel": "workspace:*",
     "@types/picomatch": "^4.0.0",
     "fast-glob": "^3.3.3",
     "picomatch": "^4.0.2",

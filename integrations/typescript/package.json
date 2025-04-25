@@ -13,8 +13,7 @@
     "typescript": "^5.8.3"
   },
   "devDependencies": {
-    "@holypack/core": "workspace:^",
-    "@holypack/integration-babel": "workspace:^"
+    "@holypack/core": "workspace:^"
   },
   "files": [
     "./dist/",

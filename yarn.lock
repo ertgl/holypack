@@ -1923,6 +1923,7 @@ __metadata:
   resolution: "@holypack/__monorepo__@workspace:."
   dependencies:
     "@holypack/eslint-plugin": "workspace:*"
+    "@holypack/integration-babel": "workspace:*"
     "@holypack/integration-eslint": "workspace:*"
     "@holypack/integration-typescript": "workspace:*"
     holypack: "workspace:*"
@@ -1945,7 +1946,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/core@workspace:packages/core"
   dependencies:
-    "@holypack/integration-babel": "workspace:*"
     "@types/picomatch": "npm:^4.0.0"
     cosmiconfig: "npm:^9.0.0"
     fast-glob: "npm:^3.3.3"
@@ -1973,7 +1973,6 @@ __metadata:
   resolution: "@holypack/eslint-plugin@workspace:external/eslint-plugin"
   dependencies:
     "@holypack/core": "workspace:*"
-    "@holypack/integration-babel": "workspace:*"
     "@holypack/integration-eslint": "workspace:*"
     eslint: "npm:^9.25.1"
   peerDependencies:
@@ -1992,6 +1991,7 @@ __metadata:
     "@babel/preset-typescript": "npm:^7.27.0"
     babel-plugin-transform-import-source: "npm:^1.0.0"
   peerDependencies:
+    "@holypack/core": "workspace:^"
     typescript: "*"
   languageName: node
   linkType: soft
@@ -2004,11 +2004,13 @@ __metadata:
     "@babel/core": "npm:^7.26.10"
     "@babel/preset-env": "npm:^7.26.9"
     "@babel/preset-typescript": "npm:^7.27.0"
+    "@holypack/core": "workspace:^"
     "@types/babel__core": "npm:^7.20.5"
     "@types/babel__preset-env": "npm:^7.10.0"
     babel-plugin-transform-import-source: "npm:^1.0.0"
     typescript: "npm:^5.8.3"
   peerDependencies:
+    "@holypack/core": "workspace:^"
     typescript: "*"
   languageName: unknown
   linkType: soft
@@ -2082,7 +2084,6 @@ __metadata:
     "@eslint/json": "npm:^0.12.0"
     "@eslint/markdown": "npm:^6.4.0"
     "@holypack/core": "workspace:*"
-    "@holypack/integration-babel": "workspace:*"
     "@holypack/integration-typescript": "workspace:*"
     "@stylistic/eslint-plugin": "npm:^4.2.0"
     "@types/lodash.escaperegexp": "npm:^4"
@@ -2126,7 +2127,6 @@ __metadata:
   resolution: "@holypack/integration-typescript@workspace:integrations/typescript"
   dependencies:
     "@holypack/core": "workspace:^"
-    "@holypack/integration-babel": "workspace:^"
     typescript: "npm:^5.8.3"
   peerDependencies:
     "@holypack/core": "*"
@@ -4002,8 +4002,8 @@ __metadata:
 "holypack@portal:./packages/prelude::locator=%40holypack%2F__monorepo__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "holypack@portal:./packages/prelude::locator=%40holypack%2F__monorepo__%40workspace%3A."
-  dependencies:
-    "@holypack/core": "workspace:*"
+  peerDependencies:
+    "@holypack/core": "*"
   languageName: node
   linkType: soft
 
@@ -4012,7 +4012,8 @@ __metadata:
   resolution: "holypack@workspace:packages/prelude"
   dependencies:
     "@holypack/core": "workspace:*"
-    "@holypack/integration-babel": "workspace:*"
+  peerDependencies:
+    "@holypack/core": "*"
   languageName: unknown
   linkType: soft
 
