@@ -3,6 +3,7 @@ import {
   default as eslint,
   INTEGRATION_NAME_ESLINT,
 } from "@holypack/integration-eslint";
+import typescript from "@holypack/integration-typescript";
 import { defineConfig } from "holypack";
 
 /**
@@ -11,9 +12,8 @@ import { defineConfig } from "holypack";
 
 const HOLYPACK_CONFIG = defineConfig({
   integrations: [
-    eslint({
-      cspell: true, // false disables cspell, default is true if cspell plugin is installed.
-    }),
+    typescript(),
+    eslint(),
   ],
   plugins: [
     {

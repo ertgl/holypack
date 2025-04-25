@@ -13,6 +13,7 @@
   "devDependencies": {
     "@holypack/core": "*",
     "@holypack/eslint-plugin": "*",
+    "@holypack/integration-babel": "*",
     "@holypack/integration-eslint": "*",
     "@holypack/integration-typescript": "*",
     "holypack": "*",
@@ -28,6 +29,7 @@
     "@holypack/e2e-integration-eslint": "portal:./integrations/eslint",
     "@holypack/e2e-integration-typescript": "portal:./integrations/typescript",
     "@holypack/eslint-plugin": "portal:../external/eslint-plugin",
+    "@holypack/integration-babel": "portal:../integrations/babel",
     "@holypack/integration-eslint": "portal:../integrations/eslint",
     "@holypack/integration-typescript": "portal:../integrations/typescript",
     "@holypack/internal-integration-yarn": "portal:../internal/integrations/yarn",
