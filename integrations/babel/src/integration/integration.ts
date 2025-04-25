@@ -11,6 +11,7 @@ import {
   type BabelIntegrationHookSet,
   createBabelIntegrationHookSet,
 } from "../eventing";
+import createBabelIntegrationEnvPlugin from "../plugins/env";
 import { createBabelIntegrationImportSourceTransformerPlugin } from "../plugins/import-source-transformer";
 
 import { INTEGRATION_NAME_BABEL } from "./integration-name";
@@ -51,6 +52,9 @@ export class BabelIntegration implements Integration
   {
     const importSourceTransformerPlugin = createBabelIntegrationImportSourceTransformerPlugin();
     await bindSubIntegration(context, config, importSourceTransformerPlugin);
+
+    const envPlugin = createBabelIntegrationEnvPlugin();
+    await bindSubIntegration(context, config, envPlugin);
   }
 }
 

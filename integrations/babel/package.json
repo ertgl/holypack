@@ -101,6 +101,52 @@
       "require": "./dist/cjs/integration/module-augmentation/*",
       "default": "./src/integration/module-augmentation/*"
     },
+    "./plugins/env/module-augmentation": {
+      "types": "./dist/types/plugins/env/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/env/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/env/module-augmentation/index.cjs",
+      "default": "./src/plugins/env/module-augmentation/index.ts"
+    },
+    "./plugins/env/module-augmentation/": {
+      "types": "./dist/types/plugins/env/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/env/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/env/module-augmentation/index.cjs",
+      "default": "./src/plugins/env/module-augmentation/index.ts"
+    },
+    "./plugins/env/module-augmentation/*.d.ts": {
+      "types": "./dist/types/plugins/env/module-augmentation/*.d.ts",
+      "default": "./src/plugins/env/module-augmentation/*.ts"
+    },
+    "./plugins/env/module-augmentation/*.cjs": {
+      "types": "./dist/types/plugins/env/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/env/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/env/module-augmentation/*.cjs",
+      "default": "./src/plugins/env/module-augmentation/*.ts"
+    },
+    "./plugins/env/module-augmentation/*.js": {
+      "types": "./dist/types/plugins/env/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/env/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/env/module-augmentation/*.cjs",
+      "default": "./src/plugins/env/module-augmentation/*.ts"
+    },
+    "./plugins/env/module-augmentation/*.mjs": {
+      "types": "./dist/types/plugins/env/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/env/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/env/module-augmentation/*.cjs",
+      "default": "./src/plugins/env/module-augmentation/*.ts"
+    },
+    "./plugins/env/module-augmentation/*.ts": {
+      "types": "./dist/types/plugins/env/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/env/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/env/module-augmentation/*.cjs",
+      "default": "./src/plugins/env/module-augmentation/*.ts"
+    },
+    "./plugins/env/module-augmentation/*": {
+      "types": "./dist/types/plugins/env/module-augmentation/*",
+      "import": "./dist/esm/plugins/env/module-augmentation/*",
+      "require": "./dist/cjs/plugins/env/module-augmentation/*",
+      "default": "./src/plugins/env/module-augmentation/*"
+    },
     "./plugins/import-source-transformer/module-augmentation": {
       "types": "./dist/types/plugins/import-source-transformer/module-augmentation/index.d.ts",
       "import": "./dist/esm/plugins/import-source-transformer/module-augmentation/index.mjs",
@@ -146,6 +192,52 @@
       "import": "./dist/esm/plugins/import-source-transformer/module-augmentation/*",
       "require": "./dist/cjs/plugins/import-source-transformer/module-augmentation/*",
       "default": "./src/plugins/import-source-transformer/module-augmentation/*"
+    },
+    "./plugins/env": {
+      "types": "./dist/types/plugins/env/index.d.ts",
+      "import": "./dist/esm/plugins/env/index.mjs",
+      "require": "./dist/cjs/plugins/env/index.cjs",
+      "default": "./src/plugins/env/index.ts"
+    },
+    "./plugins/env/": {
+      "types": "./dist/types/plugins/env/index.d.ts",
+      "import": "./dist/esm/plugins/env/index.mjs",
+      "require": "./dist/cjs/plugins/env/index.cjs",
+      "default": "./src/plugins/env/index.ts"
+    },
+    "./plugins/env/*.d.ts": {
+      "types": "./dist/types/plugins/env/*.d.ts",
+      "default": "./src/plugins/env/*.ts"
+    },
+    "./plugins/env/*.cjs": {
+      "types": "./dist/types/plugins/env/*.d.ts",
+      "import": "./dist/esm/plugins/env/*.mjs",
+      "require": "./dist/cjs/plugins/env/*.cjs",
+      "default": "./src/plugins/env/*.ts"
+    },
+    "./plugins/env/*.js": {
+      "types": "./dist/types/plugins/env/*.d.ts",
+      "import": "./dist/esm/plugins/env/*.mjs",
+      "require": "./dist/cjs/plugins/env/*.cjs",
+      "default": "./src/plugins/env/*.ts"
+    },
+    "./plugins/env/*.mjs": {
+      "types": "./dist/types/plugins/env/*.d.ts",
+      "import": "./dist/esm/plugins/env/*.mjs",
+      "require": "./dist/cjs/plugins/env/*.cjs",
+      "default": "./src/plugins/env/*.ts"
+    },
+    "./plugins/env/*.ts": {
+      "types": "./dist/types/plugins/env/*.d.ts",
+      "import": "./dist/esm/plugins/env/*.mjs",
+      "require": "./dist/cjs/plugins/env/*.cjs",
+      "default": "./src/plugins/env/*.ts"
+    },
+    "./plugins/env/*": {
+      "types": "./dist/types/plugins/env/*",
+      "import": "./dist/esm/plugins/env/*",
+      "require": "./dist/cjs/plugins/env/*",
+      "default": "./src/plugins/env/*"
     },
     "./plugins/import-source-transformer": {
       "types": "./dist/types/plugins/import-source-transformer/index.d.ts",
