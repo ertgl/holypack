@@ -193,6 +193,52 @@
       "require": "./dist/cjs/plugins/import-source-transformer/module-augmentation/*",
       "default": "./src/plugins/import-source-transformer/module-augmentation/*"
     },
+    "./plugins/typescript/module-augmentation": {
+      "types": "./dist/types/plugins/typescript/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/typescript/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/typescript/module-augmentation/index.cjs",
+      "default": "./src/plugins/typescript/module-augmentation/index.ts"
+    },
+    "./plugins/typescript/module-augmentation/": {
+      "types": "./dist/types/plugins/typescript/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/typescript/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/typescript/module-augmentation/index.cjs",
+      "default": "./src/plugins/typescript/module-augmentation/index.ts"
+    },
+    "./plugins/typescript/module-augmentation/*.d.ts": {
+      "types": "./dist/types/plugins/typescript/module-augmentation/*.d.ts",
+      "default": "./src/plugins/typescript/module-augmentation/*.ts"
+    },
+    "./plugins/typescript/module-augmentation/*.cjs": {
+      "types": "./dist/types/plugins/typescript/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/typescript/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/typescript/module-augmentation/*.cjs",
+      "default": "./src/plugins/typescript/module-augmentation/*.ts"
+    },
+    "./plugins/typescript/module-augmentation/*.js": {
+      "types": "./dist/types/plugins/typescript/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/typescript/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/typescript/module-augmentation/*.cjs",
+      "default": "./src/plugins/typescript/module-augmentation/*.ts"
+    },
+    "./plugins/typescript/module-augmentation/*.mjs": {
+      "types": "./dist/types/plugins/typescript/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/typescript/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/typescript/module-augmentation/*.cjs",
+      "default": "./src/plugins/typescript/module-augmentation/*.ts"
+    },
+    "./plugins/typescript/module-augmentation/*.ts": {
+      "types": "./dist/types/plugins/typescript/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/typescript/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/typescript/module-augmentation/*.cjs",
+      "default": "./src/plugins/typescript/module-augmentation/*.ts"
+    },
+    "./plugins/typescript/module-augmentation/*": {
+      "types": "./dist/types/plugins/typescript/module-augmentation/*",
+      "import": "./dist/esm/plugins/typescript/module-augmentation/*",
+      "require": "./dist/cjs/plugins/typescript/module-augmentation/*",
+      "default": "./src/plugins/typescript/module-augmentation/*"
+    },
     "./plugins/env": {
       "types": "./dist/types/plugins/env/index.d.ts",
       "import": "./dist/esm/plugins/env/index.mjs",
@@ -284,6 +330,52 @@
       "import": "./dist/esm/plugins/import-source-transformer/*",
       "require": "./dist/cjs/plugins/import-source-transformer/*",
       "default": "./src/plugins/import-source-transformer/*"
+    },
+    "./plugins/typescript": {
+      "types": "./dist/types/plugins/typescript/index.d.ts",
+      "import": "./dist/esm/plugins/typescript/index.mjs",
+      "require": "./dist/cjs/plugins/typescript/index.cjs",
+      "default": "./src/plugins/typescript/index.ts"
+    },
+    "./plugins/typescript/": {
+      "types": "./dist/types/plugins/typescript/index.d.ts",
+      "import": "./dist/esm/plugins/typescript/index.mjs",
+      "require": "./dist/cjs/plugins/typescript/index.cjs",
+      "default": "./src/plugins/typescript/index.ts"
+    },
+    "./plugins/typescript/*.d.ts": {
+      "types": "./dist/types/plugins/typescript/*.d.ts",
+      "default": "./src/plugins/typescript/*.ts"
+    },
+    "./plugins/typescript/*.cjs": {
+      "types": "./dist/types/plugins/typescript/*.d.ts",
+      "import": "./dist/esm/plugins/typescript/*.mjs",
+      "require": "./dist/cjs/plugins/typescript/*.cjs",
+      "default": "./src/plugins/typescript/*.ts"
+    },
+    "./plugins/typescript/*.js": {
+      "types": "./dist/types/plugins/typescript/*.d.ts",
+      "import": "./dist/esm/plugins/typescript/*.mjs",
+      "require": "./dist/cjs/plugins/typescript/*.cjs",
+      "default": "./src/plugins/typescript/*.ts"
+    },
+    "./plugins/typescript/*.mjs": {
+      "types": "./dist/types/plugins/typescript/*.d.ts",
+      "import": "./dist/esm/plugins/typescript/*.mjs",
+      "require": "./dist/cjs/plugins/typescript/*.cjs",
+      "default": "./src/plugins/typescript/*.ts"
+    },
+    "./plugins/typescript/*.ts": {
+      "types": "./dist/types/plugins/typescript/*.d.ts",
+      "import": "./dist/esm/plugins/typescript/*.mjs",
+      "require": "./dist/cjs/plugins/typescript/*.cjs",
+      "default": "./src/plugins/typescript/*.ts"
+    },
+    "./plugins/typescript/*": {
+      "types": "./dist/types/plugins/typescript/*",
+      "import": "./dist/esm/plugins/typescript/*",
+      "require": "./dist/cjs/plugins/typescript/*",
+      "default": "./src/plugins/typescript/*"
     },
     "./config-function": {
       "types": "./dist/types/config-function/index.d.ts",

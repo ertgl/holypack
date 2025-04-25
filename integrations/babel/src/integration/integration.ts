@@ -13,6 +13,7 @@ import {
 } from "../eventing";
 import createBabelIntegrationEnvPlugin from "../plugins/env";
 import { createBabelIntegrationImportSourceTransformerPlugin } from "../plugins/import-source-transformer";
+import createBabelIntegrationTypeScriptPlugin from "../plugins/typescript";
 
 import { INTEGRATION_NAME_BABEL } from "./integration-name";
 import type { BabelIntegrationOptions } from "./integration-options";
@@ -55,6 +56,9 @@ export class BabelIntegration implements Integration
 
     const envPlugin = createBabelIntegrationEnvPlugin();
     await bindSubIntegration(context, config, envPlugin);
+
+    const typescriptPlugin = createBabelIntegrationTypeScriptPlugin();
+    await bindSubIntegration(context, config, typescriptPlugin);
   }
 }
 
