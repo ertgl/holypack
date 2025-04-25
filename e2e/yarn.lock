@@ -802,6 +802,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@holypack/e2e-integration-typescript@workspace:integrations/typescript":
+  version: 0.0.0-use.local
+  resolution: "@holypack/e2e-integration-typescript@workspace:integrations/typescript"
+  dependencies:
+    "@holypack/core": "npm:*"
+    "@holypack/integration-typescript": "npm:*"
+    holypack: "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@holypack/eslint-plugin@portal:../external/eslint-plugin::locator=%40holypack%2F__e2e__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@holypack/eslint-plugin@portal:../external/eslint-plugin::locator=%40holypack%2F__e2e__%40workspace%3A."
@@ -847,9 +857,14 @@ __metadata:
     globals: "npm:^16.0.0"
     typescript-eslint: "npm:^8.31.0"
   peerDependencies:
+    "@holypack/core": "*"
+    "@holypack/integration-typescript": "*"
     lodash.escaperegexp: "*"
     tapable: "*"
     typescript: "*"
+  peerDependenciesMeta:
+    "@holypack/integration-typescript":
+      optional: true
   languageName: node
   linkType: soft
 
@@ -858,6 +873,8 @@ __metadata:
   resolution: "@holypack/integration-typescript@portal:../integrations/typescript::locator=%40holypack%2F__e2e__%40workspace%3A."
   dependencies:
     typescript: "npm:^5.8.3"
+  peerDependencies:
+    "@holypack/core": "*"
   languageName: node
   linkType: soft
 

@@ -1924,6 +1924,7 @@ __metadata:
   dependencies:
     "@holypack/eslint-plugin": "workspace:*"
     "@holypack/integration-eslint": "workspace:*"
+    "@holypack/integration-typescript": "workspace:*"
     holypack: "workspace:*"
   languageName: unknown
   linkType: soft
@@ -2047,9 +2048,14 @@ __metadata:
     globals: "npm:^16.0.0"
     typescript-eslint: "npm:^8.31.0"
   peerDependencies:
+    "@holypack/core": "*"
+    "@holypack/integration-typescript": "*"
     lodash.escaperegexp: "*"
     tapable: "*"
     typescript: "*"
+  peerDependenciesMeta:
+    "@holypack/integration-typescript":
+      optional: true
   languageName: node
   linkType: soft
 
@@ -2077,6 +2083,7 @@ __metadata:
     "@eslint/markdown": "npm:^6.4.0"
     "@holypack/core": "workspace:*"
     "@holypack/integration-babel": "workspace:*"
+    "@holypack/integration-typescript": "workspace:*"
     "@stylistic/eslint-plugin": "npm:^4.2.0"
     "@types/lodash.escaperegexp": "npm:^4"
     eslint: "npm:^9.25.1"
@@ -2093,17 +2100,36 @@ __metadata:
     typescript: "npm:^5.8.3"
     typescript-eslint: "npm:^8.31.0"
   peerDependencies:
+    "@holypack/core": "*"
+    "@holypack/integration-typescript": "*"
     lodash.escaperegexp: "*"
     tapable: "*"
     typescript: "*"
+  peerDependenciesMeta:
+    "@holypack/integration-typescript":
+      optional: true
   languageName: unknown
+  linkType: soft
+
+"@holypack/integration-typescript@portal:./integrations/typescript::locator=%40holypack%2F__monorepo__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/integration-typescript@portal:./integrations/typescript::locator=%40holypack%2F__monorepo__%40workspace%3A."
+  dependencies:
+    typescript: "npm:^5.8.3"
+  peerDependencies:
+    "@holypack/core": "*"
+  languageName: node
   linkType: soft
 
 "@holypack/integration-typescript@workspace:integrations/typescript":
   version: 0.0.0-use.local
   resolution: "@holypack/integration-typescript@workspace:integrations/typescript"
   dependencies:
+    "@holypack/core": "workspace:^"
+    "@holypack/integration-babel": "workspace:^"
     typescript: "npm:^5.8.3"
+  peerDependencies:
+    "@holypack/core": "*"
   languageName: unknown
   linkType: soft
 

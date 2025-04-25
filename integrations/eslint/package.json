@@ -11,11 +11,6 @@
     "eslint:lint": "cd $PROJECT_CWD && yarn cmd:eslint",
     "eslint:lint::fix": "cd $PROJECT_CWD && yarn cmd:eslint --fix"
   },
-  "peerDependencies": {
-    "lodash.escaperegexp": "*",
-    "tapable": "*",
-    "typescript": "*"
-  },
   "dependencies": {
     "@cspell/dict-bash": "^4.2.0",
     "@cspell/dict-css": "^4.0.17",
@@ -49,11 +44,25 @@
     "typescript-eslint": "^8.31.0"
   },
   "devDependencies": {
+    "@holypack/core": "workspace:*",
     "@holypack/integration-babel": "workspace:*",
+    "@holypack/integration-typescript": "workspace:*",
     "@types/lodash.escaperegexp": "^4",
     "lodash.escaperegexp": "^4.1.2",
     "tapable": "^2.2.1",
     "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "@holypack/core": "*",
+    "@holypack/integration-typescript": "*",
+    "lodash.escaperegexp": "*",
+    "tapable": "*",
+    "typescript": "*"
+  },
+  "peerDependenciesMeta": {
+    "@holypack/integration-typescript": {
+      "optional": true
+    }
   },
   "files": [
     "./dist/",
@@ -112,12 +121,6 @@
       "require": "./dist/cjs/constants/glob-patterns/*.cjs",
       "default": "./src/constants/glob-patterns/*.ts"
     },
-    "./constants/glob-patterns/*/": {
-      "types": "./dist/types/constants/glob-patterns/*/index.d.ts",
-      "import": "./dist/esm/*/constants/glob-patterns/index.mjs",
-      "require": "./dist/cjs/constants/glob-patterns/*/index.cjs",
-      "default": "./src/*/constants/glob-patterns/index.ts"
-    },
     "./constants/glob-patterns/*": {
       "types": "./dist/types/constants/glob-patterns/*",
       "import": "./dist/esm/constants/glob-patterns/*",
@@ -163,12 +166,6 @@
       "import": "./dist/esm/integration/module-augmentation/*.mjs",
       "require": "./dist/cjs/integration/module-augmentation/*.cjs",
       "default": "./src/integration/module-augmentation/*.ts"
-    },
-    "./integration/module-augmentation/*/": {
-      "types": "./dist/types/integration/module-augmentation/*/index.d.ts",
-      "import": "./dist/esm/*/integration/module-augmentation/index.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/*/index.cjs",
-      "default": "./src/*/integration/module-augmentation/index.ts"
     },
     "./integration/module-augmentation/*": {
       "types": "./dist/types/integration/module-augmentation/*",
@@ -216,12 +213,6 @@
       "require": "./dist/cjs/plugins/cspell/module-augmentation/*.cjs",
       "default": "./src/plugins/cspell/module-augmentation/*.ts"
     },
-    "./plugins/cspell/module-augmentation/*/": {
-      "types": "./dist/types/plugins/cspell/module-augmentation/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/cspell/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/cspell/module-augmentation/*/index.cjs",
-      "default": "./src/*/plugins/cspell/module-augmentation/index.ts"
-    },
     "./plugins/cspell/module-augmentation/*": {
       "types": "./dist/types/plugins/cspell/module-augmentation/*",
       "import": "./dist/esm/plugins/cspell/module-augmentation/*",
@@ -267,12 +258,6 @@
       "import": "./dist/esm/plugins/eslint/js/module-augmentation/*.mjs",
       "require": "./dist/cjs/plugins/eslint/js/module-augmentation/*.cjs",
       "default": "./src/plugins/eslint/js/module-augmentation/*.ts"
-    },
-    "./plugins/eslint/js/module-augmentation/*/": {
-      "types": "./dist/types/plugins/eslint/js/module-augmentation/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/eslint/js/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/eslint/js/module-augmentation/*/index.cjs",
-      "default": "./src/*/plugins/eslint/js/module-augmentation/index.ts"
     },
     "./plugins/eslint/js/module-augmentation/*": {
       "types": "./dist/types/plugins/eslint/js/module-augmentation/*",
@@ -320,12 +305,6 @@
       "require": "./dist/cjs/plugins/eslint/json/module-augmentation/*.cjs",
       "default": "./src/plugins/eslint/json/module-augmentation/*.ts"
     },
-    "./plugins/eslint/json/module-augmentation/*/": {
-      "types": "./dist/types/plugins/eslint/json/module-augmentation/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/eslint/json/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/eslint/json/module-augmentation/*/index.cjs",
-      "default": "./src/*/plugins/eslint/json/module-augmentation/index.ts"
-    },
     "./plugins/eslint/json/module-augmentation/*": {
       "types": "./dist/types/plugins/eslint/json/module-augmentation/*",
       "import": "./dist/esm/plugins/eslint/json/module-augmentation/*",
@@ -371,12 +350,6 @@
       "import": "./dist/esm/plugins/eslint/markdown/module-augmentation/*.mjs",
       "require": "./dist/cjs/plugins/eslint/markdown/module-augmentation/*.cjs",
       "default": "./src/plugins/eslint/markdown/module-augmentation/*.ts"
-    },
-    "./plugins/eslint/markdown/module-augmentation/*/": {
-      "types": "./dist/types/plugins/eslint/markdown/module-augmentation/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/eslint/markdown/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/eslint/markdown/module-augmentation/*/index.cjs",
-      "default": "./src/*/plugins/eslint/markdown/module-augmentation/index.ts"
     },
     "./plugins/eslint/markdown/module-augmentation/*": {
       "types": "./dist/types/plugins/eslint/markdown/module-augmentation/*",
@@ -424,12 +397,6 @@
       "require": "./dist/cjs/plugins/eslint/js/*.cjs",
       "default": "./src/plugins/eslint/js/*.ts"
     },
-    "./plugins/eslint/js/*/": {
-      "types": "./dist/types/plugins/eslint/js/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/eslint/js/index.mjs",
-      "require": "./dist/cjs/plugins/eslint/js/*/index.cjs",
-      "default": "./src/*/plugins/eslint/js/index.ts"
-    },
     "./plugins/eslint/js/*": {
       "types": "./dist/types/plugins/eslint/js/*",
       "import": "./dist/esm/plugins/eslint/js/*",
@@ -475,12 +442,6 @@
       "import": "./dist/esm/plugins/eslint/json/*.mjs",
       "require": "./dist/cjs/plugins/eslint/json/*.cjs",
       "default": "./src/plugins/eslint/json/*.ts"
-    },
-    "./plugins/eslint/json/*/": {
-      "types": "./dist/types/plugins/eslint/json/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/eslint/json/index.mjs",
-      "require": "./dist/cjs/plugins/eslint/json/*/index.cjs",
-      "default": "./src/*/plugins/eslint/json/index.ts"
     },
     "./plugins/eslint/json/*": {
       "types": "./dist/types/plugins/eslint/json/*",
@@ -528,12 +489,6 @@
       "require": "./dist/cjs/plugins/eslint/markdown/*.cjs",
       "default": "./src/plugins/eslint/markdown/*.ts"
     },
-    "./plugins/eslint/markdown/*/": {
-      "types": "./dist/types/plugins/eslint/markdown/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/eslint/markdown/index.mjs",
-      "require": "./dist/cjs/plugins/eslint/markdown/*/index.cjs",
-      "default": "./src/*/plugins/eslint/markdown/index.ts"
-    },
     "./plugins/eslint/markdown/*": {
       "types": "./dist/types/plugins/eslint/markdown/*",
       "import": "./dist/esm/plugins/eslint/markdown/*",
@@ -579,12 +534,6 @@
       "import": "./dist/esm/plugins/globals/module-augmentation/*.mjs",
       "require": "./dist/cjs/plugins/globals/module-augmentation/*.cjs",
       "default": "./src/plugins/globals/module-augmentation/*.ts"
-    },
-    "./plugins/globals/module-augmentation/*/": {
-      "types": "./dist/types/plugins/globals/module-augmentation/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/globals/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/globals/module-augmentation/*/index.cjs",
-      "default": "./src/*/plugins/globals/module-augmentation/index.ts"
     },
     "./plugins/globals/module-augmentation/*": {
       "types": "./dist/types/plugins/globals/module-augmentation/*",
@@ -632,12 +581,6 @@
       "require": "./dist/cjs/plugins/ignores/module-augmentation/*.cjs",
       "default": "./src/plugins/ignores/module-augmentation/*.ts"
     },
-    "./plugins/ignores/module-augmentation/*/": {
-      "types": "./dist/types/plugins/ignores/module-augmentation/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/ignores/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/ignores/module-augmentation/*/index.cjs",
-      "default": "./src/*/plugins/ignores/module-augmentation/index.ts"
-    },
     "./plugins/ignores/module-augmentation/*": {
       "types": "./dist/types/plugins/ignores/module-augmentation/*",
       "import": "./dist/esm/plugins/ignores/module-augmentation/*",
@@ -683,12 +626,6 @@
       "import": "./dist/esm/plugins/import-x/module-augmentation/*.mjs",
       "require": "./dist/cjs/plugins/import-x/module-augmentation/*.cjs",
       "default": "./src/plugins/import-x/module-augmentation/*.ts"
-    },
-    "./plugins/import-x/module-augmentation/*/": {
-      "types": "./dist/types/plugins/import-x/module-augmentation/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/import-x/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/import-x/module-augmentation/*/index.cjs",
-      "default": "./src/*/plugins/import-x/module-augmentation/index.ts"
     },
     "./plugins/import-x/module-augmentation/*": {
       "types": "./dist/types/plugins/import-x/module-augmentation/*",
@@ -736,12 +673,6 @@
       "require": "./dist/cjs/plugins/jsdoc/module-augmentation/*.cjs",
       "default": "./src/plugins/jsdoc/module-augmentation/*.ts"
     },
-    "./plugins/jsdoc/module-augmentation/*/": {
-      "types": "./dist/types/plugins/jsdoc/module-augmentation/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/jsdoc/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/jsdoc/module-augmentation/*/index.cjs",
-      "default": "./src/*/plugins/jsdoc/module-augmentation/index.ts"
-    },
     "./plugins/jsdoc/module-augmentation/*": {
       "types": "./dist/types/plugins/jsdoc/module-augmentation/*",
       "import": "./dist/esm/plugins/jsdoc/module-augmentation/*",
@@ -787,12 +718,6 @@
       "import": "./dist/esm/plugins/n/module-augmentation/*.mjs",
       "require": "./dist/cjs/plugins/n/module-augmentation/*.cjs",
       "default": "./src/plugins/n/module-augmentation/*.ts"
-    },
-    "./plugins/n/module-augmentation/*/": {
-      "types": "./dist/types/plugins/n/module-augmentation/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/n/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/n/module-augmentation/*/index.cjs",
-      "default": "./src/*/plugins/n/module-augmentation/index.ts"
     },
     "./plugins/n/module-augmentation/*": {
       "types": "./dist/types/plugins/n/module-augmentation/*",
@@ -840,12 +765,6 @@
       "require": "./dist/cjs/plugins/perfectionist/module-augmentation/*.cjs",
       "default": "./src/plugins/perfectionist/module-augmentation/*.ts"
     },
-    "./plugins/perfectionist/module-augmentation/*/": {
-      "types": "./dist/types/plugins/perfectionist/module-augmentation/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/perfectionist/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/module-augmentation/*/index.cjs",
-      "default": "./src/*/plugins/perfectionist/module-augmentation/index.ts"
-    },
     "./plugins/perfectionist/module-augmentation/*": {
       "types": "./dist/types/plugins/perfectionist/module-augmentation/*",
       "import": "./dist/esm/plugins/perfectionist/module-augmentation/*",
@@ -891,12 +810,6 @@
       "import": "./dist/esm/plugins/stylistic/module-augmentation/*.mjs",
       "require": "./dist/cjs/plugins/stylistic/module-augmentation/*.cjs",
       "default": "./src/plugins/stylistic/module-augmentation/*.ts"
-    },
-    "./plugins/stylistic/module-augmentation/*/": {
-      "types": "./dist/types/plugins/stylistic/module-augmentation/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/stylistic/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/stylistic/module-augmentation/*/index.cjs",
-      "default": "./src/*/plugins/stylistic/module-augmentation/index.ts"
     },
     "./plugins/stylistic/module-augmentation/*": {
       "types": "./dist/types/plugins/stylistic/module-augmentation/*",
@@ -944,12 +857,6 @@
       "require": "./dist/cjs/plugins/typescript/module-augmentation/*.cjs",
       "default": "./src/plugins/typescript/module-augmentation/*.ts"
     },
-    "./plugins/typescript/module-augmentation/*/": {
-      "types": "./dist/types/plugins/typescript/module-augmentation/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/typescript/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/typescript/module-augmentation/*/index.cjs",
-      "default": "./src/*/plugins/typescript/module-augmentation/index.ts"
-    },
     "./plugins/typescript/module-augmentation/*": {
       "types": "./dist/types/plugins/typescript/module-augmentation/*",
       "import": "./dist/esm/plugins/typescript/module-augmentation/*",
@@ -995,12 +902,6 @@
       "import": "./dist/esm/plugins/yml/module-augmentation/*.mjs",
       "require": "./dist/cjs/plugins/yml/module-augmentation/*.cjs",
       "default": "./src/plugins/yml/module-augmentation/*.ts"
-    },
-    "./plugins/yml/module-augmentation/*/": {
-      "types": "./dist/types/plugins/yml/module-augmentation/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/yml/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/yml/module-augmentation/*/index.cjs",
-      "default": "./src/*/plugins/yml/module-augmentation/index.ts"
     },
     "./plugins/yml/module-augmentation/*": {
       "types": "./dist/types/plugins/yml/module-augmentation/*",
@@ -1048,12 +949,6 @@
       "require": "./dist/cjs/plugins/cspell/*.cjs",
       "default": "./src/plugins/cspell/*.ts"
     },
-    "./plugins/cspell/*/": {
-      "types": "./dist/types/plugins/cspell/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/cspell/index.mjs",
-      "require": "./dist/cjs/plugins/cspell/*/index.cjs",
-      "default": "./src/*/plugins/cspell/index.ts"
-    },
     "./plugins/cspell/*": {
       "types": "./dist/types/plugins/cspell/*",
       "import": "./dist/esm/plugins/cspell/*",
@@ -1099,12 +994,6 @@
       "import": "./dist/esm/plugins/eslint/*.mjs",
       "require": "./dist/cjs/plugins/eslint/*.cjs",
       "default": "./src/plugins/eslint/*.ts"
-    },
-    "./plugins/eslint/*/": {
-      "types": "./dist/types/plugins/eslint/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/eslint/index.mjs",
-      "require": "./dist/cjs/plugins/eslint/*/index.cjs",
-      "default": "./src/*/plugins/eslint/index.ts"
     },
     "./plugins/eslint/*": {
       "types": "./dist/types/plugins/eslint/*",
@@ -1152,12 +1041,6 @@
       "require": "./dist/cjs/plugins/globals/*.cjs",
       "default": "./src/plugins/globals/*.ts"
     },
-    "./plugins/globals/*/": {
-      "types": "./dist/types/plugins/globals/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/globals/index.mjs",
-      "require": "./dist/cjs/plugins/globals/*/index.cjs",
-      "default": "./src/*/plugins/globals/index.ts"
-    },
     "./plugins/globals/*": {
       "types": "./dist/types/plugins/globals/*",
       "import": "./dist/esm/plugins/globals/*",
@@ -1203,12 +1086,6 @@
       "import": "./dist/esm/plugins/ignores/*.mjs",
       "require": "./dist/cjs/plugins/ignores/*.cjs",
       "default": "./src/plugins/ignores/*.ts"
-    },
-    "./plugins/ignores/*/": {
-      "types": "./dist/types/plugins/ignores/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/ignores/index.mjs",
-      "require": "./dist/cjs/plugins/ignores/*/index.cjs",
-      "default": "./src/*/plugins/ignores/index.ts"
     },
     "./plugins/ignores/*": {
       "types": "./dist/types/plugins/ignores/*",
@@ -1256,12 +1133,6 @@
       "require": "./dist/cjs/plugins/import-x/*.cjs",
       "default": "./src/plugins/import-x/*.ts"
     },
-    "./plugins/import-x/*/": {
-      "types": "./dist/types/plugins/import-x/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/import-x/index.mjs",
-      "require": "./dist/cjs/plugins/import-x/*/index.cjs",
-      "default": "./src/*/plugins/import-x/index.ts"
-    },
     "./plugins/import-x/*": {
       "types": "./dist/types/plugins/import-x/*",
       "import": "./dist/esm/plugins/import-x/*",
@@ -1307,12 +1178,6 @@
       "import": "./dist/esm/plugins/jsdoc/*.mjs",
       "require": "./dist/cjs/plugins/jsdoc/*.cjs",
       "default": "./src/plugins/jsdoc/*.ts"
-    },
-    "./plugins/jsdoc/*/": {
-      "types": "./dist/types/plugins/jsdoc/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/jsdoc/index.mjs",
-      "require": "./dist/cjs/plugins/jsdoc/*/index.cjs",
-      "default": "./src/*/plugins/jsdoc/index.ts"
     },
     "./plugins/jsdoc/*": {
       "types": "./dist/types/plugins/jsdoc/*",
@@ -1360,12 +1225,6 @@
       "require": "./dist/cjs/plugins/n/*.cjs",
       "default": "./src/plugins/n/*.ts"
     },
-    "./plugins/n/*/": {
-      "types": "./dist/types/plugins/n/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/n/index.mjs",
-      "require": "./dist/cjs/plugins/n/*/index.cjs",
-      "default": "./src/*/plugins/n/index.ts"
-    },
     "./plugins/n/*": {
       "types": "./dist/types/plugins/n/*",
       "import": "./dist/esm/plugins/n/*",
@@ -1411,12 +1270,6 @@
       "import": "./dist/esm/plugins/perfectionist/*.mjs",
       "require": "./dist/cjs/plugins/perfectionist/*.cjs",
       "default": "./src/plugins/perfectionist/*.ts"
-    },
-    "./plugins/perfectionist/*/": {
-      "types": "./dist/types/plugins/perfectionist/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/perfectionist/index.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/*/index.cjs",
-      "default": "./src/*/plugins/perfectionist/index.ts"
     },
     "./plugins/perfectionist/*": {
       "types": "./dist/types/plugins/perfectionist/*",
@@ -1464,12 +1317,6 @@
       "require": "./dist/cjs/plugins/stylistic/*.cjs",
       "default": "./src/plugins/stylistic/*.ts"
     },
-    "./plugins/stylistic/*/": {
-      "types": "./dist/types/plugins/stylistic/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/stylistic/index.mjs",
-      "require": "./dist/cjs/plugins/stylistic/*/index.cjs",
-      "default": "./src/*/plugins/stylistic/index.ts"
-    },
     "./plugins/stylistic/*": {
       "types": "./dist/types/plugins/stylistic/*",
       "import": "./dist/esm/plugins/stylistic/*",
@@ -1515,12 +1362,6 @@
       "import": "./dist/esm/plugins/typescript/*.mjs",
       "require": "./dist/cjs/plugins/typescript/*.cjs",
       "default": "./src/plugins/typescript/*.ts"
-    },
-    "./plugins/typescript/*/": {
-      "types": "./dist/types/plugins/typescript/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/typescript/index.mjs",
-      "require": "./dist/cjs/plugins/typescript/*/index.cjs",
-      "default": "./src/*/plugins/typescript/index.ts"
     },
     "./plugins/typescript/*": {
       "types": "./dist/types/plugins/typescript/*",
@@ -1568,12 +1409,6 @@
       "require": "./dist/cjs/plugins/yml/*.cjs",
       "default": "./src/plugins/yml/*.ts"
     },
-    "./plugins/yml/*/": {
-      "types": "./dist/types/plugins/yml/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/yml/index.mjs",
-      "require": "./dist/cjs/plugins/yml/*/index.cjs",
-      "default": "./src/*/plugins/yml/index.ts"
-    },
     "./plugins/yml/*": {
       "types": "./dist/types/plugins/yml/*",
       "import": "./dist/esm/plugins/yml/*",
@@ -1619,12 +1454,6 @@
       "import": "./dist/esm/constants/*.mjs",
       "require": "./dist/cjs/constants/*.cjs",
       "default": "./src/constants/*.ts"
-    },
-    "./constants/*/": {
-      "types": "./dist/types/constants/*/index.d.ts",
-      "import": "./dist/esm/*/constants/index.mjs",
-      "require": "./dist/cjs/constants/*/index.cjs",
-      "default": "./src/*/constants/index.ts"
     },
     "./constants/*": {
       "types": "./dist/types/constants/*",
@@ -1672,12 +1501,6 @@
       "require": "./dist/cjs/context/*.cjs",
       "default": "./src/context/*.ts"
     },
-    "./context/*/": {
-      "types": "./dist/types/context/*/index.d.ts",
-      "import": "./dist/esm/*/context/index.mjs",
-      "require": "./dist/cjs/context/*/index.cjs",
-      "default": "./src/*/context/index.ts"
-    },
     "./context/*": {
       "types": "./dist/types/context/*",
       "import": "./dist/esm/context/*",
@@ -1723,12 +1546,6 @@
       "import": "./dist/esm/eventing/*.mjs",
       "require": "./dist/cjs/eventing/*.cjs",
       "default": "./src/eventing/*.ts"
-    },
-    "./eventing/*/": {
-      "types": "./dist/types/eventing/*/index.d.ts",
-      "import": "./dist/esm/*/eventing/index.mjs",
-      "require": "./dist/cjs/eventing/*/index.cjs",
-      "default": "./src/*/eventing/index.ts"
     },
     "./eventing/*": {
       "types": "./dist/types/eventing/*",
@@ -1776,12 +1593,6 @@
       "require": "./dist/cjs/hooks/*.cjs",
       "default": "./src/hooks/*.ts"
     },
-    "./hooks/*/": {
-      "types": "./dist/types/hooks/*/index.d.ts",
-      "import": "./dist/esm/*/hooks/index.mjs",
-      "require": "./dist/cjs/hooks/*/index.cjs",
-      "default": "./src/*/hooks/index.ts"
-    },
     "./hooks/*": {
       "types": "./dist/types/hooks/*",
       "import": "./dist/esm/hooks/*",
@@ -1828,12 +1639,6 @@
       "require": "./dist/cjs/integration/*.cjs",
       "default": "./src/integration/*.ts"
     },
-    "./integration/*/": {
-      "types": "./dist/types/integration/*/index.d.ts",
-      "import": "./dist/esm/*/integration/index.mjs",
-      "require": "./dist/cjs/integration/*/index.cjs",
-      "default": "./src/*/integration/index.ts"
-    },
     "./integration/*": {
       "types": "./dist/types/integration/*",
       "import": "./dist/esm/integration/*",
@@ -1879,12 +1684,6 @@
       "import": "./dist/esm/plugins/*.mjs",
       "require": "./dist/cjs/plugins/*.cjs",
       "default": "./src/plugins/*.ts"
-    },
-    "./plugins/*/": {
-      "types": "./dist/types/plugins/*/index.d.ts",
-      "import": "./dist/esm/*/plugins/index.mjs",
-      "require": "./dist/cjs/plugins/*/index.cjs",
-      "default": "./src/*/plugins/index.ts"
     },
     "./plugins/*": {
       "types": "./dist/types/plugins/*",

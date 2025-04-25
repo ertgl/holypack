@@ -27,6 +27,7 @@
   "devDependencies": {
     "@holypack/eslint-plugin": "workspace:*",
     "@holypack/integration-eslint": "workspace:*",
+    "@holypack/integration-typescript": "workspace:*",
     "holypack": "workspace:*"
   },
   "resolutions": {

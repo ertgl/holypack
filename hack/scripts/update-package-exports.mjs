@@ -7,7 +7,8 @@ import {
 import { createRequire } from "node:module";
 import {
   dirname,
-  sep as pathSeparator,
+  join as joinPaths,
+  parse as parsePath,
   relative,
 } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -47,17 +48,83 @@ async function generatePackageExports(
 
   const direntIterator = iterateDirentsRecursively(srcDirPath);
 
+  /**
+   * @type {Map<string, Set<string>>}
+   */
+  const seenExtensionsByParentPath = new Map();
+
   for await (const dirent of direntIterator)
   {
     if (!dirent.isDirectory())
     {
+      let seenExtensions = seenExtensionsByParentPath.get(
+        dirent.parentPath,
+      );
+
+      if (seenExtensions == null)
+      {
+        seenExtensions = new Set();
+        seenExtensionsByParentPath.set(
+          dirent.parentPath,
+          seenExtensions,
+        );
+      }
+
+      const direntPathInfo = parsePath(
+        joinPaths(
+          dirent.parentPath,
+          dirent.name,
+        ),
+      );
+
+      if (!direntPathInfo.ext)
+      {
+        continue;
+      }
+
+      seenExtensions.add(direntPathInfo.ext);
+
       continue;
     }
 
-    const direntPath = `${dirent.parentPath}${pathSeparator}${dirent.name}`;
+    const direntPath = joinPaths(
+      dirent.parentPath,
+      dirent.name,
+    );
+
     const direntSrcRelativePath = relative(
       srcDirPath,
       direntPath,
+    );
+
+    let seenExtensions = seenExtensionsByParentPath.get(
+      direntPath,
+    );
+
+    if (seenExtensions == null)
+    {
+      seenExtensions = new Set();
+    }
+    else
+    {
+      seenExtensionsByParentPath.delete(direntPath);
+    }
+
+    const seenCJS = seenExtensions.has(".cjs");
+    const seenCTS = seenExtensions.has(".cts");
+    const seenJS = seenExtensions.has(".js");
+    const seenJSON = seenExtensions.has(".json");
+    const seenMJS = seenExtensions.has(".mjs");
+    const seenMTS = seenExtensions.has(".mts");
+    const seenTS = seenExtensions.has(".ts");
+
+    const seenAnyJS = (
+      seenCJS
+      || seenCTS
+      || seenJS
+      || seenMJS
+      || seenMTS
+      || seenTS
     );
 
     const importPathPrefix = `./${direntSrcRelativePath}`;
@@ -80,57 +147,74 @@ async function generatePackageExports(
       /* eslint-enable perfectionist/sort-objects */
     };
 
-    packageExports[`${importPathPrefix}/*.d.ts`] = {
+    if (seenAnyJS)
+    {
+      packageExports[`${importPathPrefix}/*.d.ts`] = {
       /* eslint-disable perfectionist/sort-objects */
-      types: `./dist/types/${direntSrcRelativePath}/*.d.ts`,
-      default: `./src/${direntSrcRelativePath}/*.ts`,
+        types: `./dist/types/${direntSrcRelativePath}/*.d.ts`,
+        default: `./src/${direntSrcRelativePath}/*.ts`,
       /* eslint-enable perfectionist/sort-objects */
-    };
+      };
+    }
 
-    packageExports[`${importPathPrefix}/*.cjs`] = {
+    if (seenAnyJS)
+    {
+      packageExports[`${importPathPrefix}/*.cjs`] = {
       /* eslint-disable perfectionist/sort-objects */
-      types: `./dist/types/${direntSrcRelativePath}/*.d.ts`,
-      import: `./dist/esm/${direntSrcRelativePath}/*.mjs`,
-      require: `./dist/cjs/${direntSrcRelativePath}/*.cjs`,
-      default: `./src/${direntSrcRelativePath}/*.ts`,
+        types: `./dist/types/${direntSrcRelativePath}/*.d.ts`,
+        import: `./dist/esm/${direntSrcRelativePath}/*.mjs`,
+        require: `./dist/cjs/${direntSrcRelativePath}/*.cjs`,
+        default: `./src/${direntSrcRelativePath}/*.ts`,
       /* eslint-enable perfectionist/sort-objects */
-    };
+      };
+    }
 
-    packageExports[`${importPathPrefix}/*.js`] = {
+    if (seenJSON)
+    {
+      packageExports[`${importPathPrefix}/*.json`] = {
       /* eslint-disable perfectionist/sort-objects */
-      types: `./dist/types/${direntSrcRelativePath}/*.d.ts`,
-      import: `./dist/esm/${direntSrcRelativePath}/*.mjs`,
-      require: `./dist/cjs/${direntSrcRelativePath}/*.cjs`,
-      default: `./src/${direntSrcRelativePath}/*.ts`,
+        import: `./dist/esm/${direntSrcRelativePath}/*.json`,
+        require: `./dist/cjs/${direntSrcRelativePath}/*.json`,
+        default: `./src/${direntSrcRelativePath}/*.json`,
       /* eslint-enable perfectionist/sort-objects */
-    };
+      };
+    }
 
-    packageExports[`${importPathPrefix}/*.mjs`] = {
+    if (seenAnyJS)
+    {
+      packageExports[`${importPathPrefix}/*.js`] = {
       /* eslint-disable perfectionist/sort-objects */
-      types: `./dist/types/${direntSrcRelativePath}/*.d.ts`,
-      import: `./dist/esm/${direntSrcRelativePath}/*.mjs`,
-      require: `./dist/cjs/${direntSrcRelativePath}/*.cjs`,
-      default: `./src/${direntSrcRelativePath}/*.ts`,
+        types: `./dist/types/${direntSrcRelativePath}/*.d.ts`,
+        import: `./dist/esm/${direntSrcRelativePath}/*.mjs`,
+        require: `./dist/cjs/${direntSrcRelativePath}/*.cjs`,
+        default: `./src/${direntSrcRelativePath}/*.ts`,
       /* eslint-enable perfectionist/sort-objects */
-    };
+      };
+    }
 
-    packageExports[`${importPathPrefix}/*.ts`] = {
+    if (seenAnyJS)
+    {
+      packageExports[`${importPathPrefix}/*.mjs`] = {
       /* eslint-disable perfectionist/sort-objects */
-      types: `./dist/types/${direntSrcRelativePath}/*.d.ts`,
-      import: `./dist/esm/${direntSrcRelativePath}/*.mjs`,
-      require: `./dist/cjs/${direntSrcRelativePath}/*.cjs`,
-      default: `./src/${direntSrcRelativePath}/*.ts`,
+        types: `./dist/types/${direntSrcRelativePath}/*.d.ts`,
+        import: `./dist/esm/${direntSrcRelativePath}/*.mjs`,
+        require: `./dist/cjs/${direntSrcRelativePath}/*.cjs`,
+        default: `./src/${direntSrcRelativePath}/*.ts`,
       /* eslint-enable perfectionist/sort-objects */
-    };
+      };
+    }
 
-    packageExports[`${importPathPrefix}/*/`] = {
+    if (seenAnyJS)
+    {
+      packageExports[`${importPathPrefix}/*.ts`] = {
       /* eslint-disable perfectionist/sort-objects */
-      types: `./dist/types/${direntSrcRelativePath}/*/index.d.ts`,
-      import: `./dist/esm/*/${direntSrcRelativePath}/index.mjs`,
-      require: `./dist/cjs/${direntSrcRelativePath}/*/index.cjs`,
-      default: `./src/*/${direntSrcRelativePath}/index.ts`,
+        types: `./dist/types/${direntSrcRelativePath}/*.d.ts`,
+        import: `./dist/esm/${direntSrcRelativePath}/*.mjs`,
+        require: `./dist/cjs/${direntSrcRelativePath}/*.cjs`,
+        default: `./src/${direntSrcRelativePath}/*.ts`,
       /* eslint-enable perfectionist/sort-objects */
-    };
+      };
+    }
 
     packageExports[`${importPathPrefix}/*`] = {
       /* eslint-disable perfectionist/sort-objects */
@@ -166,6 +250,7 @@ async function generatePackageExports(
     default: "./src/*.ts",
     /* eslint-enable perfectionist/sort-objects */
   };
+
   packageExports["./*.mjs"] = {
     /* eslint-disable perfectionist/sort-objects */
     types: "./dist/types/*.d.ts",
@@ -229,7 +314,12 @@ async function* iterateDirentsRecursively(
   {
     if (dirent.isDirectory())
     {
-      yield* iterateDirentsRecursively(`${path}${pathSeparator}${dirent.name}`);
+      yield* iterateDirentsRecursively(
+        joinPaths(
+          path,
+          dirent.name,
+        ),
+      );
       deferredDirents.push(dirent);
     }
     else if (dirent.isFile())
