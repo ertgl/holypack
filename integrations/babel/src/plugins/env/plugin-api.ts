@@ -1,7 +1,5 @@
 import type { TransformOptions } from "@babel/core";
-import type {
-  default as BabelPresetEnvModule,
-} from "@babel/preset-env";
+import type BabelPresetEnvModule from "@babel/preset-env";
 
 import { type ResolvedContext } from "@holypack/core";
 import { emitWarning } from "@holypack/core/context/warnings";
