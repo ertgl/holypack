@@ -9,22 +9,34 @@
     "cmd:babel": "cd $INIT_CWD && babel",
     "prepare": "yarn build"
   },
-  "peerDependencies": {
-    "@holypack/core": "workspace:^",
-    "typescript": "*"
-  },
-  "dependencies": {
+  "devDependencies": {
+    "@babel/cli": "^7.27.0",
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-typescript": "^7.27.0",
-    "babel-plugin-transform-import-source": "^1.0.0"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.27.0",
-    "@holypack/core": "workspace:^",
+    "@holypack/core": "workspace:*",
     "@types/babel__core": "^7.20.5",
     "@types/babel__preset-env": "^7.10.0",
+    "babel-plugin-transform-import-source": "^1.0.0",
+    "tapable": "^2.2.1",
     "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "@babel/core": "*",
+    "@babel/preset-env": "*",
+    "@babel/preset-typescript": "*",
+    "@holypack/core": "*",
+    "babel-plugin-transform-import-source": "*",
+    "tapable": "*",
+    "typescript": "*"
+  },
+  "peerDependenciesMeta": {
+    "@babel/preset-typescript": {
+      "optional": true
+    },
+    "babel-plugin-transform-import-source": {
+      "optional": true
+    }
   },
   "files": [
     "./dist/",
@@ -89,6 +101,144 @@
       "require": "./dist/cjs/integration/module-augmentation/*",
       "default": "./src/integration/module-augmentation/*"
     },
+    "./plugins/import-source-transformer/module-augmentation": {
+      "types": "./dist/types/plugins/import-source-transformer/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/import-source-transformer/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/import-source-transformer/module-augmentation/index.cjs",
+      "default": "./src/plugins/import-source-transformer/module-augmentation/index.ts"
+    },
+    "./plugins/import-source-transformer/module-augmentation/": {
+      "types": "./dist/types/plugins/import-source-transformer/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/import-source-transformer/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/import-source-transformer/module-augmentation/index.cjs",
+      "default": "./src/plugins/import-source-transformer/module-augmentation/index.ts"
+    },
+    "./plugins/import-source-transformer/module-augmentation/*.d.ts": {
+      "types": "./dist/types/plugins/import-source-transformer/module-augmentation/*.d.ts",
+      "default": "./src/plugins/import-source-transformer/module-augmentation/*.ts"
+    },
+    "./plugins/import-source-transformer/module-augmentation/*.cjs": {
+      "types": "./dist/types/plugins/import-source-transformer/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/import-source-transformer/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/import-source-transformer/module-augmentation/*.cjs",
+      "default": "./src/plugins/import-source-transformer/module-augmentation/*.ts"
+    },
+    "./plugins/import-source-transformer/module-augmentation/*.js": {
+      "types": "./dist/types/plugins/import-source-transformer/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/import-source-transformer/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/import-source-transformer/module-augmentation/*.cjs",
+      "default": "./src/plugins/import-source-transformer/module-augmentation/*.ts"
+    },
+    "./plugins/import-source-transformer/module-augmentation/*.mjs": {
+      "types": "./dist/types/plugins/import-source-transformer/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/import-source-transformer/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/import-source-transformer/module-augmentation/*.cjs",
+      "default": "./src/plugins/import-source-transformer/module-augmentation/*.ts"
+    },
+    "./plugins/import-source-transformer/module-augmentation/*.ts": {
+      "types": "./dist/types/plugins/import-source-transformer/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/import-source-transformer/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/import-source-transformer/module-augmentation/*.cjs",
+      "default": "./src/plugins/import-source-transformer/module-augmentation/*.ts"
+    },
+    "./plugins/import-source-transformer/module-augmentation/*": {
+      "types": "./dist/types/plugins/import-source-transformer/module-augmentation/*",
+      "import": "./dist/esm/plugins/import-source-transformer/module-augmentation/*",
+      "require": "./dist/cjs/plugins/import-source-transformer/module-augmentation/*",
+      "default": "./src/plugins/import-source-transformer/module-augmentation/*"
+    },
+    "./plugins/import-source-transformer": {
+      "types": "./dist/types/plugins/import-source-transformer/index.d.ts",
+      "import": "./dist/esm/plugins/import-source-transformer/index.mjs",
+      "require": "./dist/cjs/plugins/import-source-transformer/index.cjs",
+      "default": "./src/plugins/import-source-transformer/index.ts"
+    },
+    "./plugins/import-source-transformer/": {
+      "types": "./dist/types/plugins/import-source-transformer/index.d.ts",
+      "import": "./dist/esm/plugins/import-source-transformer/index.mjs",
+      "require": "./dist/cjs/plugins/import-source-transformer/index.cjs",
+      "default": "./src/plugins/import-source-transformer/index.ts"
+    },
+    "./plugins/import-source-transformer/*.d.ts": {
+      "types": "./dist/types/plugins/import-source-transformer/*.d.ts",
+      "default": "./src/plugins/import-source-transformer/*.ts"
+    },
+    "./plugins/import-source-transformer/*.cjs": {
+      "types": "./dist/types/plugins/import-source-transformer/*.d.ts",
+      "import": "./dist/esm/plugins/import-source-transformer/*.mjs",
+      "require": "./dist/cjs/plugins/import-source-transformer/*.cjs",
+      "default": "./src/plugins/import-source-transformer/*.ts"
+    },
+    "./plugins/import-source-transformer/*.js": {
+      "types": "./dist/types/plugins/import-source-transformer/*.d.ts",
+      "import": "./dist/esm/plugins/import-source-transformer/*.mjs",
+      "require": "./dist/cjs/plugins/import-source-transformer/*.cjs",
+      "default": "./src/plugins/import-source-transformer/*.ts"
+    },
+    "./plugins/import-source-transformer/*.mjs": {
+      "types": "./dist/types/plugins/import-source-transformer/*.d.ts",
+      "import": "./dist/esm/plugins/import-source-transformer/*.mjs",
+      "require": "./dist/cjs/plugins/import-source-transformer/*.cjs",
+      "default": "./src/plugins/import-source-transformer/*.ts"
+    },
+    "./plugins/import-source-transformer/*.ts": {
+      "types": "./dist/types/plugins/import-source-transformer/*.d.ts",
+      "import": "./dist/esm/plugins/import-source-transformer/*.mjs",
+      "require": "./dist/cjs/plugins/import-source-transformer/*.cjs",
+      "default": "./src/plugins/import-source-transformer/*.ts"
+    },
+    "./plugins/import-source-transformer/*": {
+      "types": "./dist/types/plugins/import-source-transformer/*",
+      "import": "./dist/esm/plugins/import-source-transformer/*",
+      "require": "./dist/cjs/plugins/import-source-transformer/*",
+      "default": "./src/plugins/import-source-transformer/*"
+    },
+    "./config-function": {
+      "types": "./dist/types/config-function/index.d.ts",
+      "import": "./dist/esm/config-function/index.mjs",
+      "require": "./dist/cjs/config-function/index.cjs",
+      "default": "./src/config-function/index.ts"
+    },
+    "./config-function/": {
+      "types": "./dist/types/config-function/index.d.ts",
+      "import": "./dist/esm/config-function/index.mjs",
+      "require": "./dist/cjs/config-function/index.cjs",
+      "default": "./src/config-function/index.ts"
+    },
+    "./config-function/*.d.ts": {
+      "types": "./dist/types/config-function/*.d.ts",
+      "default": "./src/config-function/*.ts"
+    },
+    "./config-function/*.cjs": {
+      "types": "./dist/types/config-function/*.d.ts",
+      "import": "./dist/esm/config-function/*.mjs",
+      "require": "./dist/cjs/config-function/*.cjs",
+      "default": "./src/config-function/*.ts"
+    },
+    "./config-function/*.js": {
+      "types": "./dist/types/config-function/*.d.ts",
+      "import": "./dist/esm/config-function/*.mjs",
+      "require": "./dist/cjs/config-function/*.cjs",
+      "default": "./src/config-function/*.ts"
+    },
+    "./config-function/*.mjs": {
+      "types": "./dist/types/config-function/*.d.ts",
+      "import": "./dist/esm/config-function/*.mjs",
+      "require": "./dist/cjs/config-function/*.cjs",
+      "default": "./src/config-function/*.ts"
+    },
+    "./config-function/*.ts": {
+      "types": "./dist/types/config-function/*.d.ts",
+      "import": "./dist/esm/config-function/*.mjs",
+      "require": "./dist/cjs/config-function/*.cjs",
+      "default": "./src/config-function/*.ts"
+    },
+    "./config-function/*": {
+      "types": "./dist/types/config-function/*",
+      "import": "./dist/esm/config-function/*",
+      "require": "./dist/cjs/config-function/*",
+      "default": "./src/config-function/*"
+    },
     "./context": {
       "types": "./dist/types/context/index.d.ts",
       "import": "./dist/esm/context/index.mjs",
@@ -135,6 +285,144 @@
       "require": "./dist/cjs/context/*",
       "default": "./src/context/*"
     },
+    "./deprecated": {
+      "types": "./dist/types/deprecated/index.d.ts",
+      "import": "./dist/esm/deprecated/index.mjs",
+      "require": "./dist/cjs/deprecated/index.cjs",
+      "default": "./src/deprecated/index.ts"
+    },
+    "./deprecated/": {
+      "types": "./dist/types/deprecated/index.d.ts",
+      "import": "./dist/esm/deprecated/index.mjs",
+      "require": "./dist/cjs/deprecated/index.cjs",
+      "default": "./src/deprecated/index.ts"
+    },
+    "./deprecated/*.d.ts": {
+      "types": "./dist/types/deprecated/*.d.ts",
+      "default": "./src/deprecated/*.ts"
+    },
+    "./deprecated/*.cjs": {
+      "types": "./dist/types/deprecated/*.d.ts",
+      "import": "./dist/esm/deprecated/*.mjs",
+      "require": "./dist/cjs/deprecated/*.cjs",
+      "default": "./src/deprecated/*.ts"
+    },
+    "./deprecated/*.js": {
+      "types": "./dist/types/deprecated/*.d.ts",
+      "import": "./dist/esm/deprecated/*.mjs",
+      "require": "./dist/cjs/deprecated/*.cjs",
+      "default": "./src/deprecated/*.ts"
+    },
+    "./deprecated/*.mjs": {
+      "types": "./dist/types/deprecated/*.d.ts",
+      "import": "./dist/esm/deprecated/*.mjs",
+      "require": "./dist/cjs/deprecated/*.cjs",
+      "default": "./src/deprecated/*.ts"
+    },
+    "./deprecated/*.ts": {
+      "types": "./dist/types/deprecated/*.d.ts",
+      "import": "./dist/esm/deprecated/*.mjs",
+      "require": "./dist/cjs/deprecated/*.cjs",
+      "default": "./src/deprecated/*.ts"
+    },
+    "./deprecated/*": {
+      "types": "./dist/types/deprecated/*",
+      "import": "./dist/esm/deprecated/*",
+      "require": "./dist/cjs/deprecated/*",
+      "default": "./src/deprecated/*"
+    },
+    "./eventing": {
+      "types": "./dist/types/eventing/index.d.ts",
+      "import": "./dist/esm/eventing/index.mjs",
+      "require": "./dist/cjs/eventing/index.cjs",
+      "default": "./src/eventing/index.ts"
+    },
+    "./eventing/": {
+      "types": "./dist/types/eventing/index.d.ts",
+      "import": "./dist/esm/eventing/index.mjs",
+      "require": "./dist/cjs/eventing/index.cjs",
+      "default": "./src/eventing/index.ts"
+    },
+    "./eventing/*.d.ts": {
+      "types": "./dist/types/eventing/*.d.ts",
+      "default": "./src/eventing/*.ts"
+    },
+    "./eventing/*.cjs": {
+      "types": "./dist/types/eventing/*.d.ts",
+      "import": "./dist/esm/eventing/*.mjs",
+      "require": "./dist/cjs/eventing/*.cjs",
+      "default": "./src/eventing/*.ts"
+    },
+    "./eventing/*.js": {
+      "types": "./dist/types/eventing/*.d.ts",
+      "import": "./dist/esm/eventing/*.mjs",
+      "require": "./dist/cjs/eventing/*.cjs",
+      "default": "./src/eventing/*.ts"
+    },
+    "./eventing/*.mjs": {
+      "types": "./dist/types/eventing/*.d.ts",
+      "import": "./dist/esm/eventing/*.mjs",
+      "require": "./dist/cjs/eventing/*.cjs",
+      "default": "./src/eventing/*.ts"
+    },
+    "./eventing/*.ts": {
+      "types": "./dist/types/eventing/*.d.ts",
+      "import": "./dist/esm/eventing/*.mjs",
+      "require": "./dist/cjs/eventing/*.cjs",
+      "default": "./src/eventing/*.ts"
+    },
+    "./eventing/*": {
+      "types": "./dist/types/eventing/*",
+      "import": "./dist/esm/eventing/*",
+      "require": "./dist/cjs/eventing/*",
+      "default": "./src/eventing/*"
+    },
+    "./hooks": {
+      "types": "./dist/types/hooks/index.d.ts",
+      "import": "./dist/esm/hooks/index.mjs",
+      "require": "./dist/cjs/hooks/index.cjs",
+      "default": "./src/hooks/index.ts"
+    },
+    "./hooks/": {
+      "types": "./dist/types/hooks/index.d.ts",
+      "import": "./dist/esm/hooks/index.mjs",
+      "require": "./dist/cjs/hooks/index.cjs",
+      "default": "./src/hooks/index.ts"
+    },
+    "./hooks/*.d.ts": {
+      "types": "./dist/types/hooks/*.d.ts",
+      "default": "./src/hooks/*.ts"
+    },
+    "./hooks/*.cjs": {
+      "types": "./dist/types/hooks/*.d.ts",
+      "import": "./dist/esm/hooks/*.mjs",
+      "require": "./dist/cjs/hooks/*.cjs",
+      "default": "./src/hooks/*.ts"
+    },
+    "./hooks/*.js": {
+      "types": "./dist/types/hooks/*.d.ts",
+      "import": "./dist/esm/hooks/*.mjs",
+      "require": "./dist/cjs/hooks/*.cjs",
+      "default": "./src/hooks/*.ts"
+    },
+    "./hooks/*.mjs": {
+      "types": "./dist/types/hooks/*.d.ts",
+      "import": "./dist/esm/hooks/*.mjs",
+      "require": "./dist/cjs/hooks/*.cjs",
+      "default": "./src/hooks/*.ts"
+    },
+    "./hooks/*.ts": {
+      "types": "./dist/types/hooks/*.d.ts",
+      "import": "./dist/esm/hooks/*.mjs",
+      "require": "./dist/cjs/hooks/*.cjs",
+      "default": "./src/hooks/*.ts"
+    },
+    "./hooks/*": {
+      "types": "./dist/types/hooks/*",
+      "import": "./dist/esm/hooks/*",
+      "require": "./dist/cjs/hooks/*",
+      "default": "./src/hooks/*"
+    },
     "./integration": {
       "types": "./dist/types/integration/index.d.ts",
       "import": "./dist/esm/integration/index.mjs",
@@ -180,6 +468,52 @@
       "import": "./dist/esm/integration/*",
       "require": "./dist/cjs/integration/*",
       "default": "./src/integration/*"
+    },
+    "./plugins": {
+      "types": "./dist/types/plugins/index.d.ts",
+      "import": "./dist/esm/plugins/index.mjs",
+      "require": "./dist/cjs/plugins/index.cjs",
+      "default": "./src/plugins/index.ts"
+    },
+    "./plugins/": {
+      "types": "./dist/types/plugins/index.d.ts",
+      "import": "./dist/esm/plugins/index.mjs",
+      "require": "./dist/cjs/plugins/index.cjs",
+      "default": "./src/plugins/index.ts"
+    },
+    "./plugins/*.d.ts": {
+      "types": "./dist/types/plugins/*.d.ts",
+      "default": "./src/plugins/*.ts"
+    },
+    "./plugins/*.cjs": {
+      "types": "./dist/types/plugins/*.d.ts",
+      "import": "./dist/esm/plugins/*.mjs",
+      "require": "./dist/cjs/plugins/*.cjs",
+      "default": "./src/plugins/*.ts"
+    },
+    "./plugins/*.js": {
+      "types": "./dist/types/plugins/*.d.ts",
+      "import": "./dist/esm/plugins/*.mjs",
+      "require": "./dist/cjs/plugins/*.cjs",
+      "default": "./src/plugins/*.ts"
+    },
+    "./plugins/*.mjs": {
+      "types": "./dist/types/plugins/*.d.ts",
+      "import": "./dist/esm/plugins/*.mjs",
+      "require": "./dist/cjs/plugins/*.cjs",
+      "default": "./src/plugins/*.ts"
+    },
+    "./plugins/*.ts": {
+      "types": "./dist/types/plugins/*.d.ts",
+      "import": "./dist/esm/plugins/*.mjs",
+      "require": "./dist/cjs/plugins/*.cjs",
+      "default": "./src/plugins/*.ts"
+    },
+    "./plugins/*": {
+      "types": "./dist/types/plugins/*",
+      "import": "./dist/esm/plugins/*",
+      "require": "./dist/cjs/plugins/*",
+      "default": "./src/plugins/*"
     },
     "./*.d.ts": {
       "types": "./dist/types/*.d.ts",

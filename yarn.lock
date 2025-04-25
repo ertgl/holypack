@@ -1933,9 +1933,8 @@ __metadata:
 "@holypack/core@portal:./packages/core::locator=%40holypack%2F__monorepo__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@holypack/core@portal:./packages/core::locator=%40holypack%2F__monorepo__%40workspace%3A."
-  dependencies:
-    cosmiconfig: "npm:^9.0.0"
   peerDependencies:
+    cosmiconfig: "*"
     fast-glob: "*"
     picomatch: "*"
     tapable: "*"
@@ -1952,6 +1951,7 @@ __metadata:
     picomatch: "npm:^4.0.2"
     tapable: "npm:^2.2.1"
   peerDependencies:
+    cosmiconfig: "*"
     fast-glob: "*"
     picomatch: "*"
     tapable: "*"
@@ -1985,14 +1985,19 @@ __metadata:
 "@holypack/integration-babel@portal:./integrations/babel::locator=%40holypack%2F__monorepo__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@holypack/integration-babel@portal:./integrations/babel::locator=%40holypack%2F__monorepo__%40workspace%3A."
-  dependencies:
-    "@babel/core": "npm:^7.26.10"
-    "@babel/preset-env": "npm:^7.26.9"
-    "@babel/preset-typescript": "npm:^7.27.0"
-    babel-plugin-transform-import-source: "npm:^1.0.0"
   peerDependencies:
-    "@holypack/core": "workspace:^"
+    "@babel/core": "*"
+    "@babel/preset-env": "*"
+    "@babel/preset-typescript": "*"
+    "@holypack/core": "*"
+    babel-plugin-transform-import-source: "*"
+    tapable: "*"
     typescript: "*"
+  peerDependenciesMeta:
+    "@babel/preset-typescript":
+      optional: true
+    babel-plugin-transform-import-source:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -2004,14 +2009,25 @@ __metadata:
     "@babel/core": "npm:^7.26.10"
     "@babel/preset-env": "npm:^7.26.9"
     "@babel/preset-typescript": "npm:^7.27.0"
-    "@holypack/core": "workspace:^"
+    "@holypack/core": "workspace:*"
     "@types/babel__core": "npm:^7.20.5"
     "@types/babel__preset-env": "npm:^7.10.0"
     babel-plugin-transform-import-source: "npm:^1.0.0"
+    tapable: "npm:^2.2.1"
     typescript: "npm:^5.8.3"
   peerDependencies:
-    "@holypack/core": "workspace:^"
+    "@babel/core": "*"
+    "@babel/preset-env": "*"
+    "@babel/preset-typescript": "*"
+    "@holypack/core": "*"
+    babel-plugin-transform-import-source: "*"
+    tapable: "*"
     typescript: "*"
+  peerDependenciesMeta:
+    "@babel/preset-typescript":
+      optional: true
+    babel-plugin-transform-import-source:
+      optional: true
   languageName: unknown
   linkType: soft
 
