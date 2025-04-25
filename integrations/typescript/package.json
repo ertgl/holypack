@@ -17,6 +17,7 @@
     "@holypack/integration-babel": "workspace:^"
   },
   "files": [
+    "./dist/",
     "./src/",
     "./package.json"
   ],
