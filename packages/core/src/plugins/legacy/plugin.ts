@@ -13,7 +13,7 @@ export class LegacyPlugin implements Plugin
     config: Config,
   ): void
   {
-    context.legacy = config.legacy ?? false;
+    context.legacy ??= config.legacy ?? false;
   }
 }
 
