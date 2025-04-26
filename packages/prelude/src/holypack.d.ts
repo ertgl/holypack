@@ -1,1 +1,1 @@
-import "@holypack/core/module-augmentation.d.ts";
+export type * from "@holypack/core/module-augmentation.d.ts";
