@@ -2,10 +2,11 @@
   "name": "holypack",
   "scripts": {
     "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn hack:update-package-exports",
-    "clean": "rm -fr dist"
+    "clean": "rm -fr dist",
+    "prepare": "yarn build"
   },
   "devDependencies": {
-    "@holypack/core": "workspace:*"
+    "@holypack/core": "workspace:^"
   },
   "peerDependencies": {
     "@holypack/core": "*"

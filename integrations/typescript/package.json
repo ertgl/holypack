@@ -6,14 +6,13 @@
     "tsc:build::types": "cd $INIT_CWD && tsc --project ./tsconfig.output.types.json && node -e \"console.log('Successfully built types.')\"",
     "tsc:check::types": "cd $INIT_CWD && tsc --noEmit"
   },
-  "peerDependencies": {
-    "@holypack/core": "*"
-  },
-  "dependencies": {
+  "devDependencies": {
+    "@holypack/core": "workspace:^",
     "typescript": "^5.8.3"
   },
-  "devDependencies": {
-    "@holypack/core": "workspace:^"
+  "peerDependencies": {
+    "@holypack/core": "*",
+    "typescript": "*"
   },
   "files": [
     "./dist/",

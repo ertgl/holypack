@@ -17,8 +17,8 @@
     "eslint": "*"
   },
   "devDependencies": {
-    "@holypack/core": "workspace:*",
-    "@holypack/integration-eslint": "workspace:*",
+    "@holypack/core": "workspace:^",
+    "@holypack/integration-eslint": "workspace:^",
     "eslint": "^9.25.1"
   },
   "files": [

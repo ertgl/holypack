@@ -27,13 +27,13 @@
     "./packages/*"
   ],
   "devDependencies": {
-    "@holypack/babel-preset": "workspace:*",
-    "@holypack/eslint-plugin": "workspace:*",
-    "@holypack/integration-babel": "workspace:*",
-    "@holypack/integration-eslint": "workspace:*",
-    "@holypack/integration-typescript": "workspace:*",
-    "@holypack/internal-integration-babel": "workspace:*",
-    "holypack": "workspace:*"
+    "@holypack/babel-preset": "workspace:^",
+    "@holypack/eslint-plugin": "workspace:^",
+    "@holypack/integration-babel": "workspace:^",
+    "@holypack/integration-eslint": "workspace:^",
+    "@holypack/integration-typescript": "workspace:^",
+    "@holypack/internal-integration-babel": "workspace:^",
+    "holypack": "workspace:^"
   },
   "resolutions": {
     "@holypack/babel-preset": "portal:./external/babel-preset",
