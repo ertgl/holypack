@@ -826,6 +826,8 @@ __metadata:
     tapable: "*"
     typescript: "*"
   peerDependenciesMeta:
+    "@babel/preset-env":
+      optional: true
     "@babel/preset-typescript":
       optional: true
     babel-plugin-transform-import-source:
@@ -882,10 +884,9 @@ __metadata:
 "@holypack/integration-typescript@portal:../integrations/typescript::locator=%40holypack%2F__e2e__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@holypack/integration-typescript@portal:../integrations/typescript::locator=%40holypack%2F__e2e__%40workspace%3A."
-  dependencies:
-    typescript: "npm:^5.8.3"
   peerDependencies:
     "@holypack/core": "*"
+    typescript: "*"
   languageName: node
   linkType: soft
 
@@ -3291,26 +3292,6 @@ __metadata:
     eslint: ^8.57.0 || ^9.0.0
     typescript: ">=4.8.4 <5.9.0"
   checksum: 10c0/8545887f70c4f40c4aee51d224326368f67ef5f770ba5ae9e67bfd36f4d9ab5f3414569ffaaec311893a312539934ea367a68135c6f2b0a3e175c3de59507338
-  languageName: node
-  linkType: hard
-
-"typescript@npm:^5.8.3":
-  version: 5.8.3
-  resolution: "typescript@npm:5.8.3"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 10c0/5f8bb01196e542e64d44db3d16ee0e4063ce4f3e3966df6005f2588e86d91c03e1fb131c2581baf0fb65ee79669eea6e161cd448178986587e9f6844446dbb48
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@npm%3A^5.8.3#optional!builtin<compat/typescript>":
-  version: 5.8.3
-  resolution: "typescript@patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 10c0/39117e346ff8ebd87ae1510b3a77d5d92dae5a89bde588c747d25da5c146603a99c8ee588c7ef80faaf123d89ed46f6dbd918d534d641083177d5fac38b8a1cb
   languageName: node
   linkType: hard
 

@@ -24,6 +24,7 @@
     "./integrations/*"
   ],
   "resolutions": {
+    "@holypack/babel-preset": "portal:../external/babel-preset",
     "@holypack/core": "portal:../packages/core",
     "@holypack/e2e-integration-custom": "portal:./integrations/custom",
     "@holypack/e2e-integration-eslint": "portal:./integrations/eslint",
