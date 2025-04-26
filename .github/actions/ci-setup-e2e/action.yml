@@ -133,13 +133,13 @@ runs:
       id: e2e-prepare
       if: ${{ steps.e2e-restore-cache-for-build.outputs.cache-hit != 'true' }}
       shell: bash
-      run: yarn e2e:prepare --verbose
+      run: yarn e2e:prepare
 
     - name: Build
       id: e2e-build
       if: ${{ steps.e2e-restore-cache-for-build.outputs.cache-hit != 'true' && steps.e2e-prepare.conclusion == 'success' }}
       shell: bash
-      run: yarn e2e:build --verbose
+      run: yarn e2e:build
 
     - name: Cache build
       id: e2e-generate-cache-for-build
