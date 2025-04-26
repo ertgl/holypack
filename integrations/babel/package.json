@@ -6,8 +6,7 @@
     "babel:build::esm": "cd $INIT_CWD && yarn cmd:babel src --config-file ./babel.config.esm.mjs --copy-files --extensions '.cjs,.cts,.js,.mjs,.mts,.ts' --ignore '**/*.d.ts' --out-dir ./dist/esm --out-file-extension '.mjs'",
     "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn hack:update-package-exports",
     "clean": "rm -fr dist",
-    "cmd:babel": "cd $INIT_CWD && babel",
-    "prepare": "yarn build"
+    "cmd:babel": "cd $INIT_CWD && babel"
   },
   "devDependencies": {
     "@babel/cli": "^7.27.0",

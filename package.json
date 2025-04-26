@@ -4,7 +4,7 @@
   "packageManager": "yarn@4.7.0",
   "type": "module",
   "scripts": {
-    "build": "yarn w:foreach::parallel::topological::interlaced --exclude '@holypack/integration-babel' --exclude '@holypack/babel-preset' --exclude 'holypack' run build",
+    "build": "yarn w:foreach::parallel::topological::interlaced run build",
     "clean": "yarn w:foreach::parallel::interlaced run clean",
     "dev": "yarn prepare && yarn build",
     "dev::clean": "yarn clean && yarn dev",

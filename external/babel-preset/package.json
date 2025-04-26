@@ -7,8 +7,7 @@
   ],
   "scripts": {
     "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn hack:update-package-exports",
-    "clean": "rm -fr dist",
-    "prepare": "yarn build"
+    "clean": "rm -fr dist"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
