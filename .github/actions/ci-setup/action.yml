@@ -153,13 +153,13 @@ runs:
       id: prepare
       if: ${{ steps.restore-cache-for-build.outputs.cache-hit != 'true' }}
       shell: bash
-      run: yarn prepare
+      run: yarn prepare --verbose
 
     - name: Build
       id: build
       if: ${{ steps.restore-cache-for-build.outputs.cache-hit != 'true' && steps.prepare.conclusion == 'success' }}
       shell: bash
-      run: yarn build
+      run: yarn build --verbose
 
     - name: Cache build
       id: generate-cache-for-build
