@@ -1,0 +1,10 @@
+{
+  "name": "@holypack/e2e-integration-babel",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@holypack/core": "*",
+    "@holypack/integration-babel": "*",
+    "holypack": "*"
+  }
+}

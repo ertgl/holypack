@@ -4,8 +4,10 @@
   "packageManager": "yarn@4.7.0",
   "type": "module",
   "scripts": {
-    "build": "yarn w:foreach::parallel::topological::interlaced run build",
+    "build": "yarn w:foreach::parallel::topological::interlaced --exclude '@holypack/integration-babel' --exclude '@holypack/babel-preset' --exclude 'holypack' run build",
     "clean": "yarn w:foreach::parallel::interlaced run clean",
+    "dev": "yarn prepare && yarn build",
+    "dev::clean": "yarn clean && yarn dev",
     "e2e:build": "yarn e2e:yarn build",
     "e2e:clean": "yarn e2e:yarn clean",
     "e2e:prepare": "yarn e2e:yarn prepare",
@@ -14,7 +16,7 @@
     "format": "yarn lint::fix",
     "lint": "yarn eslint:lint",
     "lint::fix": "yarn eslint:lint::fix",
-    "prepare": "yarn w:foreach::parallel::topological run prepare",
+    "prepare": "yarn w:foreach::parallel::topological::interlaced run prepare",
     "test": "yarn w:foreach::parallel::topological run test"
   },
   "workspaces": [
@@ -25,17 +27,22 @@
     "./packages/*"
   ],
   "devDependencies": {
-    "@holypack/eslint-plugin": "workspace:*",
-    "@holypack/integration-eslint": "workspace:*",
-    "@holypack/integration-typescript": "workspace:*",
-    "holypack": "workspace:*"
+    "@holypack/babel-preset": "workspace:^",
+    "@holypack/eslint-plugin": "workspace:^",
+    "@holypack/integration-babel": "workspace:^",
+    "@holypack/integration-eslint": "workspace:^",
+    "@holypack/integration-typescript": "workspace:^",
+    "@holypack/internal-integration-babel": "workspace:^",
+    "holypack": "workspace:^"
   },
   "resolutions": {
+    "@holypack/babel-preset": "portal:./external/babel-preset",
     "@holypack/core": "portal:./packages/core",
     "@holypack/eslint-plugin": "portal:./external/eslint-plugin",
     "@holypack/integration-babel": "portal:./integrations/babel",
     "@holypack/integration-eslint": "portal:./integrations/eslint",
     "@holypack/integration-typescript": "portal:./integrations/typescript",
+    "@holypack/internal-integration-babel": "portal:./internal/integrations/babel",
     "@holypack/internal-integration-node": "portal:./internal/integrations/node",
     "@holypack/internal-integration-yarn": "portal:./internal/integrations/yarn",
     "holypack": "portal:./packages/prelude"

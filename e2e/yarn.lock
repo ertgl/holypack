@@ -5,24 +5,6 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@babel/code-frame@npm:^7.0.0":
-  version: 7.26.2
-  resolution: "@babel/code-frame@npm:7.26.2"
-  dependencies:
-    "@babel/helper-validator-identifier": "npm:^7.25.9"
-    js-tokens: "npm:^4.0.0"
-    picocolors: "npm:^1.0.0"
-  checksum: 10c0/7d79621a6849183c415486af99b1a20b84737e8c11cd55b6544f688c51ce1fd710e6d869c3dd21232023da272a79b91efb3e83b5bc2dc65c1187c5fcd1b72ea8
-  languageName: node
-  linkType: hard
-
-"@babel/helper-validator-identifier@npm:^7.25.9":
-  version: 7.25.9
-  resolution: "@babel/helper-validator-identifier@npm:7.25.9"
-  checksum: 10c0/4fc6f830177b7b7e887ad3277ddb3b91d81e6c4a24151540d9d1023e8dc6b1c0505f0f0628ae653601eb4388a8db45c1c14b2c07a9173837aef7e4116456259d
-  languageName: node
-  linkType: hard
-
 "@cspell/cspell-bundled-dicts@npm:8.19.2":
   version: 8.19.2
   resolution: "@cspell/cspell-bundled-dicts@npm:8.19.2"
@@ -762,6 +744,7 @@ __metadata:
   dependencies:
     "@holypack/core": "npm:*"
     "@holypack/eslint-plugin": "npm:*"
+    "@holypack/integration-babel": "npm:*"
     "@holypack/integration-eslint": "npm:*"
     "@holypack/integration-typescript": "npm:*"
     holypack: "npm:*"
@@ -772,13 +755,22 @@ __metadata:
 "@holypack/core@portal:../packages/core::locator=%40holypack%2F__e2e__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@holypack/core@portal:../packages/core::locator=%40holypack%2F__e2e__%40workspace%3A."
-  dependencies:
-    cosmiconfig: "npm:^9.0.0"
   peerDependencies:
+    cosmiconfig: "*"
     fast-glob: "*"
     picomatch: "*"
     tapable: "*"
   languageName: node
+  linkType: soft
+
+"@holypack/e2e-integration-babel@workspace:integrations/babel":
+  version: 0.0.0-use.local
+  resolution: "@holypack/e2e-integration-babel@workspace:integrations/babel"
+  dependencies:
+    "@holypack/core": "npm:*"
+    "@holypack/integration-babel": "npm:*"
+    holypack: "npm:*"
+  languageName: unknown
   linkType: soft
 
 "@holypack/e2e-integration-custom@workspace:integrations/custom":
@@ -822,6 +814,27 @@ __metadata:
   languageName: node
   linkType: soft
 
+"@holypack/integration-babel@portal:../integrations/babel::locator=%40holypack%2F__e2e__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/integration-babel@portal:../integrations/babel::locator=%40holypack%2F__e2e__%40workspace%3A."
+  peerDependencies:
+    "@babel/core": "*"
+    "@babel/preset-env": "*"
+    "@babel/preset-typescript": "*"
+    "@holypack/core": "*"
+    babel-plugin-transform-import-source: "*"
+    tapable: "*"
+    typescript: "*"
+  peerDependenciesMeta:
+    "@babel/preset-env":
+      optional: true
+    "@babel/preset-typescript":
+      optional: true
+    babel-plugin-transform-import-source:
+      optional: true
+  languageName: node
+  linkType: soft
+
 "@holypack/integration-eslint@portal:../integrations/eslint::locator=%40holypack%2F__e2e__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@holypack/integration-eslint@portal:../integrations/eslint::locator=%40holypack%2F__e2e__%40workspace%3A."
@@ -844,7 +857,7 @@ __metadata:
     "@eslint/js": "npm:^9.25.1"
     "@eslint/json": "npm:^0.12.0"
     "@eslint/markdown": "npm:^6.4.0"
-    "@holypack/core": "workspace:*"
+    "@holypack/core": "workspace:^"
     "@stylistic/eslint-plugin": "npm:^4.2.0"
     eslint: "npm:^9.25.1"
     eslint-import-resolver-typescript: "npm:^4.3.4"
@@ -871,10 +884,9 @@ __metadata:
 "@holypack/integration-typescript@portal:../integrations/typescript::locator=%40holypack%2F__e2e__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@holypack/integration-typescript@portal:../integrations/typescript::locator=%40holypack%2F__e2e__%40workspace%3A."
-  dependencies:
-    typescript: "npm:^5.8.3"
   peerDependencies:
     "@holypack/core": "*"
+    typescript: "*"
   languageName: node
   linkType: soft
 
@@ -1463,23 +1475,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosmiconfig@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "cosmiconfig@npm:9.0.0"
-  dependencies:
-    env-paths: "npm:^2.2.1"
-    import-fresh: "npm:^3.3.0"
-    js-yaml: "npm:^4.1.0"
-    parse-json: "npm:^5.2.0"
-  peerDependencies:
-    typescript: ">=4.9.5"
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: 10c0/1c1703be4f02a250b1d6ca3267e408ce16abfe8364193891afc94c2d5c060b69611fdc8d97af74b7e6d5d1aac0ab2fb94d6b079573146bc2d756c2484ce5f0ee
-  languageName: node
-  linkType: hard
-
 "cross-spawn@npm:^7.0.6":
   version: 7.0.6
   resolution: "cross-spawn@npm:7.0.6"
@@ -1661,26 +1656,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"env-paths@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "env-paths@npm:2.2.1"
-  checksum: 10c0/285325677bf00e30845e330eec32894f5105529db97496ee3f598478e50f008c5352a41a30e5e72ec9de8a542b5a570b85699cd63bd2bc646dbcb9f311d83bc4
-  languageName: node
-  linkType: hard
-
 "env-paths@npm:^3.0.0":
   version: 3.0.0
   resolution: "env-paths@npm:3.0.0"
   checksum: 10c0/76dec878cee47f841103bacd7fae03283af16f0702dad65102ef0a556f310b98a377885e0f32943831eb08b5ab37842a323d02529f3dfd5d0a40ca71b01b435f
-  languageName: node
-  linkType: hard
-
-"error-ex@npm:^1.3.1":
-  version: 1.3.2
-  resolution: "error-ex@npm:1.3.2"
-  dependencies:
-    is-arrayish: "npm:^0.2.1"
-  checksum: 10c0/ba827f89369b4c93382cfca5a264d059dfefdaa56ecc5e338ffa58a6471f5ed93b71a20add1d52290a4873d92381174382658c885ac1a2305f7baca363ce9cce
   languageName: node
   linkType: hard
 
@@ -2217,8 +2196,8 @@ __metadata:
 "holypack@portal:../packages/prelude::locator=%40holypack%2F__e2e__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "holypack@portal:../packages/prelude::locator=%40holypack%2F__e2e__%40workspace%3A."
-  dependencies:
-    "@holypack/core": "workspace:*"
+  peerDependencies:
+    "@holypack/core": "*"
   languageName: node
   linkType: soft
 
@@ -2229,7 +2208,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"import-fresh@npm:^3.2.1, import-fresh@npm:^3.3.0, import-fresh@npm:^3.3.1":
+"import-fresh@npm:^3.2.1, import-fresh@npm:^3.3.1":
   version: 3.3.1
   resolution: "import-fresh@npm:3.3.1"
   dependencies:
@@ -2257,13 +2236,6 @@ __metadata:
   version: 4.1.1
   resolution: "ini@npm:4.1.1"
   checksum: 10c0/7fddc8dfd3e63567d4fdd5d999d1bf8a8487f1479d0b34a1d01f28d391a9228d261e19abc38e1a6a1ceb3400c727204fce05725d5eb598dfcf2077a1e3afe211
-  languageName: node
-  linkType: hard
-
-"is-arrayish@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "is-arrayish@npm:0.2.1"
-  checksum: 10c0/e7fb686a739068bb70f860b39b67afc62acc62e36bb61c5f965768abce1873b379c563e61dd2adad96ebb7edf6651111b385e490cf508378959b0ed4cac4e729
   languageName: node
   linkType: hard
 
@@ -2315,13 +2287,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-tokens@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "js-tokens@npm:4.0.0"
-  checksum: 10c0/e248708d377aa058eacf2037b07ded847790e6de892bbad3dac0abba2e759cb9f121b00099a65195616badcb6eca8d14d975cb3e89eb1cfda644756402c8aeed
-  languageName: node
-  linkType: hard
-
 "js-yaml@npm:^4.1.0":
   version: 4.1.0
   resolution: "js-yaml@npm:4.1.0"
@@ -2344,13 +2309,6 @@ __metadata:
   version: 3.0.1
   resolution: "json-buffer@npm:3.0.1"
   checksum: 10c0/0d1c91569d9588e7eef2b49b59851f297f3ab93c7b35c7c221e288099322be6b562767d11e4821da500f3219542b9afd2e54c5dc573107c1126ed1080f8e96d7
-  languageName: node
-  linkType: hard
-
-"json-parse-even-better-errors@npm:^2.3.0":
-  version: 2.3.1
-  resolution: "json-parse-even-better-errors@npm:2.3.1"
-  checksum: 10c0/140932564c8f0b88455432e0f33c4cb4086b8868e37524e07e723f4eaedb9425bdc2bafd71bd1d9765bd15fd1e2d126972bc83990f55c467168c228c24d665f3
   languageName: node
   linkType: hard
 
@@ -2384,13 +2342,6 @@ __metadata:
     prelude-ls: "npm:^1.2.1"
     type-check: "npm:~0.4.0"
   checksum: 10c0/effb03cad7c89dfa5bd4f6989364bfc79994c2042ec5966cb9b95990e2edee5cd8969ddf42616a0373ac49fac1403437deaf6e9050fbbaa3546093a59b9ac94e
-  languageName: node
-  linkType: hard
-
-"lines-and-columns@npm:^1.1.6":
-  version: 1.2.4
-  resolution: "lines-and-columns@npm:1.2.4"
-  checksum: 10c0/3da6ee62d4cd9f03f5dc90b4df2540fb85b352081bee77fe4bbcd12c9000ead7f35e0a38b8d09a9bb99b13223446dd8689ff3c4959807620726d788701a83d2d
   languageName: node
   linkType: hard
 
@@ -3057,18 +3008,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parse-json@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "parse-json@npm:5.2.0"
-  dependencies:
-    "@babel/code-frame": "npm:^7.0.0"
-    error-ex: "npm:^1.3.1"
-    json-parse-even-better-errors: "npm:^2.3.0"
-    lines-and-columns: "npm:^1.1.6"
-  checksum: 10c0/77947f2253005be7a12d858aedbafa09c9ae39eb4863adf330f7b416ca4f4a08132e453e08de2db46459256fb66afaac5ee758b44fe6541b7cdaf9d252e59585
-  languageName: node
-  linkType: hard
-
 "parse-statements@npm:1.0.11":
   version: 1.0.11
   resolution: "parse-statements@npm:1.0.11"
@@ -3094,13 +3033,6 @@ __metadata:
   version: 1.0.7
   resolution: "path-parse@npm:1.0.7"
   checksum: 10c0/11ce261f9d294cc7a58d6a574b7f1b935842355ec66fba3c3fd79e0f036462eaf07d0aa95bb74ff432f9afef97ce1926c720988c6a7451d8a584930ae7de86e1
-  languageName: node
-  linkType: hard
-
-"picocolors@npm:^1.0.0":
-  version: 1.1.1
-  resolution: "picocolors@npm:1.1.1"
-  checksum: 10c0/e2e3e8170ab9d7c7421969adaa7e1b31434f789afb9b3f115f6b96d91945041ac3ceb02e9ec6fe6510ff036bcc0bf91e69a1772edc0b707e12b19c0f2d6bcf58
   languageName: node
   linkType: hard
 
@@ -3360,26 +3292,6 @@ __metadata:
     eslint: ^8.57.0 || ^9.0.0
     typescript: ">=4.8.4 <5.9.0"
   checksum: 10c0/8545887f70c4f40c4aee51d224326368f67ef5f770ba5ae9e67bfd36f4d9ab5f3414569ffaaec311893a312539934ea367a68135c6f2b0a3e175c3de59507338
-  languageName: node
-  linkType: hard
-
-"typescript@npm:^5.8.3":
-  version: 5.8.3
-  resolution: "typescript@npm:5.8.3"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 10c0/5f8bb01196e542e64d44db3d16ee0e4063ce4f3e3966df6005f2588e86d91c03e1fb131c2581baf0fb65ee79669eea6e161cd448178986587e9f6844446dbb48
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@npm%3A^5.8.3#optional!builtin<compat/typescript>":
-  version: 5.8.3
-  resolution: "typescript@patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 10c0/39117e346ff8ebd87ae1510b3a77d5d92dae5a89bde588c747d25da5c146603a99c8ee588c7ef80faaf123d89ed46f6dbd918d534d641083177d5fac38b8a1cb
   languageName: node
   linkType: hard
 

@@ -30,7 +30,7 @@
     "@eslint/js": "^9.25.1",
     "@eslint/json": "^0.12.0",
     "@eslint/markdown": "^6.4.0",
-    "@holypack/core": "workspace:*",
+    "@holypack/core": "workspace:^",
     "@stylistic/eslint-plugin": "^4.2.0",
     "eslint": "^9.25.1",
     "eslint-import-resolver-typescript": "^4.3.4",
@@ -44,9 +44,8 @@
     "typescript-eslint": "^8.31.0"
   },
   "devDependencies": {
-    "@holypack/core": "workspace:*",
-    "@holypack/integration-babel": "workspace:*",
-    "@holypack/integration-typescript": "workspace:*",
+    "@holypack/core": "workspace:^",
+    "@holypack/integration-typescript": "workspace:^",
     "@types/lodash.escaperegexp": "^4",
     "lodash.escaperegexp": "^4.1.2",
     "tapable": "^2.2.1",

@@ -182,7 +182,7 @@ scale.
   <tr>
     <td><a href="https://babeljs.io/">Babel</a></td>
     <td><a href="integrations/babel">@holypack/integration-babel</a></td>
-    <td align="center">Work in progress</td>
+    <td align="center">Completed</td>
   </tr>
   <tr>
     <td><a href="https://swc.rs/">SWC</a></td>

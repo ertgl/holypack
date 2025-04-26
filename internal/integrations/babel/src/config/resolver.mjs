@@ -1,21 +1,26 @@
-// TODO(ertgl): Rewrite Babel config resolution to be triggered on-demand basis by the plugin system.
-
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 
-import type { TransformOptions } from "@babel/core";
-import type { Options as ImportSourceTransformerPluginOptions } from "babel-plugin-transform-import-source";
-
-import type { ConfigResolutionOptions } from "./config-resolution-options";
+/**
+ * @import { type TransformOptions } from "@babel/core";
+ * @import {
+ *   type Options as ImportSourceTransformerPluginOptions,
+ * } from "babel-plugin-transform-import-source";
+ * @import { BabelConfigResolutionOptions } from "./resolution-options.mjs";
+ */
 
 const __filename = fileURLToPath(import.meta.url);
 
 const require = createRequire(__filename);
 
-// eslint-disable-next-line @typescript-eslint/require-await
-export async function resolveConfig(
-  options?: ConfigResolutionOptions | null,
-): Promise<TransformOptions>
+/**
+ * @param {BabelConfigResolutionOptions | null} [options]
+ * @returns {TransformOptions}
+ * @throws {Error}
+ */
+export function resolveBabelConfig(
+  options,
+)
 {
   options ??= {};
 
@@ -23,14 +28,17 @@ export async function resolveConfig(
 
   if (targetExtension.length === 0)
   {
-    const message = "The target extension is not specified.";
-    throw new Error(message);
+    const err = new Error("No target extension specified");
+    throw err;
   }
 
   const isCJS = targetExtension.endsWith(".cjs");
   const isESM = targetExtension.endsWith(".mjs");
 
-  const importSourceTransformerPluginOptions: ImportSourceTransformerPluginOptions = {
+  /**
+   * @type {ImportSourceTransformerPluginOptions}
+   */
+  const importSourceTransformerPluginOptions = {
     transform: {
       rules: [
         {
@@ -43,7 +51,10 @@ export async function resolveConfig(
     },
   };
 
-  const transformOptions: TransformOptions = {
+  /**
+   * @type {TransformOptions}
+   */
+  const transformOptions = {
     plugins: [
       [
         require.resolve("babel-plugin-transform-import-source"),

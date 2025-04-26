@@ -1,10 +1,7 @@
 import {
   cosmiconfig,
-  cosmiconfigSync,
   defaultLoaders,
-  defaultLoadersSync,
   type PublicExplorer,
-  type PublicExplorerSync,
 } from "cosmiconfig";
 
 import {
@@ -13,8 +10,6 @@ import {
 } from "./config-explorer-options";
 
 export type ConfigExplorer = PublicExplorer;
-
-export type ConfigSyncExplorer = PublicExplorerSync;
 
 export function createConfigExplorer(
   options?: ConfigExplorerOptions | null,
@@ -25,6 +20,7 @@ export function createConfigExplorer(
   return cosmiconfig(
     resolvedOptions.namespace,
     {
+      cache: resolvedOptions.cache,
       loaders: {
         ".cts": defaultLoaders[".ts"],
         ".mts": defaultLoaders[".ts"],
@@ -32,25 +28,7 @@ export function createConfigExplorer(
       },
       packageProp: [resolvedOptions.namespace, "config"],
       searchPlaces: resolvedOptions.searchPlaces,
-    },
-  );
-}
-
-export function createConfigSyncExplorer(
-  options?: ConfigExplorerOptions | null,
-): ConfigSyncExplorer
-{
-  const resolvedOptions = resolveConfigExplorerOptions(options);
-
-  return cosmiconfigSync(
-    resolvedOptions.namespace,
-    {
-      loaders: {
-        ".cts": defaultLoadersSync[".ts"],
-        ...defaultLoadersSync,
-      },
-      packageProp: [resolvedOptions.namespace, "config"],
-      searchPlaces: resolvedOptions.searchPlaces,
+      searchStrategy: "project",
     },
   );
 }

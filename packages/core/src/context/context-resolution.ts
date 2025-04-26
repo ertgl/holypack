@@ -26,6 +26,8 @@ export async function resolveContext(
 {
   options ??= {};
 
+  const overrides = options.overrides ?? {};
+
   const configFilePath = options.configFilePath ?? "";
 
   const cwd = resolveCWD(options.cwd);
@@ -53,12 +55,17 @@ export async function resolveContext(
   const hooks = createHookSet();
 
   const context: Context = {
+    ...overrides,
     // @ts-expect-error - The config in the context will be filled in by the plugins.
-    config: {},
-    cwd,
-    hooks,
-    integrations: createIntegrationMap(),
-    plugins: createPluginMap(),
+    config: overrides.config ?? {},
+    cwd: (
+      overrides.cwd != null
+        ? resolveCWD(overrides.cwd)
+        : cwd
+    ),
+    hooks: overrides.hooks ?? hooks,
+    integrations: overrides.integrations ?? createIntegrationMap(),
+    plugins: overrides.plugins ?? createPluginMap(),
   };
 
   bindSystemPlugins(context);
