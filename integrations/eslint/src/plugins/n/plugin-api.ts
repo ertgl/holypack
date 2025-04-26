@@ -170,6 +170,12 @@ export class ESLintIntegrationNPluginAPI
             "error",
             sharedSettings,
           ],
+          "n/no-unpublished-import": [
+            "error",
+            {
+              ignoreTypeImport: true,
+            },
+          ],
           "n/prefer-node-protocol": "warn",
         },
       },
