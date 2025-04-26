@@ -1,0 +1,81 @@
+{
+  "name": "@holypack/babel-preset",
+  "keywords": [
+    "babel-preset",
+    "holypack",
+    "holypack-external"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn hack:update-package-exports",
+    "clean": "rm -fr dist",
+    "prepare": "yarn build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@holypack/core": "workspace:*",
+    "@holypack/integration-babel": "workspace:*"
+  },
+  "peerDependencies": {
+    "@babel/core": "*",
+    "@holypack/core": "*",
+    "@holypack/integration-babel": "*"
+  },
+  "files": [
+    "./dist/",
+    "./src/",
+    "./package.json"
+  ],
+  "type": "module",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "default": "./src/index.ts"
+    },
+    "./*.d.ts": {
+      "types": "./dist/types/*.d.ts",
+      "default": "./src/*.ts"
+    },
+    "./*.cjs": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/esm/*.mjs",
+      "require": "./dist/cjs/*.cjs",
+      "default": "./src/*.ts"
+    },
+    "./*.js": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/esm/*.mjs",
+      "require": "./dist/cjs/*.cjs",
+      "default": "./src/*.ts"
+    },
+    "./*.mjs": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/esm/*.mjs",
+      "require": "./dist/cjs/*.cjs",
+      "default": "./src/*.ts"
+    },
+    "./*.ts": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/esm/*.mjs",
+      "require": "./dist/cjs/*.cjs",
+      "default": "./src/*.ts"
+    },
+    "./*/": {
+      "types": "./dist/types/*/index.d.ts",
+      "import": "./dist/esm/*/index.mjs",
+      "require": "./dist/cjs/*/index.cjs",
+      "default": "./src/*/index.ts"
+    },
+    "./*": {
+      "types": "./dist/types/*",
+      "import": "./dist/esm/*",
+      "require": "./dist/cjs/*",
+      "default": "./src/*"
+    }
+  }
+}
