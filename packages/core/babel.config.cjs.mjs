@@ -1,6 +1,6 @@
-import { resolveConfig } from "@holypack/integration-babel/deprecated";
+import { resolveBabelConfig } from "@holypack/internal-integration-babel";
 
-const BABEL_CONFIG = await resolveConfig({
+const BABEL_CONFIG = resolveBabelConfig({
   targetExtension: ".cjs",
 });
 
