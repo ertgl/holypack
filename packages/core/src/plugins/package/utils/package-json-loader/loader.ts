@@ -2,8 +2,8 @@ import { createRequire } from "node:module";
 import { join as joinPaths } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import type { PathLike } from "../../../../fs";
-import { convertPathLikeToString } from "../../../../utils/path";
+import type { PathLike } from "../../../../lib/fs";
+import { convertPathLikeToString } from "../../../../lib/path/utils/path-like-converter";
 import type { PackageJSON } from "../../package-json";
 
 const __filename = fileURLToPath(import.meta.url);

@@ -1,6 +1,6 @@
 import type { SystemPluginBinder } from "../bootstrap";
 import type { ConfigInput } from "../config";
-import type { PathLike } from "../fs";
+import type { PathLike } from "../lib/fs";
 
 import type { Context } from "./context";
 

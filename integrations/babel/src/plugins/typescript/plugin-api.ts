@@ -2,7 +2,7 @@ import type { TransformOptions } from "@babel/core";
 
 import { type ResolvedContext } from "@holypack/core";
 import { emitWarning } from "@holypack/core/context/warnings";
-import { ModuleNotFoundError } from "@holypack/core/module";
+import { ModuleNotFoundError } from "@holypack/core/lib/module";
 
 import type { BabelPresetTypeScriptOptions } from "./config";
 import type { BabelIntegrationTypeScriptPlugin } from "./plugin";

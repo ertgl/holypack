@@ -1,5 +1,5 @@
-import type { PathLike } from "../fs";
-import { resolveCWD } from "../utils/process/cwd";
+import type { PathLike } from "../lib/fs";
+import { resolveCWD } from "../lib/process/cwd";
 
 import { createConfigExplorer } from "./config-explorer";
 import type { ConfigExplorerOptions } from "./config-explorer-options";

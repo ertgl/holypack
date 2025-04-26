@@ -7,7 +7,7 @@ import {
 import {
   findProjectRootPath,
   type ProjectRootPathFinderOptions,
-} from "./root-path-finder";
+} from "./utils/project-root-path-finder";
 
 export class ProjectPluginAPI
 {

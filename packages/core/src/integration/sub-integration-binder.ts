@@ -1,6 +1,6 @@
 import type { Config } from "../config";
 import type { Context } from "../context";
-import { maybeAwait } from "../utils/promise";
+import { maybeAwait } from "../lib/promise";
 
 import type { Integration } from "./integration";
 import { bindIntegration } from "./integration-binder";

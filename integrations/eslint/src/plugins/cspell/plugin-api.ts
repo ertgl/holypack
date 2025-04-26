@@ -3,7 +3,7 @@ import type { Linter } from "eslint";
 
 import { type ResolvedContext } from "@holypack/core";
 import { emitWarning } from "@holypack/core/context/warnings";
-import { ModuleNotFoundError } from "@holypack/core/module";
+import { ModuleNotFoundError } from "@holypack/core/lib/module";
 
 import { GLOB_PATTERN_ALL } from "../../constants/glob-patterns";
 

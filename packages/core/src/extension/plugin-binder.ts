@@ -1,6 +1,6 @@
 import type { Context } from "../context";
 import { generateHookSubscriptionIDForPlugin } from "../eventing";
-import { maybeAwait } from "../utils/promise";
+import { maybeAwait } from "../lib/promise";
 
 import type { Plugin } from "./plugin";
 import { createPluginBinderLooseErrorFactory } from "./plugin-binder-loose-error-factory";

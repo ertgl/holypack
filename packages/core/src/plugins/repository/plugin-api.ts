@@ -7,7 +7,7 @@ import {
 import {
   findRepositoryRootPath,
   type RepositoryRootPathFinderOptions,
-} from "./root-path-finder";
+} from "./utils/repository-root-path-finder";
 
 export class RepositoryPluginAPI
 {

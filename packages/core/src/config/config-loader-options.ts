@@ -1,4 +1,4 @@
-import type { PathLike } from "../fs";
+import type { PathLike } from "../lib/fs";
 
 import type { ConfigContext } from "./config-context";
 import type { ConfigInput } from "./config-input";

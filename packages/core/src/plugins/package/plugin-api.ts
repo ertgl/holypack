@@ -1,4 +1,4 @@
-import type { PathLike } from "../../fs";
+import type { PathLike } from "../../lib/fs";
 
 import type { PackageJSON } from "./package-json";
 import type { PackagePlugin } from "./plugin";

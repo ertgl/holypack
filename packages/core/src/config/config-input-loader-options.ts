@@ -1,4 +1,4 @@
-import type { PathLike } from "../fs";
+import type { PathLike } from "../lib/fs";
 
 export type ConfigInputLoaderOptions = {
   configFilePath?: null | string;

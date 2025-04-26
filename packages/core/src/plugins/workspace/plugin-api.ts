@@ -8,7 +8,7 @@ import {
 import {
   findWorkspaceRootPath,
   type WorkspaceRootPathFinderOptions,
-} from "./root-path-finder";
+} from "./utils/workspace-root-path-finder";
 import type { WorkspaceRegistry } from "./workspace-registry";
 
 export class WorkspacePluginAPI

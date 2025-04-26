@@ -3,7 +3,7 @@ import type BabelPresetEnvModule from "@babel/preset-env";
 
 import { type ResolvedContext } from "@holypack/core";
 import { emitWarning } from "@holypack/core/context/warnings";
-import { ModuleNotFoundError } from "@holypack/core/module";
+import { ModuleNotFoundError } from "@holypack/core/lib/module";
 
 import type { BabelPresetEnvOptions } from "./config";
 import type { BabelIntegrationEnvPlugin } from "./plugin";

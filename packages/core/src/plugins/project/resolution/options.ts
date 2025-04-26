@@ -1,4 +1,4 @@
-import type { PathLike } from "../../../fs";
+import type { PathLike } from "../../../lib/fs";
 import type { Project } from "../project";
 
 import type { ProjectResolutionFS } from "./fs";

@@ -1,5 +1,5 @@
-import type { PathLike } from "../../../../fs";
-import { glob } from "../../../../fs/glob";
+import type { PathLike } from "../../../../lib/fs";
+import { glob } from "../../../../lib/fs/glob";
 
 import type { WorkspacePathsExtractorOptions } from "./options";
 

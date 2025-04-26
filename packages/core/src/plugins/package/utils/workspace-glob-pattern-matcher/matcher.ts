@@ -1,4 +1,4 @@
-import type { PathLike } from "../../../../fs";
+import type { PathLike } from "../../../../lib/fs";
 import { globMatch } from "../../../../lib/path/glob";
 
 export function matchWorkspaceGlobPatterns(

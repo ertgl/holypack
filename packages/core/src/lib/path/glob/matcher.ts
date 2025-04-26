@@ -7,8 +7,8 @@ import { fileURLToPath } from "node:url";
 
 import type PicomatchModule from "picomatch";
 
-import type { PathLike } from "../../../fs";
-import { convertPathLikeToString } from "../../../utils/path";
+import type { PathLike } from "../../../lib/fs";
+import { convertPathLikeToString } from "../utils/path-like-converter";
 
 const __filename = fileURLToPath(import.meta.url);
 

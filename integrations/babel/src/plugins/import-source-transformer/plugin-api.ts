@@ -6,7 +6,7 @@ import type {
 
 import { type ResolvedContext } from "@holypack/core";
 import { emitWarning } from "@holypack/core/context/warnings";
-import { ModuleNotFoundError } from "@holypack/core/module";
+import { ModuleNotFoundError } from "@holypack/core/lib/module";
 
 import type { BabelIntegrationImportSourceTransformerPlugin } from "./plugin";
 import type { BabelIntegrationImportSourceTransformerPluginOptions } from "./plugin-options";

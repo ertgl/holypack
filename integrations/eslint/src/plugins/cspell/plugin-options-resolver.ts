@@ -1,6 +1,6 @@
 import { resolve as resolvePath } from "node:path";
 
-import { resolveCWD } from "@holypack/core/utils/process/cwd";
+import { resolveCWD } from "@holypack/core/lib/process/cwd";
 
 import type {
   ESLintIntegrationCSpellPluginOptions,

@@ -2,8 +2,8 @@ import {
   findRootPath,
   ROOT_PATH_FINDER_TARGET_INNERMOST,
   type RootPathFinderOptions,
-} from "@holypack/core/utils/fs/root-path-finder";
-import { resolveCWD } from "@holypack/core/utils/process/cwd";
+} from "@holypack/core/lib/fs/utils/root-path-finder";
+import { resolveCWD } from "@holypack/core/lib/process/cwd";
 
 import type { TSConfigRootDirectoryPathFinderOptions } from "./options";
 

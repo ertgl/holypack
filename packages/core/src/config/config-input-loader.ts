@@ -1,4 +1,4 @@
-import { resolveCWD } from "../utils/process/cwd";
+import { resolveCWD } from "../lib/process/cwd";
 
 import type { ConfigInput } from "./config-input";
 import type { ConfigInputLoaderOptions } from "./config-input-loader-options";

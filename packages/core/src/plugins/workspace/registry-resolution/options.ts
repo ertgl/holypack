@@ -1,4 +1,4 @@
-import type { PathLike } from "../../../fs";
+import type { PathLike } from "../../../lib/fs";
 import type { Workspace } from "../workspace";
 import type { WorkspacePackageName } from "../workspace";
 

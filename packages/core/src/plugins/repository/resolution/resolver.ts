@@ -1,6 +1,6 @@
-import { resolveCWD } from "../../../utils/process/cwd";
+import { resolveCWD } from "../../../lib/process/cwd";
 import type { ResolvedRepository } from "../repository";
-import { findRepositoryRootPath } from "../root-path-finder";
+import { findRepositoryRootPath } from "../utils/repository-root-path-finder";
 
 import type { RepositoryResolutionOptions } from "./options";
 

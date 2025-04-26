@@ -1,4 +1,4 @@
-import type { ProjectRootPathFinderFS } from "../root-path-finder";
+import type { ProjectRootPathFinderFS } from "../utils/project-root-path-finder";
 
 export type ProjectResolutionFS = (
   & ProjectRootPathFinderFS

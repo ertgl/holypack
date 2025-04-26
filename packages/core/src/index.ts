@@ -5,7 +5,5 @@ export * from "./eventing";
 export * from "./extension";
 export * from "./hooks";
 export * from "./integration";
-
+export * from "./lib";
 export * from "./plugins";
-
-export * from "./utils";

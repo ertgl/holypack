@@ -1,4 +1,4 @@
-import type { GlobFS } from "../../../../fs/glob";
+import type { GlobFS } from "../../../../lib/fs/glob";
 
 export type WorkspacePathsExtractorFS = (
   & GlobFS
