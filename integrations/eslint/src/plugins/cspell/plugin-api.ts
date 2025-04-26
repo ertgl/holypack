@@ -1,4 +1,5 @@
 import type CSpellPluginModule from "@cspell/eslint-plugin";
+import type { Linter } from "eslint";
 
 import { type ResolvedContext } from "@holypack/core";
 import { emitWarning } from "@holypack/core/context/warnings";
@@ -23,6 +24,7 @@ export class ESLintIntegrationCSpellPluginAPI
 
   async addESLintConfig(
     context: ResolvedContext,
+    configs: Linter.Config[],
     options?: boolean | ESLintIntegrationCSpellPluginOptions | null,
   ): Promise<void>
   {
@@ -58,7 +60,7 @@ export class ESLintIntegrationCSpellPluginAPI
       return;
     }
 
-    context.eslint.config.push({
+    configs.push({
       files: [
         GLOB_PATTERN_ALL,
       ],

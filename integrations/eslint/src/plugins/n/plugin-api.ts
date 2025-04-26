@@ -1,5 +1,6 @@
 import { join as joinPaths } from "node:path";
 
+import type { Linter } from "eslint";
 import type NPluginModule from "eslint-plugin-n";
 
 import type { ResolvedContext } from "@holypack/core";
@@ -29,6 +30,7 @@ export class ESLintIntegrationNPluginAPI
 
   async addESLintConfig(
     context: ResolvedContext,
+    configs: Linter.Config[],
     options?: boolean | ESLintIntegrationNPluginOptions | null,
   ): Promise<void>
   {
@@ -119,7 +121,7 @@ export class ESLintIntegrationNPluginAPI
       ],
     };
 
-    context.eslint.config.push(
+    configs.push(
       {
         files: [
           GLOB_PATTERN_CJS_CJSX_CTS_CTSX,

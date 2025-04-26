@@ -30,6 +30,7 @@ export class ESLintIntegrationTypeScriptPluginAPI
 
   async addESLintConfig(
     context: ResolvedContext,
+    configs: Linter.Config[],
     options?: boolean | ESLintIntegrationTypeScriptPluginOptions | null,
   ): Promise<void>
   {
@@ -80,7 +81,7 @@ export class ESLintIntegrationTypeScriptPluginAPI
       },
     };
 
-    context.eslint.config.push(
+    configs.push(
       ...typescriptPlugin.config([
         ...typescriptPlugin.configs.strictTypeChecked.map(
           (config) =>

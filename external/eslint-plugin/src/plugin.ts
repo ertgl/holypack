@@ -31,14 +31,16 @@ export async function createHolypackPlugin(
 
   const context = await resolveContext(options.context);
 
-  requireIntegration<ESLintIntegration>(
+  const integration = requireIntegration<ESLintIntegration>(
     context,
     INTEGRATION_NAME_ESLINT,
   );
 
+  const configs = await integration.api.generateConfigs(context);
+
   return {
     configs: {
-      recommended: context.eslint.config,
+      recommended: configs,
     },
     meta: {
       name: "@holypack/eslint-plugin",

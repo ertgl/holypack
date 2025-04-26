@@ -13,7 +13,7 @@ export function createESLintPostConfigGenerationHook(): ESLintPostConfigGenerati
 {
   return new AsyncParallelHook(
     [
-      "config",
+      "configs",
     ] as const,
     HOOK_NAME_ESLINT_POST_CONFIG_GENERATION,
   );

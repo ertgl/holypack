@@ -1414,6 +1414,52 @@
       "require": "./dist/cjs/plugins/yml/*",
       "default": "./src/plugins/yml/*"
     },
+    "./config": {
+      "types": "./dist/types/config/index.d.ts",
+      "import": "./dist/esm/config/index.mjs",
+      "require": "./dist/cjs/config/index.cjs",
+      "default": "./src/config/index.ts"
+    },
+    "./config/": {
+      "types": "./dist/types/config/index.d.ts",
+      "import": "./dist/esm/config/index.mjs",
+      "require": "./dist/cjs/config/index.cjs",
+      "default": "./src/config/index.ts"
+    },
+    "./config/*.d.ts": {
+      "types": "./dist/types/config/*.d.ts",
+      "default": "./src/config/*.ts"
+    },
+    "./config/*.cjs": {
+      "types": "./dist/types/config/*.d.ts",
+      "import": "./dist/esm/config/*.mjs",
+      "require": "./dist/cjs/config/*.cjs",
+      "default": "./src/config/*.ts"
+    },
+    "./config/*.js": {
+      "types": "./dist/types/config/*.d.ts",
+      "import": "./dist/esm/config/*.mjs",
+      "require": "./dist/cjs/config/*.cjs",
+      "default": "./src/config/*.ts"
+    },
+    "./config/*.mjs": {
+      "types": "./dist/types/config/*.d.ts",
+      "import": "./dist/esm/config/*.mjs",
+      "require": "./dist/cjs/config/*.cjs",
+      "default": "./src/config/*.ts"
+    },
+    "./config/*.ts": {
+      "types": "./dist/types/config/*.d.ts",
+      "import": "./dist/esm/config/*.mjs",
+      "require": "./dist/cjs/config/*.cjs",
+      "default": "./src/config/*.ts"
+    },
+    "./config/*": {
+      "types": "./dist/types/config/*",
+      "import": "./dist/esm/config/*",
+      "require": "./dist/cjs/config/*",
+      "default": "./src/config/*"
+    },
     "./constants": {
       "types": "./dist/types/constants/index.d.ts",
       "import": "./dist/esm/constants/index.mjs",

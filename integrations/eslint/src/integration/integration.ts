@@ -4,7 +4,6 @@ import {
   type Context,
   type ContextResolutionOptions,
   type Integration,
-  type ResolvedContext,
 } from "@holypack/core";
 
 import {
@@ -25,11 +24,14 @@ import createESLintIntegrationStylisticPlugin from "../plugins/stylistic";
 import createESLintIntegrationTypeScriptPlugin from "../plugins/typescript";
 import createESLintIntegrationYMLPlugin from "../plugins/yml";
 
+import { ESLintIntegrationAPI } from "./integration-api";
 import { INTEGRATION_NAME_ESLINT } from "./integration-name";
 import type { ESLintIntegrationOptions } from "./integration-options";
 
 export class ESLintIntegration implements Integration
 {
+  api: ESLintIntegrationAPI;
+
   hooks: ESLintIntegrationHookSet;
 
   name = INTEGRATION_NAME_ESLINT;
@@ -40,17 +42,9 @@ export class ESLintIntegration implements Integration
     options?: ESLintIntegrationOptions | null,
   )
   {
+    this.api = new ESLintIntegrationAPI(this);
     this.hooks = createESLintIntegrationHookSet();
     this.options = options ?? {};
-  }
-
-  async onContextReady(
-    resolvedContext: ResolvedContext,
-  ): Promise<void>
-  {
-    // TODO(ertgl): Consider using an isolated pointer for the config, as independent of the context.
-    await this.hooks.configGeneration.promise(resolvedContext);
-    await this.hooks.postConfigGeneration.promise(resolvedContext.eslint.config);
   }
 
   resolveContext(
@@ -58,9 +52,7 @@ export class ESLintIntegration implements Integration
     options: ContextResolutionOptions,
   ): void
   {
-    context.eslint = {
-      config: [],
-    };
+    context.eslint = {};
   }
 
   async setup(

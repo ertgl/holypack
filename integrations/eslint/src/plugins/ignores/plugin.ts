@@ -1,3 +1,5 @@
+import type { Linter } from "eslint";
+
 import {
   BaseIntegration,
   type Config,
@@ -28,10 +30,12 @@ export class ESLintIntegrationIgnoresPlugin extends BaseIntegration
   onESLintConfigGeneration(
     eslintIntegration: ESLintIntegration,
     resolvedContext: ResolvedContext,
+    configs: Linter.Config[],
   ): void
   {
     this.api.addESLintConfig(
       resolvedContext,
+      configs,
       eslintIntegration.options.globals,
     );
   }

@@ -1,3 +1,4 @@
+import type { Linter } from "eslint";
 import type PluginPerfectionistModule from "eslint-plugin-perfectionist";
 
 import type { ResolvedContext } from "@holypack/core";
@@ -27,6 +28,7 @@ export class ESLintIntegrationPerfectionistPluginAPI
 
   async addESLintConfig(
     context: ResolvedContext,
+    configs: Linter.Config[],
     options?: boolean | ESLintIntegrationPerfectionistPluginOptions | null,
   ): Promise<void>
   {
@@ -67,7 +69,7 @@ export class ESLintIntegrationPerfectionistPluginAPI
       return;
     }
 
-    context.eslint.config.push(
+    configs.push(
       {
         ...pluginPerfectionist.configs["recommended-natural"],
         files: [

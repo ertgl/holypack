@@ -1,3 +1,4 @@
+import type { Linter } from "eslint";
 import { AsyncParallelHook } from "tapable";
 
 import type { ResolvedContext } from "@holypack/core";
@@ -8,6 +9,7 @@ export type ESLintConfigGenerationHook = AsyncParallelHook<ESLintConfigGeneratio
 
 export type ESLintConfigGenerationHookParameters = [
   ResolvedContext,
+  Linter.Config[],
 ];
 
 export function createESLintConfigGenerationHook(): ESLintConfigGenerationHook
@@ -15,6 +17,7 @@ export function createESLintConfigGenerationHook(): ESLintConfigGenerationHook
   return new AsyncParallelHook(
     [
       "context",
+      "configs",
     ] as const,
     HOOK_NAME_ESLINT_CONFIG_GENERATION,
   );

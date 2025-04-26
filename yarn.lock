@@ -1928,6 +1928,7 @@ __metadata:
     "@holypack/integration-eslint": "workspace:^"
     "@holypack/integration-typescript": "workspace:^"
     "@holypack/internal-integration-babel": "workspace:^"
+    eslint: "npm:^9.25.1"
     holypack: "workspace:^"
   languageName: unknown
   linkType: soft

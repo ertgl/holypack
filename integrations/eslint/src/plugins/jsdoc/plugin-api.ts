@@ -1,3 +1,4 @@
+import type { Linter } from "eslint";
 import type PluginJSDocModule from "eslint-plugin-jsdoc";
 
 import type { ResolvedContext } from "@holypack/core";
@@ -31,6 +32,7 @@ export class ESLintIntegrationJSDocPluginAPI
 
   async addESLintConfig(
     context: ResolvedContext,
+    configs: Linter.Config[],
     options?: boolean | ESLintIntegrationJSDocPluginOptions | null,
   ): Promise<void>
   {
@@ -70,7 +72,7 @@ export class ESLintIntegrationJSDocPluginAPI
       return;
     }
 
-    context.eslint.config.push(
+    configs.push(
       {
         files: [
           GLOB_PATTERN_CJS_CJSX_CTS_CTSX,

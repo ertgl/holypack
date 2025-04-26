@@ -1,4 +1,5 @@
 import type ESLintJSPluginModule from "@eslint/js";
+import type { Linter } from "eslint";
 
 import type { ResolvedContext } from "@holypack/core";
 import { emitWarning } from "@holypack/core/context/warnings";
@@ -26,6 +27,7 @@ export class ESLintIntegrationESLintJSPluginAPI
 
   async addESLintConfig(
     context: ResolvedContext,
+    configs: Linter.Config[],
     options?: boolean | ESLintIntegrationESLintJSPluginOptions | null,
   ): Promise<void>
   {
@@ -65,7 +67,7 @@ export class ESLintIntegrationESLintJSPluginAPI
       return;
     }
 
-    context.eslint.config.push({
+    configs.push({
       ...eslintJSPlugin.configs.recommended,
       files: [
         GLOB_PATTERN_CJS_JS_MJS,

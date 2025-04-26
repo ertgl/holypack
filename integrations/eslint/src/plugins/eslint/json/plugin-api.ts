@@ -1,4 +1,5 @@
 import type JSONPluginModule from "@eslint/json";
+import type { Linter } from "eslint";
 
 import type { ResolvedContext } from "@holypack/core";
 import { emitWarning } from "@holypack/core/context/warnings";
@@ -27,6 +28,7 @@ export class ESLintIntegrationESLintJSONPluginAPI
 
   async addESLintConfig(
     context: ResolvedContext,
+    configs: Linter.Config[],
     options?: boolean | ESLintIntegrationESLintJSONPluginOptions | null,
   ): Promise<void>
   {
@@ -66,7 +68,7 @@ export class ESLintIntegrationESLintJSONPluginAPI
       return;
     }
 
-    context.eslint.config.push(
+    configs.push(
       {
         ...jsonPlugin.configs.recommended,
         files: [

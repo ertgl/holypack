@@ -1,4 +1,5 @@
 import type MarkdownPluginModule from "@eslint/markdown";
+import type { Linter } from "eslint";
 
 import type { ResolvedContext } from "@holypack/core";
 import { emitWarning } from "@holypack/core/context/warnings";
@@ -23,6 +24,7 @@ export class ESLintIntegrationESLintMarkdownPluginAPI
 
   async addESLintConfig(
     context: ResolvedContext,
+    configs: Linter.Config[],
     options?: boolean | ESLintIntegrationESLintMarkdownPluginOptions | null,
   ): Promise<void>
   {
@@ -62,7 +64,7 @@ export class ESLintIntegrationESLintMarkdownPluginAPI
       return;
     }
 
-    context.eslint.config.push(
+    configs.push(
       ...markdownPlugin.configs.recommended.map(
         (
           /**

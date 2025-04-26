@@ -4,6 +4,8 @@ import {
   resolve as resolvePath,
 } from "node:path";
 
+import type { Linter } from "eslint";
+
 import type { ResolvedContext } from "@holypack/core";
 
 import type { ESLintIntegrationIgnoresPlugin } from "./plugin";
@@ -23,6 +25,7 @@ export class ESLintIntegrationIgnoresPluginAPI
 
   addESLintConfig(
     context: ResolvedContext,
+    configs: Linter.Config[],
     options?: boolean | ESLintIntegrationIgnoresPluginOptions | null,
   ): void
   {
@@ -36,7 +39,7 @@ export class ESLintIntegrationIgnoresPluginAPI
       return;
     }
 
-    context.eslint.config.push(
+    configs.push(
       {
         ignores: [
           resolvePath(context.project.path, ".yarn"),

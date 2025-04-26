@@ -1,3 +1,5 @@
+import type { Linter } from "eslint";
+
 import {
   BaseIntegration,
   type Config,
@@ -28,10 +30,12 @@ export class ESLintIntegrationStylisticPlugin extends BaseIntegration
   async onESLintConfigGeneration(
     eslintIntegration: ESLintIntegration,
     resolvedContext: ResolvedContext,
+    configs: Linter.Config[],
   ): Promise<void>
   {
     await this.api.addESLintConfig(
       resolvedContext,
+      configs,
       eslintIntegration.options.stylistic,
     );
   }

@@ -1,3 +1,4 @@
+import type { Linter } from "eslint";
 import type GlobalsModule from "globals";
 
 import type { ResolvedContext } from "@holypack/core";
@@ -27,6 +28,7 @@ export class ESLintIntegrationGlobalsPluginAPI
 
   async addESLintConfig(
     context: ResolvedContext,
+    configs: Linter.Config[],
     options?: boolean | ESLintIntegrationGlobalsPluginOptions | null,
   ): Promise<void>
   {
@@ -66,7 +68,7 @@ export class ESLintIntegrationGlobalsPluginAPI
       return;
     }
 
-    context.eslint.config.push(
+    configs.push(
       {
         files: [
           GLOB_PATTERN_CJS_CJSX_CTS_CTSX,

@@ -1,4 +1,5 @@
 import type StylisticPluginModule from "@stylistic/eslint-plugin";
+import type { Linter } from "eslint";
 
 import type { ResolvedContext } from "@holypack/core";
 import { emitWarning } from "@holypack/core/context/warnings";
@@ -31,6 +32,7 @@ export class ESLintIntegrationStylisticPluginAPI
 
   async addESLintConfig(
     context: ResolvedContext,
+    configs: Linter.Config[],
     options?: boolean | ESLintIntegrationStylisticPluginOptions | null,
   ): Promise<void>
   {
@@ -75,7 +77,7 @@ export class ESLintIntegrationStylisticPluginAPI
       ?? "double"
     );
 
-    context.eslint.config.push(
+    configs.push(
       {
         ...stylisticPlugin.configs.recommended,
         files: [

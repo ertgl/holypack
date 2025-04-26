@@ -1,16 +1,11 @@
-import createHolypackPlugin from "@holypack/eslint-plugin";
+import { defineConfig } from "eslint/config";
 
-/**
- * @import { type Linter } from "eslint";
- */
+import createHolypackPlugin from "@holypack/eslint-plugin";
 
 const holypack = await createHolypackPlugin();
 
-/**
- * @type {Linter.Config[]}
- */
-const ESLINT_CONFIG = [
+const ESLINT_CONFIG = defineConfig([
   ...holypack.configs.recommended,
-];
+]);
 
 export default ESLINT_CONFIG;

@@ -29,6 +29,7 @@ export class ESLintIntegrationImportXPluginAPI
 
   async addESLintConfig(
     context: ResolvedContext,
+    configs: Linter.Config[],
     options?: boolean | ESLintIntegrationImportXPluginOptions | null,
   ): Promise<void>
   {
@@ -102,7 +103,7 @@ export class ESLintIntegrationImportXPluginAPI
       ".json",
     ];
 
-    context.eslint.config.push(
+    configs.push(
       {
         settings: {
           // TODO(ertgl): Never set this to `Infinity` if the process started by `eslint_d` or `webpack`. For webpack, we probably need call-tracing.

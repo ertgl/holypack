@@ -1,3 +1,4 @@
+import type { Linter } from "eslint";
 import type PluginYMLModule from "eslint-plugin-yml";
 
 import type { ResolvedContext } from "@holypack/core";
@@ -23,6 +24,7 @@ export class ESLintIntegrationYMLPluginAPI
 
   async addESLintConfig(
     context: ResolvedContext,
+    configs: Linter.Config[],
     options?: boolean | ESLintIntegrationYMLPluginOptions | null,
   ): Promise<void>
   {
@@ -62,7 +64,7 @@ export class ESLintIntegrationYMLPluginAPI
       return;
     }
 
-    context.eslint.config.push(
+    configs.push(
       ...pluginYML.configs["flat/recommended"].map(
         (config) =>
         {
