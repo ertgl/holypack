@@ -2,11 +2,10 @@ import {
   bindSubIntegration,
   type Config,
   type Context,
+  type ContextResolutionOptions,
   type Integration,
-  type ResolvedContext,
 } from "@holypack/core";
 
-import { generateBabelConfigFunction } from "../config-function";
 import {
   type BabelIntegrationHookSet,
   createBabelIntegrationHookSet,
@@ -16,11 +15,14 @@ import { createBabelIntegrationImportSourceTransformerPlugin } from "../plugins/
 import createBabelIntegrationSourceMapPlugin from "../plugins/source-map";
 import createBabelIntegrationTypeScriptPlugin from "../plugins/typescript";
 
+import { BabelIntegrationAPI } from "./integration-api";
 import { INTEGRATION_NAME_BABEL } from "./integration-name";
 import type { BabelIntegrationOptions } from "./integration-options";
 
 export class BabelIntegration implements Integration
 {
+  api: BabelIntegrationAPI;
+
   hooks: BabelIntegrationHookSet;
 
   name = INTEGRATION_NAME_BABEL;
@@ -31,20 +33,17 @@ export class BabelIntegration implements Integration
     options?: BabelIntegrationOptions | null,
   )
   {
+    this.api = new BabelIntegrationAPI(this);
     this.hooks = createBabelIntegrationHookSet();
     this.options = options ?? {};
   }
 
-  async onContextReady(
-    resolvedContext: ResolvedContext,
-  ): Promise<void>
+  resolveContext(
+    context: Context,
+    options: ContextResolutionOptions,
+  ): void
   {
-    resolvedContext.babel = {
-      configFunction: await generateBabelConfigFunction(
-        resolvedContext,
-        this.hooks,
-      ),
-    };
+    context.babel = {};
   }
 
   async setup(

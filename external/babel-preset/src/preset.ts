@@ -24,13 +24,17 @@ export async function createHolypackPreset(
 
   const context = await resolveContext(options.context);
 
-  requireIntegration<BabelIntegration>(
+  const integration = requireIntegration<BabelIntegration>(
     context,
     INTEGRATION_NAME_BABEL,
   );
 
+  const configFunction = await integration.api.generateConfigFunction(
+    context,
+  );
+
   return createConfigItem(
-    context.babel.configFunction,
+    configFunction,
     {
       dirname: context.cwd,
       type: "preset",
