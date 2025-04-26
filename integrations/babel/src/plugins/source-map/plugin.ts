@@ -11,32 +11,32 @@ import {
 import type { BabelIntegration } from "../../integration";
 import { INTEGRATION_NAME_BABEL } from "../../integration/integration-name";
 
-import { BabelIntegrationTypeScriptPluginAPI } from "./plugin-api";
+import { BabelIntegrationSourceMapPluginAPI } from "./plugin-api";
 
-export const INTEGRATION_NAME_BABEL_TYPESCRIPT = `${INTEGRATION_NAME_BABEL}/TypeScript`;
+export const INTEGRATION_NAME_BABEL_SOURCE_MAP = `${INTEGRATION_NAME_BABEL}/SourceMap`;
 
-export class BabelIntegrationTypeScriptPlugin extends BaseIntegration
+export class BabelIntegrationSourceMapPlugin extends BaseIntegration
 {
-  api: BabelIntegrationTypeScriptPluginAPI;
+  api: BabelIntegrationSourceMapPluginAPI;
 
-  name = INTEGRATION_NAME_BABEL_TYPESCRIPT;
+  name = INTEGRATION_NAME_BABEL_SOURCE_MAP;
 
   constructor()
   {
     super();
-    this.api = new BabelIntegrationTypeScriptPluginAPI(this);
+    this.api = new BabelIntegrationSourceMapPluginAPI(this);
   }
 
-  async onBabelTransformOptionsGeneration(
+  onBabelTransformOptionsGeneration(
     babelIntegration: BabelIntegration,
     resolvedContext: ResolvedContext,
     transformOptions: TransformOptions,
-  ): Promise<void>
+  ): void
   {
-    await this.api.addBabelConfig(
+    this.api.addBabelConfig(
       resolvedContext,
       transformOptions,
-      babelIntegration.options.typescript,
+      babelIntegration.options.sourceMap,
     );
   }
 
@@ -52,8 +52,8 @@ export class BabelIntegrationTypeScriptPlugin extends BaseIntegration
       INTEGRATION_NAME_BABEL,
     );
 
-    babelIntegration.hooks.transformOptionsGeneration.tapPromise(
-      INTEGRATION_NAME_BABEL_TYPESCRIPT,
+    babelIntegration.hooks.transformOptionsGeneration.tap(
+      INTEGRATION_NAME_BABEL_SOURCE_MAP,
       this.onBabelTransformOptionsGeneration.bind(
         this,
         babelIntegration,
@@ -62,7 +62,7 @@ export class BabelIntegrationTypeScriptPlugin extends BaseIntegration
   }
 }
 
-export function createBabelIntegrationTypeScriptPlugin(): BabelIntegrationTypeScriptPlugin
+export function createBabelIntegrationSourceMapPlugin(): BabelIntegrationSourceMapPlugin
 {
-  return new BabelIntegrationTypeScriptPlugin();
+  return new BabelIntegrationSourceMapPlugin();
 }

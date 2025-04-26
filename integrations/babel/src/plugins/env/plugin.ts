@@ -8,7 +8,7 @@ import {
   type ResolvedContext,
 } from "@holypack/core";
 
-import { type BabelIntegration } from "../../integration";
+import type { BabelIntegration } from "../../integration";
 import { INTEGRATION_NAME_BABEL } from "../../integration/integration-name";
 
 import { BabelIntegrationEnvPluginAPI } from "./plugin-api";

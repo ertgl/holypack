@@ -31,6 +31,9 @@
     "typescript": "*"
   },
   "peerDependenciesMeta": {
+    "@babel/preset-env": {
+      "optional": true
+    },
     "@babel/preset-typescript": {
       "optional": true
     },
@@ -193,6 +196,52 @@
       "require": "./dist/cjs/plugins/import-source-transformer/module-augmentation/*",
       "default": "./src/plugins/import-source-transformer/module-augmentation/*"
     },
+    "./plugins/source-map/module-augmentation": {
+      "types": "./dist/types/plugins/source-map/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/source-map/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/source-map/module-augmentation/index.cjs",
+      "default": "./src/plugins/source-map/module-augmentation/index.ts"
+    },
+    "./plugins/source-map/module-augmentation/": {
+      "types": "./dist/types/plugins/source-map/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/source-map/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/source-map/module-augmentation/index.cjs",
+      "default": "./src/plugins/source-map/module-augmentation/index.ts"
+    },
+    "./plugins/source-map/module-augmentation/*.d.ts": {
+      "types": "./dist/types/plugins/source-map/module-augmentation/*.d.ts",
+      "default": "./src/plugins/source-map/module-augmentation/*.ts"
+    },
+    "./plugins/source-map/module-augmentation/*.cjs": {
+      "types": "./dist/types/plugins/source-map/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/source-map/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/source-map/module-augmentation/*.cjs",
+      "default": "./src/plugins/source-map/module-augmentation/*.ts"
+    },
+    "./plugins/source-map/module-augmentation/*.js": {
+      "types": "./dist/types/plugins/source-map/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/source-map/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/source-map/module-augmentation/*.cjs",
+      "default": "./src/plugins/source-map/module-augmentation/*.ts"
+    },
+    "./plugins/source-map/module-augmentation/*.mjs": {
+      "types": "./dist/types/plugins/source-map/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/source-map/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/source-map/module-augmentation/*.cjs",
+      "default": "./src/plugins/source-map/module-augmentation/*.ts"
+    },
+    "./plugins/source-map/module-augmentation/*.ts": {
+      "types": "./dist/types/plugins/source-map/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/source-map/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/source-map/module-augmentation/*.cjs",
+      "default": "./src/plugins/source-map/module-augmentation/*.ts"
+    },
+    "./plugins/source-map/module-augmentation/*": {
+      "types": "./dist/types/plugins/source-map/module-augmentation/*",
+      "import": "./dist/esm/plugins/source-map/module-augmentation/*",
+      "require": "./dist/cjs/plugins/source-map/module-augmentation/*",
+      "default": "./src/plugins/source-map/module-augmentation/*"
+    },
     "./plugins/typescript/module-augmentation": {
       "types": "./dist/types/plugins/typescript/module-augmentation/index.d.ts",
       "import": "./dist/esm/plugins/typescript/module-augmentation/index.mjs",
@@ -331,6 +380,52 @@
       "require": "./dist/cjs/plugins/import-source-transformer/*",
       "default": "./src/plugins/import-source-transformer/*"
     },
+    "./plugins/source-map": {
+      "types": "./dist/types/plugins/source-map/index.d.ts",
+      "import": "./dist/esm/plugins/source-map/index.mjs",
+      "require": "./dist/cjs/plugins/source-map/index.cjs",
+      "default": "./src/plugins/source-map/index.ts"
+    },
+    "./plugins/source-map/": {
+      "types": "./dist/types/plugins/source-map/index.d.ts",
+      "import": "./dist/esm/plugins/source-map/index.mjs",
+      "require": "./dist/cjs/plugins/source-map/index.cjs",
+      "default": "./src/plugins/source-map/index.ts"
+    },
+    "./plugins/source-map/*.d.ts": {
+      "types": "./dist/types/plugins/source-map/*.d.ts",
+      "default": "./src/plugins/source-map/*.ts"
+    },
+    "./plugins/source-map/*.cjs": {
+      "types": "./dist/types/plugins/source-map/*.d.ts",
+      "import": "./dist/esm/plugins/source-map/*.mjs",
+      "require": "./dist/cjs/plugins/source-map/*.cjs",
+      "default": "./src/plugins/source-map/*.ts"
+    },
+    "./plugins/source-map/*.js": {
+      "types": "./dist/types/plugins/source-map/*.d.ts",
+      "import": "./dist/esm/plugins/source-map/*.mjs",
+      "require": "./dist/cjs/plugins/source-map/*.cjs",
+      "default": "./src/plugins/source-map/*.ts"
+    },
+    "./plugins/source-map/*.mjs": {
+      "types": "./dist/types/plugins/source-map/*.d.ts",
+      "import": "./dist/esm/plugins/source-map/*.mjs",
+      "require": "./dist/cjs/plugins/source-map/*.cjs",
+      "default": "./src/plugins/source-map/*.ts"
+    },
+    "./plugins/source-map/*.ts": {
+      "types": "./dist/types/plugins/source-map/*.d.ts",
+      "import": "./dist/esm/plugins/source-map/*.mjs",
+      "require": "./dist/cjs/plugins/source-map/*.cjs",
+      "default": "./src/plugins/source-map/*.ts"
+    },
+    "./plugins/source-map/*": {
+      "types": "./dist/types/plugins/source-map/*",
+      "import": "./dist/esm/plugins/source-map/*",
+      "require": "./dist/cjs/plugins/source-map/*",
+      "default": "./src/plugins/source-map/*"
+    },
     "./plugins/typescript": {
       "types": "./dist/types/plugins/typescript/index.d.ts",
       "import": "./dist/esm/plugins/typescript/index.mjs",
@@ -468,52 +563,6 @@
       "import": "./dist/esm/context/*",
       "require": "./dist/cjs/context/*",
       "default": "./src/context/*"
-    },
-    "./deprecated": {
-      "types": "./dist/types/deprecated/index.d.ts",
-      "import": "./dist/esm/deprecated/index.mjs",
-      "require": "./dist/cjs/deprecated/index.cjs",
-      "default": "./src/deprecated/index.ts"
-    },
-    "./deprecated/": {
-      "types": "./dist/types/deprecated/index.d.ts",
-      "import": "./dist/esm/deprecated/index.mjs",
-      "require": "./dist/cjs/deprecated/index.cjs",
-      "default": "./src/deprecated/index.ts"
-    },
-    "./deprecated/*.d.ts": {
-      "types": "./dist/types/deprecated/*.d.ts",
-      "default": "./src/deprecated/*.ts"
-    },
-    "./deprecated/*.cjs": {
-      "types": "./dist/types/deprecated/*.d.ts",
-      "import": "./dist/esm/deprecated/*.mjs",
-      "require": "./dist/cjs/deprecated/*.cjs",
-      "default": "./src/deprecated/*.ts"
-    },
-    "./deprecated/*.js": {
-      "types": "./dist/types/deprecated/*.d.ts",
-      "import": "./dist/esm/deprecated/*.mjs",
-      "require": "./dist/cjs/deprecated/*.cjs",
-      "default": "./src/deprecated/*.ts"
-    },
-    "./deprecated/*.mjs": {
-      "types": "./dist/types/deprecated/*.d.ts",
-      "import": "./dist/esm/deprecated/*.mjs",
-      "require": "./dist/cjs/deprecated/*.cjs",
-      "default": "./src/deprecated/*.ts"
-    },
-    "./deprecated/*.ts": {
-      "types": "./dist/types/deprecated/*.d.ts",
-      "import": "./dist/esm/deprecated/*.mjs",
-      "require": "./dist/cjs/deprecated/*.cjs",
-      "default": "./src/deprecated/*.ts"
-    },
-    "./deprecated/*": {
-      "types": "./dist/types/deprecated/*",
-      "import": "./dist/esm/deprecated/*",
-      "require": "./dist/cjs/deprecated/*",
-      "default": "./src/deprecated/*"
     },
     "./eventing": {
       "types": "./dist/types/eventing/index.d.ts",
