@@ -48,7 +48,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/ci-setup
       - name: Test
-        run: yarn test --verbose
+        run: yarn test
 
   build-e2e:
     if: ${{ needs.build.result == 'success' && needs.test.result == 'success' }}
@@ -74,4 +74,4 @@ jobs:
       - name: Setup E2E
         uses: ./.github/actions/ci-setup-e2e
       - name: Test E2E
-        run: yarn e2e:test --verbose
+        run: yarn e2e:test
