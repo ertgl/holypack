@@ -1,5 +1,5 @@
 import { resolveCWD } from "../../../utils/process/cwd";
-import { requirePackageJSONByDirectoryPath } from "../../package/utils/module";
+import { requirePackageJSONByDirectoryPath } from "../../package/utils/package-json-loader";
 import type { ResolvedProject } from "../project";
 import { findProjectRootPath } from "../root-path-finder";
 

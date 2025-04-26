@@ -1,8 +1,6 @@
-import {
-  extractWorkspaceGlobPatternsFromPackageJSON,
-  findWorkspacePathsByGlobPatterns,
-} from "../../package/utils/fields/workspaces";
-import { requirePackageJSONByDirectoryPath } from "../../package/utils/module";
+import { requirePackageJSONByDirectoryPath } from "../../package/utils/package-json-loader";
+import { extractWorkspaceGlobPatternsFromPackageJSON } from "../../package/utils/workspace-glob-patterns-extractor";
+import { getWorkspacePathsByGlobPatterns } from "../../package/utils/workspace-paths-extractor";
 import type { ResolvedProject } from "../../project";
 import { resolveWorkspace } from "../resolution";
 import {
@@ -25,9 +23,12 @@ export async function resolveWorkspaceRegistry(
     project.packageJSON,
   );
 
-  const workspacePaths = await findWorkspacePathsByGlobPatterns(
+  const workspacePaths = await getWorkspacePathsByGlobPatterns(
     project.path,
     workspaceGlobPatterns,
+    {
+      fs: options.fs,
+    },
   );
 
   for (const workspacePath of workspacePaths)

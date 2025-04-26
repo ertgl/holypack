@@ -1,3 +1,5 @@
-// TODO(ertgl): Define type `WorkspaceRegistryResolutionFS`.
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export type WorkspaceRegistryResolutionFS = {};
+import type { WorkspacePathsExtractorFS } from "../../package/utils/workspace-paths-extractor/fs";
+
+export type WorkspaceRegistryResolutionFS = (
+  & WorkspacePathsExtractorFS
+);

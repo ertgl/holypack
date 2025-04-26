@@ -6,11 +6,9 @@ import {
   type RootPathFinderOptions,
 } from "../../../utils/fs/root-path-finder";
 import { resolveCWD } from "../../../utils/process/cwd";
-import {
-  extractWorkspaceGlobPatternsFromPackageJSON,
-  matchWorkspaceGlobPatterns,
-} from "../../package/utils/fields/workspaces";
-import { requirePackageJSONByDirectoryPath } from "../../package/utils/module";
+import { requirePackageJSONByDirectoryPath } from "../../package/utils/package-json-loader";
+import { matchWorkspaceGlobPatterns } from "../../package/utils/workspace-glob-pattern-matcher";
+import { extractWorkspaceGlobPatternsFromPackageJSON } from "../../package/utils/workspace-glob-patterns-extractor";
 
 import type { ProjectRootPathFinderOptions } from "./options";
 

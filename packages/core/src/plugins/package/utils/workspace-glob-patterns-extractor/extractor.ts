@@ -1,4 +1,4 @@
-import type { PackageJSON } from "../../../package-json";
+import type { PackageJSON } from "../../package-json";
 
 export function extractWorkspaceGlobPatternsFromPackageJSON(
   packageJSON: PackageJSON,
