@@ -172,6 +172,52 @@
       "require": "./dist/cjs/extension/errors/*",
       "default": "./src/extension/errors/*"
     },
+    "./fs/glob": {
+      "types": "./dist/types/fs/glob/index.d.ts",
+      "import": "./dist/esm/fs/glob/index.mjs",
+      "require": "./dist/cjs/fs/glob/index.cjs",
+      "default": "./src/fs/glob/index.ts"
+    },
+    "./fs/glob/": {
+      "types": "./dist/types/fs/glob/index.d.ts",
+      "import": "./dist/esm/fs/glob/index.mjs",
+      "require": "./dist/cjs/fs/glob/index.cjs",
+      "default": "./src/fs/glob/index.ts"
+    },
+    "./fs/glob/*.d.ts": {
+      "types": "./dist/types/fs/glob/*.d.ts",
+      "default": "./src/fs/glob/*.ts"
+    },
+    "./fs/glob/*.cjs": {
+      "types": "./dist/types/fs/glob/*.d.ts",
+      "import": "./dist/esm/fs/glob/*.mjs",
+      "require": "./dist/cjs/fs/glob/*.cjs",
+      "default": "./src/fs/glob/*.ts"
+    },
+    "./fs/glob/*.js": {
+      "types": "./dist/types/fs/glob/*.d.ts",
+      "import": "./dist/esm/fs/glob/*.mjs",
+      "require": "./dist/cjs/fs/glob/*.cjs",
+      "default": "./src/fs/glob/*.ts"
+    },
+    "./fs/glob/*.mjs": {
+      "types": "./dist/types/fs/glob/*.d.ts",
+      "import": "./dist/esm/fs/glob/*.mjs",
+      "require": "./dist/cjs/fs/glob/*.cjs",
+      "default": "./src/fs/glob/*.ts"
+    },
+    "./fs/glob/*.ts": {
+      "types": "./dist/types/fs/glob/*.d.ts",
+      "import": "./dist/esm/fs/glob/*.mjs",
+      "require": "./dist/cjs/fs/glob/*.cjs",
+      "default": "./src/fs/glob/*.ts"
+    },
+    "./fs/glob/*": {
+      "types": "./dist/types/fs/glob/*",
+      "import": "./dist/esm/fs/glob/*",
+      "require": "./dist/cjs/fs/glob/*",
+      "default": "./src/fs/glob/*"
+    },
     "./integration/errors": {
       "types": "./dist/types/integration/errors/index.d.ts",
       "import": "./dist/esm/integration/errors/index.mjs",
@@ -217,6 +263,98 @@
       "import": "./dist/esm/integration/errors/*",
       "require": "./dist/cjs/integration/errors/*",
       "default": "./src/integration/errors/*"
+    },
+    "./lib/path/glob": {
+      "types": "./dist/types/lib/path/glob/index.d.ts",
+      "import": "./dist/esm/lib/path/glob/index.mjs",
+      "require": "./dist/cjs/lib/path/glob/index.cjs",
+      "default": "./src/lib/path/glob/index.ts"
+    },
+    "./lib/path/glob/": {
+      "types": "./dist/types/lib/path/glob/index.d.ts",
+      "import": "./dist/esm/lib/path/glob/index.mjs",
+      "require": "./dist/cjs/lib/path/glob/index.cjs",
+      "default": "./src/lib/path/glob/index.ts"
+    },
+    "./lib/path/glob/*.d.ts": {
+      "types": "./dist/types/lib/path/glob/*.d.ts",
+      "default": "./src/lib/path/glob/*.ts"
+    },
+    "./lib/path/glob/*.cjs": {
+      "types": "./dist/types/lib/path/glob/*.d.ts",
+      "import": "./dist/esm/lib/path/glob/*.mjs",
+      "require": "./dist/cjs/lib/path/glob/*.cjs",
+      "default": "./src/lib/path/glob/*.ts"
+    },
+    "./lib/path/glob/*.js": {
+      "types": "./dist/types/lib/path/glob/*.d.ts",
+      "import": "./dist/esm/lib/path/glob/*.mjs",
+      "require": "./dist/cjs/lib/path/glob/*.cjs",
+      "default": "./src/lib/path/glob/*.ts"
+    },
+    "./lib/path/glob/*.mjs": {
+      "types": "./dist/types/lib/path/glob/*.d.ts",
+      "import": "./dist/esm/lib/path/glob/*.mjs",
+      "require": "./dist/cjs/lib/path/glob/*.cjs",
+      "default": "./src/lib/path/glob/*.ts"
+    },
+    "./lib/path/glob/*.ts": {
+      "types": "./dist/types/lib/path/glob/*.d.ts",
+      "import": "./dist/esm/lib/path/glob/*.mjs",
+      "require": "./dist/cjs/lib/path/glob/*.cjs",
+      "default": "./src/lib/path/glob/*.ts"
+    },
+    "./lib/path/glob/*": {
+      "types": "./dist/types/lib/path/glob/*",
+      "import": "./dist/esm/lib/path/glob/*",
+      "require": "./dist/cjs/lib/path/glob/*",
+      "default": "./src/lib/path/glob/*"
+    },
+    "./lib/path": {
+      "types": "./dist/types/lib/path/index.d.ts",
+      "import": "./dist/esm/lib/path/index.mjs",
+      "require": "./dist/cjs/lib/path/index.cjs",
+      "default": "./src/lib/path/index.ts"
+    },
+    "./lib/path/": {
+      "types": "./dist/types/lib/path/index.d.ts",
+      "import": "./dist/esm/lib/path/index.mjs",
+      "require": "./dist/cjs/lib/path/index.cjs",
+      "default": "./src/lib/path/index.ts"
+    },
+    "./lib/path/*.d.ts": {
+      "types": "./dist/types/lib/path/*.d.ts",
+      "default": "./src/lib/path/*.ts"
+    },
+    "./lib/path/*.cjs": {
+      "types": "./dist/types/lib/path/*.d.ts",
+      "import": "./dist/esm/lib/path/*.mjs",
+      "require": "./dist/cjs/lib/path/*.cjs",
+      "default": "./src/lib/path/*.ts"
+    },
+    "./lib/path/*.js": {
+      "types": "./dist/types/lib/path/*.d.ts",
+      "import": "./dist/esm/lib/path/*.mjs",
+      "require": "./dist/cjs/lib/path/*.cjs",
+      "default": "./src/lib/path/*.ts"
+    },
+    "./lib/path/*.mjs": {
+      "types": "./dist/types/lib/path/*.d.ts",
+      "import": "./dist/esm/lib/path/*.mjs",
+      "require": "./dist/cjs/lib/path/*.cjs",
+      "default": "./src/lib/path/*.ts"
+    },
+    "./lib/path/*.ts": {
+      "types": "./dist/types/lib/path/*.d.ts",
+      "import": "./dist/esm/lib/path/*.mjs",
+      "require": "./dist/cjs/lib/path/*.cjs",
+      "default": "./src/lib/path/*.ts"
+    },
+    "./lib/path/*": {
+      "types": "./dist/types/lib/path/*",
+      "import": "./dist/esm/lib/path/*",
+      "require": "./dist/cjs/lib/path/*",
+      "default": "./src/lib/path/*"
     },
     "./module/errors": {
       "types": "./dist/types/module/errors/index.d.ts",
@@ -310,143 +448,189 @@
       "require": "./dist/cjs/plugins/legacy/module-augmentation/*",
       "default": "./src/plugins/legacy/module-augmentation/*"
     },
-    "./plugins/package/utils/fields/workspaces": {
-      "types": "./dist/types/plugins/package/utils/fields/workspaces/index.d.ts",
-      "import": "./dist/esm/plugins/package/utils/fields/workspaces/index.mjs",
-      "require": "./dist/cjs/plugins/package/utils/fields/workspaces/index.cjs",
-      "default": "./src/plugins/package/utils/fields/workspaces/index.ts"
+    "./plugins/package/utils/package-json-loader": {
+      "types": "./dist/types/plugins/package/utils/package-json-loader/index.d.ts",
+      "import": "./dist/esm/plugins/package/utils/package-json-loader/index.mjs",
+      "require": "./dist/cjs/plugins/package/utils/package-json-loader/index.cjs",
+      "default": "./src/plugins/package/utils/package-json-loader/index.ts"
     },
-    "./plugins/package/utils/fields/workspaces/": {
-      "types": "./dist/types/plugins/package/utils/fields/workspaces/index.d.ts",
-      "import": "./dist/esm/plugins/package/utils/fields/workspaces/index.mjs",
-      "require": "./dist/cjs/plugins/package/utils/fields/workspaces/index.cjs",
-      "default": "./src/plugins/package/utils/fields/workspaces/index.ts"
+    "./plugins/package/utils/package-json-loader/": {
+      "types": "./dist/types/plugins/package/utils/package-json-loader/index.d.ts",
+      "import": "./dist/esm/plugins/package/utils/package-json-loader/index.mjs",
+      "require": "./dist/cjs/plugins/package/utils/package-json-loader/index.cjs",
+      "default": "./src/plugins/package/utils/package-json-loader/index.ts"
     },
-    "./plugins/package/utils/fields/workspaces/*.d.ts": {
-      "types": "./dist/types/plugins/package/utils/fields/workspaces/*.d.ts",
-      "default": "./src/plugins/package/utils/fields/workspaces/*.ts"
+    "./plugins/package/utils/package-json-loader/*.d.ts": {
+      "types": "./dist/types/plugins/package/utils/package-json-loader/*.d.ts",
+      "default": "./src/plugins/package/utils/package-json-loader/*.ts"
     },
-    "./plugins/package/utils/fields/workspaces/*.cjs": {
-      "types": "./dist/types/plugins/package/utils/fields/workspaces/*.d.ts",
-      "import": "./dist/esm/plugins/package/utils/fields/workspaces/*.mjs",
-      "require": "./dist/cjs/plugins/package/utils/fields/workspaces/*.cjs",
-      "default": "./src/plugins/package/utils/fields/workspaces/*.ts"
+    "./plugins/package/utils/package-json-loader/*.cjs": {
+      "types": "./dist/types/plugins/package/utils/package-json-loader/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/package-json-loader/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/package-json-loader/*.cjs",
+      "default": "./src/plugins/package/utils/package-json-loader/*.ts"
     },
-    "./plugins/package/utils/fields/workspaces/*.js": {
-      "types": "./dist/types/plugins/package/utils/fields/workspaces/*.d.ts",
-      "import": "./dist/esm/plugins/package/utils/fields/workspaces/*.mjs",
-      "require": "./dist/cjs/plugins/package/utils/fields/workspaces/*.cjs",
-      "default": "./src/plugins/package/utils/fields/workspaces/*.ts"
+    "./plugins/package/utils/package-json-loader/*.js": {
+      "types": "./dist/types/plugins/package/utils/package-json-loader/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/package-json-loader/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/package-json-loader/*.cjs",
+      "default": "./src/plugins/package/utils/package-json-loader/*.ts"
     },
-    "./plugins/package/utils/fields/workspaces/*.mjs": {
-      "types": "./dist/types/plugins/package/utils/fields/workspaces/*.d.ts",
-      "import": "./dist/esm/plugins/package/utils/fields/workspaces/*.mjs",
-      "require": "./dist/cjs/plugins/package/utils/fields/workspaces/*.cjs",
-      "default": "./src/plugins/package/utils/fields/workspaces/*.ts"
+    "./plugins/package/utils/package-json-loader/*.mjs": {
+      "types": "./dist/types/plugins/package/utils/package-json-loader/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/package-json-loader/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/package-json-loader/*.cjs",
+      "default": "./src/plugins/package/utils/package-json-loader/*.ts"
     },
-    "./plugins/package/utils/fields/workspaces/*.ts": {
-      "types": "./dist/types/plugins/package/utils/fields/workspaces/*.d.ts",
-      "import": "./dist/esm/plugins/package/utils/fields/workspaces/*.mjs",
-      "require": "./dist/cjs/plugins/package/utils/fields/workspaces/*.cjs",
-      "default": "./src/plugins/package/utils/fields/workspaces/*.ts"
+    "./plugins/package/utils/package-json-loader/*.ts": {
+      "types": "./dist/types/plugins/package/utils/package-json-loader/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/package-json-loader/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/package-json-loader/*.cjs",
+      "default": "./src/plugins/package/utils/package-json-loader/*.ts"
     },
-    "./plugins/package/utils/fields/workspaces/*": {
-      "types": "./dist/types/plugins/package/utils/fields/workspaces/*",
-      "import": "./dist/esm/plugins/package/utils/fields/workspaces/*",
-      "require": "./dist/cjs/plugins/package/utils/fields/workspaces/*",
-      "default": "./src/plugins/package/utils/fields/workspaces/*"
+    "./plugins/package/utils/package-json-loader/*": {
+      "types": "./dist/types/plugins/package/utils/package-json-loader/*",
+      "import": "./dist/esm/plugins/package/utils/package-json-loader/*",
+      "require": "./dist/cjs/plugins/package/utils/package-json-loader/*",
+      "default": "./src/plugins/package/utils/package-json-loader/*"
     },
-    "./plugins/package/utils/fields": {
-      "types": "./dist/types/plugins/package/utils/fields/index.d.ts",
-      "import": "./dist/esm/plugins/package/utils/fields/index.mjs",
-      "require": "./dist/cjs/plugins/package/utils/fields/index.cjs",
-      "default": "./src/plugins/package/utils/fields/index.ts"
+    "./plugins/package/utils/workspace-glob-pattern-matcher": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-pattern-matcher/index.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-glob-pattern-matcher/index.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-glob-pattern-matcher/index.cjs",
+      "default": "./src/plugins/package/utils/workspace-glob-pattern-matcher/index.ts"
     },
-    "./plugins/package/utils/fields/": {
-      "types": "./dist/types/plugins/package/utils/fields/index.d.ts",
-      "import": "./dist/esm/plugins/package/utils/fields/index.mjs",
-      "require": "./dist/cjs/plugins/package/utils/fields/index.cjs",
-      "default": "./src/plugins/package/utils/fields/index.ts"
+    "./plugins/package/utils/workspace-glob-pattern-matcher/": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-pattern-matcher/index.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-glob-pattern-matcher/index.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-glob-pattern-matcher/index.cjs",
+      "default": "./src/plugins/package/utils/workspace-glob-pattern-matcher/index.ts"
     },
-    "./plugins/package/utils/fields/*.d.ts": {
-      "types": "./dist/types/plugins/package/utils/fields/*.d.ts",
-      "default": "./src/plugins/package/utils/fields/*.ts"
+    "./plugins/package/utils/workspace-glob-pattern-matcher/*.d.ts": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-pattern-matcher/*.d.ts",
+      "default": "./src/plugins/package/utils/workspace-glob-pattern-matcher/*.ts"
     },
-    "./plugins/package/utils/fields/*.cjs": {
-      "types": "./dist/types/plugins/package/utils/fields/*.d.ts",
-      "import": "./dist/esm/plugins/package/utils/fields/*.mjs",
-      "require": "./dist/cjs/plugins/package/utils/fields/*.cjs",
-      "default": "./src/plugins/package/utils/fields/*.ts"
+    "./plugins/package/utils/workspace-glob-pattern-matcher/*.cjs": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-pattern-matcher/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-glob-pattern-matcher/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-glob-pattern-matcher/*.cjs",
+      "default": "./src/plugins/package/utils/workspace-glob-pattern-matcher/*.ts"
     },
-    "./plugins/package/utils/fields/*.js": {
-      "types": "./dist/types/plugins/package/utils/fields/*.d.ts",
-      "import": "./dist/esm/plugins/package/utils/fields/*.mjs",
-      "require": "./dist/cjs/plugins/package/utils/fields/*.cjs",
-      "default": "./src/plugins/package/utils/fields/*.ts"
+    "./plugins/package/utils/workspace-glob-pattern-matcher/*.js": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-pattern-matcher/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-glob-pattern-matcher/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-glob-pattern-matcher/*.cjs",
+      "default": "./src/plugins/package/utils/workspace-glob-pattern-matcher/*.ts"
     },
-    "./plugins/package/utils/fields/*.mjs": {
-      "types": "./dist/types/plugins/package/utils/fields/*.d.ts",
-      "import": "./dist/esm/plugins/package/utils/fields/*.mjs",
-      "require": "./dist/cjs/plugins/package/utils/fields/*.cjs",
-      "default": "./src/plugins/package/utils/fields/*.ts"
+    "./plugins/package/utils/workspace-glob-pattern-matcher/*.mjs": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-pattern-matcher/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-glob-pattern-matcher/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-glob-pattern-matcher/*.cjs",
+      "default": "./src/plugins/package/utils/workspace-glob-pattern-matcher/*.ts"
     },
-    "./plugins/package/utils/fields/*.ts": {
-      "types": "./dist/types/plugins/package/utils/fields/*.d.ts",
-      "import": "./dist/esm/plugins/package/utils/fields/*.mjs",
-      "require": "./dist/cjs/plugins/package/utils/fields/*.cjs",
-      "default": "./src/plugins/package/utils/fields/*.ts"
+    "./plugins/package/utils/workspace-glob-pattern-matcher/*.ts": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-pattern-matcher/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-glob-pattern-matcher/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-glob-pattern-matcher/*.cjs",
+      "default": "./src/plugins/package/utils/workspace-glob-pattern-matcher/*.ts"
     },
-    "./plugins/package/utils/fields/*": {
-      "types": "./dist/types/plugins/package/utils/fields/*",
-      "import": "./dist/esm/plugins/package/utils/fields/*",
-      "require": "./dist/cjs/plugins/package/utils/fields/*",
-      "default": "./src/plugins/package/utils/fields/*"
+    "./plugins/package/utils/workspace-glob-pattern-matcher/*": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-pattern-matcher/*",
+      "import": "./dist/esm/plugins/package/utils/workspace-glob-pattern-matcher/*",
+      "require": "./dist/cjs/plugins/package/utils/workspace-glob-pattern-matcher/*",
+      "default": "./src/plugins/package/utils/workspace-glob-pattern-matcher/*"
     },
-    "./plugins/package/utils/module": {
-      "types": "./dist/types/plugins/package/utils/module/index.d.ts",
-      "import": "./dist/esm/plugins/package/utils/module/index.mjs",
-      "require": "./dist/cjs/plugins/package/utils/module/index.cjs",
-      "default": "./src/plugins/package/utils/module/index.ts"
+    "./plugins/package/utils/workspace-glob-patterns-extractor": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-patterns-extractor/index.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-glob-patterns-extractor/index.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-glob-patterns-extractor/index.cjs",
+      "default": "./src/plugins/package/utils/workspace-glob-patterns-extractor/index.ts"
     },
-    "./plugins/package/utils/module/": {
-      "types": "./dist/types/plugins/package/utils/module/index.d.ts",
-      "import": "./dist/esm/plugins/package/utils/module/index.mjs",
-      "require": "./dist/cjs/plugins/package/utils/module/index.cjs",
-      "default": "./src/plugins/package/utils/module/index.ts"
+    "./plugins/package/utils/workspace-glob-patterns-extractor/": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-patterns-extractor/index.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-glob-patterns-extractor/index.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-glob-patterns-extractor/index.cjs",
+      "default": "./src/plugins/package/utils/workspace-glob-patterns-extractor/index.ts"
     },
-    "./plugins/package/utils/module/*.d.ts": {
-      "types": "./dist/types/plugins/package/utils/module/*.d.ts",
-      "default": "./src/plugins/package/utils/module/*.ts"
+    "./plugins/package/utils/workspace-glob-patterns-extractor/*.d.ts": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-patterns-extractor/*.d.ts",
+      "default": "./src/plugins/package/utils/workspace-glob-patterns-extractor/*.ts"
     },
-    "./plugins/package/utils/module/*.cjs": {
-      "types": "./dist/types/plugins/package/utils/module/*.d.ts",
-      "import": "./dist/esm/plugins/package/utils/module/*.mjs",
-      "require": "./dist/cjs/plugins/package/utils/module/*.cjs",
-      "default": "./src/plugins/package/utils/module/*.ts"
+    "./plugins/package/utils/workspace-glob-patterns-extractor/*.cjs": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-patterns-extractor/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-glob-patterns-extractor/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-glob-patterns-extractor/*.cjs",
+      "default": "./src/plugins/package/utils/workspace-glob-patterns-extractor/*.ts"
     },
-    "./plugins/package/utils/module/*.js": {
-      "types": "./dist/types/plugins/package/utils/module/*.d.ts",
-      "import": "./dist/esm/plugins/package/utils/module/*.mjs",
-      "require": "./dist/cjs/plugins/package/utils/module/*.cjs",
-      "default": "./src/plugins/package/utils/module/*.ts"
+    "./plugins/package/utils/workspace-glob-patterns-extractor/*.js": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-patterns-extractor/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-glob-patterns-extractor/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-glob-patterns-extractor/*.cjs",
+      "default": "./src/plugins/package/utils/workspace-glob-patterns-extractor/*.ts"
     },
-    "./plugins/package/utils/module/*.mjs": {
-      "types": "./dist/types/plugins/package/utils/module/*.d.ts",
-      "import": "./dist/esm/plugins/package/utils/module/*.mjs",
-      "require": "./dist/cjs/plugins/package/utils/module/*.cjs",
-      "default": "./src/plugins/package/utils/module/*.ts"
+    "./plugins/package/utils/workspace-glob-patterns-extractor/*.mjs": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-patterns-extractor/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-glob-patterns-extractor/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-glob-patterns-extractor/*.cjs",
+      "default": "./src/plugins/package/utils/workspace-glob-patterns-extractor/*.ts"
     },
-    "./plugins/package/utils/module/*.ts": {
-      "types": "./dist/types/plugins/package/utils/module/*.d.ts",
-      "import": "./dist/esm/plugins/package/utils/module/*.mjs",
-      "require": "./dist/cjs/plugins/package/utils/module/*.cjs",
-      "default": "./src/plugins/package/utils/module/*.ts"
+    "./plugins/package/utils/workspace-glob-patterns-extractor/*.ts": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-patterns-extractor/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-glob-patterns-extractor/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-glob-patterns-extractor/*.cjs",
+      "default": "./src/plugins/package/utils/workspace-glob-patterns-extractor/*.ts"
     },
-    "./plugins/package/utils/module/*": {
-      "types": "./dist/types/plugins/package/utils/module/*",
-      "import": "./dist/esm/plugins/package/utils/module/*",
-      "require": "./dist/cjs/plugins/package/utils/module/*",
-      "default": "./src/plugins/package/utils/module/*"
+    "./plugins/package/utils/workspace-glob-patterns-extractor/*": {
+      "types": "./dist/types/plugins/package/utils/workspace-glob-patterns-extractor/*",
+      "import": "./dist/esm/plugins/package/utils/workspace-glob-patterns-extractor/*",
+      "require": "./dist/cjs/plugins/package/utils/workspace-glob-patterns-extractor/*",
+      "default": "./src/plugins/package/utils/workspace-glob-patterns-extractor/*"
+    },
+    "./plugins/package/utils/workspace-paths-extractor": {
+      "types": "./dist/types/plugins/package/utils/workspace-paths-extractor/index.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-paths-extractor/index.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-paths-extractor/index.cjs",
+      "default": "./src/plugins/package/utils/workspace-paths-extractor/index.ts"
+    },
+    "./plugins/package/utils/workspace-paths-extractor/": {
+      "types": "./dist/types/plugins/package/utils/workspace-paths-extractor/index.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-paths-extractor/index.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-paths-extractor/index.cjs",
+      "default": "./src/plugins/package/utils/workspace-paths-extractor/index.ts"
+    },
+    "./plugins/package/utils/workspace-paths-extractor/*.d.ts": {
+      "types": "./dist/types/plugins/package/utils/workspace-paths-extractor/*.d.ts",
+      "default": "./src/plugins/package/utils/workspace-paths-extractor/*.ts"
+    },
+    "./plugins/package/utils/workspace-paths-extractor/*.cjs": {
+      "types": "./dist/types/plugins/package/utils/workspace-paths-extractor/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-paths-extractor/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-paths-extractor/*.cjs",
+      "default": "./src/plugins/package/utils/workspace-paths-extractor/*.ts"
+    },
+    "./plugins/package/utils/workspace-paths-extractor/*.js": {
+      "types": "./dist/types/plugins/package/utils/workspace-paths-extractor/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-paths-extractor/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-paths-extractor/*.cjs",
+      "default": "./src/plugins/package/utils/workspace-paths-extractor/*.ts"
+    },
+    "./plugins/package/utils/workspace-paths-extractor/*.mjs": {
+      "types": "./dist/types/plugins/package/utils/workspace-paths-extractor/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-paths-extractor/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-paths-extractor/*.cjs",
+      "default": "./src/plugins/package/utils/workspace-paths-extractor/*.ts"
+    },
+    "./plugins/package/utils/workspace-paths-extractor/*.ts": {
+      "types": "./dist/types/plugins/package/utils/workspace-paths-extractor/*.d.ts",
+      "import": "./dist/esm/plugins/package/utils/workspace-paths-extractor/*.mjs",
+      "require": "./dist/cjs/plugins/package/utils/workspace-paths-extractor/*.cjs",
+      "default": "./src/plugins/package/utils/workspace-paths-extractor/*.ts"
+    },
+    "./plugins/package/utils/workspace-paths-extractor/*": {
+      "types": "./dist/types/plugins/package/utils/workspace-paths-extractor/*",
+      "import": "./dist/esm/plugins/package/utils/workspace-paths-extractor/*",
+      "require": "./dist/cjs/plugins/package/utils/workspace-paths-extractor/*",
+      "default": "./src/plugins/package/utils/workspace-paths-extractor/*"
     },
     "./plugins/package/utils": {
       "types": "./dist/types/plugins/package/utils/index.d.ts",
@@ -2287,6 +2471,52 @@
       "import": "./dist/esm/integration/*",
       "require": "./dist/cjs/integration/*",
       "default": "./src/integration/*"
+    },
+    "./lib": {
+      "types": "./dist/types/lib/index.d.ts",
+      "import": "./dist/esm/lib/index.mjs",
+      "require": "./dist/cjs/lib/index.cjs",
+      "default": "./src/lib/index.ts"
+    },
+    "./lib/": {
+      "types": "./dist/types/lib/index.d.ts",
+      "import": "./dist/esm/lib/index.mjs",
+      "require": "./dist/cjs/lib/index.cjs",
+      "default": "./src/lib/index.ts"
+    },
+    "./lib/*.d.ts": {
+      "types": "./dist/types/lib/*.d.ts",
+      "default": "./src/lib/*.ts"
+    },
+    "./lib/*.cjs": {
+      "types": "./dist/types/lib/*.d.ts",
+      "import": "./dist/esm/lib/*.mjs",
+      "require": "./dist/cjs/lib/*.cjs",
+      "default": "./src/lib/*.ts"
+    },
+    "./lib/*.js": {
+      "types": "./dist/types/lib/*.d.ts",
+      "import": "./dist/esm/lib/*.mjs",
+      "require": "./dist/cjs/lib/*.cjs",
+      "default": "./src/lib/*.ts"
+    },
+    "./lib/*.mjs": {
+      "types": "./dist/types/lib/*.d.ts",
+      "import": "./dist/esm/lib/*.mjs",
+      "require": "./dist/cjs/lib/*.cjs",
+      "default": "./src/lib/*.ts"
+    },
+    "./lib/*.ts": {
+      "types": "./dist/types/lib/*.d.ts",
+      "import": "./dist/esm/lib/*.mjs",
+      "require": "./dist/cjs/lib/*.cjs",
+      "default": "./src/lib/*.ts"
+    },
+    "./lib/*": {
+      "types": "./dist/types/lib/*",
+      "import": "./dist/esm/lib/*",
+      "require": "./dist/cjs/lib/*",
+      "default": "./src/lib/*"
     },
     "./module": {
       "types": "./dist/types/module/index.d.ts",
