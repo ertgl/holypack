@@ -85,7 +85,6 @@ export class ESLintIntegrationNPluginAPI
       ".json",
     ];
 
-    // TODO(ertgl): Create `WorkspacePlugin` for resolving current workspace root.
     const rootDirPaths = Array.from(
       new Set([
         context.cwd,

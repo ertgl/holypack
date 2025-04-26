@@ -39,7 +39,6 @@ export function resolveESLintIntegrationCSpellPluginOptions(
       checkJSXText: overrides.checkJSXText ?? true,
       checkStrings: overrides.checkStrings ?? true,
       checkStringTemplates: overrides.checkStringTemplates ?? true,
-      // TODO(ertgl): Maybe check for the existence of the cspell config file.
       configFile: (
         overrides.configFile
         ?? resolvePath(
