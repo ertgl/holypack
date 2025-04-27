@@ -44,8 +44,8 @@ export function resolveBabelConfig(
    */
   const commentAttributesPluginOptions = {
     context: {
-      isCJS,
-      isESM,
+      cjs: isCJS,
+      esm: isESM,
     },
   };
 

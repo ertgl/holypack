@@ -1,10 +1,10 @@
-// #[cfg(isESM) ?? __NODE_PATH__.remove()]
+// #[cfg(esm) ?? __NODE_PATH__.remove()]
 import { createRequire } from "node:module";
 import {
   isAbsolute as isAbsolutePath,
   resolve as resolvePath,
 } from "node:path";
-// #[cfg(isESM) ?? __NODE_PATH__.remove()]
+// #[cfg(esm) ?? __NODE_PATH__.remove()]
 import { fileURLToPath } from "node:url";
 
 import type PicomatchModule from "picomatch";
@@ -12,10 +12,10 @@ import type PicomatchModule from "picomatch";
 import type { PathLike } from "../../../lib/fs";
 import { convertPathLikeToString } from "../utils/path-like-converter";
 
-// #[cfg(isESM) ?? __NODE_PATH__.remove()]
+// #[cfg(esm) ?? __NODE_PATH__.remove()]
 const __filename = fileURLToPath(import.meta.url);
 
-// #[cfg(isESM) ?? __NODE_PATH__.remove()]
+// #[cfg(esm) ?? __NODE_PATH__.remove()]
 const require = createRequire(__filename);
 
 const picomatch = require("picomatch") as typeof PicomatchModule;
