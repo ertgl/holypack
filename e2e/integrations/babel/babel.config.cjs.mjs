@@ -1,16 +1,8 @@
-import createHolypackPreset from "@holypack/babel-preset";
+import holypackLegacyPreset from "@holypack/babel-preset/legacy";
 
 /**
  * @import { type TransformOptions } from "@babel/core";
  */
-
-const holypackPreset = await createHolypackPreset({
-  context: {
-    overrides: {
-      legacy: true,
-    },
-  },
-});
 
 /**
  * @type {TransformOptions}
@@ -18,7 +10,7 @@ const holypackPreset = await createHolypackPreset({
 const BABEL_CONFIG = {
   presets: [
     [
-      holypackPreset.value,
+      holypackLegacyPreset,
       {},
     ],
   ],

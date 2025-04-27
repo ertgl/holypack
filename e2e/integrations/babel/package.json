@@ -2,7 +2,12 @@
   "name": "@holypack/e2e-integration-babel",
   "private": true,
   "type": "module",
+  "scripts": {
+    "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm",
+    "clean": "rm -fr dist"
+  },
   "devDependencies": {
+    "@babel/cli": "^7.27.0",
     "@holypack/core": "*",
     "@holypack/integration-babel": "*",
     "holypack": "*"

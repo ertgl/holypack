@@ -5,8 +5,8 @@
   "scripts": {
     "build": "yarn e2e:w:foreach::parallel::topological run build",
     "clean": "yarn e2e:w:foreach::parallel::interlaced run clean",
-    "e2e:w:foreach::parallel::interlaced": "yarn w:foreach::parallel::interlaced --exclude '@holypack/__e2e__'",
-    "e2e:w:foreach::parallel::topological": "yarn w:foreach::parallel::topological --exclude '@holypack/__e2e__'",
+    "e2e:w:foreach::parallel::interlaced": "yarn w:foreach::parallel::interlaced --exclude '@holypack/__e2e__' --exclude '@holypack/integration-babel'",
+    "e2e:w:foreach::parallel::topological": "yarn w:foreach::parallel::topological --exclude '@holypack/__e2e__' --exclude '@holypack/integration-babel'",
     "prepare": "yarn e2e:w:foreach::parallel::topological run prepare",
     "test": "yarn e2e:w:foreach::parallel::topological run test"
   },
@@ -20,6 +20,7 @@
     "tapable": "^2.2.1"
   },
   "workspaces": [
+    "../integrations/babel",
     "../internal/integrations/yarn",
     "./integrations/*"
   ],

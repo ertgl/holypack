@@ -36,6 +36,52 @@
       "require": "./dist/cjs/index.cjs",
       "default": "./src/index.ts"
     },
+    "./legacy": {
+      "types": "./dist/types/legacy/index.d.ts",
+      "import": "./dist/esm/legacy/index.mjs",
+      "require": "./dist/cjs/legacy/index.cjs",
+      "default": "./src/legacy/index.ts"
+    },
+    "./legacy/": {
+      "types": "./dist/types/legacy/index.d.ts",
+      "import": "./dist/esm/legacy/index.mjs",
+      "require": "./dist/cjs/legacy/index.cjs",
+      "default": "./src/legacy/index.ts"
+    },
+    "./legacy/*.d.ts": {
+      "types": "./dist/types/legacy/*.d.ts",
+      "default": "./src/legacy/*.ts"
+    },
+    "./legacy/*.cjs": {
+      "types": "./dist/types/legacy/*.d.ts",
+      "import": "./dist/esm/legacy/*.mjs",
+      "require": "./dist/cjs/legacy/*.cjs",
+      "default": "./src/legacy/*.ts"
+    },
+    "./legacy/*.js": {
+      "types": "./dist/types/legacy/*.d.ts",
+      "import": "./dist/esm/legacy/*.mjs",
+      "require": "./dist/cjs/legacy/*.cjs",
+      "default": "./src/legacy/*.ts"
+    },
+    "./legacy/*.mjs": {
+      "types": "./dist/types/legacy/*.d.ts",
+      "import": "./dist/esm/legacy/*.mjs",
+      "require": "./dist/cjs/legacy/*.cjs",
+      "default": "./src/legacy/*.ts"
+    },
+    "./legacy/*.ts": {
+      "types": "./dist/types/legacy/*.d.ts",
+      "import": "./dist/esm/legacy/*.mjs",
+      "require": "./dist/cjs/legacy/*.cjs",
+      "default": "./src/legacy/*.ts"
+    },
+    "./legacy/*": {
+      "types": "./dist/types/legacy/*",
+      "import": "./dist/esm/legacy/*",
+      "require": "./dist/cjs/legacy/*",
+      "default": "./src/legacy/*"
+    },
     "./*.d.ts": {
       "types": "./dist/types/*.d.ts",
       "default": "./src/*.ts"
