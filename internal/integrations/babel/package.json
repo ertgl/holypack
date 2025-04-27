@@ -7,6 +7,7 @@
     "@babel/preset-typescript": "^7.27.0",
     "@types/babel__core": "^7.20.5",
     "@types/babel__preset-env": "^7.10.0",
+    "babel-plugin-comment-attributes": "^1.0.0",
     "babel-plugin-transform-import-source": "^1.0.0"
   },
   "files": [

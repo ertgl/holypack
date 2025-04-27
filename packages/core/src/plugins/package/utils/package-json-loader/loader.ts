@@ -1,13 +1,17 @@
+// #[cfg(isESM) ?? __NODE_PATH__.remove()]
 import { createRequire } from "node:module";
 import { join as joinPaths } from "node:path";
+// #[cfg(isESM) ?? __NODE_PATH__.remove()]
 import { fileURLToPath } from "node:url";
 
 import type { PathLike } from "../../../../lib/fs";
 import { convertPathLikeToString } from "../../../../lib/path/utils/path-like-converter";
 import type { PackageJSON } from "../../package-json";
 
+// #[cfg(isESM) ?? __NODE_PATH__.remove()]
 const __filename = fileURLToPath(import.meta.url);
 
+// #[cfg(isESM) ?? __NODE_PATH__.remove()]
 const require = createRequire(__filename);
 
 export function requirePackageJSONByDirectoryPath(

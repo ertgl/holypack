@@ -2195,6 +2195,7 @@ __metadata:
     "@babel/preset-typescript": "npm:^7.27.0"
     "@types/babel__core": "npm:^7.20.5"
     "@types/babel__preset-env": "npm:^7.10.0"
+    babel-plugin-comment-attributes: "npm:^1.0.0"
     babel-plugin-transform-import-source: "npm:^1.0.0"
   languageName: unknown
   linkType: soft
@@ -2889,6 +2890,15 @@ __metadata:
   version: 1.0.3
   resolution: "array-timsort@npm:1.0.3"
   checksum: 10c0/bd3a1707b621947265c89867e67c9102b9b9f4c50f5b3974220112290d8b60d26ce60595edec5deed3325207b759d70b758bed3cd310b5ddadb835657ffb6d12
+  languageName: node
+  linkType: hard
+
+"babel-plugin-comment-attributes@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "babel-plugin-comment-attributes@npm:1.0.0"
+  peerDependencies:
+    "@babel/helper-plugin-utils": "*"
+  checksum: 10c0/b38892709d13d64eddd8946f20dc9f5dc1728b77f8bd5d160146ba1d452eba28b015c7644c7cdeaa526f37a22106647848022cbd3ca35e4262fe66c38e477936
   languageName: node
   linkType: hard
 

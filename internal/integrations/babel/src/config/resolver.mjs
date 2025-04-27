@@ -3,6 +3,10 @@ import { fileURLToPath } from "node:url";
 
 /**
  * @import { type TransformOptions } from "@babel/core";
+ * @import { type Options as BabelEnvPresetOptions } from "@babel/preset-env";
+ * @import {
+ *   type Options as CommentAttributesPluginOptions,
+ * } from "babel-plugin-comment-attributes";
  * @import {
  *   type Options as ImportSourceTransformerPluginOptions,
  * } from "babel-plugin-transform-import-source";
@@ -36,6 +40,16 @@ export function resolveBabelConfig(
   const isESM = targetExtension.endsWith(".mjs");
 
   /**
+   * @type {CommentAttributesPluginOptions}
+   */
+  const commentAttributesPluginOptions = {
+    context: {
+      isCJS,
+      isESM,
+    },
+  };
+
+  /**
    * @type {ImportSourceTransformerPluginOptions}
    */
   const importSourceTransformerPluginOptions = {
@@ -52,10 +66,37 @@ export function resolveBabelConfig(
   };
 
   /**
+   * @type {BabelEnvPresetOptions}
+   */
+  const envPresetOptions = {
+    bugfixes: true,
+    ignoreBrowserslistConfig: true,
+    modules: (
+      isESM
+        ? false
+        : (
+            isCJS
+              ? "commonjs"
+              : "auto"
+          )
+    ),
+    targets: {
+      // eslint-disable-next-line @cspell/spellchecker
+      esmodules: isESM || undefined,
+      node: isESM ? "current" : true,
+    },
+  };
+
+  /**
    * @type {TransformOptions}
    */
   const transformOptions = {
     plugins: [
+      [
+        require.resolve("babel-plugin-comment-attributes"),
+        commentAttributesPluginOptions,
+      ],
+
       [
         require.resolve("babel-plugin-transform-import-source"),
         importSourceTransformerPluginOptions,
@@ -65,17 +106,7 @@ export function resolveBabelConfig(
     presets: [
       [
         require.resolve("@babel/preset-env"),
-        {
-          modules: (
-            isESM
-              ? false
-              : (
-                  isCJS
-                    ? "commonjs"
-                    : "auto"
-                )
-          ),
-        },
+        envPresetOptions,
       ],
 
       [
@@ -87,6 +118,8 @@ export function resolveBabelConfig(
     ],
 
     sourceMaps: true,
+
+    sourceType: "unambiguous",
   };
 
   return transformOptions;
