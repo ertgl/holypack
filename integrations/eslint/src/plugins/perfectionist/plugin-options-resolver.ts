@@ -24,6 +24,11 @@ export function resolveESLintIntegrationPerfectionistPluginOptions(
       : options ?? {}
   );
 
+  const commentPatternsForPartition = (
+    optionsObject.commentPatternsForPartition
+    ?? []
+  );
+
   const internalPattern = (
     optionsObject.internalPattern
     ?? []
@@ -54,6 +59,7 @@ export function resolveESLintIntegrationPerfectionistPluginOptions(
 
   return {
     ...optionsObject,
+    commentPatternsForPartition,
     internalPattern: internalPatternStringArray,
   };
 }

@@ -4,6 +4,7 @@ export type ESLintIntegrationPerfectionistPluginOptions = (
 );
 
 export type ESLintIntegrationPerfectionistPluginOptionsBaseProperties = {
+  commentPatternsForPartition?: unknown;
   internalPattern?: (RegExp | string)[] | null | RegExp | string;
 };
 
@@ -17,6 +18,7 @@ export type ESLintIntegrationPerfectionistPluginResolvedOptions = (
 );
 
 export type ESLintIntegrationPerfectionistPluginResolvedOptionsBaseProperties = {
+  commentPatternsForPartition: unknown;
   internalPattern: string[];
 };
 

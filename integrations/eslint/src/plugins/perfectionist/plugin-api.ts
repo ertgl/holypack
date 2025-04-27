@@ -129,6 +129,7 @@ export class ESLintIntegrationPerfectionistPluginAPI
               ignoreCase: false,
               internalPattern: resolvedOptions.internalPattern,
               newlinesBetween: "always",
+              partitionByComment: resolvedOptions.commentPatternsForPartition,
               tsconfigRootDir: context.cwd,
             },
           ],
