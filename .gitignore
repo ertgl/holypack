@@ -18,5 +18,8 @@ dist/
 .yarn/
 node_modules/
 
+# Testing and coverage artifacts
+coverage/
+
 # TypeScript artifacts
 *.tsbuildinfo
