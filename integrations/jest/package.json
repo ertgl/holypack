@@ -3,10 +3,11 @@
   "scripts": {
     "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn hack:update-package-exports",
     "clean": "rm -fr dist",
-    "cmd:jest": "cd $INIT_CWD && jest"
+    "cmd:jest": "cd $INIT_CWD && node --disable-warning=ExperimentalWarning --experimental-vm-modules $(yarn bin jest)"
   },
   "devDependencies": {
     "@holypack/core": "workspace:^",
+    "@types/jest": "^29.5.14",
     "jest": "^29.7.0"
   },
   "peerDependencies": {
