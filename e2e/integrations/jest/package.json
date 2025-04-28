@@ -3,7 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "jest": "jest"
+    "clean": "yarn coverage:clean",
+    "coverage:clean": "rm -fr coverage",
+    "jest": "yarn cmd:jest",
+    "test": "yarn coverage:clean && yarn jest"
   },
   "devDependencies": {
     "@holypack/core": "*",

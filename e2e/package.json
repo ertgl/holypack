@@ -21,6 +21,7 @@
   },
   "workspaces": [
     "../integrations/babel",
+    "../integrations/jest",
     "../internal/integrations/yarn",
     "./integrations/*"
   ],
