@@ -1,8 +1,12 @@
 import {
+  bindSubIntegration,
   type ContextResolutionOptions,
   type Integration,
+  type StrictConfig,
   type StrictContext,
 } from "@holypack/core";
+
+import { createJestIntegrationESLintPlugin } from "../plugins/eslint";
 
 import { INTEGRATION_NAME_JEST } from "./integration-name";
 import type { JestIntegrationOptions } from "./integration-options";
@@ -26,6 +30,15 @@ export class JestIntegration implements Integration
   ): void
   {
     context.jest = {};
+  }
+
+  async setup(
+    context: StrictContext,
+    config: StrictConfig,
+  ): Promise<void>
+  {
+    const eslintPlugin = createJestIntegrationESLintPlugin();
+    await bindSubIntegration(context, config, eslintPlugin);
   }
 }
 
