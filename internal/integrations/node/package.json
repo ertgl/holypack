@@ -5,7 +5,7 @@
     "cmd:node": "cd $INIT_CWD && node"
   },
   "devDependencies": {
-    "@types/node": "^22.15.2"
+    "@types/node": "^22.15.3"
   },
   "files": [
     "./package.json"
