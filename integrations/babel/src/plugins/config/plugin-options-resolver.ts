@@ -26,15 +26,8 @@ export function resolveBabelIntegrationConfigPluginOptions(
     ...optionsObject,
     overrides: {
       ...overrides,
-      cwd: overrides.cwd ?? cwd,
       sourceMaps: overrides.sourceMaps ?? true,
       sourceType: overrides.sourceType ?? "unambiguous",
-      targets: (
-        overrides.targets
-        ?? {
-          esmodules: !isLegacy,
-        }
-      ),
     },
   };
 }
