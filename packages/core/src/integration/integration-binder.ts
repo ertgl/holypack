@@ -1,4 +1,4 @@
-import type { Context } from "../context";
+import type { TypeSafeContext } from "../context";
 import { generateHookSubscriptionIDForPlugin } from "../eventing";
 import {
   bindPlugin,
@@ -11,7 +11,7 @@ import type { IntegrationBinderOptions } from "./integration-binder-options";
 import { getIntegrationRegistry } from "./integration-registry-getter";
 
 export function bindIntegration(
-  context: Context,
+  context: TypeSafeContext,
   integration: Integration,
   options?: IntegrationBinderOptions | null,
 ): void

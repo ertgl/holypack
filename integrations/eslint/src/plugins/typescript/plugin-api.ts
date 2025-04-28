@@ -1,9 +1,9 @@
 import type { Linter } from "eslint";
 import type TypeScriptPluginModule from "typescript-eslint";
 
-import type { ResolvedContext } from "@holypack/core";
-import { emitWarning } from "@holypack/core/context/warnings";
+import type { TypeSafeContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
+import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
 
 import {
   GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
@@ -29,7 +29,7 @@ export class ESLintIntegrationTypeScriptPluginAPI
   }
 
   async addESLintConfig(
-    context: ResolvedContext,
+    context: TypeSafeContext,
     configs: Linter.Config[],
     options?: boolean | ESLintIntegrationTypeScriptPluginOptions | null,
   ): Promise<void>
@@ -38,7 +38,7 @@ export class ESLintIntegrationTypeScriptPluginAPI
       context.cwd,
       options,
       {
-        tsconfigRootDir: context.typescript.tsconfigRootDirectoryPath,
+        tsconfigRootDir: context.typescript?.tsconfigRootDirectoryPath,
       },
     );
 

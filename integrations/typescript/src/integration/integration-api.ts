@@ -1,7 +1,4 @@
-import type {
-  Context,
-  ResolvedContext,
-} from "@holypack/core";
+import type { TypeSafeContext } from "@holypack/core";
 
 import {
   findTSConfigRootDirectoryPath,
@@ -22,7 +19,7 @@ export class TypeScriptIntegrationAPI
   }
 
   async findTSConfigRootDirectoryPath(
-    context: Context | ResolvedContext,
+    context: TypeSafeContext,
     options?: null | TSConfigRootDirectoryPathFinderOptions,
   ): Promise<string>
   {

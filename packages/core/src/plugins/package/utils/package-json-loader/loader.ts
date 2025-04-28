@@ -1,19 +1,20 @@
-// #[cfg(esm) ?? __NODE_PATH__.remove()]
+// #[cjs(remove)]
 import { createRequire } from "node:module";
 import { join as joinPaths } from "node:path";
-// #[cfg(esm) ?? __NODE_PATH__.remove()]
+// #[cjs(remove)]
 import { fileURLToPath } from "node:url";
 
 import type { PathLike } from "../../../../lib/fs";
 import { convertPathLikeToString } from "../../../../lib/path/utils/path-like-converter";
 import type { PackageJSON } from "../../package-json";
 
-// #[cfg(esm) ?? __NODE_PATH__.remove()]
+// #[cjs(remove)]
 const __filename = fileURLToPath(import.meta.url);
 
-// #[cfg(esm) ?? __NODE_PATH__.remove()]
+// #[cjs(remove)]
 const require = createRequire(__filename);
 
+// TODO(ertgl): Use JSON file loader (with custom FS support) instead of `require` to load package.json files.
 export function requirePackageJSONByDirectoryPath(
   directoryPath: PathLike,
 ): PackageJSON
@@ -23,6 +24,7 @@ export function requirePackageJSONByDirectoryPath(
   return requirePackageJSONByPath(packageJSONPath);
 }
 
+// TODO(ertgl): Use JSON file loader (with custom FS support) instead of `require` to load package.json files.
 export function requirePackageJSONByPath(
   packageJSONPath: PathLike,
 ): PackageJSON

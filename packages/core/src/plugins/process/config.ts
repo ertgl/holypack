@@ -21,3 +21,18 @@ export type ProcessResolvedConfigBaseProperties = {};
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface ProcessResolvedConfigCustomProperties
 {}
+
+export type TypeSafeProcessResolvedConfig = (
+  & ProcessResolvedConfigBaseProperties
+  & {
+    [key in keyof ProcessResolvedConfigCustomProperties]?: (
+      key extends keyof TypeSafeProcessResolvedConfigCustomProperties
+        ? TypeSafeProcessResolvedConfigCustomProperties[key]
+        : ProcessResolvedConfigCustomProperties[key]
+    );
+  }
+);
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface TypeSafeProcessResolvedConfigCustomProperties
+{}

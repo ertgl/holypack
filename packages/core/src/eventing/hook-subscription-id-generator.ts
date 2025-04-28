@@ -24,7 +24,7 @@ export function generateHookSubscriptionIDForPlugin(
 
   if (!id)
   {
-    id = `${plugin.name}#${hook.name}`;
+    id = `${plugin.name}:${hook.name}`;
   }
 
   return id;

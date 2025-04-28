@@ -1,4 +1,10 @@
-# Brace style
+# Babel
+esmodules
+
+# Babel, comment attributes
+voidify
+
+# ESLint, brace style
 allman
 
 # JavaScript, TypeScript, JSX

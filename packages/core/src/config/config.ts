@@ -26,3 +26,23 @@ export type ResolvedConfigBaseProperties = {};
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface ResolvedConfigCustomProperties
 {};
+
+export type TypeSafeConfig = (
+  & ConfigBaseProperties
+  & Partial<ConfigCustomProperties>
+);
+
+export type TypeSafeResolvedConfig = (
+  & ResolvedConfigBaseProperties
+  & {
+    [key in keyof ResolvedConfigCustomProperties]?: (
+      key extends keyof TypeSafeResolvedConfigCustomProperties
+        ? TypeSafeResolvedConfigCustomProperties[key]
+        : ResolvedConfigCustomProperties[key]
+    );
+  }
+);
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface TypeSafeResolvedConfigCustomProperties
+{}

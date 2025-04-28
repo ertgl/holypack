@@ -1,9 +1,9 @@
 import type { TransformOptions } from "@babel/core";
 import type BabelPresetEnvModule from "@babel/preset-env";
 
-import { type ResolvedContext } from "@holypack/core";
-import { emitWarning } from "@holypack/core/context/warnings";
+import type { TypeSafeContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
+import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
 
 import type { BabelPresetEnvOptions } from "./config";
 import type { BabelIntegrationEnvPlugin } from "./plugin";
@@ -22,14 +22,14 @@ export class BabelIntegrationEnvPluginAPI
   }
 
   async addBabelConfig(
-    context: ResolvedContext,
+    context: TypeSafeContext,
     transformOptions: TransformOptions,
     options?: BabelIntegrationEnvPluginOptions | boolean | null,
   ): Promise<void>
   {
     const resolvedOptions = resolveBabelIntegrationEnvPluginOptions(
       context.cwd,
-      context.legacy,
+      context.legacy ?? false,
       options,
     );
 

@@ -1,6 +1,6 @@
 import escapeRegExp from "lodash.escaperegexp";
 
-import type { WorkspaceRegistry } from "@holypack/core/plugins/workspace";
+import type { ResolvedWorkspace } from "@holypack/core/plugins/workspace";
 
 import type {
   ESLintIntegrationPerfectionistPluginOptions,
@@ -9,7 +9,7 @@ import type {
 
 export function resolveESLintIntegrationPerfectionistPluginOptions(
   cwd: string,
-  workspaces: WorkspaceRegistry,
+  workspaces: Iterable<ResolvedWorkspace>,
   options?: boolean | ESLintIntegrationPerfectionistPluginOptions | null,
 ): ESLintIntegrationPerfectionistPluginResolvedOptions | false
 {
@@ -51,7 +51,7 @@ export function resolveESLintIntegrationPerfectionistPluginOptions(
     },
   );
 
-  for (const workspace of workspaces.values())
+  for (const workspace of workspaces)
   {
     const workspaceNameRegexp = escapeRegExp(workspace.name);
     internalPatternStringArray.push(`^(?:${workspaceNameRegexp})(?:[\\/]+.*)?$`);

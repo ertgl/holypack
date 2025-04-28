@@ -1,0 +1,92 @@
+import {
+  isAbsolute as isAbsolutePath,
+  resolve as resolvePath,
+} from "node:path";
+
+import type { TypeSafeContext } from "../../../../context";
+import { resolveCWD } from "../../../../lib/process/cwd";
+import { requirePackageJSONByDirectoryPath } from "../../../package/utils/package-json-loader";
+import type { ProjectHookSet } from "../../eventing";
+import { findProjectRootPath } from "../../utils/project-root-path-finder";
+import type { ResolvedProject } from "../project";
+
+import type { ProjectResolutionOptions } from "./options";
+
+export async function resolveProject(
+  context: TypeSafeContext,
+  hooks: ProjectHookSet,
+  options?: null | ProjectResolutionOptions,
+): Promise<ResolvedProject>
+{
+  options ??= {};
+
+  const cwd = resolveCWD(options.cwd);
+
+  const projectConfig = options.project ?? {};
+
+  let projectPath = projectConfig.path;
+  if (!projectPath)
+  {
+    projectPath = await findProjectRootPath({
+      cwd,
+    });
+  }
+
+  const packageJSON = requirePackageJSONByDirectoryPath(projectPath);
+
+  const subProjects: ResolvedProject[] = [];
+
+  const project: Partial<ResolvedProject> = {
+    packageJSON,
+    path: projectPath,
+    subProjects,
+  };
+
+  await hooks.projectResolution.promise(
+    projectPath,
+    // TODO(ertgl): Create a mid type definition for the resolved project, to make it more strict.
+    project as unknown as ResolvedProject,
+    projectConfig,
+  );
+
+  if (projectConfig.subProjects != null)
+  {
+    for (const subProjectConfig of projectConfig.subProjects)
+    {
+      const subProjectPath = subProjectConfig.path ?? "";
+      if (!subProjectPath)
+      {
+        // TODO(ertgl): Standardize the error says that the sub-project path is required.
+        const err = new Error("Sub-project path is required");
+        throw err;
+      }
+
+      const subProjectAbsolutePath = (
+        isAbsolutePath(subProjectPath)
+          ? subProjectPath
+          : resolvePath(cwd, subProjectPath)
+      );
+
+      const subProject = await resolveProject(
+        context,
+        hooks,
+        {
+          ...options,
+          cwd,
+          project: {
+            ...subProjectConfig,
+            path: subProjectAbsolutePath,
+          },
+        },
+      );
+
+      subProjects.push(subProject);
+    }
+  }
+
+  await hooks.postProjectResolution.promise(
+    project as ResolvedProject,
+  );
+
+  return project as ResolvedProject;
+}

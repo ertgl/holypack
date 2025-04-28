@@ -14,6 +14,11 @@ declare module "../../../config"
   {
     warningMonitor: ProcessWarningMonitorResolvedConfig;
   }
+
+  interface TypeSafeProcessResolvedConfigCustomProperties
+  {
+    warningMonitor: Partial<ProcessWarningMonitorResolvedConfig>;
+  }
 }
 
 export {};

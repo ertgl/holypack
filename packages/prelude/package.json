@@ -2,13 +2,20 @@
   "name": "holypack",
   "scripts": {
     "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn hack:update-package-exports",
-    "clean": "rm -fr dist"
+    "clean": "rm -fr dist",
+    "cmd:holypack": "cd $INIT_CWD && holypack",
+    "cmd:holypack-cjs": "cd $INIT_CWD && holypack-cjs"
   },
   "devDependencies": {
     "@holypack/core": "workspace:^"
   },
   "peerDependencies": {
     "@holypack/core": "*"
+  },
+  "bin": {
+    "holypack": "./dist/esm/bin/holypack.mjs",
+    "holypack-cjs": "./dist/cjs/bin/holypack.cjs",
+    "holypack-ts": "./src/bin/holypack.ts"
   },
   "files": [
     "./dist/",
@@ -26,6 +33,52 @@
       "import": "./dist/esm/index.mjs",
       "require": "./dist/cjs/index.cjs",
       "default": "./src/index.ts"
+    },
+    "./bin": {
+      "types": "./dist/types/bin/index.d.ts",
+      "import": "./dist/esm/bin/index.mjs",
+      "require": "./dist/cjs/bin/index.cjs",
+      "default": "./src/bin/index.ts"
+    },
+    "./bin/": {
+      "types": "./dist/types/bin/index.d.ts",
+      "import": "./dist/esm/bin/index.mjs",
+      "require": "./dist/cjs/bin/index.cjs",
+      "default": "./src/bin/index.ts"
+    },
+    "./bin/*.d.ts": {
+      "types": "./dist/types/bin/*.d.ts",
+      "default": "./src/bin/*.ts"
+    },
+    "./bin/*.cjs": {
+      "types": "./dist/types/bin/*.d.ts",
+      "import": "./dist/esm/bin/*.mjs",
+      "require": "./dist/cjs/bin/*.cjs",
+      "default": "./src/bin/*.ts"
+    },
+    "./bin/*.js": {
+      "types": "./dist/types/bin/*.d.ts",
+      "import": "./dist/esm/bin/*.mjs",
+      "require": "./dist/cjs/bin/*.cjs",
+      "default": "./src/bin/*.ts"
+    },
+    "./bin/*.mjs": {
+      "types": "./dist/types/bin/*.d.ts",
+      "import": "./dist/esm/bin/*.mjs",
+      "require": "./dist/cjs/bin/*.cjs",
+      "default": "./src/bin/*.ts"
+    },
+    "./bin/*.ts": {
+      "types": "./dist/types/bin/*.d.ts",
+      "import": "./dist/esm/bin/*.mjs",
+      "require": "./dist/cjs/bin/*.cjs",
+      "default": "./src/bin/*.ts"
+    },
+    "./bin/*": {
+      "types": "./dist/types/bin/*",
+      "import": "./dist/esm/bin/*",
+      "require": "./dist/cjs/bin/*",
+      "default": "./src/bin/*"
     },
     "./config": {
       "types": "./dist/types/config/index.d.ts",
@@ -159,5 +212,8 @@
       "require": "./dist/cjs/*",
       "default": "./src/*"
     }
+  },
+  "dependencies": {
+    "pretty-format": "^29.7.0"
   }
 }

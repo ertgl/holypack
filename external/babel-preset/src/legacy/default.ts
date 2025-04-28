@@ -2,7 +2,7 @@ import { createHolypackPreset } from "../preset";
 
 const holypack = await createHolypackPreset({
   context: {
-    overrides: {
+    config: {
       legacy: true,
     },
   },

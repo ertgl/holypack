@@ -1,10 +1,7 @@
-import type {
-  Context,
-  ResolvedContext,
-} from "../../../../context";
-import { emitWarning } from "../../../../context/warnings";
+import type { TypeSafeContext } from "../../../../context";
 
 import type { ProcessWarningMonitorPlugin } from "./plugin";
+import { emitWarning } from "./utils/warning-emitter";
 
 export class ProcessWarningMonitorPluginAPI
 {
@@ -18,7 +15,7 @@ export class ProcessWarningMonitorPluginAPI
   }
 
   async emitWarning(
-    context: Context | ResolvedContext,
+    context: TypeSafeContext,
     err: Error,
   ): Promise<void>
   {

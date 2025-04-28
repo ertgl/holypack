@@ -1,19 +1,19 @@
 import {
   bindSubIntegration,
-  type Config,
-  type Context,
   type ContextResolutionOptions,
   type Integration,
+  type TypeSafeConfig,
+  type TypeSafeContext,
 } from "@holypack/core";
 
 import {
   type BabelIntegrationHookSet,
   createBabelIntegrationHookSet,
 } from "../eventing";
-import createBabelIntegrationEnvPlugin from "../plugins/env";
+import { createBabelIntegrationConfigPlugin } from "../plugins/config";
+import { createBabelIntegrationEnvPlugin } from "../plugins/env";
 import { createBabelIntegrationImportSourceTransformerPlugin } from "../plugins/import-source-transformer";
-import createBabelIntegrationSourceMapPlugin from "../plugins/source-map";
-import createBabelIntegrationTypeScriptPlugin from "../plugins/typescript";
+import { createBabelIntegrationTypeScriptPlugin } from "../plugins/typescript";
 
 import { BabelIntegrationAPI } from "./integration-api";
 import { INTEGRATION_NAME_BABEL } from "./integration-name";
@@ -39,7 +39,7 @@ export class BabelIntegration implements Integration
   }
 
   resolveContext(
-    context: Context,
+    context: TypeSafeContext,
     options: ContextResolutionOptions,
   ): void
   {
@@ -47,10 +47,13 @@ export class BabelIntegration implements Integration
   }
 
   async setup(
-    context: Context,
-    config: Config,
+    context: TypeSafeContext,
+    config: TypeSafeConfig,
   ): Promise<void>
   {
+    const configPlugin = createBabelIntegrationConfigPlugin();
+    await bindSubIntegration(context, config, configPlugin);
+
     const importSourceTransformerPlugin = createBabelIntegrationImportSourceTransformerPlugin();
     await bindSubIntegration(context, config, importSourceTransformerPlugin);
 
@@ -59,9 +62,6 @@ export class BabelIntegration implements Integration
 
     const typescriptPlugin = createBabelIntegrationTypeScriptPlugin();
     await bindSubIntegration(context, config, typescriptPlugin);
-
-    const sourceMapPlugin = createBabelIntegrationSourceMapPlugin();
-    await bindSubIntegration(context, config, sourceMapPlugin);
   }
 }
 

@@ -1,5 +1,11 @@
-import type { ResolvedConfig } from "../config";
-import type { HookSet } from "../eventing";
+import type {
+  ResolvedConfig,
+  TypeSafeResolvedConfig,
+} from "../config";
+import type {
+  HookSet,
+  TypeSafeHookSet,
+} from "../eventing";
 import type { PluginMap } from "../extension";
 import type { IntegrationMap } from "../integration";
 
@@ -8,10 +14,16 @@ export type Context = (
   & ContextCustomProperties
 );
 
-export type ContextBaseProperties = {
-  config: ResolvedConfig;
+export type ContextBaseProperties = (
+  & ContextCommonBaseProperties
+  & {
+    config: ResolvedConfig;
+    hooks: HookSet;
+  }
+);
+
+export type ContextCommonBaseProperties = {
   cwd: string;
-  hooks: HookSet;
   integrations: IntegrationMap;
   plugins: PluginMap;
 };
@@ -20,15 +32,21 @@ export type ContextBaseProperties = {
 export interface ContextCustomProperties
 {}
 
-export type ResolvedContext = (
-  & ResolvedContextBaseProperties
-  & ResolvedContextCustomProperties
-);
-
-export type ResolvedContextBaseProperties = (
-  & ContextBaseProperties
+export type TypeSafeContext = (
+  & ContextCommonBaseProperties
+  & {
+    [key in keyof ContextCustomProperties]?: (
+      key extends keyof TypeSafeContextCustomProperties
+        ? TypeSafeContextCustomProperties[key]
+        : ContextCustomProperties[key]
+    );
+  }
+  & {
+    config: TypeSafeResolvedConfig;
+    hooks: TypeSafeHookSet;
+  }
 );
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface ResolvedContextCustomProperties
+export interface TypeSafeContextCustomProperties
 {}

@@ -1,4 +1,4 @@
-import type { Context } from "../context";
+import type { TypeSafeContext } from "../context";
 import { requirePlugin, usePlugin } from "../extension";
 import type { PluginLoaderOptions } from "../extension/plugin-loader-options";
 
@@ -11,7 +11,7 @@ export function requireIntegration<
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-parameters
   I extends Integration = Integration,
 >(
-  context: Context,
+  context: TypeSafeContext,
   integrationName: string,
   options?: IntegrationLoaderOptions | null,
 ): I
@@ -41,7 +41,7 @@ export function useIntegration<
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-parameters
   I extends Integration = Integration,
 >(
-  context: Context,
+  context: TypeSafeContext,
   pluginName: string,
   options?: IntegrationLoaderOptions | null,
 ): I | null | undefined

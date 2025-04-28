@@ -2,10 +2,9 @@ import type { Linter } from "eslint";
 
 import {
   BaseIntegration,
-  type Config,
-  type Context,
   requireIntegration,
-  type ResolvedContext,
+  type TypeSafeConfig,
+  type TypeSafeContext,
 } from "@holypack/core";
 
 import { type ESLintIntegration } from "../../integration";
@@ -29,20 +28,20 @@ export class ESLintIntegrationIgnoresPlugin extends BaseIntegration
 
   onESLintConfigGeneration(
     eslintIntegration: ESLintIntegration,
-    resolvedContext: ResolvedContext,
+    context: TypeSafeContext,
     configs: Linter.Config[],
   ): void
   {
     this.api.addESLintConfig(
-      resolvedContext,
+      context,
       configs,
-      eslintIntegration.options.globals,
+      eslintIntegration.options.ignores,
     );
   }
 
   setup(
-    context: Context,
-    config: Config,
+    context: TypeSafeContext,
+    config: TypeSafeConfig,
   ): void
   {
     const eslintIntegration = requireIntegration<

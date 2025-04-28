@@ -4,7 +4,8 @@ export type ESLintIntegrationIgnoresPluginOptions = (
 );
 
 export type ESLintIntegrationIgnoresPluginOptionsBaseProperties = {
-  commonPatterns?: null | string[];
+  commonDirectoryPatterns?: null | string[];
+  commonFilePatterns?: null | string[];
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
@@ -17,7 +18,8 @@ export type ESLintIntegrationIgnoresPluginResolvedOptions = (
 );
 
 export type ESLintIntegrationIgnoresPluginResolvedOptionsBaseProperties = {
-  commonPatterns: string[];
+  commonDirectoryPatterns: string[];
+  commonFilePatterns: string[];
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type

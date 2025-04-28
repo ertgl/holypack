@@ -4,9 +4,9 @@ import type {
   Options as BabelImportSourceTransformerPluginOptions,
 } from "babel-plugin-transform-import-source";
 
-import { type ResolvedContext } from "@holypack/core";
-import { emitWarning } from "@holypack/core/context/warnings";
+import type { TypeSafeContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
+import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
 
 import type { BabelIntegrationImportSourceTransformerPlugin } from "./plugin";
 import type { BabelIntegrationImportSourceTransformerPluginOptions } from "./plugin-options";
@@ -28,14 +28,14 @@ export class BabelIntegrationImportSourceTransformerPluginAPI
   }
 
   async addBabelConfig(
-    context: ResolvedContext,
+    context: TypeSafeContext,
     transformOptions: TransformOptions,
     options?: BabelIntegrationImportSourceTransformerPluginOptions | boolean | null,
   ): Promise<void>
   {
     const resolvedOptions = resolveBabelIntegrationImportSourceTransformerPluginOptions(
       context.cwd,
-      context.legacy,
+      context.legacy ?? false,
       options,
     );
 

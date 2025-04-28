@@ -1,9 +1,9 @@
 import type MarkdownPluginModule from "@eslint/markdown";
 import type { Linter } from "eslint";
 
-import type { ResolvedContext } from "@holypack/core";
-import { emitWarning } from "@holypack/core/context/warnings";
+import type { TypeSafeContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
+import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
 
 import { GLOB_PATTERN_MD } from "../../../constants/glob-patterns";
 
@@ -23,7 +23,7 @@ export class ESLintIntegrationESLintMarkdownPluginAPI
   }
 
   async addESLintConfig(
-    context: ResolvedContext,
+    context: TypeSafeContext,
     configs: Linter.Config[],
     options?: boolean | ESLintIntegrationESLintMarkdownPluginOptions | null,
   ): Promise<void>

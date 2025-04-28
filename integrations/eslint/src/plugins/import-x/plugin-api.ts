@@ -1,9 +1,11 @@
 import type { Linter } from "eslint";
 import type PluginImportXModule from "eslint-plugin-import-x";
 
-import type { ResolvedContext } from "@holypack/core";
-import { emitWarning } from "@holypack/core/context/warnings";
+import type { TypeSafeContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
+import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
+import type { ResolvedProject } from "@holypack/core/plugins/project";
+import { iterateWorkspacesRecursivelyByRootProject } from "@holypack/core/plugins/workspace/utils/recursive-workspace-iterator";
 
 import {
   GLOB_PATTERN_CJS_JS_MJS,
@@ -28,14 +30,20 @@ export class ESLintIntegrationImportXPluginAPI
   }
 
   async addESLintConfig(
-    context: ResolvedContext,
+    context: TypeSafeContext,
     configs: Linter.Config[],
     options?: boolean | ESLintIntegrationImportXPluginOptions | null,
   ): Promise<void>
   {
     const resolvedOptions = resolveESLintIntegrationImportXPluginOptions(
       context.cwd,
-      context.workspaces,
+      (
+        context.project != null
+          ? iterateWorkspacesRecursivelyByRootProject(
+              context.project as unknown as ResolvedProject,
+            )
+          : []
+      ),
       options,
     );
 

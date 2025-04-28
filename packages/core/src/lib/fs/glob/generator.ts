@@ -1,6 +1,7 @@
 import { readdir } from "node:fs";
-// #[cfg(esm) ?? __NODE_PATH__.remove()]
+// #[cjs(remove)]
 import { createRequire } from "node:module";
+// #[cjs(remove)]
 import { fileURLToPath } from "node:url";
 
 import type {
@@ -14,10 +15,10 @@ import type { PathLike } from "../path-like";
 import type { GlobEntry } from "./entry";
 import type { GlobOptions } from "./options";
 
-// #[cfg(esm) ?? __NODE_PATH__.remove()]
+// #[cjs(remove)]
 const __filename = fileURLToPath(import.meta.url);
 
-// #[cfg(esm) ?? __NODE_PATH__.remove()]
+// #[cjs(remove)]
 const require = createRequire(__filename);
 
 const fastGlob = require("fast-glob") as typeof FastGlobModule;

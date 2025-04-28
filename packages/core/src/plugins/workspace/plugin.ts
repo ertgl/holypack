@@ -1,5 +1,5 @@
-import type { Config } from "../../config";
-import type { Context } from "../../context";
+import type { TypeSafeConfig } from "../../config";
+import type { TypeSafeContext } from "../../context";
 import { generateHookSubscriptionIDForPlugin } from "../../eventing";
 import {
   type Plugin,
@@ -7,43 +7,23 @@ import {
 } from "../../extension";
 import {
   PLUGIN_NAME_PROJECT,
+  type Project,
+  type ProjectPath,
   type ProjectPlugin,
   type ResolvedProject,
 } from "../project";
 
-import { WorkspacePluginAPI } from "./plugin-api";
+import { resolveWorkspaceRegistry } from "./registry";
 
 export const PLUGIN_NAME_WORKSPACE = "@holypack/core:Workspace";
 
 export class WorkspacePlugin implements Plugin
 {
-  api: WorkspacePluginAPI;
-
   name = PLUGIN_NAME_WORKSPACE;
 
-  constructor()
-  {
-    this.api = new WorkspacePluginAPI(this);
-  }
-
-  async onProjectResolved(
-    context: Context,
-    config: Config,
-    project: ResolvedProject,
-  ): Promise<void>
-  {
-    context.workspaces = await this.api.resolve(
-      project,
-      {
-        cwd: context.cwd,
-        workspaces: config.workspaces,
-      },
-    );
-  }
-
   resolveConfig(
-    context: Context,
-    config: Config,
+    context: TypeSafeContext,
+    config: TypeSafeConfig,
   ): void
   {
     const projectPlugin = requirePlugin<ProjectPlugin>(
@@ -51,16 +31,33 @@ export class WorkspacePlugin implements Plugin
       PLUGIN_NAME_PROJECT,
     );
 
-    projectPlugin.hooks.postProjectResolution.tapPromise(
+    projectPlugin.hooks.projectResolution.tapPromise(
       generateHookSubscriptionIDForPlugin(
         this,
-        projectPlugin.hooks.postProjectResolution,
+        projectPlugin.hooks.projectResolution,
       ),
-      this.onProjectResolved.bind(
+      this.resolveProjectWorkspaceRegistry.bind(
         this,
         context,
         config,
       ),
+    );
+  }
+
+  async resolveProjectWorkspaceRegistry(
+    context: TypeSafeContext,
+    config: TypeSafeConfig,
+    projectPath: ProjectPath,
+    project: ResolvedProject,
+    projectConfig: Project,
+  ): Promise<void>
+  {
+    project.workspaces = await resolveWorkspaceRegistry(
+      project,
+      {
+        cwd: projectPath,
+        workspaces: projectConfig.workspaces,
+      },
     );
   }
 }

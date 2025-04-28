@@ -1,5 +1,5 @@
 import type { Config } from "../../config";
-import type { Context } from "../../context";
+import type { TypeSafeContext } from "../../context";
 import type { Plugin } from "../../extension";
 
 import { RepositoryPluginAPI } from "./plugin-api";
@@ -18,7 +18,7 @@ export class RepositoryPlugin implements Plugin
   }
 
   async resolveConfig(
-    context: Context,
+    context: TypeSafeContext,
     config: Config,
   ): Promise<void>
   {

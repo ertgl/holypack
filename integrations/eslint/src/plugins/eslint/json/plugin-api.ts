@@ -1,9 +1,9 @@
 import type JSONPluginModule from "@eslint/json";
 import type { Linter } from "eslint";
 
-import type { ResolvedContext } from "@holypack/core";
-import { emitWarning } from "@holypack/core/context/warnings";
+import type { TypeSafeContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
+import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
 
 import {
   GLOB_PATTERN_JSON,
@@ -27,7 +27,7 @@ export class ESLintIntegrationESLintJSONPluginAPI
   }
 
   async addESLintConfig(
-    context: ResolvedContext,
+    context: TypeSafeContext,
     configs: Linter.Config[],
     options?: boolean | ESLintIntegrationESLintJSONPluginOptions | null,
   ): Promise<void>

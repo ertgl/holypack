@@ -6,7 +6,9 @@ import {
 
 import type { Linter } from "eslint";
 
-import type { ResolvedContext } from "@holypack/core";
+import type { TypeSafeContext } from "@holypack/core";
+import type { ResolvedProject } from "@holypack/core/plugins/project";
+import { iterateProjectsRecursively } from "@holypack/core/plugins/project/utils/recursive-project-iterator";
 
 import type { ESLintIntegrationIgnoresPlugin } from "./plugin";
 import type { ESLintIntegrationIgnoresPluginOptions } from "./plugin-options";
@@ -24,7 +26,7 @@ export class ESLintIntegrationIgnoresPluginAPI
   }
 
   addESLintConfig(
-    context: ResolvedContext,
+    context: TypeSafeContext,
     configs: Linter.Config[],
     options?: boolean | ESLintIntegrationIgnoresPluginOptions | null,
   ): void
@@ -39,45 +41,109 @@ export class ESLintIntegrationIgnoresPluginAPI
       return;
     }
 
-    configs.push(
-      {
-        ignores: [
-          resolvePath(context.project.path, ".yarn"),
-          resolvePath(context.project.path, "node_modules"),
-        ].map(
-          (absoluteIgnorePath) =>
-          {
-            return joinPaths(
-              getRelativePath(context.cwd, absoluteIgnorePath),
-              "**",
-              "*",
-            );
-          },
-        ),
-      },
-
-      {
-        ignores: Array.from(
-          context.workspaces.values().flatMap(
-            (workspace) =>
-            {
-              return [
-                resolvePath(workspace.path, "dist"),
-                resolvePath(workspace.path, "node_modules"),
-              ].map(
-                (absoluteIgnorePath) =>
-                {
-                  return joinPaths(
-                    getRelativePath(context.cwd, absoluteIgnorePath),
-                    "**",
-                    "*",
-                  );
-                },
-              );
-            },
-          ),
-        ),
-      },
+    const projects = (
+      context.project != null
+        ? Array.from(
+            iterateProjectsRecursively(
+              context.project as unknown as ResolvedProject,
+              {
+                includeSelf: true,
+              },
+            ),
+          )
+        : []
     );
+
+    for (const project of projects)
+    {
+      configs.push(
+        {
+          ignores: [
+            ...resolvedOptions.commonDirectoryPatterns.map(
+              (commonDirectoryPattern) =>
+              {
+                return resolvePath(project.path, commonDirectoryPattern);
+              },
+            ).flatMap(
+              (absoluteIgnorePath) =>
+              {
+                return joinPaths(
+                  getRelativePath(
+                    context.cwd,
+                    absoluteIgnorePath,
+                  ),
+                  "**",
+                  "*",
+                );
+              },
+            ),
+
+            ...resolvedOptions.commonFilePatterns.map(
+              (commonFilePattern) =>
+              {
+                return resolvePath(project.path, commonFilePattern);
+              },
+            ).flatMap(
+              (absoluteIgnorePath) =>
+              {
+                return joinPaths(
+                  getRelativePath(
+                    context.cwd,
+                    absoluteIgnorePath,
+                  ),
+                );
+              },
+            ),
+          ],
+        },
+
+        {
+          ignores: Array.from(
+            project.workspaces.values().flatMap(
+              (workspace) =>
+              {
+                return [
+                  ...resolvedOptions.commonDirectoryPatterns.map(
+                    (commonDirectoryPattern) =>
+                    {
+                      return resolvePath(workspace.path, commonDirectoryPattern);
+                    },
+                  ).flatMap(
+                    (absoluteIgnorePath) =>
+                    {
+                      return joinPaths(
+                        getRelativePath(
+                          context.cwd,
+                          absoluteIgnorePath,
+                        ),
+                        "**",
+                        "*",
+                      );
+                    },
+                  ),
+
+                  ...resolvedOptions.commonFilePatterns.map(
+                    (commonFilePattern) =>
+                    {
+                      return resolvePath(workspace.path, commonFilePattern);
+                    },
+                  ).flatMap(
+                    (absoluteIgnorePath) =>
+                    {
+                      return joinPaths(
+                        getRelativePath(
+                          context.cwd,
+                          absoluteIgnorePath,
+                        ),
+                      );
+                    },
+                  ),
+                ];
+              },
+            ),
+          ),
+        },
+      );
+    }
   }
 }

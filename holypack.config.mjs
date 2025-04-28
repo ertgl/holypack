@@ -7,8 +7,23 @@ const HOLYPACK_CONFIG = defineConfig({
   integrations: [
     typescript(),
     babel(),
-    eslint(),
+    eslint({
+      ignores: {
+        commonDirectoryPatterns: [
+          ".yarn",
+          "dist",
+          "node_modules",
+        ],
+      },
+    }),
   ],
+  project: {
+    subProjects: [
+      {
+        path: "./e2e",
+      },
+    ],
+  },
 });
 
 export default HOLYPACK_CONFIG;

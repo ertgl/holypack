@@ -1,6 +1,6 @@
 import type { PathLike } from "../../../lib/fs";
 import type { PackageJSON } from "../../package";
-import type { Workspace } from "../workspace";
+import type { Workspace } from "../../workspace";
 
 import type { WorkspaceResolutionFS } from "./fs";
 

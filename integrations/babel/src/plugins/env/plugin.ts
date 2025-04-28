@@ -2,10 +2,9 @@ import type { TransformOptions } from "@babel/core";
 
 import {
   BaseIntegration,
-  type Config,
-  type Context,
   requireIntegration,
-  type ResolvedContext,
+  type TypeSafeConfig,
+  type TypeSafeContext,
 } from "@holypack/core";
 
 import type { BabelIntegration } from "../../integration";
@@ -29,7 +28,7 @@ export class BabelIntegrationEnvPlugin extends BaseIntegration
 
   async onBabelTransformOptionsGeneration(
     babelIntegration: BabelIntegration,
-    resolvedContext: ResolvedContext,
+    resolvedContext: TypeSafeContext,
     transformOptions: TransformOptions,
   ): Promise<void>
   {
@@ -41,8 +40,8 @@ export class BabelIntegrationEnvPlugin extends BaseIntegration
   }
 
   setup(
-    context: Context,
-    config: Config,
+    context: TypeSafeContext,
+    config: TypeSafeConfig,
   ): void
   {
     const babelIntegration = requireIntegration<

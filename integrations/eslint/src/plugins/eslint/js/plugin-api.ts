@@ -1,9 +1,9 @@
 import type ESLintJSPluginModule from "@eslint/js";
 import type { Linter } from "eslint";
 
-import type { ResolvedContext } from "@holypack/core";
-import { emitWarning } from "@holypack/core/context/warnings";
+import type { TypeSafeContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
+import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
 
 import {
   GLOB_PATTERN_CJS_JS_MJS,
@@ -26,7 +26,7 @@ export class ESLintIntegrationESLintJSPluginAPI
   }
 
   async addESLintConfig(
-    context: ResolvedContext,
+    context: TypeSafeContext,
     configs: Linter.Config[],
     options?: boolean | ESLintIntegrationESLintJSPluginOptions | null,
   ): Promise<void>

@@ -1,3 +1,8 @@
+import {
+  isAbsolute as isAbsolutePath,
+  resolve as resolvePath,
+} from "node:path";
+
 import type { PathLike } from "../../fs";
 import { convertPathLikeToString } from "../../path/utils/path-like-converter";
 
@@ -11,5 +16,16 @@ export function resolveCWD(
   {
     return getProcessCWD();
   }
-  return convertPathLikeToString(cwd);
+
+  const cwdString = convertPathLikeToString(cwd);
+
+  if (!isAbsolutePath(cwdString))
+  {
+    return resolvePath(
+      getProcessCWD(),
+      cwdString,
+    );
+  }
+
+  return cwdString;
 }

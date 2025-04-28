@@ -17,6 +17,8 @@ const holypack = await createHolypackPlugin({
   },
 });
 
+console.log(holypack.configs.recommended);
+
 /**
  * @type {Linter.Config[]}
  */

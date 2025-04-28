@@ -3,9 +3,9 @@ import { join as joinPaths } from "node:path";
 import type { Linter } from "eslint";
 import type NPluginModule from "eslint-plugin-n";
 
-import type { ResolvedContext } from "@holypack/core";
-import { emitWarning } from "@holypack/core/context/warnings";
+import type { TypeSafeContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
+import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
 
 import {
   GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
@@ -29,7 +29,7 @@ export class ESLintIntegrationNPluginAPI
   }
 
   async addESLintConfig(
-    context: ResolvedContext,
+    context: TypeSafeContext,
     configs: Linter.Config[],
     options?: boolean | ESLintIntegrationNPluginOptions | null,
   ): Promise<void>
@@ -68,6 +68,33 @@ export class ESLintIntegrationNPluginAPI
     if (nodePlugin == null)
     {
       return;
+    }
+
+    if (context.project == null)
+    {
+      // TODO(ertgl): Standardize "no project in context" error.
+      const err = new Error(
+        "eslint-plugin-n requires a project to be set in the context.",
+      );
+      throw err;
+    }
+
+    if (context.project.packageJSON == null)
+    {
+      // TODO(ertgl): Standardize "no package.json in project" error.
+      const err = new Error(
+        "eslint-plugin-n requires a package.json to be set in the project.",
+      );
+      throw err;
+    }
+
+    if (!context.project.path)
+    {
+      // TODO(ertgl): Standardize "no project path" error.
+      const err = new Error(
+        "eslint-plugin-n requires a project path to be set in the context.",
+      );
+      throw err;
     }
 
     const extensions = [

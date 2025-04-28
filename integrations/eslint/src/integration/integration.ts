@@ -1,9 +1,9 @@
 import {
   bindSubIntegration,
-  type Config,
-  type Context,
   type ContextResolutionOptions,
   type Integration,
+  type TypeSafeConfig,
+  type TypeSafeContext,
 } from "@holypack/core";
 
 import {
@@ -48,7 +48,7 @@ export class ESLintIntegration implements Integration
   }
 
   resolveContext(
-    context: Context,
+    context: TypeSafeContext,
     options: ContextResolutionOptions,
   ): void
   {
@@ -56,8 +56,8 @@ export class ESLintIntegration implements Integration
   }
 
   async setup(
-    context: Context,
-    config: Config,
+    context: TypeSafeContext,
+    config: TypeSafeConfig,
   ): Promise<void>
   {
     const cspellPlugin = createESLintIntegrationCSpellPlugin();

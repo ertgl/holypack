@@ -1,12 +1,11 @@
-import type { Config } from "../../../../config";
-import type { Context, ResolvedContext } from "../../../../context";
+import type { TypeSafeConfig } from "../../../../config";
+import type { TypeSafeContext } from "../../../../context";
 import { generateHookSubscriptionIDForPlugin } from "../../../../eventing";
 import type { Plugin } from "../../../../extension";
-import { PLUGIN_NAME_PROCESS } from "../../plugin-name";
 
+import { createEmitWarningHook, HOOK_NAME_EMIT_WARNING } from "./hooks";
 import { ProcessWarningMonitorPluginAPI } from "./plugin-api";
-
-export const PLUGIN_NAME_PROCESS_WARNING_MONITOR = `${PLUGIN_NAME_PROCESS}/WarningMonitor`;
+import { PLUGIN_NAME_PROCESS_WARNING_MONITOR } from "./plugin-name";
 
 export class ProcessWarningMonitorPlugin implements Plugin
 {
@@ -19,33 +18,41 @@ export class ProcessWarningMonitorPlugin implements Plugin
     this.api = new ProcessWarningMonitorPluginAPI(this);
   }
 
-  onEmitWarning(
-    context: Context | ResolvedContext,
+  handleWarning(
+    context: TypeSafeContext,
     err: Error,
   ): void
   {
-    if (context.config.process.warningMonitor.emit)
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    if (context.config.process!.warningMonitor!.emit)
     {
       process.emitWarning(err);
     }
   }
 
   setup(
-    context: Context,
-    config: Config,
+    context: TypeSafeContext,
+    config: TypeSafeConfig,
   ): void
   {
-    context.config.process.warningMonitor = {
+    const warningMonitorResolvedConfig = {
       emit: config.process?.warningMonitor?.emit ?? true,
     };
 
-    context.hooks.emitWarning.tap(
+    context.config.process ??= {};
+    context.config.process.warningMonitor = warningMonitorResolvedConfig;
+
+    const emitWarningHook = createEmitWarningHook();
+
+    emitWarningHook.tap(
       generateHookSubscriptionIDForPlugin(
         this,
-        context.hooks.emitWarning,
+        emitWarningHook,
       ),
-      this.onEmitWarning.bind(this),
+      this.handleWarning.bind(this),
     );
+
+    context.hooks[HOOK_NAME_EMIT_WARNING] = emitWarningHook;
   }
 }
 

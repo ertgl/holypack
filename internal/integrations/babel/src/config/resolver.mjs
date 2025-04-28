@@ -1,6 +1,8 @@
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 
+import { META_LIB } from "../comment-attributes/index.mjs";
+
 /**
  * @import { type TransformOptions } from "@babel/core";
  * @import { type Options as BabelEnvPresetOptions } from "@babel/preset-env";
@@ -44,8 +46,9 @@ export function resolveBabelConfig(
    */
   const commentAttributesPluginOptions = {
     context: {
-      cjs: isCJS,
-      esm: isESM,
+      CJS: isCJS,
+      ESM: isESM,
+      ...META_LIB,
     },
   };
 
@@ -81,7 +84,6 @@ export function resolveBabelConfig(
           )
     ),
     targets: {
-      // eslint-disable-next-line @cspell/spellchecker
       esmodules: isESM || undefined,
       node: isESM ? "current" : true,
     },

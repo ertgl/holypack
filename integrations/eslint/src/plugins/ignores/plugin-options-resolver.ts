@@ -19,10 +19,12 @@ export function resolveESLintIntegrationIgnoresPluginOptions(
       : options ?? {}
   );
 
-  const commonPatterns = optionsObject.commonPatterns ?? [];
+  const commonFilePatterns = optionsObject.commonFilePatterns ?? [];
+  const commonDirectoryPatterns = optionsObject.commonDirectoryPatterns ?? [];
 
   return {
     ...optionsObject,
-    commonPatterns,
+    commonDirectoryPatterns,
+    commonFilePatterns,
   };
 }
