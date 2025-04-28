@@ -29,10 +29,12 @@
     "@holypack/core": "portal:../packages/core",
     "@holypack/e2e-integration-custom": "portal:./integrations/custom",
     "@holypack/e2e-integration-eslint": "portal:./integrations/eslint",
+    "@holypack/e2e-integration-jest": "portal:./integrations/jest",
     "@holypack/e2e-integration-typescript": "portal:./integrations/typescript",
     "@holypack/eslint-plugin": "portal:../external/eslint-plugin",
     "@holypack/integration-babel": "portal:../integrations/babel",
     "@holypack/integration-eslint": "portal:../integrations/eslint",
+    "@holypack/integration-jest": "portal:../integrations/jest",
     "@holypack/integration-typescript": "portal:../integrations/typescript",
     "@holypack/internal-integration-yarn": "portal:../internal/integrations/yarn",
     "holypack": "portal:../packages/prelude"

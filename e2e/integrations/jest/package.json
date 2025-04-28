@@ -1,0 +1,15 @@
+{
+  "name": "@holypack/e2e-integration-jest",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "jest": "jest"
+  },
+  "devDependencies": {
+    "@holypack/core": "*",
+    "@holypack/integration-jest": "*",
+    "@holypack/integration-typescript": "*",
+    "holypack": "*",
+    "jest": "^29.7.0"
+  }
+}
