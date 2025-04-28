@@ -2338,6 +2338,8 @@ __metadata:
       optional: true
     eslint-plugin-jest:
       optional: true
+    globals:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -2365,6 +2367,8 @@ __metadata:
     eslint:
       optional: true
     eslint-plugin-jest:
+      optional: true
+    globals:
       optional: true
   languageName: unknown
   linkType: soft

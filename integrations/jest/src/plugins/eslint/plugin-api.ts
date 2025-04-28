@@ -1,3 +1,8 @@
+import {
+  relative as getRelativePath,
+  resolve as resolvePath,
+} from "node:path";
+
 import type { Linter } from "eslint";
 import type ESLingPluginJestModule from "eslint-plugin-jest";
 import type GlobalsModule from "globals";
@@ -5,6 +10,8 @@ import type GlobalsModule from "globals";
 import type { StrictContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
 import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
+import type { ResolvedProject } from "@holypack/core/plugins/project";
+import { iterateProjectsRecursively } from "@holypack/core/plugins/project/utils/recursive-project-iterator";
 
 import type { JestIntegrationESLintPlugin } from "./plugin";
 import type {
@@ -27,6 +34,7 @@ export class JestIntegrationESLintPluginAPI
   async contributeGlobalsToESLintConfigs(
     context: StrictContext,
     configs: Linter.Config[],
+    projects: ResolvedProject[],
     options: JestIntegrationESLintPluginResolvedOptions,
   ): Promise<void>
   {
@@ -52,21 +60,87 @@ export class JestIntegrationESLintPluginAPI
       return;
     }
 
-    configs.push({
-      files: [
-        // TODO(ertgl): Define `files` option of `globals` config for `jest`.
-      ],
-      languageOptions: {
-        globals: {
-          ...globals.jest,
+    for (const project of projects)
+    {
+      configs.push({
+        files: [
+          ...options.testMatch.flatMap(
+            (testPattern) =>
+            {
+              return [
+                ...options.roots.map(
+                  (rootPattern) =>
+                  {
+                    return resolvePath(
+                      project.path,
+                      rootPattern,
+                      testPattern,
+                    );
+                  },
+                ),
+              ];
+            },
+          ).flatMap(
+            (absoluteFilePath) =>
+            {
+              return getRelativePath(
+                context.cwd,
+                absoluteFilePath,
+              );
+            },
+          ),
+        ],
+        languageOptions: {
+          globals: {
+            ...globals.jest,
+          },
         },
-      },
-    });
+      });
+
+      for (const workspace of project.workspaces.values())
+      {
+        configs.push({
+          files: [
+            ...options.testMatch.flatMap(
+              (testPattern) =>
+              {
+                return [
+                  ...options.roots.map(
+                    (rootPattern) =>
+                    {
+                      return resolvePath(
+                        workspace.path,
+                        rootPattern,
+                        testPattern,
+                      );
+                    },
+                  ),
+                ];
+              },
+            ).flatMap(
+              (absoluteFilePath) =>
+              {
+                return getRelativePath(
+                  context.cwd,
+                  absoluteFilePath,
+                );
+              },
+            ),
+          ],
+          languageOptions: {
+            globals: {
+              ...globals.jest,
+            },
+          },
+        });
+      }
+    }
   }
 
   async contributeJestConfigToESLintConfigs(
     context: StrictContext,
     configs: Linter.Config[],
+    projects: ResolvedProject[],
     options: JestIntegrationESLintPluginResolvedOptions,
   ): Promise<void>
   {
@@ -76,9 +150,13 @@ export class JestIntegrationESLintPluginAPI
 
     try
     {
-      eslintPluginJest = await import(
+      const eslintPluginJestModule = await import(
         packageName,
-      ) as typeof ESLingPluginJestModule;
+      ) as {
+        default: typeof ESLingPluginJestModule;
+      };
+
+      eslintPluginJest = eslintPluginJestModule.default;
     }
     catch (err)
     {
@@ -92,12 +170,73 @@ export class JestIntegrationESLintPluginAPI
       return;
     }
 
-    configs.push({
-      ...eslintPluginJest.configs["flat/recommended"],
-      files: [
-        // TODO(ertgl): Define `files` option of `eslint-plugin-jest` config.
-      ],
-    });
+    for (const project of projects)
+    {
+      configs.push({
+        ...eslintPluginJest.configs["flat/recommended"],
+        files: [
+          ...options.testMatch.flatMap(
+            (testPattern) =>
+            {
+              return [
+                ...options.roots.map(
+                  (rootPattern) =>
+                  {
+                    return resolvePath(
+                      project.path,
+                      rootPattern,
+                      testPattern,
+                    );
+                  },
+                ),
+              ];
+            },
+          ).flatMap(
+            (absoluteFilePath) =>
+            {
+              return getRelativePath(
+                context.cwd,
+                absoluteFilePath,
+              );
+            },
+          ),
+        ],
+      });
+
+      for (const workspace of project.workspaces.values())
+      {
+        configs.push({
+          ...eslintPluginJest.configs["flat/recommended"],
+          files: [
+            ...options.testMatch.flatMap(
+              (testPattern) =>
+              {
+                return [
+                  ...options.roots.map(
+                    (rootPattern) =>
+                    {
+                      return resolvePath(
+                        workspace.path,
+                        rootPattern,
+                        testPattern,
+                      );
+                    },
+                  ),
+                ];
+              },
+            ).flatMap(
+              (absoluteFilePath) =>
+              {
+                return getRelativePath(
+                  context.cwd,
+                  absoluteFilePath,
+                );
+              },
+            ),
+          ],
+        });
+      }
+    }
   }
 
   async contributeToESLintConfigs(
@@ -116,15 +255,30 @@ export class JestIntegrationESLintPluginAPI
       return;
     }
 
+    const projects = (
+      context.project != null
+        ? Array.from(
+            iterateProjectsRecursively(
+              context.project as unknown as ResolvedProject,
+              {
+                includeSelf: true,
+              },
+            ),
+          )
+        : []
+    );
+
     await this.contributeGlobalsToESLintConfigs(
       context,
       configs,
+      projects,
       resolvedOptions,
     );
 
     await this.contributeJestConfigToESLintConfigs(
       context,
       configs,
+      projects,
       resolvedOptions,
     );
   }
