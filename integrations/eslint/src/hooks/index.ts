@@ -1,2 +1,2 @@
-export * from "./config-generation";
-export * from "./post-config-generation";
+export * from "./generate-configs";
+export * from "./post-generate-configs";

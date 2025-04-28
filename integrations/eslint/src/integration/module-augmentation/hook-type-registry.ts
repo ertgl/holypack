@@ -1,15 +1,10 @@
-import type {
-  ESLintConfigGenerationHook,
-  ESLintPostConfigGenerationHook,
-} from "../../hooks";
+import type { ESLintIntegrationHookSet } from "../../eventing";
 
 declare module "@holypack/core"
 {
-  interface HookTypeRegistryCustomProperties
-  {
-    ESLintConfigGeneration: ESLintConfigGenerationHook;
-    ESLintPostConfigGeneration: ESLintPostConfigGenerationHook;
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  interface HookTypeRegistryCustomProperties extends ESLintIntegrationHookSet
+  {}
 }
 
 export {};
