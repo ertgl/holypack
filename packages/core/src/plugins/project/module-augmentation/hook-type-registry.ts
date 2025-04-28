@@ -1,16 +1,11 @@
-import type {
-  PostProjectResolutionHook,
-  ProjectResolutionHook,
-} from "../hooks";
+import type { ProjectHookSet } from "../eventing";
 
 declare module "../../../eventing/hook-type-registry"
 {
 
-  interface HookTypeRegistryCustomProperties
-  {
-    PostProjectResolution: PostProjectResolutionHook;
-    ProjectResolution: ProjectResolutionHook;
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  interface HookTypeRegistryCustomProperties extends ProjectHookSet
+  {}
 }
 
 export {};

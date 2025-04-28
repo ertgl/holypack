@@ -1,4 +1,4 @@
-import type { TypeSafeContext } from "../../context";
+import type { StrictContext } from "../../context";
 import { bindPlugin } from "../../extension";
 import { createFileSystemPlugin } from "../../plugins/fs";
 import { createLegacyPlugin } from "../../plugins/legacy";
@@ -9,11 +9,11 @@ import { createRepositoryPlugin } from "../../plugins/repository";
 import { createWorkspacePlugin } from "../../plugins/workspace";
 
 export type ContextInitializerFunction = (
-  context: TypeSafeContext,
+  context: StrictContext,
 ) => void;
 
 export function initializeContext(
-  context: TypeSafeContext,
+  context: StrictContext,
 ): void
 {
   bindPlugin(context, createLegacyPlugin());

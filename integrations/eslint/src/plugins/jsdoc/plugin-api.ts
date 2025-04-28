@@ -1,7 +1,7 @@
 import type { Linter } from "eslint";
 import type PluginJSDocModule from "eslint-plugin-jsdoc";
 
-import type { TypeSafeContext } from "@holypack/core";
+import type { StrictContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
 import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
 
@@ -30,8 +30,8 @@ export class ESLintIntegrationJSDocPluginAPI
     this.plugin = plugin;
   }
 
-  async addESLintConfig(
-    context: TypeSafeContext,
+  async contributeToESLintConfigs(
+    context: StrictContext,
     configs: Linter.Config[],
     options?: boolean | ESLintIntegrationJSDocPluginOptions | null,
   ): Promise<void>

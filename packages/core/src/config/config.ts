@@ -1,5 +1,6 @@
 import type { Plugin } from "../extension";
 import type { Integration } from "../integration";
+import type { EnforceOrderedStrictness } from "../lib/dts";
 
 export type Config = (
   & ConfigBaseProperties
@@ -27,22 +28,17 @@ export type ResolvedConfigBaseProperties = {};
 export interface ResolvedConfigCustomProperties
 {};
 
-export type TypeSafeConfig = (
-  & ConfigBaseProperties
-  & Partial<ConfigCustomProperties>
-);
+export type StrictConfig = EnforceOrderedStrictness<[
+  ConfigBaseProperties,
+  Partial<ConfigCustomProperties>,
+]>;
 
-export type TypeSafeResolvedConfig = (
-  & ResolvedConfigBaseProperties
-  & {
-    [key in keyof ResolvedConfigCustomProperties]?: (
-      key extends keyof TypeSafeResolvedConfigCustomProperties
-        ? TypeSafeResolvedConfigCustomProperties[key]
-        : ResolvedConfigCustomProperties[key]
-    );
-  }
-);
+export type StrictResolvedConfig = EnforceOrderedStrictness<[
+  ResolvedConfigBaseProperties,
+  ResolvedConfigCustomProperties,
+  Partial<StrictResolvedConfigCustomProperties>,
+]>;
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface TypeSafeResolvedConfigCustomProperties
+export interface StrictResolvedConfigCustomProperties
 {}

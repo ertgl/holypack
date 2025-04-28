@@ -1,7 +1,7 @@
 import type {
   ProcessConfig,
   ProcessResolvedConfig,
-  TypeSafeProcessResolvedConfig,
+  StrictProcessResolvedConfig,
 } from "../config";
 
 declare module "../../../config/config"
@@ -16,9 +16,9 @@ declare module "../../../config/config"
     process: ProcessResolvedConfig;
   }
 
-  interface TypeSafeResolvedConfigCustomProperties
+  interface StrictResolvedConfigCustomProperties
   {
-    process: Partial<TypeSafeProcessResolvedConfig>;
+    process: Partial<StrictProcessResolvedConfig>;
   }
 }
 

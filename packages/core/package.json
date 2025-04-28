@@ -1000,6 +1000,52 @@
       "require": "./dist/cjs/lib/process/cwd/*",
       "default": "./src/lib/process/cwd/*"
     },
+    "./lib/dts": {
+      "types": "./dist/types/lib/dts/index.d.ts",
+      "import": "./dist/esm/lib/dts/index.mjs",
+      "require": "./dist/cjs/lib/dts/index.cjs",
+      "default": "./src/lib/dts/index.ts"
+    },
+    "./lib/dts/": {
+      "types": "./dist/types/lib/dts/index.d.ts",
+      "import": "./dist/esm/lib/dts/index.mjs",
+      "require": "./dist/cjs/lib/dts/index.cjs",
+      "default": "./src/lib/dts/index.ts"
+    },
+    "./lib/dts/*.d.ts": {
+      "types": "./dist/types/lib/dts/*.d.ts",
+      "default": "./src/lib/dts/*.ts"
+    },
+    "./lib/dts/*.cjs": {
+      "types": "./dist/types/lib/dts/*.d.ts",
+      "import": "./dist/esm/lib/dts/*.mjs",
+      "require": "./dist/cjs/lib/dts/*.cjs",
+      "default": "./src/lib/dts/*.ts"
+    },
+    "./lib/dts/*.js": {
+      "types": "./dist/types/lib/dts/*.d.ts",
+      "import": "./dist/esm/lib/dts/*.mjs",
+      "require": "./dist/cjs/lib/dts/*.cjs",
+      "default": "./src/lib/dts/*.ts"
+    },
+    "./lib/dts/*.mjs": {
+      "types": "./dist/types/lib/dts/*.d.ts",
+      "import": "./dist/esm/lib/dts/*.mjs",
+      "require": "./dist/cjs/lib/dts/*.cjs",
+      "default": "./src/lib/dts/*.ts"
+    },
+    "./lib/dts/*.ts": {
+      "types": "./dist/types/lib/dts/*.d.ts",
+      "import": "./dist/esm/lib/dts/*.mjs",
+      "require": "./dist/cjs/lib/dts/*.cjs",
+      "default": "./src/lib/dts/*.ts"
+    },
+    "./lib/dts/*": {
+      "types": "./dist/types/lib/dts/*",
+      "import": "./dist/esm/lib/dts/*",
+      "require": "./dist/cjs/lib/dts/*",
+      "default": "./src/lib/dts/*"
+    },
     "./lib/fs": {
       "types": "./dist/types/lib/fs/index.d.ts",
       "import": "./dist/esm/lib/fs/index.mjs",

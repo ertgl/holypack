@@ -1,6 +1,6 @@
 import type { ConfigFunction } from "@babel/core";
 
-import type { TypeSafeContext } from "@holypack/core";
+import type { StrictContext } from "@holypack/core";
 
 import { generateBabelConfigFunction } from "../config-function";
 
@@ -18,7 +18,7 @@ export class BabelIntegrationAPI
   }
 
   async generateConfigFunction(
-    context: TypeSafeContext,
+    context: StrictContext,
   ): Promise<ConfigFunction>
   {
     return await generateBabelConfigFunction(

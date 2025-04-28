@@ -6,7 +6,7 @@ import {
 
 import type { Linter } from "eslint";
 
-import type { TypeSafeContext } from "@holypack/core";
+import type { StrictContext } from "@holypack/core";
 import type { ResolvedProject } from "@holypack/core/plugins/project";
 import { iterateProjectsRecursively } from "@holypack/core/plugins/project/utils/recursive-project-iterator";
 
@@ -25,8 +25,8 @@ export class ESLintIntegrationIgnoresPluginAPI
     this.plugin = plugin;
   }
 
-  addESLintConfig(
-    context: TypeSafeContext,
+  contributeToESLintConfigs(
+    context: StrictContext,
     configs: Linter.Config[],
     options?: boolean | ESLintIntegrationIgnoresPluginOptions | null,
   ): void

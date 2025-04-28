@@ -1,13 +1,13 @@
-import type { TypeSafeContext } from "../context";
+import type { StrictContext } from "../context";
 
 import type { IntegrationMap } from "./integration-map";
 
 export type IntegrationRegistryGetter = (
-  context: TypeSafeContext,
+  context: StrictContext,
 ) => IntegrationMap;
 
 export function getIntegrationRegistry(
-  context: TypeSafeContext,
+  context: StrictContext,
 ): IntegrationMap
 {
   return context.integrations;

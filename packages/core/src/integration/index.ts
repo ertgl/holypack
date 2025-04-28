@@ -1,4 +1,3 @@
-export * from "./base-integration";
 export * from "./errors";
 export * from "./integration";
 export * from "./integration-binder";

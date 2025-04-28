@@ -1,5 +1,5 @@
-import type { TypeSafeConfig } from "../config";
-import type { TypeSafeContext } from "../context";
+import type { StrictConfig } from "../config";
+import type { StrictContext } from "../context";
 import { maybeAwait } from "../lib/promise";
 
 import type { Plugin } from "./plugin";
@@ -7,8 +7,8 @@ import { bindPlugin } from "./plugin-binder";
 import type { PluginBinderOptions } from "./plugin-binder-options";
 
 export async function bindSubPlugin(
-  context: TypeSafeContext,
-  config: TypeSafeConfig,
+  context: StrictContext,
+  config: StrictConfig,
   plugin: Plugin,
   options?: null | PluginBinderOptions,
 ): Promise<void>

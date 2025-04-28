@@ -4,12 +4,12 @@ import type {
   TransformOptions,
 } from "@babel/core";
 
-import type { TypeSafeContext } from "@holypack/core";
+import type { StrictContext } from "@holypack/core";
 
 import type { BabelIntegrationHookSet } from "../eventing";
 
 export async function generateBabelConfigFunction(
-  context: TypeSafeContext,
+  context: StrictContext,
   hooks: BabelIntegrationHookSet,
 ): Promise<ConfigFunction>
 {

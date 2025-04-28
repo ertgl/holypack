@@ -3,17 +3,21 @@ import {
   resolve as resolvePath,
 } from "node:path";
 
-import type { TypeSafeContext } from "../../../../context";
+import type { StrictContext } from "../../../../context";
 import { resolveCWD } from "../../../../lib/process/cwd";
 import { requirePackageJSONByDirectoryPath } from "../../../package/utils/package-json-loader";
 import type { ProjectHookSet } from "../../eventing";
+import {
+  HOOK_NAME_POST_RESOLVE_PROJECT,
+  HOOK_NAME_RESOLVE_PROJECT,
+} from "../../hooks";
 import { findProjectRootPath } from "../../utils/project-root-path-finder";
 import type { ResolvedProject } from "../project";
 
 import type { ProjectResolutionOptions } from "./options";
 
 export async function resolveProject(
-  context: TypeSafeContext,
+  context: StrictContext,
   hooks: ProjectHookSet,
   options?: null | ProjectResolutionOptions,
 ): Promise<ResolvedProject>
@@ -42,7 +46,7 @@ export async function resolveProject(
     subProjects,
   };
 
-  await hooks.projectResolution.promise(
+  await hooks[HOOK_NAME_RESOLVE_PROJECT].promise(
     projectPath,
     // TODO(ertgl): Create a mid type definition for the resolved project, to make it more strict.
     project as unknown as ResolvedProject,
@@ -84,7 +88,7 @@ export async function resolveProject(
     }
   }
 
-  await hooks.postProjectResolution.promise(
+  await hooks[HOOK_NAME_POST_RESOLVE_PROJECT].promise(
     project as ResolvedProject,
   );
 

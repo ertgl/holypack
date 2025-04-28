@@ -1,10 +1,10 @@
 import type { TransformOptions } from "@babel/core";
 
 import {
-  BaseIntegration,
+  Integration,
   requireIntegration,
-  type TypeSafeConfig,
-  type TypeSafeContext,
+  type StrictConfig,
+  type StrictContext,
 } from "@holypack/core";
 
 import type { BabelIntegration } from "../../integration";
@@ -14,7 +14,7 @@ import { BabelIntegrationImportSourceTransformerPluginAPI } from "./plugin-api";
 
 export const INTEGRATION_NAME_BABEL_IMPORT_SOURCE_TRANSFORMER = `${INTEGRATION_NAME_BABEL}/ImportSourceTransformer`;
 
-export class BabelIntegrationImportSourceTransformerPlugin extends BaseIntegration
+export class BabelIntegrationImportSourceTransformerPlugin implements Integration
 {
   api: BabelIntegrationImportSourceTransformerPluginAPI;
 
@@ -22,17 +22,16 @@ export class BabelIntegrationImportSourceTransformerPlugin extends BaseIntegrati
 
   constructor()
   {
-    super();
     this.api = new BabelIntegrationImportSourceTransformerPluginAPI(this);
   }
 
   async onBabelTransformOptionsGeneration(
     babelIntegration: BabelIntegration,
-    context: TypeSafeContext,
+    context: StrictContext,
     transformOptions: TransformOptions,
   ): Promise<void>
   {
-    await this.api.addBabelConfig(
+    await this.api.contributeToBabelTransformOptions(
       context,
       transformOptions,
       babelIntegration.options.importSourceTransformer,
@@ -40,8 +39,8 @@ export class BabelIntegrationImportSourceTransformerPlugin extends BaseIntegrati
   }
 
   setup(
-    context: TypeSafeContext,
-    config: TypeSafeConfig,
+    context: StrictContext,
+    config: StrictConfig,
   ): void
   {
     const babelIntegration = requireIntegration<

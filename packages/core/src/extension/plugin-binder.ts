@@ -1,5 +1,5 @@
 import { HOOK_NAME_RESOLVE_CONFIG } from "../config/hooks";
-import type { TypeSafeContext } from "../context";
+import type { StrictContext } from "../context";
 import {
   HOOK_NAME_POST_RESOLVE_CONTEXT,
   HOOK_NAME_RESOLVE_CONTEXT,
@@ -14,7 +14,7 @@ import type { PluginBinderOptions } from "./plugin-binder-options";
 import { getPluginRegistry } from "./plugin-registry-getter";
 
 export function bindPlugin(
-  context: TypeSafeContext,
+  context: StrictContext,
   plugin: Plugin,
   options?: null | PluginBinderOptions,
 ): void

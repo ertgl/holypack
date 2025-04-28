@@ -1,7 +1,7 @@
 import type {
   ContextResolutionOptions,
   Integration,
-  TypeSafeContext,
+  StrictContext,
 } from "@holypack/core";
 
 import { TypeScriptIntegrationAPI } from "./integration-api";
@@ -26,7 +26,7 @@ export class TypeScriptIntegration implements Integration
   }
 
   async resolveContext(
-    context: TypeSafeContext,
+    context: StrictContext,
     options: ContextResolutionOptions,
   ): Promise<void>
   {

@@ -1,13 +1,14 @@
 import type {
   ResolvedConfig,
-  TypeSafeResolvedConfig,
+  StrictResolvedConfig,
 } from "../config";
 import type {
   HookSet,
-  TypeSafeHookSet,
+  StrictHookSet,
 } from "../eventing";
 import type { PluginMap } from "../extension";
 import type { IntegrationMap } from "../integration";
+import type { EnforceOrderedStrictness } from "../lib/dts";
 
 export type Context = (
   & ContextBaseProperties
@@ -32,21 +33,16 @@ export type ContextCommonBaseProperties = {
 export interface ContextCustomProperties
 {}
 
-export type TypeSafeContext = (
-  & ContextCommonBaseProperties
-  & {
-    [key in keyof ContextCustomProperties]?: (
-      key extends keyof TypeSafeContextCustomProperties
-        ? TypeSafeContextCustomProperties[key]
-        : ContextCustomProperties[key]
-    );
-  }
-  & {
-    config: TypeSafeResolvedConfig;
-    hooks: TypeSafeHookSet;
-  }
-);
+export type StrictContext = EnforceOrderedStrictness<[
+  ContextCommonBaseProperties,
+  {
+    config: StrictResolvedConfig;
+    hooks: StrictHookSet;
+  },
+  ContextCustomProperties,
+  StrictContextCustomProperties,
+]>;
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface TypeSafeContextCustomProperties
+export interface StrictContextCustomProperties
 {}

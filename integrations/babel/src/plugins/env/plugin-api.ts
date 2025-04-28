@@ -1,7 +1,7 @@
 import type { TransformOptions } from "@babel/core";
 import type BabelPresetEnvModule from "@babel/preset-env";
 
-import type { TypeSafeContext } from "@holypack/core";
+import type { StrictContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
 import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
 
@@ -21,8 +21,8 @@ export class BabelIntegrationEnvPluginAPI
     this.plugin = plugin;
   }
 
-  async addBabelConfig(
-    context: TypeSafeContext,
+  async contributeToBabelTransformOptions(
+    context: StrictContext,
     transformOptions: TransformOptions,
     options?: BabelIntegrationEnvPluginOptions | boolean | null,
   ): Promise<void>

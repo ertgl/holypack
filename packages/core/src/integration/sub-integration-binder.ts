@@ -1,5 +1,5 @@
-import type { TypeSafeConfig } from "../config";
-import type { TypeSafeContext } from "../context";
+import type { StrictConfig } from "../config";
+import type { StrictContext } from "../context";
 import { maybeAwait } from "../lib/promise";
 
 import type { Integration } from "./integration";
@@ -7,8 +7,8 @@ import { bindIntegration } from "./integration-binder";
 import type { IntegrationBinderOptions } from "./integration-binder-options";
 
 export async function bindSubIntegration(
-  context: TypeSafeContext,
-  config: TypeSafeConfig,
+  context: StrictContext,
+  config: StrictConfig,
   integration: Integration,
   options?: IntegrationBinderOptions | null,
 ): Promise<void>

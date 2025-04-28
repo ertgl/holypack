@@ -2,8 +2,8 @@ import {
   bindSubIntegration,
   type ContextResolutionOptions,
   type Integration,
-  type TypeSafeConfig,
-  type TypeSafeContext,
+  type StrictConfig,
+  type StrictContext,
 } from "@holypack/core";
 
 import {
@@ -39,7 +39,7 @@ export class BabelIntegration implements Integration
   }
 
   resolveContext(
-    context: TypeSafeContext,
+    context: StrictContext,
     options: ContextResolutionOptions,
   ): void
   {
@@ -47,8 +47,8 @@ export class BabelIntegration implements Integration
   }
 
   async setup(
-    context: TypeSafeContext,
-    config: TypeSafeConfig,
+    context: StrictContext,
+    config: StrictConfig,
   ): Promise<void>
   {
     const configPlugin = createBabelIntegrationConfigPlugin();

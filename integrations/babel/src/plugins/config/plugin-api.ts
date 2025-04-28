@@ -1,6 +1,6 @@
 import type { TransformOptions } from "@babel/core";
 
-import type { TypeSafeContext } from "@holypack/core";
+import type { StrictContext } from "@holypack/core";
 
 import type { BabelIntegrationConfigPlugin } from "./plugin";
 import type { BabelIntegrationConfigPluginOptions } from "./plugin-options";
@@ -17,8 +17,8 @@ export class BabelIntegrationConfigPluginAPI
     this.plugin = plugin;
   }
 
-  addBabelConfig(
-    context: TypeSafeContext,
+  contributeToBabelTransformOptions(
+    context: StrictContext,
     transformOptions: TransformOptions,
     options?: BabelIntegrationConfigPluginOptions | boolean | null,
   ): void

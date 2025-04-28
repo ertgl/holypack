@@ -1,4 +1,3 @@
-export * from "./base-plugin";
 export * from "./errors";
 export * from "./plugin";
 export * from "./plugin-binder";

@@ -1,8 +1,10 @@
 import {
-  createPostProjectResolutionHook,
-  createProjectResolutionHook,
-  type PostProjectResolutionHook,
-  type ProjectResolutionHook,
+  createPostResolveProjectHook,
+  createResolveProjectHook,
+  HOOK_NAME_POST_RESOLVE_PROJECT,
+  HOOK_NAME_RESOLVE_PROJECT,
+  type PostResolveProjectHook,
+  type ResolveProjectHook,
 } from "../hooks";
 
 export type ProjectHookSet = (
@@ -11,8 +13,8 @@ export type ProjectHookSet = (
 );
 
 export type ProjectHookSetBaseProperties = {
-  postProjectResolution: PostProjectResolutionHook;
-  projectResolution: ProjectResolutionHook;
+  [HOOK_NAME_POST_RESOLVE_PROJECT]: PostResolveProjectHook;
+  [HOOK_NAME_RESOLVE_PROJECT]: ResolveProjectHook;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
@@ -22,7 +24,7 @@ export interface ProjectHookSetCustomProperties
 export function createProjectHookSet(): ProjectHookSet
 {
   return {
-    postProjectResolution: createPostProjectResolutionHook(),
-    projectResolution: createProjectResolutionHook(),
+    [HOOK_NAME_POST_RESOLVE_PROJECT]: createPostResolveProjectHook(),
+    [HOOK_NAME_RESOLVE_PROJECT]: createResolveProjectHook(),
   };
 }

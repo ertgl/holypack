@@ -1,8 +1,8 @@
-import type { TypeSafeConfig } from "../config";
+import type { StrictConfig } from "../config";
 import type {
   Context,
   ContextResolutionOptions,
-  TypeSafeContext,
+  StrictContext,
 } from "../context";
 import type {
   HookSubscriptionID,
@@ -22,18 +22,18 @@ export interface Plugin
   ) => Promise<void> | void;
 
   resolveConfig?: (
-    context: TypeSafeContext,
-    config: TypeSafeConfig,
+    context: StrictContext,
+    config: StrictConfig,
   ) => Promise<void> | void;
 
   resolveContext?: (
-    context: TypeSafeContext,
+    context: StrictContext,
     options: ContextResolutionOptions,
   ) => Promise<void> | void;
 
   setup?: (
-    context: TypeSafeContext,
-    config: TypeSafeConfig,
+    context: StrictContext,
+    config: StrictConfig,
   ) => Promise<void> | void;
 }
 

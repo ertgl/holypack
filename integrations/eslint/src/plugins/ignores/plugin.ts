@@ -1,10 +1,10 @@
 import type { Linter } from "eslint";
 
 import {
-  BaseIntegration,
+  Integration,
   requireIntegration,
-  type TypeSafeConfig,
-  type TypeSafeContext,
+  type StrictConfig,
+  type StrictContext,
 } from "@holypack/core";
 
 import { type ESLintIntegration } from "../../integration";
@@ -14,7 +14,7 @@ import { ESLintIntegrationIgnoresPluginAPI } from "./plugin-api";
 
 export const INTEGRATION_NAME_ESLINT_IGNORES = `${INTEGRATION_NAME_ESLINT}/ignores`;
 
-export class ESLintIntegrationIgnoresPlugin extends BaseIntegration
+export class ESLintIntegrationIgnoresPlugin implements Integration
 {
   api: ESLintIntegrationIgnoresPluginAPI;
 
@@ -22,17 +22,16 @@ export class ESLintIntegrationIgnoresPlugin extends BaseIntegration
 
   constructor()
   {
-    super();
     this.api = new ESLintIntegrationIgnoresPluginAPI(this);
   }
 
   onESLintConfigGeneration(
     eslintIntegration: ESLintIntegration,
-    context: TypeSafeContext,
+    context: StrictContext,
     configs: Linter.Config[],
   ): void
   {
-    this.api.addESLintConfig(
+    this.api.contributeToESLintConfigs(
       context,
       configs,
       eslintIntegration.options.ignores,
@@ -40,8 +39,8 @@ export class ESLintIntegrationIgnoresPlugin extends BaseIntegration
   }
 
   setup(
-    context: TypeSafeContext,
-    config: TypeSafeConfig,
+    context: StrictContext,
+    config: StrictConfig,
   ): void
   {
     const eslintIntegration = requireIntegration<

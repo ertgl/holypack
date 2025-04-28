@@ -1,7 +1,7 @@
 import {
   loadConfig,
   loadConfigDefinition,
-  type TypeSafeResolvedConfig,
+  type StrictResolvedConfig,
 } from "../../config";
 import { HOOK_NAME_RESOLVE_CONFIG } from "../../config/hooks";
 import { createHookSet } from "../../eventing";
@@ -16,7 +16,7 @@ import {
 import { resolveCWD } from "../../lib/process/cwd";
 import type {
   Context,
-  TypeSafeContext,
+  StrictContext,
 } from "../context";
 import {
   HOOK_NAME_POST_RESOLVE_CONTEXT,
@@ -69,7 +69,7 @@ export async function resolveContext(
         }
   );
 
-  const resolvedConfig: TypeSafeResolvedConfig = {};
+  const resolvedConfig: StrictResolvedConfig = {};
 
   const hooks = createHookSet();
 
@@ -77,7 +77,7 @@ export async function resolveContext(
 
   const plugins = createPluginMap();
 
-  const context: TypeSafeContext = {
+  const context: StrictContext = {
     config: resolvedConfig,
     cwd,
     hooks,

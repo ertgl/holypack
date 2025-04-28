@@ -1,8 +1,8 @@
-import type { TypeSafeContext } from "../../../../../../context";
+import type { StrictContext } from "../../../../../../context";
 import { HOOK_NAME_EMIT_WARNING } from "../../hooks";
 
 export async function emitWarning(
-  context: TypeSafeContext,
+  context: StrictContext,
   err: Error,
 ): Promise<void>
 {

@@ -1,7 +1,7 @@
 import type JSONPluginModule from "@eslint/json";
 import type { Linter } from "eslint";
 
-import type { TypeSafeContext } from "@holypack/core";
+import type { StrictContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
 import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
 
@@ -26,8 +26,8 @@ export class ESLintIntegrationESLintJSONPluginAPI
     this.plugin = plugin;
   }
 
-  async addESLintConfig(
-    context: TypeSafeContext,
+  async contributeToESLintConfigs(
+    context: StrictContext,
     configs: Linter.Config[],
     options?: boolean | ESLintIntegrationESLintJSONPluginOptions | null,
   ): Promise<void>

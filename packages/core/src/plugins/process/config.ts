@@ -22,17 +22,17 @@ export type ProcessResolvedConfigBaseProperties = {};
 export interface ProcessResolvedConfigCustomProperties
 {}
 
-export type TypeSafeProcessResolvedConfig = (
+export type StrictProcessResolvedConfig = (
   & ProcessResolvedConfigBaseProperties
   & {
     [key in keyof ProcessResolvedConfigCustomProperties]?: (
-      key extends keyof TypeSafeProcessResolvedConfigCustomProperties
-        ? TypeSafeProcessResolvedConfigCustomProperties[key]
+      key extends keyof StrictProcessResolvedConfigCustomProperties
+        ? StrictProcessResolvedConfigCustomProperties[key]
         : ProcessResolvedConfigCustomProperties[key]
     );
   }
 );
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface TypeSafeProcessResolvedConfigCustomProperties
+export interface StrictProcessResolvedConfigCustomProperties
 {}

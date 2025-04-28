@@ -1,10 +1,10 @@
 import type { TransformOptions } from "@babel/core";
 
 import {
-  BaseIntegration,
+  Integration,
   requireIntegration,
-  type TypeSafeConfig,
-  type TypeSafeContext,
+  type StrictConfig,
+  type StrictContext,
 } from "@holypack/core";
 
 import type { BabelIntegration } from "../../integration";
@@ -14,7 +14,7 @@ import { BabelIntegrationEnvPluginAPI } from "./plugin-api";
 
 export const INTEGRATION_NAME_BABEL_ENV = `${INTEGRATION_NAME_BABEL}/Env`;
 
-export class BabelIntegrationEnvPlugin extends BaseIntegration
+export class BabelIntegrationEnvPlugin implements Integration
 {
   api: BabelIntegrationEnvPluginAPI;
 
@@ -22,17 +22,16 @@ export class BabelIntegrationEnvPlugin extends BaseIntegration
 
   constructor()
   {
-    super();
     this.api = new BabelIntegrationEnvPluginAPI(this);
   }
 
   async onBabelTransformOptionsGeneration(
     babelIntegration: BabelIntegration,
-    resolvedContext: TypeSafeContext,
+    resolvedContext: StrictContext,
     transformOptions: TransformOptions,
   ): Promise<void>
   {
-    await this.api.addBabelConfig(
+    await this.api.contributeToBabelTransformOptions(
       resolvedContext,
       transformOptions,
       babelIntegration.options.env,
@@ -40,8 +39,8 @@ export class BabelIntegrationEnvPlugin extends BaseIntegration
   }
 
   setup(
-    context: TypeSafeContext,
-    config: TypeSafeConfig,
+    context: StrictContext,
+    config: StrictConfig,
   ): void
   {
     const babelIntegration = requireIntegration<

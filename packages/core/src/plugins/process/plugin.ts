@@ -1,5 +1,5 @@
-import type { TypeSafeConfig } from "../../config";
-import type { TypeSafeContext } from "../../context";
+import type { StrictConfig } from "../../config";
+import type { StrictContext } from "../../context";
 import { bindSubPlugin, type Plugin } from "../../extension";
 
 import { PLUGIN_NAME_PROCESS } from "./plugin-name";
@@ -11,8 +11,8 @@ export class ProcessPlugin implements Plugin
   name = PLUGIN_NAME_PROCESS;
 
   async setup(
-    context: TypeSafeContext,
-    config: TypeSafeConfig,
+    context: StrictContext,
+    config: StrictConfig,
   ): Promise<void>
   {
     context.config.process = {};

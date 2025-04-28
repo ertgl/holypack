@@ -1,5 +1,5 @@
-import type { TypeSafeConfig } from "../../config";
-import type { TypeSafeContext } from "../../context";
+import type { StrictConfig } from "../../config";
+import type { StrictContext } from "../../context";
 import { generateHookSubscriptionIDForPlugin } from "../../eventing";
 import {
   type Plugin,
@@ -12,6 +12,7 @@ import {
   type ProjectPlugin,
   type ResolvedProject,
 } from "../project";
+import { HOOK_NAME_RESOLVE_PROJECT } from "../project/hooks";
 
 import { resolveWorkspaceRegistry } from "./registry";
 
@@ -22,8 +23,8 @@ export class WorkspacePlugin implements Plugin
   name = PLUGIN_NAME_WORKSPACE;
 
   resolveConfig(
-    context: TypeSafeContext,
-    config: TypeSafeConfig,
+    context: StrictContext,
+    config: StrictConfig,
   ): void
   {
     const projectPlugin = requirePlugin<ProjectPlugin>(
@@ -31,10 +32,10 @@ export class WorkspacePlugin implements Plugin
       PLUGIN_NAME_PROJECT,
     );
 
-    projectPlugin.hooks.projectResolution.tapPromise(
+    projectPlugin.hooks[HOOK_NAME_RESOLVE_PROJECT].tapPromise(
       generateHookSubscriptionIDForPlugin(
         this,
-        projectPlugin.hooks.projectResolution,
+        projectPlugin.hooks[HOOK_NAME_RESOLVE_PROJECT],
       ),
       this.resolveProjectWorkspaceRegistry.bind(
         this,
@@ -45,8 +46,8 @@ export class WorkspacePlugin implements Plugin
   }
 
   async resolveProjectWorkspaceRegistry(
-    context: TypeSafeContext,
-    config: TypeSafeConfig,
+    context: StrictContext,
+    config: StrictConfig,
     projectPath: ProjectPath,
     project: ResolvedProject,
     projectConfig: Project,

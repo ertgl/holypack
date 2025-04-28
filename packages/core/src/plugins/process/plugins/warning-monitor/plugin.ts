@@ -1,5 +1,5 @@
-import type { TypeSafeConfig } from "../../../../config";
-import type { TypeSafeContext } from "../../../../context";
+import type { StrictConfig } from "../../../../config";
+import type { StrictContext } from "../../../../context";
 import { generateHookSubscriptionIDForPlugin } from "../../../../eventing";
 import type { Plugin } from "../../../../extension";
 
@@ -19,7 +19,7 @@ export class ProcessWarningMonitorPlugin implements Plugin
   }
 
   handleWarning(
-    context: TypeSafeContext,
+    context: StrictContext,
     err: Error,
   ): void
   {
@@ -31,8 +31,8 @@ export class ProcessWarningMonitorPlugin implements Plugin
   }
 
   setup(
-    context: TypeSafeContext,
-    config: TypeSafeConfig,
+    context: StrictContext,
+    config: StrictConfig,
   ): void
   {
     const warningMonitorResolvedConfig = {

@@ -1,13 +1,13 @@
-import type { TypeSafeContext } from "../context";
+import type { StrictContext } from "../context";
 
 import type { PluginMap } from "./plugin-map";
 
 export type PluginRegistryGetter = (
-  context: TypeSafeContext,
+  context: StrictContext,
 ) => PluginMap;
 
 export function getPluginRegistry(
-  context: TypeSafeContext,
+  context: StrictContext,
 ): PluginMap
 {
   return context.plugins;

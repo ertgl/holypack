@@ -14,6 +14,7 @@ import {
   ResolveContextHook,
   type SetupHook,
 } from "../context/hooks";
+import type { EnforceOrderedStrictness } from "../lib/dts";
 
 export type HookSet = (
   & HookSetBaseProperties
@@ -31,12 +32,12 @@ export type HookSetBaseProperties = {
 export interface HookSetCustomProperties
 {}
 
-export type TypeSafeHookSet = (
-  & HookSetBaseProperties
-  & Partial<HookSetCustomProperties>
-);
+export type StrictHookSet = EnforceOrderedStrictness<[
+  HookSetBaseProperties,
+  Partial<HookSetCustomProperties>,
+]>;
 
-export function createHookSet(): TypeSafeHookSet
+export function createHookSet(): StrictHookSet
 {
   return {
     [HOOK_NAME_POST_RESOLVE_CONTEXT]: createPostResolveContextHook(),

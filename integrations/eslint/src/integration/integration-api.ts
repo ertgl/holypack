@@ -1,6 +1,6 @@
 import type { Linter } from "eslint";
 
-import type { TypeSafeContext } from "@holypack/core";
+import type { StrictContext } from "@holypack/core";
 
 import { generateESLintConfigs } from "../config";
 
@@ -18,7 +18,7 @@ export class ESLintIntegrationAPI
   }
 
   async generateConfigs(
-    context: TypeSafeContext,
+    context: StrictContext,
   ): Promise<Linter.Config[]>
   {
     return await generateESLintConfigs(

@@ -1,10 +1,10 @@
 import type { Linter } from "eslint";
 
 import {
-  BaseIntegration,
+  Integration,
   requireIntegration,
-  type TypeSafeConfig,
-  type TypeSafeContext,
+  type StrictConfig,
+  type StrictContext,
 } from "@holypack/core";
 
 import { type ESLintIntegration } from "../../../integration";
@@ -14,7 +14,7 @@ import { ESLintIntegrationESLintMarkdownPluginAPI } from "./plugin-api";
 
 export const INTEGRATION_NAME_ESLINT_MARKDOWN = `${INTEGRATION_NAME_ESLINT}/ESLint/Markdown`;
 
-export class ESLintIntegrationESLintMarkdownPlugin extends BaseIntegration
+export class ESLintIntegrationESLintMarkdownPlugin implements Integration
 {
   api: ESLintIntegrationESLintMarkdownPluginAPI;
 
@@ -22,17 +22,16 @@ export class ESLintIntegrationESLintMarkdownPlugin extends BaseIntegration
 
   constructor()
   {
-    super();
     this.api = new ESLintIntegrationESLintMarkdownPluginAPI(this);
   }
 
   async onESLintConfigGeneration(
     eslintIntegration: ESLintIntegration,
-    context: TypeSafeContext,
+    context: StrictContext,
     configs: Linter.Config[],
   ): Promise<void>
   {
-    await this.api.addESLintConfig(
+    await this.api.contributeToESLintConfigs(
       context,
       configs,
       eslintIntegration.options.markdown,
@@ -40,8 +39,8 @@ export class ESLintIntegrationESLintMarkdownPlugin extends BaseIntegration
   }
 
   setup(
-    context: TypeSafeContext,
-    config: TypeSafeConfig,
+    context: StrictContext,
+    config: StrictConfig,
   ): void
   {
     const eslintIntegration = requireIntegration<

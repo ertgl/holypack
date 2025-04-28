@@ -4,7 +4,7 @@ import type {
   Options as BabelImportSourceTransformerPluginOptions,
 } from "babel-plugin-transform-import-source";
 
-import type { TypeSafeContext } from "@holypack/core";
+import type { StrictContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
 import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
 
@@ -27,8 +27,8 @@ export class BabelIntegrationImportSourceTransformerPluginAPI
     this.plugin = plugin;
   }
 
-  async addBabelConfig(
-    context: TypeSafeContext,
+  async contributeToBabelTransformOptions(
+    context: StrictContext,
     transformOptions: TransformOptions,
     options?: BabelIntegrationImportSourceTransformerPluginOptions | boolean | null,
   ): Promise<void>
