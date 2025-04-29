@@ -1,6 +1,9 @@
 # Backup files
 *.bak
 
+# Cache files
+.cache/
+
 # Distribution
 dist/
 
