@@ -233,9 +233,7 @@ scale.
   <tr>
     <td><a href="https://jestjs.io/">Jest</a></td>
     <td></td>
-    <td align="center">
-      Work in progress
-    </td>
+    <td align="center">Completed</td>
   </tr>
   <tr>
     <td colspan="3">&#8203;</td>
