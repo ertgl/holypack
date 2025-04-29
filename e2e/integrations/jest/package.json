@@ -12,6 +12,7 @@
     "@holypack/core": "*",
     "@holypack/integration-jest": "*",
     "@holypack/integration-typescript": "*",
+    "@holypack/jest-preset": "*",
     "holypack": "*",
     "jest": "^29.7.0"
   }

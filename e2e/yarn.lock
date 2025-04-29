@@ -2137,6 +2137,7 @@ __metadata:
     "@holypack/core": "npm:*"
     "@holypack/integration-jest": "npm:*"
     "@holypack/integration-typescript": "npm:*"
+    "@holypack/jest-preset": "npm:*"
     holypack: "npm:*"
     jest: "npm:^29.7.0"
   languageName: unknown
@@ -2271,6 +2272,7 @@ __metadata:
     eslint-plugin-jest: "*"
     globals: "*"
     jest: "*"
+    tapable: "*"
   peerDependenciesMeta:
     "@holypack/integration-eslint":
       optional: true
@@ -2294,6 +2296,7 @@ __metadata:
     eslint-plugin-jest: "npm:^28.11.0"
     globals: "npm:^16.0.0"
     jest: "npm:^29.7.0"
+    tapable: "npm:^2.2.1"
   peerDependencies:
     "@holypack/core": "*"
     "@holypack/integration-eslint": "workspace:^"
@@ -2301,6 +2304,7 @@ __metadata:
     eslint-plugin-jest: "*"
     globals: "*"
     jest: "*"
+    tapable: "*"
   peerDependenciesMeta:
     "@holypack/integration-eslint":
       optional: true
@@ -2326,6 +2330,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/internal-integration-yarn@workspace:../internal/integrations/yarn"
   languageName: unknown
+  linkType: soft
+
+"@holypack/jest-preset@portal:../external/jest-preset::locator=%40holypack%2F__e2e__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/jest-preset@portal:../external/jest-preset::locator=%40holypack%2F__e2e__%40workspace%3A."
+  peerDependencies:
+    "@holypack/core": "*"
+    "@holypack/integration-jest": "*"
+    jest: "*"
+  languageName: node
   linkType: soft
 
 "@humanfs/core@npm:^0.19.1":
