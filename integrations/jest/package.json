@@ -12,7 +12,8 @@
     "eslint": "^9.25.1",
     "eslint-plugin-jest": "^28.11.0",
     "globals": "^16.0.0",
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "tapable": "^2.2.1"
   },
   "peerDependencies": {
     "@holypack/core": "*",
@@ -20,7 +21,8 @@
     "eslint": "*",
     "eslint-plugin-jest": "*",
     "globals": "*",
-    "jest": "*"
+    "jest": "*",
+    "tapable": "*"
   },
   "peerDependenciesMeta": {
     "@holypack/integration-eslint": {
@@ -99,6 +101,52 @@
       "require": "./dist/cjs/integration/module-augmentation/*",
       "default": "./src/integration/module-augmentation/*"
     },
+    "./plugins/config/module-augmentation": {
+      "types": "./dist/types/plugins/config/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/config/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/config/module-augmentation/index.cjs",
+      "default": "./src/plugins/config/module-augmentation/index.ts"
+    },
+    "./plugins/config/module-augmentation/": {
+      "types": "./dist/types/plugins/config/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/config/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/config/module-augmentation/index.cjs",
+      "default": "./src/plugins/config/module-augmentation/index.ts"
+    },
+    "./plugins/config/module-augmentation/*.d.ts": {
+      "types": "./dist/types/plugins/config/module-augmentation/*.d.ts",
+      "default": "./src/plugins/config/module-augmentation/*.ts"
+    },
+    "./plugins/config/module-augmentation/*.cjs": {
+      "types": "./dist/types/plugins/config/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/config/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/config/module-augmentation/*.cjs",
+      "default": "./src/plugins/config/module-augmentation/*.ts"
+    },
+    "./plugins/config/module-augmentation/*.js": {
+      "types": "./dist/types/plugins/config/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/config/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/config/module-augmentation/*.cjs",
+      "default": "./src/plugins/config/module-augmentation/*.ts"
+    },
+    "./plugins/config/module-augmentation/*.mjs": {
+      "types": "./dist/types/plugins/config/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/config/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/config/module-augmentation/*.cjs",
+      "default": "./src/plugins/config/module-augmentation/*.ts"
+    },
+    "./plugins/config/module-augmentation/*.ts": {
+      "types": "./dist/types/plugins/config/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/config/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/config/module-augmentation/*.cjs",
+      "default": "./src/plugins/config/module-augmentation/*.ts"
+    },
+    "./plugins/config/module-augmentation/*": {
+      "types": "./dist/types/plugins/config/module-augmentation/*",
+      "import": "./dist/esm/plugins/config/module-augmentation/*",
+      "require": "./dist/cjs/plugins/config/module-augmentation/*",
+      "default": "./src/plugins/config/module-augmentation/*"
+    },
     "./plugins/eslint/module-augmentation": {
       "types": "./dist/types/plugins/eslint/module-augmentation/index.d.ts",
       "import": "./dist/esm/plugins/eslint/module-augmentation/index.mjs",
@@ -144,6 +192,52 @@
       "import": "./dist/esm/plugins/eslint/module-augmentation/*",
       "require": "./dist/cjs/plugins/eslint/module-augmentation/*",
       "default": "./src/plugins/eslint/module-augmentation/*"
+    },
+    "./plugins/config": {
+      "types": "./dist/types/plugins/config/index.d.ts",
+      "import": "./dist/esm/plugins/config/index.mjs",
+      "require": "./dist/cjs/plugins/config/index.cjs",
+      "default": "./src/plugins/config/index.ts"
+    },
+    "./plugins/config/": {
+      "types": "./dist/types/plugins/config/index.d.ts",
+      "import": "./dist/esm/plugins/config/index.mjs",
+      "require": "./dist/cjs/plugins/config/index.cjs",
+      "default": "./src/plugins/config/index.ts"
+    },
+    "./plugins/config/*.d.ts": {
+      "types": "./dist/types/plugins/config/*.d.ts",
+      "default": "./src/plugins/config/*.ts"
+    },
+    "./plugins/config/*.cjs": {
+      "types": "./dist/types/plugins/config/*.d.ts",
+      "import": "./dist/esm/plugins/config/*.mjs",
+      "require": "./dist/cjs/plugins/config/*.cjs",
+      "default": "./src/plugins/config/*.ts"
+    },
+    "./plugins/config/*.js": {
+      "types": "./dist/types/plugins/config/*.d.ts",
+      "import": "./dist/esm/plugins/config/*.mjs",
+      "require": "./dist/cjs/plugins/config/*.cjs",
+      "default": "./src/plugins/config/*.ts"
+    },
+    "./plugins/config/*.mjs": {
+      "types": "./dist/types/plugins/config/*.d.ts",
+      "import": "./dist/esm/plugins/config/*.mjs",
+      "require": "./dist/cjs/plugins/config/*.cjs",
+      "default": "./src/plugins/config/*.ts"
+    },
+    "./plugins/config/*.ts": {
+      "types": "./dist/types/plugins/config/*.d.ts",
+      "import": "./dist/esm/plugins/config/*.mjs",
+      "require": "./dist/cjs/plugins/config/*.cjs",
+      "default": "./src/plugins/config/*.ts"
+    },
+    "./plugins/config/*": {
+      "types": "./dist/types/plugins/config/*",
+      "import": "./dist/esm/plugins/config/*",
+      "require": "./dist/cjs/plugins/config/*",
+      "default": "./src/plugins/config/*"
     },
     "./plugins/eslint": {
       "types": "./dist/types/plugins/eslint/index.d.ts",
@@ -282,6 +376,98 @@
       "import": "./dist/esm/context/*",
       "require": "./dist/cjs/context/*",
       "default": "./src/context/*"
+    },
+    "./eventing": {
+      "types": "./dist/types/eventing/index.d.ts",
+      "import": "./dist/esm/eventing/index.mjs",
+      "require": "./dist/cjs/eventing/index.cjs",
+      "default": "./src/eventing/index.ts"
+    },
+    "./eventing/": {
+      "types": "./dist/types/eventing/index.d.ts",
+      "import": "./dist/esm/eventing/index.mjs",
+      "require": "./dist/cjs/eventing/index.cjs",
+      "default": "./src/eventing/index.ts"
+    },
+    "./eventing/*.d.ts": {
+      "types": "./dist/types/eventing/*.d.ts",
+      "default": "./src/eventing/*.ts"
+    },
+    "./eventing/*.cjs": {
+      "types": "./dist/types/eventing/*.d.ts",
+      "import": "./dist/esm/eventing/*.mjs",
+      "require": "./dist/cjs/eventing/*.cjs",
+      "default": "./src/eventing/*.ts"
+    },
+    "./eventing/*.js": {
+      "types": "./dist/types/eventing/*.d.ts",
+      "import": "./dist/esm/eventing/*.mjs",
+      "require": "./dist/cjs/eventing/*.cjs",
+      "default": "./src/eventing/*.ts"
+    },
+    "./eventing/*.mjs": {
+      "types": "./dist/types/eventing/*.d.ts",
+      "import": "./dist/esm/eventing/*.mjs",
+      "require": "./dist/cjs/eventing/*.cjs",
+      "default": "./src/eventing/*.ts"
+    },
+    "./eventing/*.ts": {
+      "types": "./dist/types/eventing/*.d.ts",
+      "import": "./dist/esm/eventing/*.mjs",
+      "require": "./dist/cjs/eventing/*.cjs",
+      "default": "./src/eventing/*.ts"
+    },
+    "./eventing/*": {
+      "types": "./dist/types/eventing/*",
+      "import": "./dist/esm/eventing/*",
+      "require": "./dist/cjs/eventing/*",
+      "default": "./src/eventing/*"
+    },
+    "./hooks": {
+      "types": "./dist/types/hooks/index.d.ts",
+      "import": "./dist/esm/hooks/index.mjs",
+      "require": "./dist/cjs/hooks/index.cjs",
+      "default": "./src/hooks/index.ts"
+    },
+    "./hooks/": {
+      "types": "./dist/types/hooks/index.d.ts",
+      "import": "./dist/esm/hooks/index.mjs",
+      "require": "./dist/cjs/hooks/index.cjs",
+      "default": "./src/hooks/index.ts"
+    },
+    "./hooks/*.d.ts": {
+      "types": "./dist/types/hooks/*.d.ts",
+      "default": "./src/hooks/*.ts"
+    },
+    "./hooks/*.cjs": {
+      "types": "./dist/types/hooks/*.d.ts",
+      "import": "./dist/esm/hooks/*.mjs",
+      "require": "./dist/cjs/hooks/*.cjs",
+      "default": "./src/hooks/*.ts"
+    },
+    "./hooks/*.js": {
+      "types": "./dist/types/hooks/*.d.ts",
+      "import": "./dist/esm/hooks/*.mjs",
+      "require": "./dist/cjs/hooks/*.cjs",
+      "default": "./src/hooks/*.ts"
+    },
+    "./hooks/*.mjs": {
+      "types": "./dist/types/hooks/*.d.ts",
+      "import": "./dist/esm/hooks/*.mjs",
+      "require": "./dist/cjs/hooks/*.cjs",
+      "default": "./src/hooks/*.ts"
+    },
+    "./hooks/*.ts": {
+      "types": "./dist/types/hooks/*.d.ts",
+      "import": "./dist/esm/hooks/*.mjs",
+      "require": "./dist/cjs/hooks/*.cjs",
+      "default": "./src/hooks/*.ts"
+    },
+    "./hooks/*": {
+      "types": "./dist/types/hooks/*",
+      "import": "./dist/esm/hooks/*",
+      "require": "./dist/cjs/hooks/*",
+      "default": "./src/hooks/*"
     },
     "./integration": {
       "types": "./dist/types/integration/index.d.ts",
