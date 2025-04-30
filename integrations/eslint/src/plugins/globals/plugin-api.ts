@@ -89,9 +89,12 @@ export class ESLintIntegrationGlobalsPluginAPI
         ],
         languageOptions: {
           globals: {
+            ...globals.browser,
             ...globals.builtin,
             ...globals.commonjs,
             ...globals.es2025,
+            ...globals.node,
+            ...globals.nodeBuiltin,
           },
         },
       },

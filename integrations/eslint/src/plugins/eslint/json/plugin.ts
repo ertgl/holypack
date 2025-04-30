@@ -7,6 +7,7 @@ import {
   type StrictContext,
 } from "@holypack/core";
 
+import { HOOK_NAME_ESLINT_GENERATE_CONFIGS } from "../../../hooks";
 import { type ESLintIntegration } from "../../../integration";
 import { INTEGRATION_NAME_ESLINT } from "../../../integration/integration-name";
 
@@ -50,7 +51,7 @@ export class ESLintIntegrationESLintJSONPlugin implements Integration
       INTEGRATION_NAME_ESLINT,
     );
 
-    eslintIntegration.hooks.configGeneration.tapPromise(
+    eslintIntegration.hooks[HOOK_NAME_ESLINT_GENERATE_CONFIGS].tapPromise(
       INTEGRATION_NAME_ESLINT_JSON,
       this.onESLintConfigGeneration.bind(
         this,

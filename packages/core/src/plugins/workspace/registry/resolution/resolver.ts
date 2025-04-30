@@ -33,10 +33,14 @@ export async function resolveWorkspaceRegistry(
 
   for (const workspacePath of workspacePaths)
   {
+    const isWorkspaceExternal = !workspacePath.startsWith(project.path);
+
     const workspacePackageJSON = requirePackageJSONByDirectoryPath(workspacePath);
 
     const workspace = resolveWorkspace({
       cwd: workspacePath,
+      fs: options.fs,
+      isExternal: isWorkspaceExternal,
       packageJSON: workspacePackageJSON,
       workspace: (
         (

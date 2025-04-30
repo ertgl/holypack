@@ -1,6 +1,9 @@
 # Backup files
 *.bak
 
+# Cache files
+.cache/
+
 # Distribution
 dist/
 
@@ -17,6 +20,9 @@ dist/
 # Package manager artifacts
 .yarn/
 node_modules/
+
+# Testing and coverage artifacts
+coverage/
 
 # TypeScript artifacts
 *.tsbuildinfo

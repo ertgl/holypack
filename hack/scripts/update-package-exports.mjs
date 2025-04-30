@@ -22,36 +22,71 @@ const __filename = fileURLToPath(import.meta.url);
 const require = createRequire(__filename);
 
 /**
+ * @typedef {object} ExportsGeneratorOptions
+ * @property {Record<string, unknown>} [append]
+ * @property {Record<string, unknown>} [override]
+ * @property {Record<string, unknown>} [prepend]
+ */
+
+/**
+ * @param {Record<string, unknown>} originalPackageJSON
  * @param {string} packageRootPath
  * @returns {Promise<Record<string, unknown>>}
  */
 async function generatePackageExports(
+  originalPackageJSON,
   packageRootPath,
 )
 {
   const srcDirPath = `${packageRootPath}/src`;
 
   /**
+   * @type {ExportsGeneratorOptions}
+   */
+  const options = originalPackageJSON.exportsGenerator ?? {};
+
+  /**
    * @type {Record<string, unknown>}
    */
-  const packageExports = {
+  const overriddenExports = options.override ?? {};
+
+  /**
+   * @type {Record<string, unknown>}
+   */
+  const leadingExports = options.prepend ?? {};
+
+  /**
+   * @type {Record<string, unknown>}
+   */
+  const trailingExports = options.append ?? {};
+
+  /**
+   * @type {Record<string, unknown>}
+   */
+  const packageExports = {};
+
+  Object.assign(
+    packageExports,
+    leadingExports,
+  );
+
+  packageExports["./package.json"] = "./package.json";
+
+  packageExports["."] = {
     /* eslint-disable perfectionist/sort-objects */
-    "./package.json": "./package.json",
-    ".": {
-      types: "./dist/types/index.d.ts",
-      import: "./dist/esm/index.mjs",
-      require: "./dist/cjs/index.cjs",
-      default: "./src/index.ts",
-    },
+    types: "./dist/types/index.d.ts",
+    import: "./dist/esm/index.mjs",
+    require: "./dist/cjs/index.cjs",
+    default: "./src/index.ts",
     /* eslint-enable perfectionist/sort-objects */
   };
-
-  const direntIterator = iterateDirentsRecursively(srcDirPath);
 
   /**
    * @type {Map<string, Set<string>>}
    */
   const seenExtensionsByParentPath = new Map();
+
+  const direntIterator = iterateDirentsRecursively(srcDirPath);
 
   for await (const dirent of direntIterator)
   {
@@ -287,6 +322,24 @@ async function generatePackageExports(
     /* eslint-enable perfectionist/sort-objects */
   };
 
+  Object.assign(
+    packageExports,
+    trailingExports,
+  );
+
+  for (const [key, value] of Object.entries(overriddenExports))
+  {
+    if (value == null)
+    {
+      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+      delete packageExports[key];
+
+      continue;
+    }
+
+    packageExports[key] = value;
+  }
+
   return packageExports;
 }
 
@@ -367,7 +420,10 @@ async function main(
   const newPackageJSON = {};
 
   const packageRootPath = dirname(packageJSONFilePath);
-  const packageExports = await generatePackageExports(packageRootPath);
+  const packageExports = await generatePackageExports(
+    originalPackageJSON,
+    packageRootPath,
+  );
 
   for (const [key, value] of Object.entries(originalPackageJSON))
   {

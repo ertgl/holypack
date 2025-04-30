@@ -8,6 +8,7 @@ export type Project = (
 );
 
 export type ProjectBaseProperties = {
+  name?: null | string;
   packageJSON?: null | PackageJSON;
   path?: null | ProjectPath;
   subProjects?: null | Project[];
@@ -23,6 +24,7 @@ export type ResolvedProject = (
 );
 
 export type ResolvedProjectBaseProperties = {
+  name: string;
   packageJSON: PackageJSON;
   path: ProjectPath;
   subProjects: ResolvedProject[];

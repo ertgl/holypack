@@ -1,3 +1,6 @@
+// TODO(ertgl): Investigate the latest way to ignore files in ESLint.
+// See: https://eslint.org/docs/latest/use/configure/ignore
+
 import {
   relative as getRelativePath,
   join as joinPaths,

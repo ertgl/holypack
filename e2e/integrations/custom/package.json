@@ -1,8 +1,0 @@
-{
-  "name": "@holypack/e2e-integration-custom",
-  "private": true,
-  "type": "module",
-  "devDependencies": {
-    "holypack": "*"
-  }
-}

@@ -1,4 +1,5 @@
 import {
+  basename,
   isAbsolute as isAbsolutePath,
   resolve as resolvePath,
 } from "node:path";
@@ -38,9 +39,16 @@ export async function resolveProject(
 
   const packageJSON = requirePackageJSONByDirectoryPath(projectPath);
 
+  let projectName = projectConfig.name;
+  if (!projectName)
+  {
+    projectName = basename(projectPath);
+  }
+
   const subProjects: ResolvedProject[] = [];
 
   const project: Partial<ResolvedProject> = {
+    name: projectName,
     packageJSON,
     path: projectPath,
     subProjects,
