@@ -1,4 +1,4 @@
-import type { ConfigDefinition } from "../../config";
+import type { ConfigDefinition } from "../../config/definition";
 import type { PathLike } from "../../lib/fs";
 import type { ContextInitializerFunction } from "../initializer";
 

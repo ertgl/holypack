@@ -1,4 +1,4 @@
-import { CONFIG_NAMESPACE } from "../namespace";
+import { CONFIG_NAMESPACE } from "./namespace";
 
 export function getDefaultConfigSearchPlaces(
   namespace?: null | string,

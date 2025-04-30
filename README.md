@@ -322,7 +322,7 @@ Example of configuration in `holypack.config.mjs`:
 
 ```js
 import eslint from "@holypack/integration-eslint";
-import { defineConfig } from "holypack";
+import { defineConfig } from "holypack/config";
 
 export default defineConfig({
   integrations: [

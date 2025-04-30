@@ -1,9 +1,7 @@
-import {
-  loadConfig,
-  loadConfigDefinition,
-  type StrictResolvedConfig,
-} from "../../config";
+import type { StrictResolvedConfig } from "../../config";
+import { loadConfigDefinition, resolveConfigDefinition } from "../../config/definition";
 import { HOOK_NAME_RESOLVE_CONFIG } from "../../config/hooks";
+import { loadConfig } from "../../config/loader";
 import { createHookSet } from "../../eventing";
 import {
   bindPlugin,
@@ -42,13 +40,10 @@ export async function resolveContext(
     ?? true
   );
 
-  const baseConfig = (
-    options.config
-      ? await loadConfig({
-        configDefinition: options.config,
-      })
-      : {}
-  );
+  const baseConfig = await resolveConfigDefinition({
+    configDefinition: options.config,
+    cwd,
+  });
 
   const config = (
     shouldLoadConfigFile

@@ -34,6 +34,52 @@
       "require": "./dist/cjs/index.cjs",
       "default": "./src/index.ts"
     },
+    "./config/definition": {
+      "types": "./dist/types/config/definition/index.d.ts",
+      "import": "./dist/esm/config/definition/index.mjs",
+      "require": "./dist/cjs/config/definition/index.cjs",
+      "default": "./src/config/definition/index.ts"
+    },
+    "./config/definition/": {
+      "types": "./dist/types/config/definition/index.d.ts",
+      "import": "./dist/esm/config/definition/index.mjs",
+      "require": "./dist/cjs/config/definition/index.cjs",
+      "default": "./src/config/definition/index.ts"
+    },
+    "./config/definition/*.d.ts": {
+      "types": "./dist/types/config/definition/*.d.ts",
+      "default": "./src/config/definition/*.ts"
+    },
+    "./config/definition/*.cjs": {
+      "types": "./dist/types/config/definition/*.d.ts",
+      "import": "./dist/esm/config/definition/*.mjs",
+      "require": "./dist/cjs/config/definition/*.cjs",
+      "default": "./src/config/definition/*.ts"
+    },
+    "./config/definition/*.js": {
+      "types": "./dist/types/config/definition/*.d.ts",
+      "import": "./dist/esm/config/definition/*.mjs",
+      "require": "./dist/cjs/config/definition/*.cjs",
+      "default": "./src/config/definition/*.ts"
+    },
+    "./config/definition/*.mjs": {
+      "types": "./dist/types/config/definition/*.d.ts",
+      "import": "./dist/esm/config/definition/*.mjs",
+      "require": "./dist/cjs/config/definition/*.cjs",
+      "default": "./src/config/definition/*.ts"
+    },
+    "./config/definition/*.ts": {
+      "types": "./dist/types/config/definition/*.d.ts",
+      "import": "./dist/esm/config/definition/*.mjs",
+      "require": "./dist/cjs/config/definition/*.cjs",
+      "default": "./src/config/definition/*.ts"
+    },
+    "./config/definition/*": {
+      "types": "./dist/types/config/definition/*",
+      "import": "./dist/esm/config/definition/*",
+      "require": "./dist/cjs/config/definition/*",
+      "default": "./src/config/definition/*"
+    },
     "./bin": {
       "types": "./dist/types/bin/index.d.ts",
       "import": "./dist/esm/bin/index.mjs",
@@ -125,52 +171,6 @@
       "import": "./dist/esm/config/*",
       "require": "./dist/cjs/config/*",
       "default": "./src/config/*"
-    },
-    "./context": {
-      "types": "./dist/types/context/index.d.ts",
-      "import": "./dist/esm/context/index.mjs",
-      "require": "./dist/cjs/context/index.cjs",
-      "default": "./src/context/index.ts"
-    },
-    "./context/": {
-      "types": "./dist/types/context/index.d.ts",
-      "import": "./dist/esm/context/index.mjs",
-      "require": "./dist/cjs/context/index.cjs",
-      "default": "./src/context/index.ts"
-    },
-    "./context/*.d.ts": {
-      "types": "./dist/types/context/*.d.ts",
-      "default": "./src/context/*.ts"
-    },
-    "./context/*.cjs": {
-      "types": "./dist/types/context/*.d.ts",
-      "import": "./dist/esm/context/*.mjs",
-      "require": "./dist/cjs/context/*.cjs",
-      "default": "./src/context/*.ts"
-    },
-    "./context/*.js": {
-      "types": "./dist/types/context/*.d.ts",
-      "import": "./dist/esm/context/*.mjs",
-      "require": "./dist/cjs/context/*.cjs",
-      "default": "./src/context/*.ts"
-    },
-    "./context/*.mjs": {
-      "types": "./dist/types/context/*.d.ts",
-      "import": "./dist/esm/context/*.mjs",
-      "require": "./dist/cjs/context/*.cjs",
-      "default": "./src/context/*.ts"
-    },
-    "./context/*.ts": {
-      "types": "./dist/types/context/*.d.ts",
-      "import": "./dist/esm/context/*.mjs",
-      "require": "./dist/cjs/context/*.cjs",
-      "default": "./src/context/*.ts"
-    },
-    "./context/*": {
-      "types": "./dist/types/context/*",
-      "import": "./dist/esm/context/*",
-      "require": "./dist/cjs/context/*",
-      "default": "./src/context/*"
     },
     "./*.d.ts": {
       "types": "./dist/types/*.d.ts",

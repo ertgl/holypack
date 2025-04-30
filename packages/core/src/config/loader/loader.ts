@@ -1,8 +1,9 @@
 import { resolveCWD } from "../../lib/process/cwd";
-import { maybeAwait } from "../../lib/promise";
 import type { Config } from "../config";
-import { loadConfigDefinition } from "../definition";
-import { isConfigProviderFunction } from "../provider";
+import {
+  loadConfigDefinition,
+  resolveConfigDefinition,
+} from "../definition";
 
 import type { ConfigLoaderOptions } from "./options";
 
@@ -18,7 +19,7 @@ export async function loadConfig(
 
   const configDefinition = (
     options.configDefinition
-    ?? loadConfigDefinition(
+    ?? await loadConfigDefinition(
       {
         configFilePath,
         cwd,
@@ -26,21 +27,11 @@ export async function loadConfig(
     )
   );
 
-  let config: Config;
-
-  if (isConfigProviderFunction(configDefinition))
-  {
-    const configProviderContext = {
+  return await resolveConfigDefinition(
+    {
+      configDefinition,
+      configProviderContext: options.configProviderContext,
       cwd,
-      ...options.configProviderContext,
-    };
-
-    config = await maybeAwait(configDefinition(configProviderContext));
-  }
-  else
-  {
-    config = configDefinition as Config;
-  }
-
-  return config;
+    },
+  );
 }
