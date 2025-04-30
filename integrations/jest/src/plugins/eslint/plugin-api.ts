@@ -4,7 +4,7 @@ import {
 } from "node:path";
 
 import type { Linter } from "eslint";
-import type ESLingPluginJestModule from "eslint-plugin-jest";
+import type ESLintPluginJestModule from "eslint-plugin-jest";
 import type GlobalsModule from "globals";
 
 import type { StrictContext } from "@holypack/core";
@@ -146,14 +146,14 @@ export class JestIntegrationESLintPluginAPI
   {
     const packageName = "eslint-plugin-jest";
 
-    let eslintPluginJest: null | typeof ESLingPluginJestModule = null;
+    let eslintPluginJest: null | typeof ESLintPluginJestModule = null;
 
     try
     {
       const eslintPluginJestModule = await import(
         packageName,
       ) as {
-        default: typeof ESLingPluginJestModule;
+        default: typeof ESLintPluginJestModule;
       };
 
       eslintPluginJest = eslintPluginJestModule.default;
