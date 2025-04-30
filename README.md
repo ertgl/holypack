@@ -392,7 +392,7 @@ The final view of the API will be provided at a later stage.
 Example:
 
 ```ts
-import { resolveContext } from "holypack";
+import { resolveContext } from "@holypack/core";
 
 const context = await resolveContext();
 ```
