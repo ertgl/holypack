@@ -31,10 +31,6 @@
   "resolutions": {
     "@holypack/babel-preset": "portal:../external/babel-preset",
     "@holypack/core": "portal:../packages/core",
-    "@holypack/e2e-integration-custom-basic": "portal:./integrations/custom/basic",
-    "@holypack/e2e-integration-eslint-basic": "portal:./integrations/eslint/basic",
-    "@holypack/e2e-integration-jest-basic": "portal:./integrations/jest/basic",
-    "@holypack/e2e-integration-typescript-basic": "portal:./integrations/typescript/basic",
     "@holypack/eslint-plugin": "portal:../external/eslint-plugin",
     "@holypack/integration-babel": "portal:../integrations/babel",
     "@holypack/integration-eslint": "portal:../integrations/eslint",

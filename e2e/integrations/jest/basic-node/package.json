@@ -1,9 +1,10 @@
 {
-  "name": "@holypack/e2e-integration-jest-basic",
+  "name": "@holypack/e2e-integration-jest-basic-node",
   "private": true,
   "type": "module",
   "scripts": {
-    "clean": "yarn coverage:clean",
+    "cache:clean": "rm -fr .cache",
+    "clean": "yarn cache:clean && yarn coverage:clean",
     "coverage:clean": "rm -fr coverage",
     "jest": "yarn cmd:jest",
     "test": "yarn coverage:clean && yarn jest"
