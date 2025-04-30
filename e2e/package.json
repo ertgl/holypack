@@ -10,6 +10,9 @@
     "prepare": "yarn e2e:w:foreach::parallel::topological run prepare",
     "test": "yarn e2e:w:foreach::parallel::topological run test"
   },
+  "engines": {
+    "node": ">=22.14.0"
+  },
   "devDependencies": {
     "@holypack/core": "*",
     "@holypack/eslint-plugin": "*",
@@ -23,15 +26,15 @@
     "../integrations/babel",
     "../integrations/jest",
     "../internal/integrations/yarn",
-    "./integrations/*"
+    "./integrations/*/*"
   ],
   "resolutions": {
     "@holypack/babel-preset": "portal:../external/babel-preset",
     "@holypack/core": "portal:../packages/core",
-    "@holypack/e2e-integration-custom": "portal:./integrations/custom",
-    "@holypack/e2e-integration-eslint": "portal:./integrations/eslint",
-    "@holypack/e2e-integration-jest": "portal:./integrations/jest",
-    "@holypack/e2e-integration-typescript": "portal:./integrations/typescript",
+    "@holypack/e2e-integration-custom-basic": "portal:./integrations/custom/basic",
+    "@holypack/e2e-integration-eslint-basic": "portal:./integrations/eslint/basic",
+    "@holypack/e2e-integration-jest-basic": "portal:./integrations/jest/basic",
+    "@holypack/e2e-integration-typescript-basic": "portal:./integrations/typescript/basic",
     "@holypack/eslint-plugin": "portal:../external/eslint-plugin",
     "@holypack/integration-babel": "portal:../integrations/babel",
     "@holypack/integration-eslint": "portal:../integrations/eslint",
@@ -40,8 +43,5 @@
     "@holypack/internal-integration-yarn": "portal:../internal/integrations/yarn",
     "@holypack/jest-preset": "portal:../external/jest-preset",
     "holypack": "portal:../packages/prelude"
-  },
-  "engines": {
-    "node": ">=22.14.0"
   }
 }

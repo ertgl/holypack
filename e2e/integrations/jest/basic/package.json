@@ -1,5 +1,5 @@
 {
-  "name": "@holypack/e2e-integration-jest",
+  "name": "@holypack/e2e-integration-jest-basic",
   "private": true,
   "type": "module",
   "scripts": {

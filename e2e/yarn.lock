@@ -2098,9 +2098,9 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@holypack/e2e-integration-babel@workspace:integrations/babel":
+"@holypack/e2e-integration-babel-basic@workspace:integrations/babel/basic":
   version: 0.0.0-use.local
-  resolution: "@holypack/e2e-integration-babel@workspace:integrations/babel"
+  resolution: "@holypack/e2e-integration-babel-basic@workspace:integrations/babel/basic"
   dependencies:
     "@babel/cli": "npm:^7.27.0"
     "@holypack/core": "npm:*"
@@ -2109,17 +2109,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@holypack/e2e-integration-custom@workspace:integrations/custom":
+"@holypack/e2e-integration-custom-basic@workspace:integrations/custom/basic":
   version: 0.0.0-use.local
-  resolution: "@holypack/e2e-integration-custom@workspace:integrations/custom"
+  resolution: "@holypack/e2e-integration-custom-basic@workspace:integrations/custom/basic"
   dependencies:
     holypack: "npm:*"
   languageName: unknown
   linkType: soft
 
-"@holypack/e2e-integration-eslint@workspace:integrations/eslint":
+"@holypack/e2e-integration-eslint-basic@workspace:integrations/eslint/basic":
   version: 0.0.0-use.local
-  resolution: "@holypack/e2e-integration-eslint@workspace:integrations/eslint"
+  resolution: "@holypack/e2e-integration-eslint-basic@workspace:integrations/eslint/basic"
   dependencies:
     "@holypack/core": "npm:*"
     "@holypack/eslint-plugin": "npm:*"
@@ -2130,9 +2130,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@holypack/e2e-integration-jest@workspace:integrations/jest":
+"@holypack/e2e-integration-jest-basic@workspace:integrations/jest/basic":
   version: 0.0.0-use.local
-  resolution: "@holypack/e2e-integration-jest@workspace:integrations/jest"
+  resolution: "@holypack/e2e-integration-jest-basic@workspace:integrations/jest/basic"
   dependencies:
     "@holypack/core": "npm:*"
     "@holypack/integration-jest": "npm:*"
@@ -2143,9 +2143,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@holypack/e2e-integration-typescript@workspace:integrations/typescript":
+"@holypack/e2e-integration-typescript-basic@workspace:integrations/typescript/basic":
   version: 0.0.0-use.local
-  resolution: "@holypack/e2e-integration-typescript@workspace:integrations/typescript"
+  resolution: "@holypack/e2e-integration-typescript-basic@workspace:integrations/typescript/basic"
   dependencies:
     "@holypack/core": "npm:*"
     "@holypack/integration-typescript": "npm:*"

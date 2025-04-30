@@ -14,7 +14,6 @@ declare module "@holypack/core"
   {
     example: ExampleResolvedConfig;
   }
-
 }
 
 export {};

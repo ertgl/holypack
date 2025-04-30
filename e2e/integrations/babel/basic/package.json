@@ -1,5 +1,5 @@
 {
-  "name": "@holypack/e2e-integration-babel",
+  "name": "@holypack/e2e-integration-babel-basic",
   "private": true,
   "type": "module",
   "scripts": {
