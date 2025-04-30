@@ -39,8 +39,8 @@ export type StrictContext = EnforceOrderedStrictness<[
     config: StrictResolvedConfig;
     hooks: StrictHookSet;
   },
-  ContextCustomProperties,
-  StrictContextCustomProperties,
+  Partial<ContextCustomProperties>,
+  Partial<StrictContextCustomProperties>,
 ]>;
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
