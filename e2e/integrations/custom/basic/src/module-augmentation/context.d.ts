@@ -1,18 +1,15 @@
-import type {
-  ExampleContext,
-  ExampleResolvedContext,
-} from "../example";
+import type { ExampleContext } from "../example";
 
 declare module "@holypack/core"
 {
   interface ContextCustomProperties
   {
-    example?: ExampleContext | null;
+    example: ExampleContext;
   }
 
-  interface ResolvedContextCustomProperties
+  interface StrictContextCustomProperties
   {
-    example: ExampleResolvedContext;
+    example?: null | Partial<ExampleContext>;
   }
 }
 

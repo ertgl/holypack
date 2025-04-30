@@ -3,9 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "cache:clean": "rm -fr .cache",
-    "clean": "yarn cache:clean && yarn coverage:clean",
-    "coverage:clean": "rm -fr coverage",
+    "clean": "yarn clean-cache && yarn clean-coverage",
+    "clean-cache": "rm -fr .cache",
+    "clean-coverage": "rm -fr coverage",
     "jest": "yarn cmd:jest",
     "test": "yarn coverage:clean && yarn jest"
   },

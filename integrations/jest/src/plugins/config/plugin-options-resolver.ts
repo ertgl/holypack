@@ -20,6 +20,7 @@ import type {
 
 export function resolveJestIntegrationConfigPluginOptions(
   cwd: string,
+  ci: boolean,
   project: ResolvedProject,
   options?: boolean | JestIntegrationConfigPluginOptions | null,
 ): false | JestIntegrationConfigPluginResolvedOptions
@@ -44,8 +45,7 @@ export function resolveJestIntegrationConfigPluginOptions(
       bail: 0,
       // TODO(ertgl): Standardize root directory for caches.
       cacheDirectory: resolvePath(cwd, ".cache", "jest"),
-      // TODO(ertgl): Create a core plugin for CI environment detection.
-      ci: undefined,
+      ci,
       clearMocks: false,
       collectCoverage: true,
       coverageDirectory: "coverage",

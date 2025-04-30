@@ -1,13 +1,15 @@
-import { defineConfig } from "holypack";
+import jest from "@holypack/integration-jest";
+import { defineConfig } from "holypack/config";
 
-import example from "./src/integration.mjs";
+import { EXAMPLE_INTEGRATION } from "./src/index.mjs";
 
 const HOLYPACK_CONFIG = defineConfig({
   example: {
     flag: true,
   },
   integrations: [
-    example,
+    EXAMPLE_INTEGRATION,
+    jest(),
   ],
 });
 

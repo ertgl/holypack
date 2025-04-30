@@ -2113,7 +2113,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/e2e-integration-custom-basic@workspace:integrations/custom/basic"
   dependencies:
+    "@holypack/core": "npm:*"
+    "@holypack/integration-jest": "npm:*"
+    "@holypack/jest-preset": "npm:*"
     holypack: "npm:*"
+    jest: "npm:^29.7.0"
+  peerDependencies:
+    "@holypack/core": "*"
   languageName: unknown
   linkType: soft
 

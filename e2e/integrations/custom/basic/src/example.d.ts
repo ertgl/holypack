@@ -3,13 +3,9 @@ export type ExampleConfig = {
 };
 
 export type ExampleContext = {
-  custom?: null | number;
+  custom: number;
 };
 
 export type ExampleResolvedConfig = {
   flag: boolean;
-};
-
-export type ExampleResolvedContext = {
-  custom: number;
 };

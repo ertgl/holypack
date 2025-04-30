@@ -1,5 +1,3 @@
-// TODO(ertgl): Convert the Babel integration example to a test.
-
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 

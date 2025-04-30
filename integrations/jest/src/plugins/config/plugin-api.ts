@@ -4,6 +4,7 @@ import {
   requirePlugin,
   type StrictContext,
 } from "@holypack/core";
+import { PLUGIN_NAME_CI } from "@holypack/core/plugins/ci";
 import {
   PLUGIN_NAME_PROJECT,
   type ResolvedProject,
@@ -30,10 +31,12 @@ export class JestIntegrationConfigPluginAPI
     options?: boolean | JestIntegrationConfigPluginOptions | null,
   ): void
   {
+    requirePlugin(context, PLUGIN_NAME_CI);
     requirePlugin(context, PLUGIN_NAME_PROJECT);
 
     const resolvedOptions = resolveJestIntegrationConfigPluginOptions(
       context.cwd,
+      context.ci as boolean,
       context.project as unknown as ResolvedProject,
       options,
     );

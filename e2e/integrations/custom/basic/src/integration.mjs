@@ -5,7 +5,7 @@
 /**
  * @type {Integration}
  */
-export const exampleIntegration = {
+export const EXAMPLE_INTEGRATION = {
   name: "example",
 
   onContextReady: (
@@ -35,5 +35,3 @@ export const exampleIntegration = {
     };
   },
 };
-
-export default exampleIntegration;
