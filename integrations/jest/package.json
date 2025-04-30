@@ -10,6 +10,7 @@
     "@holypack/integration-eslint": "workspace:^",
     "@types/jest": "^29.5.14",
     "eslint": "^9.25.1",
+    "eslint-plugin-istanbul": "^0.1.2",
     "eslint-plugin-jest": "^28.11.0",
     "globals": "^16.0.0",
     "jest": "^29.7.0",
@@ -17,8 +18,9 @@
   },
   "peerDependencies": {
     "@holypack/core": "*",
-    "@holypack/integration-eslint": "workspace:^",
+    "@holypack/integration-eslint": "*",
     "eslint": "*",
+    "eslint-plugin-istanbul": "*",
     "eslint-plugin-jest": "*",
     "globals": "*",
     "jest": "*",
@@ -29,6 +31,9 @@
       "optional": true
     },
     "eslint": {
+      "optional": true
+    },
+    "eslint-plugin-istanbul": {
       "optional": true
     },
     "eslint-plugin-jest": {

@@ -3,7 +3,10 @@ import {
   resolve as resolvePath,
 } from "node:path";
 
-import type { Linter } from "eslint";
+import type {
+  ESLint,
+  Linter,
+} from "eslint";
 import type ESLintPluginJestModule from "eslint-plugin-jest";
 import type GlobalsModule from "globals";
 
@@ -19,6 +22,13 @@ import type {
   JestIntegrationESLintPluginResolvedOptions,
 } from "./plugin-options";
 import { resolveJestIntegrationESLintPluginOptions } from "./plugin-options-resolver";
+
+type ESLintPluginIstanbulModule = {
+  configs: {
+    recommended: Linter.Config;
+  };
+  rules: ESLint.Plugin["rules"];
+};
 
 export class JestIntegrationESLintPluginAPI
 {
@@ -99,6 +109,11 @@ export class JestIntegrationESLintPluginAPI
 
       for (const workspace of project.workspaces.values())
       {
+        if (workspace.isExternal)
+        {
+          continue;
+        }
+
         configs.push({
           files: [
             ...options.testMatch.flatMap(
@@ -132,6 +147,119 @@ export class JestIntegrationESLintPluginAPI
               ...globals.jest,
             },
           },
+        });
+      }
+    }
+  }
+
+  async contributeIstanbulConfigToESLintConfigs(
+    context: StrictContext,
+    configs: Linter.Config[],
+    projects: ResolvedProject[],
+    options: JestIntegrationESLintPluginResolvedOptions,
+  ): Promise<void>
+  {
+    const packageName = "eslint-plugin-istanbul";
+
+    let eslintPluginIstanbul: ESLintPluginIstanbulModule | null = null;
+
+    try
+    {
+      const eslintPluginIstanbulModule = await import(
+        packageName,
+      ) as {
+        default: ESLintPluginIstanbulModule;
+      };
+
+      eslintPluginIstanbul = eslintPluginIstanbulModule.default;
+    }
+    catch (err)
+    {
+      const err2 = new ModuleNotFoundError(packageName);
+      err2.cause = err;
+      await emitWarning(context, err2);
+    }
+
+    if (eslintPluginIstanbul == null)
+    {
+      return;
+    }
+
+    for (const project of projects)
+    {
+      configs.push({
+        files: [
+          ...options.testMatch.flatMap(
+            (testPattern) =>
+            {
+              return [
+                ...options.roots.map(
+                  (rootPattern) =>
+                  {
+                    return resolvePath(
+                      project.path,
+                      rootPattern,
+                      testPattern,
+                    );
+                  },
+                ),
+              ];
+            },
+          ).flatMap(
+            (absoluteFilePath) =>
+            {
+              return getRelativePath(
+                context.cwd,
+                absoluteFilePath,
+              );
+            },
+          ),
+        ],
+        plugins: {
+          istanbul: eslintPluginIstanbul,
+        },
+        rules: eslintPluginIstanbul.configs.recommended.rules,
+      });
+
+      for (const workspace of project.workspaces.values())
+      {
+        if (workspace.isExternal)
+        {
+          continue;
+        }
+
+        configs.push({
+          files: [
+            ...options.testMatch.flatMap(
+              (testPattern) =>
+              {
+                return [
+                  ...options.roots.map(
+                    (rootPattern) =>
+                    {
+                      return resolvePath(
+                        workspace.path,
+                        rootPattern,
+                        testPattern,
+                      );
+                    },
+                  ),
+                ];
+              },
+            ).flatMap(
+              (absoluteFilePath) =>
+              {
+                return getRelativePath(
+                  context.cwd,
+                  absoluteFilePath,
+                );
+              },
+            ),
+          ],
+          plugins: {
+            istanbul: eslintPluginIstanbul,
+          },
+          rules: eslintPluginIstanbul.configs.recommended.rules,
         });
       }
     }
@@ -205,6 +333,11 @@ export class JestIntegrationESLintPluginAPI
 
       for (const workspace of project.workspaces.values())
       {
+        if (workspace.isExternal)
+        {
+          continue;
+        }
+
         configs.push({
           ...eslintPluginJest.configs["flat/recommended"],
           files: [
@@ -276,6 +409,13 @@ export class JestIntegrationESLintPluginAPI
     );
 
     await this.contributeJestConfigToESLintConfigs(
+      context,
+      configs,
+      projects,
+      resolvedOptions,
+    );
+
+    await this.contributeIstanbulConfigToESLintConfigs(
       context,
       configs,
       projects,
