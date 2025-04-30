@@ -2267,8 +2267,9 @@ __metadata:
   resolution: "@holypack/integration-jest@portal:../integrations/jest::locator=%40holypack%2F__e2e__%40workspace%3A."
   peerDependencies:
     "@holypack/core": "*"
-    "@holypack/integration-eslint": "workspace:^"
+    "@holypack/integration-eslint": "*"
     eslint: "*"
+    eslint-plugin-istanbul: "*"
     eslint-plugin-jest: "*"
     globals: "*"
     jest: "*"
@@ -2277,6 +2278,8 @@ __metadata:
     "@holypack/integration-eslint":
       optional: true
     eslint:
+      optional: true
+    eslint-plugin-istanbul:
       optional: true
     eslint-plugin-jest:
       optional: true
@@ -2293,14 +2296,16 @@ __metadata:
     "@holypack/integration-eslint": "workspace:^"
     "@types/jest": "npm:^29.5.14"
     eslint: "npm:^9.25.1"
+    eslint-plugin-istanbul: "npm:^0.1.2"
     eslint-plugin-jest: "npm:^28.11.0"
     globals: "npm:^16.0.0"
     jest: "npm:^29.7.0"
     tapable: "npm:^2.2.1"
   peerDependencies:
     "@holypack/core": "*"
-    "@holypack/integration-eslint": "workspace:^"
+    "@holypack/integration-eslint": "*"
     eslint: "*"
+    eslint-plugin-istanbul: "*"
     eslint-plugin-jest: "*"
     globals: "*"
     jest: "*"
@@ -2309,6 +2314,8 @@ __metadata:
     "@holypack/integration-eslint":
       optional: true
     eslint:
+      optional: true
+    eslint-plugin-istanbul:
       optional: true
     eslint-plugin-jest:
       optional: true
@@ -4373,6 +4380,15 @@ __metadata:
   peerDependencies:
     eslint: ^8.57.0 || ^9.0.0
   checksum: 10c0/4013ba4ff968c2ebe4ff876b8949d00c0ee57b9d7c5eb7bb5235d92326b834841893a9abfb5092725a07714b4090c009ef52c2921cdc945fab7fb6f1c16c9218
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-istanbul@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "eslint-plugin-istanbul@npm:0.1.2"
+  peerDependencies:
+    eslint: ^6.0.0 || ^7.0.0
+  checksum: 10c0/fa99f156f2b43771e6c719000c7c11b1d35807c8ecd31ef560ad1d9cfb5f05bb723cae929496418a79e2682c9f8b074fd4b9fe036e972d4581979ec8a74377fd
   languageName: node
   linkType: hard
 
