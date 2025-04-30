@@ -7,6 +7,7 @@ import type { WorkspaceResolutionFS } from "./fs";
 export type WorkspaceResolutionOptions = {
   cwd?: null | PathLike;
   fs?: null | WorkspaceResolutionFS;
+  isExternal?: boolean | null;
   packageJSON?: null | PackageJSON;
   workspace?: null | Workspace;
 };

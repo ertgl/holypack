@@ -6,6 +6,7 @@ export type ResolvedWorkspace = (
 );
 
 export type ResolvedWorkspaceBaseProperties = {
+  isExternal: boolean;
   name: string;
   packageJSON: PackageJSON;
   path: string;
@@ -21,6 +22,7 @@ export type Workspace = (
 );
 
 export type WorkspaceBaseProperties = {
+  isExternal?: boolean | null;
   packageJSON?: null | PackageJSON;
   path?: null | string;
 };
