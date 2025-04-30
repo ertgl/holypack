@@ -4,6 +4,7 @@ import type { ResolvedProject } from "@holypack/core/plugins/project";
 
 import {
   JEST_INTEGRATION_CONFIG_DEFAULT_COVERAGE_PATH_IGNORE_PATTERNS,
+  JEST_INTEGRATION_CONFIG_DEFAULT_EXTENSIONS_TO_TREAT_AS_ESM,
   JEST_INTEGRATION_CONFIG_DEFAULT_MODULE_DIRECTORIES,
   JEST_INTEGRATION_CONFIG_DEFAULT_MODULE_FILE_EXTENSIONS,
   JEST_INTEGRATION_CONFIG_DEFAULT_ROOTS,
@@ -53,15 +54,8 @@ export function resolveJestIntegrationConfigPluginOptions(
       ],
       coverageProvider: "babel",
       displayName: project.name,
-      // TODO(ertgl): Maybe resolve current workspace at the beginning so we can use the relevant `package.json` data to determine the default module system (e.g. `type` field) specified for the workspace.
-      // TODO(ertgl): Create constants for possible default values of the option `extensionsToTreatAsEsm` in Jest configuration.
       extensionsToTreatAsEsm: [
-        ".ts", // Should be conditional, awaiting the todo above (current workspace resolution).
-        ".mts",
-        ".tsx", // Should be conditional, awaiting the todo above (current workspace resolution).
-        ".jsx", // Should be conditional, awaiting the todo above (current workspace resolution).
-        ".mtsx",
-        ".mjsx",
+        ...JEST_INTEGRATION_CONFIG_DEFAULT_EXTENSIONS_TO_TREAT_AS_ESM,
       ],
       // TODO(ertgl): Provide `globals` option in Jest integration options, so we can use it to configure ESLint as well. Consider supporting functional definition.
       globals: {},

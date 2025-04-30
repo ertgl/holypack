@@ -14,9 +14,10 @@ import type { StrictContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
 import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
 import type { ResolvedProject } from "@holypack/core/plugins/project";
-import { iterateProjectsRecursively } from "@holypack/core/plugins/project/utils/recursive-project-iterator";
+import { iterateWorkspacesRecursivelyByRootProject } from "@holypack/core/plugins/workspace/utils/recursive-workspace-iterator";
 
 import type { JestIntegrationESLintPlugin } from "./plugin";
+import { INTEGRATION_NAME_JEST_PLUGIN_ESLINT } from "./plugin-name";
 import type {
   JestIntegrationESLintPluginOptions,
   JestIntegrationESLintPluginResolvedOptions,
@@ -44,7 +45,6 @@ export class JestIntegrationESLintPluginAPI
   async contributeGlobalsToESLintConfigs(
     context: StrictContext,
     configs: Linter.Config[],
-    projects: ResolvedProject[],
     options: JestIntegrationESLintPluginResolvedOptions,
   ): Promise<void>
   {
@@ -70,92 +70,62 @@ export class JestIntegrationESLintPluginAPI
       return;
     }
 
-    for (const project of projects)
-    {
-      configs.push({
-        files: [
-          ...options.testMatch.flatMap(
-            (testPattern) =>
+    configs.push({
+      files: [
+        ...Array.from(
+          iterateWorkspacesRecursivelyByRootProject(
+            context.project as unknown as ResolvedProject,
             {
-              return [
-                ...options.roots.map(
-                  (rootPattern) =>
-                  {
-                    return resolvePath(
-                      project.path,
-                      rootPattern,
-                      testPattern,
-                    );
-                  },
-                ),
-              ];
+              excludeExternal: true,
             },
-          ).flatMap(
-            (absoluteFilePath) =>
+          ).map(
+            (workspace) =>
             {
-              return getRelativePath(
-                context.cwd,
-                absoluteFilePath,
-              );
+              return workspace.path;
             },
           ),
-        ],
-        languageOptions: {
-          globals: {
-            ...globals.jest,
+        ).flatMap(
+          (workspacePath) =>
+          {
+            return [
+              ...options.roots.flatMap(
+                (rootPattern) =>
+                {
+                  return [
+                    ...options.testMatch.flatMap(
+                      (filePattern) =>
+                      {
+                        return [
+                          getRelativePath(
+                            context.cwd,
+                            resolvePath(
+                              workspacePath,
+                              rootPattern,
+                              filePattern,
+                            ),
+                          ),
+                        ];
+                      },
+                    ),
+                  ];
+                },
+              ),
+            ];
           },
+        ),
+      ],
+      languageOptions: {
+        globals: {
+          ...globals.jest,
         },
-      });
-
-      for (const workspace of project.workspaces.values())
-      {
-        if (workspace.isExternal)
-        {
-          continue;
-        }
-
-        configs.push({
-          files: [
-            ...options.testMatch.flatMap(
-              (testPattern) =>
-              {
-                return [
-                  ...options.roots.map(
-                    (rootPattern) =>
-                    {
-                      return resolvePath(
-                        workspace.path,
-                        rootPattern,
-                        testPattern,
-                      );
-                    },
-                  ),
-                ];
-              },
-            ).flatMap(
-              (absoluteFilePath) =>
-              {
-                return getRelativePath(
-                  context.cwd,
-                  absoluteFilePath,
-                );
-              },
-            ),
-          ],
-          languageOptions: {
-            globals: {
-              ...globals.jest,
-            },
-          },
-        });
-      }
-    }
+      },
+      name: `${INTEGRATION_NAME_JEST_PLUGIN_ESLINT}#globals`,
+    });
   }
 
   async contributeIstanbulConfigToESLintConfigs(
     context: StrictContext,
     configs: Linter.Config[],
-    projects: ResolvedProject[],
     options: JestIntegrationESLintPluginResolvedOptions,
   ): Promise<void>
   {
@@ -185,90 +155,63 @@ export class JestIntegrationESLintPluginAPI
       return;
     }
 
-    for (const project of projects)
-    {
-      configs.push({
-        files: [
-          ...options.testMatch.flatMap(
-            (testPattern) =>
+    const {
+      GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
+      GLOB_PATTERN_JS_JSX_TS_TSX,
+      GLOB_PATTERN_MJS_MJSX_MTS_MTSX,
+    } = await import("@holypack/integration-eslint/constants/glob-patterns");
+
+    const files = [
+      GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
+      GLOB_PATTERN_JS_JSX_TS_TSX,
+      GLOB_PATTERN_MJS_MJSX_MTS_MTSX,
+    ];
+
+    configs.push({
+      files: [
+        ...Array.from(
+          iterateWorkspacesRecursivelyByRootProject(
+            context.project as unknown as ResolvedProject,
             {
-              return [
-                ...options.roots.map(
-                  (rootPattern) =>
-                  {
-                    return resolvePath(
-                      project.path,
-                      rootPattern,
-                      testPattern,
-                    );
-                  },
-                ),
-              ];
+              excludeExternal: true,
             },
-          ).flatMap(
-            (absoluteFilePath) =>
+          ).map(
+            (workspace) =>
             {
-              return getRelativePath(
-                context.cwd,
-                absoluteFilePath,
-              );
+              return workspace.path;
             },
           ),
-        ],
-        plugins: {
-          istanbul: eslintPluginIstanbul,
-        },
-        rules: eslintPluginIstanbul.configs.recommended.rules,
-      });
-
-      for (const workspace of project.workspaces.values())
-      {
-        if (workspace.isExternal)
-        {
-          continue;
-        }
-
-        configs.push({
-          files: [
-            ...options.testMatch.flatMap(
-              (testPattern) =>
-              {
-                return [
-                  ...options.roots.map(
-                    (rootPattern) =>
-                    {
-                      return resolvePath(
-                        workspace.path,
-                        rootPattern,
-                        testPattern,
-                      );
-                    },
-                  ),
-                ];
-              },
-            ).flatMap(
-              (absoluteFilePath) =>
-              {
-                return getRelativePath(
-                  context.cwd,
-                  absoluteFilePath,
-                );
-              },
-            ),
-          ],
-          plugins: {
-            istanbul: eslintPluginIstanbul,
+        ).flatMap(
+          (workspacePath) =>
+          {
+            return [
+              ...files.map(
+                (filePattern) =>
+                {
+                  return getRelativePath(
+                    context.cwd,
+                    resolvePath(
+                      workspacePath,
+                      filePattern,
+                    ),
+                  );
+                },
+              ),
+            ];
           },
-          rules: eslintPluginIstanbul.configs.recommended.rules,
-        });
-      }
-    }
+        ),
+      ],
+      name: `${INTEGRATION_NAME_JEST_PLUGIN_ESLINT}#istanbul`,
+      plugins: {
+        istanbul: eslintPluginIstanbul,
+      },
+      rules: eslintPluginIstanbul.configs.recommended.rules,
+    });
   }
 
   async contributeJestConfigToESLintConfigs(
     context: StrictContext,
     configs: Linter.Config[],
-    projects: ResolvedProject[],
     options: JestIntegrationESLintPluginResolvedOptions,
   ): Promise<void>
   {
@@ -298,78 +241,53 @@ export class JestIntegrationESLintPluginAPI
       return;
     }
 
-    for (const project of projects)
-    {
-      configs.push({
-        ...eslintPluginJest.configs["flat/recommended"],
-        files: [
-          ...options.testMatch.flatMap(
-            (testPattern) =>
+    configs.push({
+      files: [
+        ...Array.from(
+          iterateWorkspacesRecursivelyByRootProject(
+            context.project as unknown as ResolvedProject,
             {
-              return [
-                ...options.roots.map(
-                  (rootPattern) =>
-                  {
-                    return resolvePath(
-                      project.path,
-                      rootPattern,
-                      testPattern,
-                    );
-                  },
-                ),
-              ];
+              excludeExternal: true,
             },
-          ).flatMap(
-            (absoluteFilePath) =>
+          ).map(
+            (workspace) =>
             {
-              return getRelativePath(
-                context.cwd,
-                absoluteFilePath,
-              );
+              return workspace.path;
             },
           ),
-        ],
-      });
-
-      for (const workspace of project.workspaces.values())
-      {
-        if (workspace.isExternal)
-        {
-          continue;
-        }
-
-        configs.push({
-          ...eslintPluginJest.configs["flat/recommended"],
-          files: [
-            ...options.testMatch.flatMap(
-              (testPattern) =>
-              {
-                return [
-                  ...options.roots.map(
-                    (rootPattern) =>
-                    {
-                      return resolvePath(
-                        workspace.path,
-                        rootPattern,
-                        testPattern,
-                      );
-                    },
-                  ),
-                ];
-              },
-            ).flatMap(
-              (absoluteFilePath) =>
-              {
-                return getRelativePath(
-                  context.cwd,
-                  absoluteFilePath,
-                );
-              },
-            ),
-          ],
-        });
-      }
-    }
+        ).flatMap(
+          (workspacePath) =>
+          {
+            return [
+              ...options.roots.flatMap(
+                (rootPattern) =>
+                {
+                  return [
+                    ...options.testMatch.flatMap(
+                      (filePattern) =>
+                      {
+                        return [
+                          getRelativePath(
+                            context.cwd,
+                            resolvePath(
+                              workspacePath,
+                              rootPattern,
+                              filePattern,
+                            ),
+                          ),
+                        ];
+                      },
+                    ),
+                  ];
+                },
+              ),
+            ];
+          },
+        ),
+      ],
+      name: `${INTEGRATION_NAME_JEST_PLUGIN_ESLINT}#config`,
+      ...eslintPluginJest.configs["flat/recommended"],
+    });
   }
 
   async contributeToESLintConfigs(
@@ -388,37 +306,21 @@ export class JestIntegrationESLintPluginAPI
       return;
     }
 
-    const projects = (
-      context.project != null
-        ? Array.from(
-            iterateProjectsRecursively(
-              context.project as unknown as ResolvedProject,
-              {
-                includeSelf: true,
-              },
-            ),
-          )
-        : []
-    );
-
     await this.contributeGlobalsToESLintConfigs(
       context,
       configs,
-      projects,
       resolvedOptions,
     );
 
     await this.contributeJestConfigToESLintConfigs(
       context,
       configs,
-      projects,
       resolvedOptions,
     );
 
     await this.contributeIstanbulConfigToESLintConfigs(
       context,
       configs,
-      projects,
       resolvedOptions,
     );
   }

@@ -8,6 +8,15 @@ export const JEST_INTEGRATION_CONFIG_DEFAULT_COVERAGE_PATH_IGNORE_PATTERNS = [
   /[\\/]node_modules[\\/]/iu.source,
 ];
 
+export const JEST_INTEGRATION_CONFIG_DEFAULT_EXTENSIONS_TO_TREAT_AS_ESM = [
+  ".ts",
+  ".mts",
+  ".tsx",
+  ".jsx",
+  ".mtsx",
+  ".mjsx",
+];
+
 export const JEST_INTEGRATION_CONFIG_DEFAULT_TEST_REGEX = [
   /(?:.+\.)?(?:spec|test)\.[cm]?[jt]s[x]?/iu.source,
 ];
