@@ -42,7 +42,7 @@ export function resolveJestIntegrationConfigPluginOptions(
       automock: false,
       bail: 0,
       // TODO(ertgl): Standardize root directory for caches.
-      cacheDirectory: resolvePath(cwd, ".cache", "jest", "<path>"),
+      cacheDirectory: resolvePath(cwd, ".cache", "jest"),
       // TODO(ertgl): Create a core plugin for CI environment detection.
       ci: undefined,
       clearMocks: false,
