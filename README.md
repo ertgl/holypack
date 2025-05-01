@@ -222,7 +222,9 @@ scale.
   <tr>
     <td><a href="https://webpack.js.org/">webpack</a></td>
     <td></td>
-    <td align="center">Planned</td>
+    <td align="center">
+      Work in progress
+    </td>
   </tr>
   <tr>
     <td colspan="3">&#8203;</td>

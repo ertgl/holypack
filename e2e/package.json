@@ -38,6 +38,7 @@
     "@holypack/integration-eslint": "portal:../integrations/eslint",
     "@holypack/integration-jest": "portal:../integrations/jest",
     "@holypack/integration-typescript": "portal:../integrations/typescript",
+    "@holypack/integration-webpack": "portal:../integrations/webpack",
     "@holypack/internal-integration-yarn": "portal:../internal/integrations/yarn",
     "@holypack/jest-preset": "portal:../external/jest-preset",
     "holypack": "portal:../packages/prelude"

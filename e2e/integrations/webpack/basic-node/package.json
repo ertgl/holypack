@@ -1,0 +1,11 @@
+{
+  "name": "@holypack/e2e-integration-webpack-basic-node",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@holypack/integration-typescript": "*",
+    "@holypack/integration-webpack": "*",
+    "holypack": "*",
+    "webpack": "^5.99.7"
+  }
+}
