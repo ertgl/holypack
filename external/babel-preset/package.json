@@ -10,7 +10,7 @@
     "clean": "rm -fr dist"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.10",
+    "@babel/core": "^7.27.1",
     "@holypack/core": "workspace:^",
     "@holypack/integration-babel": "workspace:^"
   },
