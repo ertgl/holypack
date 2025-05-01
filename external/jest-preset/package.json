@@ -23,7 +23,6 @@
   "files": [
     "./dist/",
     "./src/",
-    "./jest-preset.cjs",
     "./jest-preset.mjs",
     "./package.json"
   ],
