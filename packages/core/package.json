@@ -1736,6 +1736,52 @@
       "require": "./dist/cjs/plugins/package/utils/*",
       "default": "./src/plugins/package/utils/*"
     },
+    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors": {
+      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.d.ts",
+      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.mjs",
+      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.cjs",
+      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.ts"
+    },
+    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/": {
+      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.d.ts",
+      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.mjs",
+      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.cjs",
+      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.ts"
+    },
+    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts": {
+      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts",
+      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.ts"
+    },
+    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.cjs": {
+      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts",
+      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.mjs",
+      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.cjs",
+      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.ts"
+    },
+    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.js": {
+      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts",
+      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.mjs",
+      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.cjs",
+      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.ts"
+    },
+    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.mjs": {
+      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts",
+      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.mjs",
+      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.cjs",
+      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.ts"
+    },
+    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.ts": {
+      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts",
+      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.mjs",
+      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.cjs",
+      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.ts"
+    },
+    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*": {
+      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*",
+      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*",
+      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*",
+      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*"
+    },
     "./plugins/process/plugins/warning-monitor/utils/warning-emitter": {
       "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/index.d.ts",
       "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/index.mjs",
