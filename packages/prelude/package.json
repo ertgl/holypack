@@ -12,11 +12,6 @@
   "peerDependencies": {
     "@holypack/core": "*"
   },
-  "bin": {
-    "holypack": "./dist/esm/bin/holypack.mjs",
-    "holypack-cjs": "./dist/cjs/bin/holypack.cjs",
-    "holypack-ts": "./src/bin/holypack.ts"
-  },
   "files": [
     "./dist/",
     "./src/",
@@ -26,6 +21,11 @@
   "main": "./dist/cjs/index.cjs",
   "module": "./dist/esm/index.mjs",
   "types": "./dist/types/index.d.ts",
+  "bin": {
+    "holypack": "./dist/esm/bin/holypack.mjs",
+    "holypack-cjs": "./dist/cjs/bin/holypack.cjs",
+    "holypack-ts": "./src/bin/holypack.ts"
+  },
   "exports": {
     "./package.json": "./package.json",
     ".": {

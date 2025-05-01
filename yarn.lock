@@ -2466,7 +2466,6 @@ __metadata:
     "@eslint/js": "npm:^9.25.1"
     "@eslint/json": "npm:^0.12.0"
     "@eslint/markdown": "npm:^6.4.0"
-    "@holypack/core": "workspace:^"
     "@stylistic/eslint-plugin": "npm:^4.2.0"
     eslint: "npm:^9.25.1"
     eslint-import-resolver-typescript: "npm:^4.3.4"

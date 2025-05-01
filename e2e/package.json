@@ -5,8 +5,10 @@
   "scripts": {
     "build": "yarn e2e:w:foreach::parallel::topological run build",
     "clean": "yarn e2e:w:foreach::parallel::interlaced run clean",
-    "e2e:w:foreach::parallel::interlaced": "yarn w:foreach::parallel::interlaced --exclude '@holypack/__e2e__' --exclude '@holypack/integration-babel' --exclude '@holypack/integration-jest'",
-    "e2e:w:foreach::parallel::topological": "yarn w:foreach::parallel::topological --exclude '@holypack/__e2e__' --exclude '@holypack/integration-babel' --exclude '@holypack/integration-jest'",
+    "dev": "yarn prepare && yarn build",
+    "dev::clean": "yarn clean && yarn dev",
+    "e2e:w:foreach::parallel::interlaced": "yarn w:foreach::parallel::interlaced --exclude '@holypack/__e2e__' --exclude '@holypack/integration-*'",
+    "e2e:w:foreach::parallel::topological": "yarn w:foreach::parallel::topological --exclude '@holypack/__e2e__' --exclude '@holypack/integration-*'",
     "prepare": "yarn e2e:w:foreach::parallel::topological run prepare",
     "test": "yarn e2e:w:foreach::parallel::topological run test"
   },

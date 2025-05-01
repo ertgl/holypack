@@ -5,6 +5,7 @@
     "hack:update-package-exports": "yarn cmd:node ./scripts/update-package-exports.mjs $INIT_CWD/package.json && node -e \"console.log('Successfully updated package exports.')\""
   },
   "files": [
+    "./scripts/",
     "./package.json"
   ],
   "exports": {

@@ -11,15 +11,15 @@
     "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn hack:update-package-exports",
     "clean": "rm -fr dist"
   },
-  "peerDependencies": {
-    "@holypack/core": "*",
-    "@holypack/integration-eslint": "*",
-    "eslint": "*"
-  },
   "devDependencies": {
     "@holypack/core": "workspace:^",
     "@holypack/integration-eslint": "workspace:^",
     "eslint": "^9.25.1"
+  },
+  "peerDependencies": {
+    "@holypack/core": "*",
+    "@holypack/integration-eslint": "*",
+    "eslint": "*"
   },
   "files": [
     "./dist/",

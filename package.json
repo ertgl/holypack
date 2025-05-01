@@ -10,6 +10,8 @@
     "dev::clean": "yarn clean && yarn dev",
     "e2e:build": "yarn e2e:yarn build",
     "e2e:clean": "yarn e2e:yarn clean",
+    "e2e:dev": "yarn e2e:yarn dev",
+    "e2e:dev::clean": "yarn e2e:yarn dev::clean",
     "e2e:prepare": "yarn e2e:yarn prepare",
     "e2e:test": "yarn e2e:yarn test",
     "e2e:yarn": "yarn --cwd ./e2e",
@@ -18,6 +20,9 @@
     "lint::fix": "yarn eslint:lint::fix",
     "prepare": "yarn w:foreach::parallel::topological::interlaced run prepare",
     "test": "yarn w:foreach::parallel::topological run test"
+  },
+  "engines": {
+    "node": ">=22.14.0"
   },
   "workspaces": [
     "./hack",
@@ -50,8 +55,5 @@
     "@holypack/internal-integration-node": "portal:./internal/integrations/node",
     "@holypack/internal-integration-yarn": "portal:./internal/integrations/yarn",
     "holypack": "portal:./packages/prelude"
-  },
-  "engines": {
-    "node": ">=22.14.0"
   }
 }
