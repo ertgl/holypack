@@ -27,6 +27,7 @@
   "workspaces": [
     "../integrations/babel",
     "../integrations/jest",
+    "../integrations/webpack",
     "../internal/integrations/yarn",
     "./integrations/*/*"
   ],
@@ -41,6 +42,7 @@
     "@holypack/integration-webpack": "portal:../integrations/webpack",
     "@holypack/internal-integration-yarn": "portal:../internal/integrations/yarn",
     "@holypack/jest-preset": "portal:../external/jest-preset",
+    "@holypack/webpack-plugin": "portal:../external/webpack-plugin",
     "holypack": "portal:../packages/prelude"
   }
 }

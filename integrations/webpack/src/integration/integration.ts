@@ -4,11 +4,14 @@ import type {
   StrictContext,
 } from "@holypack/core";
 
+import { WebpackIntegrationAPI } from "./integration-api";
 import { INTEGRATION_NAME_WEBPACK } from "./integration-name";
 import type { WebpackIntegrationOptions } from "./integration-options";
 
 export class WebpackIntegration implements Integration
 {
+  api: WebpackIntegrationAPI;
+
   name = INTEGRATION_NAME_WEBPACK;
 
   options: WebpackIntegrationOptions;
@@ -17,6 +20,7 @@ export class WebpackIntegration implements Integration
     options?: null | WebpackIntegrationOptions,
   )
   {
+    this.api = new WebpackIntegrationAPI(this);
     this.options = options ?? {};
   }
 

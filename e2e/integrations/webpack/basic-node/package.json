@@ -2,9 +2,15 @@
   "name": "@holypack/e2e-integration-webpack-basic-node",
   "private": true,
   "type": "module",
+  "scripts": {
+    "build": "yarn bundle",
+    "bundle": "yarn webpack:build",
+    "clean": "rm -fr dist"
+  },
   "devDependencies": {
     "@holypack/integration-typescript": "*",
     "@holypack/integration-webpack": "*",
+    "@holypack/webpack-plugin": "*",
     "holypack": "*",
     "webpack": "^5.99.7"
   }
