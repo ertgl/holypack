@@ -2104,6 +2104,52 @@
       "require": "./dist/cjs/plugins/process/plugins/*",
       "default": "./src/plugins/process/plugins/*"
     },
+    "./plugins/project/project/resolution/errors": {
+      "types": "./dist/types/plugins/project/project/resolution/errors/index.d.ts",
+      "import": "./dist/esm/plugins/project/project/resolution/errors/index.mjs",
+      "require": "./dist/cjs/plugins/project/project/resolution/errors/index.cjs",
+      "default": "./src/plugins/project/project/resolution/errors/index.ts"
+    },
+    "./plugins/project/project/resolution/errors/": {
+      "types": "./dist/types/plugins/project/project/resolution/errors/index.d.ts",
+      "import": "./dist/esm/plugins/project/project/resolution/errors/index.mjs",
+      "require": "./dist/cjs/plugins/project/project/resolution/errors/index.cjs",
+      "default": "./src/plugins/project/project/resolution/errors/index.ts"
+    },
+    "./plugins/project/project/resolution/errors/*.d.ts": {
+      "types": "./dist/types/plugins/project/project/resolution/errors/*.d.ts",
+      "default": "./src/plugins/project/project/resolution/errors/*.ts"
+    },
+    "./plugins/project/project/resolution/errors/*.cjs": {
+      "types": "./dist/types/plugins/project/project/resolution/errors/*.d.ts",
+      "import": "./dist/esm/plugins/project/project/resolution/errors/*.mjs",
+      "require": "./dist/cjs/plugins/project/project/resolution/errors/*.cjs",
+      "default": "./src/plugins/project/project/resolution/errors/*.ts"
+    },
+    "./plugins/project/project/resolution/errors/*.js": {
+      "types": "./dist/types/plugins/project/project/resolution/errors/*.d.ts",
+      "import": "./dist/esm/plugins/project/project/resolution/errors/*.mjs",
+      "require": "./dist/cjs/plugins/project/project/resolution/errors/*.cjs",
+      "default": "./src/plugins/project/project/resolution/errors/*.ts"
+    },
+    "./plugins/project/project/resolution/errors/*.mjs": {
+      "types": "./dist/types/plugins/project/project/resolution/errors/*.d.ts",
+      "import": "./dist/esm/plugins/project/project/resolution/errors/*.mjs",
+      "require": "./dist/cjs/plugins/project/project/resolution/errors/*.cjs",
+      "default": "./src/plugins/project/project/resolution/errors/*.ts"
+    },
+    "./plugins/project/project/resolution/errors/*.ts": {
+      "types": "./dist/types/plugins/project/project/resolution/errors/*.d.ts",
+      "import": "./dist/esm/plugins/project/project/resolution/errors/*.mjs",
+      "require": "./dist/cjs/plugins/project/project/resolution/errors/*.cjs",
+      "default": "./src/plugins/project/project/resolution/errors/*.ts"
+    },
+    "./plugins/project/project/resolution/errors/*": {
+      "types": "./dist/types/plugins/project/project/resolution/errors/*",
+      "import": "./dist/esm/plugins/project/project/resolution/errors/*",
+      "require": "./dist/cjs/plugins/project/project/resolution/errors/*",
+      "default": "./src/plugins/project/project/resolution/errors/*"
+    },
     "./plugins/project/project/resolution": {
       "types": "./dist/types/plugins/project/project/resolution/index.d.ts",
       "import": "./dist/esm/plugins/project/project/resolution/index.mjs",

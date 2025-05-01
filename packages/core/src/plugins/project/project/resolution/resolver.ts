@@ -15,6 +15,7 @@ import {
 import { findProjectRootPath } from "../../utils/project-root-path-finder";
 import type { ResolvedProject } from "../project";
 
+import { SubProjectPathIsNotDefinedError } from "./errors";
 import type { ProjectResolutionOptions } from "./options";
 
 export async function resolveProject(
@@ -56,7 +57,6 @@ export async function resolveProject(
 
   await hooks[HOOK_NAME_RESOLVE_PROJECT].promise(
     projectPath,
-    // TODO(ertgl): Create a mid type definition for the resolved project, to make it more strict.
     project as unknown as ResolvedProject,
     projectConfig,
   );
@@ -68,8 +68,7 @@ export async function resolveProject(
       const subProjectPath = subProjectConfig.path ?? "";
       if (!subProjectPath)
       {
-        // TODO(ertgl): Standardize the error says that the sub-project path is required.
-        const err = new Error("Sub-project path is required");
+        const err = new SubProjectPathIsNotDefinedError();
         throw err;
       }
 

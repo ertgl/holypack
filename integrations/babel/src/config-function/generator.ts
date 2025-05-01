@@ -22,7 +22,7 @@ export async function generateBabelConfigFunction(
     api: ConfigAPI,
   ): TransformOptions
   {
-    // TODO(ertgl): Invalidate Babel cache if current environment is test.
+    api.cache.invalidate(() => process.env.NODE_ENV);
 
     return transformOptions;
   };

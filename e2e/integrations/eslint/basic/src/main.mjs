@@ -1,5 +1,3 @@
-// TODO(ertgl): Convert the ESLint integration example to a test.
-
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 

@@ -57,7 +57,6 @@ export function resolveJestIntegrationConfigPluginOptions(
       extensionsToTreatAsEsm: [
         ...JEST_INTEGRATION_CONFIG_DEFAULT_EXTENSIONS_TO_TREAT_AS_ESM,
       ],
-      // TODO(ertgl): Provide `globals` option in Jest integration options, so we can use it to configure ESLint as well. Consider supporting functional definition.
       globals: {},
       moduleDirectories: [
         ...JEST_INTEGRATION_CONFIG_DEFAULT_MODULE_DIRECTORIES,
@@ -75,7 +74,6 @@ export function resolveJestIntegrationConfigPluginOptions(
         ...JEST_INTEGRATION_CONFIG_DEFAULT_ROOTS,
       ],
       runner: "jest-runner",
-      // TODO(ertgl): Support `jsdom` environment in Jest integration.
       testEnvironment: "jest-environment-node",
       testEnvironmentOptions: {},
       testLocationInResults: true,

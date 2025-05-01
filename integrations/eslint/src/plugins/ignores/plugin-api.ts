@@ -1,6 +1,3 @@
-// TODO(ertgl): Investigate the latest way to ignore files in ESLint.
-// See: https://eslint.org/docs/latest/use/configure/ignore
-
 import {
   relative as getRelativePath,
   join as joinPaths,
@@ -11,7 +8,7 @@ import type { Linter } from "eslint";
 
 import type { StrictContext } from "@holypack/core";
 import type { ResolvedProject } from "@holypack/core/plugins/project";
-import { iterateProjectsRecursively } from "@holypack/core/plugins/project/utils/recursive-project-iterator";
+import { iterateWorkspacesRecursivelyByRootProject } from "@holypack/core/plugins/workspace/utils/recursive-workspace-iterator";
 
 import type { ESLintIntegrationIgnoresPlugin } from "./plugin";
 import type { ESLintIntegrationIgnoresPluginOptions } from "./plugin-options";
@@ -44,109 +41,64 @@ export class ESLintIntegrationIgnoresPluginAPI
       return;
     }
 
-    const projects = (
-      context.project != null
-        ? Array.from(
-            iterateProjectsRecursively(
-              context.project as unknown as ResolvedProject,
-              {
-                includeSelf: true,
-              },
-            ),
-          )
-        : []
-    );
+    configs.push(
+      {
+        ignores: Array.from(
+          iterateWorkspacesRecursivelyByRootProject(
+            context.project as unknown as ResolvedProject,
+            {
+              excludeExternal: true,
+            },
+          ).flatMap(
+            (workspace) =>
+            {
+              return [
+                ...resolvedOptions.commonDirectoryPatterns.map(
+                  (commonDirectoryPattern) =>
+                  {
+                    return resolvePath(
+                      workspace.path,
+                      commonDirectoryPattern,
+                    );
+                  },
+                ).flatMap(
+                  (absoluteIgnorePath) =>
+                  {
+                    return joinPaths(
+                      getRelativePath(
+                        context.cwd,
+                        absoluteIgnorePath,
+                      ),
+                      "**",
+                      "*",
+                    );
+                  },
+                ),
 
-    for (const project of projects)
-    {
-      configs.push(
-        {
-          ignores: [
-            ...resolvedOptions.commonDirectoryPatterns.map(
-              (commonDirectoryPattern) =>
-              {
-                return resolvePath(project.path, commonDirectoryPattern);
-              },
-            ).flatMap(
-              (absoluteIgnorePath) =>
-              {
-                return joinPaths(
-                  getRelativePath(
-                    context.cwd,
-                    absoluteIgnorePath,
-                  ),
-                  "**",
-                  "*",
-                );
-              },
-            ),
-
-            ...resolvedOptions.commonFilePatterns.map(
-              (commonFilePattern) =>
-              {
-                return resolvePath(project.path, commonFilePattern);
-              },
-            ).flatMap(
-              (absoluteIgnorePath) =>
-              {
-                return joinPaths(
-                  getRelativePath(
-                    context.cwd,
-                    absoluteIgnorePath,
-                  ),
-                );
-              },
-            ),
-          ],
-        },
-
-        {
-          ignores: Array.from(
-            project.workspaces.values().flatMap(
-              (workspace) =>
-              {
-                return [
-                  ...resolvedOptions.commonDirectoryPatterns.map(
-                    (commonDirectoryPattern) =>
-                    {
-                      return resolvePath(workspace.path, commonDirectoryPattern);
-                    },
-                  ).flatMap(
-                    (absoluteIgnorePath) =>
-                    {
-                      return joinPaths(
-                        getRelativePath(
-                          context.cwd,
-                          absoluteIgnorePath,
-                        ),
-                        "**",
-                        "*",
-                      );
-                    },
-                  ),
-
-                  ...resolvedOptions.commonFilePatterns.map(
-                    (commonFilePattern) =>
-                    {
-                      return resolvePath(workspace.path, commonFilePattern);
-                    },
-                  ).flatMap(
-                    (absoluteIgnorePath) =>
-                    {
-                      return joinPaths(
-                        getRelativePath(
-                          context.cwd,
-                          absoluteIgnorePath,
-                        ),
-                      );
-                    },
-                  ),
-                ];
-              },
-            ),
+                ...resolvedOptions.commonFilePatterns.map(
+                  (commonFilePattern) =>
+                  {
+                    return resolvePath(
+                      workspace.path,
+                      commonFilePattern,
+                    );
+                  },
+                ).flatMap(
+                  (absoluteIgnorePath) =>
+                  {
+                    return joinPaths(
+                      getRelativePath(
+                        context.cwd,
+                        absoluteIgnorePath,
+                      ),
+                    );
+                  },
+                ),
+              ];
+            },
           ),
-        },
-      );
-    }
+        ),
+      },
+    );
   }
 }

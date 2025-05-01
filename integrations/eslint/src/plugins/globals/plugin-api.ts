@@ -88,7 +88,7 @@ export class ESLintIntegrationGlobalsPluginAPI
           GLOB_PATTERN_JS_JSX_TS_TSX,
         ],
         languageOptions: {
-          // TODO(ertgl): Support specifying project type, so we can treat JS/JSX files as server/browser/isomorphic modules. For now, isomorphic is the default.
+          // TODO(ertgl): Support specifying project type, so we can treat JS/JSX files as server/browser/isomorphic modules. For now, isomorphic is the default. Or maybe just use `browserslist`.
           globals: {
             ...globals.browser,
             ...globals.builtin,

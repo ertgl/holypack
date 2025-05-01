@@ -6,6 +6,7 @@ import type NPluginModule from "eslint-plugin-n";
 import type { StrictContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
 import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
+import type { ResolvedProject } from "@holypack/core/plugins/project";
 
 import {
   GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
@@ -70,32 +71,7 @@ export class ESLintIntegrationNPluginAPI
       return;
     }
 
-    if (context.project == null)
-    {
-      // TODO(ertgl): Standardize "no project in context" error.
-      const err = new Error(
-        "eslint-plugin-n requires a project to be set in the context.",
-      );
-      throw err;
-    }
-
-    if (context.project.packageJSON == null)
-    {
-      // TODO(ertgl): Standardize "no package.json in project" error.
-      const err = new Error(
-        "eslint-plugin-n requires a package.json to be set in the project.",
-      );
-      throw err;
-    }
-
-    if (!context.project.path)
-    {
-      // TODO(ertgl): Standardize "no project path" error.
-      const err = new Error(
-        "eslint-plugin-n requires a project path to be set in the context.",
-      );
-      throw err;
-    }
+    const project = context.project as unknown as ResolvedProject;
 
     const extensions = [
       ".ts",
@@ -117,22 +93,22 @@ export class ESLintIntegrationNPluginAPI
     const rootDirPaths = Array.from(
       new Set([
         context.cwd,
-        context.project.path,
+        project.path,
       ]),
     );
 
     const sharedSettings = {
       allowModules: Array.from(
         new Set([
-          ...Object.keys(context.project.packageJSON.dependencies ?? {}),
-          ...Object.keys(context.project.packageJSON.devDependencies ?? {}),
+          ...Object.keys(project.packageJSON.dependencies ?? {}),
+          ...Object.keys(project.packageJSON.devDependencies ?? {}),
         ]),
       ),
       resolverConfig: {
         extensions,
         modules: [
           "node_modules",
-          joinPaths(context.project.path, "node_modules"),
+          joinPaths(project.path, "node_modules"),
         ],
         roots: rootDirPaths,
       },

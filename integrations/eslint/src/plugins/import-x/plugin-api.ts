@@ -1,5 +1,9 @@
 import type { Linter } from "eslint";
+import type {
+  createTypeScriptImportResolver as TypeScriptImportResolverCreatorFunction,
+} from "eslint-import-resolver-typescript";
 import type PluginImportXModule from "eslint-plugin-import-x";
+import type { Resolver } from "eslint-plugin-import-x";
 
 import type { StrictContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
@@ -78,13 +82,6 @@ export class ESLintIntegrationImportXPluginAPI
       return;
     }
 
-    // TODO(ertgl): Make `eslint-import-resolver-typescript` dependency optional.
-    const {
-      createTypeScriptImportResolver,
-    } = await import(
-      "eslint-import-resolver-typescript",
-    );
-
     const extensions = [
       ".d.ts",
       ".ts",
@@ -111,6 +108,34 @@ export class ESLintIntegrationImportXPluginAPI
       ".json",
     ];
 
+    const importXResolverNext: (
+      | Resolver
+      | ReturnType<typeof TypeScriptImportResolverCreatorFunction>
+    )[] = [
+      pluginImportX.createNodeResolver(),
+    ];
+
+    try
+    {
+      const {
+        createTypeScriptImportResolver,
+      } = await import(
+        "eslint-import-resolver-typescript",
+      ) as {
+        createTypeScriptImportResolver: typeof TypeScriptImportResolverCreatorFunction;
+      };
+
+      importXResolverNext.push(
+        createTypeScriptImportResolver(),
+      );
+    }
+    catch (err)
+    {
+      const err2 = new ModuleNotFoundError("eslint-import-resolver-typescript");
+      err2.cause = err;
+      await emitWarning(context, err2);
+    }
+
     configs.push(
       {
         settings: {
@@ -131,10 +156,7 @@ export class ESLintIntegrationImportXPluginAPI
             },
             typescript: true,
           },
-          "import-x/resolver-next": [
-            pluginImportX.createNodeResolver(),
-            createTypeScriptImportResolver(),
-          ],
+          "import-x/resolver-next": importXResolverNext,
         },
       },
 
