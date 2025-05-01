@@ -27,12 +27,12 @@ export class BabelIntegrationEnvPlugin implements Integration
 
   async onBabelTransformOptionsGeneration(
     babelIntegration: BabelIntegration,
-    resolvedContext: StrictContext,
+    context: StrictContext,
     transformOptions: TransformOptions,
   ): Promise<void>
   {
     await this.api.contributeToBabelTransformOptions(
-      resolvedContext,
+      context,
       transformOptions,
       babelIntegration.options.env,
     );

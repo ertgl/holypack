@@ -27,12 +27,12 @@ export class BabelIntegrationConfigPlugin implements Integration
 
   onBabelTransformOptionsGeneration(
     babelIntegration: BabelIntegration,
-    resolvedContext: StrictContext,
+    context: StrictContext,
     transformOptions: TransformOptions,
   ): void
   {
     this.api.contributeToBabelTransformOptions(
-      resolvedContext,
+      context,
       transformOptions,
       babelIntegration.options.config,
     );

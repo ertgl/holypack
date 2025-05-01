@@ -7,12 +7,12 @@ declare module "@holypack/core"
 {
   interface ContextCustomProperties
   {
-    typescript?: null | TypeScriptContext;
+    typescript: TypeScriptResolvedContext;
   }
 
-  interface ResolvedContextCustomProperties
+  interface StrictContextCustomProperties
   {
-    typescript: TypeScriptResolvedContext;
+    typescript?: null | TypeScriptContext;
   }
 }
 

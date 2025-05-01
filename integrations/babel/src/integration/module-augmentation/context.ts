@@ -7,12 +7,12 @@ declare module "@holypack/core"
 {
   interface ContextCustomProperties
   {
-    babel?: BabelContext | null;
+    babel: BabelResolvedContext;
   }
 
-  interface ResolvedContextCustomProperties
+  interface StrictContextCustomProperties
   {
-    babel: BabelResolvedContext;
+    babel?: BabelContext | null;
   }
 }
 

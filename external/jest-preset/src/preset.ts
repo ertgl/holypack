@@ -3,6 +3,7 @@ import type { Config } from "jest";
 import {
   requireIntegration,
   resolveContext,
+  type StrictContext,
 } from "@holypack/core";
 import {
   INTEGRATION_NAME_JEST,
@@ -22,9 +23,11 @@ export async function createHolypackPreset(
   const context = await resolveContext(options.context);
 
   const integration = requireIntegration<JestIntegration>(
-    context,
+    context as unknown as StrictContext,
     INTEGRATION_NAME_JEST,
   );
 
-  return await integration.api.generateConfig(context);
+  return await integration.api.generateConfig(
+    context as unknown as StrictContext,
+  );
 }

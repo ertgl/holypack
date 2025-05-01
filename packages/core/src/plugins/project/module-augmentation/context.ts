@@ -7,12 +7,12 @@ declare module "../../../context/context"
 {
   interface ContextCustomProperties
   {
-    project?: null | Project;
+    project: ResolvedProject;
   }
 
-  interface ResolvedContextCustomProperties
+  interface StrictContextCustomProperties
   {
-    project: ResolvedProject;
+    project?: null | Project;
   }
 }
 

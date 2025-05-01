@@ -6,6 +6,7 @@ import {
 import {
   requireIntegration,
   resolveContext,
+  type StrictContext,
 } from "@holypack/core";
 import {
   BabelIntegration,
@@ -25,12 +26,12 @@ export async function createHolypackPreset(
   const context = await resolveContext(options.context);
 
   const integration = requireIntegration<BabelIntegration>(
-    context,
+    context as unknown as StrictContext,
     INTEGRATION_NAME_BABEL,
   );
 
   const configFunction = await integration.api.generateConfigFunction(
-    context,
+    context as unknown as StrictContext,
   );
 
   return createConfigItem(

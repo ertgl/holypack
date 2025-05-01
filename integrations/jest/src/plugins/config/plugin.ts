@@ -28,12 +28,12 @@ export class JestIntegrationConfigPlugin implements Integration
 
   onJestConfigGeneration(
     jestIntegration: JestIntegration,
-    resolvedContext: StrictContext,
+    context: StrictContext,
     config: Config,
   ): void
   {
     this.api.contributeToJestConfig(
-      resolvedContext,
+      context,
       config,
       jestIntegration.options.config,
     );

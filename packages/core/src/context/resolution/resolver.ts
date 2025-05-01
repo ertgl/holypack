@@ -72,7 +72,7 @@ export async function resolveContext(
 
   const plugins = createPluginMap();
 
-  const context: StrictContext = {
+  const strictContext: StrictContext = {
     config: resolvedConfig,
     cwd,
     hooks,
@@ -85,7 +85,7 @@ export async function resolveContext(
     ?? defaultContextInitializer
   );
 
-  initializeContext(context);
+  initializeContext(strictContext);
 
   if (config.plugins != null)
   {
@@ -96,7 +96,7 @@ export async function resolveContext(
         continue;
       }
 
-      bindPlugin(context, plugin);
+      bindPlugin(strictContext, plugin);
     }
   }
 
@@ -109,30 +109,30 @@ export async function resolveContext(
         continue;
       }
 
-      bindIntegration(context, integration);
+      bindIntegration(strictContext, integration);
     }
   }
 
-  await context.hooks[HOOK_NAME_SETUP].promise(
-    context,
+  await strictContext.hooks[HOOK_NAME_SETUP].promise(
+    strictContext,
     config,
   );
 
-  await context.hooks[HOOK_NAME_RESOLVE_CONFIG].promise(
-    context,
+  await strictContext.hooks[HOOK_NAME_RESOLVE_CONFIG].promise(
+    strictContext,
     config,
   );
 
-  await context.hooks[HOOK_NAME_RESOLVE_CONTEXT].promise(
-    context,
+  await strictContext.hooks[HOOK_NAME_RESOLVE_CONTEXT].promise(
+    strictContext,
     options,
   );
 
-  const resolvedContext = context as Context;
+  const context = strictContext as unknown as Context;
 
   await context.hooks[HOOK_NAME_POST_RESOLVE_CONTEXT].promise(
-    resolvedContext,
+    context,
   );
 
-  return resolvedContext;
+  return context;
 }

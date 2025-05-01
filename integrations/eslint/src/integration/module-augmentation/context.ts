@@ -7,12 +7,12 @@ declare module "@holypack/core"
 {
   interface ContextCustomProperties
   {
-    eslint?: ESLintContext | null;
+    eslint: ESLintResolvedContext;
   }
 
-  interface ResolvedContextCustomProperties
+  interface StrictContextCustomProperties
   {
-    eslint: ESLintResolvedContext;
+    eslint?: ESLintContext | null;
   }
 }
 
