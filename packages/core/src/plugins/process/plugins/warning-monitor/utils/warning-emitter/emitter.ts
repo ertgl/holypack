@@ -1,5 +1,6 @@
 import type { StrictContext } from "../../../../../../context";
 import { HOOK_NAME_EMIT_WARNING } from "../../hooks";
+
 import { NoHookInContextForWarningEmitterError } from "./errors";
 
 export async function emitWarning(
@@ -7,13 +8,15 @@ export async function emitWarning(
   warning: Error,
 ): Promise<void>
 {
-  if (context.hooks[HOOK_NAME_EMIT_WARNING] == null)
+  const emitWarningHook = context.hooks[HOOK_NAME_EMIT_WARNING];
+
+  if (emitWarningHook == null)
   {
     const err = new NoHookInContextForWarningEmitterError(warning);
     throw err;
   }
 
-  await context.hooks[HOOK_NAME_EMIT_WARNING]?.promise(
+  await emitWarningHook.promise(
     context,
     warning,
   );
