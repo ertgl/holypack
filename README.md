@@ -221,7 +221,7 @@ scale.
   </tr>
   <tr>
     <td><a href="https://webpack.js.org/">webpack</a></td>
-    <td></td>
+    <td><a href="integrations/webpack">@holypack/integration-webpack</a></td>
     <td align="center">
       Work in progress
     </td>
@@ -234,7 +234,7 @@ scale.
   </tr>
   <tr>
     <td><a href="https://jestjs.io/">Jest</a></td>
-    <td></td>
+    <td><a href="integrations/jest">@holypack/integration-jest</a></td>
     <td align="center">Completed</td>
   </tr>
   <tr>
