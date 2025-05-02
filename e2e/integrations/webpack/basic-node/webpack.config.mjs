@@ -7,6 +7,8 @@ import { defineConfig } from "@holypack/webpack-plugin";
 /**
  * @type {Configuration}
  */
-const WEBPACK_CONFIG = await defineConfig();
+const WEBPACK_CONFIG = await defineConfig({
+  target: "node",
+});
 
 export default WEBPACK_CONFIG;
