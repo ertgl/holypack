@@ -24,3 +24,6 @@ holypack
 
 # Usernames
 ertgl
+
+# webpack-plugin
+configurators

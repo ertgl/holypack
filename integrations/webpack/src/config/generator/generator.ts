@@ -1,8 +1,12 @@
-import { resolve as resolvePath } from "node:path";
-
 import type { Configuration } from "webpack";
 
 import type { Context } from "@holypack/core";
+
+import { configureWebpackContext } from "../../configurators/context";
+import { configureWebpackEntry } from "../../configurators/entry";
+import { configureWebpackMode } from "../../configurators/mode";
+import { configureWebpackOutput } from "../../configurators/output";
+import { createConfigPreset } from "../presets";
 
 import type { WebpackConfigGeneratorOptions } from "./options";
 
@@ -12,24 +16,47 @@ export async function generateWebpackConfig(
   options?: null | WebpackConfigGeneratorOptions,
 ): Promise<Configuration>
 {
-  const overrides = options?.overrides ?? {};
+  options ??= {};
 
-  // TODO(ertgl): Implement the actual config generation logic for webpack.
+  const overrides = options.overrides ?? {};
 
-  const contextDirectoryPath = overrides.context ?? context.cwd;
+  // TODO(ertgl): Complete the config generation logic for webpack.
+  // TODO(ertgl): Provide custom hooks for the webpack integration.
 
-  const entry = overrides.entry ?? {
-    main: "./src/main.js",
-  };
+  const config: Configuration = {};
 
-  const output = overrides.output ?? {
-    path: resolvePath(contextDirectoryPath, "dist"),
-  };
+  const preset = createConfigPreset(
+    context,
+    overrides,
+  );
 
-  return {
-    ...overrides,
-    context: contextDirectoryPath,
-    entry,
-    output,
-  };
+  configureWebpackContext(
+    context,
+    config,
+    preset,
+    overrides,
+  );
+
+  configureWebpackEntry(
+    context,
+    config,
+    preset,
+    overrides,
+  );
+
+  configureWebpackMode(
+    context,
+    config,
+    preset,
+    overrides,
+  );
+
+  configureWebpackOutput(
+    context,
+    config,
+    preset,
+    overrides,
+  );
+
+  return config;
 }
