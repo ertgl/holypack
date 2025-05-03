@@ -1691,6 +1691,98 @@
       "require": "./dist/cjs/plugins/ci/utils/*",
       "default": "./src/plugins/ci/utils/*"
     },
+    "./plugins/fs/plugin": {
+      "types": "./dist/types/plugins/fs/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin/index.cjs",
+      "default": "./src/plugins/fs/plugin/index.ts"
+    },
+    "./plugins/fs/plugin/": {
+      "types": "./dist/types/plugins/fs/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin/index.cjs",
+      "default": "./src/plugins/fs/plugin/index.ts"
+    },
+    "./plugins/fs/plugin/*.d.ts": {
+      "types": "./dist/types/plugins/fs/plugin/*.d.ts",
+      "default": "./src/plugins/fs/plugin/*.ts"
+    },
+    "./plugins/fs/plugin/*.cjs": {
+      "types": "./dist/types/plugins/fs/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin/*.cjs",
+      "default": "./src/plugins/fs/plugin/*.ts"
+    },
+    "./plugins/fs/plugin/*.js": {
+      "types": "./dist/types/plugins/fs/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin/*.cjs",
+      "default": "./src/plugins/fs/plugin/*.ts"
+    },
+    "./plugins/fs/plugin/*.mjs": {
+      "types": "./dist/types/plugins/fs/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin/*.cjs",
+      "default": "./src/plugins/fs/plugin/*.ts"
+    },
+    "./plugins/fs/plugin/*.ts": {
+      "types": "./dist/types/plugins/fs/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin/*.cjs",
+      "default": "./src/plugins/fs/plugin/*.ts"
+    },
+    "./plugins/fs/plugin/*": {
+      "types": "./dist/types/plugins/fs/plugin/*",
+      "import": "./dist/esm/plugins/fs/plugin/*",
+      "require": "./dist/cjs/plugins/fs/plugin/*",
+      "default": "./src/plugins/fs/plugin/*"
+    },
+    "./plugins/fs/plugin-metadata": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin-metadata/index.cjs",
+      "default": "./src/plugins/fs/plugin-metadata/index.ts"
+    },
+    "./plugins/fs/plugin-metadata/": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin-metadata/index.cjs",
+      "default": "./src/plugins/fs/plugin-metadata/index.ts"
+    },
+    "./plugins/fs/plugin-metadata/*.d.ts": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/*.d.ts",
+      "default": "./src/plugins/fs/plugin-metadata/*.ts"
+    },
+    "./plugins/fs/plugin-metadata/*.cjs": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin-metadata/*.cjs",
+      "default": "./src/plugins/fs/plugin-metadata/*.ts"
+    },
+    "./plugins/fs/plugin-metadata/*.js": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin-metadata/*.cjs",
+      "default": "./src/plugins/fs/plugin-metadata/*.ts"
+    },
+    "./plugins/fs/plugin-metadata/*.mjs": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin-metadata/*.cjs",
+      "default": "./src/plugins/fs/plugin-metadata/*.ts"
+    },
+    "./plugins/fs/plugin-metadata/*.ts": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin-metadata/*.cjs",
+      "default": "./src/plugins/fs/plugin-metadata/*.ts"
+    },
+    "./plugins/fs/plugin-metadata/*": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/*",
+      "import": "./dist/esm/plugins/fs/plugin-metadata/*",
+      "require": "./dist/cjs/plugins/fs/plugin-metadata/*",
+      "default": "./src/plugins/fs/plugin-metadata/*"
+    },
     "./plugins/legacy/module-augmentation": {
       "types": "./dist/types/plugins/legacy/module-augmentation/index.d.ts",
       "import": "./dist/esm/plugins/legacy/module-augmentation/index.mjs",
