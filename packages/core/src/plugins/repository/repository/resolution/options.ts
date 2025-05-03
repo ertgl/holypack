@@ -1,5 +1,5 @@
-import type { PathLike } from "../../../lib/fs";
-import type { Repository } from "../repository";
+import type { PathLike } from "../../../../lib/fs";
+import type { Repository } from "../../repository";
 
 import type { RepositoryResolutionFS } from "./fs";
 

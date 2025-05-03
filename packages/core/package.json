@@ -3581,6 +3581,52 @@
       "require": "./dist/cjs/plugins/project/utils/*",
       "default": "./src/plugins/project/utils/*"
     },
+    "./plugins/repository/repository/resolution": {
+      "types": "./dist/types/plugins/repository/repository/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/resolution/index.cjs",
+      "default": "./src/plugins/repository/repository/resolution/index.ts"
+    },
+    "./plugins/repository/repository/resolution/": {
+      "types": "./dist/types/plugins/repository/repository/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/resolution/index.cjs",
+      "default": "./src/plugins/repository/repository/resolution/index.ts"
+    },
+    "./plugins/repository/repository/resolution/*.d.ts": {
+      "types": "./dist/types/plugins/repository/repository/resolution/*.d.ts",
+      "default": "./src/plugins/repository/repository/resolution/*.ts"
+    },
+    "./plugins/repository/repository/resolution/*.cjs": {
+      "types": "./dist/types/plugins/repository/repository/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/resolution/*.cjs",
+      "default": "./src/plugins/repository/repository/resolution/*.ts"
+    },
+    "./plugins/repository/repository/resolution/*.js": {
+      "types": "./dist/types/plugins/repository/repository/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/resolution/*.cjs",
+      "default": "./src/plugins/repository/repository/resolution/*.ts"
+    },
+    "./plugins/repository/repository/resolution/*.mjs": {
+      "types": "./dist/types/plugins/repository/repository/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/resolution/*.cjs",
+      "default": "./src/plugins/repository/repository/resolution/*.ts"
+    },
+    "./plugins/repository/repository/resolution/*.ts": {
+      "types": "./dist/types/plugins/repository/repository/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/resolution/*.cjs",
+      "default": "./src/plugins/repository/repository/resolution/*.ts"
+    },
+    "./plugins/repository/repository/resolution/*": {
+      "types": "./dist/types/plugins/repository/repository/resolution/*",
+      "import": "./dist/esm/plugins/repository/repository/resolution/*",
+      "require": "./dist/cjs/plugins/repository/repository/resolution/*",
+      "default": "./src/plugins/repository/repository/resolution/*"
+    },
     "./plugins/repository/utils/repository-root-path-finder": {
       "types": "./dist/types/plugins/repository/utils/repository-root-path-finder/index.d.ts",
       "import": "./dist/esm/plugins/repository/utils/repository-root-path-finder/index.mjs",
@@ -3673,51 +3719,143 @@
       "require": "./dist/cjs/plugins/repository/module-augmentation/*",
       "default": "./src/plugins/repository/module-augmentation/*"
     },
-    "./plugins/repository/resolution": {
-      "types": "./dist/types/plugins/repository/resolution/index.d.ts",
-      "import": "./dist/esm/plugins/repository/resolution/index.mjs",
-      "require": "./dist/cjs/plugins/repository/resolution/index.cjs",
-      "default": "./src/plugins/repository/resolution/index.ts"
+    "./plugins/repository/plugin": {
+      "types": "./dist/types/plugins/repository/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin/index.cjs",
+      "default": "./src/plugins/repository/plugin/index.ts"
     },
-    "./plugins/repository/resolution/": {
-      "types": "./dist/types/plugins/repository/resolution/index.d.ts",
-      "import": "./dist/esm/plugins/repository/resolution/index.mjs",
-      "require": "./dist/cjs/plugins/repository/resolution/index.cjs",
-      "default": "./src/plugins/repository/resolution/index.ts"
+    "./plugins/repository/plugin/": {
+      "types": "./dist/types/plugins/repository/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin/index.cjs",
+      "default": "./src/plugins/repository/plugin/index.ts"
     },
-    "./plugins/repository/resolution/*.d.ts": {
-      "types": "./dist/types/plugins/repository/resolution/*.d.ts",
-      "default": "./src/plugins/repository/resolution/*.ts"
+    "./plugins/repository/plugin/*.d.ts": {
+      "types": "./dist/types/plugins/repository/plugin/*.d.ts",
+      "default": "./src/plugins/repository/plugin/*.ts"
     },
-    "./plugins/repository/resolution/*.cjs": {
-      "types": "./dist/types/plugins/repository/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/repository/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/repository/resolution/*.cjs",
-      "default": "./src/plugins/repository/resolution/*.ts"
+    "./plugins/repository/plugin/*.cjs": {
+      "types": "./dist/types/plugins/repository/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin/*.cjs",
+      "default": "./src/plugins/repository/plugin/*.ts"
     },
-    "./plugins/repository/resolution/*.js": {
-      "types": "./dist/types/plugins/repository/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/repository/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/repository/resolution/*.cjs",
-      "default": "./src/plugins/repository/resolution/*.ts"
+    "./plugins/repository/plugin/*.js": {
+      "types": "./dist/types/plugins/repository/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin/*.cjs",
+      "default": "./src/plugins/repository/plugin/*.ts"
     },
-    "./plugins/repository/resolution/*.mjs": {
-      "types": "./dist/types/plugins/repository/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/repository/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/repository/resolution/*.cjs",
-      "default": "./src/plugins/repository/resolution/*.ts"
+    "./plugins/repository/plugin/*.mjs": {
+      "types": "./dist/types/plugins/repository/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin/*.cjs",
+      "default": "./src/plugins/repository/plugin/*.ts"
     },
-    "./plugins/repository/resolution/*.ts": {
-      "types": "./dist/types/plugins/repository/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/repository/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/repository/resolution/*.cjs",
-      "default": "./src/plugins/repository/resolution/*.ts"
+    "./plugins/repository/plugin/*.ts": {
+      "types": "./dist/types/plugins/repository/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin/*.cjs",
+      "default": "./src/plugins/repository/plugin/*.ts"
     },
-    "./plugins/repository/resolution/*": {
-      "types": "./dist/types/plugins/repository/resolution/*",
-      "import": "./dist/esm/plugins/repository/resolution/*",
-      "require": "./dist/cjs/plugins/repository/resolution/*",
-      "default": "./src/plugins/repository/resolution/*"
+    "./plugins/repository/plugin/*": {
+      "types": "./dist/types/plugins/repository/plugin/*",
+      "import": "./dist/esm/plugins/repository/plugin/*",
+      "require": "./dist/cjs/plugins/repository/plugin/*",
+      "default": "./src/plugins/repository/plugin/*"
+    },
+    "./plugins/repository/plugin-metadata": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin-metadata/index.cjs",
+      "default": "./src/plugins/repository/plugin-metadata/index.ts"
+    },
+    "./plugins/repository/plugin-metadata/": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin-metadata/index.cjs",
+      "default": "./src/plugins/repository/plugin-metadata/index.ts"
+    },
+    "./plugins/repository/plugin-metadata/*.d.ts": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/*.d.ts",
+      "default": "./src/plugins/repository/plugin-metadata/*.ts"
+    },
+    "./plugins/repository/plugin-metadata/*.cjs": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin-metadata/*.cjs",
+      "default": "./src/plugins/repository/plugin-metadata/*.ts"
+    },
+    "./plugins/repository/plugin-metadata/*.js": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin-metadata/*.cjs",
+      "default": "./src/plugins/repository/plugin-metadata/*.ts"
+    },
+    "./plugins/repository/plugin-metadata/*.mjs": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin-metadata/*.cjs",
+      "default": "./src/plugins/repository/plugin-metadata/*.ts"
+    },
+    "./plugins/repository/plugin-metadata/*.ts": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin-metadata/*.cjs",
+      "default": "./src/plugins/repository/plugin-metadata/*.ts"
+    },
+    "./plugins/repository/plugin-metadata/*": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/*",
+      "import": "./dist/esm/plugins/repository/plugin-metadata/*",
+      "require": "./dist/cjs/plugins/repository/plugin-metadata/*",
+      "default": "./src/plugins/repository/plugin-metadata/*"
+    },
+    "./plugins/repository/repository": {
+      "types": "./dist/types/plugins/repository/repository/index.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/index.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/index.cjs",
+      "default": "./src/plugins/repository/repository/index.ts"
+    },
+    "./plugins/repository/repository/": {
+      "types": "./dist/types/plugins/repository/repository/index.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/index.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/index.cjs",
+      "default": "./src/plugins/repository/repository/index.ts"
+    },
+    "./plugins/repository/repository/*.d.ts": {
+      "types": "./dist/types/plugins/repository/repository/*.d.ts",
+      "default": "./src/plugins/repository/repository/*.ts"
+    },
+    "./plugins/repository/repository/*.cjs": {
+      "types": "./dist/types/plugins/repository/repository/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/*.cjs",
+      "default": "./src/plugins/repository/repository/*.ts"
+    },
+    "./plugins/repository/repository/*.js": {
+      "types": "./dist/types/plugins/repository/repository/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/*.cjs",
+      "default": "./src/plugins/repository/repository/*.ts"
+    },
+    "./plugins/repository/repository/*.mjs": {
+      "types": "./dist/types/plugins/repository/repository/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/*.cjs",
+      "default": "./src/plugins/repository/repository/*.ts"
+    },
+    "./plugins/repository/repository/*.ts": {
+      "types": "./dist/types/plugins/repository/repository/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/*.cjs",
+      "default": "./src/plugins/repository/repository/*.ts"
+    },
+    "./plugins/repository/repository/*": {
+      "types": "./dist/types/plugins/repository/repository/*",
+      "import": "./dist/esm/plugins/repository/repository/*",
+      "require": "./dist/cjs/plugins/repository/repository/*",
+      "default": "./src/plugins/repository/repository/*"
     },
     "./plugins/repository/utils": {
       "types": "./dist/types/plugins/repository/utils/index.d.ts",

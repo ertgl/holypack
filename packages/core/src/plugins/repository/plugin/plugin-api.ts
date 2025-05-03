@@ -1,13 +1,14 @@
-import type { RepositoryPlugin } from "./plugin";
-import type { ResolvedRepository } from "./repository";
+import type { ResolvedRepository } from "../repository";
 import {
   type RepositoryResolutionOptions,
   resolveRepository,
-} from "./resolution";
+} from "../repository/resolution";
 import {
   findRepositoryRootPath,
   type RepositoryRootPathFinderOptions,
-} from "./utils/repository-root-path-finder";
+} from "../utils/repository-root-path-finder";
+
+import type { RepositoryPlugin } from "./plugin";
 
 export class RepositoryPluginAPI
 {
