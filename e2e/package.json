@@ -7,9 +7,9 @@
     "clean": "yarn e2e:w:foreach::parallel::interlaced run clean",
     "dev": "yarn prepare && yarn build",
     "dev::clean": "yarn clean && yarn dev",
-    "e2e:w:foreach::parallel::interlaced": "yarn w:foreach::parallel::interlaced --exclude '@holypack/__e2e__' --exclude '@holypack/integration-*'",
-    "e2e:w:foreach::parallel::topological": "yarn w:foreach::parallel::topological --exclude '@holypack/__e2e__' --exclude '@holypack/integration-*'",
-    "prepare": "yarn e2e:w:foreach::parallel::topological run prepare",
+    "e2e:w:foreach::parallel::interlaced": "yarn w:foreach::parallel::interlaced --exclude '@holypack/__e2e__' --exclude '@holypack/integration-*' --exclude '@holypack/internal-*'",
+    "e2e:w:foreach::parallel::topological": "yarn w:foreach::parallel::topological --exclude '@holypack/__e2e__' --exclude '@holypack/integration-*' --exclude '@holypack/internal-*'",
+    "prepare": "yarn e2e:w:foreach::parallel::topological::interlaced run prepare",
     "test": "yarn e2e:w:foreach::parallel::topological run test"
   },
   "engines": {
@@ -17,9 +17,6 @@
   },
   "devDependencies": {
     "@holypack/core": "*",
-    "@holypack/eslint-plugin": "*",
-    "@holypack/integration-babel": "*",
-    "@holypack/integration-eslint": "*",
     "@holypack/integration-typescript": "*",
     "holypack": "*",
     "tapable": "^2.2.1"
@@ -28,10 +25,12 @@
     "../integrations/babel",
     "../integrations/jest",
     "../integrations/webpack",
+    "../internal/integrations/node",
     "../internal/integrations/yarn",
     "./integrations/*/*"
   ],
   "resolutions": {
+    "@holypack/__hack__": "portal:../hack",
     "@holypack/babel-preset": "portal:../external/babel-preset",
     "@holypack/core": "portal:../packages/core",
     "@holypack/eslint-plugin": "portal:../external/eslint-plugin",
@@ -40,6 +39,8 @@
     "@holypack/integration-jest": "portal:../integrations/jest",
     "@holypack/integration-typescript": "portal:../integrations/typescript",
     "@holypack/integration-webpack": "portal:../integrations/webpack",
+    "@holypack/internal-integration-babel": "portal:../internal/integrations/babel",
+    "@holypack/internal-integration-node": "portal:../internal/integrations/node",
     "@holypack/internal-integration-yarn": "portal:../internal/integrations/yarn",
     "@holypack/jest-preset": "portal:../external/jest-preset",
     "@holypack/webpack-plugin": "portal:../external/webpack-plugin",

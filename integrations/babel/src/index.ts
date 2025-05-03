@@ -1,7 +1,6 @@
-export * from "./config-function";
-export * from "./context";
-export * from "./eventing";
-export * from "./hooks";
+export * from "./config";
 export * from "./integration";
 export { createBabelIntegration as default } from "./integration";
+export * from "./integration-metadata";
+export * from "./module-augmentation";
 export * from "./plugins";

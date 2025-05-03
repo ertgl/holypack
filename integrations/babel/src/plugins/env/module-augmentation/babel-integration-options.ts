@@ -1,4 +1,4 @@
-import type { BabelIntegrationEnvPluginOptions } from "../plugin-options";
+import type { BabelIntegrationEnvPluginOptions } from "../plugin";
 
 declare module "../../../integration/integration-options"
 {

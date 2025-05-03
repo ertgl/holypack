@@ -2551,6 +2551,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/integration-jest@portal:./integrations/jest::locator=%40holypack%2F__monorepo__%40workspace%3A."
   peerDependencies:
+    "@babel/core": "*"
     "@holypack/core": "*"
     "@holypack/integration-eslint": "*"
     eslint: "*"
@@ -2561,6 +2562,8 @@ __metadata:
     jest-environment-jsdom: "*"
     tapable: "*"
   peerDependenciesMeta:
+    "@babel/core":
+      optional: true
     "@holypack/integration-eslint":
       optional: true
     eslint:
@@ -2580,8 +2583,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/integration-jest@workspace:integrations/jest"
   dependencies:
+    "@babel/core": "npm:^7.27.1"
     "@holypack/core": "workspace:^"
     "@holypack/integration-eslint": "workspace:^"
+    "@types/babel__core": "npm:^7.20.5"
     "@types/jest": "npm:^29.5.14"
     eslint: "npm:^9.25.1"
     eslint-plugin-istanbul: "npm:^0.1.2"
@@ -2591,6 +2596,7 @@ __metadata:
     jest-environment-jsdom: "npm:^29.7.0"
     tapable: "npm:^2.2.1"
   peerDependencies:
+    "@babel/core": "*"
     "@holypack/core": "*"
     "@holypack/integration-eslint": "*"
     eslint: "*"
@@ -2601,6 +2607,8 @@ __metadata:
     jest-environment-jsdom: "*"
     tapable: "*"
   peerDependenciesMeta:
+    "@babel/core":
+      optional: true
     "@holypack/integration-eslint":
       optional: true
     eslint:

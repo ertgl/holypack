@@ -75,7 +75,7 @@ export async function resolveProject(
       const subProjectAbsolutePath = (
         isAbsolutePath(subProjectPath)
           ? subProjectPath
-          : resolvePath(cwd, subProjectPath)
+          : resolvePath(projectPath, subProjectPath)
       );
 
       const subProject = await resolveProject(
