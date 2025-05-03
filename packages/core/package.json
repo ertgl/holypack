@@ -18,6 +18,11 @@
     "picomatch": "*",
     "tapable": "*"
   },
+  "peerDependenciesMeta": {
+    "cosmiconfig": {
+      "optional": true
+    }
+  },
   "files": [
     "./dist/",
     "./src/",
