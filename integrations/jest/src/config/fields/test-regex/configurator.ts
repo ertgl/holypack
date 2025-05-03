@@ -14,7 +14,7 @@ export function configureJestTestRegex(
   config.testRegex = (
     overrides?.testRegex
     ?? [
-      /(?:.+\.)?(?:spec|test)\.[cm]?[jt]s[x]?/iu.source,
+      /(?:.+)\.(?:spec|test)\.(?:[cm]?[jt]s[x]?)/iu.source,
     ]
   );
 }
