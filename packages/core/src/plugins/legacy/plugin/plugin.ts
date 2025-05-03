@@ -1,8 +1,7 @@
-import type { StrictConfig } from "../../config";
-import type { StrictContext } from "../../context";
-import type { Plugin } from "../../extension";
-
-export const PLUGIN_NAME_LEGACY = "@holypack/core:Legacy";
+import type { StrictConfig } from "../../../config";
+import type { StrictContext } from "../../../context";
+import type { Plugin } from "../../../extension";
+import { PLUGIN_NAME_LEGACY } from "../plugin-metadata";
 
 export class LegacyPlugin implements Plugin
 {

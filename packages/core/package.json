@@ -1833,6 +1833,98 @@
       "require": "./dist/cjs/plugins/legacy/module-augmentation/*",
       "default": "./src/plugins/legacy/module-augmentation/*"
     },
+    "./plugins/legacy/plugin": {
+      "types": "./dist/types/plugins/legacy/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin/index.cjs",
+      "default": "./src/plugins/legacy/plugin/index.ts"
+    },
+    "./plugins/legacy/plugin/": {
+      "types": "./dist/types/plugins/legacy/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin/index.cjs",
+      "default": "./src/plugins/legacy/plugin/index.ts"
+    },
+    "./plugins/legacy/plugin/*.d.ts": {
+      "types": "./dist/types/plugins/legacy/plugin/*.d.ts",
+      "default": "./src/plugins/legacy/plugin/*.ts"
+    },
+    "./plugins/legacy/plugin/*.cjs": {
+      "types": "./dist/types/plugins/legacy/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin/*.cjs",
+      "default": "./src/plugins/legacy/plugin/*.ts"
+    },
+    "./plugins/legacy/plugin/*.js": {
+      "types": "./dist/types/plugins/legacy/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin/*.cjs",
+      "default": "./src/plugins/legacy/plugin/*.ts"
+    },
+    "./plugins/legacy/plugin/*.mjs": {
+      "types": "./dist/types/plugins/legacy/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin/*.cjs",
+      "default": "./src/plugins/legacy/plugin/*.ts"
+    },
+    "./plugins/legacy/plugin/*.ts": {
+      "types": "./dist/types/plugins/legacy/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin/*.cjs",
+      "default": "./src/plugins/legacy/plugin/*.ts"
+    },
+    "./plugins/legacy/plugin/*": {
+      "types": "./dist/types/plugins/legacy/plugin/*",
+      "import": "./dist/esm/plugins/legacy/plugin/*",
+      "require": "./dist/cjs/plugins/legacy/plugin/*",
+      "default": "./src/plugins/legacy/plugin/*"
+    },
+    "./plugins/legacy/plugin-metadata": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin-metadata/index.cjs",
+      "default": "./src/plugins/legacy/plugin-metadata/index.ts"
+    },
+    "./plugins/legacy/plugin-metadata/": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin-metadata/index.cjs",
+      "default": "./src/plugins/legacy/plugin-metadata/index.ts"
+    },
+    "./plugins/legacy/plugin-metadata/*.d.ts": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/*.d.ts",
+      "default": "./src/plugins/legacy/plugin-metadata/*.ts"
+    },
+    "./plugins/legacy/plugin-metadata/*.cjs": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin-metadata/*.cjs",
+      "default": "./src/plugins/legacy/plugin-metadata/*.ts"
+    },
+    "./plugins/legacy/plugin-metadata/*.js": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin-metadata/*.cjs",
+      "default": "./src/plugins/legacy/plugin-metadata/*.ts"
+    },
+    "./plugins/legacy/plugin-metadata/*.mjs": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin-metadata/*.cjs",
+      "default": "./src/plugins/legacy/plugin-metadata/*.ts"
+    },
+    "./plugins/legacy/plugin-metadata/*.ts": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin-metadata/*.cjs",
+      "default": "./src/plugins/legacy/plugin-metadata/*.ts"
+    },
+    "./plugins/legacy/plugin-metadata/*": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/*",
+      "import": "./dist/esm/plugins/legacy/plugin-metadata/*",
+      "require": "./dist/cjs/plugins/legacy/plugin-metadata/*",
+      "default": "./src/plugins/legacy/plugin-metadata/*"
+    },
     "./plugins/package/utils/package-json-loader": {
       "types": "./dist/types/plugins/package/utils/package-json-loader/index.d.ts",
       "import": "./dist/esm/plugins/package/utils/package-json-loader/index.mjs",
