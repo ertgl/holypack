@@ -1,5 +1,5 @@
 import type { StrictContext } from "../../../../../../context";
-import { HOOK_NAME_EMIT_WARNING } from "../../hooks";
+import { HOOK_NAME_EMIT_WARNING } from "../../plugin/hooks";
 
 import { NoHookInContextForWarningEmitterError } from "./errors";
 

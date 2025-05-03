@@ -1,11 +1,14 @@
-import type { StrictConfig } from "../../../../config";
-import type { StrictContext } from "../../../../context";
-import { generateHookSubscriptionIDForPlugin } from "../../../../eventing";
-import type { Plugin } from "../../../../extension";
+import type { StrictConfig } from "../../../../../config";
+import type { StrictContext } from "../../../../../context";
+import { generateHookSubscriptionIDForPlugin } from "../../../../../eventing";
+import type { Plugin } from "../../../../../extension";
+import { PLUGIN_NAME_PROCESS_WARNING_MONITOR } from "../plugin-metadata";
 
-import { createEmitWarningHook, HOOK_NAME_EMIT_WARNING } from "./hooks";
+import {
+  createEmitWarningHook,
+  HOOK_NAME_EMIT_WARNING,
+} from "./hooks";
 import { ProcessWarningMonitorPluginAPI } from "./plugin-api";
-import { PLUGIN_NAME_PROCESS_WARNING_MONITOR } from "./plugin-name";
 
 export class ProcessWarningMonitorPlugin implements Plugin
 {

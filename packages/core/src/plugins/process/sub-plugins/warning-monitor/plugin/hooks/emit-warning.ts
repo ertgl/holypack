@@ -1,7 +1,7 @@
 import { AsyncParallelHook } from "tapable";
 
-import type { StrictContext } from "../../../../../context";
-import { PLUGIN_NAME_PROCESS_WARNING_MONITOR } from "../plugin-name";
+import type { StrictContext } from "../../../../../../context";
+import { PLUGIN_NAME_PROCESS_WARNING_MONITOR } from "../../plugin-metadata";
 
 export const HOOK_NAME_EMIT_WARNING = `${PLUGIN_NAME_PROCESS_WARNING_MONITOR}#emitWarning`;
 

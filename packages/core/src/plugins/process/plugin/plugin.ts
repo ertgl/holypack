@@ -1,10 +1,9 @@
-import type { StrictConfig } from "../../config";
-import type { StrictContext } from "../../context";
-import { bindSubPlugin, type Plugin } from "../../extension";
-
-import { PLUGIN_NAME_PROCESS } from "./plugin-name";
-import { createProcessCWDPlugin } from "./plugins/cwd";
-import { createProcessWarningMonitorPlugin } from "./plugins/warning-monitor";
+import type { StrictConfig } from "../../../config";
+import type { StrictContext } from "../../../context";
+import { bindSubPlugin, type Plugin } from "../../../extension";
+import { PLUGIN_NAME_PROCESS } from "../plugin-metadata";
+import { createProcessCWDPlugin } from "../sub-plugins/cwd";
+import { createProcessWarningMonitorPlugin } from "../sub-plugins/warning-monitor";
 
 export class ProcessPlugin implements Plugin
 {

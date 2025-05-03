@@ -1,7 +1,7 @@
-import type { StrictContext } from "../../../../context";
+import type { StrictContext } from "../../../../../context";
+import { emitWarning } from "../utils/warning-emitter";
 
 import type { ProcessWarningMonitorPlugin } from "./plugin";
-import { emitWarning } from "./utils/warning-emitter";
 
 export class ProcessWarningMonitorPluginAPI
 {

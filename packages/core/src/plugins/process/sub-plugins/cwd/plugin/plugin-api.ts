@@ -1,8 +1,8 @@
-import type { PathLike } from "../../../../lib/fs";
+import type { PathLike } from "../../../../../lib/fs";
 import {
   getProcessCWD,
   resolveCWD,
-} from "../../../../lib/process/cwd";
+} from "../../../../../lib/process/cwd";
 
 import type { ProcessCWDPlugin } from "./plugin";
 

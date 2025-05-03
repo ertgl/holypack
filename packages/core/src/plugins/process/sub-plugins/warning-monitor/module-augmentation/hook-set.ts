@@ -1,7 +1,7 @@
 import type {
   EmitWarningHook,
   HOOK_NAME_EMIT_WARNING,
-} from "../hooks";
+} from "../plugin/hooks";
 
 declare module "../../../../../eventing/hook-set"
 {
