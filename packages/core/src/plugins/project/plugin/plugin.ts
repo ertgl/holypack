@@ -1,16 +1,16 @@
-import type { StrictConfig } from "../../config";
-import type { StrictContext } from "../../context";
-import type { Plugin } from "../../extension";
+import type { StrictConfig } from "../../../config";
+import type { StrictContext } from "../../../context";
+import type { Plugin } from "../../../extension";
+import { PLUGIN_NAME_PROJECT } from "../plugin-metadata";
+import {
+  type Project,
+  resolveProject,
+} from "../project";
 
 import {
   createProjectHookSet,
   type ProjectHookSet,
 } from "./eventing";
-import { PLUGIN_NAME_PROJECT } from "./plugin-name";
-import {
-  type Project,
-  resolveProject,
-} from "./project";
 
 export class ProjectPlugin implements Plugin
 {

@@ -3029,6 +3029,98 @@
       "require": "./dist/cjs/plugins/process/sub-plugins/*",
       "default": "./src/plugins/process/sub-plugins/*"
     },
+    "./plugins/project/plugin/eventing": {
+      "types": "./dist/types/plugins/project/plugin/eventing/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/eventing/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/eventing/index.cjs",
+      "default": "./src/plugins/project/plugin/eventing/index.ts"
+    },
+    "./plugins/project/plugin/eventing/": {
+      "types": "./dist/types/plugins/project/plugin/eventing/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/eventing/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/eventing/index.cjs",
+      "default": "./src/plugins/project/plugin/eventing/index.ts"
+    },
+    "./plugins/project/plugin/eventing/*.d.ts": {
+      "types": "./dist/types/plugins/project/plugin/eventing/*.d.ts",
+      "default": "./src/plugins/project/plugin/eventing/*.ts"
+    },
+    "./plugins/project/plugin/eventing/*.cjs": {
+      "types": "./dist/types/plugins/project/plugin/eventing/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/eventing/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/eventing/*.cjs",
+      "default": "./src/plugins/project/plugin/eventing/*.ts"
+    },
+    "./plugins/project/plugin/eventing/*.js": {
+      "types": "./dist/types/plugins/project/plugin/eventing/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/eventing/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/eventing/*.cjs",
+      "default": "./src/plugins/project/plugin/eventing/*.ts"
+    },
+    "./plugins/project/plugin/eventing/*.mjs": {
+      "types": "./dist/types/plugins/project/plugin/eventing/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/eventing/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/eventing/*.cjs",
+      "default": "./src/plugins/project/plugin/eventing/*.ts"
+    },
+    "./plugins/project/plugin/eventing/*.ts": {
+      "types": "./dist/types/plugins/project/plugin/eventing/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/eventing/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/eventing/*.cjs",
+      "default": "./src/plugins/project/plugin/eventing/*.ts"
+    },
+    "./plugins/project/plugin/eventing/*": {
+      "types": "./dist/types/plugins/project/plugin/eventing/*",
+      "import": "./dist/esm/plugins/project/plugin/eventing/*",
+      "require": "./dist/cjs/plugins/project/plugin/eventing/*",
+      "default": "./src/plugins/project/plugin/eventing/*"
+    },
+    "./plugins/project/plugin/hooks": {
+      "types": "./dist/types/plugins/project/plugin/hooks/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/hooks/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/hooks/index.cjs",
+      "default": "./src/plugins/project/plugin/hooks/index.ts"
+    },
+    "./plugins/project/plugin/hooks/": {
+      "types": "./dist/types/plugins/project/plugin/hooks/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/hooks/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/hooks/index.cjs",
+      "default": "./src/plugins/project/plugin/hooks/index.ts"
+    },
+    "./plugins/project/plugin/hooks/*.d.ts": {
+      "types": "./dist/types/plugins/project/plugin/hooks/*.d.ts",
+      "default": "./src/plugins/project/plugin/hooks/*.ts"
+    },
+    "./plugins/project/plugin/hooks/*.cjs": {
+      "types": "./dist/types/plugins/project/plugin/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/hooks/*.cjs",
+      "default": "./src/plugins/project/plugin/hooks/*.ts"
+    },
+    "./plugins/project/plugin/hooks/*.js": {
+      "types": "./dist/types/plugins/project/plugin/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/hooks/*.cjs",
+      "default": "./src/plugins/project/plugin/hooks/*.ts"
+    },
+    "./plugins/project/plugin/hooks/*.mjs": {
+      "types": "./dist/types/plugins/project/plugin/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/hooks/*.cjs",
+      "default": "./src/plugins/project/plugin/hooks/*.ts"
+    },
+    "./plugins/project/plugin/hooks/*.ts": {
+      "types": "./dist/types/plugins/project/plugin/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/hooks/*.cjs",
+      "default": "./src/plugins/project/plugin/hooks/*.ts"
+    },
+    "./plugins/project/plugin/hooks/*": {
+      "types": "./dist/types/plugins/project/plugin/hooks/*",
+      "import": "./dist/esm/plugins/project/plugin/hooks/*",
+      "require": "./dist/cjs/plugins/project/plugin/hooks/*",
+      "default": "./src/plugins/project/plugin/hooks/*"
+    },
     "./plugins/project/project/resolution/errors": {
       "types": "./dist/types/plugins/project/project/resolution/errors/index.d.ts",
       "import": "./dist/esm/plugins/project/project/resolution/errors/index.mjs",
@@ -3259,98 +3351,6 @@
       "require": "./dist/cjs/plugins/project/utils/workspace-root-path-finder/*",
       "default": "./src/plugins/project/utils/workspace-root-path-finder/*"
     },
-    "./plugins/project/eventing": {
-      "types": "./dist/types/plugins/project/eventing/index.d.ts",
-      "import": "./dist/esm/plugins/project/eventing/index.mjs",
-      "require": "./dist/cjs/plugins/project/eventing/index.cjs",
-      "default": "./src/plugins/project/eventing/index.ts"
-    },
-    "./plugins/project/eventing/": {
-      "types": "./dist/types/plugins/project/eventing/index.d.ts",
-      "import": "./dist/esm/plugins/project/eventing/index.mjs",
-      "require": "./dist/cjs/plugins/project/eventing/index.cjs",
-      "default": "./src/plugins/project/eventing/index.ts"
-    },
-    "./plugins/project/eventing/*.d.ts": {
-      "types": "./dist/types/plugins/project/eventing/*.d.ts",
-      "default": "./src/plugins/project/eventing/*.ts"
-    },
-    "./plugins/project/eventing/*.cjs": {
-      "types": "./dist/types/plugins/project/eventing/*.d.ts",
-      "import": "./dist/esm/plugins/project/eventing/*.mjs",
-      "require": "./dist/cjs/plugins/project/eventing/*.cjs",
-      "default": "./src/plugins/project/eventing/*.ts"
-    },
-    "./plugins/project/eventing/*.js": {
-      "types": "./dist/types/plugins/project/eventing/*.d.ts",
-      "import": "./dist/esm/plugins/project/eventing/*.mjs",
-      "require": "./dist/cjs/plugins/project/eventing/*.cjs",
-      "default": "./src/plugins/project/eventing/*.ts"
-    },
-    "./plugins/project/eventing/*.mjs": {
-      "types": "./dist/types/plugins/project/eventing/*.d.ts",
-      "import": "./dist/esm/plugins/project/eventing/*.mjs",
-      "require": "./dist/cjs/plugins/project/eventing/*.cjs",
-      "default": "./src/plugins/project/eventing/*.ts"
-    },
-    "./plugins/project/eventing/*.ts": {
-      "types": "./dist/types/plugins/project/eventing/*.d.ts",
-      "import": "./dist/esm/plugins/project/eventing/*.mjs",
-      "require": "./dist/cjs/plugins/project/eventing/*.cjs",
-      "default": "./src/plugins/project/eventing/*.ts"
-    },
-    "./plugins/project/eventing/*": {
-      "types": "./dist/types/plugins/project/eventing/*",
-      "import": "./dist/esm/plugins/project/eventing/*",
-      "require": "./dist/cjs/plugins/project/eventing/*",
-      "default": "./src/plugins/project/eventing/*"
-    },
-    "./plugins/project/hooks": {
-      "types": "./dist/types/plugins/project/hooks/index.d.ts",
-      "import": "./dist/esm/plugins/project/hooks/index.mjs",
-      "require": "./dist/cjs/plugins/project/hooks/index.cjs",
-      "default": "./src/plugins/project/hooks/index.ts"
-    },
-    "./plugins/project/hooks/": {
-      "types": "./dist/types/plugins/project/hooks/index.d.ts",
-      "import": "./dist/esm/plugins/project/hooks/index.mjs",
-      "require": "./dist/cjs/plugins/project/hooks/index.cjs",
-      "default": "./src/plugins/project/hooks/index.ts"
-    },
-    "./plugins/project/hooks/*.d.ts": {
-      "types": "./dist/types/plugins/project/hooks/*.d.ts",
-      "default": "./src/plugins/project/hooks/*.ts"
-    },
-    "./plugins/project/hooks/*.cjs": {
-      "types": "./dist/types/plugins/project/hooks/*.d.ts",
-      "import": "./dist/esm/plugins/project/hooks/*.mjs",
-      "require": "./dist/cjs/plugins/project/hooks/*.cjs",
-      "default": "./src/plugins/project/hooks/*.ts"
-    },
-    "./plugins/project/hooks/*.js": {
-      "types": "./dist/types/plugins/project/hooks/*.d.ts",
-      "import": "./dist/esm/plugins/project/hooks/*.mjs",
-      "require": "./dist/cjs/plugins/project/hooks/*.cjs",
-      "default": "./src/plugins/project/hooks/*.ts"
-    },
-    "./plugins/project/hooks/*.mjs": {
-      "types": "./dist/types/plugins/project/hooks/*.d.ts",
-      "import": "./dist/esm/plugins/project/hooks/*.mjs",
-      "require": "./dist/cjs/plugins/project/hooks/*.cjs",
-      "default": "./src/plugins/project/hooks/*.ts"
-    },
-    "./plugins/project/hooks/*.ts": {
-      "types": "./dist/types/plugins/project/hooks/*.d.ts",
-      "import": "./dist/esm/plugins/project/hooks/*.mjs",
-      "require": "./dist/cjs/plugins/project/hooks/*.cjs",
-      "default": "./src/plugins/project/hooks/*.ts"
-    },
-    "./plugins/project/hooks/*": {
-      "types": "./dist/types/plugins/project/hooks/*",
-      "import": "./dist/esm/plugins/project/hooks/*",
-      "require": "./dist/cjs/plugins/project/hooks/*",
-      "default": "./src/plugins/project/hooks/*"
-    },
     "./plugins/project/module-augmentation": {
       "types": "./dist/types/plugins/project/module-augmentation/index.d.ts",
       "import": "./dist/esm/plugins/project/module-augmentation/index.mjs",
@@ -3396,6 +3396,98 @@
       "import": "./dist/esm/plugins/project/module-augmentation/*",
       "require": "./dist/cjs/plugins/project/module-augmentation/*",
       "default": "./src/plugins/project/module-augmentation/*"
+    },
+    "./plugins/project/plugin": {
+      "types": "./dist/types/plugins/project/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/index.cjs",
+      "default": "./src/plugins/project/plugin/index.ts"
+    },
+    "./plugins/project/plugin/": {
+      "types": "./dist/types/plugins/project/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/index.cjs",
+      "default": "./src/plugins/project/plugin/index.ts"
+    },
+    "./plugins/project/plugin/*.d.ts": {
+      "types": "./dist/types/plugins/project/plugin/*.d.ts",
+      "default": "./src/plugins/project/plugin/*.ts"
+    },
+    "./plugins/project/plugin/*.cjs": {
+      "types": "./dist/types/plugins/project/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/*.cjs",
+      "default": "./src/plugins/project/plugin/*.ts"
+    },
+    "./plugins/project/plugin/*.js": {
+      "types": "./dist/types/plugins/project/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/*.cjs",
+      "default": "./src/plugins/project/plugin/*.ts"
+    },
+    "./plugins/project/plugin/*.mjs": {
+      "types": "./dist/types/plugins/project/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/*.cjs",
+      "default": "./src/plugins/project/plugin/*.ts"
+    },
+    "./plugins/project/plugin/*.ts": {
+      "types": "./dist/types/plugins/project/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/*.cjs",
+      "default": "./src/plugins/project/plugin/*.ts"
+    },
+    "./plugins/project/plugin/*": {
+      "types": "./dist/types/plugins/project/plugin/*",
+      "import": "./dist/esm/plugins/project/plugin/*",
+      "require": "./dist/cjs/plugins/project/plugin/*",
+      "default": "./src/plugins/project/plugin/*"
+    },
+    "./plugins/project/plugin-metadata": {
+      "types": "./dist/types/plugins/project/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin-metadata/index.cjs",
+      "default": "./src/plugins/project/plugin-metadata/index.ts"
+    },
+    "./plugins/project/plugin-metadata/": {
+      "types": "./dist/types/plugins/project/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin-metadata/index.cjs",
+      "default": "./src/plugins/project/plugin-metadata/index.ts"
+    },
+    "./plugins/project/plugin-metadata/*.d.ts": {
+      "types": "./dist/types/plugins/project/plugin-metadata/*.d.ts",
+      "default": "./src/plugins/project/plugin-metadata/*.ts"
+    },
+    "./plugins/project/plugin-metadata/*.cjs": {
+      "types": "./dist/types/plugins/project/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin-metadata/*.cjs",
+      "default": "./src/plugins/project/plugin-metadata/*.ts"
+    },
+    "./plugins/project/plugin-metadata/*.js": {
+      "types": "./dist/types/plugins/project/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin-metadata/*.cjs",
+      "default": "./src/plugins/project/plugin-metadata/*.ts"
+    },
+    "./plugins/project/plugin-metadata/*.mjs": {
+      "types": "./dist/types/plugins/project/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin-metadata/*.cjs",
+      "default": "./src/plugins/project/plugin-metadata/*.ts"
+    },
+    "./plugins/project/plugin-metadata/*.ts": {
+      "types": "./dist/types/plugins/project/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin-metadata/*.cjs",
+      "default": "./src/plugins/project/plugin-metadata/*.ts"
+    },
+    "./plugins/project/plugin-metadata/*": {
+      "types": "./dist/types/plugins/project/plugin-metadata/*",
+      "import": "./dist/esm/plugins/project/plugin-metadata/*",
+      "require": "./dist/cjs/plugins/project/plugin-metadata/*",
+      "default": "./src/plugins/project/plugin-metadata/*"
     },
     "./plugins/project/project": {
       "types": "./dist/types/plugins/project/project/index.d.ts",

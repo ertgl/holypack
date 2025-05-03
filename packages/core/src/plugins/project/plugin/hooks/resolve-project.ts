@@ -1,11 +1,11 @@
 import { AsyncParallelHook } from "tapable";
 
-import { PLUGIN_NAME_PROJECT } from "../plugin-name";
+import { PLUGIN_NAME_PROJECT } from "../../plugin-metadata";
 import type {
   Project,
   ResolvedProject,
-} from "../project";
-import type { ProjectPath } from "../project/project-path";
+} from "../../project";
+import type { ProjectPath } from "../../project/project-path";
 
 export const HOOK_NAME_RESOLVE_PROJECT = `${PLUGIN_NAME_PROJECT}#resolveProject`;
 
