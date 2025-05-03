@@ -12,7 +12,7 @@ import {
   type ProjectPlugin,
   type ResolvedProject,
 } from "../project";
-import { HOOK_NAME_RESOLVE_PROJECT } from "../project/hooks";
+import { HOOK_NAME_RESOLVE_PROJECT } from "../project/plugin/hooks";
 
 import { resolveWorkspaceRegistry } from "./registry";
 
