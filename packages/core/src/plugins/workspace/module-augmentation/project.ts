@@ -1,4 +1,4 @@
-import type { WorkspaceRegistry } from "../registry";
+import type { WorkspaceRegistry } from "../workspace-registry";
 import type {
   Workspace,
   WorkspacePackageName,

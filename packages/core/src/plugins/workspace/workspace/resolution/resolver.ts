@@ -1,5 +1,5 @@
-import { resolveCWD } from "../../../lib/process/cwd";
-import { requirePackageJSONByDirectoryPath } from "../../package/utils/package-json-loader";
+import { resolveCWD } from "../../../../lib/process/cwd";
+import { requirePackageJSONByDirectoryPath } from "../../../package/utils/package-json-loader";
 import type { ResolvedWorkspace } from "../workspace";
 
 import type { WorkspaceResolutionOptions } from "./options";

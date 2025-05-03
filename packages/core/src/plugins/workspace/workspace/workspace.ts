@@ -1,4 +1,4 @@
-import type { PackageJSON } from "../package";
+import type { PackageJSON } from "../../package";
 
 export type ResolvedWorkspace = (
   & ResolvedWorkspaceBaseProperties

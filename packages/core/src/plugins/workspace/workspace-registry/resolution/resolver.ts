@@ -2,11 +2,11 @@ import { requirePackageJSONByDirectoryPath } from "../../../package/utils/packag
 import { extractWorkspaceGlobPatternsFromPackageJSON } from "../../../package/utils/workspace-glob-patterns-extractor";
 import { getWorkspacePathsByGlobPatterns } from "../../../package/utils/workspace-paths-extractor";
 import type { ResolvedProject } from "../../../project/project";
-import { resolveWorkspace } from "../../resolution";
+import { resolveWorkspace } from "../../workspace";
 import {
   createWorkspaceRegistry,
   type WorkspaceRegistry,
-} from "../registry";
+} from "../workspace-registry";
 
 import type { WorkspaceRegistryResolutionOptions } from "./options";
 

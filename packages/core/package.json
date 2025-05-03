@@ -3903,52 +3903,6 @@
       "require": "./dist/cjs/plugins/repository/utils/*",
       "default": "./src/plugins/repository/utils/*"
     },
-    "./plugins/workspace/registry/resolution": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/index.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/resolution/index.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/resolution/index.cjs",
-      "default": "./src/plugins/workspace/registry/resolution/index.ts"
-    },
-    "./plugins/workspace/registry/resolution/": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/index.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/resolution/index.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/resolution/index.cjs",
-      "default": "./src/plugins/workspace/registry/resolution/index.ts"
-    },
-    "./plugins/workspace/registry/resolution/*.d.ts": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/*.d.ts",
-      "default": "./src/plugins/workspace/registry/resolution/*.ts"
-    },
-    "./plugins/workspace/registry/resolution/*.cjs": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/resolution/*.cjs",
-      "default": "./src/plugins/workspace/registry/resolution/*.ts"
-    },
-    "./plugins/workspace/registry/resolution/*.js": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/resolution/*.cjs",
-      "default": "./src/plugins/workspace/registry/resolution/*.ts"
-    },
-    "./plugins/workspace/registry/resolution/*.mjs": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/resolution/*.cjs",
-      "default": "./src/plugins/workspace/registry/resolution/*.ts"
-    },
-    "./plugins/workspace/registry/resolution/*.ts": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/resolution/*.cjs",
-      "default": "./src/plugins/workspace/registry/resolution/*.ts"
-    },
-    "./plugins/workspace/registry/resolution/*": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/*",
-      "import": "./dist/esm/plugins/workspace/registry/resolution/*",
-      "require": "./dist/cjs/plugins/workspace/registry/resolution/*",
-      "default": "./src/plugins/workspace/registry/resolution/*"
-    },
     "./plugins/workspace/utils/recursive-workspace-iterator": {
       "types": "./dist/types/plugins/workspace/utils/recursive-workspace-iterator/index.d.ts",
       "import": "./dist/esm/plugins/workspace/utils/recursive-workspace-iterator/index.mjs",
@@ -3994,6 +3948,98 @@
       "import": "./dist/esm/plugins/workspace/utils/recursive-workspace-iterator/*",
       "require": "./dist/cjs/plugins/workspace/utils/recursive-workspace-iterator/*",
       "default": "./src/plugins/workspace/utils/recursive-workspace-iterator/*"
+    },
+    "./plugins/workspace/workspace/resolution": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/resolution/index.cjs",
+      "default": "./src/plugins/workspace/workspace/resolution/index.ts"
+    },
+    "./plugins/workspace/workspace/resolution/": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/resolution/index.cjs",
+      "default": "./src/plugins/workspace/workspace/resolution/index.ts"
+    },
+    "./plugins/workspace/workspace/resolution/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/*.d.ts",
+      "default": "./src/plugins/workspace/workspace/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace/resolution/*.cjs": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace/resolution/*.js": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace/resolution/*.mjs": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace/resolution/*.ts": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace/resolution/*": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/*",
+      "import": "./dist/esm/plugins/workspace/workspace/resolution/*",
+      "require": "./dist/cjs/plugins/workspace/workspace/resolution/*",
+      "default": "./src/plugins/workspace/workspace/resolution/*"
+    },
+    "./plugins/workspace/workspace-registry/resolution": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/resolution/index.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/index.ts"
+    },
+    "./plugins/workspace/workspace-registry/resolution/": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/resolution/index.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/index.ts"
+    },
+    "./plugins/workspace/workspace-registry/resolution/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/*.d.ts",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/resolution/*.cjs": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/resolution/*.js": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/resolution/*.mjs": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/resolution/*.ts": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/resolution/*": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/*",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/resolution/*",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/resolution/*",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/*"
     },
     "./plugins/workspace/module-augmentation": {
       "types": "./dist/types/plugins/workspace/module-augmentation/index.d.ts",
@@ -4041,97 +4087,97 @@
       "require": "./dist/cjs/plugins/workspace/module-augmentation/*",
       "default": "./src/plugins/workspace/module-augmentation/*"
     },
-    "./plugins/workspace/registry": {
-      "types": "./dist/types/plugins/workspace/registry/index.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/index.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/index.cjs",
-      "default": "./src/plugins/workspace/registry/index.ts"
+    "./plugins/workspace/plugin": {
+      "types": "./dist/types/plugins/workspace/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin/index.cjs",
+      "default": "./src/plugins/workspace/plugin/index.ts"
     },
-    "./plugins/workspace/registry/": {
-      "types": "./dist/types/plugins/workspace/registry/index.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/index.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/index.cjs",
-      "default": "./src/plugins/workspace/registry/index.ts"
+    "./plugins/workspace/plugin/": {
+      "types": "./dist/types/plugins/workspace/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin/index.cjs",
+      "default": "./src/plugins/workspace/plugin/index.ts"
     },
-    "./plugins/workspace/registry/*.d.ts": {
-      "types": "./dist/types/plugins/workspace/registry/*.d.ts",
-      "default": "./src/plugins/workspace/registry/*.ts"
+    "./plugins/workspace/plugin/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/plugin/*.d.ts",
+      "default": "./src/plugins/workspace/plugin/*.ts"
     },
-    "./plugins/workspace/registry/*.cjs": {
-      "types": "./dist/types/plugins/workspace/registry/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/*.cjs",
-      "default": "./src/plugins/workspace/registry/*.ts"
+    "./plugins/workspace/plugin/*.cjs": {
+      "types": "./dist/types/plugins/workspace/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin/*.cjs",
+      "default": "./src/plugins/workspace/plugin/*.ts"
     },
-    "./plugins/workspace/registry/*.js": {
-      "types": "./dist/types/plugins/workspace/registry/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/*.cjs",
-      "default": "./src/plugins/workspace/registry/*.ts"
+    "./plugins/workspace/plugin/*.js": {
+      "types": "./dist/types/plugins/workspace/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin/*.cjs",
+      "default": "./src/plugins/workspace/plugin/*.ts"
     },
-    "./plugins/workspace/registry/*.mjs": {
-      "types": "./dist/types/plugins/workspace/registry/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/*.cjs",
-      "default": "./src/plugins/workspace/registry/*.ts"
+    "./plugins/workspace/plugin/*.mjs": {
+      "types": "./dist/types/plugins/workspace/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin/*.cjs",
+      "default": "./src/plugins/workspace/plugin/*.ts"
     },
-    "./plugins/workspace/registry/*.ts": {
-      "types": "./dist/types/plugins/workspace/registry/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/*.cjs",
-      "default": "./src/plugins/workspace/registry/*.ts"
+    "./plugins/workspace/plugin/*.ts": {
+      "types": "./dist/types/plugins/workspace/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin/*.cjs",
+      "default": "./src/plugins/workspace/plugin/*.ts"
     },
-    "./plugins/workspace/registry/*": {
-      "types": "./dist/types/plugins/workspace/registry/*",
-      "import": "./dist/esm/plugins/workspace/registry/*",
-      "require": "./dist/cjs/plugins/workspace/registry/*",
-      "default": "./src/plugins/workspace/registry/*"
+    "./plugins/workspace/plugin/*": {
+      "types": "./dist/types/plugins/workspace/plugin/*",
+      "import": "./dist/esm/plugins/workspace/plugin/*",
+      "require": "./dist/cjs/plugins/workspace/plugin/*",
+      "default": "./src/plugins/workspace/plugin/*"
     },
-    "./plugins/workspace/resolution": {
-      "types": "./dist/types/plugins/workspace/resolution/index.d.ts",
-      "import": "./dist/esm/plugins/workspace/resolution/index.mjs",
-      "require": "./dist/cjs/plugins/workspace/resolution/index.cjs",
-      "default": "./src/plugins/workspace/resolution/index.ts"
+    "./plugins/workspace/plugin-metadata": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin-metadata/index.cjs",
+      "default": "./src/plugins/workspace/plugin-metadata/index.ts"
     },
-    "./plugins/workspace/resolution/": {
-      "types": "./dist/types/plugins/workspace/resolution/index.d.ts",
-      "import": "./dist/esm/plugins/workspace/resolution/index.mjs",
-      "require": "./dist/cjs/plugins/workspace/resolution/index.cjs",
-      "default": "./src/plugins/workspace/resolution/index.ts"
+    "./plugins/workspace/plugin-metadata/": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin-metadata/index.cjs",
+      "default": "./src/plugins/workspace/plugin-metadata/index.ts"
     },
-    "./plugins/workspace/resolution/*.d.ts": {
-      "types": "./dist/types/plugins/workspace/resolution/*.d.ts",
-      "default": "./src/plugins/workspace/resolution/*.ts"
+    "./plugins/workspace/plugin-metadata/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/*.d.ts",
+      "default": "./src/plugins/workspace/plugin-metadata/*.ts"
     },
-    "./plugins/workspace/resolution/*.cjs": {
-      "types": "./dist/types/plugins/workspace/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/resolution/*.cjs",
-      "default": "./src/plugins/workspace/resolution/*.ts"
+    "./plugins/workspace/plugin-metadata/*.cjs": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin-metadata/*.cjs",
+      "default": "./src/plugins/workspace/plugin-metadata/*.ts"
     },
-    "./plugins/workspace/resolution/*.js": {
-      "types": "./dist/types/plugins/workspace/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/resolution/*.cjs",
-      "default": "./src/plugins/workspace/resolution/*.ts"
+    "./plugins/workspace/plugin-metadata/*.js": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin-metadata/*.cjs",
+      "default": "./src/plugins/workspace/plugin-metadata/*.ts"
     },
-    "./plugins/workspace/resolution/*.mjs": {
-      "types": "./dist/types/plugins/workspace/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/resolution/*.cjs",
-      "default": "./src/plugins/workspace/resolution/*.ts"
+    "./plugins/workspace/plugin-metadata/*.mjs": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin-metadata/*.cjs",
+      "default": "./src/plugins/workspace/plugin-metadata/*.ts"
     },
-    "./plugins/workspace/resolution/*.ts": {
-      "types": "./dist/types/plugins/workspace/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/resolution/*.cjs",
-      "default": "./src/plugins/workspace/resolution/*.ts"
+    "./plugins/workspace/plugin-metadata/*.ts": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin-metadata/*.cjs",
+      "default": "./src/plugins/workspace/plugin-metadata/*.ts"
     },
-    "./plugins/workspace/resolution/*": {
-      "types": "./dist/types/plugins/workspace/resolution/*",
-      "import": "./dist/esm/plugins/workspace/resolution/*",
-      "require": "./dist/cjs/plugins/workspace/resolution/*",
-      "default": "./src/plugins/workspace/resolution/*"
+    "./plugins/workspace/plugin-metadata/*": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/*",
+      "import": "./dist/esm/plugins/workspace/plugin-metadata/*",
+      "require": "./dist/cjs/plugins/workspace/plugin-metadata/*",
+      "default": "./src/plugins/workspace/plugin-metadata/*"
     },
     "./plugins/workspace/utils": {
       "types": "./dist/types/plugins/workspace/utils/index.d.ts",
@@ -4178,6 +4224,98 @@
       "import": "./dist/esm/plugins/workspace/utils/*",
       "require": "./dist/cjs/plugins/workspace/utils/*",
       "default": "./src/plugins/workspace/utils/*"
+    },
+    "./plugins/workspace/workspace": {
+      "types": "./dist/types/plugins/workspace/workspace/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/index.cjs",
+      "default": "./src/plugins/workspace/workspace/index.ts"
+    },
+    "./plugins/workspace/workspace/": {
+      "types": "./dist/types/plugins/workspace/workspace/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/index.cjs",
+      "default": "./src/plugins/workspace/workspace/index.ts"
+    },
+    "./plugins/workspace/workspace/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/workspace/*.d.ts",
+      "default": "./src/plugins/workspace/workspace/*.ts"
+    },
+    "./plugins/workspace/workspace/*.cjs": {
+      "types": "./dist/types/plugins/workspace/workspace/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/*.cjs",
+      "default": "./src/plugins/workspace/workspace/*.ts"
+    },
+    "./plugins/workspace/workspace/*.js": {
+      "types": "./dist/types/plugins/workspace/workspace/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/*.cjs",
+      "default": "./src/plugins/workspace/workspace/*.ts"
+    },
+    "./plugins/workspace/workspace/*.mjs": {
+      "types": "./dist/types/plugins/workspace/workspace/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/*.cjs",
+      "default": "./src/plugins/workspace/workspace/*.ts"
+    },
+    "./plugins/workspace/workspace/*.ts": {
+      "types": "./dist/types/plugins/workspace/workspace/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/*.cjs",
+      "default": "./src/plugins/workspace/workspace/*.ts"
+    },
+    "./plugins/workspace/workspace/*": {
+      "types": "./dist/types/plugins/workspace/workspace/*",
+      "import": "./dist/esm/plugins/workspace/workspace/*",
+      "require": "./dist/cjs/plugins/workspace/workspace/*",
+      "default": "./src/plugins/workspace/workspace/*"
+    },
+    "./plugins/workspace/workspace-registry": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/index.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/index.ts"
+    },
+    "./plugins/workspace/workspace-registry/": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/index.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/index.ts"
+    },
+    "./plugins/workspace/workspace-registry/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/*.d.ts",
+      "default": "./src/plugins/workspace/workspace-registry/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/*.cjs": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/*.js": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/*.mjs": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/*.ts": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/*": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/*",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/*",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/*",
+      "default": "./src/plugins/workspace/workspace-registry/*"
     },
     "./plugins/ci": {
       "types": "./dist/types/plugins/ci/index.d.ts",
