@@ -3,7 +3,7 @@ import type BabelPresetEnvModule from "@babel/preset-env";
 
 import type { Context, StrictContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
-import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
+import { emitWarning } from "@holypack/core/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter";
 
 import type { Assumptions } from "../../../config";
 import { configureBabelImportSources } from "../config";
