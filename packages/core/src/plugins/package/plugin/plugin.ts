@@ -1,8 +1,7 @@
-import type { Plugin } from "../../extension";
+import type { Plugin } from "../../../extension";
+import { PLUGIN_NAME_PACKAGE } from "../plugin-metadata";
 
 import { PackagePluginAPI } from "./plugin-api";
-
-export const PLUGIN_NAME_PACKAGE = "@holypack/core:Package";
 
 export class PackagePlugin implements Plugin
 {

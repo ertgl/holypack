@@ -1,12 +1,12 @@
-import type { PathLike } from "../../lib/fs";
+import type { PathLike } from "../../../lib/fs";
 
-import type { PackageJSON } from "./package-json";
-import type { PackagePlugin } from "./plugin";
+import type { PackageJSON } from "./../package-json";
 import {
   requirePackageJSONByDirectoryPath,
   requirePackageJSONByPath,
-} from "./utils/package-json-loader";
-import { extractWorkspaceGlobPatternsFromPackageJSON } from "./utils/workspace-glob-patterns-extractor";
+} from "./../utils/package-json-loader";
+import { extractWorkspaceGlobPatternsFromPackageJSON } from "./../utils/workspace-glob-patterns-extractor";
+import type { PackagePlugin } from "./plugin";
 
 export class PackagePluginAPI
 {
