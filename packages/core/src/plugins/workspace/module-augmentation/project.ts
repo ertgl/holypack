@@ -1,8 +1,8 @@
-import type { WorkspaceRegistry } from "../workspace-registry";
 import type {
   Workspace,
   WorkspacePackageName,
 } from "../workspace";
+import type { WorkspaceRegistry } from "../workspace-registry";
 
 declare module "../../project/project/project"
 {
