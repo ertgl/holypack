@@ -27,51 +27,51 @@
       "require": "./dist/cjs/index.cjs",
       "default": "./src/index.ts"
     },
-    "./integration/module-augmentation": {
-      "types": "./dist/types/integration/module-augmentation/index.d.ts",
-      "import": "./dist/esm/integration/module-augmentation/index.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/index.cjs",
-      "default": "./src/integration/module-augmentation/index.ts"
+    "./utils/tsconfig-root-directory-path-finder": {
+      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/index.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/index.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/index.cjs",
+      "default": "./src/utils/tsconfig-root-directory-path-finder/index.ts"
     },
-    "./integration/module-augmentation/": {
-      "types": "./dist/types/integration/module-augmentation/index.d.ts",
-      "import": "./dist/esm/integration/module-augmentation/index.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/index.cjs",
-      "default": "./src/integration/module-augmentation/index.ts"
+    "./utils/tsconfig-root-directory-path-finder/": {
+      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/index.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/index.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/index.cjs",
+      "default": "./src/utils/tsconfig-root-directory-path-finder/index.ts"
     },
-    "./integration/module-augmentation/*.d.ts": {
-      "types": "./dist/types/integration/module-augmentation/*.d.ts",
-      "default": "./src/integration/module-augmentation/*.ts"
+    "./utils/tsconfig-root-directory-path-finder/*.d.ts": {
+      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/*.d.ts",
+      "default": "./src/utils/tsconfig-root-directory-path-finder/*.ts"
     },
-    "./integration/module-augmentation/*.cjs": {
-      "types": "./dist/types/integration/module-augmentation/*.d.ts",
-      "import": "./dist/esm/integration/module-augmentation/*.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/*.cjs",
-      "default": "./src/integration/module-augmentation/*.ts"
+    "./utils/tsconfig-root-directory-path-finder/*.cjs": {
+      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/*.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/*.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/*.cjs",
+      "default": "./src/utils/tsconfig-root-directory-path-finder/*.ts"
     },
-    "./integration/module-augmentation/*.js": {
-      "types": "./dist/types/integration/module-augmentation/*.d.ts",
-      "import": "./dist/esm/integration/module-augmentation/*.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/*.cjs",
-      "default": "./src/integration/module-augmentation/*.ts"
+    "./utils/tsconfig-root-directory-path-finder/*.js": {
+      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/*.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/*.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/*.cjs",
+      "default": "./src/utils/tsconfig-root-directory-path-finder/*.ts"
     },
-    "./integration/module-augmentation/*.mjs": {
-      "types": "./dist/types/integration/module-augmentation/*.d.ts",
-      "import": "./dist/esm/integration/module-augmentation/*.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/*.cjs",
-      "default": "./src/integration/module-augmentation/*.ts"
+    "./utils/tsconfig-root-directory-path-finder/*.mjs": {
+      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/*.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/*.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/*.cjs",
+      "default": "./src/utils/tsconfig-root-directory-path-finder/*.ts"
     },
-    "./integration/module-augmentation/*.ts": {
-      "types": "./dist/types/integration/module-augmentation/*.d.ts",
-      "import": "./dist/esm/integration/module-augmentation/*.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/*.cjs",
-      "default": "./src/integration/module-augmentation/*.ts"
+    "./utils/tsconfig-root-directory-path-finder/*.ts": {
+      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/*.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/*.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/*.cjs",
+      "default": "./src/utils/tsconfig-root-directory-path-finder/*.ts"
     },
-    "./integration/module-augmentation/*": {
-      "types": "./dist/types/integration/module-augmentation/*",
-      "import": "./dist/esm/integration/module-augmentation/*",
-      "require": "./dist/cjs/integration/module-augmentation/*",
-      "default": "./src/integration/module-augmentation/*"
+    "./utils/tsconfig-root-directory-path-finder/*": {
+      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/*",
+      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/*",
+      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/*",
+      "default": "./src/utils/tsconfig-root-directory-path-finder/*"
     },
     "./context": {
       "types": "./dist/types/context/index.d.ts",
@@ -165,6 +165,98 @@
       "require": "./dist/cjs/integration/*",
       "default": "./src/integration/*"
     },
+    "./integration-metadata": {
+      "types": "./dist/types/integration-metadata/index.d.ts",
+      "import": "./dist/esm/integration-metadata/index.mjs",
+      "require": "./dist/cjs/integration-metadata/index.cjs",
+      "default": "./src/integration-metadata/index.ts"
+    },
+    "./integration-metadata/": {
+      "types": "./dist/types/integration-metadata/index.d.ts",
+      "import": "./dist/esm/integration-metadata/index.mjs",
+      "require": "./dist/cjs/integration-metadata/index.cjs",
+      "default": "./src/integration-metadata/index.ts"
+    },
+    "./integration-metadata/*.d.ts": {
+      "types": "./dist/types/integration-metadata/*.d.ts",
+      "default": "./src/integration-metadata/*.ts"
+    },
+    "./integration-metadata/*.cjs": {
+      "types": "./dist/types/integration-metadata/*.d.ts",
+      "import": "./dist/esm/integration-metadata/*.mjs",
+      "require": "./dist/cjs/integration-metadata/*.cjs",
+      "default": "./src/integration-metadata/*.ts"
+    },
+    "./integration-metadata/*.js": {
+      "types": "./dist/types/integration-metadata/*.d.ts",
+      "import": "./dist/esm/integration-metadata/*.mjs",
+      "require": "./dist/cjs/integration-metadata/*.cjs",
+      "default": "./src/integration-metadata/*.ts"
+    },
+    "./integration-metadata/*.mjs": {
+      "types": "./dist/types/integration-metadata/*.d.ts",
+      "import": "./dist/esm/integration-metadata/*.mjs",
+      "require": "./dist/cjs/integration-metadata/*.cjs",
+      "default": "./src/integration-metadata/*.ts"
+    },
+    "./integration-metadata/*.ts": {
+      "types": "./dist/types/integration-metadata/*.d.ts",
+      "import": "./dist/esm/integration-metadata/*.mjs",
+      "require": "./dist/cjs/integration-metadata/*.cjs",
+      "default": "./src/integration-metadata/*.ts"
+    },
+    "./integration-metadata/*": {
+      "types": "./dist/types/integration-metadata/*",
+      "import": "./dist/esm/integration-metadata/*",
+      "require": "./dist/cjs/integration-metadata/*",
+      "default": "./src/integration-metadata/*"
+    },
+    "./module-augmentation": {
+      "types": "./dist/types/module-augmentation/index.d.ts",
+      "import": "./dist/esm/module-augmentation/index.mjs",
+      "require": "./dist/cjs/module-augmentation/index.cjs",
+      "default": "./src/module-augmentation/index.ts"
+    },
+    "./module-augmentation/": {
+      "types": "./dist/types/module-augmentation/index.d.ts",
+      "import": "./dist/esm/module-augmentation/index.mjs",
+      "require": "./dist/cjs/module-augmentation/index.cjs",
+      "default": "./src/module-augmentation/index.ts"
+    },
+    "./module-augmentation/*.d.ts": {
+      "types": "./dist/types/module-augmentation/*.d.ts",
+      "default": "./src/module-augmentation/*.ts"
+    },
+    "./module-augmentation/*.cjs": {
+      "types": "./dist/types/module-augmentation/*.d.ts",
+      "import": "./dist/esm/module-augmentation/*.mjs",
+      "require": "./dist/cjs/module-augmentation/*.cjs",
+      "default": "./src/module-augmentation/*.ts"
+    },
+    "./module-augmentation/*.js": {
+      "types": "./dist/types/module-augmentation/*.d.ts",
+      "import": "./dist/esm/module-augmentation/*.mjs",
+      "require": "./dist/cjs/module-augmentation/*.cjs",
+      "default": "./src/module-augmentation/*.ts"
+    },
+    "./module-augmentation/*.mjs": {
+      "types": "./dist/types/module-augmentation/*.d.ts",
+      "import": "./dist/esm/module-augmentation/*.mjs",
+      "require": "./dist/cjs/module-augmentation/*.cjs",
+      "default": "./src/module-augmentation/*.ts"
+    },
+    "./module-augmentation/*.ts": {
+      "types": "./dist/types/module-augmentation/*.d.ts",
+      "import": "./dist/esm/module-augmentation/*.mjs",
+      "require": "./dist/cjs/module-augmentation/*.cjs",
+      "default": "./src/module-augmentation/*.ts"
+    },
+    "./module-augmentation/*": {
+      "types": "./dist/types/module-augmentation/*",
+      "import": "./dist/esm/module-augmentation/*",
+      "require": "./dist/cjs/module-augmentation/*",
+      "default": "./src/module-augmentation/*"
+    },
     "./presets": {
       "types": "./dist/types/presets/index.d.ts",
       "import": "./dist/esm/presets/index.mjs",
@@ -188,51 +280,51 @@
       "require": "./dist/cjs/presets/*",
       "default": "./src/presets/*"
     },
-    "./tsconfig-root-directory-path-finder": {
-      "types": "./dist/types/tsconfig-root-directory-path-finder/index.d.ts",
-      "import": "./dist/esm/tsconfig-root-directory-path-finder/index.mjs",
-      "require": "./dist/cjs/tsconfig-root-directory-path-finder/index.cjs",
-      "default": "./src/tsconfig-root-directory-path-finder/index.ts"
+    "./utils": {
+      "types": "./dist/types/utils/index.d.ts",
+      "import": "./dist/esm/utils/index.mjs",
+      "require": "./dist/cjs/utils/index.cjs",
+      "default": "./src/utils/index.ts"
     },
-    "./tsconfig-root-directory-path-finder/": {
-      "types": "./dist/types/tsconfig-root-directory-path-finder/index.d.ts",
-      "import": "./dist/esm/tsconfig-root-directory-path-finder/index.mjs",
-      "require": "./dist/cjs/tsconfig-root-directory-path-finder/index.cjs",
-      "default": "./src/tsconfig-root-directory-path-finder/index.ts"
+    "./utils/": {
+      "types": "./dist/types/utils/index.d.ts",
+      "import": "./dist/esm/utils/index.mjs",
+      "require": "./dist/cjs/utils/index.cjs",
+      "default": "./src/utils/index.ts"
     },
-    "./tsconfig-root-directory-path-finder/*.d.ts": {
-      "types": "./dist/types/tsconfig-root-directory-path-finder/*.d.ts",
-      "default": "./src/tsconfig-root-directory-path-finder/*.ts"
+    "./utils/*.d.ts": {
+      "types": "./dist/types/utils/*.d.ts",
+      "default": "./src/utils/*.ts"
     },
-    "./tsconfig-root-directory-path-finder/*.cjs": {
-      "types": "./dist/types/tsconfig-root-directory-path-finder/*.d.ts",
-      "import": "./dist/esm/tsconfig-root-directory-path-finder/*.mjs",
-      "require": "./dist/cjs/tsconfig-root-directory-path-finder/*.cjs",
-      "default": "./src/tsconfig-root-directory-path-finder/*.ts"
+    "./utils/*.cjs": {
+      "types": "./dist/types/utils/*.d.ts",
+      "import": "./dist/esm/utils/*.mjs",
+      "require": "./dist/cjs/utils/*.cjs",
+      "default": "./src/utils/*.ts"
     },
-    "./tsconfig-root-directory-path-finder/*.js": {
-      "types": "./dist/types/tsconfig-root-directory-path-finder/*.d.ts",
-      "import": "./dist/esm/tsconfig-root-directory-path-finder/*.mjs",
-      "require": "./dist/cjs/tsconfig-root-directory-path-finder/*.cjs",
-      "default": "./src/tsconfig-root-directory-path-finder/*.ts"
+    "./utils/*.js": {
+      "types": "./dist/types/utils/*.d.ts",
+      "import": "./dist/esm/utils/*.mjs",
+      "require": "./dist/cjs/utils/*.cjs",
+      "default": "./src/utils/*.ts"
     },
-    "./tsconfig-root-directory-path-finder/*.mjs": {
-      "types": "./dist/types/tsconfig-root-directory-path-finder/*.d.ts",
-      "import": "./dist/esm/tsconfig-root-directory-path-finder/*.mjs",
-      "require": "./dist/cjs/tsconfig-root-directory-path-finder/*.cjs",
-      "default": "./src/tsconfig-root-directory-path-finder/*.ts"
+    "./utils/*.mjs": {
+      "types": "./dist/types/utils/*.d.ts",
+      "import": "./dist/esm/utils/*.mjs",
+      "require": "./dist/cjs/utils/*.cjs",
+      "default": "./src/utils/*.ts"
     },
-    "./tsconfig-root-directory-path-finder/*.ts": {
-      "types": "./dist/types/tsconfig-root-directory-path-finder/*.d.ts",
-      "import": "./dist/esm/tsconfig-root-directory-path-finder/*.mjs",
-      "require": "./dist/cjs/tsconfig-root-directory-path-finder/*.cjs",
-      "default": "./src/tsconfig-root-directory-path-finder/*.ts"
+    "./utils/*.ts": {
+      "types": "./dist/types/utils/*.d.ts",
+      "import": "./dist/esm/utils/*.mjs",
+      "require": "./dist/cjs/utils/*.cjs",
+      "default": "./src/utils/*.ts"
     },
-    "./tsconfig-root-directory-path-finder/*": {
-      "types": "./dist/types/tsconfig-root-directory-path-finder/*",
-      "import": "./dist/esm/tsconfig-root-directory-path-finder/*",
-      "require": "./dist/cjs/tsconfig-root-directory-path-finder/*",
-      "default": "./src/tsconfig-root-directory-path-finder/*"
+    "./utils/*": {
+      "types": "./dist/types/utils/*",
+      "import": "./dist/esm/utils/*",
+      "require": "./dist/cjs/utils/*",
+      "default": "./src/utils/*"
     },
     "./*.d.ts": {
       "types": "./dist/types/*.d.ts",

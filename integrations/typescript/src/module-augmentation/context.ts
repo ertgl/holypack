@@ -1,7 +1,7 @@
 import type {
   TypeScriptContext,
   TypeScriptResolvedContext,
-} from "../../context";
+} from "../context";
 
 declare module "@holypack/core"
 {
