@@ -39,7 +39,7 @@
     "@holypack/integration-jest": "workspace:^",
     "@holypack/integration-typescript": "workspace:^",
     "@holypack/internal-integration-babel": "workspace:^",
-    "eslint": "^9.25.1",
+    "eslint": "^9.26.0",
     "holypack": "workspace:^"
   },
   "resolutions": {
