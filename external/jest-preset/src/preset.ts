@@ -27,7 +27,5 @@ export async function createHolypackPreset(
     INTEGRATION_NAME_JEST,
   );
 
-  return await integration.api.generateConfig(
-    context as unknown as StrictContext,
-  );
+  return await integration.api.generateJestConfig(context);
 }

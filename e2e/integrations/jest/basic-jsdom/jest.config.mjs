@@ -7,6 +7,7 @@
  */
 const JEST_CONFIG = {
   preset: "@holypack/jest-preset",
+  testEnvironment: "jsdom",
 };
 
 export default JEST_CONFIG;

@@ -7,11 +7,11 @@ import {
 import type { StrictContext } from "../../../../context";
 import { resolveCWD } from "../../../../lib/process/cwd";
 import { requirePackageJSONByDirectoryPath } from "../../../package/utils/package-json-loader";
-import type { ProjectHookSet } from "../../eventing";
+import type { ProjectHookSet } from "../../plugin/eventing";
 import {
   HOOK_NAME_POST_RESOLVE_PROJECT,
   HOOK_NAME_RESOLVE_PROJECT,
-} from "../../hooks";
+} from "../../plugin/hooks";
 import { findProjectRootPath } from "../../utils/project-root-path-finder";
 import type { ResolvedProject } from "../project";
 
@@ -75,7 +75,7 @@ export async function resolveProject(
       const subProjectAbsolutePath = (
         isAbsolutePath(subProjectPath)
           ? subProjectPath
-          : resolvePath(cwd, subProjectPath)
+          : resolvePath(projectPath, subProjectPath)
       );
 
       const subProject = await resolveProject(

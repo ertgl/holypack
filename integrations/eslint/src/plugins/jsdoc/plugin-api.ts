@@ -3,7 +3,7 @@ import type PluginJSDocModule from "eslint-plugin-jsdoc";
 
 import type { StrictContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
-import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
+import { emitWarning } from "@holypack/core/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter";
 
 import {
   GLOB_PATTERN_CJS_CJSX_CTS_CTSX,

@@ -53,22 +53,6 @@ export function resolveBabelConfig(
   };
 
   /**
-   * @type {ImportSourceTransformerPluginOptions}
-   */
-  const importSourceTransformerPluginOptions = {
-    transform: {
-      rules: [
-        {
-          find: /(?:\.[cm]?[jt]s[x]?)?$/iu,
-          replace: targetExtension,
-          resolveIndex: true,
-          test: /^[.\\/]+.*$/,
-        },
-      ],
-    },
-  };
-
-  /**
    * @type {BabelEnvPresetOptions}
    */
   const envPresetOptions = {
@@ -98,11 +82,6 @@ export function resolveBabelConfig(
         require.resolve("babel-plugin-comment-attributes"),
         commentAttributesPluginOptions,
       ],
-
-      [
-        require.resolve("babel-plugin-transform-import-source"),
-        importSourceTransformerPluginOptions,
-      ],
     ],
 
     presets: [
@@ -123,6 +102,34 @@ export function resolveBabelConfig(
 
     sourceType: "unambiguous",
   };
+
+  if (process.env.NODE_ENV !== "test")
+  {
+    transformOptions.plugins ??= [];
+
+    /**
+     * @type {ImportSourceTransformerPluginOptions}
+     */
+    const importSourceTransformerPluginOptions = {
+      transform: {
+        rules: [
+          {
+            find: /(?:\.[cm]?[jt]s[x]?)?$/iu,
+            replace: targetExtension,
+            resolveIndex: true,
+            test: /^[.\\/]+.*$/,
+          },
+        ],
+      },
+    };
+
+    transformOptions.plugins.push(
+      [
+        require.resolve("babel-plugin-transform-import-source"),
+        importSourceTransformerPluginOptions,
+      ],
+    );
+  }
 
   return transformOptions;
 }

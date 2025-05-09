@@ -1,8 +1,9 @@
 {
   "name": "@holypack/core",
   "scripts": {
-    "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn hack:update-package-exports",
-    "clean": "rm -fr dist"
+    "build": "yarn babel:build:clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn hack:update-package-exports",
+    "clean": "yarn babel:build:clean && yarn jest:coverage:clean && yarn jest:cache:clean",
+    "test": "yarn jest:test"
   },
   "devDependencies": {
     "@types/picomatch": "^4.0.0",
@@ -17,9 +18,13 @@
     "picomatch": "*",
     "tapable": "*"
   },
+  "peerDependenciesMeta": {
+    "cosmiconfig": {
+      "optional": true
+    }
+  },
   "files": [
     "./dist/",
-    "./src/",
     "./package.json"
   ],
   "type": "module",
@@ -1368,6 +1373,144 @@
       "require": "./dist/cjs/lib/promise/*",
       "default": "./src/lib/promise/*"
     },
+    "./plugins/ci/plugin/context/resolution": {
+      "types": "./dist/types/plugins/ci/plugin/context/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/context/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/context/resolution/index.cjs",
+      "default": "./src/plugins/ci/plugin/context/resolution/index.ts"
+    },
+    "./plugins/ci/plugin/context/resolution/": {
+      "types": "./dist/types/plugins/ci/plugin/context/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/context/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/context/resolution/index.cjs",
+      "default": "./src/plugins/ci/plugin/context/resolution/index.ts"
+    },
+    "./plugins/ci/plugin/context/resolution/*.d.ts": {
+      "types": "./dist/types/plugins/ci/plugin/context/resolution/*.d.ts",
+      "default": "./src/plugins/ci/plugin/context/resolution/*.ts"
+    },
+    "./plugins/ci/plugin/context/resolution/*.cjs": {
+      "types": "./dist/types/plugins/ci/plugin/context/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/context/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/context/resolution/*.cjs",
+      "default": "./src/plugins/ci/plugin/context/resolution/*.ts"
+    },
+    "./plugins/ci/plugin/context/resolution/*.js": {
+      "types": "./dist/types/plugins/ci/plugin/context/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/context/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/context/resolution/*.cjs",
+      "default": "./src/plugins/ci/plugin/context/resolution/*.ts"
+    },
+    "./plugins/ci/plugin/context/resolution/*.mjs": {
+      "types": "./dist/types/plugins/ci/plugin/context/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/context/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/context/resolution/*.cjs",
+      "default": "./src/plugins/ci/plugin/context/resolution/*.ts"
+    },
+    "./plugins/ci/plugin/context/resolution/*.ts": {
+      "types": "./dist/types/plugins/ci/plugin/context/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/context/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/context/resolution/*.cjs",
+      "default": "./src/plugins/ci/plugin/context/resolution/*.ts"
+    },
+    "./plugins/ci/plugin/context/resolution/*": {
+      "types": "./dist/types/plugins/ci/plugin/context/resolution/*",
+      "import": "./dist/esm/plugins/ci/plugin/context/resolution/*",
+      "require": "./dist/cjs/plugins/ci/plugin/context/resolution/*",
+      "default": "./src/plugins/ci/plugin/context/resolution/*"
+    },
+    "./plugins/ci/plugin/context": {
+      "types": "./dist/types/plugins/ci/plugin/context/index.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/context/index.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/context/index.cjs",
+      "default": "./src/plugins/ci/plugin/context/index.ts"
+    },
+    "./plugins/ci/plugin/context/": {
+      "types": "./dist/types/plugins/ci/plugin/context/index.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/context/index.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/context/index.cjs",
+      "default": "./src/plugins/ci/plugin/context/index.ts"
+    },
+    "./plugins/ci/plugin/context/*.d.ts": {
+      "types": "./dist/types/plugins/ci/plugin/context/*.d.ts",
+      "default": "./src/plugins/ci/plugin/context/*.ts"
+    },
+    "./plugins/ci/plugin/context/*.cjs": {
+      "types": "./dist/types/plugins/ci/plugin/context/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/context/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/context/*.cjs",
+      "default": "./src/plugins/ci/plugin/context/*.ts"
+    },
+    "./plugins/ci/plugin/context/*.js": {
+      "types": "./dist/types/plugins/ci/plugin/context/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/context/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/context/*.cjs",
+      "default": "./src/plugins/ci/plugin/context/*.ts"
+    },
+    "./plugins/ci/plugin/context/*.mjs": {
+      "types": "./dist/types/plugins/ci/plugin/context/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/context/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/context/*.cjs",
+      "default": "./src/plugins/ci/plugin/context/*.ts"
+    },
+    "./plugins/ci/plugin/context/*.ts": {
+      "types": "./dist/types/plugins/ci/plugin/context/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/context/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/context/*.cjs",
+      "default": "./src/plugins/ci/plugin/context/*.ts"
+    },
+    "./plugins/ci/plugin/context/*": {
+      "types": "./dist/types/plugins/ci/plugin/context/*",
+      "import": "./dist/esm/plugins/ci/plugin/context/*",
+      "require": "./dist/cjs/plugins/ci/plugin/context/*",
+      "default": "./src/plugins/ci/plugin/context/*"
+    },
+    "./plugins/ci/utils/ci-env-detector": {
+      "types": "./dist/types/plugins/ci/utils/ci-env-detector/index.d.ts",
+      "import": "./dist/esm/plugins/ci/utils/ci-env-detector/index.mjs",
+      "require": "./dist/cjs/plugins/ci/utils/ci-env-detector/index.cjs",
+      "default": "./src/plugins/ci/utils/ci-env-detector/index.ts"
+    },
+    "./plugins/ci/utils/ci-env-detector/": {
+      "types": "./dist/types/plugins/ci/utils/ci-env-detector/index.d.ts",
+      "import": "./dist/esm/plugins/ci/utils/ci-env-detector/index.mjs",
+      "require": "./dist/cjs/plugins/ci/utils/ci-env-detector/index.cjs",
+      "default": "./src/plugins/ci/utils/ci-env-detector/index.ts"
+    },
+    "./plugins/ci/utils/ci-env-detector/*.d.ts": {
+      "types": "./dist/types/plugins/ci/utils/ci-env-detector/*.d.ts",
+      "default": "./src/plugins/ci/utils/ci-env-detector/*.ts"
+    },
+    "./plugins/ci/utils/ci-env-detector/*.cjs": {
+      "types": "./dist/types/plugins/ci/utils/ci-env-detector/*.d.ts",
+      "import": "./dist/esm/plugins/ci/utils/ci-env-detector/*.mjs",
+      "require": "./dist/cjs/plugins/ci/utils/ci-env-detector/*.cjs",
+      "default": "./src/plugins/ci/utils/ci-env-detector/*.ts"
+    },
+    "./plugins/ci/utils/ci-env-detector/*.js": {
+      "types": "./dist/types/plugins/ci/utils/ci-env-detector/*.d.ts",
+      "import": "./dist/esm/plugins/ci/utils/ci-env-detector/*.mjs",
+      "require": "./dist/cjs/plugins/ci/utils/ci-env-detector/*.cjs",
+      "default": "./src/plugins/ci/utils/ci-env-detector/*.ts"
+    },
+    "./plugins/ci/utils/ci-env-detector/*.mjs": {
+      "types": "./dist/types/plugins/ci/utils/ci-env-detector/*.d.ts",
+      "import": "./dist/esm/plugins/ci/utils/ci-env-detector/*.mjs",
+      "require": "./dist/cjs/plugins/ci/utils/ci-env-detector/*.cjs",
+      "default": "./src/plugins/ci/utils/ci-env-detector/*.ts"
+    },
+    "./plugins/ci/utils/ci-env-detector/*.ts": {
+      "types": "./dist/types/plugins/ci/utils/ci-env-detector/*.d.ts",
+      "import": "./dist/esm/plugins/ci/utils/ci-env-detector/*.mjs",
+      "require": "./dist/cjs/plugins/ci/utils/ci-env-detector/*.cjs",
+      "default": "./src/plugins/ci/utils/ci-env-detector/*.ts"
+    },
+    "./plugins/ci/utils/ci-env-detector/*": {
+      "types": "./dist/types/plugins/ci/utils/ci-env-detector/*",
+      "import": "./dist/esm/plugins/ci/utils/ci-env-detector/*",
+      "require": "./dist/cjs/plugins/ci/utils/ci-env-detector/*",
+      "default": "./src/plugins/ci/utils/ci-env-detector/*"
+    },
     "./plugins/ci/module-augmentation": {
       "types": "./dist/types/plugins/ci/module-augmentation/index.d.ts",
       "import": "./dist/esm/plugins/ci/module-augmentation/index.mjs",
@@ -1414,51 +1557,235 @@
       "require": "./dist/cjs/plugins/ci/module-augmentation/*",
       "default": "./src/plugins/ci/module-augmentation/*"
     },
-    "./plugins/ci/resolution": {
-      "types": "./dist/types/plugins/ci/resolution/index.d.ts",
-      "import": "./dist/esm/plugins/ci/resolution/index.mjs",
-      "require": "./dist/cjs/plugins/ci/resolution/index.cjs",
-      "default": "./src/plugins/ci/resolution/index.ts"
+    "./plugins/ci/plugin": {
+      "types": "./dist/types/plugins/ci/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/index.cjs",
+      "default": "./src/plugins/ci/plugin/index.ts"
     },
-    "./plugins/ci/resolution/": {
-      "types": "./dist/types/plugins/ci/resolution/index.d.ts",
-      "import": "./dist/esm/plugins/ci/resolution/index.mjs",
-      "require": "./dist/cjs/plugins/ci/resolution/index.cjs",
-      "default": "./src/plugins/ci/resolution/index.ts"
+    "./plugins/ci/plugin/": {
+      "types": "./dist/types/plugins/ci/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/index.cjs",
+      "default": "./src/plugins/ci/plugin/index.ts"
     },
-    "./plugins/ci/resolution/*.d.ts": {
-      "types": "./dist/types/plugins/ci/resolution/*.d.ts",
-      "default": "./src/plugins/ci/resolution/*.ts"
+    "./plugins/ci/plugin/*.d.ts": {
+      "types": "./dist/types/plugins/ci/plugin/*.d.ts",
+      "default": "./src/plugins/ci/plugin/*.ts"
     },
-    "./plugins/ci/resolution/*.cjs": {
-      "types": "./dist/types/plugins/ci/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/ci/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/ci/resolution/*.cjs",
-      "default": "./src/plugins/ci/resolution/*.ts"
+    "./plugins/ci/plugin/*.cjs": {
+      "types": "./dist/types/plugins/ci/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/*.cjs",
+      "default": "./src/plugins/ci/plugin/*.ts"
     },
-    "./plugins/ci/resolution/*.js": {
-      "types": "./dist/types/plugins/ci/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/ci/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/ci/resolution/*.cjs",
-      "default": "./src/plugins/ci/resolution/*.ts"
+    "./plugins/ci/plugin/*.js": {
+      "types": "./dist/types/plugins/ci/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/*.cjs",
+      "default": "./src/plugins/ci/plugin/*.ts"
     },
-    "./plugins/ci/resolution/*.mjs": {
-      "types": "./dist/types/plugins/ci/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/ci/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/ci/resolution/*.cjs",
-      "default": "./src/plugins/ci/resolution/*.ts"
+    "./plugins/ci/plugin/*.mjs": {
+      "types": "./dist/types/plugins/ci/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/*.cjs",
+      "default": "./src/plugins/ci/plugin/*.ts"
     },
-    "./plugins/ci/resolution/*.ts": {
-      "types": "./dist/types/plugins/ci/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/ci/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/ci/resolution/*.cjs",
-      "default": "./src/plugins/ci/resolution/*.ts"
+    "./plugins/ci/plugin/*.ts": {
+      "types": "./dist/types/plugins/ci/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin/*.cjs",
+      "default": "./src/plugins/ci/plugin/*.ts"
     },
-    "./plugins/ci/resolution/*": {
-      "types": "./dist/types/plugins/ci/resolution/*",
-      "import": "./dist/esm/plugins/ci/resolution/*",
-      "require": "./dist/cjs/plugins/ci/resolution/*",
-      "default": "./src/plugins/ci/resolution/*"
+    "./plugins/ci/plugin/*": {
+      "types": "./dist/types/plugins/ci/plugin/*",
+      "import": "./dist/esm/plugins/ci/plugin/*",
+      "require": "./dist/cjs/plugins/ci/plugin/*",
+      "default": "./src/plugins/ci/plugin/*"
+    },
+    "./plugins/ci/plugin-metadata": {
+      "types": "./dist/types/plugins/ci/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin-metadata/index.cjs",
+      "default": "./src/plugins/ci/plugin-metadata/index.ts"
+    },
+    "./plugins/ci/plugin-metadata/": {
+      "types": "./dist/types/plugins/ci/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin-metadata/index.cjs",
+      "default": "./src/plugins/ci/plugin-metadata/index.ts"
+    },
+    "./plugins/ci/plugin-metadata/*.d.ts": {
+      "types": "./dist/types/plugins/ci/plugin-metadata/*.d.ts",
+      "default": "./src/plugins/ci/plugin-metadata/*.ts"
+    },
+    "./plugins/ci/plugin-metadata/*.cjs": {
+      "types": "./dist/types/plugins/ci/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin-metadata/*.cjs",
+      "default": "./src/plugins/ci/plugin-metadata/*.ts"
+    },
+    "./plugins/ci/plugin-metadata/*.js": {
+      "types": "./dist/types/plugins/ci/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin-metadata/*.cjs",
+      "default": "./src/plugins/ci/plugin-metadata/*.ts"
+    },
+    "./plugins/ci/plugin-metadata/*.mjs": {
+      "types": "./dist/types/plugins/ci/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin-metadata/*.cjs",
+      "default": "./src/plugins/ci/plugin-metadata/*.ts"
+    },
+    "./plugins/ci/plugin-metadata/*.ts": {
+      "types": "./dist/types/plugins/ci/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/ci/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/ci/plugin-metadata/*.cjs",
+      "default": "./src/plugins/ci/plugin-metadata/*.ts"
+    },
+    "./plugins/ci/plugin-metadata/*": {
+      "types": "./dist/types/plugins/ci/plugin-metadata/*",
+      "import": "./dist/esm/plugins/ci/plugin-metadata/*",
+      "require": "./dist/cjs/plugins/ci/plugin-metadata/*",
+      "default": "./src/plugins/ci/plugin-metadata/*"
+    },
+    "./plugins/ci/utils": {
+      "types": "./dist/types/plugins/ci/utils/index.d.ts",
+      "import": "./dist/esm/plugins/ci/utils/index.mjs",
+      "require": "./dist/cjs/plugins/ci/utils/index.cjs",
+      "default": "./src/plugins/ci/utils/index.ts"
+    },
+    "./plugins/ci/utils/": {
+      "types": "./dist/types/plugins/ci/utils/index.d.ts",
+      "import": "./dist/esm/plugins/ci/utils/index.mjs",
+      "require": "./dist/cjs/plugins/ci/utils/index.cjs",
+      "default": "./src/plugins/ci/utils/index.ts"
+    },
+    "./plugins/ci/utils/*.d.ts": {
+      "types": "./dist/types/plugins/ci/utils/*.d.ts",
+      "default": "./src/plugins/ci/utils/*.ts"
+    },
+    "./plugins/ci/utils/*.cjs": {
+      "types": "./dist/types/plugins/ci/utils/*.d.ts",
+      "import": "./dist/esm/plugins/ci/utils/*.mjs",
+      "require": "./dist/cjs/plugins/ci/utils/*.cjs",
+      "default": "./src/plugins/ci/utils/*.ts"
+    },
+    "./plugins/ci/utils/*.js": {
+      "types": "./dist/types/plugins/ci/utils/*.d.ts",
+      "import": "./dist/esm/plugins/ci/utils/*.mjs",
+      "require": "./dist/cjs/plugins/ci/utils/*.cjs",
+      "default": "./src/plugins/ci/utils/*.ts"
+    },
+    "./plugins/ci/utils/*.mjs": {
+      "types": "./dist/types/plugins/ci/utils/*.d.ts",
+      "import": "./dist/esm/plugins/ci/utils/*.mjs",
+      "require": "./dist/cjs/plugins/ci/utils/*.cjs",
+      "default": "./src/plugins/ci/utils/*.ts"
+    },
+    "./plugins/ci/utils/*.ts": {
+      "types": "./dist/types/plugins/ci/utils/*.d.ts",
+      "import": "./dist/esm/plugins/ci/utils/*.mjs",
+      "require": "./dist/cjs/plugins/ci/utils/*.cjs",
+      "default": "./src/plugins/ci/utils/*.ts"
+    },
+    "./plugins/ci/utils/*": {
+      "types": "./dist/types/plugins/ci/utils/*",
+      "import": "./dist/esm/plugins/ci/utils/*",
+      "require": "./dist/cjs/plugins/ci/utils/*",
+      "default": "./src/plugins/ci/utils/*"
+    },
+    "./plugins/fs/plugin": {
+      "types": "./dist/types/plugins/fs/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin/index.cjs",
+      "default": "./src/plugins/fs/plugin/index.ts"
+    },
+    "./plugins/fs/plugin/": {
+      "types": "./dist/types/plugins/fs/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin/index.cjs",
+      "default": "./src/plugins/fs/plugin/index.ts"
+    },
+    "./plugins/fs/plugin/*.d.ts": {
+      "types": "./dist/types/plugins/fs/plugin/*.d.ts",
+      "default": "./src/plugins/fs/plugin/*.ts"
+    },
+    "./plugins/fs/plugin/*.cjs": {
+      "types": "./dist/types/plugins/fs/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin/*.cjs",
+      "default": "./src/plugins/fs/plugin/*.ts"
+    },
+    "./plugins/fs/plugin/*.js": {
+      "types": "./dist/types/plugins/fs/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin/*.cjs",
+      "default": "./src/plugins/fs/plugin/*.ts"
+    },
+    "./plugins/fs/plugin/*.mjs": {
+      "types": "./dist/types/plugins/fs/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin/*.cjs",
+      "default": "./src/plugins/fs/plugin/*.ts"
+    },
+    "./plugins/fs/plugin/*.ts": {
+      "types": "./dist/types/plugins/fs/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin/*.cjs",
+      "default": "./src/plugins/fs/plugin/*.ts"
+    },
+    "./plugins/fs/plugin/*": {
+      "types": "./dist/types/plugins/fs/plugin/*",
+      "import": "./dist/esm/plugins/fs/plugin/*",
+      "require": "./dist/cjs/plugins/fs/plugin/*",
+      "default": "./src/plugins/fs/plugin/*"
+    },
+    "./plugins/fs/plugin-metadata": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin-metadata/index.cjs",
+      "default": "./src/plugins/fs/plugin-metadata/index.ts"
+    },
+    "./plugins/fs/plugin-metadata/": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin-metadata/index.cjs",
+      "default": "./src/plugins/fs/plugin-metadata/index.ts"
+    },
+    "./plugins/fs/plugin-metadata/*.d.ts": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/*.d.ts",
+      "default": "./src/plugins/fs/plugin-metadata/*.ts"
+    },
+    "./plugins/fs/plugin-metadata/*.cjs": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin-metadata/*.cjs",
+      "default": "./src/plugins/fs/plugin-metadata/*.ts"
+    },
+    "./plugins/fs/plugin-metadata/*.js": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin-metadata/*.cjs",
+      "default": "./src/plugins/fs/plugin-metadata/*.ts"
+    },
+    "./plugins/fs/plugin-metadata/*.mjs": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin-metadata/*.cjs",
+      "default": "./src/plugins/fs/plugin-metadata/*.ts"
+    },
+    "./plugins/fs/plugin-metadata/*.ts": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/fs/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/fs/plugin-metadata/*.cjs",
+      "default": "./src/plugins/fs/plugin-metadata/*.ts"
+    },
+    "./plugins/fs/plugin-metadata/*": {
+      "types": "./dist/types/plugins/fs/plugin-metadata/*",
+      "import": "./dist/esm/plugins/fs/plugin-metadata/*",
+      "require": "./dist/cjs/plugins/fs/plugin-metadata/*",
+      "default": "./src/plugins/fs/plugin-metadata/*"
     },
     "./plugins/legacy/module-augmentation": {
       "types": "./dist/types/plugins/legacy/module-augmentation/index.d.ts",
@@ -1505,6 +1832,98 @@
       "import": "./dist/esm/plugins/legacy/module-augmentation/*",
       "require": "./dist/cjs/plugins/legacy/module-augmentation/*",
       "default": "./src/plugins/legacy/module-augmentation/*"
+    },
+    "./plugins/legacy/plugin": {
+      "types": "./dist/types/plugins/legacy/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin/index.cjs",
+      "default": "./src/plugins/legacy/plugin/index.ts"
+    },
+    "./plugins/legacy/plugin/": {
+      "types": "./dist/types/plugins/legacy/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin/index.cjs",
+      "default": "./src/plugins/legacy/plugin/index.ts"
+    },
+    "./plugins/legacy/plugin/*.d.ts": {
+      "types": "./dist/types/plugins/legacy/plugin/*.d.ts",
+      "default": "./src/plugins/legacy/plugin/*.ts"
+    },
+    "./plugins/legacy/plugin/*.cjs": {
+      "types": "./dist/types/plugins/legacy/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin/*.cjs",
+      "default": "./src/plugins/legacy/plugin/*.ts"
+    },
+    "./plugins/legacy/plugin/*.js": {
+      "types": "./dist/types/plugins/legacy/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin/*.cjs",
+      "default": "./src/plugins/legacy/plugin/*.ts"
+    },
+    "./plugins/legacy/plugin/*.mjs": {
+      "types": "./dist/types/plugins/legacy/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin/*.cjs",
+      "default": "./src/plugins/legacy/plugin/*.ts"
+    },
+    "./plugins/legacy/plugin/*.ts": {
+      "types": "./dist/types/plugins/legacy/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin/*.cjs",
+      "default": "./src/plugins/legacy/plugin/*.ts"
+    },
+    "./plugins/legacy/plugin/*": {
+      "types": "./dist/types/plugins/legacy/plugin/*",
+      "import": "./dist/esm/plugins/legacy/plugin/*",
+      "require": "./dist/cjs/plugins/legacy/plugin/*",
+      "default": "./src/plugins/legacy/plugin/*"
+    },
+    "./plugins/legacy/plugin-metadata": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin-metadata/index.cjs",
+      "default": "./src/plugins/legacy/plugin-metadata/index.ts"
+    },
+    "./plugins/legacy/plugin-metadata/": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin-metadata/index.cjs",
+      "default": "./src/plugins/legacy/plugin-metadata/index.ts"
+    },
+    "./plugins/legacy/plugin-metadata/*.d.ts": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/*.d.ts",
+      "default": "./src/plugins/legacy/plugin-metadata/*.ts"
+    },
+    "./plugins/legacy/plugin-metadata/*.cjs": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin-metadata/*.cjs",
+      "default": "./src/plugins/legacy/plugin-metadata/*.ts"
+    },
+    "./plugins/legacy/plugin-metadata/*.js": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin-metadata/*.cjs",
+      "default": "./src/plugins/legacy/plugin-metadata/*.ts"
+    },
+    "./plugins/legacy/plugin-metadata/*.mjs": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin-metadata/*.cjs",
+      "default": "./src/plugins/legacy/plugin-metadata/*.ts"
+    },
+    "./plugins/legacy/plugin-metadata/*.ts": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/legacy/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/legacy/plugin-metadata/*.cjs",
+      "default": "./src/plugins/legacy/plugin-metadata/*.ts"
+    },
+    "./plugins/legacy/plugin-metadata/*": {
+      "types": "./dist/types/plugins/legacy/plugin-metadata/*",
+      "import": "./dist/esm/plugins/legacy/plugin-metadata/*",
+      "require": "./dist/cjs/plugins/legacy/plugin-metadata/*",
+      "default": "./src/plugins/legacy/plugin-metadata/*"
     },
     "./plugins/package/utils/package-json-loader": {
       "types": "./dist/types/plugins/package/utils/package-json-loader/index.d.ts",
@@ -1690,6 +2109,98 @@
       "require": "./dist/cjs/plugins/package/utils/workspace-paths-extractor/*",
       "default": "./src/plugins/package/utils/workspace-paths-extractor/*"
     },
+    "./plugins/package/plugin": {
+      "types": "./dist/types/plugins/package/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/package/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/package/plugin/index.cjs",
+      "default": "./src/plugins/package/plugin/index.ts"
+    },
+    "./plugins/package/plugin/": {
+      "types": "./dist/types/plugins/package/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/package/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/package/plugin/index.cjs",
+      "default": "./src/plugins/package/plugin/index.ts"
+    },
+    "./plugins/package/plugin/*.d.ts": {
+      "types": "./dist/types/plugins/package/plugin/*.d.ts",
+      "default": "./src/plugins/package/plugin/*.ts"
+    },
+    "./plugins/package/plugin/*.cjs": {
+      "types": "./dist/types/plugins/package/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/package/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/package/plugin/*.cjs",
+      "default": "./src/plugins/package/plugin/*.ts"
+    },
+    "./plugins/package/plugin/*.js": {
+      "types": "./dist/types/plugins/package/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/package/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/package/plugin/*.cjs",
+      "default": "./src/plugins/package/plugin/*.ts"
+    },
+    "./plugins/package/plugin/*.mjs": {
+      "types": "./dist/types/plugins/package/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/package/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/package/plugin/*.cjs",
+      "default": "./src/plugins/package/plugin/*.ts"
+    },
+    "./plugins/package/plugin/*.ts": {
+      "types": "./dist/types/plugins/package/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/package/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/package/plugin/*.cjs",
+      "default": "./src/plugins/package/plugin/*.ts"
+    },
+    "./plugins/package/plugin/*": {
+      "types": "./dist/types/plugins/package/plugin/*",
+      "import": "./dist/esm/plugins/package/plugin/*",
+      "require": "./dist/cjs/plugins/package/plugin/*",
+      "default": "./src/plugins/package/plugin/*"
+    },
+    "./plugins/package/plugin-metadata": {
+      "types": "./dist/types/plugins/package/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/package/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/package/plugin-metadata/index.cjs",
+      "default": "./src/plugins/package/plugin-metadata/index.ts"
+    },
+    "./plugins/package/plugin-metadata/": {
+      "types": "./dist/types/plugins/package/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/package/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/package/plugin-metadata/index.cjs",
+      "default": "./src/plugins/package/plugin-metadata/index.ts"
+    },
+    "./plugins/package/plugin-metadata/*.d.ts": {
+      "types": "./dist/types/plugins/package/plugin-metadata/*.d.ts",
+      "default": "./src/plugins/package/plugin-metadata/*.ts"
+    },
+    "./plugins/package/plugin-metadata/*.cjs": {
+      "types": "./dist/types/plugins/package/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/package/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/package/plugin-metadata/*.cjs",
+      "default": "./src/plugins/package/plugin-metadata/*.ts"
+    },
+    "./plugins/package/plugin-metadata/*.js": {
+      "types": "./dist/types/plugins/package/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/package/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/package/plugin-metadata/*.cjs",
+      "default": "./src/plugins/package/plugin-metadata/*.ts"
+    },
+    "./plugins/package/plugin-metadata/*.mjs": {
+      "types": "./dist/types/plugins/package/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/package/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/package/plugin-metadata/*.cjs",
+      "default": "./src/plugins/package/plugin-metadata/*.ts"
+    },
+    "./plugins/package/plugin-metadata/*.ts": {
+      "types": "./dist/types/plugins/package/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/package/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/package/plugin-metadata/*.cjs",
+      "default": "./src/plugins/package/plugin-metadata/*.ts"
+    },
+    "./plugins/package/plugin-metadata/*": {
+      "types": "./dist/types/plugins/package/plugin-metadata/*",
+      "import": "./dist/esm/plugins/package/plugin-metadata/*",
+      "require": "./dist/cjs/plugins/package/plugin-metadata/*",
+      "default": "./src/plugins/package/plugin-metadata/*"
+    },
     "./plugins/package/utils": {
       "types": "./dist/types/plugins/package/utils/index.d.ts",
       "import": "./dist/esm/plugins/package/utils/index.mjs",
@@ -1736,327 +2247,603 @@
       "require": "./dist/cjs/plugins/package/utils/*",
       "default": "./src/plugins/package/utils/*"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.ts"
+    "./plugins/process/sub-plugins/cwd/plugin": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/plugin/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin/index.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/index.ts"
+    "./plugins/process/sub-plugins/cwd/plugin/": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/plugin/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin/index.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.ts"
+    "./plugins/process/sub-plugins/cwd/plugin/*.d.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin/*.d.ts",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.cjs": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.ts"
+    "./plugins/process/sub-plugins/cwd/plugin/*.cjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/plugin/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.js": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.ts"
+    "./plugins/process/sub-plugins/cwd/plugin/*.js": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/plugin/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.mjs": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.ts"
+    "./plugins/process/sub-plugins/cwd/plugin/*.mjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/plugin/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.ts": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*.ts"
+    "./plugins/process/sub-plugins/cwd/plugin/*.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/plugin/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/errors/*"
+    "./plugins/process/sub-plugins/cwd/plugin/*": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin/*",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/plugin/*",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/plugin/*",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin/*"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/index.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/index.ts"
+    "./plugins/process/sub-plugins/cwd/plugin-metadata": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/plugin-metadata/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin-metadata/index.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/index.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/index.ts"
+    "./plugins/process/sub-plugins/cwd/plugin-metadata/": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/plugin-metadata/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin-metadata/index.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/*.d.ts": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.d.ts",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.ts"
+    "./plugins/process/sub-plugins/cwd/plugin-metadata/*.d.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin-metadata/*.d.ts",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin-metadata/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/*.cjs": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.ts"
+    "./plugins/process/sub-plugins/cwd/plugin-metadata/*.cjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/plugin-metadata/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin-metadata/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/*.js": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.ts"
+    "./plugins/process/sub-plugins/cwd/plugin-metadata/*.js": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/plugin-metadata/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin-metadata/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/*.mjs": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.ts"
+    "./plugins/process/sub-plugins/cwd/plugin-metadata/*.mjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/plugin-metadata/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin-metadata/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/*.ts": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/*.ts"
+    "./plugins/process/sub-plugins/cwd/plugin-metadata/*.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/plugin-metadata/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin-metadata/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/warning-emitter/*": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/warning-emitter/*",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/warning-emitter/*",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/warning-emitter/*",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/warning-emitter/*"
+    "./plugins/process/sub-plugins/cwd/plugin-metadata/*": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/plugin-metadata/*",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/plugin-metadata/*",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/plugin-metadata/*",
+      "default": "./src/plugins/process/sub-plugins/cwd/plugin-metadata/*"
     },
-    "./plugins/process/plugins/warning-monitor/hooks": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/hooks/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/hooks/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/hooks/index.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/hooks/index.ts"
+    "./plugins/process/sub-plugins/warning-monitor/plugin/hooks": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/hooks/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin/hooks/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin/hooks/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/hooks/index.ts"
     },
-    "./plugins/process/plugins/warning-monitor/hooks/": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/hooks/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/hooks/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/hooks/index.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/hooks/index.ts"
+    "./plugins/process/sub-plugins/warning-monitor/plugin/hooks/": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/hooks/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin/hooks/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin/hooks/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/hooks/index.ts"
     },
-    "./plugins/process/plugins/warning-monitor/hooks/*.d.ts": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/hooks/*.d.ts",
-      "default": "./src/plugins/process/plugins/warning-monitor/hooks/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.d.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.d.ts",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/hooks/*.cjs": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/hooks/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/hooks/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/hooks/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/hooks/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.cjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/hooks/*.js": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/hooks/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/hooks/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/hooks/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/hooks/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.js": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/hooks/*.mjs": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/hooks/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/hooks/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/hooks/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/hooks/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.mjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/hooks/*.ts": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/hooks/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/hooks/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/hooks/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/hooks/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/hooks/*": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/hooks/*",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/hooks/*",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/hooks/*",
-      "default": "./src/plugins/process/plugins/warning-monitor/hooks/*"
+    "./plugins/process/sub-plugins/warning-monitor/plugin/hooks/*": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/hooks/*"
     },
-    "./plugins/process/plugins/warning-monitor/module-augmentation": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/module-augmentation/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/module-augmentation/index.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/module-augmentation/index.ts"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/index.ts"
     },
-    "./plugins/process/plugins/warning-monitor/module-augmentation/": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/module-augmentation/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/module-augmentation/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/module-augmentation/index.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/module-augmentation/index.ts"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/index.ts"
     },
-    "./plugins/process/plugins/warning-monitor/module-augmentation/*.d.ts": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/module-augmentation/*.d.ts",
-      "default": "./src/plugins/process/plugins/warning-monitor/module-augmentation/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/module-augmentation/*.cjs": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/module-augmentation/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/module-augmentation/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/module-augmentation/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/module-augmentation/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.cjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/module-augmentation/*.js": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/module-augmentation/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/module-augmentation/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/module-augmentation/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/module-augmentation/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.js": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/module-augmentation/*.mjs": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/module-augmentation/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/module-augmentation/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/module-augmentation/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/module-augmentation/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.mjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/module-augmentation/*.ts": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/module-augmentation/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/module-augmentation/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/module-augmentation/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/module-augmentation/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/module-augmentation/*": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/module-augmentation/*",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/module-augmentation/*",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/module-augmentation/*",
-      "default": "./src/plugins/process/plugins/warning-monitor/module-augmentation/*"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/errors/*"
     },
-    "./plugins/process/plugins/warning-monitor/utils": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/index.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/index.ts"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/index.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/index.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/index.ts"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/index.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/*.d.ts": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/*.d.ts",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.d.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.d.ts",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/*.cjs": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.cjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/*.js": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.js": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/*.mjs": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.mjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/*.ts": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/utils/*": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/utils/*",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/utils/*",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/utils/*",
-      "default": "./src/plugins/process/plugins/warning-monitor/utils/*"
+    "./plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter/*"
     },
-    "./plugins/process/plugins/cwd": {
-      "types": "./dist/types/plugins/process/plugins/cwd/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/cwd/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/cwd/index.cjs",
-      "default": "./src/plugins/process/plugins/cwd/index.ts"
+    "./plugins/process/sub-plugins/warning-monitor/config": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/config/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/config/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/config/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/config/index.ts"
     },
-    "./plugins/process/plugins/cwd/": {
-      "types": "./dist/types/plugins/process/plugins/cwd/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/cwd/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/cwd/index.cjs",
-      "default": "./src/plugins/process/plugins/cwd/index.ts"
+    "./plugins/process/sub-plugins/warning-monitor/config/": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/config/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/config/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/config/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/config/index.ts"
     },
-    "./plugins/process/plugins/cwd/*.d.ts": {
-      "types": "./dist/types/plugins/process/plugins/cwd/*.d.ts",
-      "default": "./src/plugins/process/plugins/cwd/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/config/*.d.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/config/*.d.ts",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/config/*.ts"
     },
-    "./plugins/process/plugins/cwd/*.cjs": {
-      "types": "./dist/types/plugins/process/plugins/cwd/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/cwd/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/cwd/*.cjs",
-      "default": "./src/plugins/process/plugins/cwd/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/config/*.cjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/config/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/config/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/config/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/config/*.ts"
     },
-    "./plugins/process/plugins/cwd/*.js": {
-      "types": "./dist/types/plugins/process/plugins/cwd/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/cwd/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/cwd/*.cjs",
-      "default": "./src/plugins/process/plugins/cwd/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/config/*.js": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/config/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/config/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/config/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/config/*.ts"
     },
-    "./plugins/process/plugins/cwd/*.mjs": {
-      "types": "./dist/types/plugins/process/plugins/cwd/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/cwd/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/cwd/*.cjs",
-      "default": "./src/plugins/process/plugins/cwd/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/config/*.mjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/config/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/config/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/config/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/config/*.ts"
     },
-    "./plugins/process/plugins/cwd/*.ts": {
-      "types": "./dist/types/plugins/process/plugins/cwd/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/cwd/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/cwd/*.cjs",
-      "default": "./src/plugins/process/plugins/cwd/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/config/*.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/config/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/config/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/config/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/config/*.ts"
     },
-    "./plugins/process/plugins/cwd/*": {
-      "types": "./dist/types/plugins/process/plugins/cwd/*",
-      "import": "./dist/esm/plugins/process/plugins/cwd/*",
-      "require": "./dist/cjs/plugins/process/plugins/cwd/*",
-      "default": "./src/plugins/process/plugins/cwd/*"
+    "./plugins/process/sub-plugins/warning-monitor/config/*": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/config/*",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/config/*",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/config/*",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/config/*"
     },
-    "./plugins/process/plugins/warning-monitor": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/index.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/index.ts"
+    "./plugins/process/sub-plugins/warning-monitor/module-augmentation": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/module-augmentation/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/module-augmentation/index.ts"
     },
-    "./plugins/process/plugins/warning-monitor/": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/index.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/index.ts"
+    "./plugins/process/sub-plugins/warning-monitor/module-augmentation/": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/module-augmentation/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/module-augmentation/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/module-augmentation/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/module-augmentation/index.ts"
     },
-    "./plugins/process/plugins/warning-monitor/*.d.ts": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/*.d.ts",
-      "default": "./src/plugins/process/plugins/warning-monitor/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/module-augmentation/*.d.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.d.ts",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/*.cjs": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/module-augmentation/*.cjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/*.js": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/module-augmentation/*.js": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/*.mjs": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/module-augmentation/*.mjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/*.ts": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/*.cjs",
-      "default": "./src/plugins/process/plugins/warning-monitor/*.ts"
+    "./plugins/process/sub-plugins/warning-monitor/module-augmentation/*.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/module-augmentation/*.ts"
     },
-    "./plugins/process/plugins/warning-monitor/*": {
-      "types": "./dist/types/plugins/process/plugins/warning-monitor/*",
-      "import": "./dist/esm/plugins/process/plugins/warning-monitor/*",
-      "require": "./dist/cjs/plugins/process/plugins/warning-monitor/*",
-      "default": "./src/plugins/process/plugins/warning-monitor/*"
+    "./plugins/process/sub-plugins/warning-monitor/module-augmentation/*": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/module-augmentation/*",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/module-augmentation/*",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/module-augmentation/*",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/module-augmentation/*"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/index.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin/": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/index.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin/*.d.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/*.d.ts",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin/*.cjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin/*.js": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin/*.mjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin/*.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin/*": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin/*",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin/*",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin/*",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin/*"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin-metadata": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin-metadata/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin-metadata/index.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin-metadata/": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin-metadata/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin-metadata/index.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.d.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.d.ts",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.cjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.js": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.mjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/plugin-metadata/*": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/plugin-metadata/*"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/utils": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/index.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/utils/": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/index.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/utils/*.d.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/*.d.ts",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/utils/*.cjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/utils/*.js": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/utils/*.mjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/utils/*.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/utils/*": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/utils/*",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/utils/*",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/utils/*",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/utils/*"
+    },
+    "./plugins/process/sub-plugins/cwd": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/index.ts"
+    },
+    "./plugins/process/sub-plugins/cwd/": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/index.ts"
+    },
+    "./plugins/process/sub-plugins/cwd/*.d.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/*.d.ts",
+      "default": "./src/plugins/process/sub-plugins/cwd/*.ts"
+    },
+    "./plugins/process/sub-plugins/cwd/*.cjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/*.ts"
+    },
+    "./plugins/process/sub-plugins/cwd/*.js": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/*.ts"
+    },
+    "./plugins/process/sub-plugins/cwd/*.mjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/*.ts"
+    },
+    "./plugins/process/sub-plugins/cwd/*.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/cwd/*.ts"
+    },
+    "./plugins/process/sub-plugins/cwd/*": {
+      "types": "./dist/types/plugins/process/sub-plugins/cwd/*",
+      "import": "./dist/esm/plugins/process/sub-plugins/cwd/*",
+      "require": "./dist/cjs/plugins/process/sub-plugins/cwd/*",
+      "default": "./src/plugins/process/sub-plugins/cwd/*"
+    },
+    "./plugins/process/sub-plugins/warning-monitor": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/index.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/index.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/*.d.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/*.d.ts",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/*.cjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/*.js": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/*.mjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/*.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/*.ts"
+    },
+    "./plugins/process/sub-plugins/warning-monitor/*": {
+      "types": "./dist/types/plugins/process/sub-plugins/warning-monitor/*",
+      "import": "./dist/esm/plugins/process/sub-plugins/warning-monitor/*",
+      "require": "./dist/cjs/plugins/process/sub-plugins/warning-monitor/*",
+      "default": "./src/plugins/process/sub-plugins/warning-monitor/*"
+    },
+    "./plugins/process/config": {
+      "types": "./dist/types/plugins/process/config/index.d.ts",
+      "import": "./dist/esm/plugins/process/config/index.mjs",
+      "require": "./dist/cjs/plugins/process/config/index.cjs",
+      "default": "./src/plugins/process/config/index.ts"
+    },
+    "./plugins/process/config/": {
+      "types": "./dist/types/plugins/process/config/index.d.ts",
+      "import": "./dist/esm/plugins/process/config/index.mjs",
+      "require": "./dist/cjs/plugins/process/config/index.cjs",
+      "default": "./src/plugins/process/config/index.ts"
+    },
+    "./plugins/process/config/*.d.ts": {
+      "types": "./dist/types/plugins/process/config/*.d.ts",
+      "default": "./src/plugins/process/config/*.ts"
+    },
+    "./plugins/process/config/*.cjs": {
+      "types": "./dist/types/plugins/process/config/*.d.ts",
+      "import": "./dist/esm/plugins/process/config/*.mjs",
+      "require": "./dist/cjs/plugins/process/config/*.cjs",
+      "default": "./src/plugins/process/config/*.ts"
+    },
+    "./plugins/process/config/*.js": {
+      "types": "./dist/types/plugins/process/config/*.d.ts",
+      "import": "./dist/esm/plugins/process/config/*.mjs",
+      "require": "./dist/cjs/plugins/process/config/*.cjs",
+      "default": "./src/plugins/process/config/*.ts"
+    },
+    "./plugins/process/config/*.mjs": {
+      "types": "./dist/types/plugins/process/config/*.d.ts",
+      "import": "./dist/esm/plugins/process/config/*.mjs",
+      "require": "./dist/cjs/plugins/process/config/*.cjs",
+      "default": "./src/plugins/process/config/*.ts"
+    },
+    "./plugins/process/config/*.ts": {
+      "types": "./dist/types/plugins/process/config/*.d.ts",
+      "import": "./dist/esm/plugins/process/config/*.mjs",
+      "require": "./dist/cjs/plugins/process/config/*.cjs",
+      "default": "./src/plugins/process/config/*.ts"
+    },
+    "./plugins/process/config/*": {
+      "types": "./dist/types/plugins/process/config/*",
+      "import": "./dist/esm/plugins/process/config/*",
+      "require": "./dist/cjs/plugins/process/config/*",
+      "default": "./src/plugins/process/config/*"
     },
     "./plugins/process/module-augmentation": {
       "types": "./dist/types/plugins/process/module-augmentation/index.d.ts",
@@ -2104,51 +2891,235 @@
       "require": "./dist/cjs/plugins/process/module-augmentation/*",
       "default": "./src/plugins/process/module-augmentation/*"
     },
-    "./plugins/process/plugins": {
-      "types": "./dist/types/plugins/process/plugins/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/index.cjs",
-      "default": "./src/plugins/process/plugins/index.ts"
+    "./plugins/process/plugin": {
+      "types": "./dist/types/plugins/process/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/process/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/process/plugin/index.cjs",
+      "default": "./src/plugins/process/plugin/index.ts"
     },
-    "./plugins/process/plugins/": {
-      "types": "./dist/types/plugins/process/plugins/index.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/index.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/index.cjs",
-      "default": "./src/plugins/process/plugins/index.ts"
+    "./plugins/process/plugin/": {
+      "types": "./dist/types/plugins/process/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/process/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/process/plugin/index.cjs",
+      "default": "./src/plugins/process/plugin/index.ts"
     },
-    "./plugins/process/plugins/*.d.ts": {
-      "types": "./dist/types/plugins/process/plugins/*.d.ts",
-      "default": "./src/plugins/process/plugins/*.ts"
+    "./plugins/process/plugin/*.d.ts": {
+      "types": "./dist/types/plugins/process/plugin/*.d.ts",
+      "default": "./src/plugins/process/plugin/*.ts"
     },
-    "./plugins/process/plugins/*.cjs": {
-      "types": "./dist/types/plugins/process/plugins/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/*.cjs",
-      "default": "./src/plugins/process/plugins/*.ts"
+    "./plugins/process/plugin/*.cjs": {
+      "types": "./dist/types/plugins/process/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/process/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/process/plugin/*.cjs",
+      "default": "./src/plugins/process/plugin/*.ts"
     },
-    "./plugins/process/plugins/*.js": {
-      "types": "./dist/types/plugins/process/plugins/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/*.cjs",
-      "default": "./src/plugins/process/plugins/*.ts"
+    "./plugins/process/plugin/*.js": {
+      "types": "./dist/types/plugins/process/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/process/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/process/plugin/*.cjs",
+      "default": "./src/plugins/process/plugin/*.ts"
     },
-    "./plugins/process/plugins/*.mjs": {
-      "types": "./dist/types/plugins/process/plugins/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/*.cjs",
-      "default": "./src/plugins/process/plugins/*.ts"
+    "./plugins/process/plugin/*.mjs": {
+      "types": "./dist/types/plugins/process/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/process/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/process/plugin/*.cjs",
+      "default": "./src/plugins/process/plugin/*.ts"
     },
-    "./plugins/process/plugins/*.ts": {
-      "types": "./dist/types/plugins/process/plugins/*.d.ts",
-      "import": "./dist/esm/plugins/process/plugins/*.mjs",
-      "require": "./dist/cjs/plugins/process/plugins/*.cjs",
-      "default": "./src/plugins/process/plugins/*.ts"
+    "./plugins/process/plugin/*.ts": {
+      "types": "./dist/types/plugins/process/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/process/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/process/plugin/*.cjs",
+      "default": "./src/plugins/process/plugin/*.ts"
     },
-    "./plugins/process/plugins/*": {
-      "types": "./dist/types/plugins/process/plugins/*",
-      "import": "./dist/esm/plugins/process/plugins/*",
-      "require": "./dist/cjs/plugins/process/plugins/*",
-      "default": "./src/plugins/process/plugins/*"
+    "./plugins/process/plugin/*": {
+      "types": "./dist/types/plugins/process/plugin/*",
+      "import": "./dist/esm/plugins/process/plugin/*",
+      "require": "./dist/cjs/plugins/process/plugin/*",
+      "default": "./src/plugins/process/plugin/*"
+    },
+    "./plugins/process/plugin-metadata": {
+      "types": "./dist/types/plugins/process/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/process/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/process/plugin-metadata/index.cjs",
+      "default": "./src/plugins/process/plugin-metadata/index.ts"
+    },
+    "./plugins/process/plugin-metadata/": {
+      "types": "./dist/types/plugins/process/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/process/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/process/plugin-metadata/index.cjs",
+      "default": "./src/plugins/process/plugin-metadata/index.ts"
+    },
+    "./plugins/process/plugin-metadata/*.d.ts": {
+      "types": "./dist/types/plugins/process/plugin-metadata/*.d.ts",
+      "default": "./src/plugins/process/plugin-metadata/*.ts"
+    },
+    "./plugins/process/plugin-metadata/*.cjs": {
+      "types": "./dist/types/plugins/process/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/process/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/process/plugin-metadata/*.cjs",
+      "default": "./src/plugins/process/plugin-metadata/*.ts"
+    },
+    "./plugins/process/plugin-metadata/*.js": {
+      "types": "./dist/types/plugins/process/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/process/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/process/plugin-metadata/*.cjs",
+      "default": "./src/plugins/process/plugin-metadata/*.ts"
+    },
+    "./plugins/process/plugin-metadata/*.mjs": {
+      "types": "./dist/types/plugins/process/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/process/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/process/plugin-metadata/*.cjs",
+      "default": "./src/plugins/process/plugin-metadata/*.ts"
+    },
+    "./plugins/process/plugin-metadata/*.ts": {
+      "types": "./dist/types/plugins/process/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/process/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/process/plugin-metadata/*.cjs",
+      "default": "./src/plugins/process/plugin-metadata/*.ts"
+    },
+    "./plugins/process/plugin-metadata/*": {
+      "types": "./dist/types/plugins/process/plugin-metadata/*",
+      "import": "./dist/esm/plugins/process/plugin-metadata/*",
+      "require": "./dist/cjs/plugins/process/plugin-metadata/*",
+      "default": "./src/plugins/process/plugin-metadata/*"
+    },
+    "./plugins/process/sub-plugins": {
+      "types": "./dist/types/plugins/process/sub-plugins/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/index.ts"
+    },
+    "./plugins/process/sub-plugins/": {
+      "types": "./dist/types/plugins/process/sub-plugins/index.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/index.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/index.cjs",
+      "default": "./src/plugins/process/sub-plugins/index.ts"
+    },
+    "./plugins/process/sub-plugins/*.d.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/*.d.ts",
+      "default": "./src/plugins/process/sub-plugins/*.ts"
+    },
+    "./plugins/process/sub-plugins/*.cjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/*.ts"
+    },
+    "./plugins/process/sub-plugins/*.js": {
+      "types": "./dist/types/plugins/process/sub-plugins/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/*.ts"
+    },
+    "./plugins/process/sub-plugins/*.mjs": {
+      "types": "./dist/types/plugins/process/sub-plugins/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/*.ts"
+    },
+    "./plugins/process/sub-plugins/*.ts": {
+      "types": "./dist/types/plugins/process/sub-plugins/*.d.ts",
+      "import": "./dist/esm/plugins/process/sub-plugins/*.mjs",
+      "require": "./dist/cjs/plugins/process/sub-plugins/*.cjs",
+      "default": "./src/plugins/process/sub-plugins/*.ts"
+    },
+    "./plugins/process/sub-plugins/*": {
+      "types": "./dist/types/plugins/process/sub-plugins/*",
+      "import": "./dist/esm/plugins/process/sub-plugins/*",
+      "require": "./dist/cjs/plugins/process/sub-plugins/*",
+      "default": "./src/plugins/process/sub-plugins/*"
+    },
+    "./plugins/project/plugin/eventing": {
+      "types": "./dist/types/plugins/project/plugin/eventing/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/eventing/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/eventing/index.cjs",
+      "default": "./src/plugins/project/plugin/eventing/index.ts"
+    },
+    "./plugins/project/plugin/eventing/": {
+      "types": "./dist/types/plugins/project/plugin/eventing/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/eventing/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/eventing/index.cjs",
+      "default": "./src/plugins/project/plugin/eventing/index.ts"
+    },
+    "./plugins/project/plugin/eventing/*.d.ts": {
+      "types": "./dist/types/plugins/project/plugin/eventing/*.d.ts",
+      "default": "./src/plugins/project/plugin/eventing/*.ts"
+    },
+    "./plugins/project/plugin/eventing/*.cjs": {
+      "types": "./dist/types/plugins/project/plugin/eventing/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/eventing/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/eventing/*.cjs",
+      "default": "./src/plugins/project/plugin/eventing/*.ts"
+    },
+    "./plugins/project/plugin/eventing/*.js": {
+      "types": "./dist/types/plugins/project/plugin/eventing/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/eventing/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/eventing/*.cjs",
+      "default": "./src/plugins/project/plugin/eventing/*.ts"
+    },
+    "./plugins/project/plugin/eventing/*.mjs": {
+      "types": "./dist/types/plugins/project/plugin/eventing/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/eventing/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/eventing/*.cjs",
+      "default": "./src/plugins/project/plugin/eventing/*.ts"
+    },
+    "./plugins/project/plugin/eventing/*.ts": {
+      "types": "./dist/types/plugins/project/plugin/eventing/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/eventing/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/eventing/*.cjs",
+      "default": "./src/plugins/project/plugin/eventing/*.ts"
+    },
+    "./plugins/project/plugin/eventing/*": {
+      "types": "./dist/types/plugins/project/plugin/eventing/*",
+      "import": "./dist/esm/plugins/project/plugin/eventing/*",
+      "require": "./dist/cjs/plugins/project/plugin/eventing/*",
+      "default": "./src/plugins/project/plugin/eventing/*"
+    },
+    "./plugins/project/plugin/hooks": {
+      "types": "./dist/types/plugins/project/plugin/hooks/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/hooks/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/hooks/index.cjs",
+      "default": "./src/plugins/project/plugin/hooks/index.ts"
+    },
+    "./plugins/project/plugin/hooks/": {
+      "types": "./dist/types/plugins/project/plugin/hooks/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/hooks/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/hooks/index.cjs",
+      "default": "./src/plugins/project/plugin/hooks/index.ts"
+    },
+    "./plugins/project/plugin/hooks/*.d.ts": {
+      "types": "./dist/types/plugins/project/plugin/hooks/*.d.ts",
+      "default": "./src/plugins/project/plugin/hooks/*.ts"
+    },
+    "./plugins/project/plugin/hooks/*.cjs": {
+      "types": "./dist/types/plugins/project/plugin/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/hooks/*.cjs",
+      "default": "./src/plugins/project/plugin/hooks/*.ts"
+    },
+    "./plugins/project/plugin/hooks/*.js": {
+      "types": "./dist/types/plugins/project/plugin/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/hooks/*.cjs",
+      "default": "./src/plugins/project/plugin/hooks/*.ts"
+    },
+    "./plugins/project/plugin/hooks/*.mjs": {
+      "types": "./dist/types/plugins/project/plugin/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/hooks/*.cjs",
+      "default": "./src/plugins/project/plugin/hooks/*.ts"
+    },
+    "./plugins/project/plugin/hooks/*.ts": {
+      "types": "./dist/types/plugins/project/plugin/hooks/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/hooks/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/hooks/*.cjs",
+      "default": "./src/plugins/project/plugin/hooks/*.ts"
+    },
+    "./plugins/project/plugin/hooks/*": {
+      "types": "./dist/types/plugins/project/plugin/hooks/*",
+      "import": "./dist/esm/plugins/project/plugin/hooks/*",
+      "require": "./dist/cjs/plugins/project/plugin/hooks/*",
+      "default": "./src/plugins/project/plugin/hooks/*"
     },
     "./plugins/project/project/resolution/errors": {
       "types": "./dist/types/plugins/project/project/resolution/errors/index.d.ts",
@@ -2380,98 +3351,6 @@
       "require": "./dist/cjs/plugins/project/utils/workspace-root-path-finder/*",
       "default": "./src/plugins/project/utils/workspace-root-path-finder/*"
     },
-    "./plugins/project/eventing": {
-      "types": "./dist/types/plugins/project/eventing/index.d.ts",
-      "import": "./dist/esm/plugins/project/eventing/index.mjs",
-      "require": "./dist/cjs/plugins/project/eventing/index.cjs",
-      "default": "./src/plugins/project/eventing/index.ts"
-    },
-    "./plugins/project/eventing/": {
-      "types": "./dist/types/plugins/project/eventing/index.d.ts",
-      "import": "./dist/esm/plugins/project/eventing/index.mjs",
-      "require": "./dist/cjs/plugins/project/eventing/index.cjs",
-      "default": "./src/plugins/project/eventing/index.ts"
-    },
-    "./plugins/project/eventing/*.d.ts": {
-      "types": "./dist/types/plugins/project/eventing/*.d.ts",
-      "default": "./src/plugins/project/eventing/*.ts"
-    },
-    "./plugins/project/eventing/*.cjs": {
-      "types": "./dist/types/plugins/project/eventing/*.d.ts",
-      "import": "./dist/esm/plugins/project/eventing/*.mjs",
-      "require": "./dist/cjs/plugins/project/eventing/*.cjs",
-      "default": "./src/plugins/project/eventing/*.ts"
-    },
-    "./plugins/project/eventing/*.js": {
-      "types": "./dist/types/plugins/project/eventing/*.d.ts",
-      "import": "./dist/esm/plugins/project/eventing/*.mjs",
-      "require": "./dist/cjs/plugins/project/eventing/*.cjs",
-      "default": "./src/plugins/project/eventing/*.ts"
-    },
-    "./plugins/project/eventing/*.mjs": {
-      "types": "./dist/types/plugins/project/eventing/*.d.ts",
-      "import": "./dist/esm/plugins/project/eventing/*.mjs",
-      "require": "./dist/cjs/plugins/project/eventing/*.cjs",
-      "default": "./src/plugins/project/eventing/*.ts"
-    },
-    "./plugins/project/eventing/*.ts": {
-      "types": "./dist/types/plugins/project/eventing/*.d.ts",
-      "import": "./dist/esm/plugins/project/eventing/*.mjs",
-      "require": "./dist/cjs/plugins/project/eventing/*.cjs",
-      "default": "./src/plugins/project/eventing/*.ts"
-    },
-    "./plugins/project/eventing/*": {
-      "types": "./dist/types/plugins/project/eventing/*",
-      "import": "./dist/esm/plugins/project/eventing/*",
-      "require": "./dist/cjs/plugins/project/eventing/*",
-      "default": "./src/plugins/project/eventing/*"
-    },
-    "./plugins/project/hooks": {
-      "types": "./dist/types/plugins/project/hooks/index.d.ts",
-      "import": "./dist/esm/plugins/project/hooks/index.mjs",
-      "require": "./dist/cjs/plugins/project/hooks/index.cjs",
-      "default": "./src/plugins/project/hooks/index.ts"
-    },
-    "./plugins/project/hooks/": {
-      "types": "./dist/types/plugins/project/hooks/index.d.ts",
-      "import": "./dist/esm/plugins/project/hooks/index.mjs",
-      "require": "./dist/cjs/plugins/project/hooks/index.cjs",
-      "default": "./src/plugins/project/hooks/index.ts"
-    },
-    "./plugins/project/hooks/*.d.ts": {
-      "types": "./dist/types/plugins/project/hooks/*.d.ts",
-      "default": "./src/plugins/project/hooks/*.ts"
-    },
-    "./plugins/project/hooks/*.cjs": {
-      "types": "./dist/types/plugins/project/hooks/*.d.ts",
-      "import": "./dist/esm/plugins/project/hooks/*.mjs",
-      "require": "./dist/cjs/plugins/project/hooks/*.cjs",
-      "default": "./src/plugins/project/hooks/*.ts"
-    },
-    "./plugins/project/hooks/*.js": {
-      "types": "./dist/types/plugins/project/hooks/*.d.ts",
-      "import": "./dist/esm/plugins/project/hooks/*.mjs",
-      "require": "./dist/cjs/plugins/project/hooks/*.cjs",
-      "default": "./src/plugins/project/hooks/*.ts"
-    },
-    "./plugins/project/hooks/*.mjs": {
-      "types": "./dist/types/plugins/project/hooks/*.d.ts",
-      "import": "./dist/esm/plugins/project/hooks/*.mjs",
-      "require": "./dist/cjs/plugins/project/hooks/*.cjs",
-      "default": "./src/plugins/project/hooks/*.ts"
-    },
-    "./plugins/project/hooks/*.ts": {
-      "types": "./dist/types/plugins/project/hooks/*.d.ts",
-      "import": "./dist/esm/plugins/project/hooks/*.mjs",
-      "require": "./dist/cjs/plugins/project/hooks/*.cjs",
-      "default": "./src/plugins/project/hooks/*.ts"
-    },
-    "./plugins/project/hooks/*": {
-      "types": "./dist/types/plugins/project/hooks/*",
-      "import": "./dist/esm/plugins/project/hooks/*",
-      "require": "./dist/cjs/plugins/project/hooks/*",
-      "default": "./src/plugins/project/hooks/*"
-    },
     "./plugins/project/module-augmentation": {
       "types": "./dist/types/plugins/project/module-augmentation/index.d.ts",
       "import": "./dist/esm/plugins/project/module-augmentation/index.mjs",
@@ -2517,6 +3396,98 @@
       "import": "./dist/esm/plugins/project/module-augmentation/*",
       "require": "./dist/cjs/plugins/project/module-augmentation/*",
       "default": "./src/plugins/project/module-augmentation/*"
+    },
+    "./plugins/project/plugin": {
+      "types": "./dist/types/plugins/project/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/index.cjs",
+      "default": "./src/plugins/project/plugin/index.ts"
+    },
+    "./plugins/project/plugin/": {
+      "types": "./dist/types/plugins/project/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/index.cjs",
+      "default": "./src/plugins/project/plugin/index.ts"
+    },
+    "./plugins/project/plugin/*.d.ts": {
+      "types": "./dist/types/plugins/project/plugin/*.d.ts",
+      "default": "./src/plugins/project/plugin/*.ts"
+    },
+    "./plugins/project/plugin/*.cjs": {
+      "types": "./dist/types/plugins/project/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/*.cjs",
+      "default": "./src/plugins/project/plugin/*.ts"
+    },
+    "./plugins/project/plugin/*.js": {
+      "types": "./dist/types/plugins/project/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/*.cjs",
+      "default": "./src/plugins/project/plugin/*.ts"
+    },
+    "./plugins/project/plugin/*.mjs": {
+      "types": "./dist/types/plugins/project/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/*.cjs",
+      "default": "./src/plugins/project/plugin/*.ts"
+    },
+    "./plugins/project/plugin/*.ts": {
+      "types": "./dist/types/plugins/project/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin/*.cjs",
+      "default": "./src/plugins/project/plugin/*.ts"
+    },
+    "./plugins/project/plugin/*": {
+      "types": "./dist/types/plugins/project/plugin/*",
+      "import": "./dist/esm/plugins/project/plugin/*",
+      "require": "./dist/cjs/plugins/project/plugin/*",
+      "default": "./src/plugins/project/plugin/*"
+    },
+    "./plugins/project/plugin-metadata": {
+      "types": "./dist/types/plugins/project/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin-metadata/index.cjs",
+      "default": "./src/plugins/project/plugin-metadata/index.ts"
+    },
+    "./plugins/project/plugin-metadata/": {
+      "types": "./dist/types/plugins/project/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/project/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/project/plugin-metadata/index.cjs",
+      "default": "./src/plugins/project/plugin-metadata/index.ts"
+    },
+    "./plugins/project/plugin-metadata/*.d.ts": {
+      "types": "./dist/types/plugins/project/plugin-metadata/*.d.ts",
+      "default": "./src/plugins/project/plugin-metadata/*.ts"
+    },
+    "./plugins/project/plugin-metadata/*.cjs": {
+      "types": "./dist/types/plugins/project/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin-metadata/*.cjs",
+      "default": "./src/plugins/project/plugin-metadata/*.ts"
+    },
+    "./plugins/project/plugin-metadata/*.js": {
+      "types": "./dist/types/plugins/project/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin-metadata/*.cjs",
+      "default": "./src/plugins/project/plugin-metadata/*.ts"
+    },
+    "./plugins/project/plugin-metadata/*.mjs": {
+      "types": "./dist/types/plugins/project/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin-metadata/*.cjs",
+      "default": "./src/plugins/project/plugin-metadata/*.ts"
+    },
+    "./plugins/project/plugin-metadata/*.ts": {
+      "types": "./dist/types/plugins/project/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/project/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/project/plugin-metadata/*.cjs",
+      "default": "./src/plugins/project/plugin-metadata/*.ts"
+    },
+    "./plugins/project/plugin-metadata/*": {
+      "types": "./dist/types/plugins/project/plugin-metadata/*",
+      "import": "./dist/esm/plugins/project/plugin-metadata/*",
+      "require": "./dist/cjs/plugins/project/plugin-metadata/*",
+      "default": "./src/plugins/project/plugin-metadata/*"
     },
     "./plugins/project/project": {
       "types": "./dist/types/plugins/project/project/index.d.ts",
@@ -2610,6 +3581,52 @@
       "require": "./dist/cjs/plugins/project/utils/*",
       "default": "./src/plugins/project/utils/*"
     },
+    "./plugins/repository/repository/resolution": {
+      "types": "./dist/types/plugins/repository/repository/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/resolution/index.cjs",
+      "default": "./src/plugins/repository/repository/resolution/index.ts"
+    },
+    "./plugins/repository/repository/resolution/": {
+      "types": "./dist/types/plugins/repository/repository/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/resolution/index.cjs",
+      "default": "./src/plugins/repository/repository/resolution/index.ts"
+    },
+    "./plugins/repository/repository/resolution/*.d.ts": {
+      "types": "./dist/types/plugins/repository/repository/resolution/*.d.ts",
+      "default": "./src/plugins/repository/repository/resolution/*.ts"
+    },
+    "./plugins/repository/repository/resolution/*.cjs": {
+      "types": "./dist/types/plugins/repository/repository/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/resolution/*.cjs",
+      "default": "./src/plugins/repository/repository/resolution/*.ts"
+    },
+    "./plugins/repository/repository/resolution/*.js": {
+      "types": "./dist/types/plugins/repository/repository/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/resolution/*.cjs",
+      "default": "./src/plugins/repository/repository/resolution/*.ts"
+    },
+    "./plugins/repository/repository/resolution/*.mjs": {
+      "types": "./dist/types/plugins/repository/repository/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/resolution/*.cjs",
+      "default": "./src/plugins/repository/repository/resolution/*.ts"
+    },
+    "./plugins/repository/repository/resolution/*.ts": {
+      "types": "./dist/types/plugins/repository/repository/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/resolution/*.cjs",
+      "default": "./src/plugins/repository/repository/resolution/*.ts"
+    },
+    "./plugins/repository/repository/resolution/*": {
+      "types": "./dist/types/plugins/repository/repository/resolution/*",
+      "import": "./dist/esm/plugins/repository/repository/resolution/*",
+      "require": "./dist/cjs/plugins/repository/repository/resolution/*",
+      "default": "./src/plugins/repository/repository/resolution/*"
+    },
     "./plugins/repository/utils/repository-root-path-finder": {
       "types": "./dist/types/plugins/repository/utils/repository-root-path-finder/index.d.ts",
       "import": "./dist/esm/plugins/repository/utils/repository-root-path-finder/index.mjs",
@@ -2702,51 +3719,143 @@
       "require": "./dist/cjs/plugins/repository/module-augmentation/*",
       "default": "./src/plugins/repository/module-augmentation/*"
     },
-    "./plugins/repository/resolution": {
-      "types": "./dist/types/plugins/repository/resolution/index.d.ts",
-      "import": "./dist/esm/plugins/repository/resolution/index.mjs",
-      "require": "./dist/cjs/plugins/repository/resolution/index.cjs",
-      "default": "./src/plugins/repository/resolution/index.ts"
+    "./plugins/repository/plugin": {
+      "types": "./dist/types/plugins/repository/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin/index.cjs",
+      "default": "./src/plugins/repository/plugin/index.ts"
     },
-    "./plugins/repository/resolution/": {
-      "types": "./dist/types/plugins/repository/resolution/index.d.ts",
-      "import": "./dist/esm/plugins/repository/resolution/index.mjs",
-      "require": "./dist/cjs/plugins/repository/resolution/index.cjs",
-      "default": "./src/plugins/repository/resolution/index.ts"
+    "./plugins/repository/plugin/": {
+      "types": "./dist/types/plugins/repository/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin/index.cjs",
+      "default": "./src/plugins/repository/plugin/index.ts"
     },
-    "./plugins/repository/resolution/*.d.ts": {
-      "types": "./dist/types/plugins/repository/resolution/*.d.ts",
-      "default": "./src/plugins/repository/resolution/*.ts"
+    "./plugins/repository/plugin/*.d.ts": {
+      "types": "./dist/types/plugins/repository/plugin/*.d.ts",
+      "default": "./src/plugins/repository/plugin/*.ts"
     },
-    "./plugins/repository/resolution/*.cjs": {
-      "types": "./dist/types/plugins/repository/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/repository/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/repository/resolution/*.cjs",
-      "default": "./src/plugins/repository/resolution/*.ts"
+    "./plugins/repository/plugin/*.cjs": {
+      "types": "./dist/types/plugins/repository/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin/*.cjs",
+      "default": "./src/plugins/repository/plugin/*.ts"
     },
-    "./plugins/repository/resolution/*.js": {
-      "types": "./dist/types/plugins/repository/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/repository/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/repository/resolution/*.cjs",
-      "default": "./src/plugins/repository/resolution/*.ts"
+    "./plugins/repository/plugin/*.js": {
+      "types": "./dist/types/plugins/repository/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin/*.cjs",
+      "default": "./src/plugins/repository/plugin/*.ts"
     },
-    "./plugins/repository/resolution/*.mjs": {
-      "types": "./dist/types/plugins/repository/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/repository/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/repository/resolution/*.cjs",
-      "default": "./src/plugins/repository/resolution/*.ts"
+    "./plugins/repository/plugin/*.mjs": {
+      "types": "./dist/types/plugins/repository/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin/*.cjs",
+      "default": "./src/plugins/repository/plugin/*.ts"
     },
-    "./plugins/repository/resolution/*.ts": {
-      "types": "./dist/types/plugins/repository/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/repository/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/repository/resolution/*.cjs",
-      "default": "./src/plugins/repository/resolution/*.ts"
+    "./plugins/repository/plugin/*.ts": {
+      "types": "./dist/types/plugins/repository/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin/*.cjs",
+      "default": "./src/plugins/repository/plugin/*.ts"
     },
-    "./plugins/repository/resolution/*": {
-      "types": "./dist/types/plugins/repository/resolution/*",
-      "import": "./dist/esm/plugins/repository/resolution/*",
-      "require": "./dist/cjs/plugins/repository/resolution/*",
-      "default": "./src/plugins/repository/resolution/*"
+    "./plugins/repository/plugin/*": {
+      "types": "./dist/types/plugins/repository/plugin/*",
+      "import": "./dist/esm/plugins/repository/plugin/*",
+      "require": "./dist/cjs/plugins/repository/plugin/*",
+      "default": "./src/plugins/repository/plugin/*"
+    },
+    "./plugins/repository/plugin-metadata": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin-metadata/index.cjs",
+      "default": "./src/plugins/repository/plugin-metadata/index.ts"
+    },
+    "./plugins/repository/plugin-metadata/": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin-metadata/index.cjs",
+      "default": "./src/plugins/repository/plugin-metadata/index.ts"
+    },
+    "./plugins/repository/plugin-metadata/*.d.ts": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/*.d.ts",
+      "default": "./src/plugins/repository/plugin-metadata/*.ts"
+    },
+    "./plugins/repository/plugin-metadata/*.cjs": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin-metadata/*.cjs",
+      "default": "./src/plugins/repository/plugin-metadata/*.ts"
+    },
+    "./plugins/repository/plugin-metadata/*.js": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin-metadata/*.cjs",
+      "default": "./src/plugins/repository/plugin-metadata/*.ts"
+    },
+    "./plugins/repository/plugin-metadata/*.mjs": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin-metadata/*.cjs",
+      "default": "./src/plugins/repository/plugin-metadata/*.ts"
+    },
+    "./plugins/repository/plugin-metadata/*.ts": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/repository/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/repository/plugin-metadata/*.cjs",
+      "default": "./src/plugins/repository/plugin-metadata/*.ts"
+    },
+    "./plugins/repository/plugin-metadata/*": {
+      "types": "./dist/types/plugins/repository/plugin-metadata/*",
+      "import": "./dist/esm/plugins/repository/plugin-metadata/*",
+      "require": "./dist/cjs/plugins/repository/plugin-metadata/*",
+      "default": "./src/plugins/repository/plugin-metadata/*"
+    },
+    "./plugins/repository/repository": {
+      "types": "./dist/types/plugins/repository/repository/index.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/index.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/index.cjs",
+      "default": "./src/plugins/repository/repository/index.ts"
+    },
+    "./plugins/repository/repository/": {
+      "types": "./dist/types/plugins/repository/repository/index.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/index.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/index.cjs",
+      "default": "./src/plugins/repository/repository/index.ts"
+    },
+    "./plugins/repository/repository/*.d.ts": {
+      "types": "./dist/types/plugins/repository/repository/*.d.ts",
+      "default": "./src/plugins/repository/repository/*.ts"
+    },
+    "./plugins/repository/repository/*.cjs": {
+      "types": "./dist/types/plugins/repository/repository/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/*.cjs",
+      "default": "./src/plugins/repository/repository/*.ts"
+    },
+    "./plugins/repository/repository/*.js": {
+      "types": "./dist/types/plugins/repository/repository/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/*.cjs",
+      "default": "./src/plugins/repository/repository/*.ts"
+    },
+    "./plugins/repository/repository/*.mjs": {
+      "types": "./dist/types/plugins/repository/repository/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/*.cjs",
+      "default": "./src/plugins/repository/repository/*.ts"
+    },
+    "./plugins/repository/repository/*.ts": {
+      "types": "./dist/types/plugins/repository/repository/*.d.ts",
+      "import": "./dist/esm/plugins/repository/repository/*.mjs",
+      "require": "./dist/cjs/plugins/repository/repository/*.cjs",
+      "default": "./src/plugins/repository/repository/*.ts"
+    },
+    "./plugins/repository/repository/*": {
+      "types": "./dist/types/plugins/repository/repository/*",
+      "import": "./dist/esm/plugins/repository/repository/*",
+      "require": "./dist/cjs/plugins/repository/repository/*",
+      "default": "./src/plugins/repository/repository/*"
     },
     "./plugins/repository/utils": {
       "types": "./dist/types/plugins/repository/utils/index.d.ts",
@@ -2794,52 +3903,6 @@
       "require": "./dist/cjs/plugins/repository/utils/*",
       "default": "./src/plugins/repository/utils/*"
     },
-    "./plugins/workspace/registry/resolution": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/index.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/resolution/index.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/resolution/index.cjs",
-      "default": "./src/plugins/workspace/registry/resolution/index.ts"
-    },
-    "./plugins/workspace/registry/resolution/": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/index.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/resolution/index.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/resolution/index.cjs",
-      "default": "./src/plugins/workspace/registry/resolution/index.ts"
-    },
-    "./plugins/workspace/registry/resolution/*.d.ts": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/*.d.ts",
-      "default": "./src/plugins/workspace/registry/resolution/*.ts"
-    },
-    "./plugins/workspace/registry/resolution/*.cjs": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/resolution/*.cjs",
-      "default": "./src/plugins/workspace/registry/resolution/*.ts"
-    },
-    "./plugins/workspace/registry/resolution/*.js": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/resolution/*.cjs",
-      "default": "./src/plugins/workspace/registry/resolution/*.ts"
-    },
-    "./plugins/workspace/registry/resolution/*.mjs": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/resolution/*.cjs",
-      "default": "./src/plugins/workspace/registry/resolution/*.ts"
-    },
-    "./plugins/workspace/registry/resolution/*.ts": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/resolution/*.cjs",
-      "default": "./src/plugins/workspace/registry/resolution/*.ts"
-    },
-    "./plugins/workspace/registry/resolution/*": {
-      "types": "./dist/types/plugins/workspace/registry/resolution/*",
-      "import": "./dist/esm/plugins/workspace/registry/resolution/*",
-      "require": "./dist/cjs/plugins/workspace/registry/resolution/*",
-      "default": "./src/plugins/workspace/registry/resolution/*"
-    },
     "./plugins/workspace/utils/recursive-workspace-iterator": {
       "types": "./dist/types/plugins/workspace/utils/recursive-workspace-iterator/index.d.ts",
       "import": "./dist/esm/plugins/workspace/utils/recursive-workspace-iterator/index.mjs",
@@ -2885,6 +3948,98 @@
       "import": "./dist/esm/plugins/workspace/utils/recursive-workspace-iterator/*",
       "require": "./dist/cjs/plugins/workspace/utils/recursive-workspace-iterator/*",
       "default": "./src/plugins/workspace/utils/recursive-workspace-iterator/*"
+    },
+    "./plugins/workspace/workspace/resolution": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/resolution/index.cjs",
+      "default": "./src/plugins/workspace/workspace/resolution/index.ts"
+    },
+    "./plugins/workspace/workspace/resolution/": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/resolution/index.cjs",
+      "default": "./src/plugins/workspace/workspace/resolution/index.ts"
+    },
+    "./plugins/workspace/workspace/resolution/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/*.d.ts",
+      "default": "./src/plugins/workspace/workspace/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace/resolution/*.cjs": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace/resolution/*.js": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace/resolution/*.mjs": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace/resolution/*.ts": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace/resolution/*": {
+      "types": "./dist/types/plugins/workspace/workspace/resolution/*",
+      "import": "./dist/esm/plugins/workspace/workspace/resolution/*",
+      "require": "./dist/cjs/plugins/workspace/workspace/resolution/*",
+      "default": "./src/plugins/workspace/workspace/resolution/*"
+    },
+    "./plugins/workspace/workspace-registry/resolution": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/resolution/index.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/index.ts"
+    },
+    "./plugins/workspace/workspace-registry/resolution/": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/resolution/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/resolution/index.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/index.ts"
+    },
+    "./plugins/workspace/workspace-registry/resolution/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/*.d.ts",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/resolution/*.cjs": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/resolution/*.js": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/resolution/*.mjs": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/resolution/*.ts": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/resolution/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/resolution/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/resolution/*": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/resolution/*",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/resolution/*",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/resolution/*",
+      "default": "./src/plugins/workspace/workspace-registry/resolution/*"
     },
     "./plugins/workspace/module-augmentation": {
       "types": "./dist/types/plugins/workspace/module-augmentation/index.d.ts",
@@ -2932,97 +4087,97 @@
       "require": "./dist/cjs/plugins/workspace/module-augmentation/*",
       "default": "./src/plugins/workspace/module-augmentation/*"
     },
-    "./plugins/workspace/registry": {
-      "types": "./dist/types/plugins/workspace/registry/index.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/index.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/index.cjs",
-      "default": "./src/plugins/workspace/registry/index.ts"
+    "./plugins/workspace/plugin": {
+      "types": "./dist/types/plugins/workspace/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin/index.cjs",
+      "default": "./src/plugins/workspace/plugin/index.ts"
     },
-    "./plugins/workspace/registry/": {
-      "types": "./dist/types/plugins/workspace/registry/index.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/index.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/index.cjs",
-      "default": "./src/plugins/workspace/registry/index.ts"
+    "./plugins/workspace/plugin/": {
+      "types": "./dist/types/plugins/workspace/plugin/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin/index.cjs",
+      "default": "./src/plugins/workspace/plugin/index.ts"
     },
-    "./plugins/workspace/registry/*.d.ts": {
-      "types": "./dist/types/plugins/workspace/registry/*.d.ts",
-      "default": "./src/plugins/workspace/registry/*.ts"
+    "./plugins/workspace/plugin/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/plugin/*.d.ts",
+      "default": "./src/plugins/workspace/plugin/*.ts"
     },
-    "./plugins/workspace/registry/*.cjs": {
-      "types": "./dist/types/plugins/workspace/registry/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/*.cjs",
-      "default": "./src/plugins/workspace/registry/*.ts"
+    "./plugins/workspace/plugin/*.cjs": {
+      "types": "./dist/types/plugins/workspace/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin/*.cjs",
+      "default": "./src/plugins/workspace/plugin/*.ts"
     },
-    "./plugins/workspace/registry/*.js": {
-      "types": "./dist/types/plugins/workspace/registry/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/*.cjs",
-      "default": "./src/plugins/workspace/registry/*.ts"
+    "./plugins/workspace/plugin/*.js": {
+      "types": "./dist/types/plugins/workspace/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin/*.cjs",
+      "default": "./src/plugins/workspace/plugin/*.ts"
     },
-    "./plugins/workspace/registry/*.mjs": {
-      "types": "./dist/types/plugins/workspace/registry/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/*.cjs",
-      "default": "./src/plugins/workspace/registry/*.ts"
+    "./plugins/workspace/plugin/*.mjs": {
+      "types": "./dist/types/plugins/workspace/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin/*.cjs",
+      "default": "./src/plugins/workspace/plugin/*.ts"
     },
-    "./plugins/workspace/registry/*.ts": {
-      "types": "./dist/types/plugins/workspace/registry/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/registry/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/registry/*.cjs",
-      "default": "./src/plugins/workspace/registry/*.ts"
+    "./plugins/workspace/plugin/*.ts": {
+      "types": "./dist/types/plugins/workspace/plugin/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin/*.cjs",
+      "default": "./src/plugins/workspace/plugin/*.ts"
     },
-    "./plugins/workspace/registry/*": {
-      "types": "./dist/types/plugins/workspace/registry/*",
-      "import": "./dist/esm/plugins/workspace/registry/*",
-      "require": "./dist/cjs/plugins/workspace/registry/*",
-      "default": "./src/plugins/workspace/registry/*"
+    "./plugins/workspace/plugin/*": {
+      "types": "./dist/types/plugins/workspace/plugin/*",
+      "import": "./dist/esm/plugins/workspace/plugin/*",
+      "require": "./dist/cjs/plugins/workspace/plugin/*",
+      "default": "./src/plugins/workspace/plugin/*"
     },
-    "./plugins/workspace/resolution": {
-      "types": "./dist/types/plugins/workspace/resolution/index.d.ts",
-      "import": "./dist/esm/plugins/workspace/resolution/index.mjs",
-      "require": "./dist/cjs/plugins/workspace/resolution/index.cjs",
-      "default": "./src/plugins/workspace/resolution/index.ts"
+    "./plugins/workspace/plugin-metadata": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin-metadata/index.cjs",
+      "default": "./src/plugins/workspace/plugin-metadata/index.ts"
     },
-    "./plugins/workspace/resolution/": {
-      "types": "./dist/types/plugins/workspace/resolution/index.d.ts",
-      "import": "./dist/esm/plugins/workspace/resolution/index.mjs",
-      "require": "./dist/cjs/plugins/workspace/resolution/index.cjs",
-      "default": "./src/plugins/workspace/resolution/index.ts"
+    "./plugins/workspace/plugin-metadata/": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin-metadata/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin-metadata/index.cjs",
+      "default": "./src/plugins/workspace/plugin-metadata/index.ts"
     },
-    "./plugins/workspace/resolution/*.d.ts": {
-      "types": "./dist/types/plugins/workspace/resolution/*.d.ts",
-      "default": "./src/plugins/workspace/resolution/*.ts"
+    "./plugins/workspace/plugin-metadata/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/*.d.ts",
+      "default": "./src/plugins/workspace/plugin-metadata/*.ts"
     },
-    "./plugins/workspace/resolution/*.cjs": {
-      "types": "./dist/types/plugins/workspace/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/resolution/*.cjs",
-      "default": "./src/plugins/workspace/resolution/*.ts"
+    "./plugins/workspace/plugin-metadata/*.cjs": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin-metadata/*.cjs",
+      "default": "./src/plugins/workspace/plugin-metadata/*.ts"
     },
-    "./plugins/workspace/resolution/*.js": {
-      "types": "./dist/types/plugins/workspace/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/resolution/*.cjs",
-      "default": "./src/plugins/workspace/resolution/*.ts"
+    "./plugins/workspace/plugin-metadata/*.js": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin-metadata/*.cjs",
+      "default": "./src/plugins/workspace/plugin-metadata/*.ts"
     },
-    "./plugins/workspace/resolution/*.mjs": {
-      "types": "./dist/types/plugins/workspace/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/resolution/*.cjs",
-      "default": "./src/plugins/workspace/resolution/*.ts"
+    "./plugins/workspace/plugin-metadata/*.mjs": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin-metadata/*.cjs",
+      "default": "./src/plugins/workspace/plugin-metadata/*.ts"
     },
-    "./plugins/workspace/resolution/*.ts": {
-      "types": "./dist/types/plugins/workspace/resolution/*.d.ts",
-      "import": "./dist/esm/plugins/workspace/resolution/*.mjs",
-      "require": "./dist/cjs/plugins/workspace/resolution/*.cjs",
-      "default": "./src/plugins/workspace/resolution/*.ts"
+    "./plugins/workspace/plugin-metadata/*.ts": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/plugin-metadata/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/plugin-metadata/*.cjs",
+      "default": "./src/plugins/workspace/plugin-metadata/*.ts"
     },
-    "./plugins/workspace/resolution/*": {
-      "types": "./dist/types/plugins/workspace/resolution/*",
-      "import": "./dist/esm/plugins/workspace/resolution/*",
-      "require": "./dist/cjs/plugins/workspace/resolution/*",
-      "default": "./src/plugins/workspace/resolution/*"
+    "./plugins/workspace/plugin-metadata/*": {
+      "types": "./dist/types/plugins/workspace/plugin-metadata/*",
+      "import": "./dist/esm/plugins/workspace/plugin-metadata/*",
+      "require": "./dist/cjs/plugins/workspace/plugin-metadata/*",
+      "default": "./src/plugins/workspace/plugin-metadata/*"
     },
     "./plugins/workspace/utils": {
       "types": "./dist/types/plugins/workspace/utils/index.d.ts",
@@ -3069,6 +4224,98 @@
       "import": "./dist/esm/plugins/workspace/utils/*",
       "require": "./dist/cjs/plugins/workspace/utils/*",
       "default": "./src/plugins/workspace/utils/*"
+    },
+    "./plugins/workspace/workspace": {
+      "types": "./dist/types/plugins/workspace/workspace/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/index.cjs",
+      "default": "./src/plugins/workspace/workspace/index.ts"
+    },
+    "./plugins/workspace/workspace/": {
+      "types": "./dist/types/plugins/workspace/workspace/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/index.cjs",
+      "default": "./src/plugins/workspace/workspace/index.ts"
+    },
+    "./plugins/workspace/workspace/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/workspace/*.d.ts",
+      "default": "./src/plugins/workspace/workspace/*.ts"
+    },
+    "./plugins/workspace/workspace/*.cjs": {
+      "types": "./dist/types/plugins/workspace/workspace/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/*.cjs",
+      "default": "./src/plugins/workspace/workspace/*.ts"
+    },
+    "./plugins/workspace/workspace/*.js": {
+      "types": "./dist/types/plugins/workspace/workspace/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/*.cjs",
+      "default": "./src/plugins/workspace/workspace/*.ts"
+    },
+    "./plugins/workspace/workspace/*.mjs": {
+      "types": "./dist/types/plugins/workspace/workspace/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/*.cjs",
+      "default": "./src/plugins/workspace/workspace/*.ts"
+    },
+    "./plugins/workspace/workspace/*.ts": {
+      "types": "./dist/types/plugins/workspace/workspace/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace/*.cjs",
+      "default": "./src/plugins/workspace/workspace/*.ts"
+    },
+    "./plugins/workspace/workspace/*": {
+      "types": "./dist/types/plugins/workspace/workspace/*",
+      "import": "./dist/esm/plugins/workspace/workspace/*",
+      "require": "./dist/cjs/plugins/workspace/workspace/*",
+      "default": "./src/plugins/workspace/workspace/*"
+    },
+    "./plugins/workspace/workspace-registry": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/index.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/index.ts"
+    },
+    "./plugins/workspace/workspace-registry/": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/index.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/index.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/index.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/index.ts"
+    },
+    "./plugins/workspace/workspace-registry/*.d.ts": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/*.d.ts",
+      "default": "./src/plugins/workspace/workspace-registry/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/*.cjs": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/*.js": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/*.mjs": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/*.ts": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/*.d.ts",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/*.mjs",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/*.cjs",
+      "default": "./src/plugins/workspace/workspace-registry/*.ts"
+    },
+    "./plugins/workspace/workspace-registry/*": {
+      "types": "./dist/types/plugins/workspace/workspace-registry/*",
+      "import": "./dist/esm/plugins/workspace/workspace-registry/*",
+      "require": "./dist/cjs/plugins/workspace/workspace-registry/*",
+      "default": "./src/plugins/workspace/workspace-registry/*"
     },
     "./plugins/ci": {
       "types": "./dist/types/plugins/ci/index.d.ts",

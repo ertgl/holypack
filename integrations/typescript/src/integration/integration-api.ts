@@ -3,7 +3,7 @@ import type { StrictContext } from "@holypack/core";
 import {
   findTSConfigRootDirectoryPath,
   type TSConfigRootDirectoryPathFinderOptions,
-} from "../tsconfig-root-directory-path-finder";
+} from "../utils/tsconfig-root-directory-path-finder";
 
 import type { TypeScriptIntegration } from "./integration";
 
