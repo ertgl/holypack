@@ -1,8 +1,8 @@
-import type { ConfigFunction } from "@babel/core";
+import type { TransformOptions } from "@babel/core";
 
-import type { StrictContext } from "@holypack/core";
+import type { Context } from "@holypack/core";
 
-import { generateBabelConfigFunction } from "../config-function";
+import { generateBabelTransformOptions } from "../config";
 
 import type { BabelIntegration } from "./integration";
 
@@ -17,11 +17,11 @@ export class BabelIntegrationAPI
     this.integration = integration;
   }
 
-  async generateConfigFunction(
-    context: StrictContext,
-  ): Promise<ConfigFunction>
+  async generateBabelTransformOptions(
+    context: Context,
+  ): Promise<TransformOptions>
   {
-    return await generateBabelConfigFunction(
+    return await generateBabelTransformOptions(
       context,
       this.integration.hooks,
     );

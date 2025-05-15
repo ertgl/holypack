@@ -10,7 +10,9 @@
     "test": "yarn coverage:clean && yarn jest"
   },
   "devDependencies": {
+    "@holypack/babel-preset": "*",
     "@holypack/core": "*",
+    "@holypack/integration-babel": "*",
     "@holypack/integration-jest": "*",
     "@holypack/jest-preset": "*",
     "holypack": "*",

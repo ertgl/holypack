@@ -2332,13 +2332,20 @@ __metadata:
   resolution: "@holypack/__e2e__@workspace:."
   dependencies:
     "@holypack/core": "npm:*"
-    "@holypack/eslint-plugin": "npm:*"
-    "@holypack/integration-babel": "npm:*"
-    "@holypack/integration-eslint": "npm:*"
     "@holypack/integration-typescript": "npm:*"
     holypack: "npm:*"
     tapable: "npm:^2.2.1"
   languageName: unknown
+  linkType: soft
+
+"@holypack/babel-preset@portal:../external/babel-preset::locator=%40holypack%2F__e2e__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/babel-preset@portal:../external/babel-preset::locator=%40holypack%2F__e2e__%40workspace%3A."
+  peerDependencies:
+    "@babel/core": "*"
+    "@holypack/core": "*"
+    "@holypack/integration-babel": "*"
+  languageName: node
   linkType: soft
 
 "@holypack/core@portal:../packages/core::locator=%40holypack%2F__e2e__%40workspace%3A.":
@@ -2367,7 +2374,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/e2e-integration-custom-basic@workspace:integrations/custom/basic"
   dependencies:
+    "@holypack/babel-preset": "npm:*"
     "@holypack/core": "npm:*"
+    "@holypack/integration-babel": "npm:*"
     "@holypack/integration-jest": "npm:*"
     "@holypack/jest-preset": "npm:*"
     holypack: "npm:*"
@@ -2394,7 +2403,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/e2e-integration-jest-basic-jsdom@workspace:integrations/jest/basic-jsdom"
   dependencies:
+    "@holypack/babel-preset": "npm:*"
     "@holypack/core": "npm:*"
+    "@holypack/integration-babel": "npm:*"
     "@holypack/integration-jest": "npm:*"
     "@holypack/integration-typescript": "npm:*"
     "@holypack/jest-preset": "npm:*"
@@ -2408,7 +2419,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/e2e-integration-jest-basic-node@workspace:integrations/jest/basic-node"
   dependencies:
+    "@holypack/babel-preset": "npm:*"
     "@holypack/core": "npm:*"
+    "@holypack/integration-babel": "npm:*"
     "@holypack/integration-jest": "npm:*"
     "@holypack/integration-typescript": "npm:*"
     "@holypack/jest-preset": "npm:*"
@@ -2551,6 +2564,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/integration-jest@portal:../integrations/jest::locator=%40holypack%2F__e2e__%40workspace%3A."
   peerDependencies:
+    "@babel/core": "*"
     "@holypack/core": "*"
     "@holypack/integration-eslint": "*"
     eslint: "*"
@@ -2561,6 +2575,8 @@ __metadata:
     jest-environment-jsdom: "*"
     tapable: "*"
   peerDependenciesMeta:
+    "@babel/core":
+      optional: true
     "@holypack/integration-eslint":
       optional: true
     eslint:
@@ -2580,8 +2596,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/integration-jest@workspace:../integrations/jest"
   dependencies:
+    "@babel/core": "npm:^7.27.1"
     "@holypack/core": "workspace:^"
     "@holypack/integration-eslint": "workspace:^"
+    "@types/babel__core": "npm:^7.20.5"
     "@types/jest": "npm:^29.5.14"
     eslint: "npm:^9.25.1"
     eslint-plugin-istanbul: "npm:^0.1.2"
@@ -2591,6 +2609,7 @@ __metadata:
     jest-environment-jsdom: "npm:^29.7.0"
     tapable: "npm:^2.2.1"
   peerDependencies:
+    "@babel/core": "*"
     "@holypack/core": "*"
     "@holypack/integration-eslint": "*"
     eslint: "*"
@@ -2601,6 +2620,8 @@ __metadata:
     jest-environment-jsdom: "*"
     tapable: "*"
   peerDependenciesMeta:
+    "@babel/core":
+      optional: true
     "@holypack/integration-eslint":
       optional: true
     eslint:
@@ -2652,6 +2673,14 @@ __metadata:
   peerDependenciesMeta:
     webpack-cli:
       optional: true
+  languageName: unknown
+  linkType: soft
+
+"@holypack/internal-integration-node@workspace:../internal/integrations/node":
+  version: 0.0.0-use.local
+  resolution: "@holypack/internal-integration-node@workspace:../internal/integrations/node"
+  dependencies:
+    "@types/node": "npm:^22.15.3"
   languageName: unknown
   linkType: soft
 
@@ -3350,7 +3379,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:^22.15.3":
   version: 22.15.3
   resolution: "@types/node@npm:22.15.3"
   dependencies:

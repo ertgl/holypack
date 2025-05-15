@@ -6,15 +6,14 @@ import {
   type StrictContext,
 } from "@holypack/core";
 
+import { INTEGRATION_NAME_JEST } from "../integration-metadata";
+import { createJestIntegrationESLintPlugin } from "../plugins/eslint";
+
 import {
   createJestIntegrationHookSet,
   type JestIntegrationHookSet,
-} from "../eventing";
-import { createJestIntegrationConfigPlugin } from "../plugins/config";
-import { createJestIntegrationESLintPlugin } from "../plugins/eslint";
-
+} from "./eventing";
 import { JestIntegrationAPI } from "./integration-api";
-import { INTEGRATION_NAME_JEST } from "./integration-name";
 import type { JestIntegrationOptions } from "./integration-options";
 
 export class JestIntegration implements Integration
@@ -49,9 +48,6 @@ export class JestIntegration implements Integration
     config: StrictConfig,
   ): Promise<void>
   {
-    const configPlugin = createJestIntegrationConfigPlugin();
-    await bindSubIntegration(context, config, configPlugin);
-
     const eslintPlugin = createJestIntegrationESLintPlugin();
     await bindSubIntegration(context, config, eslintPlugin);
   }

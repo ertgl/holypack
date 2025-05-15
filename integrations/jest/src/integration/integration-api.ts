@@ -1,8 +1,11 @@
 import type { Config } from "jest";
 
-import type { StrictContext } from "@holypack/core";
+import type { Context } from "@holypack/core";
 
-import { generateJestConfig } from "../config";
+import {
+  generateJestConfig,
+  type JestConfigGeneratorOptions,
+} from "../config";
 
 import type { JestIntegration } from "./integration";
 
@@ -17,13 +20,15 @@ export class JestIntegrationAPI
     this.integration = integration;
   }
 
-  async generateConfig(
-    context: StrictContext,
+  async generateJestConfig(
+    context: Context,
+    options?: JestConfigGeneratorOptions | null,
   ): Promise<Config>
   {
     return await generateJestConfig(
       context,
       this.integration.hooks,
+      options,
     );
   }
 }

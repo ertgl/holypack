@@ -1,4 +1,4 @@
-import type { ProjectHookSet } from "../eventing";
+import type { ProjectHookSet } from "../plugin/eventing";
 
 declare module "../../../eventing/hook-type-registry"
 {

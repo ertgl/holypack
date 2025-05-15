@@ -1,6 +1,9 @@
 import {
+  type ConfigAPI,
+  type ConfigFunction,
   type ConfigItem,
   createConfigItem,
+  type TransformOptions,
 } from "@babel/core";
 
 import {
@@ -30,9 +33,18 @@ export async function createHolypackPreset(
     INTEGRATION_NAME_BABEL,
   );
 
-  const configFunction = await integration.api.generateConfigFunction(
-    context as unknown as StrictContext,
-  );
+  const transformOptions = await integration.api.generateBabelTransformOptions(context);
+
+  const configFunction: ConfigFunction = (
+    api: ConfigAPI,
+  ): TransformOptions =>
+  {
+    api.cache.invalidate(
+      () => process.env.NODE_ENV,
+    );
+
+    return transformOptions;
+  };
 
   return createConfigItem(
     configFunction,

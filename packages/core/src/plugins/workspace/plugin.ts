@@ -12,11 +12,10 @@ import {
   type ProjectPlugin,
   type ResolvedProject,
 } from "../project";
-import { HOOK_NAME_RESOLVE_PROJECT } from "../project/hooks";
+import { HOOK_NAME_RESOLVE_PROJECT } from "../project/plugin/hooks";
 
-import { resolveWorkspaceRegistry } from "./registry";
-
-export const PLUGIN_NAME_WORKSPACE = "@holypack/core:Workspace";
+import { PLUGIN_NAME_WORKSPACE } from "./plugin-metadata";
+import { resolveWorkspaceRegistry } from "./workspace-registry";
 
 export class WorkspacePlugin implements Plugin
 {
