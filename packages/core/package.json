@@ -9,7 +9,7 @@
     "cosmiconfig": "^9.0.0",
     "fast-glob": "^3.3.3",
     "picomatch": "^4.0.2",
-    "tapable": "^2.2.1"
+    "tapable": "^2.2.2"
   },
   "peerDependencies": {
     "cosmiconfig": "*",

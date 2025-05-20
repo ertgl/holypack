@@ -2433,7 +2433,7 @@ __metadata:
     cosmiconfig: "npm:^9.0.0"
     fast-glob: "npm:^3.3.3"
     picomatch: "npm:^4.0.2"
-    tapable: "npm:^2.2.1"
+    tapable: "npm:^2.2.2"
   peerDependencies:
     cosmiconfig: "*"
     fast-glob: "*"
@@ -2499,7 +2499,7 @@ __metadata:
     "@types/babel__core": "npm:^7.20.5"
     "@types/babel__preset-env": "npm:^7.10.0"
     babel-plugin-transform-import-source: "npm:^1.0.0"
-    tapable: "npm:^2.2.1"
+    tapable: "npm:^2.2.2"
     typescript: "npm:^5.8.3"
   peerDependencies:
     "@babel/core": "*"
@@ -2600,7 +2600,7 @@ __metadata:
     fast-glob: "npm:^3.3.3"
     globals: "npm:^16.1.0"
     lodash.escaperegexp: "npm:^4.1.2"
-    tapable: "npm:^2.2.1"
+    tapable: "npm:^2.2.2"
     typescript: "npm:^5.8.3"
     typescript-eslint: "npm:^8.32.1"
   peerDependencies:
@@ -2657,7 +2657,7 @@ __metadata:
     globals: "npm:^16.1.0"
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
-    tapable: "npm:^2.2.1"
+    tapable: "npm:^2.2.2"
   peerDependencies:
     "@holypack/core": "*"
     "@holypack/integration-eslint": "*"
@@ -9049,10 +9049,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tapable@npm:^2.1.1, tapable@npm:^2.2.0, tapable@npm:^2.2.1":
+"tapable@npm:^2.1.1, tapable@npm:^2.2.0":
   version: 2.2.1
   resolution: "tapable@npm:2.2.1"
   checksum: 10c0/bc40e6efe1e554d075469cedaba69a30eeb373552aaf41caeaaa45bf56ffacc2674261b106245bd566b35d8f3329b52d838e851ee0a852120acae26e622925c9
+  languageName: node
+  linkType: hard
+
+"tapable@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "tapable@npm:2.2.2"
+  checksum: 10c0/8ad130aa705cab6486ad89e42233569a1fb1ff21af115f59cebe9f2b45e9e7995efceaa9cc5062510cdb4ec673b527924b2ab812e3579c55ad659ae92117011e
   languageName: node
   linkType: hard
 
