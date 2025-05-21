@@ -2314,6 +2314,7 @@ __metadata:
     "@holypack/eslint-plugin": "workspace:^"
     "@holypack/integration-babel": "workspace:^"
     "@holypack/integration-eslint": "workspace:^"
+    "@holypack/integration-export-map-generator": "workspace:^"
     "@holypack/integration-jest": "workspace:^"
     "@holypack/integration-typescript": "workspace:^"
     "@holypack/internal-integration-babel": "workspace:^"
@@ -2354,6 +2355,9 @@ __metadata:
     fast-glob: "*"
     picomatch: "*"
     tapable: "*"
+  peerDependenciesMeta:
+    cosmiconfig:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -2371,6 +2375,9 @@ __metadata:
     fast-glob: "*"
     picomatch: "*"
     tapable: "*"
+  peerDependenciesMeta:
+    cosmiconfig:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2544,6 +2551,33 @@ __metadata:
   peerDependenciesMeta:
     "@holypack/integration-typescript":
       optional: true
+  languageName: unknown
+  linkType: soft
+
+"@holypack/integration-export-map-generator@portal:./integrations/export-map-generator::locator=%40holypack%2F__monorepo__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/integration-export-map-generator@portal:./integrations/export-map-generator::locator=%40holypack%2F__monorepo__%40workspace%3A."
+  dependencies:
+    export-map-generator: "npm:^1.0.0"
+  peerDependencies:
+    commander: "*"
+    cosmiconfig: "*"
+    pretty-format: "*"
+  languageName: node
+  linkType: soft
+
+"@holypack/integration-export-map-generator@workspace:integrations/export-map-generator":
+  version: 0.0.0-use.local
+  resolution: "@holypack/integration-export-map-generator@workspace:integrations/export-map-generator"
+  dependencies:
+    commander: "npm:^14.0.0"
+    cosmiconfig: "npm:^9.0.0"
+    export-map-generator: "npm:^1.0.0"
+    pretty-format: "npm:^29.7.0"
+  peerDependencies:
+    commander: "*"
+    cosmiconfig: "*"
+    pretty-format: "*"
   languageName: unknown
   linkType: soft
 
@@ -4702,6 +4736,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"commander@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "commander@npm:14.0.0"
+  checksum: 10c0/73c4babfa558077868d84522b11ef56834165d472b9e86a634cd4c3ae7fc72d59af6377d8878e06bd570fe8f3161eced3cbe383c38f7093272bb65bd242b595b
+  languageName: node
+  linkType: hard
+
 "commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
@@ -5626,6 +5667,27 @@ __metadata:
   version: 3.1.2
   resolution: "exponential-backoff@npm:3.1.2"
   checksum: 10c0/d9d3e1eafa21b78464297df91f1776f7fbaa3d5e3f7f0995648ca5b89c069d17055033817348d9f4a43d1c20b0eab84f75af6991751e839df53e4dfd6f22e844
+  languageName: node
+  linkType: hard
+
+"export-map-generator@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "export-map-generator@npm:1.0.0"
+  peerDependencies:
+    commander: "*"
+    cosmiconfig: "*"
+    pretty-format: "*"
+  peerDependenciesMeta:
+    commander:
+      optional: true
+    cosmiconfig:
+      optional: true
+    pretty-format:
+      optional: true
+  bin:
+    export-map-generator: dist/esm/bin/export-map-generator.mjs
+    export-map-generator-cjs: dist/cjs/bin/export-map-generator.cjs
+  checksum: 10c0/27d09c93e4fc1c0d8d507f7ac09a326c7cd4f2e53a16f1034cf879c3c710046f8461a6c3993bbcde5fd5ee8184f58aa9912e65d61c6ab786ca2dbf6828978aec
   languageName: node
   linkType: hard
 
