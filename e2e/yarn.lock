@@ -2356,6 +2356,9 @@ __metadata:
     fast-glob: "*"
     picomatch: "*"
     tapable: "*"
+  peerDependenciesMeta:
+    cosmiconfig:
+      optional: true
   languageName: node
   linkType: soft
 

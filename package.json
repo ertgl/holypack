@@ -41,6 +41,7 @@
     "@holypack/integration-typescript": "workspace:^",
     "@holypack/internal-integration-babel": "workspace:^",
     "eslint": "^9.25.1",
+    "export-map-generator": "^2.0.1",
     "holypack": "workspace:^"
   },
   "resolutions": {
