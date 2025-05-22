@@ -16,13 +16,13 @@
     "@holypack/integration-eslint": "workspace:^",
     "@types/babel__core": "^7.20.5",
     "@types/jest": "^29.5.14",
-    "eslint": "^9.25.1",
+    "eslint": "^9.27.0",
     "eslint-plugin-istanbul": "^0.1.2",
     "eslint-plugin-jest": "^28.11.0",
-    "globals": "^16.0.0",
+    "globals": "^16.1.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "tapable": "^2.2.1"
+    "tapable": "^2.2.2"
   },
   "peerDependencies": {
     "@babel/core": "*",
