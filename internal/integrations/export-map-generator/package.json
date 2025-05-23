@@ -1,0 +1,49 @@
+{
+  "name": "@holypack/internal-integration-export-map-generator",
+  "private": true,
+  "scripts": {
+    "export-map-generator:bootstrap": "cd $INIT_CWD && yarn cmd:export-map-generator --config exports.config.bootstrap.mjs generate && node -e \"console.log('Successfully updated package exports for bootstrap phase.')\"",
+    "export-map-generator:bootstrap::preview": "cd $INIT_CWD && yarn cmd:export-map-generator --config exports.config.bootstrap.mjs --dry-run generate --stdout",
+    "prepare": "yarn update-package-exports",
+    "update-package-exports": "yarn export-map-generator:update"
+  },
+  "devDependencies": {
+    "export-map-generator": "^2.1.1"
+  },
+  "files": [
+    "./src/",
+    "./package.json"
+  ],
+  "exports": {
+    "./bootstrap/config.mjs": {
+      "default": "./src/bootstrap/config.mjs"
+    },
+    "./bootstrap/config": {
+      "default": "./src/bootstrap/config.mjs"
+    },
+    "./config.mjs": {
+      "default": "./src/config.mjs"
+    },
+    "./config": {
+      "default": "./src/config.mjs"
+    },
+    "./index.mjs": {
+      "default": "./src/index.mjs"
+    },
+    "./index": {
+      "default": "./src/index.mjs"
+    },
+    "./internal/config.mjs": {
+      "default": "./src/internal/config.mjs"
+    },
+    "./internal/config": {
+      "default": "./src/internal/config.mjs"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "default": "./src/index.mjs"
+    }
+  }
+}

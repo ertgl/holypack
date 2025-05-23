@@ -1,9 +1,13 @@
 {
   "name": "@holypack/core",
   "scripts": {
-    "build": "yarn babel:build:clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn export-map-generator:update",
-    "clean": "yarn babel:build:clean && yarn jest:coverage:clean && yarn jest:cache:clean",
-    "test": "yarn jest:test"
+    "bootstrap": "yarn bootstrap:clean && yarn babel:bootstrap && yarn export-map-generator:bootstrap",
+    "bootstrap:clean": "yarn babel:bootstrap:clean",
+    "build": "yarn build:clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn export-map-generator:update",
+    "build:clean": "yarn babel:build:clean",
+    "clean": "yarn bootstrap:clean && yarn build:clean && yarn test:clean",
+    "test": "yarn jest:test",
+    "test:clean": "yarn jest:coverage:clean && yarn jest:cache:clean"
   },
   "devDependencies": {
     "@types/picomatch": "^4.0.0",

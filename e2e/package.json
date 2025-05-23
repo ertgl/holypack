@@ -31,7 +31,6 @@
     "./integrations/*/*"
   ],
   "resolutions": {
-    "@holypack/__hack__": "portal:../hack",
     "@holypack/babel-preset": "portal:../external/babel-preset",
     "@holypack/core": "portal:../packages/core",
     "@holypack/eslint-plugin": "portal:../external/eslint-plugin",

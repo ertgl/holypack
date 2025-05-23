@@ -2,6 +2,10 @@ name: Setup CI
 description: Setup CI environment with a reusable composite action.
 
 inputs:
+  cache-key-for-bootstrap:
+    description: 'Cache key for the bootstrap directories'
+    required: false
+    default: ''
   cache-key-for-build:
     description: 'Cache key for the build directories'
     required: false
@@ -14,6 +18,10 @@ inputs:
     description: 'Cache key for yarn directories'
     required: false
     default: ''
+  generate-cache-for-bootstrap:
+    description: 'Should cache the bootstrap directories'
+    required: false
+    default: 'true'
   generate-cache-for-build:
     description: 'Should cache the build directories'
     required: false
@@ -24,6 +32,10 @@ inputs:
     default: 'true'
   generate-cache-for-yarn:
     description: 'Should cache yarn directories'
+    required: false
+    default: 'true'
+  restore-cache-for-bootstrap:
+    description: 'Should restore cache for the bootstrap directories'
     required: false
     default: 'true'
   restore-cache-for-build:
@@ -40,6 +52,9 @@ inputs:
     default: 'true'
 
 outputs:
+  final-cache-key-for-bootstrap:
+    description: 'The final cache key for bootstrap directories'
+    value: ${{ steps.determine-cache-key-for-bootstrap.outputs.final-cache-key-for-bootstrap }}
   final-cache-key-for-build:
     description: 'The final cache key for build directories'
     value: ${{ steps.determine-cache-key-for-build.outputs.final-cache-key-for-build }}
@@ -53,6 +68,13 @@ outputs:
 runs:
   using: composite
   steps:
+    - name: Determine bootstrap cache key
+      id: determine-cache-key-for-bootstrap
+      shell: bash
+      env:
+        FINAL_CACHE_KEY_FOR_BOOTSTRAP: ${{ inputs.cache-key-for-bootstrap || format('bootstrap-{0}-{1}', runner.os, hashFiles('external/**/*', 'integrations/**/*', 'internal/**/*', 'packages/**/*', 'yarn.lock')) }}
+      run: echo "final-cache-key-for-bootstrap=$(echo "$FINAL_CACHE_KEY_FOR_BOOTSTRAP")" >> $GITHUB_OUTPUT
+
     - name: Determine build cache key
       id: determine-cache-key-for-build
       shell: bash
@@ -137,6 +159,18 @@ runs:
           internal/*/*/node_modules/
           packages/*/node_modules/
 
+    - name: Restore bootstrap cache
+      id: restore-cache-for-bootstrap
+      if: ${{ inputs.restore-cache-for-bootstrap == 'true' }}
+      uses: actions/cache/restore@v4
+      with:
+        key: ${{ steps.determine-cache-key-for-bootstrap.outputs.final-cache-key-for-bootstrap }}
+        path: |
+          external/*/.bootstrap/
+          integrations/*/.bootstrap/
+          internal/*/*/.bootstrap/
+          packages/*/.bootstrap/
+
     - name: Restore build cache
       id: restore-cache-for-build
       if: ${{ inputs.restore-cache-for-build == 'true' }}
@@ -151,9 +185,27 @@ runs:
 
     - name: Prepare
       id: prepare
-      if: ${{ steps.restore-cache-for-build.outputs.cache-hit != 'true' }}
+      if: ${{ steps.restore-cache-for-bootstrap.outputs.cache-hit != 'true' || steps.restore-cache-for-build.outputs.cache-hit != 'true' }}
       shell: bash
       run: yarn prepare
+
+    - name: Bootstrap
+      id: bootstrap
+      if: ${{ steps.restore-cache-for-bootstrap.outputs.cache-hit != 'true' }}
+      shell: bash
+      run: yarn bootstrap
+
+    - name: Cache bootstrap
+      id: generate-cache-for-bootstrap
+      if: ${{ inputs.generate-cache-for-bootstrap == 'true' && steps.restore-cache-for-bootstrap.outputs.cache-hit != 'true' && steps.bootstrap.conclusion == 'success' }}
+      uses: actions/cache/save@v4
+      with:
+        key: ${{ steps.determine-cache-key-for-bootstrap.outputs.final-cache-key-for-bootstrap }}
+        path: |
+          external/*/.bootstrap/
+          integrations/*/.bootstrap/
+          internal/*/*/.bootstrap/
+          packages/*/.bootstrap/
 
     - name: Build
       id: build

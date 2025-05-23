@@ -2368,12 +2368,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@holypack/__hack__@workspace:hack":
-  version: 0.0.0-use.local
-  resolution: "@holypack/__hack__@workspace:hack"
-  languageName: unknown
-  linkType: soft
-
 "@holypack/__monorepo__@workspace:.":
   version: 0.0.0-use.local
   resolution: "@holypack/__monorepo__@workspace:."
@@ -2386,8 +2380,10 @@ __metadata:
     "@holypack/integration-jest": "workspace:^"
     "@holypack/integration-typescript": "workspace:^"
     "@holypack/internal-integration-babel": "workspace:^"
+    "@holypack/internal-integration-export-map-generator": "workspace:^"
+    "@holypack/internal-integration-typescript": "workspace:^"
     eslint: "npm:^9.27.0"
-    export-map-generator: "npm:^2.0.1"
+    export-map-generator: "npm:^2.1.1"
     holypack: "workspace:^"
   languageName: unknown
   linkType: soft
@@ -2597,7 +2593,7 @@ __metadata:
     "@holypack/core": "workspace:^"
     "@holypack/integration-typescript": "workspace:^"
     "@stylistic/eslint-plugin": "npm:^4.2.0"
-    "@types/lodash.escaperegexp": "npm:^4"
+    "@types/lodash.escaperegexp": "npm:^4.1.9"
     eslint: "npm:^9.27.0"
     eslint-import-resolver-typescript: "npm:^4.3.5"
     eslint-plugin-import-x: "npm:^4.12.2"
@@ -2627,7 +2623,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/integration-export-map-generator@portal:./integrations/export-map-generator::locator=%40holypack%2F__monorepo__%40workspace%3A."
   dependencies:
-    export-map-generator: "npm:^2.0.1"
+    export-map-generator: "npm:^2.1.1"
   peerDependencies:
     commander: "*"
     cosmiconfig: "*"
@@ -2641,7 +2637,7 @@ __metadata:
   dependencies:
     commander: "npm:^14.0.0"
     cosmiconfig: "npm:^9.0.0"
-    export-map-generator: "npm:^2.0.1"
+    export-map-generator: "npm:^2.1.1"
     pretty-format: "npm:^29.7.0"
   peerDependencies:
     commander: "*"
@@ -2785,11 +2781,37 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@holypack/internal-integration-export-map-generator@portal:./internal/integrations/export-map-generator::locator=%40holypack%2F__monorepo__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/internal-integration-export-map-generator@portal:./internal/integrations/export-map-generator::locator=%40holypack%2F__monorepo__%40workspace%3A."
+  languageName: node
+  linkType: soft
+
+"@holypack/internal-integration-export-map-generator@workspace:internal/integrations/export-map-generator":
+  version: 0.0.0-use.local
+  resolution: "@holypack/internal-integration-export-map-generator@workspace:internal/integrations/export-map-generator"
+  dependencies:
+    export-map-generator: "npm:^2.1.1"
+  languageName: unknown
+  linkType: soft
+
 "@holypack/internal-integration-node@workspace:internal/integrations/node":
   version: 0.0.0-use.local
   resolution: "@holypack/internal-integration-node@workspace:internal/integrations/node"
   dependencies:
     "@types/node": "npm:^22.15.21"
+  languageName: unknown
+  linkType: soft
+
+"@holypack/internal-integration-typescript@portal:./internal/integrations/typescript::locator=%40holypack%2F__monorepo__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/internal-integration-typescript@portal:./internal/integrations/typescript::locator=%40holypack%2F__monorepo__%40workspace%3A."
+  languageName: node
+  linkType: soft
+
+"@holypack/internal-integration-typescript@workspace:internal/integrations/typescript":
+  version: 0.0.0-use.local
+  resolution: "@holypack/internal-integration-typescript@workspace:internal/integrations/typescript"
   languageName: unknown
   linkType: soft
 
@@ -3480,7 +3502,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.escaperegexp@npm:^4":
+"@types/lodash.escaperegexp@npm:^4.1.9":
   version: 4.1.9
   resolution: "@types/lodash.escaperegexp@npm:4.1.9"
   dependencies:
@@ -5808,9 +5830,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"export-map-generator@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "export-map-generator@npm:2.0.1"
+"export-map-generator@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "export-map-generator@npm:2.1.1"
   peerDependencies:
     commander: "*"
     cosmiconfig: "*"
@@ -5825,7 +5847,7 @@ __metadata:
   bin:
     export-map-generator: dist/esm/bin/export-map-generator.mjs
     export-map-generator-cjs: dist/cjs/bin/export-map-generator.cjs
-  checksum: 10c0/31ebe7f8a82cf445b491a138c18489a2094012b1c4f1287348fe637f261f1c15874f4d6ed2a914dc374603365816ed97690ca36621edc659d584c0fab5b2ed9a
+  checksum: 10c0/624ce05b16fa52d3c59248a260a34cdd5f31f0bacede690da009956786612c7e44966e7f730ceac88c63d42650bb3a7df2bbf566dc51499aa00d70328ca89f6a
   languageName: node
   linkType: hard
 
@@ -6299,7 +6321,6 @@ __metadata:
   bin:
     holypack: ./dist/esm/bin/holypack.mjs
     holypack-cjs: ./dist/cjs/bin/holypack.cjs
-    holypack-ts: ./src/bin/holypack.ts
   languageName: node
   linkType: soft
 
@@ -6314,7 +6335,6 @@ __metadata:
   bin:
     holypack: ./dist/esm/bin/holypack.mjs
     holypack-cjs: ./dist/cjs/bin/holypack.cjs
-    holypack-ts: ./src/bin/holypack.ts
   languageName: unknown
   linkType: soft
 

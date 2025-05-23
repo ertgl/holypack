@@ -1,0 +1,3 @@
+{
+  "extends": "@holypack/internal-integration-typescript/presets/tsconfig.scope.bootstrap.json"
+}

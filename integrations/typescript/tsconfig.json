@@ -2,6 +2,9 @@
   "files": [],
   "references": [
     {
+      "path": "./tsconfig.scope.bootstrap.json"
+    },
+    {
       "path": "./tsconfig.scope.dist.cjs.json"
     },
     {

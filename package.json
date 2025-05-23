@@ -1,12 +1,12 @@
 {
   "name": "@holypack/__monorepo__",
   "private": true,
-  "packageManager": "yarn@4.7.0",
   "type": "module",
   "scripts": {
-    "build": "yarn w:foreach::parallel::topological::interlaced run build",
-    "clean": "yarn w:foreach::parallel::interlaced run clean",
-    "dev": "yarn prepare && yarn build",
+    "bootstrap": "node -e \"console.log('Bootstrapping...')\" && yarn w:foreach::parallel::topological::interlaced run bootstrap",
+    "build": "node -e \"console.log('Building...')\" && yarn w:foreach::parallel::topological::interlaced run build",
+    "clean": "node -e \"console.log('Cleaning...')\" && yarn w:foreach::parallel::interlaced run clean",
+    "dev": "yarn prepare && yarn bootstrap && yarn build",
     "dev::clean": "yarn clean && yarn dev",
     "e2e:build": "yarn e2e:yarn build",
     "e2e:clean": "yarn e2e:yarn clean",
@@ -18,14 +18,14 @@
     "format": "yarn lint::fix",
     "lint": "yarn eslint:lint",
     "lint::fix": "yarn eslint:lint::fix",
-    "prepare": "yarn w:foreach::parallel::topological::interlaced run prepare",
+    "prepare": "node -e \"console.log('Preparing...')\" && yarn w:foreach::parallel::topological::interlaced run prepare",
     "test": "yarn w:foreach::parallel::topological run test"
   },
+  "packageManager": "yarn@4.9.1",
   "engines": {
     "node": ">=22.14.0"
   },
   "workspaces": [
-    "./hack",
     "./external/*",
     "./integrations/*",
     "./internal/*/*",
@@ -40,8 +40,10 @@
     "@holypack/integration-jest": "workspace:^",
     "@holypack/integration-typescript": "workspace:^",
     "@holypack/internal-integration-babel": "workspace:^",
+    "@holypack/internal-integration-export-map-generator": "workspace:^",
+    "@holypack/internal-integration-typescript": "workspace:^",
     "eslint": "^9.27.0",
-    "export-map-generator": "^2.0.1",
+    "export-map-generator": "^2.1.1",
     "holypack": "workspace:^"
   },
   "resolutions": {
@@ -54,6 +56,8 @@
     "@holypack/integration-jest": "portal:./integrations/jest",
     "@holypack/integration-typescript": "portal:./integrations/typescript",
     "@holypack/internal-integration-babel": "portal:./internal/integrations/babel",
+    "@holypack/internal-integration-export-map-generator": "portal:./internal/integrations/export-map-generator",
+    "@holypack/internal-integration-typescript": "portal:./internal/integrations/typescript",
     "@holypack/internal-integration-node": "portal:./internal/integrations/node",
     "@holypack/internal-integration-yarn": "portal:./internal/integrations/yarn",
     "@holypack/jest-preset": "portal:./external/jest-preset",

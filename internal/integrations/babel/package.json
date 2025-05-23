@@ -1,6 +1,12 @@
 {
   "name": "@holypack/internal-integration-babel",
   "private": true,
+  "scripts": {
+    "babel:bootstrap": "cd $INIT_CWD && yarn cmd:babel src --config-file ./babel.config.bootstrap.mjs --extensions '.cjs,.cts,.js,.mjs,.mts,.ts' --ignore '**/__tests__/**/*' --ignore '**/*.d.ts' --ignore '**/*.spec.cjs' --ignore '**/*.spec.cjsx' --ignore '**/*.spec.cts' --ignore '**/*.spec.ctsx' --ignore '**/*.spec.js' --ignore '**/*.spec.jsx' --ignore '**/*.spec.mjs' --ignore '**/*.spec.mjsx' --ignore '**/*.spec.mts' --ignore '**/*.spec.mtsx' --ignore '**/*.spec.ts' --ignore '**/*.spec.tsx' --ignore '**/*.test.cjs' --ignore '**/*.test.cjsx' --ignore '**/*.test.cts' --ignore '**/*.test.ctsx' --ignore '**/*.test.js' --ignore '**/*.test.jsx' --ignore '**/*.test.mjs' --ignore '**/*.test.mjsx' --ignore '**/*.test.mts' --ignore '**/*.test.mtsx' --ignore '**/*.test.ts' --ignore '**/*.test.tsx' --no-copy-ignored --out-dir ./.bootstrap --out-file-extension '.mjs'",
+    "babel:bootstrap:clean": "cd $INIT_CWD && rm -fr .bootstrap",
+    "prepare": "yarn update-package-exports",
+    "update-package-exports": "yarn export-map-generator:update"
+  },
   "devDependencies": {
     "@babel/core": "^7.27.1",
     "@babel/preset-env": "^7.27.2",
@@ -14,9 +20,74 @@
     "./src/",
     "./package.json"
   ],
+  "type": "module",
+  "module": "./src/index.mjs",
   "exports": {
-    "./package.json": "./package.json",
-    ".": "./src/index.mjs",
-    "./*.mjs": "./src/*.mjs"
+    "./bootstrap/config.mjs": {
+      "default": "./src/bootstrap/config.mjs"
+    },
+    "./bootstrap/config": {
+      "default": "./src/bootstrap/config.mjs"
+    },
+    "./config.mjs": {
+      "default": "./src/config.mjs"
+    },
+    "./config": {
+      "default": "./src/config.mjs"
+    },
+    "./contrib/comment-attributes/meta-lib.mjs": {
+      "default": "./src/contrib/comment-attributes/meta-lib.mjs"
+    },
+    "./contrib/comment-attributes/meta-lib": {
+      "default": "./src/contrib/comment-attributes/meta-lib.mjs"
+    },
+    "./contrib/comment-attributes/meta-operators/cjs.mjs": {
+      "default": "./src/contrib/comment-attributes/meta-operators/cjs.mjs"
+    },
+    "./contrib/comment-attributes/meta-operators/cjs": {
+      "default": "./src/contrib/comment-attributes/meta-operators/cjs.mjs"
+    },
+    "./contrib/comment-attributes/meta-operators/esm.mjs": {
+      "default": "./src/contrib/comment-attributes/meta-operators/esm.mjs"
+    },
+    "./contrib/comment-attributes/meta-operators/esm": {
+      "default": "./src/contrib/comment-attributes/meta-operators/esm.mjs"
+    },
+    "./contrib/comment-attributes/meta-operators/remove.mjs": {
+      "default": "./src/contrib/comment-attributes/meta-operators/remove.mjs"
+    },
+    "./contrib/comment-attributes/meta-operators/remove": {
+      "default": "./src/contrib/comment-attributes/meta-operators/remove.mjs"
+    },
+    "./contrib/comment-attributes/meta-operators/skip.mjs": {
+      "default": "./src/contrib/comment-attributes/meta-operators/skip.mjs"
+    },
+    "./contrib/comment-attributes/meta-operators/skip": {
+      "default": "./src/contrib/comment-attributes/meta-operators/skip.mjs"
+    },
+    "./contrib/comment-attributes/meta-operators/voidify.mjs": {
+      "default": "./src/contrib/comment-attributes/meta-operators/voidify.mjs"
+    },
+    "./contrib/comment-attributes/meta-operators/voidify": {
+      "default": "./src/contrib/comment-attributes/meta-operators/voidify.mjs"
+    },
+    "./index.mjs": {
+      "default": "./src/index.mjs"
+    },
+    "./index": {
+      "default": "./src/index.mjs"
+    },
+    "./legacy/config.mjs": {
+      "default": "./src/legacy/config.mjs"
+    },
+    "./legacy/config": {
+      "default": "./src/legacy/config.mjs"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "default": "./src/index.mjs"
+    }
   }
 }

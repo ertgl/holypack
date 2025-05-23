@@ -164,6 +164,17 @@ export class ESLintIntegrationNPluginAPI
           GLOB_PATTERN_MJS_MJSX_MTS_MTSX,
         ],
         rules: {
+          "n/hashbang": [
+            "error",
+            {
+              convertPath: {
+                "src/bin/**/*.ts": [
+                  /^src\/bin\/(.+)\.ts$/.source,
+                  "dist/esm/bin/$1.mjs",
+                ],
+              },
+            },
+          ],
           // It seems that `eslint-plugin-n` does not support barrel files well.
           // So, we have to disable `n/no-missing-import` rule for now.
           // See: https://github.com/eslint-community/eslint-plugin-n/issues/349

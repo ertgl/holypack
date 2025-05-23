@@ -6161,7 +6161,6 @@ __metadata:
   bin:
     holypack: ./dist/esm/bin/holypack.mjs
     holypack-cjs: ./dist/cjs/bin/holypack.cjs
-    holypack-ts: ./src/bin/holypack.ts
   languageName: node
   linkType: soft
 
