@@ -1,5 +1,5 @@
 import type { TransformOptions } from "@babel/core";
-import type BabelPresetEnvModule from "@babel/preset-env";
+import type BabelPluginTransformImportSourceModule from "babel-plugin-transform-import-source";
 
 import type { Context, StrictContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
@@ -7,6 +7,7 @@ import { emitWarning } from "@holypack/core/plugins/process/sub-plugins/warning-
 
 import type { Assumptions } from "../../../config";
 import { configureBabelImportSources } from "../config";
+import { PACKAGE_NAME_BABEL_PLUGIN_TRANSFORM_IMPORT_SOURCE } from "../constants/packages";
 
 import type { BabelIntegrationImportSourcePlugin } from "./plugin";
 import { BabelIntegrationImportSourcePluginOptions } from "./plugin-options";
@@ -41,19 +42,19 @@ export class BabelIntegrationImportSourcePluginAPI
         : options ?? {}
     );
 
-    const packageName = "@babel/preset-env";
-
-    let babelPresetEnv: null | typeof BabelPresetEnvModule = null;
+    let babelPlugin: null | typeof BabelPluginTransformImportSourceModule = null;
 
     try
     {
-      babelPresetEnv = await import(
-        packageName,
-      ) as typeof BabelPresetEnvModule;
+      babelPlugin = await import(
+        PACKAGE_NAME_BABEL_PLUGIN_TRANSFORM_IMPORT_SOURCE,
+      ) as typeof BabelPluginTransformImportSourceModule;
     }
     catch (err)
     {
-      const err2 = new ModuleNotFoundError(packageName);
+      const err2 = new ModuleNotFoundError(
+        PACKAGE_NAME_BABEL_PLUGIN_TRANSFORM_IMPORT_SOURCE,
+      );
       err2.cause = err;
       await emitWarning(
         context as unknown as StrictContext,
@@ -61,7 +62,7 @@ export class BabelIntegrationImportSourcePluginAPI
       );
     }
 
-    if (babelPresetEnv == null)
+    if (babelPlugin == null)
     {
       return;
     }

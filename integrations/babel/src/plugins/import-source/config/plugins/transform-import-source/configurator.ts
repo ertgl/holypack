@@ -45,17 +45,17 @@ export function configureBabelPluginTransformImportSource(
 
   if (Array.isArray(transformOptions.plugins))
   {
-    for (const preset of transformOptions.plugins)
+    for (const plugin of transformOptions.plugins)
     {
       if (
-        Array.isArray(preset)
+        Array.isArray(plugin)
         && (
-          preset[0] === PACKAGE_NAME_BABEL_PLUGIN_TRANSFORM_IMPORT_SOURCE
-          || preset[0] === resolvedPackageName
+          plugin[0] === PACKAGE_NAME_BABEL_PLUGIN_TRANSFORM_IMPORT_SOURCE
+          || plugin[0] === resolvedPackageName
         )
       )
       {
-        item = preset;
+        item = plugin;
         break;
       }
     }
@@ -93,7 +93,17 @@ export function configureBabelPluginTransformImportSource(
       {
         find: PATH_REGEX_PATTERN_ANY_JS_EXTENSION_OR_NO_EXTENSION,
         replace: targetExtension,
-        resolveIndex: true,
+        resolveIndex: {
+          extensions: [
+            ".cjs",
+            ".cts",
+            ".js",
+            ".mjs",
+            ".mts",
+            ".ts",
+          ],
+          fallback: "index",
+        },
         test: PATH_REGEX_PATTERN_ANY_RELATIVE_PATH,
       },
     );
