@@ -251,9 +251,7 @@ scale.
   <tr>
     <td><a href="https://github.com/ertgl/export-map-generator">export-map-generator</a></td>
     <td></td>
-    <td align="center">
-      Work in progress
-    </td>
+    <td align="center">Completed</td>
   </tr>
   <tr>
     <td colspan="3">&#8203;</td>
