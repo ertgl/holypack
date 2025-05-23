@@ -37,7 +37,12 @@ export function bootstrapConfigFunction(
         {
           find: /(?:\.[cm]?[jt]s[x]?)?$/iu,
           replace: ".mjs",
-          resolveIndex: true,
+          resolveIndex: {
+            extensions: [
+              ".ts",
+            ],
+            fallback: "index",
+          },
           test: /^[.\\/]+.*$/,
         },
       ],
