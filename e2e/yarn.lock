@@ -2655,6 +2655,7 @@ __metadata:
     "@babel/core": "npm:^7.27.1"
     "@holypack/core": "workspace:^"
     "@holypack/integration-eslint": "workspace:^"
+    "@jest/globals": "npm:^29.7.0"
     "@types/babel__core": "npm:^7.20.5"
     "@types/jest": "npm:^29.5.14"
     eslint: "npm:^9.27.0"
