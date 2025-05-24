@@ -2373,6 +2373,7 @@ __metadata:
   resolution: "@holypack/__monorepo__@workspace:."
   dependencies:
     "@holypack/babel-preset": "workspace:^"
+    "@holypack/cli": "workspace:^"
     "@holypack/eslint-plugin": "workspace:^"
     "@holypack/integration-babel": "workspace:^"
     "@holypack/integration-eslint": "workspace:^"
@@ -2409,6 +2410,36 @@ __metadata:
     "@babel/core": "*"
     "@holypack/core": "*"
     "@holypack/integration-babel": "*"
+  languageName: unknown
+  linkType: soft
+
+"@holypack/cli@portal:./packages/cli::locator=%40holypack%2F__monorepo__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/cli@portal:./packages/cli::locator=%40holypack%2F__monorepo__%40workspace%3A."
+  peerDependencies:
+    "@holypack/core": "*"
+    commander: "*"
+    pretty-format: "*"
+  peerDependenciesMeta:
+    pretty-format:
+      optional: true
+  languageName: node
+  linkType: soft
+
+"@holypack/cli@workspace:packages/cli":
+  version: 0.0.0-use.local
+  resolution: "@holypack/cli@workspace:packages/cli"
+  dependencies:
+    "@holypack/core": "workspace:^"
+    commander: "npm:^14.0.0"
+    pretty-format: "npm:^29.7.0"
+  peerDependencies:
+    "@holypack/core": "*"
+    commander: "*"
+    pretty-format: "*"
+  peerDependenciesMeta:
+    pretty-format:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2502,7 +2533,7 @@ __metadata:
     "@holypack/core": "workspace:^"
     "@types/babel__core": "npm:^7.20.5"
     "@types/babel__preset-env": "npm:^7.10.0"
-    babel-plugin-transform-import-source: "npm:^1.0.0"
+    babel-plugin-transform-import-source: "npm:^2.1.0"
     tapable: "npm:^2.2.2"
     typescript: "npm:^5.8.3"
   peerDependencies:
@@ -2777,7 +2808,7 @@ __metadata:
     "@types/babel__core": "npm:^7.20.5"
     "@types/babel__preset-env": "npm:^7.10.0"
     babel-plugin-comment-attributes: "npm:^1.0.0"
-    babel-plugin-transform-import-source: "npm:^1.0.0"
+    babel-plugin-transform-import-source: "npm:^2.1.0"
   languageName: unknown
   linkType: soft
 
@@ -4557,12 +4588,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-transform-import-source@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "babel-plugin-transform-import-source@npm:1.0.0"
+"babel-plugin-transform-import-source@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "babel-plugin-transform-import-source@npm:2.1.0"
   dependencies:
     "@babel/helper-plugin-utils": "npm:^7.25.9"
-  checksum: 10c0/65e13f0aaad7179315d9bd3996441bf1a57197fbcc550ea9cea38b9668c340b104bca00f6a5c9dd58e1881413b17c6fa9ef3a0cfbd03673c681335b1db6a9ff8
+  checksum: 10c0/16fa2240713c37c088e3645dd4515a6b516a2b4c6f2940de1ca0652485f7abfce89adb1ec966b912bb9f45b47617172a93c229690fbd06a395b24e5a790f9528
   languageName: node
   linkType: hard
 
@@ -6314,10 +6345,12 @@ __metadata:
 "holypack@portal:./packages/prelude::locator=%40holypack%2F__monorepo__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "holypack@portal:./packages/prelude::locator=%40holypack%2F__monorepo__%40workspace%3A."
-  dependencies:
-    pretty-format: "npm:^29.7.0"
   peerDependencies:
+    "@holypack/cli": "*"
     "@holypack/core": "*"
+  peerDependenciesMeta:
+    "@holypack/cli":
+      optional: true
   bin:
     holypack: ./dist/esm/bin/holypack.mjs
     holypack-cjs: ./dist/cjs/bin/holypack.cjs
@@ -6328,10 +6361,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "holypack@workspace:packages/prelude"
   dependencies:
+    "@holypack/cli": "workspace:^"
     "@holypack/core": "workspace:^"
-    pretty-format: "npm:^29.7.0"
   peerDependencies:
+    "@holypack/cli": "*"
     "@holypack/core": "*"
+  peerDependenciesMeta:
+    "@holypack/cli":
+      optional: true
   bin:
     holypack: ./dist/esm/bin/holypack.mjs
     holypack-cjs: ./dist/cjs/bin/holypack.cjs
