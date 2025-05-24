@@ -7,6 +7,7 @@ import type { StrictContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
 import { emitWarning } from "@holypack/core/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter";
 import type { ResolvedProject } from "@holypack/core/plugins/project";
+import { iterateWorkspacesRecursivelyByRootProject } from "@holypack/core/plugins/workspace/utils/recursive-workspace-iterator";
 
 import {
   GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
@@ -99,10 +100,34 @@ export class ESLintIntegrationNPluginAPI
 
     const sharedSettings = {
       allowModules: Array.from(
-        new Set([
-          ...Object.keys(project.packageJSON.dependencies ?? {}),
-          ...Object.keys(project.packageJSON.devDependencies ?? {}),
-        ]),
+        new Set(
+          Object.keys(
+            project.packageJSON.dependencies ?? {},
+          ),
+        ).union(
+          new Set(
+            Object.keys(
+              project.packageJSON.devDependencies ?? {},
+            ),
+          ),
+        ).union(
+          new Set(
+            iterateWorkspacesRecursivelyByRootProject(
+              context.project as unknown as ResolvedProject,
+              {
+                excludeExternal: true,
+              },
+            ).flatMap(
+              (workspace) =>
+              {
+                return [
+                  ...Object.keys(workspace.packageJSON.dependencies ?? {}),
+                  ...Object.keys(workspace.packageJSON.devDependencies ?? {}),
+                ];
+              },
+            ),
+          ),
+        ),
       ),
       resolverConfig: {
         extensions,
@@ -118,9 +143,9 @@ export class ESLintIntegrationNPluginAPI
         [".ts", ".js"],
         [".tsx", ".js"],
         [".mts", ".mjs"],
-        [".mtsx", ".mjsx"],
+        [".mtsx", ".mjs"],
         [".cts", ".cjs"],
-        [".ctsx", ".cjsx"],
+        [".ctsx", ".cjs"],
       ],
     };
 
