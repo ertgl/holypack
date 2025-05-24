@@ -1,16 +1,23 @@
 import { Command } from "commander";
 
+import { createCommand } from "../command";
+
 import { createInspectContextCommand } from "./context/inspect";
 
-export function createContextCommandsGroup(): Command
+export function createContextCommandsGroup(
+  program: Command,
+): Command
 {
-  const command = new Command();
+  const command = createCommand();
 
   command.name("context");
-  command.description("context commands");
+  command.description("Work with the context.");
+  command.summary("context commands");
 
   command.addCommand(
-    createInspectContextCommand(),
+    createInspectContextCommand(
+      program,
+    ),
   );
 
   return command;

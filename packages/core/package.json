@@ -1,5 +1,6 @@
 {
   "name": "@holypack/core",
+  "version": "0.1.0",
   "scripts": {
     "bootstrap": "yarn bootstrap:clean && yarn babel:bootstrap && yarn export-map-generator:bootstrap",
     "bootstrap:clean": "yarn babel:bootstrap:clean",

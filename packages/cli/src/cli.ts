@@ -1,29 +1,65 @@
 import { Command } from "commander";
 
+import HOLYPACK_CORE_PACKAGE from "@holypack/core/package.json" with { type: "json" };
+
+import { createCommand } from "./command";
+import { createConfigCommandsGroup } from "./commands/config";
 import { createContextCommandsGroup } from "./commands/context";
 
 export type CLI = {
-  rootCommand: Command;
+  program: Command;
 };
+
+const DESCRIPTION = `
+Work with holypack from the command line.
+
+Holypack
+Backend-agnostic build system for scalable web projects.
+https://github.com/ertgl/holypack
+
+Copyright (c) 2025 Ertuğrul Keremoğlu <ertugkeremoglu@gmail.com>
+Licensed under the MIT License.
+https://github.com/ertgl/holypack/blob/main/LICENSE
+`.trim();
 
 export function createCLI(): CLI
 {
-  const rootCommand = new Command();
+  const program = createCommand();
 
-  rootCommand.name("holypack");
-  rootCommand.description("Command line interface for holypack");
-  rootCommand.option(
-    "-c, --config <path>",
-    "Path to the configuration file",
-    "",
+  program.name("holypack");
+  program.description(DESCRIPTION);
+  program.summary("holypack commands");
+
+  program.version(
+    HOLYPACK_CORE_PACKAGE.version,
+    "-v, --version",
+    "output the version number",
   );
 
-  rootCommand.addCommand(
-    createContextCommandsGroup(),
+  program.option(
+    "-c, --config <path>",
+    "path to the configuration file",
+  );
+
+  program.option(
+    "--cwd <path>",
+    "path to the current working directory",
+  );
+
+  program.addCommand(
+    createConfigCommandsGroup(
+      program,
+    ),
+  );
+
+  program.addCommand(
+    createContextCommandsGroup(
+      program,
+    ),
   );
 
   return {
-    rootCommand,
+    program,
   };
 }
 
@@ -35,7 +71,7 @@ export async function runCLI(
   cli ??= createCLI();
   argv ??= process.argv;
 
-  process.title = cli.rootCommand.name();
+  process.title = cli.program.name();
 
-  await cli.rootCommand.parseAsync(argv);
+  await cli.program.parseAsync(argv);
 }

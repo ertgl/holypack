@@ -5,18 +5,23 @@
     "bootstrap:clean": "yarn babel:bootstrap:clean",
     "build": "yarn babel:build:clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn export-map-generator:update",
     "build:clean": "yarn babel:build:clean",
-    "clean": "yarn bootstrap:clean && yarn build:clean",
+    "clean": "yarn bootstrap:clean && yarn build:clean && yarn node-modules:clean",
     "cmd:holypack": "cd $INIT_CWD && holypack",
-    "cmd:holypack-cjs": "cd $INIT_CWD && holypack-cjs"
-  },
-  "dependencies": {
-    "pretty-format": "^29.7.0"
+    "cmd:holypack-cjs": "cd $INIT_CWD && holypack-cjs",
+    "node-modules:clean": "rm -fr node_modules"
   },
   "devDependencies": {
+    "@holypack/cli": "workspace:^",
     "@holypack/core": "workspace:^"
   },
   "peerDependencies": {
+    "@holypack/cli": "*",
     "@holypack/core": "*"
+  },
+  "peerDependenciesMeta": {
+    "@holypack/cli": {
+      "optional": true
+    }
   },
   "files": [
     "./dist/",

@@ -33,6 +33,7 @@
   ],
   "devDependencies": {
     "@holypack/babel-preset": "workspace:^",
+    "@holypack/cli": "workspace:^",
     "@holypack/eslint-plugin": "workspace:^",
     "@holypack/integration-babel": "workspace:^",
     "@holypack/integration-eslint": "workspace:^",
@@ -48,6 +49,7 @@
   },
   "resolutions": {
     "@holypack/babel-preset": "portal:./external/babel-preset",
+    "@holypack/cli": "portal:./packages/cli",
     "@holypack/core": "portal:./packages/core",
     "@holypack/eslint-plugin": "portal:./external/eslint-plugin",
     "@holypack/integration-babel": "portal:./integrations/babel",

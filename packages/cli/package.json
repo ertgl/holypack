@@ -61,6 +61,28 @@
       "require": "./dist/cjs/cli.cjs",
       "default": "./src/cli.ts"
     },
+    "./command.cjs": {
+      "types": "./dist/types/command.d.ts",
+      "import": "./dist/esm/command.mjs",
+      "require": "./dist/cjs/command.cjs",
+      "default": "./src/command.ts"
+    },
+    "./command.d.ts": {
+      "types": "./dist/types/command.d.ts",
+      "default": "./src/command.ts"
+    },
+    "./command.js": {
+      "types": "./dist/types/command.d.ts",
+      "import": "./dist/esm/command.mjs",
+      "require": "./dist/cjs/command.cjs",
+      "default": "./src/command.ts"
+    },
+    "./command.mjs": {
+      "types": "./dist/types/command.d.ts",
+      "import": "./dist/esm/command.mjs",
+      "require": "./dist/cjs/command.cjs",
+      "default": "./src/command.ts"
+    },
     "./commands/config.cjs": {
       "types": "./dist/types/commands/config.d.ts",
       "import": "./dist/esm/commands/config.mjs",
@@ -200,6 +222,12 @@
       "import": "./dist/esm/commands/context.mjs",
       "require": "./dist/cjs/commands/context.cjs",
       "default": "./src/commands/context.ts"
+    },
+    "./command": {
+      "types": "./dist/types/command.d.ts",
+      "import": "./dist/esm/command.mjs",
+      "require": "./dist/cjs/command.cjs",
+      "default": "./src/command.ts"
     },
     "./index.cjs": {
       "types": "./dist/types/index.d.ts",
