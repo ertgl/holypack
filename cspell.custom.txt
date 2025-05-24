@@ -24,6 +24,8 @@ holypack
 
 # Usernames
 ertgl
+Ertuğrul
+Keremoğlu
 
 # webpack-plugin
 configurators
