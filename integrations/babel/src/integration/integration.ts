@@ -6,17 +6,16 @@ import {
   type StrictContext,
 } from "@holypack/core";
 
+import { INTEGRATION_NAME_BABEL } from "../integration-metadata";
+import { createBabelIntegrationEnvPlugin } from "../plugins/env";
+import { createBabelIntegrationImportSourcePlugin } from "../plugins/import-source";
+import { createBabelIntegrationTypeScriptPlugin } from "../plugins/typescript";
+
 import {
   type BabelIntegrationHookSet,
   createBabelIntegrationHookSet,
-} from "../eventing";
-import { createBabelIntegrationConfigPlugin } from "../plugins/config";
-import { createBabelIntegrationEnvPlugin } from "../plugins/env";
-import { createBabelIntegrationImportSourceTransformerPlugin } from "../plugins/import-source-transformer";
-import { createBabelIntegrationTypeScriptPlugin } from "../plugins/typescript";
-
+} from "./eventing";
 import { BabelIntegrationAPI } from "./integration-api";
-import { INTEGRATION_NAME_BABEL } from "./integration-name";
 import type { BabelIntegrationOptions } from "./integration-options";
 
 export class BabelIntegration implements Integration
@@ -51,11 +50,8 @@ export class BabelIntegration implements Integration
     config: StrictConfig,
   ): Promise<void>
   {
-    const configPlugin = createBabelIntegrationConfigPlugin();
-    await bindSubIntegration(context, config, configPlugin);
-
-    const importSourceTransformerPlugin = createBabelIntegrationImportSourceTransformerPlugin();
-    await bindSubIntegration(context, config, importSourceTransformerPlugin);
+    const importSourcePlugin = createBabelIntegrationImportSourcePlugin();
+    await bindSubIntegration(context, config, importSourcePlugin);
 
     const envPlugin = createBabelIntegrationEnvPlugin();
     await bindSubIntegration(context, config, envPlugin);

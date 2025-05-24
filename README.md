@@ -241,12 +241,17 @@ scale.
     <td colspan="3">&#8203;</td>
   </tr>
   <tr>
-    <th align="left" colspan="3">Release Tools</th>
+    <th align="left" colspan="3">Distribution & Release Tools</th>
   </tr>
   <tr>
     <td><a href="https://github.com/changesets/changesets">changesets</a></td>
     <td></td>
     <td align="center">Planned</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/ertgl/export-map-generator">export-map-generator</a></td>
+    <td></td>
+    <td align="center">Completed</td>
   </tr>
   <tr>
     <td colspan="3">&#8203;</td>

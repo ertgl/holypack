@@ -2368,24 +2368,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@holypack/__hack__@workspace:hack":
-  version: 0.0.0-use.local
-  resolution: "@holypack/__hack__@workspace:hack"
-  languageName: unknown
-  linkType: soft
-
 "@holypack/__monorepo__@workspace:.":
   version: 0.0.0-use.local
   resolution: "@holypack/__monorepo__@workspace:."
   dependencies:
     "@holypack/babel-preset": "workspace:^"
+    "@holypack/cli": "workspace:^"
     "@holypack/eslint-plugin": "workspace:^"
     "@holypack/integration-babel": "workspace:^"
     "@holypack/integration-eslint": "workspace:^"
+    "@holypack/integration-export-map-generator": "workspace:^"
     "@holypack/integration-jest": "workspace:^"
     "@holypack/integration-typescript": "workspace:^"
     "@holypack/internal-integration-babel": "workspace:^"
+    "@holypack/internal-integration-export-map-generator": "workspace:^"
+    "@holypack/internal-integration-typescript": "workspace:^"
     eslint: "npm:^9.27.0"
+    export-map-generator: "npm:^2.1.1"
     holypack: "workspace:^"
   languageName: unknown
   linkType: soft
@@ -2414,6 +2413,36 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@holypack/cli@portal:./packages/cli::locator=%40holypack%2F__monorepo__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/cli@portal:./packages/cli::locator=%40holypack%2F__monorepo__%40workspace%3A."
+  peerDependencies:
+    "@holypack/core": "*"
+    commander: "*"
+    pretty-format: "*"
+  peerDependenciesMeta:
+    pretty-format:
+      optional: true
+  languageName: node
+  linkType: soft
+
+"@holypack/cli@workspace:packages/cli":
+  version: 0.0.0-use.local
+  resolution: "@holypack/cli@workspace:packages/cli"
+  dependencies:
+    "@holypack/core": "workspace:^"
+    commander: "npm:^14.0.0"
+    pretty-format: "npm:^29.7.0"
+  peerDependencies:
+    "@holypack/core": "*"
+    commander: "*"
+    pretty-format: "*"
+  peerDependenciesMeta:
+    pretty-format:
+      optional: true
+  languageName: unknown
+  linkType: soft
+
 "@holypack/core@portal:./packages/core::locator=%40holypack%2F__monorepo__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@holypack/core@portal:./packages/core::locator=%40holypack%2F__monorepo__%40workspace%3A."
@@ -2422,6 +2451,9 @@ __metadata:
     fast-glob: "*"
     picomatch: "*"
     tapable: "*"
+  peerDependenciesMeta:
+    cosmiconfig:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -2439,6 +2471,9 @@ __metadata:
     fast-glob: "*"
     picomatch: "*"
     tapable: "*"
+  peerDependenciesMeta:
+    cosmiconfig:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2498,7 +2533,7 @@ __metadata:
     "@holypack/core": "workspace:^"
     "@types/babel__core": "npm:^7.20.5"
     "@types/babel__preset-env": "npm:^7.10.0"
-    babel-plugin-transform-import-source: "npm:^1.0.0"
+    babel-plugin-transform-import-source: "npm:^2.1.0"
     tapable: "npm:^2.2.2"
     typescript: "npm:^5.8.3"
   peerDependencies:
@@ -2589,7 +2624,7 @@ __metadata:
     "@holypack/core": "workspace:^"
     "@holypack/integration-typescript": "workspace:^"
     "@stylistic/eslint-plugin": "npm:^4.2.0"
-    "@types/lodash.escaperegexp": "npm:^4"
+    "@types/lodash.escaperegexp": "npm:^4.1.9"
     eslint: "npm:^9.27.0"
     eslint-import-resolver-typescript: "npm:^4.3.5"
     eslint-plugin-import-x: "npm:^4.12.2"
@@ -2615,10 +2650,38 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@holypack/integration-export-map-generator@portal:./integrations/export-map-generator::locator=%40holypack%2F__monorepo__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/integration-export-map-generator@portal:./integrations/export-map-generator::locator=%40holypack%2F__monorepo__%40workspace%3A."
+  dependencies:
+    export-map-generator: "npm:^2.1.1"
+  peerDependencies:
+    commander: "*"
+    cosmiconfig: "*"
+    pretty-format: "*"
+  languageName: node
+  linkType: soft
+
+"@holypack/integration-export-map-generator@workspace:integrations/export-map-generator":
+  version: 0.0.0-use.local
+  resolution: "@holypack/integration-export-map-generator@workspace:integrations/export-map-generator"
+  dependencies:
+    commander: "npm:^14.0.0"
+    cosmiconfig: "npm:^9.0.0"
+    export-map-generator: "npm:^2.1.1"
+    pretty-format: "npm:^29.7.0"
+  peerDependencies:
+    commander: "*"
+    cosmiconfig: "*"
+    pretty-format: "*"
+  languageName: unknown
+  linkType: soft
+
 "@holypack/integration-jest@portal:./integrations/jest::locator=%40holypack%2F__monorepo__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@holypack/integration-jest@portal:./integrations/jest::locator=%40holypack%2F__monorepo__%40workspace%3A."
   peerDependencies:
+    "@babel/core": "*"
     "@holypack/core": "*"
     "@holypack/integration-eslint": "*"
     eslint: "*"
@@ -2629,6 +2692,8 @@ __metadata:
     jest-environment-jsdom: "*"
     tapable: "*"
   peerDependenciesMeta:
+    "@babel/core":
+      optional: true
     "@holypack/integration-eslint":
       optional: true
     eslint:
@@ -2648,8 +2713,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/integration-jest@workspace:integrations/jest"
   dependencies:
+    "@babel/core": "npm:^7.27.1"
     "@holypack/core": "workspace:^"
     "@holypack/integration-eslint": "workspace:^"
+    "@jest/globals": "npm:^29.7.0"
+    "@types/babel__core": "npm:^7.20.5"
     "@types/jest": "npm:^29.5.14"
     eslint: "npm:^9.27.0"
     eslint-plugin-istanbul: "npm:^0.1.2"
@@ -2659,6 +2727,7 @@ __metadata:
     jest-environment-jsdom: "npm:^29.7.0"
     tapable: "npm:^2.2.2"
   peerDependencies:
+    "@babel/core": "*"
     "@holypack/core": "*"
     "@holypack/integration-eslint": "*"
     eslint: "*"
@@ -2669,6 +2738,8 @@ __metadata:
     jest-environment-jsdom: "*"
     tapable: "*"
   peerDependenciesMeta:
+    "@babel/core":
+      optional: true
     "@holypack/integration-eslint":
       optional: true
     eslint:
@@ -2738,7 +2809,21 @@ __metadata:
     "@types/babel__core": "npm:^7.20.5"
     "@types/babel__preset-env": "npm:^7.10.0"
     babel-plugin-comment-attributes: "npm:^1.0.0"
-    babel-plugin-transform-import-source: "npm:^1.0.0"
+    babel-plugin-transform-import-source: "npm:^2.1.0"
+  languageName: unknown
+  linkType: soft
+
+"@holypack/internal-integration-export-map-generator@portal:./internal/integrations/export-map-generator::locator=%40holypack%2F__monorepo__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/internal-integration-export-map-generator@portal:./internal/integrations/export-map-generator::locator=%40holypack%2F__monorepo__%40workspace%3A."
+  languageName: node
+  linkType: soft
+
+"@holypack/internal-integration-export-map-generator@workspace:internal/integrations/export-map-generator":
+  version: 0.0.0-use.local
+  resolution: "@holypack/internal-integration-export-map-generator@workspace:internal/integrations/export-map-generator"
+  dependencies:
+    export-map-generator: "npm:^2.1.1"
   languageName: unknown
   linkType: soft
 
@@ -2747,6 +2832,18 @@ __metadata:
   resolution: "@holypack/internal-integration-node@workspace:internal/integrations/node"
   dependencies:
     "@types/node": "npm:^22.15.21"
+  languageName: unknown
+  linkType: soft
+
+"@holypack/internal-integration-typescript@portal:./internal/integrations/typescript::locator=%40holypack%2F__monorepo__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/internal-integration-typescript@portal:./internal/integrations/typescript::locator=%40holypack%2F__monorepo__%40workspace%3A."
+  languageName: node
+  linkType: soft
+
+"@holypack/internal-integration-typescript@workspace:internal/integrations/typescript":
+  version: 0.0.0-use.local
+  resolution: "@holypack/internal-integration-typescript@workspace:internal/integrations/typescript"
   languageName: unknown
   linkType: soft
 
@@ -3437,7 +3534,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.escaperegexp@npm:^4":
+"@types/lodash.escaperegexp@npm:^4.1.9":
   version: 4.1.9
   resolution: "@types/lodash.escaperegexp@npm:4.1.9"
   dependencies:
@@ -4492,12 +4589,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-transform-import-source@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "babel-plugin-transform-import-source@npm:1.0.0"
+"babel-plugin-transform-import-source@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "babel-plugin-transform-import-source@npm:2.1.0"
   dependencies:
     "@babel/helper-plugin-utils": "npm:^7.25.9"
-  checksum: 10c0/65e13f0aaad7179315d9bd3996441bf1a57197fbcc550ea9cea38b9668c340b104bca00f6a5c9dd58e1881413b17c6fa9ef3a0cfbd03673c681335b1db6a9ff8
+  checksum: 10c0/16fa2240713c37c088e3645dd4515a6b516a2b4c6f2940de1ca0652485f7abfce89adb1ec966b912bb9f45b47617172a93c229690fbd06a395b24e5a790f9528
   languageName: node
   linkType: hard
 
@@ -4828,6 +4925,13 @@ __metadata:
   version: 12.1.0
   resolution: "commander@npm:12.1.0"
   checksum: 10c0/6e1996680c083b3b897bfc1cfe1c58dfbcd9842fd43e1aaf8a795fbc237f65efcc860a3ef457b318e73f29a4f4a28f6403c3d653d021d960e4632dd45bde54a9
+  languageName: node
+  linkType: hard
+
+"commander@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "commander@npm:14.0.0"
+  checksum: 10c0/73c4babfa558077868d84522b11ef56834165d472b9e86a634cd4c3ae7fc72d59af6377d8878e06bd570fe8f3161eced3cbe383c38f7093272bb65bd242b595b
   languageName: node
   linkType: hard
 
@@ -5758,6 +5862,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"export-map-generator@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "export-map-generator@npm:2.1.1"
+  peerDependencies:
+    commander: "*"
+    cosmiconfig: "*"
+    pretty-format: "*"
+  peerDependenciesMeta:
+    commander:
+      optional: true
+    cosmiconfig:
+      optional: true
+    pretty-format:
+      optional: true
+  bin:
+    export-map-generator: dist/esm/bin/export-map-generator.mjs
+    export-map-generator-cjs: dist/cjs/bin/export-map-generator.cjs
+  checksum: 10c0/624ce05b16fa52d3c59248a260a34cdd5f31f0bacede690da009956786612c7e44966e7f730ceac88c63d42650bb3a7df2bbf566dc51499aa00d70328ca89f6a
+  languageName: node
+  linkType: hard
+
 "fast-deep-equal@npm:^3.1.1, fast-deep-equal@npm:^3.1.3":
   version: 3.1.3
   resolution: "fast-deep-equal@npm:3.1.3"
@@ -6221,14 +6346,15 @@ __metadata:
 "holypack@portal:./packages/prelude::locator=%40holypack%2F__monorepo__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "holypack@portal:./packages/prelude::locator=%40holypack%2F__monorepo__%40workspace%3A."
-  dependencies:
-    pretty-format: "npm:^29.7.0"
   peerDependencies:
+    "@holypack/cli": "*"
     "@holypack/core": "*"
+  peerDependenciesMeta:
+    "@holypack/cli":
+      optional: true
   bin:
     holypack: ./dist/esm/bin/holypack.mjs
     holypack-cjs: ./dist/cjs/bin/holypack.cjs
-    holypack-ts: ./src/bin/holypack.ts
   languageName: node
   linkType: soft
 
@@ -6236,14 +6362,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "holypack@workspace:packages/prelude"
   dependencies:
+    "@holypack/cli": "workspace:^"
     "@holypack/core": "workspace:^"
-    pretty-format: "npm:^29.7.0"
   peerDependencies:
+    "@holypack/cli": "*"
     "@holypack/core": "*"
+  peerDependenciesMeta:
+    "@holypack/cli":
+      optional: true
   bin:
     holypack: ./dist/esm/bin/holypack.mjs
     holypack-cjs: ./dist/cjs/bin/holypack.cjs
-    holypack-ts: ./src/bin/holypack.ts
   languageName: unknown
   linkType: soft
 

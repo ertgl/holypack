@@ -8,7 +8,7 @@ import {
   useIntegration,
 } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
-import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
+import { emitWarning } from "@holypack/core/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter";
 import type * as ESLintIntegrationModule from "@holypack/integration-eslint";
 import type { ESLintIntegration } from "@holypack/integration-eslint";
 

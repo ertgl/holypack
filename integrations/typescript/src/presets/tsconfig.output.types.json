@@ -3,9 +3,23 @@
   "compilerOptions": {
     "composite": true,
     "declaration": true,
-    "declarationMap": true,
     "emitDeclarationOnly": true,
     "noEmit": false,
     "outDir": "${configDir}/dist/types"
-  }
+  },
+  "exclude": [
+    "${configDir}/**/__tests__/**/*",
+    "${configDir}/**/*.spec.cjs",
+    "${configDir}/**/*.spec.cts",
+    "${configDir}/**/*.spec.js",
+    "${configDir}/**/*.spec.mjs",
+    "${configDir}/**/*.spec.mts",
+    "${configDir}/**/*.spec.ts",
+    "${configDir}/**/*.test.cjs",
+    "${configDir}/**/*.test.cts",
+    "${configDir}/**/*.test.js",
+    "${configDir}/**/*.test.mjs",
+    "${configDir}/**/*.test.mts",
+    "${configDir}/**/*.test.ts"
+  ]
 }

@@ -1,0 +1,28 @@
+{
+  "name": "@holypack/integration-export-map-generator",
+  "scripts": {
+    "cmd:export-map-generator": "cd $INIT_CWD && export-map-generator",
+    "export-map-generator:preview": "cd $INIT_CWD && yarn cmd:export-map-generator --config exports.config.mjs --dry-run generate --stdout",
+    "export-map-generator:update": "cd $INIT_CWD && yarn cmd:export-map-generator --config exports.config.mjs generate && node -e \"console.log('Successfully updated package exports.')\""
+  },
+  "dependencies": {
+    "export-map-generator": "^2.1.1"
+  },
+  "devDependencies": {
+    "commander": "^14.0.0",
+    "cosmiconfig": "^9.0.0",
+    "pretty-format": "^29.7.0"
+  },
+  "peerDependencies": {
+    "commander": "*",
+    "cosmiconfig": "*",
+    "pretty-format": "*"
+  },
+  "files": [
+    "./package.json"
+  ],
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json"
+  }
+}

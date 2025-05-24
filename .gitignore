@@ -1,6 +1,9 @@
 # Backup files
 *.bak
 
+# Bootstrap artifacts
+.bootstrap/
+
 # Cache files
 .cache/
 
@@ -10,6 +13,9 @@ dist/
 # Environment-specific
 .env
 .env.*
+
+# Export-map-generator temporary files
+*.state
 
 # Log files
 *.log*

@@ -4,10 +4,10 @@ import type {
   StrictContext,
 } from "@holypack/core";
 
+import { INTEGRATION_NAME_TYPESCRIPT } from "../integration-metadata";
+
 import { TypeScriptIntegrationAPI } from "./integration-api";
 import type { TypeScriptIntegrationOptions } from "./integration-options";
-
-export const INTEGRATION_NAME_TYPESCRIPT = "@holypack/integration:TypeScript";
 
 export class TypeScriptIntegration implements Integration
 {

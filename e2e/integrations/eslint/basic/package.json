@@ -10,7 +10,7 @@
     "@holypack/eslint-plugin": "*",
     "@holypack/integration-eslint": "*",
     "@holypack/integration-typescript": "*",
-    "eslint": "^9.25.1",
+    "eslint": "^9.27.0",
     "holypack": "*"
   }
 }

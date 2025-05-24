@@ -1,0 +1,22 @@
+{
+  "name": "@holypack/internal-integration-typescript",
+  "private": true,
+  "scripts": {
+    "prepare": "yarn update-package-exports",
+    "update-package-exports": "yarn export-map-generator:update"
+  },
+  "files": [
+    "./package.json"
+  ],
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    "./presets/tsconfig.scope.bootstrap.json": {
+      "default": "./src/presets/tsconfig.scope.bootstrap.json"
+    },
+    "./presets/tsconfig.scope.bootstrap": {
+      "default": "./src/presets/tsconfig.scope.bootstrap.json"
+    }
+  }
+}

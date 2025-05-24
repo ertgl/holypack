@@ -7,15 +7,18 @@ import type { Resolver } from "eslint-plugin-import-x";
 
 import type { StrictContext } from "@holypack/core";
 import { ModuleNotFoundError } from "@holypack/core/lib/module";
-import { emitWarning } from "@holypack/core/plugins/process/plugins/warning-monitor/utils/warning-emitter";
+import { emitWarning } from "@holypack/core/plugins/process/sub-plugins/warning-monitor/utils/warning-emitter";
 import type { ResolvedProject } from "@holypack/core/plugins/project";
 import { iterateWorkspacesRecursivelyByRootProject } from "@holypack/core/plugins/workspace/utils/recursive-workspace-iterator";
 
 import {
+  GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
   GLOB_PATTERN_CJS_JS_MJS,
   GLOB_PATTERN_CJSX_JSX_MJSX,
   GLOB_PATTERN_CTS_MTS_TS,
   GLOB_PATTERN_CTSX_MTSX_TSX,
+  GLOB_PATTERN_JS_JSX_TS_TSX,
+  GLOB_PATTERN_MJS_MJSX_MTS_MTSX,
 } from "../../constants/glob-patterns";
 
 import type { ESLintIntegrationImportXPlugin } from "./plugin";
@@ -112,7 +115,14 @@ export class ESLintIntegrationImportXPluginAPI
       | Resolver
       | ReturnType<typeof TypeScriptImportResolverCreatorFunction>
     )[] = [
-      pluginImportX.createNodeResolver(),
+      pluginImportX.createNodeResolver({
+        conditionNames: [
+          "import",
+          "require",
+          "default",
+        ],
+        extensions: nodeExtensions,
+      }),
     ];
 
     try
@@ -126,7 +136,15 @@ export class ESLintIntegrationImportXPluginAPI
       };
 
       importXResolverNext.push(
-        createTypeScriptImportResolver(),
+        createTypeScriptImportResolver({
+          conditionNames: [
+            "types",
+            "import",
+            "require",
+            "default",
+          ],
+          extensions,
+        }),
       );
     }
     catch (err)
@@ -174,6 +192,17 @@ export class ESLintIntegrationImportXPluginAPI
           GLOB_PATTERN_CTS_MTS_TS,
           GLOB_PATTERN_CTSX_MTSX_TSX,
         ],
+      } as Linter.Config,
+
+      {
+        files: [
+          GLOB_PATTERN_CJS_CJSX_CTS_CTSX,
+          GLOB_PATTERN_JS_JSX_TS_TSX,
+          GLOB_PATTERN_MJS_MJSX_MTS_MTSX,
+        ],
+        rules: {
+          "import-x/no-named-as-default": "off",
+        },
       } as Linter.Config,
     );
   }

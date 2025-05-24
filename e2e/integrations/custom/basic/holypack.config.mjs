@@ -1,3 +1,4 @@
+import babel from "@holypack/integration-babel";
 import jest from "@holypack/integration-jest";
 import { defineConfig } from "holypack/config";
 
@@ -8,8 +9,9 @@ const HOLYPACK_CONFIG = defineConfig({
     flag: true,
   },
   integrations: [
-    EXAMPLE_INTEGRATION,
+    babel(),
     jest(),
+    EXAMPLE_INTEGRATION,
   ],
 });
 
