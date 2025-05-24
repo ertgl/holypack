@@ -3970,26 +3970,6 @@
       "require": "./dist/cjs/plugins/ci/utils/ci-env-detector/detector.cjs",
       "default": "./src/plugins/ci/utils/ci-env-detector/detector.ts"
     },
-    "./plugins/ci/utils/ci-env-detector/detector.test.cjs": {
-      "types": "./dist/types/plugins/ci/utils/ci-env-detector/detector.test.d.ts",
-      "default": "./src/plugins/ci/utils/ci-env-detector/detector.test.ts"
-    },
-    "./plugins/ci/utils/ci-env-detector/detector.test.d.ts": {
-      "types": "./dist/types/plugins/ci/utils/ci-env-detector/detector.test.d.ts",
-      "default": "./src/plugins/ci/utils/ci-env-detector/detector.test.ts"
-    },
-    "./plugins/ci/utils/ci-env-detector/detector.test.js": {
-      "types": "./dist/types/plugins/ci/utils/ci-env-detector/detector.test.d.ts",
-      "default": "./src/plugins/ci/utils/ci-env-detector/detector.test.ts"
-    },
-    "./plugins/ci/utils/ci-env-detector/detector.test.mjs": {
-      "types": "./dist/types/plugins/ci/utils/ci-env-detector/detector.test.d.ts",
-      "default": "./src/plugins/ci/utils/ci-env-detector/detector.test.ts"
-    },
-    "./plugins/ci/utils/ci-env-detector/detector.test": {
-      "types": "./dist/types/plugins/ci/utils/ci-env-detector/detector.test.d.ts",
-      "default": "./src/plugins/ci/utils/ci-env-detector/detector.test.ts"
-    },
     "./plugins/ci/utils/ci-env-detector/detector": {
       "types": "./dist/types/plugins/ci/utils/ci-env-detector/detector.d.ts",
       "import": "./dist/esm/plugins/ci/utils/ci-env-detector/detector.mjs",
