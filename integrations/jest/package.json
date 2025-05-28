@@ -12,7 +12,7 @@
     "jest:test::detect-leaks": "cd $INIT_CWD && yarn cmd:jest::expose-gc --detectLeaks"
   },
   "devDependencies": {
-    "@babel/core": "^7.27.1",
+    "@babel/core": "^7.27.3",
     "@holypack/core": "workspace:^",
     "@holypack/integration-eslint": "workspace:^",
     "@jest/globals": "^29.7.0",

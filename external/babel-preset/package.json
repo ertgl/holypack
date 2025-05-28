@@ -13,7 +13,7 @@
     "clean": "yarn bootstrap:clean && yarn build:clean"
   },
   "devDependencies": {
-    "@babel/core": "^7.27.1",
+    "@babel/core": "^7.27.3",
     "@holypack/core": "workspace:^",
     "@holypack/integration-babel": "workspace:^"
   },
