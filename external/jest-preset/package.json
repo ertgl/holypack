@@ -14,7 +14,7 @@
   "devDependencies": {
     "@holypack/core": "workspace:^",
     "@holypack/integration-jest": "workspace:^",
-    "jest": "^29.7.0"
+    "jest": "^30.0.0"
   },
   "peerDependencies": {
     "@holypack/core": "*",
