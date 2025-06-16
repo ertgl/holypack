@@ -43,7 +43,7 @@
     "@holypack/internal-integration-babel": "workspace:^",
     "@holypack/internal-integration-export-map-generator": "workspace:^",
     "@holypack/internal-integration-typescript": "workspace:^",
-    "eslint": "^9.28.0",
+    "eslint": "^9.29.0",
     "export-map-generator": "^2.1.1",
     "holypack": "workspace:^"
   },
