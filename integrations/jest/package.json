@@ -15,7 +15,7 @@
     "@babel/core": "^7.27.4",
     "@holypack/core": "workspace:^",
     "@holypack/integration-eslint": "workspace:^",
-    "@jest/globals": "^30.0.0",
+    "@jest/globals": "^30.0.2",
     "@types/babel__core": "^7.20.5",
     "@types/jest": "^30.0.0",
     "eslint": "^9.29.0",
