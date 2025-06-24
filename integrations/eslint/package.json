@@ -24,10 +24,10 @@
     "@cspell/dict-html-symbol-entities": "^4.0.3",
     "@cspell/dict-markdown": "^2.0.11",
     "@cspell/dict-node": "^5.0.7",
-    "@cspell/dict-npm": "^5.2.6",
+    "@cspell/dict-npm": "^5.2.7",
     "@cspell/dict-shell": "^1.1.0",
     "@cspell/dict-typescript": "^3.2.2",
-    "@cspell/eslint-plugin": "^9.1.1",
+    "@cspell/eslint-plugin": "^9.1.2",
     "@eslint/js": "^9.29.0",
     "@eslint/json": "^0.12.0",
     "@eslint/markdown": "^6.6.0",
@@ -35,13 +35,13 @@
     "eslint": "^9.29.0",
     "eslint-import-resolver-typescript": "^4.4.3",
     "eslint-plugin-import-x": "^4.15.2",
-    "eslint-plugin-jsdoc": "^51.2.1",
+    "eslint-plugin-jsdoc": "^51.2.3",
     "eslint-plugin-n": "^17.20.0",
     "eslint-plugin-perfectionist": "^4.15.0",
     "eslint-plugin-yml": "^1.18.0",
     "fast-glob": "^3.3.3",
     "globals": "^16.2.0",
-    "typescript-eslint": "^8.34.1"
+    "typescript-eslint": "^8.35.0"
   },
   "devDependencies": {
     "@holypack/core": "workspace:^",
