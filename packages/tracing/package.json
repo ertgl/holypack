@@ -1,0 +1,235 @@
+{
+  "name": "@holypack/tracing",
+  "keywords": [
+    "holypack",
+    "holypack-plugin"
+  ],
+  "scripts": {
+    "build": "yarn build::types && yarn build::cjs && yarn build::esm && yarn build:update-exports",
+    "build::cjs": "yarn babel:build::cjs",
+    "build::esm": "yarn babel:build::esm",
+    "build::types": "yarn tsc:build::types",
+    "build:clean": "yarn babel:build:clean",
+    "build:update-exports": "yarn export-map-generator:update",
+    "clean": "yarn build:clean && yarn build::debug:clean && yarn test:clean",
+    "coverage:clean": "yarn jest:coverage:clean",
+    "coverage:open": "yarn jest:coverage:open",
+    "debug:build": "yarn debug:build::esm && yarn debug:update-package-exports",
+    "debug:build::esm": "yarn babel:debug:build",
+    "debug:clean": "yarn babel:debug:build:clean",
+    "debug:update-package-exports": "yarn export-map-generator:debug",
+    "lint": "yarn eslint:lint",
+    "lint::fix": "yarn eslint:lint::fix",
+    "test": "yarn jest:test",
+    "test:clean": "yarn coverage:clean && yarn jest:cache:clean"
+  },
+  "devDependencies": {
+    "@holypack/core": "workspace:^",
+    "tapable-tracer": "^2.1.2"
+  },
+  "peerDependencies": {
+    "@holypack/core": "*",
+    "tapable-tracer": "*"
+  },
+  "peerDependenciesMeta": {
+    "@holypack/core": {
+      "optional": false
+    },
+    "tapable-tracer": {
+      "optional": false
+    }
+  },
+  "files": [
+    "./dist/",
+    "./package.json"
+  ],
+  "type": "module",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    "./index.cjs": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "default": "./src/index.ts"
+    },
+    "./index.d.ts": {
+      "types": "./dist/types/index.d.ts",
+      "default": "./src/index.ts"
+    },
+    "./index.js": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "default": "./src/index.ts"
+    },
+    "./index.mjs": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "default": "./src/index.ts"
+    },
+    "./index": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "default": "./src/index.ts"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    },
+    "./plugins/hook-tracer/extension/HookTracerPlugin.cjs": {
+      "types": "./dist/types/plugins/hook-tracer/extension/HookTracerPlugin.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/HookTracerPlugin.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/HookTracerPlugin.cjs",
+      "default": "./src/plugins/hook-tracer/extension/HookTracerPlugin.ts"
+    },
+    "./plugins/hook-tracer/extension/HookTracerPlugin.d.ts": {
+      "types": "./dist/types/plugins/hook-tracer/extension/HookTracerPlugin.d.ts",
+      "default": "./src/plugins/hook-tracer/extension/HookTracerPlugin.ts"
+    },
+    "./plugins/hook-tracer/extension/HookTracerPlugin.js": {
+      "types": "./dist/types/plugins/hook-tracer/extension/HookTracerPlugin.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/HookTracerPlugin.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/HookTracerPlugin.cjs",
+      "default": "./src/plugins/hook-tracer/extension/HookTracerPlugin.ts"
+    },
+    "./plugins/hook-tracer/extension/HookTracerPlugin.mjs": {
+      "types": "./dist/types/plugins/hook-tracer/extension/HookTracerPlugin.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/HookTracerPlugin.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/HookTracerPlugin.cjs",
+      "default": "./src/plugins/hook-tracer/extension/HookTracerPlugin.ts"
+    },
+    "./plugins/hook-tracer/extension/HookTracerPluginOptions.cjs": {
+      "types": "./dist/types/plugins/hook-tracer/extension/HookTracerPluginOptions.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/HookTracerPluginOptions.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/HookTracerPluginOptions.cjs",
+      "default": "./src/plugins/hook-tracer/extension/HookTracerPluginOptions.ts"
+    },
+    "./plugins/hook-tracer/extension/HookTracerPluginOptions.d.ts": {
+      "types": "./dist/types/plugins/hook-tracer/extension/HookTracerPluginOptions.d.ts",
+      "default": "./src/plugins/hook-tracer/extension/HookTracerPluginOptions.ts"
+    },
+    "./plugins/hook-tracer/extension/HookTracerPluginOptions.js": {
+      "types": "./dist/types/plugins/hook-tracer/extension/HookTracerPluginOptions.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/HookTracerPluginOptions.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/HookTracerPluginOptions.cjs",
+      "default": "./src/plugins/hook-tracer/extension/HookTracerPluginOptions.ts"
+    },
+    "./plugins/hook-tracer/extension/HookTracerPluginOptions.mjs": {
+      "types": "./dist/types/plugins/hook-tracer/extension/HookTracerPluginOptions.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/HookTracerPluginOptions.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/HookTracerPluginOptions.cjs",
+      "default": "./src/plugins/hook-tracer/extension/HookTracerPluginOptions.ts"
+    },
+    "./plugins/hook-tracer/extension/HookTracerPluginOptions": {
+      "types": "./dist/types/plugins/hook-tracer/extension/HookTracerPluginOptions.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/HookTracerPluginOptions.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/HookTracerPluginOptions.cjs",
+      "default": "./src/plugins/hook-tracer/extension/HookTracerPluginOptions.ts"
+    },
+    "./plugins/hook-tracer/extension/HookTracerPlugin": {
+      "types": "./dist/types/plugins/hook-tracer/extension/HookTracerPlugin.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/HookTracerPlugin.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/HookTracerPlugin.cjs",
+      "default": "./src/plugins/hook-tracer/extension/HookTracerPlugin.ts"
+    },
+    "./plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.cjs": {
+      "types": "./dist/types/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.cjs",
+      "default": "./src/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.ts"
+    },
+    "./plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.d.ts": {
+      "types": "./dist/types/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.d.ts",
+      "default": "./src/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.ts"
+    },
+    "./plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.js": {
+      "types": "./dist/types/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.cjs",
+      "default": "./src/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.ts"
+    },
+    "./plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.mjs": {
+      "types": "./dist/types/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.cjs",
+      "default": "./src/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.ts"
+    },
+    "./plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER": {
+      "types": "./dist/types/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.cjs",
+      "default": "./src/plugins/hook-tracer/extension/PLUGIN_UID_HOOK_TRACER.ts"
+    },
+    "./plugins/hook-tracer/extension/createHookTracerPlugin.cjs": {
+      "types": "./dist/types/plugins/hook-tracer/extension/createHookTracerPlugin.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/createHookTracerPlugin.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/createHookTracerPlugin.cjs",
+      "default": "./src/plugins/hook-tracer/extension/createHookTracerPlugin.ts"
+    },
+    "./plugins/hook-tracer/extension/createHookTracerPlugin.d.ts": {
+      "types": "./dist/types/plugins/hook-tracer/extension/createHookTracerPlugin.d.ts",
+      "default": "./src/plugins/hook-tracer/extension/createHookTracerPlugin.ts"
+    },
+    "./plugins/hook-tracer/extension/createHookTracerPlugin.js": {
+      "types": "./dist/types/plugins/hook-tracer/extension/createHookTracerPlugin.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/createHookTracerPlugin.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/createHookTracerPlugin.cjs",
+      "default": "./src/plugins/hook-tracer/extension/createHookTracerPlugin.ts"
+    },
+    "./plugins/hook-tracer/extension/createHookTracerPlugin.mjs": {
+      "types": "./dist/types/plugins/hook-tracer/extension/createHookTracerPlugin.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/createHookTracerPlugin.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/createHookTracerPlugin.cjs",
+      "default": "./src/plugins/hook-tracer/extension/createHookTracerPlugin.ts"
+    },
+    "./plugins/hook-tracer/extension/createHookTracerPlugin": {
+      "types": "./dist/types/plugins/hook-tracer/extension/createHookTracerPlugin.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/extension/createHookTracerPlugin.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/extension/createHookTracerPlugin.cjs",
+      "default": "./src/plugins/hook-tracer/extension/createHookTracerPlugin.ts"
+    },
+    "./plugins/hook-tracer/index.cjs": {
+      "types": "./dist/types/plugins/hook-tracer/index.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/index.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/index.cjs",
+      "default": "./src/plugins/hook-tracer/index.ts"
+    },
+    "./plugins/hook-tracer/index.d.ts": {
+      "types": "./dist/types/plugins/hook-tracer/index.d.ts",
+      "default": "./src/plugins/hook-tracer/index.ts"
+    },
+    "./plugins/hook-tracer/index.js": {
+      "types": "./dist/types/plugins/hook-tracer/index.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/index.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/index.cjs",
+      "default": "./src/plugins/hook-tracer/index.ts"
+    },
+    "./plugins/hook-tracer/index.mjs": {
+      "types": "./dist/types/plugins/hook-tracer/index.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/index.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/index.cjs",
+      "default": "./src/plugins/hook-tracer/index.ts"
+    },
+    "./plugins/hook-tracer/index": {
+      "types": "./dist/types/plugins/hook-tracer/index.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/index.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/index.cjs",
+      "default": "./src/plugins/hook-tracer/index.ts"
+    },
+    "./plugins/hook-tracer": {
+      "types": "./dist/types/plugins/hook-tracer/index.d.ts",
+      "import": "./dist/esm/plugins/hook-tracer/index.mjs",
+      "require": "./dist/cjs/plugins/hook-tracer/index.cjs",
+      "default": "./src/plugins/hook-tracer/index.ts"
+    },
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "default": "./src/index.ts"
+    }
+  }
+}
