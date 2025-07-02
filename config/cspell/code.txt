@@ -1,0 +1,34 @@
+# config: babel
+esmodules
+
+# config: babel > comment-attributes > operators
+voidify
+
+# config: eslint > stylistic > brace-style
+allman
+
+# file extension: js/jsx
+cjsx
+mjsx
+
+# file extension: ts/tsx
+ctsx
+mtsx
+
+# source: integrations/eslint/plugins/eslint/markdown/flavor
+COMMONMARK
+
+# source: packages/core/lib/array
+compactible
+
+# source: packages/core/lib/path
+absolutify
+
+# source: packages/core/plugins/context-cascader
+cascader
+
+# lib: node:fs
+dirents
+
+# third-party: lodash
+escaperegexp
