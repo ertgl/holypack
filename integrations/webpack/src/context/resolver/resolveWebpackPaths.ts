@@ -16,7 +16,7 @@ export function resolveWebpackPaths(
 
   const distDirectoryPath = resolvePath(
     workspace.path,
-    "src",
+    "dist",
   );
 
   return {

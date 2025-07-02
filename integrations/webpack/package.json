@@ -3,10 +3,14 @@
   "scripts": {
     "build": "yarn build:clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn export-map-generator:update",
     "build:clean": "yarn babel:build:clean",
-    "clean": "yarn build:clean",
+    "clean": "yarn build:clean && yarn test:clean",
     "cmd:webpack": "cd $INIT_CWD && webpack",
+    "coverage:clean": "yarn jest:coverage:clean",
+    "coverage:open": "yarn jest:coverage:open",
     "lint": "yarn eslint:lint",
     "lint::fix": "yarn eslint:lint::fix",
+    "test": "yarn jest:test",
+    "test:clean": "yarn coverage:clean && yarn jest:cache:clean",
     "webpack:build": "cd $INIT_CWD && yarn cmd:webpack --config ./webpack.config.mjs"
   },
   "devDependencies": {
@@ -20,6 +24,12 @@
     "webpack-cli": "*"
   },
   "peerDependenciesMeta": {
+    "@holypack/core": {
+      "optional": false
+    },
+    "webpack": {
+      "optional": false
+    },
     "webpack-cli": {
       "optional": true
     }
