@@ -1,8 +1,8 @@
 # Backup files
 *.bak
 
-# Bootstrap artifacts
-.bootstrap/
+# Build artifacts
+.build/
 
 # Cache files
 .cache/
@@ -13,9 +13,16 @@ dist/
 # Environment-specific
 .env
 .env.*
+!.env.yarn
 
-# Export-map-generator temporary files
-*.state
+# ESLint artifacts
+eslint.config.bundled_*.mjs
+
+# Export-map-generator safe-write artifacts
+package.json.state
+
+# Holypack artifacts
+.holypack/
 
 # Log files
 *.log*
@@ -28,7 +35,10 @@ dist/
 node_modules/
 
 # Testing and coverage artifacts
-coverage/
+.coverage/
 
 # TypeScript artifacts
 *.tsbuildinfo
+
+# User files
+.local/
