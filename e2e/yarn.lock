@@ -2536,6 +2536,7 @@ __metadata:
   resolution: "@holypack/e2e-integration-babel-basic@workspace:integrations/babel/basic"
   dependencies:
     "@babel/cli": "npm:^7.28.0"
+    "@holypack/babel-preset": "npm:*"
     "@holypack/core": "npm:*"
     "@holypack/integration-babel": "npm:*"
     holypack: "npm:*"
