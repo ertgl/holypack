@@ -4,8 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "yarn clean && yarn webpack:build",
-    "clean": "rm -fr dist",
-    "test": "yarn build"
+    "clean": "rm -fr dist"
   },
   "devDependencies": {
     "@holypack/integration-typescript": "*",
