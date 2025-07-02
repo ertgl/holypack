@@ -23,5 +23,153 @@
   "[yaml]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
-  "todo-tree.tree.scanMode": "workspace only"
+  "eslint.workingDirectories": [
+    {
+      "pattern": "/external/*"
+    },
+    {
+      "pattern": "/integrations/*"
+    },
+    {
+      "pattern": "/internal/*/*"
+    },
+    {
+      "pattern": "/packages/*"
+    }
+  ],
+  "files.associations": {
+    ".env.*": "properties"
+  },
+  "jest.jestCommandLine": "yarn test",
+  "jest.useJest30": true,
+  "jest.virtualFolders": [
+    {
+      "jestCommandLine": "yarn workspace @holypack/babel-preset test",
+      "name": "@holypack/babel-preset",
+      "rootPath": "external/babel-preset",
+      "runMode": {
+        "coverage": false,
+        "type": "on-demand"
+      }
+    },
+    {
+      "jestCommandLine": "yarn workspace @holypack/eslint-plugin test",
+      "name": "@holypack/eslint-plugin",
+      "rootPath": "external/eslint-plugin",
+      "runMode": {
+        "coverage": false,
+        "type": "on-demand"
+      }
+    },
+    {
+      "jestCommandLine": "yarn workspace @holypack/jest-preset test",
+      "name": "@holypack/jest-preset",
+      "rootPath": "external/jest-preset",
+      "runMode": {
+        "coverage": false,
+        "type": "on-demand"
+      }
+    },
+    {
+      "jestCommandLine": "yarn workspace @holypack/webpack-plugin test",
+      "name": "@holypack/webpack-plugin",
+      "rootPath": "external/webpack-plugin",
+      "runMode": {
+        "coverage": false,
+        "type": "on-demand"
+      }
+    },
+    {
+      "jestCommandLine": "yarn workspace @holypack/integration-babel test",
+      "name": "@holypack/integration-babel",
+      "rootPath": "integrations/babel",
+      "runMode": {
+        "coverage": false,
+        "type": "on-demand"
+      }
+    },
+    {
+      "jestCommandLine": "yarn workspace @holypack/integration-eslint test",
+      "name": "@holypack/integration-eslint",
+      "rootPath": "integrations/eslint",
+      "runMode": {
+        "coverage": false,
+        "type": "on-demand"
+      }
+    },
+    {
+      "jestCommandLine": "yarn workspace @holypack/integration-export-map-generator test",
+      "name": "@holypack/integration-export-map-generator",
+      "rootPath": "integrations/export-map-generator",
+      "runMode": {
+        "coverage": false,
+        "type": "on-demand"
+      }
+    },
+    {
+      "jestCommandLine": "yarn workspace @holypack/integration-jest test",
+      "name": "@holypack/integration-jest",
+      "rootPath": "integrations/jest",
+      "runMode": {
+        "coverage": false,
+        "type": "on-demand"
+      }
+    },
+    {
+      "jestCommandLine": "yarn workspace @holypack/integration-typescript test",
+      "name": "@holypack/integration-typescript",
+      "rootPath": "integrations/typescript",
+      "runMode": {
+        "coverage": false,
+        "type": "on-demand"
+      }
+    },
+    {
+      "jestCommandLine": "yarn workspace @holypack/integration-webpack test",
+      "name": "@holypack/integration-webpack",
+      "rootPath": "integrations/webpack",
+      "runMode": {
+        "coverage": false,
+        "type": "on-demand"
+      }
+    },
+    {
+      "jestCommandLine": "yarn workspace @holypack/cli test",
+      "name": "@holypack/cli",
+      "rootPath": "packages/cli",
+      "runMode": {
+        "coverage": false,
+        "type": "on-demand"
+      }
+    },
+    {
+      "jestCommandLine": "yarn workspace @holypack/core test",
+      "name": "@holypack/core",
+      "rootPath": "packages/core",
+      "runMode": {
+        "coverage": false,
+        "type": "on-demand"
+      }
+    },
+    {
+      "jestCommandLine": "yarn workspace holypack test",
+      "name": "holypack",
+      "rootPath": "packages/prelude",
+      "runMode": {
+        "coverage": false,
+        "type": "on-demand"
+      }
+    },
+    {
+      "jestCommandLine": "yarn workspace @holypack/tracing test",
+      "name": "@holypack/tracing",
+      "rootPath": "packages/tracing",
+      "runMode": {
+        "coverage": false,
+        "type": "on-demand"
+      }
+    }
+  ],
+  "todo-tree.tree.scanMode": "workspace only",
+  "typescript.format.semicolons": "insert"
 }
