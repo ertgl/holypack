@@ -1,4 +1,3 @@
-// eslint-disable-next-line n/no-unsupported-features/node-builtins
 import { styleText } from "node:util";
 
 import { Command } from "commander";

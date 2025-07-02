@@ -1,18 +1,28 @@
 {
   "name": "@holypack/cli",
   "scripts": {
-    "bootstrap": "yarn bootstrap:clean && yarn babel:bootstrap && yarn export-map-generator:bootstrap",
+    "bootstrap": "yarn bootstrap:build && yarn bootstrap:update-exports",
+    "bootstrap:build": "yarn babel:bootstrap",
     "bootstrap:clean": "yarn babel:bootstrap:clean",
-    "build": "yarn build:clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn export-map-generator:update",
+    "bootstrap:update-exports": "yarn export-map-generator:bootstrap",
+    "build": "yarn build::types && yarn build::cjs && yarn build::esm && yarn build:update-exports",
+    "build::cjs": "yarn babel:build::cjs",
+    "build::esm": "yarn babel:build::esm",
+    "build::types": "yarn tsc:build::types",
     "build:clean": "yarn babel:build:clean",
+    "build:update-exports": "yarn export-map-generator:update",
     "clean": "yarn bootstrap:clean && yarn build:clean && yarn test:clean",
+    "coverage:clean": "yarn jest:coverage:clean",
+    "coverage:open": "yarn jest:coverage:open",
+    "lint": "yarn eslint:lint",
+    "lint::fix": "yarn eslint:lint::fix",
     "test": "yarn jest:test",
-    "test:clean": "yarn jest:coverage:clean && yarn jest:cache:clean"
+    "test:clean": "yarn coverage:clean && yarn jest:cache:clean"
   },
   "devDependencies": {
     "@holypack/core": "workspace:^",
     "commander": "^14.0.0",
-    "pretty-format": "^29.7.0"
+    "pretty-format": "^30.0.2"
   },
   "peerDependencies": {
     "@holypack/core": "*",
@@ -33,201 +43,229 @@
   "module": "./dist/esm/index.mjs",
   "types": "./dist/types/index.d.ts",
   "exports": {
-    "./cli.cjs": {
-      "types": "./dist/types/cli.d.ts",
-      "import": "./dist/esm/cli.mjs",
-      "require": "./dist/cjs/cli.cjs",
-      "default": "./src/cli.ts"
+    "./CLI.cjs": {
+      "types": "./dist/types/CLI.d.ts",
+      "import": "./dist/esm/CLI.mjs",
+      "require": "./dist/cjs/CLI.cjs",
+      "default": "./src/CLI.ts"
     },
-    "./cli.d.ts": {
-      "types": "./dist/types/cli.d.ts",
-      "default": "./src/cli.ts"
+    "./CLI.d.ts": {
+      "types": "./dist/types/CLI.d.ts",
+      "default": "./src/CLI.ts"
     },
-    "./cli.js": {
-      "types": "./dist/types/cli.d.ts",
-      "import": "./dist/esm/cli.mjs",
-      "require": "./dist/cjs/cli.cjs",
-      "default": "./src/cli.ts"
+    "./CLI.js": {
+      "types": "./dist/types/CLI.d.ts",
+      "import": "./dist/esm/CLI.mjs",
+      "require": "./dist/cjs/CLI.cjs",
+      "default": "./src/CLI.ts"
     },
-    "./cli.mjs": {
-      "types": "./dist/types/cli.d.ts",
-      "import": "./dist/esm/cli.mjs",
-      "require": "./dist/cjs/cli.cjs",
-      "default": "./src/cli.ts"
+    "./CLI.mjs": {
+      "types": "./dist/types/CLI.d.ts",
+      "import": "./dist/esm/CLI.mjs",
+      "require": "./dist/cjs/CLI.cjs",
+      "default": "./src/CLI.ts"
     },
-    "./cli": {
-      "types": "./dist/types/cli.d.ts",
-      "import": "./dist/esm/cli.mjs",
-      "require": "./dist/cjs/cli.cjs",
-      "default": "./src/cli.ts"
+    "./CLI": {
+      "types": "./dist/types/CLI.d.ts",
+      "import": "./dist/esm/CLI.mjs",
+      "require": "./dist/cjs/CLI.cjs",
+      "default": "./src/CLI.ts"
     },
-    "./command.cjs": {
-      "types": "./dist/types/command.d.ts",
-      "import": "./dist/esm/command.mjs",
-      "require": "./dist/cjs/command.cjs",
-      "default": "./src/command.ts"
+    "./commands/config/createConfigCommandsGroup.cjs": {
+      "types": "./dist/types/commands/config/createConfigCommandsGroup.d.ts",
+      "import": "./dist/esm/commands/config/createConfigCommandsGroup.mjs",
+      "require": "./dist/cjs/commands/config/createConfigCommandsGroup.cjs",
+      "default": "./src/commands/config/createConfigCommandsGroup.ts"
     },
-    "./command.d.ts": {
-      "types": "./dist/types/command.d.ts",
-      "default": "./src/command.ts"
+    "./commands/config/createConfigCommandsGroup.d.ts": {
+      "types": "./dist/types/commands/config/createConfigCommandsGroup.d.ts",
+      "default": "./src/commands/config/createConfigCommandsGroup.ts"
     },
-    "./command.js": {
-      "types": "./dist/types/command.d.ts",
-      "import": "./dist/esm/command.mjs",
-      "require": "./dist/cjs/command.cjs",
-      "default": "./src/command.ts"
+    "./commands/config/createConfigCommandsGroup.js": {
+      "types": "./dist/types/commands/config/createConfigCommandsGroup.d.ts",
+      "import": "./dist/esm/commands/config/createConfigCommandsGroup.mjs",
+      "require": "./dist/cjs/commands/config/createConfigCommandsGroup.cjs",
+      "default": "./src/commands/config/createConfigCommandsGroup.ts"
     },
-    "./command.mjs": {
-      "types": "./dist/types/command.d.ts",
-      "import": "./dist/esm/command.mjs",
-      "require": "./dist/cjs/command.cjs",
-      "default": "./src/command.ts"
+    "./commands/config/createConfigCommandsGroup.mjs": {
+      "types": "./dist/types/commands/config/createConfigCommandsGroup.d.ts",
+      "import": "./dist/esm/commands/config/createConfigCommandsGroup.mjs",
+      "require": "./dist/cjs/commands/config/createConfigCommandsGroup.cjs",
+      "default": "./src/commands/config/createConfigCommandsGroup.ts"
     },
-    "./commands/config.cjs": {
-      "types": "./dist/types/commands/config.d.ts",
-      "import": "./dist/esm/commands/config.mjs",
-      "require": "./dist/cjs/commands/config.cjs",
-      "default": "./src/commands/config.ts"
+    "./commands/config/createConfigCommandsGroup": {
+      "types": "./dist/types/commands/config/createConfigCommandsGroup.d.ts",
+      "import": "./dist/esm/commands/config/createConfigCommandsGroup.mjs",
+      "require": "./dist/cjs/commands/config/createConfigCommandsGroup.cjs",
+      "default": "./src/commands/config/createConfigCommandsGroup.ts"
     },
-    "./commands/config.d.ts": {
-      "types": "./dist/types/commands/config.d.ts",
-      "default": "./src/commands/config.ts"
+    "./commands/config/createInspectConfigCommand.cjs": {
+      "types": "./dist/types/commands/config/createInspectConfigCommand.d.ts",
+      "import": "./dist/esm/commands/config/createInspectConfigCommand.mjs",
+      "require": "./dist/cjs/commands/config/createInspectConfigCommand.cjs",
+      "default": "./src/commands/config/createInspectConfigCommand.ts"
     },
-    "./commands/config.js": {
-      "types": "./dist/types/commands/config.d.ts",
-      "import": "./dist/esm/commands/config.mjs",
-      "require": "./dist/cjs/commands/config.cjs",
-      "default": "./src/commands/config.ts"
+    "./commands/config/createInspectConfigCommand.d.ts": {
+      "types": "./dist/types/commands/config/createInspectConfigCommand.d.ts",
+      "default": "./src/commands/config/createInspectConfigCommand.ts"
     },
-    "./commands/config.mjs": {
-      "types": "./dist/types/commands/config.d.ts",
-      "import": "./dist/esm/commands/config.mjs",
-      "require": "./dist/cjs/commands/config.cjs",
-      "default": "./src/commands/config.ts"
+    "./commands/config/createInspectConfigCommand.js": {
+      "types": "./dist/types/commands/config/createInspectConfigCommand.d.ts",
+      "import": "./dist/esm/commands/config/createInspectConfigCommand.mjs",
+      "require": "./dist/cjs/commands/config/createInspectConfigCommand.cjs",
+      "default": "./src/commands/config/createInspectConfigCommand.ts"
     },
-    "./commands/config/inspect.cjs": {
-      "types": "./dist/types/commands/config/inspect.d.ts",
-      "import": "./dist/esm/commands/config/inspect.mjs",
-      "require": "./dist/cjs/commands/config/inspect.cjs",
-      "default": "./src/commands/config/inspect.ts"
+    "./commands/config/createInspectConfigCommand.mjs": {
+      "types": "./dist/types/commands/config/createInspectConfigCommand.d.ts",
+      "import": "./dist/esm/commands/config/createInspectConfigCommand.mjs",
+      "require": "./dist/cjs/commands/config/createInspectConfigCommand.cjs",
+      "default": "./src/commands/config/createInspectConfigCommand.ts"
     },
-    "./commands/config/inspect.d.ts": {
-      "types": "./dist/types/commands/config/inspect.d.ts",
-      "default": "./src/commands/config/inspect.ts"
+    "./commands/config/createInspectConfigCommand": {
+      "types": "./dist/types/commands/config/createInspectConfigCommand.d.ts",
+      "import": "./dist/esm/commands/config/createInspectConfigCommand.mjs",
+      "require": "./dist/cjs/commands/config/createInspectConfigCommand.cjs",
+      "default": "./src/commands/config/createInspectConfigCommand.ts"
     },
-    "./commands/config/inspect.js": {
-      "types": "./dist/types/commands/config/inspect.d.ts",
-      "import": "./dist/esm/commands/config/inspect.mjs",
-      "require": "./dist/cjs/commands/config/inspect.cjs",
-      "default": "./src/commands/config/inspect.ts"
+    "./commands/config/createWhichConfigCommand.cjs": {
+      "types": "./dist/types/commands/config/createWhichConfigCommand.d.ts",
+      "import": "./dist/esm/commands/config/createWhichConfigCommand.mjs",
+      "require": "./dist/cjs/commands/config/createWhichConfigCommand.cjs",
+      "default": "./src/commands/config/createWhichConfigCommand.ts"
     },
-    "./commands/config/inspect.mjs": {
-      "types": "./dist/types/commands/config/inspect.d.ts",
-      "import": "./dist/esm/commands/config/inspect.mjs",
-      "require": "./dist/cjs/commands/config/inspect.cjs",
-      "default": "./src/commands/config/inspect.ts"
+    "./commands/config/createWhichConfigCommand.d.ts": {
+      "types": "./dist/types/commands/config/createWhichConfigCommand.d.ts",
+      "default": "./src/commands/config/createWhichConfigCommand.ts"
     },
-    "./commands/config/inspect": {
-      "types": "./dist/types/commands/config/inspect.d.ts",
-      "import": "./dist/esm/commands/config/inspect.mjs",
-      "require": "./dist/cjs/commands/config/inspect.cjs",
-      "default": "./src/commands/config/inspect.ts"
+    "./commands/config/createWhichConfigCommand.js": {
+      "types": "./dist/types/commands/config/createWhichConfigCommand.d.ts",
+      "import": "./dist/esm/commands/config/createWhichConfigCommand.mjs",
+      "require": "./dist/cjs/commands/config/createWhichConfigCommand.cjs",
+      "default": "./src/commands/config/createWhichConfigCommand.ts"
     },
-    "./commands/config/which.cjs": {
-      "types": "./dist/types/commands/config/which.d.ts",
-      "import": "./dist/esm/commands/config/which.mjs",
-      "require": "./dist/cjs/commands/config/which.cjs",
-      "default": "./src/commands/config/which.ts"
+    "./commands/config/createWhichConfigCommand.mjs": {
+      "types": "./dist/types/commands/config/createWhichConfigCommand.d.ts",
+      "import": "./dist/esm/commands/config/createWhichConfigCommand.mjs",
+      "require": "./dist/cjs/commands/config/createWhichConfigCommand.cjs",
+      "default": "./src/commands/config/createWhichConfigCommand.ts"
     },
-    "./commands/config/which.d.ts": {
-      "types": "./dist/types/commands/config/which.d.ts",
-      "default": "./src/commands/config/which.ts"
+    "./commands/config/createWhichConfigCommand": {
+      "types": "./dist/types/commands/config/createWhichConfigCommand.d.ts",
+      "import": "./dist/esm/commands/config/createWhichConfigCommand.mjs",
+      "require": "./dist/cjs/commands/config/createWhichConfigCommand.cjs",
+      "default": "./src/commands/config/createWhichConfigCommand.ts"
     },
-    "./commands/config/which.js": {
-      "types": "./dist/types/commands/config/which.d.ts",
-      "import": "./dist/esm/commands/config/which.mjs",
-      "require": "./dist/cjs/commands/config/which.cjs",
-      "default": "./src/commands/config/which.ts"
+    "./commands/context/createContextCommandsGroup.cjs": {
+      "types": "./dist/types/commands/context/createContextCommandsGroup.d.ts",
+      "import": "./dist/esm/commands/context/createContextCommandsGroup.mjs",
+      "require": "./dist/cjs/commands/context/createContextCommandsGroup.cjs",
+      "default": "./src/commands/context/createContextCommandsGroup.ts"
     },
-    "./commands/config/which.mjs": {
-      "types": "./dist/types/commands/config/which.d.ts",
-      "import": "./dist/esm/commands/config/which.mjs",
-      "require": "./dist/cjs/commands/config/which.cjs",
-      "default": "./src/commands/config/which.ts"
+    "./commands/context/createContextCommandsGroup.d.ts": {
+      "types": "./dist/types/commands/context/createContextCommandsGroup.d.ts",
+      "default": "./src/commands/context/createContextCommandsGroup.ts"
     },
-    "./commands/config/which": {
-      "types": "./dist/types/commands/config/which.d.ts",
-      "import": "./dist/esm/commands/config/which.mjs",
-      "require": "./dist/cjs/commands/config/which.cjs",
-      "default": "./src/commands/config/which.ts"
+    "./commands/context/createContextCommandsGroup.js": {
+      "types": "./dist/types/commands/context/createContextCommandsGroup.d.ts",
+      "import": "./dist/esm/commands/context/createContextCommandsGroup.mjs",
+      "require": "./dist/cjs/commands/context/createContextCommandsGroup.cjs",
+      "default": "./src/commands/context/createContextCommandsGroup.ts"
     },
-    "./commands/config": {
-      "types": "./dist/types/commands/config.d.ts",
-      "import": "./dist/esm/commands/config.mjs",
-      "require": "./dist/cjs/commands/config.cjs",
-      "default": "./src/commands/config.ts"
+    "./commands/context/createContextCommandsGroup.mjs": {
+      "types": "./dist/types/commands/context/createContextCommandsGroup.d.ts",
+      "import": "./dist/esm/commands/context/createContextCommandsGroup.mjs",
+      "require": "./dist/cjs/commands/context/createContextCommandsGroup.cjs",
+      "default": "./src/commands/context/createContextCommandsGroup.ts"
     },
-    "./commands/context.cjs": {
-      "types": "./dist/types/commands/context.d.ts",
-      "import": "./dist/esm/commands/context.mjs",
-      "require": "./dist/cjs/commands/context.cjs",
-      "default": "./src/commands/context.ts"
+    "./commands/context/createContextCommandsGroup": {
+      "types": "./dist/types/commands/context/createContextCommandsGroup.d.ts",
+      "import": "./dist/esm/commands/context/createContextCommandsGroup.mjs",
+      "require": "./dist/cjs/commands/context/createContextCommandsGroup.cjs",
+      "default": "./src/commands/context/createContextCommandsGroup.ts"
     },
-    "./commands/context.d.ts": {
-      "types": "./dist/types/commands/context.d.ts",
-      "default": "./src/commands/context.ts"
+    "./commands/context/createInspectContextCommand.cjs": {
+      "types": "./dist/types/commands/context/createInspectContextCommand.d.ts",
+      "import": "./dist/esm/commands/context/createInspectContextCommand.mjs",
+      "require": "./dist/cjs/commands/context/createInspectContextCommand.cjs",
+      "default": "./src/commands/context/createInspectContextCommand.ts"
     },
-    "./commands/context.js": {
-      "types": "./dist/types/commands/context.d.ts",
-      "import": "./dist/esm/commands/context.mjs",
-      "require": "./dist/cjs/commands/context.cjs",
-      "default": "./src/commands/context.ts"
+    "./commands/context/createInspectContextCommand.d.ts": {
+      "types": "./dist/types/commands/context/createInspectContextCommand.d.ts",
+      "default": "./src/commands/context/createInspectContextCommand.ts"
     },
-    "./commands/context.mjs": {
-      "types": "./dist/types/commands/context.d.ts",
-      "import": "./dist/esm/commands/context.mjs",
-      "require": "./dist/cjs/commands/context.cjs",
-      "default": "./src/commands/context.ts"
+    "./commands/context/createInspectContextCommand.js": {
+      "types": "./dist/types/commands/context/createInspectContextCommand.d.ts",
+      "import": "./dist/esm/commands/context/createInspectContextCommand.mjs",
+      "require": "./dist/cjs/commands/context/createInspectContextCommand.cjs",
+      "default": "./src/commands/context/createInspectContextCommand.ts"
     },
-    "./commands/context/inspect.cjs": {
-      "types": "./dist/types/commands/context/inspect.d.ts",
-      "import": "./dist/esm/commands/context/inspect.mjs",
-      "require": "./dist/cjs/commands/context/inspect.cjs",
-      "default": "./src/commands/context/inspect.ts"
+    "./commands/context/createInspectContextCommand.mjs": {
+      "types": "./dist/types/commands/context/createInspectContextCommand.d.ts",
+      "import": "./dist/esm/commands/context/createInspectContextCommand.mjs",
+      "require": "./dist/cjs/commands/context/createInspectContextCommand.cjs",
+      "default": "./src/commands/context/createInspectContextCommand.ts"
     },
-    "./commands/context/inspect.d.ts": {
-      "types": "./dist/types/commands/context/inspect.d.ts",
-      "default": "./src/commands/context/inspect.ts"
+    "./commands/context/createInspectContextCommand": {
+      "types": "./dist/types/commands/context/createInspectContextCommand.d.ts",
+      "import": "./dist/esm/commands/context/createInspectContextCommand.mjs",
+      "require": "./dist/cjs/commands/context/createInspectContextCommand.cjs",
+      "default": "./src/commands/context/createInspectContextCommand.ts"
     },
-    "./commands/context/inspect.js": {
-      "types": "./dist/types/commands/context/inspect.d.ts",
-      "import": "./dist/esm/commands/context/inspect.mjs",
-      "require": "./dist/cjs/commands/context/inspect.cjs",
-      "default": "./src/commands/context/inspect.ts"
+    "./createCLI.cjs": {
+      "types": "./dist/types/createCLI.d.ts",
+      "import": "./dist/esm/createCLI.mjs",
+      "require": "./dist/cjs/createCLI.cjs",
+      "default": "./src/createCLI.ts"
     },
-    "./commands/context/inspect.mjs": {
-      "types": "./dist/types/commands/context/inspect.d.ts",
-      "import": "./dist/esm/commands/context/inspect.mjs",
-      "require": "./dist/cjs/commands/context/inspect.cjs",
-      "default": "./src/commands/context/inspect.ts"
+    "./createCLI.d.ts": {
+      "types": "./dist/types/createCLI.d.ts",
+      "default": "./src/createCLI.ts"
     },
-    "./commands/context/inspect": {
-      "types": "./dist/types/commands/context/inspect.d.ts",
-      "import": "./dist/esm/commands/context/inspect.mjs",
-      "require": "./dist/cjs/commands/context/inspect.cjs",
-      "default": "./src/commands/context/inspect.ts"
+    "./createCLI.js": {
+      "types": "./dist/types/createCLI.d.ts",
+      "import": "./dist/esm/createCLI.mjs",
+      "require": "./dist/cjs/createCLI.cjs",
+      "default": "./src/createCLI.ts"
     },
-    "./commands/context": {
-      "types": "./dist/types/commands/context.d.ts",
-      "import": "./dist/esm/commands/context.mjs",
-      "require": "./dist/cjs/commands/context.cjs",
-      "default": "./src/commands/context.ts"
+    "./createCLI.mjs": {
+      "types": "./dist/types/createCLI.d.ts",
+      "import": "./dist/esm/createCLI.mjs",
+      "require": "./dist/cjs/createCLI.cjs",
+      "default": "./src/createCLI.ts"
     },
-    "./command": {
-      "types": "./dist/types/command.d.ts",
-      "import": "./dist/esm/command.mjs",
-      "require": "./dist/cjs/command.cjs",
-      "default": "./src/command.ts"
+    "./createCLI": {
+      "types": "./dist/types/createCLI.d.ts",
+      "import": "./dist/esm/createCLI.mjs",
+      "require": "./dist/cjs/createCLI.cjs",
+      "default": "./src/createCLI.ts"
+    },
+    "./createCommand.cjs": {
+      "types": "./dist/types/createCommand.d.ts",
+      "import": "./dist/esm/createCommand.mjs",
+      "require": "./dist/cjs/createCommand.cjs",
+      "default": "./src/createCommand.ts"
+    },
+    "./createCommand.d.ts": {
+      "types": "./dist/types/createCommand.d.ts",
+      "default": "./src/createCommand.ts"
+    },
+    "./createCommand.js": {
+      "types": "./dist/types/createCommand.d.ts",
+      "import": "./dist/esm/createCommand.mjs",
+      "require": "./dist/cjs/createCommand.cjs",
+      "default": "./src/createCommand.ts"
+    },
+    "./createCommand.mjs": {
+      "types": "./dist/types/createCommand.d.ts",
+      "import": "./dist/esm/createCommand.mjs",
+      "require": "./dist/cjs/createCommand.cjs",
+      "default": "./src/createCommand.ts"
+    },
+    "./createCommand": {
+      "types": "./dist/types/createCommand.d.ts",
+      "import": "./dist/esm/createCommand.mjs",
+      "require": "./dist/cjs/createCommand.cjs",
+      "default": "./src/createCommand.ts"
     },
     "./index.cjs": {
       "types": "./dist/types/index.d.ts",
@@ -259,6 +297,34 @@
     },
     "./package.json": {
       "default": "./package.json"
+    },
+    "./runCLI.cjs": {
+      "types": "./dist/types/runCLI.d.ts",
+      "import": "./dist/esm/runCLI.mjs",
+      "require": "./dist/cjs/runCLI.cjs",
+      "default": "./src/runCLI.ts"
+    },
+    "./runCLI.d.ts": {
+      "types": "./dist/types/runCLI.d.ts",
+      "default": "./src/runCLI.ts"
+    },
+    "./runCLI.js": {
+      "types": "./dist/types/runCLI.d.ts",
+      "import": "./dist/esm/runCLI.mjs",
+      "require": "./dist/cjs/runCLI.cjs",
+      "default": "./src/runCLI.ts"
+    },
+    "./runCLI.mjs": {
+      "types": "./dist/types/runCLI.d.ts",
+      "import": "./dist/esm/runCLI.mjs",
+      "require": "./dist/cjs/runCLI.cjs",
+      "default": "./src/runCLI.ts"
+    },
+    "./runCLI": {
+      "types": "./dist/types/runCLI.d.ts",
+      "import": "./dist/esm/runCLI.mjs",
+      "require": "./dist/cjs/runCLI.cjs",
+      "default": "./src/runCLI.ts"
     },
     ".": {
       "types": "./dist/types/index.d.ts",

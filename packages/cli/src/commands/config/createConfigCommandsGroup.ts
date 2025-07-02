@@ -1,9 +1,9 @@
 import { Command } from "commander";
 
-import { createCommand } from "../command";
+import { createCommand } from "../../createCommand";
 
-import { createInspectConfigCommand } from "./config/inspect";
-import { createWhichConfigCommand } from "./config/which";
+import { createInspectConfigCommand } from "./createInspectConfigCommand";
+import { createWhichConfigCommand } from "./createWhichConfigCommand";
 
 export function createConfigCommandsGroup(
   program: Command,

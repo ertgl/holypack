@@ -1,8 +1,8 @@
 import { Command } from "commander";
 
-import { createCommand } from "../command";
+import { createCommand } from "../../createCommand";
 
-import { createInspectContextCommand } from "./context/inspect";
+import { createInspectContextCommand } from "./createInspectContextCommand";
 
 export function createContextCommandsGroup(
   program: Command,

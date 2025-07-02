@@ -1,26 +1,7 @@
 import { jest } from "@jest/globals";
-import { Command } from "commander";
 
-import {
-  createCLI,
-  runCLI,
-} from "../cli";
-
-describe(
-  "createCLI",
-  () =>
-  {
-    it(
-      "should create a CLI instance",
-      () =>
-      {
-        const cli = createCLI();
-
-        expect(cli.program).toBeInstanceOf(Command);
-      },
-    );
-  },
-);
+import { createCLI } from "../createCLI";
+import { runCLI } from "../runCLI";
 
 describe(
   "runCLI",
