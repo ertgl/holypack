@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
-import {
-  createCLI,
-  runCLI,
-} from "@holypack/cli";
+import { createCLI } from "@holypack/cli/createCLI";
+import { runCLI } from "@holypack/cli/runCLI";
 
 async function main(
   args?: null | readonly string[],
