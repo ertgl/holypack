@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.partial.base.json",
   "compilerOptions": {
-    "module": "ESNext",
+    "module": "esnext",
     "moduleResolution": "bundler"
   },
   "include": [

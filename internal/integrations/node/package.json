@@ -2,10 +2,12 @@
   "name": "@holypack/internal-integration-node",
   "private": true,
   "scripts": {
-    "cmd:node": "cd $INIT_CWD && node"
+    "cmd:node": "cd $INIT_CWD && node --disable-warning=ExperimentalWarning --experimental-require-module --experimental-transform-types --experimental-vm-modules",
+    "lint": "yarn eslint:lint",
+    "lint::fix": "yarn eslint:lint::fix"
   },
   "devDependencies": {
-    "@types/node": "^22.15.21"
+    "@types/node": "^24.0.10"
   },
   "files": [
     "./package.json"

@@ -1,0 +1,5 @@
+import type { ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern } from "./internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern";
+
+export type ESLintIntegrationPluginPerfectionistResolvedOptions = {
+  internalPattern: ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern;
+};

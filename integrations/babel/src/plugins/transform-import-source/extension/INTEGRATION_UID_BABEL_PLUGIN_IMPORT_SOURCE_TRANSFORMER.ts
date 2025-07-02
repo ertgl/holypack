@@ -1,0 +1,3 @@
+import { UID_PREFIX_FIRST_PARTY_INTEGRATION } from "@holypack/core/integration/constants/UID_PREFIX_FIRST_PARTY_INTEGRATION";
+
+export const INTEGRATION_UID_BABEL_PLUGIN_IMPORT_SOURCE_TRANSFORMER = `${UID_PREFIX_FIRST_PARTY_INTEGRATION}babel/plugins/transform-import-source`;

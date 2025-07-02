@@ -1,0 +1,3 @@
+import { UID_PREFIX_FIRST_PARTY_INTEGRATION } from "@holypack/core/integration/constants/UID_PREFIX_FIRST_PARTY_INTEGRATION";
+
+export const INTEGRATION_UID_JEST = `${UID_PREFIX_FIRST_PARTY_INTEGRATION}jest`;

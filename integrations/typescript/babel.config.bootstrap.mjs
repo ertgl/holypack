@@ -1,1 +1,1 @@
-export { bootstrapConfigFunction as default } from "@holypack/internal-integration-babel/bootstrap/config";
+export { default } from "@holypack/internal-integration-babel/bootstrap";

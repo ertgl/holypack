@@ -1,1 +1,1 @@
-export { internalPackageConfigProvider as default } from "./src/internal/config.mjs";
+export { default } from "./src/js/index.mjs";

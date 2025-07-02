@@ -5,6 +5,8 @@
     "build:clean": "yarn babel:build:clean",
     "clean": "yarn build:clean",
     "cmd:webpack": "cd $INIT_CWD && webpack",
+    "lint": "yarn eslint:lint",
+    "lint::fix": "yarn eslint:lint::fix",
     "webpack:build": "cd $INIT_CWD && yarn cmd:webpack --config ./webpack.config.mjs"
   },
   "devDependencies": {
@@ -31,659 +33,761 @@
   "module": "./dist/esm/index.mjs",
   "types": "./dist/types/index.d.ts",
   "exports": {
-    "./config/generator/generator.cjs": {
-      "types": "./dist/types/config/generator/generator.d.ts",
-      "import": "./dist/esm/config/generator/generator.mjs",
-      "require": "./dist/cjs/config/generator/generator.cjs",
-      "default": "./src/config/generator/generator.ts"
-    },
-    "./config/generator/generator.d.ts": {
-      "types": "./dist/types/config/generator/generator.d.ts",
-      "default": "./src/config/generator/generator.ts"
-    },
-    "./config/generator/generator.js": {
-      "types": "./dist/types/config/generator/generator.d.ts",
-      "import": "./dist/esm/config/generator/generator.mjs",
-      "require": "./dist/cjs/config/generator/generator.cjs",
-      "default": "./src/config/generator/generator.ts"
-    },
-    "./config/generator/generator.mjs": {
-      "types": "./dist/types/config/generator/generator.d.ts",
-      "import": "./dist/esm/config/generator/generator.mjs",
-      "require": "./dist/cjs/config/generator/generator.cjs",
-      "default": "./src/config/generator/generator.ts"
-    },
-    "./config/generator/generator": {
-      "types": "./dist/types/config/generator/generator.d.ts",
-      "import": "./dist/esm/config/generator/generator.mjs",
-      "require": "./dist/cjs/config/generator/generator.cjs",
-      "default": "./src/config/generator/generator.ts"
-    },
-    "./config/generator/index.cjs": {
-      "types": "./dist/types/config/generator/index.d.ts",
-      "import": "./dist/esm/config/generator/index.mjs",
-      "require": "./dist/cjs/config/generator/index.cjs",
-      "default": "./src/config/generator/index.ts"
-    },
-    "./config/generator/index.d.ts": {
-      "types": "./dist/types/config/generator/index.d.ts",
-      "default": "./src/config/generator/index.ts"
-    },
-    "./config/generator/index.js": {
-      "types": "./dist/types/config/generator/index.d.ts",
-      "import": "./dist/esm/config/generator/index.mjs",
-      "require": "./dist/cjs/config/generator/index.cjs",
-      "default": "./src/config/generator/index.ts"
-    },
-    "./config/generator/index.mjs": {
-      "types": "./dist/types/config/generator/index.d.ts",
-      "import": "./dist/esm/config/generator/index.mjs",
-      "require": "./dist/cjs/config/generator/index.cjs",
-      "default": "./src/config/generator/index.ts"
-    },
-    "./config/generator/index": {
-      "types": "./dist/types/config/generator/index.d.ts",
-      "import": "./dist/esm/config/generator/index.mjs",
-      "require": "./dist/cjs/config/generator/index.cjs",
-      "default": "./src/config/generator/index.ts"
-    },
-    "./config/generator/options.cjs": {
-      "types": "./dist/types/config/generator/options.d.ts",
-      "import": "./dist/esm/config/generator/options.mjs",
-      "require": "./dist/cjs/config/generator/options.cjs",
-      "default": "./src/config/generator/options.ts"
-    },
-    "./config/generator/options.d.ts": {
-      "types": "./dist/types/config/generator/options.d.ts",
-      "default": "./src/config/generator/options.ts"
-    },
-    "./config/generator/options.js": {
-      "types": "./dist/types/config/generator/options.d.ts",
-      "import": "./dist/esm/config/generator/options.mjs",
-      "require": "./dist/cjs/config/generator/options.cjs",
-      "default": "./src/config/generator/options.ts"
-    },
-    "./config/generator/options.mjs": {
-      "types": "./dist/types/config/generator/options.d.ts",
-      "import": "./dist/esm/config/generator/options.mjs",
-      "require": "./dist/cjs/config/generator/options.cjs",
-      "default": "./src/config/generator/options.ts"
-    },
-    "./config/generator/options": {
-      "types": "./dist/types/config/generator/options.d.ts",
-      "import": "./dist/esm/config/generator/options.mjs",
-      "require": "./dist/cjs/config/generator/options.cjs",
-      "default": "./src/config/generator/options.ts"
-    },
-    "./config/generator": {
-      "types": "./dist/types/config/generator/index.d.ts",
-      "import": "./dist/esm/config/generator/index.mjs",
-      "require": "./dist/cjs/config/generator/index.cjs",
-      "default": "./src/config/generator/index.ts"
-    },
-    "./config/index.cjs": {
-      "types": "./dist/types/config/index.d.ts",
-      "import": "./dist/esm/config/index.mjs",
-      "require": "./dist/cjs/config/index.cjs",
-      "default": "./src/config/index.ts"
-    },
-    "./config/index.d.ts": {
-      "types": "./dist/types/config/index.d.ts",
-      "default": "./src/config/index.ts"
-    },
-    "./config/index.js": {
-      "types": "./dist/types/config/index.d.ts",
-      "import": "./dist/esm/config/index.mjs",
-      "require": "./dist/cjs/config/index.cjs",
-      "default": "./src/config/index.ts"
-    },
-    "./config/index.mjs": {
-      "types": "./dist/types/config/index.d.ts",
-      "import": "./dist/esm/config/index.mjs",
-      "require": "./dist/cjs/config/index.cjs",
-      "default": "./src/config/index.ts"
-    },
-    "./config/index": {
-      "types": "./dist/types/config/index.d.ts",
-      "import": "./dist/esm/config/index.mjs",
-      "require": "./dist/cjs/config/index.cjs",
-      "default": "./src/config/index.ts"
-    },
-    "./config/presets/env/index.cjs": {
-      "types": "./dist/types/config/presets/env/index.d.ts",
-      "import": "./dist/esm/config/presets/env/index.mjs",
-      "require": "./dist/cjs/config/presets/env/index.cjs",
-      "default": "./src/config/presets/env/index.ts"
-    },
-    "./config/presets/env/index.d.ts": {
-      "types": "./dist/types/config/presets/env/index.d.ts",
-      "default": "./src/config/presets/env/index.ts"
-    },
-    "./config/presets/env/index.js": {
-      "types": "./dist/types/config/presets/env/index.d.ts",
-      "import": "./dist/esm/config/presets/env/index.mjs",
-      "require": "./dist/cjs/config/presets/env/index.cjs",
-      "default": "./src/config/presets/env/index.ts"
-    },
-    "./config/presets/env/index.mjs": {
-      "types": "./dist/types/config/presets/env/index.d.ts",
-      "import": "./dist/esm/config/presets/env/index.mjs",
-      "require": "./dist/cjs/config/presets/env/index.cjs",
-      "default": "./src/config/presets/env/index.ts"
-    },
-    "./config/presets/env/index": {
-      "types": "./dist/types/config/presets/env/index.d.ts",
-      "import": "./dist/esm/config/presets/env/index.mjs",
-      "require": "./dist/cjs/config/presets/env/index.cjs",
-      "default": "./src/config/presets/env/index.ts"
-    },
-    "./config/presets/env/preset.cjs": {
-      "types": "./dist/types/config/presets/env/preset.d.ts",
-      "import": "./dist/esm/config/presets/env/preset.mjs",
-      "require": "./dist/cjs/config/presets/env/preset.cjs",
-      "default": "./src/config/presets/env/preset.ts"
-    },
-    "./config/presets/env/preset.d.ts": {
-      "types": "./dist/types/config/presets/env/preset.d.ts",
-      "default": "./src/config/presets/env/preset.ts"
-    },
-    "./config/presets/env/preset.js": {
-      "types": "./dist/types/config/presets/env/preset.d.ts",
-      "import": "./dist/esm/config/presets/env/preset.mjs",
-      "require": "./dist/cjs/config/presets/env/preset.cjs",
-      "default": "./src/config/presets/env/preset.ts"
-    },
-    "./config/presets/env/preset.mjs": {
-      "types": "./dist/types/config/presets/env/preset.d.ts",
-      "import": "./dist/esm/config/presets/env/preset.mjs",
-      "require": "./dist/cjs/config/presets/env/preset.cjs",
-      "default": "./src/config/presets/env/preset.ts"
-    },
-    "./config/presets/env/preset": {
-      "types": "./dist/types/config/presets/env/preset.d.ts",
-      "import": "./dist/esm/config/presets/env/preset.mjs",
-      "require": "./dist/cjs/config/presets/env/preset.cjs",
-      "default": "./src/config/presets/env/preset.ts"
-    },
-    "./config/presets/env": {
-      "types": "./dist/types/config/presets/env/index.d.ts",
-      "import": "./dist/esm/config/presets/env/index.mjs",
-      "require": "./dist/cjs/config/presets/env/index.cjs",
-      "default": "./src/config/presets/env/index.ts"
-    },
-    "./config/presets/index.cjs": {
-      "types": "./dist/types/config/presets/index.d.ts",
-      "import": "./dist/esm/config/presets/index.mjs",
-      "require": "./dist/cjs/config/presets/index.cjs",
-      "default": "./src/config/presets/index.ts"
-    },
-    "./config/presets/index.d.ts": {
-      "types": "./dist/types/config/presets/index.d.ts",
-      "default": "./src/config/presets/index.ts"
-    },
-    "./config/presets/index.js": {
-      "types": "./dist/types/config/presets/index.d.ts",
-      "import": "./dist/esm/config/presets/index.mjs",
-      "require": "./dist/cjs/config/presets/index.cjs",
-      "default": "./src/config/presets/index.ts"
-    },
-    "./config/presets/index.mjs": {
-      "types": "./dist/types/config/presets/index.d.ts",
-      "import": "./dist/esm/config/presets/index.mjs",
-      "require": "./dist/cjs/config/presets/index.cjs",
-      "default": "./src/config/presets/index.ts"
-    },
-    "./config/presets/index": {
-      "types": "./dist/types/config/presets/index.d.ts",
-      "import": "./dist/esm/config/presets/index.mjs",
-      "require": "./dist/cjs/config/presets/index.cjs",
-      "default": "./src/config/presets/index.ts"
-    },
-    "./config/presets/paths/index.cjs": {
-      "types": "./dist/types/config/presets/paths/index.d.ts",
-      "import": "./dist/esm/config/presets/paths/index.mjs",
-      "require": "./dist/cjs/config/presets/paths/index.cjs",
-      "default": "./src/config/presets/paths/index.ts"
-    },
-    "./config/presets/paths/index.d.ts": {
-      "types": "./dist/types/config/presets/paths/index.d.ts",
-      "default": "./src/config/presets/paths/index.ts"
-    },
-    "./config/presets/paths/index.js": {
-      "types": "./dist/types/config/presets/paths/index.d.ts",
-      "import": "./dist/esm/config/presets/paths/index.mjs",
-      "require": "./dist/cjs/config/presets/paths/index.cjs",
-      "default": "./src/config/presets/paths/index.ts"
-    },
-    "./config/presets/paths/index.mjs": {
-      "types": "./dist/types/config/presets/paths/index.d.ts",
-      "import": "./dist/esm/config/presets/paths/index.mjs",
-      "require": "./dist/cjs/config/presets/paths/index.cjs",
-      "default": "./src/config/presets/paths/index.ts"
-    },
-    "./config/presets/paths/index": {
-      "types": "./dist/types/config/presets/paths/index.d.ts",
-      "import": "./dist/esm/config/presets/paths/index.mjs",
-      "require": "./dist/cjs/config/presets/paths/index.cjs",
-      "default": "./src/config/presets/paths/index.ts"
-    },
-    "./config/presets/paths/preset.cjs": {
-      "types": "./dist/types/config/presets/paths/preset.d.ts",
-      "import": "./dist/esm/config/presets/paths/preset.mjs",
-      "require": "./dist/cjs/config/presets/paths/preset.cjs",
-      "default": "./src/config/presets/paths/preset.ts"
-    },
-    "./config/presets/paths/preset.d.ts": {
-      "types": "./dist/types/config/presets/paths/preset.d.ts",
-      "default": "./src/config/presets/paths/preset.ts"
-    },
-    "./config/presets/paths/preset.js": {
-      "types": "./dist/types/config/presets/paths/preset.d.ts",
-      "import": "./dist/esm/config/presets/paths/preset.mjs",
-      "require": "./dist/cjs/config/presets/paths/preset.cjs",
-      "default": "./src/config/presets/paths/preset.ts"
-    },
-    "./config/presets/paths/preset.mjs": {
-      "types": "./dist/types/config/presets/paths/preset.d.ts",
-      "import": "./dist/esm/config/presets/paths/preset.mjs",
-      "require": "./dist/cjs/config/presets/paths/preset.cjs",
-      "default": "./src/config/presets/paths/preset.ts"
-    },
-    "./config/presets/paths/preset": {
-      "types": "./dist/types/config/presets/paths/preset.d.ts",
-      "import": "./dist/esm/config/presets/paths/preset.mjs",
-      "require": "./dist/cjs/config/presets/paths/preset.cjs",
-      "default": "./src/config/presets/paths/preset.ts"
-    },
-    "./config/presets/paths": {
-      "types": "./dist/types/config/presets/paths/index.d.ts",
-      "import": "./dist/esm/config/presets/paths/index.mjs",
-      "require": "./dist/cjs/config/presets/paths/index.cjs",
-      "default": "./src/config/presets/paths/index.ts"
-    },
-    "./config/presets/preset.cjs": {
-      "types": "./dist/types/config/presets/preset.d.ts",
-      "import": "./dist/esm/config/presets/preset.mjs",
-      "require": "./dist/cjs/config/presets/preset.cjs",
-      "default": "./src/config/presets/preset.ts"
-    },
-    "./config/presets/preset.d.ts": {
-      "types": "./dist/types/config/presets/preset.d.ts",
-      "default": "./src/config/presets/preset.ts"
-    },
-    "./config/presets/preset.js": {
-      "types": "./dist/types/config/presets/preset.d.ts",
-      "import": "./dist/esm/config/presets/preset.mjs",
-      "require": "./dist/cjs/config/presets/preset.cjs",
-      "default": "./src/config/presets/preset.ts"
-    },
-    "./config/presets/preset.mjs": {
-      "types": "./dist/types/config/presets/preset.d.ts",
-      "import": "./dist/esm/config/presets/preset.mjs",
-      "require": "./dist/cjs/config/presets/preset.cjs",
-      "default": "./src/config/presets/preset.ts"
-    },
-    "./config/presets/preset": {
-      "types": "./dist/types/config/presets/preset.d.ts",
-      "import": "./dist/esm/config/presets/preset.mjs",
-      "require": "./dist/cjs/config/presets/preset.cjs",
-      "default": "./src/config/presets/preset.ts"
-    },
-    "./config/presets": {
-      "types": "./dist/types/config/presets/index.d.ts",
-      "import": "./dist/esm/config/presets/index.mjs",
-      "require": "./dist/cjs/config/presets/index.cjs",
-      "default": "./src/config/presets/index.ts"
-    },
-    "./configurators/context/configurator.cjs": {
-      "types": "./dist/types/configurators/context/configurator.d.ts",
-      "import": "./dist/esm/configurators/context/configurator.mjs",
-      "require": "./dist/cjs/configurators/context/configurator.cjs",
-      "default": "./src/configurators/context/configurator.ts"
-    },
-    "./configurators/context/configurator.d.ts": {
-      "types": "./dist/types/configurators/context/configurator.d.ts",
-      "default": "./src/configurators/context/configurator.ts"
-    },
-    "./configurators/context/configurator.js": {
-      "types": "./dist/types/configurators/context/configurator.d.ts",
-      "import": "./dist/esm/configurators/context/configurator.mjs",
-      "require": "./dist/cjs/configurators/context/configurator.cjs",
-      "default": "./src/configurators/context/configurator.ts"
-    },
-    "./configurators/context/configurator.mjs": {
-      "types": "./dist/types/configurators/context/configurator.d.ts",
-      "import": "./dist/esm/configurators/context/configurator.mjs",
-      "require": "./dist/cjs/configurators/context/configurator.cjs",
-      "default": "./src/configurators/context/configurator.ts"
-    },
-    "./configurators/context/configurator": {
-      "types": "./dist/types/configurators/context/configurator.d.ts",
-      "import": "./dist/esm/configurators/context/configurator.mjs",
-      "require": "./dist/cjs/configurators/context/configurator.cjs",
-      "default": "./src/configurators/context/configurator.ts"
-    },
-    "./configurators/context/index.cjs": {
-      "types": "./dist/types/configurators/context/index.d.ts",
-      "import": "./dist/esm/configurators/context/index.mjs",
-      "require": "./dist/cjs/configurators/context/index.cjs",
-      "default": "./src/configurators/context/index.ts"
-    },
-    "./configurators/context/index.d.ts": {
-      "types": "./dist/types/configurators/context/index.d.ts",
-      "default": "./src/configurators/context/index.ts"
-    },
-    "./configurators/context/index.js": {
-      "types": "./dist/types/configurators/context/index.d.ts",
-      "import": "./dist/esm/configurators/context/index.mjs",
-      "require": "./dist/cjs/configurators/context/index.cjs",
-      "default": "./src/configurators/context/index.ts"
-    },
-    "./configurators/context/index.mjs": {
-      "types": "./dist/types/configurators/context/index.d.ts",
-      "import": "./dist/esm/configurators/context/index.mjs",
-      "require": "./dist/cjs/configurators/context/index.cjs",
-      "default": "./src/configurators/context/index.ts"
-    },
-    "./configurators/context/index": {
-      "types": "./dist/types/configurators/context/index.d.ts",
-      "import": "./dist/esm/configurators/context/index.mjs",
-      "require": "./dist/cjs/configurators/context/index.cjs",
-      "default": "./src/configurators/context/index.ts"
-    },
-    "./configurators/context": {
-      "types": "./dist/types/configurators/context/index.d.ts",
-      "import": "./dist/esm/configurators/context/index.mjs",
-      "require": "./dist/cjs/configurators/context/index.cjs",
-      "default": "./src/configurators/context/index.ts"
-    },
-    "./configurators/entry/configurator.cjs": {
-      "types": "./dist/types/configurators/entry/configurator.d.ts",
-      "import": "./dist/esm/configurators/entry/configurator.mjs",
-      "require": "./dist/cjs/configurators/entry/configurator.cjs",
-      "default": "./src/configurators/entry/configurator.ts"
-    },
-    "./configurators/entry/configurator.d.ts": {
-      "types": "./dist/types/configurators/entry/configurator.d.ts",
-      "default": "./src/configurators/entry/configurator.ts"
-    },
-    "./configurators/entry/configurator.js": {
-      "types": "./dist/types/configurators/entry/configurator.d.ts",
-      "import": "./dist/esm/configurators/entry/configurator.mjs",
-      "require": "./dist/cjs/configurators/entry/configurator.cjs",
-      "default": "./src/configurators/entry/configurator.ts"
-    },
-    "./configurators/entry/configurator.mjs": {
-      "types": "./dist/types/configurators/entry/configurator.d.ts",
-      "import": "./dist/esm/configurators/entry/configurator.mjs",
-      "require": "./dist/cjs/configurators/entry/configurator.cjs",
-      "default": "./src/configurators/entry/configurator.ts"
-    },
-    "./configurators/entry/configurator": {
-      "types": "./dist/types/configurators/entry/configurator.d.ts",
-      "import": "./dist/esm/configurators/entry/configurator.mjs",
-      "require": "./dist/cjs/configurators/entry/configurator.cjs",
-      "default": "./src/configurators/entry/configurator.ts"
-    },
-    "./configurators/entry/index.cjs": {
-      "types": "./dist/types/configurators/entry/index.d.ts",
-      "import": "./dist/esm/configurators/entry/index.mjs",
-      "require": "./dist/cjs/configurators/entry/index.cjs",
-      "default": "./src/configurators/entry/index.ts"
-    },
-    "./configurators/entry/index.d.ts": {
-      "types": "./dist/types/configurators/entry/index.d.ts",
-      "default": "./src/configurators/entry/index.ts"
-    },
-    "./configurators/entry/index.js": {
-      "types": "./dist/types/configurators/entry/index.d.ts",
-      "import": "./dist/esm/configurators/entry/index.mjs",
-      "require": "./dist/cjs/configurators/entry/index.cjs",
-      "default": "./src/configurators/entry/index.ts"
-    },
-    "./configurators/entry/index.mjs": {
-      "types": "./dist/types/configurators/entry/index.d.ts",
-      "import": "./dist/esm/configurators/entry/index.mjs",
-      "require": "./dist/cjs/configurators/entry/index.cjs",
-      "default": "./src/configurators/entry/index.ts"
-    },
-    "./configurators/entry/index": {
-      "types": "./dist/types/configurators/entry/index.d.ts",
-      "import": "./dist/esm/configurators/entry/index.mjs",
-      "require": "./dist/cjs/configurators/entry/index.cjs",
-      "default": "./src/configurators/entry/index.ts"
-    },
-    "./configurators/entry": {
-      "types": "./dist/types/configurators/entry/index.d.ts",
-      "import": "./dist/esm/configurators/entry/index.mjs",
-      "require": "./dist/cjs/configurators/entry/index.cjs",
-      "default": "./src/configurators/entry/index.ts"
-    },
-    "./configurators/index.cjs": {
-      "types": "./dist/types/configurators/index.d.ts",
-      "import": "./dist/esm/configurators/index.mjs",
-      "require": "./dist/cjs/configurators/index.cjs",
-      "default": "./src/configurators/index.ts"
-    },
-    "./configurators/index.d.ts": {
-      "types": "./dist/types/configurators/index.d.ts",
-      "default": "./src/configurators/index.ts"
-    },
-    "./configurators/index.js": {
-      "types": "./dist/types/configurators/index.d.ts",
-      "import": "./dist/esm/configurators/index.mjs",
-      "require": "./dist/cjs/configurators/index.cjs",
-      "default": "./src/configurators/index.ts"
-    },
-    "./configurators/index.mjs": {
-      "types": "./dist/types/configurators/index.d.ts",
-      "import": "./dist/esm/configurators/index.mjs",
-      "require": "./dist/cjs/configurators/index.cjs",
-      "default": "./src/configurators/index.ts"
-    },
-    "./configurators/index": {
-      "types": "./dist/types/configurators/index.d.ts",
-      "import": "./dist/esm/configurators/index.mjs",
-      "require": "./dist/cjs/configurators/index.cjs",
-      "default": "./src/configurators/index.ts"
-    },
-    "./configurators/mode/configurator.cjs": {
-      "types": "./dist/types/configurators/mode/configurator.d.ts",
-      "import": "./dist/esm/configurators/mode/configurator.mjs",
-      "require": "./dist/cjs/configurators/mode/configurator.cjs",
-      "default": "./src/configurators/mode/configurator.ts"
-    },
-    "./configurators/mode/configurator.d.ts": {
-      "types": "./dist/types/configurators/mode/configurator.d.ts",
-      "default": "./src/configurators/mode/configurator.ts"
-    },
-    "./configurators/mode/configurator.js": {
-      "types": "./dist/types/configurators/mode/configurator.d.ts",
-      "import": "./dist/esm/configurators/mode/configurator.mjs",
-      "require": "./dist/cjs/configurators/mode/configurator.cjs",
-      "default": "./src/configurators/mode/configurator.ts"
-    },
-    "./configurators/mode/configurator.mjs": {
-      "types": "./dist/types/configurators/mode/configurator.d.ts",
-      "import": "./dist/esm/configurators/mode/configurator.mjs",
-      "require": "./dist/cjs/configurators/mode/configurator.cjs",
-      "default": "./src/configurators/mode/configurator.ts"
-    },
-    "./configurators/mode/configurator": {
-      "types": "./dist/types/configurators/mode/configurator.d.ts",
-      "import": "./dist/esm/configurators/mode/configurator.mjs",
-      "require": "./dist/cjs/configurators/mode/configurator.cjs",
-      "default": "./src/configurators/mode/configurator.ts"
-    },
-    "./configurators/mode/index.cjs": {
-      "types": "./dist/types/configurators/mode/index.d.ts",
-      "import": "./dist/esm/configurators/mode/index.mjs",
-      "require": "./dist/cjs/configurators/mode/index.cjs",
-      "default": "./src/configurators/mode/index.ts"
-    },
-    "./configurators/mode/index.d.ts": {
-      "types": "./dist/types/configurators/mode/index.d.ts",
-      "default": "./src/configurators/mode/index.ts"
-    },
-    "./configurators/mode/index.js": {
-      "types": "./dist/types/configurators/mode/index.d.ts",
-      "import": "./dist/esm/configurators/mode/index.mjs",
-      "require": "./dist/cjs/configurators/mode/index.cjs",
-      "default": "./src/configurators/mode/index.ts"
-    },
-    "./configurators/mode/index.mjs": {
-      "types": "./dist/types/configurators/mode/index.d.ts",
-      "import": "./dist/esm/configurators/mode/index.mjs",
-      "require": "./dist/cjs/configurators/mode/index.cjs",
-      "default": "./src/configurators/mode/index.ts"
-    },
-    "./configurators/mode/index": {
-      "types": "./dist/types/configurators/mode/index.d.ts",
-      "import": "./dist/esm/configurators/mode/index.mjs",
-      "require": "./dist/cjs/configurators/mode/index.cjs",
-      "default": "./src/configurators/mode/index.ts"
-    },
-    "./configurators/mode": {
-      "types": "./dist/types/configurators/mode/index.d.ts",
-      "import": "./dist/esm/configurators/mode/index.mjs",
-      "require": "./dist/cjs/configurators/mode/index.cjs",
-      "default": "./src/configurators/mode/index.ts"
-    },
-    "./configurators/output/configurator.cjs": {
-      "types": "./dist/types/configurators/output/configurator.d.ts",
-      "import": "./dist/esm/configurators/output/configurator.mjs",
-      "require": "./dist/cjs/configurators/output/configurator.cjs",
-      "default": "./src/configurators/output/configurator.ts"
-    },
-    "./configurators/output/configurator.d.ts": {
-      "types": "./dist/types/configurators/output/configurator.d.ts",
-      "default": "./src/configurators/output/configurator.ts"
-    },
-    "./configurators/output/configurator.js": {
-      "types": "./dist/types/configurators/output/configurator.d.ts",
-      "import": "./dist/esm/configurators/output/configurator.mjs",
-      "require": "./dist/cjs/configurators/output/configurator.cjs",
-      "default": "./src/configurators/output/configurator.ts"
-    },
-    "./configurators/output/configurator.mjs": {
-      "types": "./dist/types/configurators/output/configurator.d.ts",
-      "import": "./dist/esm/configurators/output/configurator.mjs",
-      "require": "./dist/cjs/configurators/output/configurator.cjs",
-      "default": "./src/configurators/output/configurator.ts"
-    },
-    "./configurators/output/configurator": {
-      "types": "./dist/types/configurators/output/configurator.d.ts",
-      "import": "./dist/esm/configurators/output/configurator.mjs",
-      "require": "./dist/cjs/configurators/output/configurator.cjs",
-      "default": "./src/configurators/output/configurator.ts"
-    },
-    "./configurators/output/index.cjs": {
-      "types": "./dist/types/configurators/output/index.d.ts",
-      "import": "./dist/esm/configurators/output/index.mjs",
-      "require": "./dist/cjs/configurators/output/index.cjs",
-      "default": "./src/configurators/output/index.ts"
-    },
-    "./configurators/output/index.d.ts": {
-      "types": "./dist/types/configurators/output/index.d.ts",
-      "default": "./src/configurators/output/index.ts"
-    },
-    "./configurators/output/index.js": {
-      "types": "./dist/types/configurators/output/index.d.ts",
-      "import": "./dist/esm/configurators/output/index.mjs",
-      "require": "./dist/cjs/configurators/output/index.cjs",
-      "default": "./src/configurators/output/index.ts"
-    },
-    "./configurators/output/index.mjs": {
-      "types": "./dist/types/configurators/output/index.d.ts",
-      "import": "./dist/esm/configurators/output/index.mjs",
-      "require": "./dist/cjs/configurators/output/index.cjs",
-      "default": "./src/configurators/output/index.ts"
-    },
-    "./configurators/output/index": {
-      "types": "./dist/types/configurators/output/index.d.ts",
-      "import": "./dist/esm/configurators/output/index.mjs",
-      "require": "./dist/cjs/configurators/output/index.cjs",
-      "default": "./src/configurators/output/index.ts"
-    },
-    "./configurators/output": {
-      "types": "./dist/types/configurators/output/index.d.ts",
-      "import": "./dist/esm/configurators/output/index.mjs",
-      "require": "./dist/cjs/configurators/output/index.cjs",
-      "default": "./src/configurators/output/index.ts"
-    },
-    "./configurators": {
-      "types": "./dist/types/configurators/index.d.ts",
-      "import": "./dist/esm/configurators/index.mjs",
-      "require": "./dist/cjs/configurators/index.cjs",
-      "default": "./src/configurators/index.ts"
-    },
-    "./config": {
-      "types": "./dist/types/config/index.d.ts",
-      "import": "./dist/esm/config/index.mjs",
-      "require": "./dist/cjs/config/index.cjs",
-      "default": "./src/config/index.ts"
-    },
-    "./context/context.cjs": {
-      "types": "./dist/types/context/context.d.ts",
-      "import": "./dist/esm/context/context.mjs",
-      "require": "./dist/cjs/context/context.cjs",
-      "default": "./src/context/context.ts"
-    },
-    "./context/context.d.ts": {
-      "types": "./dist/types/context/context.d.ts",
-      "default": "./src/context/context.ts"
-    },
-    "./context/context.js": {
-      "types": "./dist/types/context/context.d.ts",
-      "import": "./dist/esm/context/context.mjs",
-      "require": "./dist/cjs/context/context.cjs",
-      "default": "./src/context/context.ts"
-    },
-    "./context/context.mjs": {
-      "types": "./dist/types/context/context.d.ts",
-      "import": "./dist/esm/context/context.mjs",
-      "require": "./dist/cjs/context/context.cjs",
-      "default": "./src/context/context.ts"
-    },
-    "./context/context": {
-      "types": "./dist/types/context/context.d.ts",
-      "import": "./dist/esm/context/context.mjs",
-      "require": "./dist/cjs/context/context.cjs",
-      "default": "./src/context/context.ts"
-    },
-    "./context/index.cjs": {
-      "types": "./dist/types/context/index.d.ts",
-      "import": "./dist/esm/context/index.mjs",
-      "require": "./dist/cjs/context/index.cjs",
-      "default": "./src/context/index.ts"
-    },
-    "./context/index.d.ts": {
-      "types": "./dist/types/context/index.d.ts",
-      "default": "./src/context/index.ts"
-    },
-    "./context/index.js": {
-      "types": "./dist/types/context/index.d.ts",
-      "import": "./dist/esm/context/index.mjs",
-      "require": "./dist/cjs/context/index.cjs",
-      "default": "./src/context/index.ts"
-    },
-    "./context/index.mjs": {
-      "types": "./dist/types/context/index.d.ts",
-      "import": "./dist/esm/context/index.mjs",
-      "require": "./dist/cjs/context/index.cjs",
-      "default": "./src/context/index.ts"
-    },
-    "./context/index": {
-      "types": "./dist/types/context/index.d.ts",
-      "import": "./dist/esm/context/index.mjs",
-      "require": "./dist/cjs/context/index.cjs",
-      "default": "./src/context/index.ts"
-    },
-    "./context": {
-      "types": "./dist/types/context/index.d.ts",
-      "import": "./dist/esm/context/index.mjs",
-      "require": "./dist/cjs/context/index.cjs",
-      "default": "./src/context/index.ts"
+    "./configurator/fields/context/configureWebpackContext.cjs": {
+      "types": "./dist/types/configurator/fields/context/configureWebpackContext.d.ts",
+      "import": "./dist/esm/configurator/fields/context/configureWebpackContext.mjs",
+      "require": "./dist/cjs/configurator/fields/context/configureWebpackContext.cjs",
+      "default": "./src/configurator/fields/context/configureWebpackContext.ts"
+    },
+    "./configurator/fields/context/configureWebpackContext.d.ts": {
+      "types": "./dist/types/configurator/fields/context/configureWebpackContext.d.ts",
+      "default": "./src/configurator/fields/context/configureWebpackContext.ts"
+    },
+    "./configurator/fields/context/configureWebpackContext.js": {
+      "types": "./dist/types/configurator/fields/context/configureWebpackContext.d.ts",
+      "import": "./dist/esm/configurator/fields/context/configureWebpackContext.mjs",
+      "require": "./dist/cjs/configurator/fields/context/configureWebpackContext.cjs",
+      "default": "./src/configurator/fields/context/configureWebpackContext.ts"
+    },
+    "./configurator/fields/context/configureWebpackContext.mjs": {
+      "types": "./dist/types/configurator/fields/context/configureWebpackContext.d.ts",
+      "import": "./dist/esm/configurator/fields/context/configureWebpackContext.mjs",
+      "require": "./dist/cjs/configurator/fields/context/configureWebpackContext.cjs",
+      "default": "./src/configurator/fields/context/configureWebpackContext.ts"
+    },
+    "./configurator/fields/context/configureWebpackContext": {
+      "types": "./dist/types/configurator/fields/context/configureWebpackContext.d.ts",
+      "import": "./dist/esm/configurator/fields/context/configureWebpackContext.mjs",
+      "require": "./dist/cjs/configurator/fields/context/configureWebpackContext.cjs",
+      "default": "./src/configurator/fields/context/configureWebpackContext.ts"
+    },
+    "./configurator/fields/entry/configureWebpackEntry.cjs": {
+      "types": "./dist/types/configurator/fields/entry/configureWebpackEntry.d.ts",
+      "import": "./dist/esm/configurator/fields/entry/configureWebpackEntry.mjs",
+      "require": "./dist/cjs/configurator/fields/entry/configureWebpackEntry.cjs",
+      "default": "./src/configurator/fields/entry/configureWebpackEntry.ts"
+    },
+    "./configurator/fields/entry/configureWebpackEntry.d.ts": {
+      "types": "./dist/types/configurator/fields/entry/configureWebpackEntry.d.ts",
+      "default": "./src/configurator/fields/entry/configureWebpackEntry.ts"
+    },
+    "./configurator/fields/entry/configureWebpackEntry.js": {
+      "types": "./dist/types/configurator/fields/entry/configureWebpackEntry.d.ts",
+      "import": "./dist/esm/configurator/fields/entry/configureWebpackEntry.mjs",
+      "require": "./dist/cjs/configurator/fields/entry/configureWebpackEntry.cjs",
+      "default": "./src/configurator/fields/entry/configureWebpackEntry.ts"
+    },
+    "./configurator/fields/entry/configureWebpackEntry.mjs": {
+      "types": "./dist/types/configurator/fields/entry/configureWebpackEntry.d.ts",
+      "import": "./dist/esm/configurator/fields/entry/configureWebpackEntry.mjs",
+      "require": "./dist/cjs/configurator/fields/entry/configureWebpackEntry.cjs",
+      "default": "./src/configurator/fields/entry/configureWebpackEntry.ts"
+    },
+    "./configurator/fields/entry/configureWebpackEntry": {
+      "types": "./dist/types/configurator/fields/entry/configureWebpackEntry.d.ts",
+      "import": "./dist/esm/configurator/fields/entry/configureWebpackEntry.mjs",
+      "require": "./dist/cjs/configurator/fields/entry/configureWebpackEntry.cjs",
+      "default": "./src/configurator/fields/entry/configureWebpackEntry.ts"
+    },
+    "./configurator/fields/mode/configureWebpackMode.cjs": {
+      "types": "./dist/types/configurator/fields/mode/configureWebpackMode.d.ts",
+      "import": "./dist/esm/configurator/fields/mode/configureWebpackMode.mjs",
+      "require": "./dist/cjs/configurator/fields/mode/configureWebpackMode.cjs",
+      "default": "./src/configurator/fields/mode/configureWebpackMode.ts"
+    },
+    "./configurator/fields/mode/configureWebpackMode.d.ts": {
+      "types": "./dist/types/configurator/fields/mode/configureWebpackMode.d.ts",
+      "default": "./src/configurator/fields/mode/configureWebpackMode.ts"
+    },
+    "./configurator/fields/mode/configureWebpackMode.js": {
+      "types": "./dist/types/configurator/fields/mode/configureWebpackMode.d.ts",
+      "import": "./dist/esm/configurator/fields/mode/configureWebpackMode.mjs",
+      "require": "./dist/cjs/configurator/fields/mode/configureWebpackMode.cjs",
+      "default": "./src/configurator/fields/mode/configureWebpackMode.ts"
+    },
+    "./configurator/fields/mode/configureWebpackMode.mjs": {
+      "types": "./dist/types/configurator/fields/mode/configureWebpackMode.d.ts",
+      "import": "./dist/esm/configurator/fields/mode/configureWebpackMode.mjs",
+      "require": "./dist/cjs/configurator/fields/mode/configureWebpackMode.cjs",
+      "default": "./src/configurator/fields/mode/configureWebpackMode.ts"
+    },
+    "./configurator/fields/mode/configureWebpackMode": {
+      "types": "./dist/types/configurator/fields/mode/configureWebpackMode.d.ts",
+      "import": "./dist/esm/configurator/fields/mode/configureWebpackMode.mjs",
+      "require": "./dist/cjs/configurator/fields/mode/configureWebpackMode.cjs",
+      "default": "./src/configurator/fields/mode/configureWebpackMode.ts"
+    },
+    "./configurator/fields/output/configureWebpackOutput.cjs": {
+      "types": "./dist/types/configurator/fields/output/configureWebpackOutput.d.ts",
+      "import": "./dist/esm/configurator/fields/output/configureWebpackOutput.mjs",
+      "require": "./dist/cjs/configurator/fields/output/configureWebpackOutput.cjs",
+      "default": "./src/configurator/fields/output/configureWebpackOutput.ts"
+    },
+    "./configurator/fields/output/configureWebpackOutput.d.ts": {
+      "types": "./dist/types/configurator/fields/output/configureWebpackOutput.d.ts",
+      "default": "./src/configurator/fields/output/configureWebpackOutput.ts"
+    },
+    "./configurator/fields/output/configureWebpackOutput.js": {
+      "types": "./dist/types/configurator/fields/output/configureWebpackOutput.d.ts",
+      "import": "./dist/esm/configurator/fields/output/configureWebpackOutput.mjs",
+      "require": "./dist/cjs/configurator/fields/output/configureWebpackOutput.cjs",
+      "default": "./src/configurator/fields/output/configureWebpackOutput.ts"
+    },
+    "./configurator/fields/output/configureWebpackOutput.mjs": {
+      "types": "./dist/types/configurator/fields/output/configureWebpackOutput.d.ts",
+      "import": "./dist/esm/configurator/fields/output/configureWebpackOutput.mjs",
+      "require": "./dist/cjs/configurator/fields/output/configureWebpackOutput.cjs",
+      "default": "./src/configurator/fields/output/configureWebpackOutput.ts"
+    },
+    "./configurator/fields/output/configureWebpackOutput": {
+      "types": "./dist/types/configurator/fields/output/configureWebpackOutput.d.ts",
+      "import": "./dist/esm/configurator/fields/output/configureWebpackOutput.mjs",
+      "require": "./dist/cjs/configurator/fields/output/configureWebpackOutput.cjs",
+      "default": "./src/configurator/fields/output/configureWebpackOutput.ts"
+    },
+    "./configurator/generateConfiguration.cjs": {
+      "types": "./dist/types/configurator/generateConfiguration.d.ts",
+      "import": "./dist/esm/configurator/generateConfiguration.mjs",
+      "require": "./dist/cjs/configurator/generateConfiguration.cjs",
+      "default": "./src/configurator/generateConfiguration.ts"
+    },
+    "./configurator/generateConfiguration.d.ts": {
+      "types": "./dist/types/configurator/generateConfiguration.d.ts",
+      "default": "./src/configurator/generateConfiguration.ts"
+    },
+    "./configurator/generateConfiguration.js": {
+      "types": "./dist/types/configurator/generateConfiguration.d.ts",
+      "import": "./dist/esm/configurator/generateConfiguration.mjs",
+      "require": "./dist/cjs/configurator/generateConfiguration.cjs",
+      "default": "./src/configurator/generateConfiguration.ts"
+    },
+    "./configurator/generateConfiguration.mjs": {
+      "types": "./dist/types/configurator/generateConfiguration.d.ts",
+      "import": "./dist/esm/configurator/generateConfiguration.mjs",
+      "require": "./dist/cjs/configurator/generateConfiguration.cjs",
+      "default": "./src/configurator/generateConfiguration.ts"
+    },
+    "./configurator/generateConfiguration": {
+      "types": "./dist/types/configurator/generateConfiguration.d.ts",
+      "import": "./dist/esm/configurator/generateConfiguration.mjs",
+      "require": "./dist/cjs/configurator/generateConfiguration.cjs",
+      "default": "./src/configurator/generateConfiguration.ts"
+    },
+    "./configurator/options/WebpackConfigurationOptions.cjs": {
+      "types": "./dist/types/configurator/options/WebpackConfigurationOptions.d.ts",
+      "import": "./dist/esm/configurator/options/WebpackConfigurationOptions.mjs",
+      "require": "./dist/cjs/configurator/options/WebpackConfigurationOptions.cjs",
+      "default": "./src/configurator/options/WebpackConfigurationOptions.ts"
+    },
+    "./configurator/options/WebpackConfigurationOptions.d.ts": {
+      "types": "./dist/types/configurator/options/WebpackConfigurationOptions.d.ts",
+      "default": "./src/configurator/options/WebpackConfigurationOptions.ts"
+    },
+    "./configurator/options/WebpackConfigurationOptions.js": {
+      "types": "./dist/types/configurator/options/WebpackConfigurationOptions.d.ts",
+      "import": "./dist/esm/configurator/options/WebpackConfigurationOptions.mjs",
+      "require": "./dist/cjs/configurator/options/WebpackConfigurationOptions.cjs",
+      "default": "./src/configurator/options/WebpackConfigurationOptions.ts"
+    },
+    "./configurator/options/WebpackConfigurationOptions.mjs": {
+      "types": "./dist/types/configurator/options/WebpackConfigurationOptions.d.ts",
+      "import": "./dist/esm/configurator/options/WebpackConfigurationOptions.mjs",
+      "require": "./dist/cjs/configurator/options/WebpackConfigurationOptions.cjs",
+      "default": "./src/configurator/options/WebpackConfigurationOptions.ts"
+    },
+    "./configurator/options/WebpackConfigurationOptions": {
+      "types": "./dist/types/configurator/options/WebpackConfigurationOptions.d.ts",
+      "import": "./dist/esm/configurator/options/WebpackConfigurationOptions.mjs",
+      "require": "./dist/cjs/configurator/options/WebpackConfigurationOptions.cjs",
+      "default": "./src/configurator/options/WebpackConfigurationOptions.ts"
+    },
+    "./configurator/options/WebpackConfigurationResolvedOptions.cjs": {
+      "types": "./dist/types/configurator/options/WebpackConfigurationResolvedOptions.d.ts",
+      "import": "./dist/esm/configurator/options/WebpackConfigurationResolvedOptions.mjs",
+      "require": "./dist/cjs/configurator/options/WebpackConfigurationResolvedOptions.cjs",
+      "default": "./src/configurator/options/WebpackConfigurationResolvedOptions.ts"
+    },
+    "./configurator/options/WebpackConfigurationResolvedOptions.d.ts": {
+      "types": "./dist/types/configurator/options/WebpackConfigurationResolvedOptions.d.ts",
+      "default": "./src/configurator/options/WebpackConfigurationResolvedOptions.ts"
+    },
+    "./configurator/options/WebpackConfigurationResolvedOptions.js": {
+      "types": "./dist/types/configurator/options/WebpackConfigurationResolvedOptions.d.ts",
+      "import": "./dist/esm/configurator/options/WebpackConfigurationResolvedOptions.mjs",
+      "require": "./dist/cjs/configurator/options/WebpackConfigurationResolvedOptions.cjs",
+      "default": "./src/configurator/options/WebpackConfigurationResolvedOptions.ts"
+    },
+    "./configurator/options/WebpackConfigurationResolvedOptions.mjs": {
+      "types": "./dist/types/configurator/options/WebpackConfigurationResolvedOptions.d.ts",
+      "import": "./dist/esm/configurator/options/WebpackConfigurationResolvedOptions.mjs",
+      "require": "./dist/cjs/configurator/options/WebpackConfigurationResolvedOptions.cjs",
+      "default": "./src/configurator/options/WebpackConfigurationResolvedOptions.ts"
+    },
+    "./configurator/options/WebpackConfigurationResolvedOptions": {
+      "types": "./dist/types/configurator/options/WebpackConfigurationResolvedOptions.d.ts",
+      "import": "./dist/esm/configurator/options/WebpackConfigurationResolvedOptions.mjs",
+      "require": "./dist/cjs/configurator/options/WebpackConfigurationResolvedOptions.cjs",
+      "default": "./src/configurator/options/WebpackConfigurationResolvedOptions.ts"
+    },
+    "./configurator/options/resolveWebpackConfigurationOptions.cjs": {
+      "types": "./dist/types/configurator/options/resolveWebpackConfigurationOptions.d.ts",
+      "import": "./dist/esm/configurator/options/resolveWebpackConfigurationOptions.mjs",
+      "require": "./dist/cjs/configurator/options/resolveWebpackConfigurationOptions.cjs",
+      "default": "./src/configurator/options/resolveWebpackConfigurationOptions.ts"
+    },
+    "./configurator/options/resolveWebpackConfigurationOptions.d.ts": {
+      "types": "./dist/types/configurator/options/resolveWebpackConfigurationOptions.d.ts",
+      "default": "./src/configurator/options/resolveWebpackConfigurationOptions.ts"
+    },
+    "./configurator/options/resolveWebpackConfigurationOptions.js": {
+      "types": "./dist/types/configurator/options/resolveWebpackConfigurationOptions.d.ts",
+      "import": "./dist/esm/configurator/options/resolveWebpackConfigurationOptions.mjs",
+      "require": "./dist/cjs/configurator/options/resolveWebpackConfigurationOptions.cjs",
+      "default": "./src/configurator/options/resolveWebpackConfigurationOptions.ts"
+    },
+    "./configurator/options/resolveWebpackConfigurationOptions.mjs": {
+      "types": "./dist/types/configurator/options/resolveWebpackConfigurationOptions.d.ts",
+      "import": "./dist/esm/configurator/options/resolveWebpackConfigurationOptions.mjs",
+      "require": "./dist/cjs/configurator/options/resolveWebpackConfigurationOptions.cjs",
+      "default": "./src/configurator/options/resolveWebpackConfigurationOptions.ts"
+    },
+    "./configurator/options/resolveWebpackConfigurationOptions": {
+      "types": "./dist/types/configurator/options/resolveWebpackConfigurationOptions.d.ts",
+      "import": "./dist/esm/configurator/options/resolveWebpackConfigurationOptions.mjs",
+      "require": "./dist/cjs/configurator/options/resolveWebpackConfigurationOptions.cjs",
+      "default": "./src/configurator/options/resolveWebpackConfigurationOptions.ts"
+    },
+    "./context/WebpackContext.cjs": {
+      "types": "./dist/types/context/WebpackContext.d.ts",
+      "import": "./dist/esm/context/WebpackContext.mjs",
+      "require": "./dist/cjs/context/WebpackContext.cjs",
+      "default": "./src/context/WebpackContext.ts"
+    },
+    "./context/WebpackContext.d.ts": {
+      "types": "./dist/types/context/WebpackContext.d.ts",
+      "default": "./src/context/WebpackContext.ts"
+    },
+    "./context/WebpackContext.js": {
+      "types": "./dist/types/context/WebpackContext.d.ts",
+      "import": "./dist/esm/context/WebpackContext.mjs",
+      "require": "./dist/cjs/context/WebpackContext.cjs",
+      "default": "./src/context/WebpackContext.ts"
+    },
+    "./context/WebpackContext.mjs": {
+      "types": "./dist/types/context/WebpackContext.d.ts",
+      "import": "./dist/esm/context/WebpackContext.mjs",
+      "require": "./dist/cjs/context/WebpackContext.cjs",
+      "default": "./src/context/WebpackContext.ts"
+    },
+    "./context/WebpackContext": {
+      "types": "./dist/types/context/WebpackContext.d.ts",
+      "import": "./dist/esm/context/WebpackContext.mjs",
+      "require": "./dist/cjs/context/WebpackContext.cjs",
+      "default": "./src/context/WebpackContext.ts"
+    },
+    "./context/WebpackEnv.cjs": {
+      "types": "./dist/types/context/WebpackEnv.d.ts",
+      "import": "./dist/esm/context/WebpackEnv.mjs",
+      "require": "./dist/cjs/context/WebpackEnv.cjs",
+      "default": "./src/context/WebpackEnv.ts"
+    },
+    "./context/WebpackEnv.d.ts": {
+      "types": "./dist/types/context/WebpackEnv.d.ts",
+      "default": "./src/context/WebpackEnv.ts"
+    },
+    "./context/WebpackEnv.js": {
+      "types": "./dist/types/context/WebpackEnv.d.ts",
+      "import": "./dist/esm/context/WebpackEnv.mjs",
+      "require": "./dist/cjs/context/WebpackEnv.cjs",
+      "default": "./src/context/WebpackEnv.ts"
+    },
+    "./context/WebpackEnv.mjs": {
+      "types": "./dist/types/context/WebpackEnv.d.ts",
+      "import": "./dist/esm/context/WebpackEnv.mjs",
+      "require": "./dist/cjs/context/WebpackEnv.cjs",
+      "default": "./src/context/WebpackEnv.ts"
+    },
+    "./context/WebpackEnv": {
+      "types": "./dist/types/context/WebpackEnv.d.ts",
+      "import": "./dist/esm/context/WebpackEnv.mjs",
+      "require": "./dist/cjs/context/WebpackEnv.cjs",
+      "default": "./src/context/WebpackEnv.ts"
+    },
+    "./context/WebpackPaths.cjs": {
+      "types": "./dist/types/context/WebpackPaths.d.ts",
+      "import": "./dist/esm/context/WebpackPaths.mjs",
+      "require": "./dist/cjs/context/WebpackPaths.cjs",
+      "default": "./src/context/WebpackPaths.ts"
+    },
+    "./context/WebpackPaths.d.ts": {
+      "types": "./dist/types/context/WebpackPaths.d.ts",
+      "default": "./src/context/WebpackPaths.ts"
+    },
+    "./context/WebpackPaths.js": {
+      "types": "./dist/types/context/WebpackPaths.d.ts",
+      "import": "./dist/esm/context/WebpackPaths.mjs",
+      "require": "./dist/cjs/context/WebpackPaths.cjs",
+      "default": "./src/context/WebpackPaths.ts"
+    },
+    "./context/WebpackPaths.mjs": {
+      "types": "./dist/types/context/WebpackPaths.d.ts",
+      "import": "./dist/esm/context/WebpackPaths.mjs",
+      "require": "./dist/cjs/context/WebpackPaths.cjs",
+      "default": "./src/context/WebpackPaths.ts"
+    },
+    "./context/WebpackPaths": {
+      "types": "./dist/types/context/WebpackPaths.d.ts",
+      "import": "./dist/esm/context/WebpackPaths.mjs",
+      "require": "./dist/cjs/context/WebpackPaths.cjs",
+      "default": "./src/context/WebpackPaths.ts"
+    },
+    "./context/resolver/resolveWebpackContextAsync.cjs": {
+      "types": "./dist/types/context/resolver/resolveWebpackContextAsync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackContextAsync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackContextAsync.cjs",
+      "default": "./src/context/resolver/resolveWebpackContextAsync.ts"
+    },
+    "./context/resolver/resolveWebpackContextAsync.d.ts": {
+      "types": "./dist/types/context/resolver/resolveWebpackContextAsync.d.ts",
+      "default": "./src/context/resolver/resolveWebpackContextAsync.ts"
+    },
+    "./context/resolver/resolveWebpackContextAsync.js": {
+      "types": "./dist/types/context/resolver/resolveWebpackContextAsync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackContextAsync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackContextAsync.cjs",
+      "default": "./src/context/resolver/resolveWebpackContextAsync.ts"
+    },
+    "./context/resolver/resolveWebpackContextAsync.mjs": {
+      "types": "./dist/types/context/resolver/resolveWebpackContextAsync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackContextAsync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackContextAsync.cjs",
+      "default": "./src/context/resolver/resolveWebpackContextAsync.ts"
+    },
+    "./context/resolver/resolveWebpackContextAsync": {
+      "types": "./dist/types/context/resolver/resolveWebpackContextAsync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackContextAsync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackContextAsync.cjs",
+      "default": "./src/context/resolver/resolveWebpackContextAsync.ts"
+    },
+    "./context/resolver/resolveWebpackContextSync.cjs": {
+      "types": "./dist/types/context/resolver/resolveWebpackContextSync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackContextSync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackContextSync.cjs",
+      "default": "./src/context/resolver/resolveWebpackContextSync.ts"
+    },
+    "./context/resolver/resolveWebpackContextSync.d.ts": {
+      "types": "./dist/types/context/resolver/resolveWebpackContextSync.d.ts",
+      "default": "./src/context/resolver/resolveWebpackContextSync.ts"
+    },
+    "./context/resolver/resolveWebpackContextSync.js": {
+      "types": "./dist/types/context/resolver/resolveWebpackContextSync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackContextSync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackContextSync.cjs",
+      "default": "./src/context/resolver/resolveWebpackContextSync.ts"
+    },
+    "./context/resolver/resolveWebpackContextSync.mjs": {
+      "types": "./dist/types/context/resolver/resolveWebpackContextSync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackContextSync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackContextSync.cjs",
+      "default": "./src/context/resolver/resolveWebpackContextSync.ts"
+    },
+    "./context/resolver/resolveWebpackContextSync": {
+      "types": "./dist/types/context/resolver/resolveWebpackContextSync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackContextSync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackContextSync.cjs",
+      "default": "./src/context/resolver/resolveWebpackContextSync.ts"
+    },
+    "./context/resolver/resolveWebpackEnv.cjs": {
+      "types": "./dist/types/context/resolver/resolveWebpackEnv.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackEnv.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackEnv.cjs",
+      "default": "./src/context/resolver/resolveWebpackEnv.ts"
+    },
+    "./context/resolver/resolveWebpackEnv.d.ts": {
+      "types": "./dist/types/context/resolver/resolveWebpackEnv.d.ts",
+      "default": "./src/context/resolver/resolveWebpackEnv.ts"
+    },
+    "./context/resolver/resolveWebpackEnv.js": {
+      "types": "./dist/types/context/resolver/resolveWebpackEnv.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackEnv.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackEnv.cjs",
+      "default": "./src/context/resolver/resolveWebpackEnv.ts"
+    },
+    "./context/resolver/resolveWebpackEnv.mjs": {
+      "types": "./dist/types/context/resolver/resolveWebpackEnv.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackEnv.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackEnv.cjs",
+      "default": "./src/context/resolver/resolveWebpackEnv.ts"
+    },
+    "./context/resolver/resolveWebpackEnv": {
+      "types": "./dist/types/context/resolver/resolveWebpackEnv.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackEnv.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackEnv.cjs",
+      "default": "./src/context/resolver/resolveWebpackEnv.ts"
+    },
+    "./context/resolver/resolveWebpackPaths.cjs": {
+      "types": "./dist/types/context/resolver/resolveWebpackPaths.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackPaths.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackPaths.cjs",
+      "default": "./src/context/resolver/resolveWebpackPaths.ts"
+    },
+    "./context/resolver/resolveWebpackPaths.d.ts": {
+      "types": "./dist/types/context/resolver/resolveWebpackPaths.d.ts",
+      "default": "./src/context/resolver/resolveWebpackPaths.ts"
+    },
+    "./context/resolver/resolveWebpackPaths.js": {
+      "types": "./dist/types/context/resolver/resolveWebpackPaths.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackPaths.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackPaths.cjs",
+      "default": "./src/context/resolver/resolveWebpackPaths.ts"
+    },
+    "./context/resolver/resolveWebpackPaths.mjs": {
+      "types": "./dist/types/context/resolver/resolveWebpackPaths.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackPaths.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackPaths.cjs",
+      "default": "./src/context/resolver/resolveWebpackPaths.ts"
+    },
+    "./context/resolver/resolveWebpackPaths": {
+      "types": "./dist/types/context/resolver/resolveWebpackPaths.d.ts",
+      "import": "./dist/esm/context/resolver/resolveWebpackPaths.mjs",
+      "require": "./dist/cjs/context/resolver/resolveWebpackPaths.cjs",
+      "default": "./src/context/resolver/resolveWebpackPaths.ts"
+    },
+    "./extension/INTEGRATION_UID_WEBPACK.cjs": {
+      "types": "./dist/types/extension/INTEGRATION_UID_WEBPACK.d.ts",
+      "import": "./dist/esm/extension/INTEGRATION_UID_WEBPACK.mjs",
+      "require": "./dist/cjs/extension/INTEGRATION_UID_WEBPACK.cjs",
+      "default": "./src/extension/INTEGRATION_UID_WEBPACK.ts"
+    },
+    "./extension/INTEGRATION_UID_WEBPACK.d.ts": {
+      "types": "./dist/types/extension/INTEGRATION_UID_WEBPACK.d.ts",
+      "default": "./src/extension/INTEGRATION_UID_WEBPACK.ts"
+    },
+    "./extension/INTEGRATION_UID_WEBPACK.js": {
+      "types": "./dist/types/extension/INTEGRATION_UID_WEBPACK.d.ts",
+      "import": "./dist/esm/extension/INTEGRATION_UID_WEBPACK.mjs",
+      "require": "./dist/cjs/extension/INTEGRATION_UID_WEBPACK.cjs",
+      "default": "./src/extension/INTEGRATION_UID_WEBPACK.ts"
+    },
+    "./extension/INTEGRATION_UID_WEBPACK.mjs": {
+      "types": "./dist/types/extension/INTEGRATION_UID_WEBPACK.d.ts",
+      "import": "./dist/esm/extension/INTEGRATION_UID_WEBPACK.mjs",
+      "require": "./dist/cjs/extension/INTEGRATION_UID_WEBPACK.cjs",
+      "default": "./src/extension/INTEGRATION_UID_WEBPACK.ts"
+    },
+    "./extension/INTEGRATION_UID_WEBPACK": {
+      "types": "./dist/types/extension/INTEGRATION_UID_WEBPACK.d.ts",
+      "import": "./dist/esm/extension/INTEGRATION_UID_WEBPACK.mjs",
+      "require": "./dist/cjs/extension/INTEGRATION_UID_WEBPACK.cjs",
+      "default": "./src/extension/INTEGRATION_UID_WEBPACK.ts"
+    },
+    "./extension/WebpackIntegration.cjs": {
+      "types": "./dist/types/extension/WebpackIntegration.d.ts",
+      "import": "./dist/esm/extension/WebpackIntegration.mjs",
+      "require": "./dist/cjs/extension/WebpackIntegration.cjs",
+      "default": "./src/extension/WebpackIntegration.ts"
+    },
+    "./extension/WebpackIntegration.d.ts": {
+      "types": "./dist/types/extension/WebpackIntegration.d.ts",
+      "default": "./src/extension/WebpackIntegration.ts"
+    },
+    "./extension/WebpackIntegration.js": {
+      "types": "./dist/types/extension/WebpackIntegration.d.ts",
+      "import": "./dist/esm/extension/WebpackIntegration.mjs",
+      "require": "./dist/cjs/extension/WebpackIntegration.cjs",
+      "default": "./src/extension/WebpackIntegration.ts"
+    },
+    "./extension/WebpackIntegration.mjs": {
+      "types": "./dist/types/extension/WebpackIntegration.d.ts",
+      "import": "./dist/esm/extension/WebpackIntegration.mjs",
+      "require": "./dist/cjs/extension/WebpackIntegration.cjs",
+      "default": "./src/extension/WebpackIntegration.ts"
+    },
+    "./extension/WebpackIntegrationFacets.cjs": {
+      "types": "./dist/types/extension/WebpackIntegrationFacets.d.ts",
+      "import": "./dist/esm/extension/WebpackIntegrationFacets.mjs",
+      "require": "./dist/cjs/extension/WebpackIntegrationFacets.cjs",
+      "default": "./src/extension/WebpackIntegrationFacets.ts"
+    },
+    "./extension/WebpackIntegrationFacets.d.ts": {
+      "types": "./dist/types/extension/WebpackIntegrationFacets.d.ts",
+      "default": "./src/extension/WebpackIntegrationFacets.ts"
+    },
+    "./extension/WebpackIntegrationFacets.js": {
+      "types": "./dist/types/extension/WebpackIntegrationFacets.d.ts",
+      "import": "./dist/esm/extension/WebpackIntegrationFacets.mjs",
+      "require": "./dist/cjs/extension/WebpackIntegrationFacets.cjs",
+      "default": "./src/extension/WebpackIntegrationFacets.ts"
+    },
+    "./extension/WebpackIntegrationFacets.mjs": {
+      "types": "./dist/types/extension/WebpackIntegrationFacets.d.ts",
+      "import": "./dist/esm/extension/WebpackIntegrationFacets.mjs",
+      "require": "./dist/cjs/extension/WebpackIntegrationFacets.cjs",
+      "default": "./src/extension/WebpackIntegrationFacets.ts"
+    },
+    "./extension/WebpackIntegrationFacets": {
+      "types": "./dist/types/extension/WebpackIntegrationFacets.d.ts",
+      "import": "./dist/esm/extension/WebpackIntegrationFacets.mjs",
+      "require": "./dist/cjs/extension/WebpackIntegrationFacets.cjs",
+      "default": "./src/extension/WebpackIntegrationFacets.ts"
+    },
+    "./extension/WebpackIntegration": {
+      "types": "./dist/types/extension/WebpackIntegration.d.ts",
+      "import": "./dist/esm/extension/WebpackIntegration.mjs",
+      "require": "./dist/cjs/extension/WebpackIntegration.cjs",
+      "default": "./src/extension/WebpackIntegration.ts"
+    },
+    "./extension/createWebpackIntegration.cjs": {
+      "types": "./dist/types/extension/createWebpackIntegration.d.ts",
+      "import": "./dist/esm/extension/createWebpackIntegration.mjs",
+      "require": "./dist/cjs/extension/createWebpackIntegration.cjs",
+      "default": "./src/extension/createWebpackIntegration.ts"
+    },
+    "./extension/createWebpackIntegration.d.ts": {
+      "types": "./dist/types/extension/createWebpackIntegration.d.ts",
+      "default": "./src/extension/createWebpackIntegration.ts"
+    },
+    "./extension/createWebpackIntegration.js": {
+      "types": "./dist/types/extension/createWebpackIntegration.d.ts",
+      "import": "./dist/esm/extension/createWebpackIntegration.mjs",
+      "require": "./dist/cjs/extension/createWebpackIntegration.cjs",
+      "default": "./src/extension/createWebpackIntegration.ts"
+    },
+    "./extension/createWebpackIntegration.mjs": {
+      "types": "./dist/types/extension/createWebpackIntegration.d.ts",
+      "import": "./dist/esm/extension/createWebpackIntegration.mjs",
+      "require": "./dist/cjs/extension/createWebpackIntegration.cjs",
+      "default": "./src/extension/createWebpackIntegration.ts"
+    },
+    "./extension/createWebpackIntegration": {
+      "types": "./dist/types/extension/createWebpackIntegration.d.ts",
+      "import": "./dist/esm/extension/createWebpackIntegration.mjs",
+      "require": "./dist/cjs/extension/createWebpackIntegration.cjs",
+      "default": "./src/extension/createWebpackIntegration.ts"
+    },
+    "./extension/facets/WebpackConfiguratorFacet.cjs": {
+      "types": "./dist/types/extension/facets/WebpackConfiguratorFacet.d.ts",
+      "import": "./dist/esm/extension/facets/WebpackConfiguratorFacet.mjs",
+      "require": "./dist/cjs/extension/facets/WebpackConfiguratorFacet.cjs",
+      "default": "./src/extension/facets/WebpackConfiguratorFacet.ts"
+    },
+    "./extension/facets/WebpackConfiguratorFacet.d.ts": {
+      "types": "./dist/types/extension/facets/WebpackConfiguratorFacet.d.ts",
+      "default": "./src/extension/facets/WebpackConfiguratorFacet.ts"
+    },
+    "./extension/facets/WebpackConfiguratorFacet.js": {
+      "types": "./dist/types/extension/facets/WebpackConfiguratorFacet.d.ts",
+      "import": "./dist/esm/extension/facets/WebpackConfiguratorFacet.mjs",
+      "require": "./dist/cjs/extension/facets/WebpackConfiguratorFacet.cjs",
+      "default": "./src/extension/facets/WebpackConfiguratorFacet.ts"
+    },
+    "./extension/facets/WebpackConfiguratorFacet.mjs": {
+      "types": "./dist/types/extension/facets/WebpackConfiguratorFacet.d.ts",
+      "import": "./dist/esm/extension/facets/WebpackConfiguratorFacet.mjs",
+      "require": "./dist/cjs/extension/facets/WebpackConfiguratorFacet.cjs",
+      "default": "./src/extension/facets/WebpackConfiguratorFacet.ts"
+    },
+    "./extension/facets/WebpackConfiguratorFacet": {
+      "types": "./dist/types/extension/facets/WebpackConfiguratorFacet.d.ts",
+      "import": "./dist/esm/extension/facets/WebpackConfiguratorFacet.mjs",
+      "require": "./dist/cjs/extension/facets/WebpackConfiguratorFacet.cjs",
+      "default": "./src/extension/facets/WebpackConfiguratorFacet.ts"
+    },
+    "./hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.cjs": {
+      "types": "./dist/types/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.d.ts",
+      "import": "./dist/esm/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.mjs",
+      "require": "./dist/cjs/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.cjs",
+      "default": "./src/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.ts"
+    },
+    "./hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.d.ts": {
+      "types": "./dist/types/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.d.ts",
+      "default": "./src/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.ts"
+    },
+    "./hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.js": {
+      "types": "./dist/types/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.d.ts",
+      "import": "./dist/esm/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.mjs",
+      "require": "./dist/cjs/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.cjs",
+      "default": "./src/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.ts"
+    },
+    "./hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.mjs": {
+      "types": "./dist/types/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.d.ts",
+      "import": "./dist/esm/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.mjs",
+      "require": "./dist/cjs/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.cjs",
+      "default": "./src/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.ts"
+    },
+    "./hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK": {
+      "types": "./dist/types/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.d.ts",
+      "import": "./dist/esm/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.mjs",
+      "require": "./dist/cjs/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.cjs",
+      "default": "./src/hook/constants/UID_PREFIX_WEBPACK_INTEGRATION_HOOK.ts"
+    },
+    "./hooks/generate-configuration/GenerateConfigurationHookAsync.cjs": {
+      "types": "./dist/types/hooks/generate-configuration/GenerateConfigurationHookAsync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/GenerateConfigurationHookAsync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/GenerateConfigurationHookAsync.cjs",
+      "default": "./src/hooks/generate-configuration/GenerateConfigurationHookAsync.ts"
+    },
+    "./hooks/generate-configuration/GenerateConfigurationHookAsync.d.ts": {
+      "types": "./dist/types/hooks/generate-configuration/GenerateConfigurationHookAsync.d.ts",
+      "default": "./src/hooks/generate-configuration/GenerateConfigurationHookAsync.ts"
+    },
+    "./hooks/generate-configuration/GenerateConfigurationHookAsync.js": {
+      "types": "./dist/types/hooks/generate-configuration/GenerateConfigurationHookAsync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/GenerateConfigurationHookAsync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/GenerateConfigurationHookAsync.cjs",
+      "default": "./src/hooks/generate-configuration/GenerateConfigurationHookAsync.ts"
+    },
+    "./hooks/generate-configuration/GenerateConfigurationHookAsync.mjs": {
+      "types": "./dist/types/hooks/generate-configuration/GenerateConfigurationHookAsync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/GenerateConfigurationHookAsync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/GenerateConfigurationHookAsync.cjs",
+      "default": "./src/hooks/generate-configuration/GenerateConfigurationHookAsync.ts"
+    },
+    "./hooks/generate-configuration/GenerateConfigurationHookAsync": {
+      "types": "./dist/types/hooks/generate-configuration/GenerateConfigurationHookAsync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/GenerateConfigurationHookAsync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/GenerateConfigurationHookAsync.cjs",
+      "default": "./src/hooks/generate-configuration/GenerateConfigurationHookAsync.ts"
+    },
+    "./hooks/generate-configuration/GenerateConfigurationHookSync.cjs": {
+      "types": "./dist/types/hooks/generate-configuration/GenerateConfigurationHookSync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/GenerateConfigurationHookSync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/GenerateConfigurationHookSync.cjs",
+      "default": "./src/hooks/generate-configuration/GenerateConfigurationHookSync.ts"
+    },
+    "./hooks/generate-configuration/GenerateConfigurationHookSync.d.ts": {
+      "types": "./dist/types/hooks/generate-configuration/GenerateConfigurationHookSync.d.ts",
+      "default": "./src/hooks/generate-configuration/GenerateConfigurationHookSync.ts"
+    },
+    "./hooks/generate-configuration/GenerateConfigurationHookSync.js": {
+      "types": "./dist/types/hooks/generate-configuration/GenerateConfigurationHookSync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/GenerateConfigurationHookSync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/GenerateConfigurationHookSync.cjs",
+      "default": "./src/hooks/generate-configuration/GenerateConfigurationHookSync.ts"
+    },
+    "./hooks/generate-configuration/GenerateConfigurationHookSync.mjs": {
+      "types": "./dist/types/hooks/generate-configuration/GenerateConfigurationHookSync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/GenerateConfigurationHookSync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/GenerateConfigurationHookSync.cjs",
+      "default": "./src/hooks/generate-configuration/GenerateConfigurationHookSync.ts"
+    },
+    "./hooks/generate-configuration/GenerateConfigurationHookSync": {
+      "types": "./dist/types/hooks/generate-configuration/GenerateConfigurationHookSync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/GenerateConfigurationHookSync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/GenerateConfigurationHookSync.cjs",
+      "default": "./src/hooks/generate-configuration/GenerateConfigurationHookSync.ts"
+    },
+    "./hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.cjs": {
+      "types": "./dist/types/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.cjs",
+      "default": "./src/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.ts"
+    },
+    "./hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.d.ts": {
+      "types": "./dist/types/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.d.ts",
+      "default": "./src/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.ts"
+    },
+    "./hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.js": {
+      "types": "./dist/types/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.cjs",
+      "default": "./src/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.ts"
+    },
+    "./hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.mjs": {
+      "types": "./dist/types/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.cjs",
+      "default": "./src/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.ts"
+    },
+    "./hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC": {
+      "types": "./dist/types/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.cjs",
+      "default": "./src/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_ASYNC.ts"
+    },
+    "./hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.cjs": {
+      "types": "./dist/types/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.cjs",
+      "default": "./src/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.ts"
+    },
+    "./hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.d.ts": {
+      "types": "./dist/types/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.d.ts",
+      "default": "./src/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.ts"
+    },
+    "./hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.js": {
+      "types": "./dist/types/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.cjs",
+      "default": "./src/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.ts"
+    },
+    "./hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.mjs": {
+      "types": "./dist/types/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.cjs",
+      "default": "./src/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.ts"
+    },
+    "./hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC": {
+      "types": "./dist/types/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.cjs",
+      "default": "./src/hooks/generate-configuration/WEBPACK_INTEGRATION_HOOK_UID_GENERATE_CONFIGURATION_SYNC.ts"
+    },
+    "./hooks/generate-configuration/createGenerateConfigurationHookAsync.cjs": {
+      "types": "./dist/types/hooks/generate-configuration/createGenerateConfigurationHookAsync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/createGenerateConfigurationHookAsync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/createGenerateConfigurationHookAsync.cjs",
+      "default": "./src/hooks/generate-configuration/createGenerateConfigurationHookAsync.ts"
+    },
+    "./hooks/generate-configuration/createGenerateConfigurationHookAsync.d.ts": {
+      "types": "./dist/types/hooks/generate-configuration/createGenerateConfigurationHookAsync.d.ts",
+      "default": "./src/hooks/generate-configuration/createGenerateConfigurationHookAsync.ts"
+    },
+    "./hooks/generate-configuration/createGenerateConfigurationHookAsync.js": {
+      "types": "./dist/types/hooks/generate-configuration/createGenerateConfigurationHookAsync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/createGenerateConfigurationHookAsync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/createGenerateConfigurationHookAsync.cjs",
+      "default": "./src/hooks/generate-configuration/createGenerateConfigurationHookAsync.ts"
+    },
+    "./hooks/generate-configuration/createGenerateConfigurationHookAsync.mjs": {
+      "types": "./dist/types/hooks/generate-configuration/createGenerateConfigurationHookAsync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/createGenerateConfigurationHookAsync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/createGenerateConfigurationHookAsync.cjs",
+      "default": "./src/hooks/generate-configuration/createGenerateConfigurationHookAsync.ts"
+    },
+    "./hooks/generate-configuration/createGenerateConfigurationHookAsync": {
+      "types": "./dist/types/hooks/generate-configuration/createGenerateConfigurationHookAsync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/createGenerateConfigurationHookAsync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/createGenerateConfigurationHookAsync.cjs",
+      "default": "./src/hooks/generate-configuration/createGenerateConfigurationHookAsync.ts"
+    },
+    "./hooks/generate-configuration/createGenerateConfigurationHookSync.cjs": {
+      "types": "./dist/types/hooks/generate-configuration/createGenerateConfigurationHookSync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/createGenerateConfigurationHookSync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/createGenerateConfigurationHookSync.cjs",
+      "default": "./src/hooks/generate-configuration/createGenerateConfigurationHookSync.ts"
+    },
+    "./hooks/generate-configuration/createGenerateConfigurationHookSync.d.ts": {
+      "types": "./dist/types/hooks/generate-configuration/createGenerateConfigurationHookSync.d.ts",
+      "default": "./src/hooks/generate-configuration/createGenerateConfigurationHookSync.ts"
+    },
+    "./hooks/generate-configuration/createGenerateConfigurationHookSync.js": {
+      "types": "./dist/types/hooks/generate-configuration/createGenerateConfigurationHookSync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/createGenerateConfigurationHookSync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/createGenerateConfigurationHookSync.cjs",
+      "default": "./src/hooks/generate-configuration/createGenerateConfigurationHookSync.ts"
+    },
+    "./hooks/generate-configuration/createGenerateConfigurationHookSync.mjs": {
+      "types": "./dist/types/hooks/generate-configuration/createGenerateConfigurationHookSync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/createGenerateConfigurationHookSync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/createGenerateConfigurationHookSync.cjs",
+      "default": "./src/hooks/generate-configuration/createGenerateConfigurationHookSync.ts"
+    },
+    "./hooks/generate-configuration/createGenerateConfigurationHookSync": {
+      "types": "./dist/types/hooks/generate-configuration/createGenerateConfigurationHookSync.d.ts",
+      "import": "./dist/esm/hooks/generate-configuration/createGenerateConfigurationHookSync.mjs",
+      "require": "./dist/cjs/hooks/generate-configuration/createGenerateConfigurationHookSync.cjs",
+      "default": "./src/hooks/generate-configuration/createGenerateConfigurationHookSync.ts"
     },
     "./index.cjs": {
       "types": "./dist/types/index.d.ts",
@@ -713,213 +817,89 @@
       "require": "./dist/cjs/index.cjs",
       "default": "./src/index.ts"
     },
-    "./integration/index.cjs": {
-      "types": "./dist/types/integration/index.d.ts",
-      "import": "./dist/esm/integration/index.mjs",
-      "require": "./dist/cjs/integration/index.cjs",
-      "default": "./src/integration/index.ts"
+    "./options/WebpackIntegrationOptions.cjs": {
+      "types": "./dist/types/options/WebpackIntegrationOptions.d.ts",
+      "import": "./dist/esm/options/WebpackIntegrationOptions.mjs",
+      "require": "./dist/cjs/options/WebpackIntegrationOptions.cjs",
+      "default": "./src/options/WebpackIntegrationOptions.ts"
     },
-    "./integration/index.d.ts": {
-      "types": "./dist/types/integration/index.d.ts",
-      "default": "./src/integration/index.ts"
+    "./options/WebpackIntegrationOptions.d.ts": {
+      "types": "./dist/types/options/WebpackIntegrationOptions.d.ts",
+      "default": "./src/options/WebpackIntegrationOptions.ts"
     },
-    "./integration/index.js": {
-      "types": "./dist/types/integration/index.d.ts",
-      "import": "./dist/esm/integration/index.mjs",
-      "require": "./dist/cjs/integration/index.cjs",
-      "default": "./src/integration/index.ts"
+    "./options/WebpackIntegrationOptions.js": {
+      "types": "./dist/types/options/WebpackIntegrationOptions.d.ts",
+      "import": "./dist/esm/options/WebpackIntegrationOptions.mjs",
+      "require": "./dist/cjs/options/WebpackIntegrationOptions.cjs",
+      "default": "./src/options/WebpackIntegrationOptions.ts"
     },
-    "./integration/index.mjs": {
-      "types": "./dist/types/integration/index.d.ts",
-      "import": "./dist/esm/integration/index.mjs",
-      "require": "./dist/cjs/integration/index.cjs",
-      "default": "./src/integration/index.ts"
+    "./options/WebpackIntegrationOptions.mjs": {
+      "types": "./dist/types/options/WebpackIntegrationOptions.d.ts",
+      "import": "./dist/esm/options/WebpackIntegrationOptions.mjs",
+      "require": "./dist/cjs/options/WebpackIntegrationOptions.cjs",
+      "default": "./src/options/WebpackIntegrationOptions.ts"
     },
-    "./integration/index": {
-      "types": "./dist/types/integration/index.d.ts",
-      "import": "./dist/esm/integration/index.mjs",
-      "require": "./dist/cjs/integration/index.cjs",
-      "default": "./src/integration/index.ts"
+    "./options/WebpackIntegrationOptions": {
+      "types": "./dist/types/options/WebpackIntegrationOptions.d.ts",
+      "import": "./dist/esm/options/WebpackIntegrationOptions.mjs",
+      "require": "./dist/cjs/options/WebpackIntegrationOptions.cjs",
+      "default": "./src/options/WebpackIntegrationOptions.ts"
     },
-    "./integration/integration-api.cjs": {
-      "types": "./dist/types/integration/integration-api.d.ts",
-      "import": "./dist/esm/integration/integration-api.mjs",
-      "require": "./dist/cjs/integration/integration-api.cjs",
-      "default": "./src/integration/integration-api.ts"
+    "./options/WebpackIntegrationResolvedOptions.cjs": {
+      "types": "./dist/types/options/WebpackIntegrationResolvedOptions.d.ts",
+      "import": "./dist/esm/options/WebpackIntegrationResolvedOptions.mjs",
+      "require": "./dist/cjs/options/WebpackIntegrationResolvedOptions.cjs",
+      "default": "./src/options/WebpackIntegrationResolvedOptions.ts"
     },
-    "./integration/integration-api.d.ts": {
-      "types": "./dist/types/integration/integration-api.d.ts",
-      "default": "./src/integration/integration-api.ts"
+    "./options/WebpackIntegrationResolvedOptions.d.ts": {
+      "types": "./dist/types/options/WebpackIntegrationResolvedOptions.d.ts",
+      "default": "./src/options/WebpackIntegrationResolvedOptions.ts"
     },
-    "./integration/integration-api.js": {
-      "types": "./dist/types/integration/integration-api.d.ts",
-      "import": "./dist/esm/integration/integration-api.mjs",
-      "require": "./dist/cjs/integration/integration-api.cjs",
-      "default": "./src/integration/integration-api.ts"
+    "./options/WebpackIntegrationResolvedOptions.js": {
+      "types": "./dist/types/options/WebpackIntegrationResolvedOptions.d.ts",
+      "import": "./dist/esm/options/WebpackIntegrationResolvedOptions.mjs",
+      "require": "./dist/cjs/options/WebpackIntegrationResolvedOptions.cjs",
+      "default": "./src/options/WebpackIntegrationResolvedOptions.ts"
     },
-    "./integration/integration-api.mjs": {
-      "types": "./dist/types/integration/integration-api.d.ts",
-      "import": "./dist/esm/integration/integration-api.mjs",
-      "require": "./dist/cjs/integration/integration-api.cjs",
-      "default": "./src/integration/integration-api.ts"
+    "./options/WebpackIntegrationResolvedOptions.mjs": {
+      "types": "./dist/types/options/WebpackIntegrationResolvedOptions.d.ts",
+      "import": "./dist/esm/options/WebpackIntegrationResolvedOptions.mjs",
+      "require": "./dist/cjs/options/WebpackIntegrationResolvedOptions.cjs",
+      "default": "./src/options/WebpackIntegrationResolvedOptions.ts"
     },
-    "./integration/integration-api": {
-      "types": "./dist/types/integration/integration-api.d.ts",
-      "import": "./dist/esm/integration/integration-api.mjs",
-      "require": "./dist/cjs/integration/integration-api.cjs",
-      "default": "./src/integration/integration-api.ts"
+    "./options/WebpackIntegrationResolvedOptions": {
+      "types": "./dist/types/options/WebpackIntegrationResolvedOptions.d.ts",
+      "import": "./dist/esm/options/WebpackIntegrationResolvedOptions.mjs",
+      "require": "./dist/cjs/options/WebpackIntegrationResolvedOptions.cjs",
+      "default": "./src/options/WebpackIntegrationResolvedOptions.ts"
     },
-    "./integration/integration-name.cjs": {
-      "types": "./dist/types/integration/integration-name.d.ts",
-      "import": "./dist/esm/integration/integration-name.mjs",
-      "require": "./dist/cjs/integration/integration-name.cjs",
-      "default": "./src/integration/integration-name.ts"
+    "./options/resolveWebpackIntegrationOptions.cjs": {
+      "types": "./dist/types/options/resolveWebpackIntegrationOptions.d.ts",
+      "import": "./dist/esm/options/resolveWebpackIntegrationOptions.mjs",
+      "require": "./dist/cjs/options/resolveWebpackIntegrationOptions.cjs",
+      "default": "./src/options/resolveWebpackIntegrationOptions.ts"
     },
-    "./integration/integration-name.d.ts": {
-      "types": "./dist/types/integration/integration-name.d.ts",
-      "default": "./src/integration/integration-name.ts"
+    "./options/resolveWebpackIntegrationOptions.d.ts": {
+      "types": "./dist/types/options/resolveWebpackIntegrationOptions.d.ts",
+      "default": "./src/options/resolveWebpackIntegrationOptions.ts"
     },
-    "./integration/integration-name.js": {
-      "types": "./dist/types/integration/integration-name.d.ts",
-      "import": "./dist/esm/integration/integration-name.mjs",
-      "require": "./dist/cjs/integration/integration-name.cjs",
-      "default": "./src/integration/integration-name.ts"
+    "./options/resolveWebpackIntegrationOptions.js": {
+      "types": "./dist/types/options/resolveWebpackIntegrationOptions.d.ts",
+      "import": "./dist/esm/options/resolveWebpackIntegrationOptions.mjs",
+      "require": "./dist/cjs/options/resolveWebpackIntegrationOptions.cjs",
+      "default": "./src/options/resolveWebpackIntegrationOptions.ts"
     },
-    "./integration/integration-name.mjs": {
-      "types": "./dist/types/integration/integration-name.d.ts",
-      "import": "./dist/esm/integration/integration-name.mjs",
-      "require": "./dist/cjs/integration/integration-name.cjs",
-      "default": "./src/integration/integration-name.ts"
+    "./options/resolveWebpackIntegrationOptions.mjs": {
+      "types": "./dist/types/options/resolveWebpackIntegrationOptions.d.ts",
+      "import": "./dist/esm/options/resolveWebpackIntegrationOptions.mjs",
+      "require": "./dist/cjs/options/resolveWebpackIntegrationOptions.cjs",
+      "default": "./src/options/resolveWebpackIntegrationOptions.ts"
     },
-    "./integration/integration-name": {
-      "types": "./dist/types/integration/integration-name.d.ts",
-      "import": "./dist/esm/integration/integration-name.mjs",
-      "require": "./dist/cjs/integration/integration-name.cjs",
-      "default": "./src/integration/integration-name.ts"
-    },
-    "./integration/integration-options.cjs": {
-      "types": "./dist/types/integration/integration-options.d.ts",
-      "import": "./dist/esm/integration/integration-options.mjs",
-      "require": "./dist/cjs/integration/integration-options.cjs",
-      "default": "./src/integration/integration-options.ts"
-    },
-    "./integration/integration-options.d.ts": {
-      "types": "./dist/types/integration/integration-options.d.ts",
-      "default": "./src/integration/integration-options.ts"
-    },
-    "./integration/integration-options.js": {
-      "types": "./dist/types/integration/integration-options.d.ts",
-      "import": "./dist/esm/integration/integration-options.mjs",
-      "require": "./dist/cjs/integration/integration-options.cjs",
-      "default": "./src/integration/integration-options.ts"
-    },
-    "./integration/integration-options.mjs": {
-      "types": "./dist/types/integration/integration-options.d.ts",
-      "import": "./dist/esm/integration/integration-options.mjs",
-      "require": "./dist/cjs/integration/integration-options.cjs",
-      "default": "./src/integration/integration-options.ts"
-    },
-    "./integration/integration-options": {
-      "types": "./dist/types/integration/integration-options.d.ts",
-      "import": "./dist/esm/integration/integration-options.mjs",
-      "require": "./dist/cjs/integration/integration-options.cjs",
-      "default": "./src/integration/integration-options.ts"
-    },
-    "./integration/integration.cjs": {
-      "types": "./dist/types/integration/integration.d.ts",
-      "import": "./dist/esm/integration/integration.mjs",
-      "require": "./dist/cjs/integration/integration.cjs",
-      "default": "./src/integration/integration.ts"
-    },
-    "./integration/integration.d.ts": {
-      "types": "./dist/types/integration/integration.d.ts",
-      "default": "./src/integration/integration.ts"
-    },
-    "./integration/integration.js": {
-      "types": "./dist/types/integration/integration.d.ts",
-      "import": "./dist/esm/integration/integration.mjs",
-      "require": "./dist/cjs/integration/integration.cjs",
-      "default": "./src/integration/integration.ts"
-    },
-    "./integration/integration.mjs": {
-      "types": "./dist/types/integration/integration.d.ts",
-      "import": "./dist/esm/integration/integration.mjs",
-      "require": "./dist/cjs/integration/integration.cjs",
-      "default": "./src/integration/integration.ts"
-    },
-    "./integration/integration": {
-      "types": "./dist/types/integration/integration.d.ts",
-      "import": "./dist/esm/integration/integration.mjs",
-      "require": "./dist/cjs/integration/integration.cjs",
-      "default": "./src/integration/integration.ts"
-    },
-    "./integration/module-augmentation/context.cjs": {
-      "types": "./dist/types/integration/module-augmentation/context.d.ts",
-      "import": "./dist/esm/integration/module-augmentation/context.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/context.cjs",
-      "default": "./src/integration/module-augmentation/context.ts"
-    },
-    "./integration/module-augmentation/context.d.ts": {
-      "types": "./dist/types/integration/module-augmentation/context.d.ts",
-      "default": "./src/integration/module-augmentation/context.ts"
-    },
-    "./integration/module-augmentation/context.js": {
-      "types": "./dist/types/integration/module-augmentation/context.d.ts",
-      "import": "./dist/esm/integration/module-augmentation/context.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/context.cjs",
-      "default": "./src/integration/module-augmentation/context.ts"
-    },
-    "./integration/module-augmentation/context.mjs": {
-      "types": "./dist/types/integration/module-augmentation/context.d.ts",
-      "import": "./dist/esm/integration/module-augmentation/context.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/context.cjs",
-      "default": "./src/integration/module-augmentation/context.ts"
-    },
-    "./integration/module-augmentation/context": {
-      "types": "./dist/types/integration/module-augmentation/context.d.ts",
-      "import": "./dist/esm/integration/module-augmentation/context.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/context.cjs",
-      "default": "./src/integration/module-augmentation/context.ts"
-    },
-    "./integration/module-augmentation/index.cjs": {
-      "types": "./dist/types/integration/module-augmentation/index.d.ts",
-      "import": "./dist/esm/integration/module-augmentation/index.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/index.cjs",
-      "default": "./src/integration/module-augmentation/index.ts"
-    },
-    "./integration/module-augmentation/index.d.ts": {
-      "types": "./dist/types/integration/module-augmentation/index.d.ts",
-      "default": "./src/integration/module-augmentation/index.ts"
-    },
-    "./integration/module-augmentation/index.js": {
-      "types": "./dist/types/integration/module-augmentation/index.d.ts",
-      "import": "./dist/esm/integration/module-augmentation/index.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/index.cjs",
-      "default": "./src/integration/module-augmentation/index.ts"
-    },
-    "./integration/module-augmentation/index.mjs": {
-      "types": "./dist/types/integration/module-augmentation/index.d.ts",
-      "import": "./dist/esm/integration/module-augmentation/index.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/index.cjs",
-      "default": "./src/integration/module-augmentation/index.ts"
-    },
-    "./integration/module-augmentation/index": {
-      "types": "./dist/types/integration/module-augmentation/index.d.ts",
-      "import": "./dist/esm/integration/module-augmentation/index.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/index.cjs",
-      "default": "./src/integration/module-augmentation/index.ts"
-    },
-    "./integration/module-augmentation": {
-      "types": "./dist/types/integration/module-augmentation/index.d.ts",
-      "import": "./dist/esm/integration/module-augmentation/index.mjs",
-      "require": "./dist/cjs/integration/module-augmentation/index.cjs",
-      "default": "./src/integration/module-augmentation/index.ts"
-    },
-    "./integration": {
-      "types": "./dist/types/integration/index.d.ts",
-      "import": "./dist/esm/integration/index.mjs",
-      "require": "./dist/cjs/integration/index.cjs",
-      "default": "./src/integration/index.ts"
+    "./options/resolveWebpackIntegrationOptions": {
+      "types": "./dist/types/options/resolveWebpackIntegrationOptions.d.ts",
+      "import": "./dist/esm/options/resolveWebpackIntegrationOptions.mjs",
+      "require": "./dist/cjs/options/resolveWebpackIntegrationOptions.cjs",
+      "default": "./src/options/resolveWebpackIntegrationOptions.ts"
     },
     "./package.json": {
       "default": "./package.json"

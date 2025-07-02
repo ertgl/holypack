@@ -2,7 +2,7 @@
   "extends": "./tsconfig.partial.base.json",
   "compilerOptions": {
     "baseUrl": "${configDir}/dist/types",
-    "module": "ESNext",
+    "module": "esnext",
     "moduleResolution": "bundler",
     "noCheck": true,
     "rootDir": "${configDir}/dist/types"
