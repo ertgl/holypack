@@ -1,3 +1,0 @@
-{
-  "extends": "@holypack/integration-typescript/presets/tsconfig.scope.src.json"
-}

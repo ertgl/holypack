@@ -3,15 +3,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "yarn bundle",
-    "bundle": "yarn webpack:build",
-    "clean": "rm -fr dist"
+    "build": "yarn clean && yarn webpack:build",
+    "clean": "rm -fr dist",
+    "test": "yarn build"
   },
   "devDependencies": {
     "@holypack/integration-typescript": "*",
     "@holypack/integration-webpack": "*",
     "@holypack/webpack-plugin": "*",
     "holypack": "*",
-    "webpack": "^5.99.7"
+    "webpack": "^5.99.9"
   }
 }

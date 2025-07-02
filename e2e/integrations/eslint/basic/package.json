@@ -3,14 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "eslint": "eslint"
+    "test": "eslint"
   },
   "devDependencies": {
     "@holypack/core": "*",
     "@holypack/eslint-plugin": "*",
     "@holypack/integration-eslint": "*",
     "@holypack/integration-typescript": "*",
-    "eslint": "^9.27.0",
+    "eslint": "^9.30.1",
     "holypack": "*"
   }
 }

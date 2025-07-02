@@ -2,6 +2,9 @@
   "name": "@holypack/e2e-integration-typescript-basic",
   "private": true,
   "type": "module",
+  "scripts": {
+    "test": "tsc --noEmit"
+  },
   "devDependencies": {
     "@holypack/core": "*",
     "@holypack/integration-typescript": "*",

@@ -1,9 +1,9 @@
 import typescript from "@holypack/integration-typescript";
 import webpack from "@holypack/integration-webpack";
-import { defineConfig } from "holypack/config";
+import defineConfig from "holypack/config";
 
 const HOLYPACK_CONFIG = defineConfig({
-  integrations: [
+  extensions: [
     typescript(),
     webpack(),
   ],
