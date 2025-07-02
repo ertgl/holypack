@@ -2,6 +2,9 @@
   "files": [],
   "references": [
     {
+      "path": "./tsconfig.scope.build.debug.json"
+    },
+    {
       "path": "./tsconfig.scope.dist.cjs.json"
     },
     {

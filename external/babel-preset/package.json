@@ -6,14 +6,30 @@
     "holypack-external"
   ],
   "scripts": {
-    "bootstrap": "yarn babel:bootstrap:clean && yarn babel:bootstrap && yarn export-map-generator:bootstrap",
+    "bootstrap": "yarn bootstrap:build && yarn bootstrap:update-exports",
+    "bootstrap:build": "yarn babel:bootstrap",
     "bootstrap:clean": "yarn babel:bootstrap:clean",
-    "build": "yarn babel:build:clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn export-map-generator:update",
+    "bootstrap:update-exports": "yarn export-map-generator:bootstrap",
+    "build": "yarn build::types && yarn build::cjs && yarn build::esm && yarn build:update-exports",
+    "build::cjs": "yarn babel:build::cjs",
+    "build::esm": "yarn babel:build::esm",
+    "build::types": "yarn tsc:build::types",
     "build:clean": "yarn babel:build:clean",
-    "clean": "yarn bootstrap:clean && yarn build:clean"
+    "build:update-exports": "yarn export-map-generator:update",
+    "clean": "yarn bootstrap:clean && yarn build:clean && yarn build::debug:clean && yarn test:clean",
+    "coverage:clean": "yarn jest:coverage:clean",
+    "coverage:open": "yarn jest:coverage:open",
+    "debug:build": "yarn debug:build::esm && yarn debug:update-package-exports",
+    "debug:build::esm": "yarn babel:debug:build",
+    "debug:clean": "yarn babel:debug:build:clean",
+    "debug:update-package-exports": "yarn export-map-generator:debug",
+    "lint": "yarn eslint:lint",
+    "lint::fix": "yarn eslint:lint::fix",
+    "test": "yarn jest:test",
+    "test:clean": "yarn coverage:clean && yarn jest:cache:clean"
   },
   "devDependencies": {
-    "@babel/core": "^7.27.1",
+    "@babel/core": "^7.28.0",
     "@holypack/core": "workspace:^",
     "@holypack/integration-babel": "workspace:^"
   },
@@ -21,6 +37,17 @@
     "@babel/core": "*",
     "@holypack/core": "*",
     "@holypack/integration-babel": "*"
+  },
+  "peerDependenciesMeta": {
+    "@babel/core": {
+      "optional": false
+    },
+    "@holypack/core": {
+      "optional": false
+    },
+    "@holypack/integration-babel": {
+      "optional": false
+    }
   },
   "files": [
     "./dist/",
@@ -31,33 +58,473 @@
   "module": "./dist/esm/index.mjs",
   "types": "./dist/types/index.d.ts",
   "exports": {
-    "./default.cjs": {
-      "types": "./dist/types/default.d.ts",
-      "import": "./dist/esm/default.mjs",
-      "require": "./dist/cjs/default.cjs",
-      "default": "./src/default.ts"
+    "./BABEL_PRESET_HOLYPACK.cjs": {
+      "types": "./dist/types/BABEL_PRESET_HOLYPACK.d.ts",
+      "import": "./dist/esm/BABEL_PRESET_HOLYPACK.mjs",
+      "require": "./dist/cjs/BABEL_PRESET_HOLYPACK.cjs",
+      "default": "./src/BABEL_PRESET_HOLYPACK.ts"
     },
-    "./default.d.ts": {
-      "types": "./dist/types/default.d.ts",
-      "default": "./src/default.ts"
+    "./BABEL_PRESET_HOLYPACK.d.ts": {
+      "types": "./dist/types/BABEL_PRESET_HOLYPACK.d.ts",
+      "default": "./src/BABEL_PRESET_HOLYPACK.ts"
     },
-    "./default.js": {
-      "types": "./dist/types/default.d.ts",
-      "import": "./dist/esm/default.mjs",
-      "require": "./dist/cjs/default.cjs",
-      "default": "./src/default.ts"
+    "./BABEL_PRESET_HOLYPACK.js": {
+      "types": "./dist/types/BABEL_PRESET_HOLYPACK.d.ts",
+      "import": "./dist/esm/BABEL_PRESET_HOLYPACK.mjs",
+      "require": "./dist/cjs/BABEL_PRESET_HOLYPACK.cjs",
+      "default": "./src/BABEL_PRESET_HOLYPACK.ts"
     },
-    "./default.mjs": {
-      "types": "./dist/types/default.d.ts",
-      "import": "./dist/esm/default.mjs",
-      "require": "./dist/cjs/default.cjs",
-      "default": "./src/default.ts"
+    "./BABEL_PRESET_HOLYPACK.mjs": {
+      "types": "./dist/types/BABEL_PRESET_HOLYPACK.d.ts",
+      "import": "./dist/esm/BABEL_PRESET_HOLYPACK.mjs",
+      "require": "./dist/cjs/BABEL_PRESET_HOLYPACK.cjs",
+      "default": "./src/BABEL_PRESET_HOLYPACK.ts"
     },
-    "./default": {
-      "types": "./dist/types/default.d.ts",
-      "import": "./dist/esm/default.mjs",
-      "require": "./dist/cjs/default.cjs",
-      "default": "./src/default.ts"
+    "./BABEL_PRESET_HOLYPACK": {
+      "types": "./dist/types/BABEL_PRESET_HOLYPACK.d.ts",
+      "import": "./dist/esm/BABEL_PRESET_HOLYPACK.mjs",
+      "require": "./dist/cjs/BABEL_PRESET_HOLYPACK.cjs",
+      "default": "./src/BABEL_PRESET_HOLYPACK.ts"
+    },
+    "./cjs/BABEL_PRESET_HOLYPACK_CJS.cjs": {
+      "types": "./dist/types/cjs/BABEL_PRESET_HOLYPACK_CJS.d.ts",
+      "import": "./dist/esm/cjs/BABEL_PRESET_HOLYPACK_CJS.mjs",
+      "require": "./dist/cjs/cjs/BABEL_PRESET_HOLYPACK_CJS.cjs",
+      "default": "./src/cjs/BABEL_PRESET_HOLYPACK_CJS.ts"
+    },
+    "./cjs/BABEL_PRESET_HOLYPACK_CJS.d.ts": {
+      "types": "./dist/types/cjs/BABEL_PRESET_HOLYPACK_CJS.d.ts",
+      "default": "./src/cjs/BABEL_PRESET_HOLYPACK_CJS.ts"
+    },
+    "./cjs/BABEL_PRESET_HOLYPACK_CJS.js": {
+      "types": "./dist/types/cjs/BABEL_PRESET_HOLYPACK_CJS.d.ts",
+      "import": "./dist/esm/cjs/BABEL_PRESET_HOLYPACK_CJS.mjs",
+      "require": "./dist/cjs/cjs/BABEL_PRESET_HOLYPACK_CJS.cjs",
+      "default": "./src/cjs/BABEL_PRESET_HOLYPACK_CJS.ts"
+    },
+    "./cjs/BABEL_PRESET_HOLYPACK_CJS.mjs": {
+      "types": "./dist/types/cjs/BABEL_PRESET_HOLYPACK_CJS.d.ts",
+      "import": "./dist/esm/cjs/BABEL_PRESET_HOLYPACK_CJS.mjs",
+      "require": "./dist/cjs/cjs/BABEL_PRESET_HOLYPACK_CJS.cjs",
+      "default": "./src/cjs/BABEL_PRESET_HOLYPACK_CJS.ts"
+    },
+    "./cjs/BABEL_PRESET_HOLYPACK_CJS": {
+      "types": "./dist/types/cjs/BABEL_PRESET_HOLYPACK_CJS.d.ts",
+      "import": "./dist/esm/cjs/BABEL_PRESET_HOLYPACK_CJS.mjs",
+      "require": "./dist/cjs/cjs/BABEL_PRESET_HOLYPACK_CJS.cjs",
+      "default": "./src/cjs/BABEL_PRESET_HOLYPACK_CJS.ts"
+    },
+    "./cjs/index.cjs": {
+      "types": "./dist/types/cjs/index.d.ts",
+      "import": "./dist/esm/cjs/index.mjs",
+      "require": "./dist/cjs/cjs/index.cjs",
+      "default": "./src/cjs/index.ts"
+    },
+    "./cjs/index.d.ts": {
+      "types": "./dist/types/cjs/index.d.ts",
+      "default": "./src/cjs/index.ts"
+    },
+    "./cjs/index.js": {
+      "types": "./dist/types/cjs/index.d.ts",
+      "import": "./dist/esm/cjs/index.mjs",
+      "require": "./dist/cjs/cjs/index.cjs",
+      "default": "./src/cjs/index.ts"
+    },
+    "./cjs/index.mjs": {
+      "types": "./dist/types/cjs/index.d.ts",
+      "import": "./dist/esm/cjs/index.mjs",
+      "require": "./dist/cjs/cjs/index.cjs",
+      "default": "./src/cjs/index.ts"
+    },
+    "./cjs/index": {
+      "types": "./dist/types/cjs/index.d.ts",
+      "import": "./dist/esm/cjs/index.mjs",
+      "require": "./dist/cjs/cjs/index.cjs",
+      "default": "./src/cjs/index.ts"
+    },
+    "./cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.cjs": {
+      "types": "./dist/types/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.d.ts",
+      "import": "./dist/esm/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.mjs",
+      "require": "./dist/cjs/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.cjs",
+      "default": "./src/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.ts"
+    },
+    "./cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.d.ts": {
+      "types": "./dist/types/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.d.ts",
+      "default": "./src/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.ts"
+    },
+    "./cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.js": {
+      "types": "./dist/types/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.d.ts",
+      "import": "./dist/esm/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.mjs",
+      "require": "./dist/cjs/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.cjs",
+      "default": "./src/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.ts"
+    },
+    "./cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.mjs": {
+      "types": "./dist/types/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.d.ts",
+      "import": "./dist/esm/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.mjs",
+      "require": "./dist/cjs/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.cjs",
+      "default": "./src/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.ts"
+    },
+    "./cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC": {
+      "types": "./dist/types/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.d.ts",
+      "import": "./dist/esm/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.mjs",
+      "require": "./dist/cjs/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.cjs",
+      "default": "./src/cjs/sync/BABEL_PRESET_HOLYPACK_CJS_SYNC.ts"
+    },
+    "./cjs/sync/index.cjs": {
+      "types": "./dist/types/cjs/sync/index.d.ts",
+      "import": "./dist/esm/cjs/sync/index.mjs",
+      "require": "./dist/cjs/cjs/sync/index.cjs",
+      "default": "./src/cjs/sync/index.ts"
+    },
+    "./cjs/sync/index.d.ts": {
+      "types": "./dist/types/cjs/sync/index.d.ts",
+      "default": "./src/cjs/sync/index.ts"
+    },
+    "./cjs/sync/index.js": {
+      "types": "./dist/types/cjs/sync/index.d.ts",
+      "import": "./dist/esm/cjs/sync/index.mjs",
+      "require": "./dist/cjs/cjs/sync/index.cjs",
+      "default": "./src/cjs/sync/index.ts"
+    },
+    "./cjs/sync/index.mjs": {
+      "types": "./dist/types/cjs/sync/index.d.ts",
+      "import": "./dist/esm/cjs/sync/index.mjs",
+      "require": "./dist/cjs/cjs/sync/index.cjs",
+      "default": "./src/cjs/sync/index.ts"
+    },
+    "./cjs/sync/index": {
+      "types": "./dist/types/cjs/sync/index.d.ts",
+      "import": "./dist/esm/cjs/sync/index.mjs",
+      "require": "./dist/cjs/cjs/sync/index.cjs",
+      "default": "./src/cjs/sync/index.ts"
+    },
+    "./cjs/sync": {
+      "types": "./dist/types/cjs/sync/index.d.ts",
+      "import": "./dist/esm/cjs/sync/index.mjs",
+      "require": "./dist/cjs/cjs/sync/index.cjs",
+      "default": "./src/cjs/sync/index.ts"
+    },
+    "./cjs": {
+      "types": "./dist/types/cjs/index.d.ts",
+      "import": "./dist/esm/cjs/index.mjs",
+      "require": "./dist/cjs/cjs/index.cjs",
+      "default": "./src/cjs/index.ts"
+    },
+    "./default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.cjs": {
+      "types": "./dist/types/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.d.ts",
+      "import": "./dist/esm/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.mjs",
+      "require": "./dist/cjs/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.cjs",
+      "default": "./src/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.ts"
+    },
+    "./default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.d.ts": {
+      "types": "./dist/types/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.d.ts",
+      "default": "./src/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.ts"
+    },
+    "./default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.js": {
+      "types": "./dist/types/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.d.ts",
+      "import": "./dist/esm/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.mjs",
+      "require": "./dist/cjs/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.cjs",
+      "default": "./src/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.ts"
+    },
+    "./default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.mjs": {
+      "types": "./dist/types/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.d.ts",
+      "import": "./dist/esm/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.mjs",
+      "require": "./dist/cjs/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.cjs",
+      "default": "./src/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.ts"
+    },
+    "./default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS": {
+      "types": "./dist/types/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.d.ts",
+      "import": "./dist/esm/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.mjs",
+      "require": "./dist/cjs/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.cjs",
+      "default": "./src/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.ts"
+    },
+    "./default/async/cjs/index.cjs": {
+      "types": "./dist/types/default/async/cjs/index.d.ts",
+      "import": "./dist/esm/default/async/cjs/index.mjs",
+      "require": "./dist/cjs/default/async/cjs/index.cjs",
+      "default": "./src/default/async/cjs/index.ts"
+    },
+    "./default/async/cjs/index.d.ts": {
+      "types": "./dist/types/default/async/cjs/index.d.ts",
+      "default": "./src/default/async/cjs/index.ts"
+    },
+    "./default/async/cjs/index.js": {
+      "types": "./dist/types/default/async/cjs/index.d.ts",
+      "import": "./dist/esm/default/async/cjs/index.mjs",
+      "require": "./dist/cjs/default/async/cjs/index.cjs",
+      "default": "./src/default/async/cjs/index.ts"
+    },
+    "./default/async/cjs/index.mjs": {
+      "types": "./dist/types/default/async/cjs/index.d.ts",
+      "import": "./dist/esm/default/async/cjs/index.mjs",
+      "require": "./dist/cjs/default/async/cjs/index.cjs",
+      "default": "./src/default/async/cjs/index.ts"
+    },
+    "./default/async/cjs/index": {
+      "types": "./dist/types/default/async/cjs/index.d.ts",
+      "import": "./dist/esm/default/async/cjs/index.mjs",
+      "require": "./dist/cjs/default/async/cjs/index.cjs",
+      "default": "./src/default/async/cjs/index.ts"
+    },
+    "./default/async/cjs": {
+      "types": "./dist/types/default/async/cjs/index.d.ts",
+      "import": "./dist/esm/default/async/cjs/index.mjs",
+      "require": "./dist/cjs/default/async/cjs/index.cjs",
+      "default": "./src/default/async/cjs/index.ts"
+    },
+    "./default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.cjs": {
+      "types": "./dist/types/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.d.ts",
+      "import": "./dist/esm/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.mjs",
+      "require": "./dist/cjs/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.cjs",
+      "default": "./src/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.ts"
+    },
+    "./default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.d.ts": {
+      "types": "./dist/types/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.d.ts",
+      "default": "./src/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.ts"
+    },
+    "./default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.js": {
+      "types": "./dist/types/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.d.ts",
+      "import": "./dist/esm/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.mjs",
+      "require": "./dist/cjs/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.cjs",
+      "default": "./src/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.ts"
+    },
+    "./default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.mjs": {
+      "types": "./dist/types/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.d.ts",
+      "import": "./dist/esm/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.mjs",
+      "require": "./dist/cjs/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.cjs",
+      "default": "./src/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.ts"
+    },
+    "./default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM": {
+      "types": "./dist/types/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.d.ts",
+      "import": "./dist/esm/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.mjs",
+      "require": "./dist/cjs/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.cjs",
+      "default": "./src/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.ts"
+    },
+    "./default/async/esm/index.cjs": {
+      "types": "./dist/types/default/async/esm/index.d.ts",
+      "import": "./dist/esm/default/async/esm/index.mjs",
+      "require": "./dist/cjs/default/async/esm/index.cjs",
+      "default": "./src/default/async/esm/index.ts"
+    },
+    "./default/async/esm/index.d.ts": {
+      "types": "./dist/types/default/async/esm/index.d.ts",
+      "default": "./src/default/async/esm/index.ts"
+    },
+    "./default/async/esm/index.js": {
+      "types": "./dist/types/default/async/esm/index.d.ts",
+      "import": "./dist/esm/default/async/esm/index.mjs",
+      "require": "./dist/cjs/default/async/esm/index.cjs",
+      "default": "./src/default/async/esm/index.ts"
+    },
+    "./default/async/esm/index.mjs": {
+      "types": "./dist/types/default/async/esm/index.d.ts",
+      "import": "./dist/esm/default/async/esm/index.mjs",
+      "require": "./dist/cjs/default/async/esm/index.cjs",
+      "default": "./src/default/async/esm/index.ts"
+    },
+    "./default/async/esm/index": {
+      "types": "./dist/types/default/async/esm/index.d.ts",
+      "import": "./dist/esm/default/async/esm/index.mjs",
+      "require": "./dist/cjs/default/async/esm/index.cjs",
+      "default": "./src/default/async/esm/index.ts"
+    },
+    "./default/async/esm": {
+      "types": "./dist/types/default/async/esm/index.d.ts",
+      "import": "./dist/esm/default/async/esm/index.mjs",
+      "require": "./dist/cjs/default/async/esm/index.cjs",
+      "default": "./src/default/async/esm/index.ts"
+    },
+    "./default/async/index.cjs": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index.d.ts": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index.js": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index.mjs": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.cjs": {
+      "types": "./dist/types/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.d.ts",
+      "import": "./dist/esm/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.mjs",
+      "require": "./dist/cjs/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.cjs",
+      "default": "./src/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.ts"
+    },
+    "./default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.d.ts": {
+      "types": "./dist/types/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.d.ts",
+      "default": "./src/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.ts"
+    },
+    "./default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.js": {
+      "types": "./dist/types/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.d.ts",
+      "import": "./dist/esm/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.mjs",
+      "require": "./dist/cjs/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.cjs",
+      "default": "./src/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.ts"
+    },
+    "./default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.mjs": {
+      "types": "./dist/types/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.d.ts",
+      "import": "./dist/esm/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.mjs",
+      "require": "./dist/cjs/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.cjs",
+      "default": "./src/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.ts"
+    },
+    "./default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS": {
+      "types": "./dist/types/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.d.ts",
+      "import": "./dist/esm/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.mjs",
+      "require": "./dist/cjs/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.cjs",
+      "default": "./src/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.ts"
+    },
+    "./default/sync/cjs/index.cjs": {
+      "types": "./dist/types/default/sync/cjs/index.d.ts",
+      "import": "./dist/esm/default/sync/cjs/index.mjs",
+      "require": "./dist/cjs/default/sync/cjs/index.cjs",
+      "default": "./src/default/sync/cjs/index.ts"
+    },
+    "./default/sync/cjs/index.d.ts": {
+      "types": "./dist/types/default/sync/cjs/index.d.ts",
+      "default": "./src/default/sync/cjs/index.ts"
+    },
+    "./default/sync/cjs/index.js": {
+      "types": "./dist/types/default/sync/cjs/index.d.ts",
+      "import": "./dist/esm/default/sync/cjs/index.mjs",
+      "require": "./dist/cjs/default/sync/cjs/index.cjs",
+      "default": "./src/default/sync/cjs/index.ts"
+    },
+    "./default/sync/cjs/index.mjs": {
+      "types": "./dist/types/default/sync/cjs/index.d.ts",
+      "import": "./dist/esm/default/sync/cjs/index.mjs",
+      "require": "./dist/cjs/default/sync/cjs/index.cjs",
+      "default": "./src/default/sync/cjs/index.ts"
+    },
+    "./default/sync/cjs/index": {
+      "types": "./dist/types/default/sync/cjs/index.d.ts",
+      "import": "./dist/esm/default/sync/cjs/index.mjs",
+      "require": "./dist/cjs/default/sync/cjs/index.cjs",
+      "default": "./src/default/sync/cjs/index.ts"
+    },
+    "./default/sync/cjs": {
+      "types": "./dist/types/default/sync/cjs/index.d.ts",
+      "import": "./dist/esm/default/sync/cjs/index.mjs",
+      "require": "./dist/cjs/default/sync/cjs/index.cjs",
+      "default": "./src/default/sync/cjs/index.ts"
+    },
+    "./default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.cjs": {
+      "types": "./dist/types/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.d.ts",
+      "import": "./dist/esm/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.mjs",
+      "require": "./dist/cjs/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.cjs",
+      "default": "./src/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.ts"
+    },
+    "./default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.d.ts": {
+      "types": "./dist/types/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.d.ts",
+      "default": "./src/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.ts"
+    },
+    "./default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.js": {
+      "types": "./dist/types/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.d.ts",
+      "import": "./dist/esm/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.mjs",
+      "require": "./dist/cjs/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.cjs",
+      "default": "./src/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.ts"
+    },
+    "./default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.mjs": {
+      "types": "./dist/types/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.d.ts",
+      "import": "./dist/esm/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.mjs",
+      "require": "./dist/cjs/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.cjs",
+      "default": "./src/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.ts"
+    },
+    "./default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM": {
+      "types": "./dist/types/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.d.ts",
+      "import": "./dist/esm/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.mjs",
+      "require": "./dist/cjs/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.cjs",
+      "default": "./src/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.ts"
+    },
+    "./default/sync/esm/index.cjs": {
+      "types": "./dist/types/default/sync/esm/index.d.ts",
+      "import": "./dist/esm/default/sync/esm/index.mjs",
+      "require": "./dist/cjs/default/sync/esm/index.cjs",
+      "default": "./src/default/sync/esm/index.ts"
+    },
+    "./default/sync/esm/index.d.ts": {
+      "types": "./dist/types/default/sync/esm/index.d.ts",
+      "default": "./src/default/sync/esm/index.ts"
+    },
+    "./default/sync/esm/index.js": {
+      "types": "./dist/types/default/sync/esm/index.d.ts",
+      "import": "./dist/esm/default/sync/esm/index.mjs",
+      "require": "./dist/cjs/default/sync/esm/index.cjs",
+      "default": "./src/default/sync/esm/index.ts"
+    },
+    "./default/sync/esm/index.mjs": {
+      "types": "./dist/types/default/sync/esm/index.d.ts",
+      "import": "./dist/esm/default/sync/esm/index.mjs",
+      "require": "./dist/cjs/default/sync/esm/index.cjs",
+      "default": "./src/default/sync/esm/index.ts"
+    },
+    "./default/sync/esm/index": {
+      "types": "./dist/types/default/sync/esm/index.d.ts",
+      "import": "./dist/esm/default/sync/esm/index.mjs",
+      "require": "./dist/cjs/default/sync/esm/index.cjs",
+      "default": "./src/default/sync/esm/index.ts"
+    },
+    "./default/sync/esm": {
+      "types": "./dist/types/default/sync/esm/index.d.ts",
+      "import": "./dist/esm/default/sync/esm/index.mjs",
+      "require": "./dist/cjs/default/sync/esm/index.cjs",
+      "default": "./src/default/sync/esm/index.ts"
+    },
+    "./default/sync/index.cjs": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index.d.ts": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index.js": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index.mjs": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
     },
     "./index.cjs": {
       "types": "./dist/types/index.d.ts",
@@ -87,126 +554,238 @@
       "require": "./dist/cjs/index.cjs",
       "default": "./src/index.ts"
     },
-    "./legacy/default.cjs": {
-      "types": "./dist/types/legacy/default.d.ts",
-      "import": "./dist/esm/legacy/default.mjs",
-      "require": "./dist/cjs/legacy/default.cjs",
-      "default": "./src/legacy/default.ts"
+    "./options/HolypackPresetOptionsAsync.cjs": {
+      "types": "./dist/types/options/HolypackPresetOptionsAsync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsAsync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsAsync.cjs",
+      "default": "./src/options/HolypackPresetOptionsAsync.ts"
     },
-    "./legacy/default.d.ts": {
-      "types": "./dist/types/legacy/default.d.ts",
-      "default": "./src/legacy/default.ts"
+    "./options/HolypackPresetOptionsAsync.d.ts": {
+      "types": "./dist/types/options/HolypackPresetOptionsAsync.d.ts",
+      "default": "./src/options/HolypackPresetOptionsAsync.ts"
     },
-    "./legacy/default.js": {
-      "types": "./dist/types/legacy/default.d.ts",
-      "import": "./dist/esm/legacy/default.mjs",
-      "require": "./dist/cjs/legacy/default.cjs",
-      "default": "./src/legacy/default.ts"
+    "./options/HolypackPresetOptionsAsync.js": {
+      "types": "./dist/types/options/HolypackPresetOptionsAsync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsAsync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsAsync.cjs",
+      "default": "./src/options/HolypackPresetOptionsAsync.ts"
     },
-    "./legacy/default.mjs": {
-      "types": "./dist/types/legacy/default.d.ts",
-      "import": "./dist/esm/legacy/default.mjs",
-      "require": "./dist/cjs/legacy/default.cjs",
-      "default": "./src/legacy/default.ts"
+    "./options/HolypackPresetOptionsAsync.mjs": {
+      "types": "./dist/types/options/HolypackPresetOptionsAsync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsAsync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsAsync.cjs",
+      "default": "./src/options/HolypackPresetOptionsAsync.ts"
     },
-    "./legacy/default": {
-      "types": "./dist/types/legacy/default.d.ts",
-      "import": "./dist/esm/legacy/default.mjs",
-      "require": "./dist/cjs/legacy/default.cjs",
-      "default": "./src/legacy/default.ts"
+    "./options/HolypackPresetOptionsAsync": {
+      "types": "./dist/types/options/HolypackPresetOptionsAsync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsAsync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsAsync.cjs",
+      "default": "./src/options/HolypackPresetOptionsAsync.ts"
     },
-    "./legacy/index.cjs": {
-      "types": "./dist/types/legacy/index.d.ts",
-      "import": "./dist/esm/legacy/index.mjs",
-      "require": "./dist/cjs/legacy/index.cjs",
-      "default": "./src/legacy/index.ts"
+    "./options/HolypackPresetOptionsBase.cjs": {
+      "types": "./dist/types/options/HolypackPresetOptionsBase.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsBase.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsBase.cjs",
+      "default": "./src/options/HolypackPresetOptionsBase.ts"
     },
-    "./legacy/index.d.ts": {
-      "types": "./dist/types/legacy/index.d.ts",
-      "default": "./src/legacy/index.ts"
+    "./options/HolypackPresetOptionsBase.d.ts": {
+      "types": "./dist/types/options/HolypackPresetOptionsBase.d.ts",
+      "default": "./src/options/HolypackPresetOptionsBase.ts"
     },
-    "./legacy/index.js": {
-      "types": "./dist/types/legacy/index.d.ts",
-      "import": "./dist/esm/legacy/index.mjs",
-      "require": "./dist/cjs/legacy/index.cjs",
-      "default": "./src/legacy/index.ts"
+    "./options/HolypackPresetOptionsBase.js": {
+      "types": "./dist/types/options/HolypackPresetOptionsBase.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsBase.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsBase.cjs",
+      "default": "./src/options/HolypackPresetOptionsBase.ts"
     },
-    "./legacy/index.mjs": {
-      "types": "./dist/types/legacy/index.d.ts",
-      "import": "./dist/esm/legacy/index.mjs",
-      "require": "./dist/cjs/legacy/index.cjs",
-      "default": "./src/legacy/index.ts"
+    "./options/HolypackPresetOptionsBase.mjs": {
+      "types": "./dist/types/options/HolypackPresetOptionsBase.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsBase.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsBase.cjs",
+      "default": "./src/options/HolypackPresetOptionsBase.ts"
     },
-    "./legacy/index": {
-      "types": "./dist/types/legacy/index.d.ts",
-      "import": "./dist/esm/legacy/index.mjs",
-      "require": "./dist/cjs/legacy/index.cjs",
-      "default": "./src/legacy/index.ts"
+    "./options/HolypackPresetOptionsBase": {
+      "types": "./dist/types/options/HolypackPresetOptionsBase.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsBase.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsBase.cjs",
+      "default": "./src/options/HolypackPresetOptionsBase.ts"
     },
-    "./legacy": {
-      "types": "./dist/types/legacy/index.d.ts",
-      "import": "./dist/esm/legacy/index.mjs",
-      "require": "./dist/cjs/legacy/index.cjs",
-      "default": "./src/legacy/index.ts"
+    "./options/HolypackPresetOptionsSync.cjs": {
+      "types": "./dist/types/options/HolypackPresetOptionsSync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsSync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsSync.cjs",
+      "default": "./src/options/HolypackPresetOptionsSync.ts"
+    },
+    "./options/HolypackPresetOptionsSync.d.ts": {
+      "types": "./dist/types/options/HolypackPresetOptionsSync.d.ts",
+      "default": "./src/options/HolypackPresetOptionsSync.ts"
+    },
+    "./options/HolypackPresetOptionsSync.js": {
+      "types": "./dist/types/options/HolypackPresetOptionsSync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsSync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsSync.cjs",
+      "default": "./src/options/HolypackPresetOptionsSync.ts"
+    },
+    "./options/HolypackPresetOptionsSync.mjs": {
+      "types": "./dist/types/options/HolypackPresetOptionsSync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsSync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsSync.cjs",
+      "default": "./src/options/HolypackPresetOptionsSync.ts"
+    },
+    "./options/HolypackPresetOptionsSync": {
+      "types": "./dist/types/options/HolypackPresetOptionsSync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsSync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsSync.cjs",
+      "default": "./src/options/HolypackPresetOptionsSync.ts"
     },
     "./package.json": {
       "default": "./package.json"
     },
-    "./preset-options.cjs": {
-      "types": "./dist/types/preset-options.d.ts",
-      "import": "./dist/esm/preset-options.mjs",
-      "require": "./dist/cjs/preset-options.cjs",
-      "default": "./src/preset-options.ts"
+    "./preset/HolypackPreset.cjs": {
+      "types": "./dist/types/preset/HolypackPreset.d.ts",
+      "import": "./dist/esm/preset/HolypackPreset.mjs",
+      "require": "./dist/cjs/preset/HolypackPreset.cjs",
+      "default": "./src/preset/HolypackPreset.ts"
     },
-    "./preset-options.d.ts": {
-      "types": "./dist/types/preset-options.d.ts",
-      "default": "./src/preset-options.ts"
+    "./preset/HolypackPreset.d.ts": {
+      "types": "./dist/types/preset/HolypackPreset.d.ts",
+      "default": "./src/preset/HolypackPreset.ts"
     },
-    "./preset-options.js": {
-      "types": "./dist/types/preset-options.d.ts",
-      "import": "./dist/esm/preset-options.mjs",
-      "require": "./dist/cjs/preset-options.cjs",
-      "default": "./src/preset-options.ts"
+    "./preset/HolypackPreset.js": {
+      "types": "./dist/types/preset/HolypackPreset.d.ts",
+      "import": "./dist/esm/preset/HolypackPreset.mjs",
+      "require": "./dist/cjs/preset/HolypackPreset.cjs",
+      "default": "./src/preset/HolypackPreset.ts"
     },
-    "./preset-options.mjs": {
-      "types": "./dist/types/preset-options.d.ts",
-      "import": "./dist/esm/preset-options.mjs",
-      "require": "./dist/cjs/preset-options.cjs",
-      "default": "./src/preset-options.ts"
+    "./preset/HolypackPreset.mjs": {
+      "types": "./dist/types/preset/HolypackPreset.d.ts",
+      "import": "./dist/esm/preset/HolypackPreset.mjs",
+      "require": "./dist/cjs/preset/HolypackPreset.cjs",
+      "default": "./src/preset/HolypackPreset.ts"
     },
-    "./preset-options": {
-      "types": "./dist/types/preset-options.d.ts",
-      "import": "./dist/esm/preset-options.mjs",
-      "require": "./dist/cjs/preset-options.cjs",
-      "default": "./src/preset-options.ts"
+    "./preset/HolypackPreset": {
+      "types": "./dist/types/preset/HolypackPreset.d.ts",
+      "import": "./dist/esm/preset/HolypackPreset.mjs",
+      "require": "./dist/cjs/preset/HolypackPreset.cjs",
+      "default": "./src/preset/HolypackPreset.ts"
     },
-    "./preset.cjs": {
-      "types": "./dist/types/preset.d.ts",
-      "import": "./dist/esm/preset.mjs",
-      "require": "./dist/cjs/preset.cjs",
-      "default": "./src/preset.ts"
+    "./preset/createHolypackPresetAsync.cjs": {
+      "types": "./dist/types/preset/createHolypackPresetAsync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetAsync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetAsync.cjs",
+      "default": "./src/preset/createHolypackPresetAsync.ts"
     },
-    "./preset.d.ts": {
-      "types": "./dist/types/preset.d.ts",
-      "default": "./src/preset.ts"
+    "./preset/createHolypackPresetAsync.d.ts": {
+      "types": "./dist/types/preset/createHolypackPresetAsync.d.ts",
+      "default": "./src/preset/createHolypackPresetAsync.ts"
     },
-    "./preset.js": {
-      "types": "./dist/types/preset.d.ts",
-      "import": "./dist/esm/preset.mjs",
-      "require": "./dist/cjs/preset.cjs",
-      "default": "./src/preset.ts"
+    "./preset/createHolypackPresetAsync.js": {
+      "types": "./dist/types/preset/createHolypackPresetAsync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetAsync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetAsync.cjs",
+      "default": "./src/preset/createHolypackPresetAsync.ts"
     },
-    "./preset.mjs": {
-      "types": "./dist/types/preset.d.ts",
-      "import": "./dist/esm/preset.mjs",
-      "require": "./dist/cjs/preset.cjs",
-      "default": "./src/preset.ts"
+    "./preset/createHolypackPresetAsync.mjs": {
+      "types": "./dist/types/preset/createHolypackPresetAsync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetAsync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetAsync.cjs",
+      "default": "./src/preset/createHolypackPresetAsync.ts"
     },
-    "./preset": {
-      "types": "./dist/types/preset.d.ts",
-      "import": "./dist/esm/preset.mjs",
-      "require": "./dist/cjs/preset.cjs",
-      "default": "./src/preset.ts"
+    "./preset/createHolypackPresetAsync": {
+      "types": "./dist/types/preset/createHolypackPresetAsync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetAsync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetAsync.cjs",
+      "default": "./src/preset/createHolypackPresetAsync.ts"
+    },
+    "./preset/createHolypackPresetSync.cjs": {
+      "types": "./dist/types/preset/createHolypackPresetSync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetSync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetSync.cjs",
+      "default": "./src/preset/createHolypackPresetSync.ts"
+    },
+    "./preset/createHolypackPresetSync.d.ts": {
+      "types": "./dist/types/preset/createHolypackPresetSync.d.ts",
+      "default": "./src/preset/createHolypackPresetSync.ts"
+    },
+    "./preset/createHolypackPresetSync.js": {
+      "types": "./dist/types/preset/createHolypackPresetSync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetSync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetSync.cjs",
+      "default": "./src/preset/createHolypackPresetSync.ts"
+    },
+    "./preset/createHolypackPresetSync.mjs": {
+      "types": "./dist/types/preset/createHolypackPresetSync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetSync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetSync.cjs",
+      "default": "./src/preset/createHolypackPresetSync.ts"
+    },
+    "./preset/createHolypackPresetSync": {
+      "types": "./dist/types/preset/createHolypackPresetSync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetSync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetSync.cjs",
+      "default": "./src/preset/createHolypackPresetSync.ts"
+    },
+    "./sync/BABEL_PRESET_HOLYPACK_SYNC.cjs": {
+      "types": "./dist/types/sync/BABEL_PRESET_HOLYPACK_SYNC.d.ts",
+      "import": "./dist/esm/sync/BABEL_PRESET_HOLYPACK_SYNC.mjs",
+      "require": "./dist/cjs/sync/BABEL_PRESET_HOLYPACK_SYNC.cjs",
+      "default": "./src/sync/BABEL_PRESET_HOLYPACK_SYNC.ts"
+    },
+    "./sync/BABEL_PRESET_HOLYPACK_SYNC.d.ts": {
+      "types": "./dist/types/sync/BABEL_PRESET_HOLYPACK_SYNC.d.ts",
+      "default": "./src/sync/BABEL_PRESET_HOLYPACK_SYNC.ts"
+    },
+    "./sync/BABEL_PRESET_HOLYPACK_SYNC.js": {
+      "types": "./dist/types/sync/BABEL_PRESET_HOLYPACK_SYNC.d.ts",
+      "import": "./dist/esm/sync/BABEL_PRESET_HOLYPACK_SYNC.mjs",
+      "require": "./dist/cjs/sync/BABEL_PRESET_HOLYPACK_SYNC.cjs",
+      "default": "./src/sync/BABEL_PRESET_HOLYPACK_SYNC.ts"
+    },
+    "./sync/BABEL_PRESET_HOLYPACK_SYNC.mjs": {
+      "types": "./dist/types/sync/BABEL_PRESET_HOLYPACK_SYNC.d.ts",
+      "import": "./dist/esm/sync/BABEL_PRESET_HOLYPACK_SYNC.mjs",
+      "require": "./dist/cjs/sync/BABEL_PRESET_HOLYPACK_SYNC.cjs",
+      "default": "./src/sync/BABEL_PRESET_HOLYPACK_SYNC.ts"
+    },
+    "./sync/BABEL_PRESET_HOLYPACK_SYNC": {
+      "types": "./dist/types/sync/BABEL_PRESET_HOLYPACK_SYNC.d.ts",
+      "import": "./dist/esm/sync/BABEL_PRESET_HOLYPACK_SYNC.mjs",
+      "require": "./dist/cjs/sync/BABEL_PRESET_HOLYPACK_SYNC.cjs",
+      "default": "./src/sync/BABEL_PRESET_HOLYPACK_SYNC.ts"
+    },
+    "./sync/index.cjs": {
+      "types": "./dist/types/sync/index.d.ts",
+      "import": "./dist/esm/sync/index.mjs",
+      "require": "./dist/cjs/sync/index.cjs",
+      "default": "./src/sync/index.ts"
+    },
+    "./sync/index.d.ts": {
+      "types": "./dist/types/sync/index.d.ts",
+      "default": "./src/sync/index.ts"
+    },
+    "./sync/index.js": {
+      "types": "./dist/types/sync/index.d.ts",
+      "import": "./dist/esm/sync/index.mjs",
+      "require": "./dist/cjs/sync/index.cjs",
+      "default": "./src/sync/index.ts"
+    },
+    "./sync/index.mjs": {
+      "types": "./dist/types/sync/index.d.ts",
+      "import": "./dist/esm/sync/index.mjs",
+      "require": "./dist/cjs/sync/index.cjs",
+      "default": "./src/sync/index.ts"
+    },
+    "./sync/index": {
+      "types": "./dist/types/sync/index.d.ts",
+      "import": "./dist/esm/sync/index.mjs",
+      "require": "./dist/cjs/sync/index.cjs",
+      "default": "./src/sync/index.ts"
+    },
+    "./sync": {
+      "types": "./dist/types/sync/index.d.ts",
+      "import": "./dist/esm/sync/index.mjs",
+      "require": "./dist/cjs/sync/index.cjs",
+      "default": "./src/sync/index.ts"
     },
     ".": {
       "types": "./dist/types/index.d.ts",

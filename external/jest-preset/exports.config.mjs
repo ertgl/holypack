@@ -1,7 +1,7 @@
 import defineConfig from "export-map-generator/config";
 import extra from "export-map-generator/extensions/extra";
 
-import { configProvider as provideBaseConfig } from "@holypack/internal-integration-export-map-generator/config";
+import ts from "@holypack/internal-integration-export-map-generator/ts";
 
 /**
  * @import { type Config } from "export-map-generator/config";
@@ -13,7 +13,7 @@ const EXPORTS_CONFIG = defineConfig(
     /**
      * @type {Config}
      */
-    const config = provideBaseConfig(context);
+    const config = ts(context);
 
     config.extensions ??= [];
 
@@ -31,6 +31,7 @@ const EXPORTS_CONFIG = defineConfig(
               {
                 default: "./jest-preset.mjs",
                 import: "./jest-preset.mjs",
+                require: "./jest-preset.cjs",
               },
             ),
           );

@@ -9,12 +9,22 @@
   "scripts": {
     "build": "yarn babel:build:clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn export-map-generator:update",
     "build:clean": "yarn babel:build:clean",
-    "clean": "yarn build:clean"
+    "clean": "yarn build:clean && yarn build::debug:clean && yarn test:clean",
+    "coverage:clean": "yarn jest:coverage:clean",
+    "coverage:open": "yarn jest:coverage:open",
+    "debug:build": "yarn debug:build::esm && yarn debug:update-package-exports",
+    "debug:build::esm": "yarn babel:debug:build",
+    "debug:clean": "yarn babel:debug:build:clean",
+    "debug:update-package-exports": "yarn export-map-generator:debug",
+    "lint": "yarn eslint:lint",
+    "lint::fix": "yarn eslint:lint::fix",
+    "test": "yarn jest:test",
+    "test:clean": "yarn coverage:clean && yarn jest:cache:clean"
   },
   "devDependencies": {
     "@holypack/core": "workspace:^",
     "@holypack/integration-jest": "workspace:^",
-    "jest": "^29.7.0"
+    "jest": "^30.0.3"
   },
   "peerDependencies": {
     "@holypack/core": "*",
@@ -30,33 +40,129 @@
   "module": "./dist/esm/index.mjs",
   "types": "./dist/types/index.d.ts",
   "exports": {
-    "./default.cjs": {
-      "types": "./dist/types/default.d.ts",
-      "import": "./dist/esm/default.mjs",
-      "require": "./dist/cjs/default.cjs",
-      "default": "./src/default.ts"
+    "./default/async/JEST_PRESET_HOLYPACK_ASYNC.cjs": {
+      "types": "./dist/types/default/async/JEST_PRESET_HOLYPACK_ASYNC.d.ts",
+      "import": "./dist/esm/default/async/JEST_PRESET_HOLYPACK_ASYNC.mjs",
+      "require": "./dist/cjs/default/async/JEST_PRESET_HOLYPACK_ASYNC.cjs",
+      "default": "./src/default/async/JEST_PRESET_HOLYPACK_ASYNC.ts"
     },
-    "./default.d.ts": {
-      "types": "./dist/types/default.d.ts",
-      "default": "./src/default.ts"
+    "./default/async/JEST_PRESET_HOLYPACK_ASYNC.d.ts": {
+      "types": "./dist/types/default/async/JEST_PRESET_HOLYPACK_ASYNC.d.ts",
+      "default": "./src/default/async/JEST_PRESET_HOLYPACK_ASYNC.ts"
     },
-    "./default.js": {
-      "types": "./dist/types/default.d.ts",
-      "import": "./dist/esm/default.mjs",
-      "require": "./dist/cjs/default.cjs",
-      "default": "./src/default.ts"
+    "./default/async/JEST_PRESET_HOLYPACK_ASYNC.js": {
+      "types": "./dist/types/default/async/JEST_PRESET_HOLYPACK_ASYNC.d.ts",
+      "import": "./dist/esm/default/async/JEST_PRESET_HOLYPACK_ASYNC.mjs",
+      "require": "./dist/cjs/default/async/JEST_PRESET_HOLYPACK_ASYNC.cjs",
+      "default": "./src/default/async/JEST_PRESET_HOLYPACK_ASYNC.ts"
     },
-    "./default.mjs": {
-      "types": "./dist/types/default.d.ts",
-      "import": "./dist/esm/default.mjs",
-      "require": "./dist/cjs/default.cjs",
-      "default": "./src/default.ts"
+    "./default/async/JEST_PRESET_HOLYPACK_ASYNC.mjs": {
+      "types": "./dist/types/default/async/JEST_PRESET_HOLYPACK_ASYNC.d.ts",
+      "import": "./dist/esm/default/async/JEST_PRESET_HOLYPACK_ASYNC.mjs",
+      "require": "./dist/cjs/default/async/JEST_PRESET_HOLYPACK_ASYNC.cjs",
+      "default": "./src/default/async/JEST_PRESET_HOLYPACK_ASYNC.ts"
     },
-    "./default": {
-      "types": "./dist/types/default.d.ts",
-      "import": "./dist/esm/default.mjs",
-      "require": "./dist/cjs/default.cjs",
-      "default": "./src/default.ts"
+    "./default/async/JEST_PRESET_HOLYPACK_ASYNC": {
+      "types": "./dist/types/default/async/JEST_PRESET_HOLYPACK_ASYNC.d.ts",
+      "import": "./dist/esm/default/async/JEST_PRESET_HOLYPACK_ASYNC.mjs",
+      "require": "./dist/cjs/default/async/JEST_PRESET_HOLYPACK_ASYNC.cjs",
+      "default": "./src/default/async/JEST_PRESET_HOLYPACK_ASYNC.ts"
+    },
+    "./default/async/index.cjs": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index.d.ts": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index.js": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index.mjs": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/sync/JEST_PRESET_HOLYPACK_SYNC.cjs": {
+      "types": "./dist/types/default/sync/JEST_PRESET_HOLYPACK_SYNC.d.ts",
+      "import": "./dist/esm/default/sync/JEST_PRESET_HOLYPACK_SYNC.mjs",
+      "require": "./dist/cjs/default/sync/JEST_PRESET_HOLYPACK_SYNC.cjs",
+      "default": "./src/default/sync/JEST_PRESET_HOLYPACK_SYNC.ts"
+    },
+    "./default/sync/JEST_PRESET_HOLYPACK_SYNC.d.ts": {
+      "types": "./dist/types/default/sync/JEST_PRESET_HOLYPACK_SYNC.d.ts",
+      "default": "./src/default/sync/JEST_PRESET_HOLYPACK_SYNC.ts"
+    },
+    "./default/sync/JEST_PRESET_HOLYPACK_SYNC.js": {
+      "types": "./dist/types/default/sync/JEST_PRESET_HOLYPACK_SYNC.d.ts",
+      "import": "./dist/esm/default/sync/JEST_PRESET_HOLYPACK_SYNC.mjs",
+      "require": "./dist/cjs/default/sync/JEST_PRESET_HOLYPACK_SYNC.cjs",
+      "default": "./src/default/sync/JEST_PRESET_HOLYPACK_SYNC.ts"
+    },
+    "./default/sync/JEST_PRESET_HOLYPACK_SYNC.mjs": {
+      "types": "./dist/types/default/sync/JEST_PRESET_HOLYPACK_SYNC.d.ts",
+      "import": "./dist/esm/default/sync/JEST_PRESET_HOLYPACK_SYNC.mjs",
+      "require": "./dist/cjs/default/sync/JEST_PRESET_HOLYPACK_SYNC.cjs",
+      "default": "./src/default/sync/JEST_PRESET_HOLYPACK_SYNC.ts"
+    },
+    "./default/sync/JEST_PRESET_HOLYPACK_SYNC": {
+      "types": "./dist/types/default/sync/JEST_PRESET_HOLYPACK_SYNC.d.ts",
+      "import": "./dist/esm/default/sync/JEST_PRESET_HOLYPACK_SYNC.mjs",
+      "require": "./dist/cjs/default/sync/JEST_PRESET_HOLYPACK_SYNC.cjs",
+      "default": "./src/default/sync/JEST_PRESET_HOLYPACK_SYNC.ts"
+    },
+    "./default/sync/index.cjs": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index.d.ts": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index.js": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index.mjs": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
     },
     "./index.cjs": {
       "types": "./dist/types/index.d.ts",
@@ -88,66 +194,151 @@
     },
     "./jest-preset": {
       "import": "./jest-preset.mjs",
+      "require": "./jest-preset.cjs",
       "default": "./jest-preset.mjs"
+    },
+    "./options/HolypackPresetOptionsAsync.cjs": {
+      "types": "./dist/types/options/HolypackPresetOptionsAsync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsAsync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsAsync.cjs",
+      "default": "./src/options/HolypackPresetOptionsAsync.ts"
+    },
+    "./options/HolypackPresetOptionsAsync.d.ts": {
+      "types": "./dist/types/options/HolypackPresetOptionsAsync.d.ts",
+      "default": "./src/options/HolypackPresetOptionsAsync.ts"
+    },
+    "./options/HolypackPresetOptionsAsync.js": {
+      "types": "./dist/types/options/HolypackPresetOptionsAsync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsAsync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsAsync.cjs",
+      "default": "./src/options/HolypackPresetOptionsAsync.ts"
+    },
+    "./options/HolypackPresetOptionsAsync.mjs": {
+      "types": "./dist/types/options/HolypackPresetOptionsAsync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsAsync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsAsync.cjs",
+      "default": "./src/options/HolypackPresetOptionsAsync.ts"
+    },
+    "./options/HolypackPresetOptionsAsync": {
+      "types": "./dist/types/options/HolypackPresetOptionsAsync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsAsync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsAsync.cjs",
+      "default": "./src/options/HolypackPresetOptionsAsync.ts"
+    },
+    "./options/HolypackPresetOptionsSync.cjs": {
+      "types": "./dist/types/options/HolypackPresetOptionsSync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsSync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsSync.cjs",
+      "default": "./src/options/HolypackPresetOptionsSync.ts"
+    },
+    "./options/HolypackPresetOptionsSync.d.ts": {
+      "types": "./dist/types/options/HolypackPresetOptionsSync.d.ts",
+      "default": "./src/options/HolypackPresetOptionsSync.ts"
+    },
+    "./options/HolypackPresetOptionsSync.js": {
+      "types": "./dist/types/options/HolypackPresetOptionsSync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsSync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsSync.cjs",
+      "default": "./src/options/HolypackPresetOptionsSync.ts"
+    },
+    "./options/HolypackPresetOptionsSync.mjs": {
+      "types": "./dist/types/options/HolypackPresetOptionsSync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsSync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsSync.cjs",
+      "default": "./src/options/HolypackPresetOptionsSync.ts"
+    },
+    "./options/HolypackPresetOptionsSync": {
+      "types": "./dist/types/options/HolypackPresetOptionsSync.d.ts",
+      "import": "./dist/esm/options/HolypackPresetOptionsSync.mjs",
+      "require": "./dist/cjs/options/HolypackPresetOptionsSync.cjs",
+      "default": "./src/options/HolypackPresetOptionsSync.ts"
     },
     "./package.json": {
       "default": "./package.json"
     },
-    "./preset-options.cjs": {
-      "types": "./dist/types/preset-options.d.ts",
-      "import": "./dist/esm/preset-options.mjs",
-      "require": "./dist/cjs/preset-options.cjs",
-      "default": "./src/preset-options.ts"
+    "./preset/HolypackPreset.cjs": {
+      "types": "./dist/types/preset/HolypackPreset.d.ts",
+      "import": "./dist/esm/preset/HolypackPreset.mjs",
+      "require": "./dist/cjs/preset/HolypackPreset.cjs",
+      "default": "./src/preset/HolypackPreset.ts"
     },
-    "./preset-options.d.ts": {
-      "types": "./dist/types/preset-options.d.ts",
-      "default": "./src/preset-options.ts"
+    "./preset/HolypackPreset.d.ts": {
+      "types": "./dist/types/preset/HolypackPreset.d.ts",
+      "default": "./src/preset/HolypackPreset.ts"
     },
-    "./preset-options.js": {
-      "types": "./dist/types/preset-options.d.ts",
-      "import": "./dist/esm/preset-options.mjs",
-      "require": "./dist/cjs/preset-options.cjs",
-      "default": "./src/preset-options.ts"
+    "./preset/HolypackPreset.js": {
+      "types": "./dist/types/preset/HolypackPreset.d.ts",
+      "import": "./dist/esm/preset/HolypackPreset.mjs",
+      "require": "./dist/cjs/preset/HolypackPreset.cjs",
+      "default": "./src/preset/HolypackPreset.ts"
     },
-    "./preset-options.mjs": {
-      "types": "./dist/types/preset-options.d.ts",
-      "import": "./dist/esm/preset-options.mjs",
-      "require": "./dist/cjs/preset-options.cjs",
-      "default": "./src/preset-options.ts"
+    "./preset/HolypackPreset.mjs": {
+      "types": "./dist/types/preset/HolypackPreset.d.ts",
+      "import": "./dist/esm/preset/HolypackPreset.mjs",
+      "require": "./dist/cjs/preset/HolypackPreset.cjs",
+      "default": "./src/preset/HolypackPreset.ts"
     },
-    "./preset-options": {
-      "types": "./dist/types/preset-options.d.ts",
-      "import": "./dist/esm/preset-options.mjs",
-      "require": "./dist/cjs/preset-options.cjs",
-      "default": "./src/preset-options.ts"
+    "./preset/HolypackPreset": {
+      "types": "./dist/types/preset/HolypackPreset.d.ts",
+      "import": "./dist/esm/preset/HolypackPreset.mjs",
+      "require": "./dist/cjs/preset/HolypackPreset.cjs",
+      "default": "./src/preset/HolypackPreset.ts"
     },
-    "./preset.cjs": {
-      "types": "./dist/types/preset.d.ts",
-      "import": "./dist/esm/preset.mjs",
-      "require": "./dist/cjs/preset.cjs",
-      "default": "./src/preset.ts"
+    "./preset/createHolypackPresetAsync.cjs": {
+      "types": "./dist/types/preset/createHolypackPresetAsync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetAsync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetAsync.cjs",
+      "default": "./src/preset/createHolypackPresetAsync.ts"
     },
-    "./preset.d.ts": {
-      "types": "./dist/types/preset.d.ts",
-      "default": "./src/preset.ts"
+    "./preset/createHolypackPresetAsync.d.ts": {
+      "types": "./dist/types/preset/createHolypackPresetAsync.d.ts",
+      "default": "./src/preset/createHolypackPresetAsync.ts"
     },
-    "./preset.js": {
-      "types": "./dist/types/preset.d.ts",
-      "import": "./dist/esm/preset.mjs",
-      "require": "./dist/cjs/preset.cjs",
-      "default": "./src/preset.ts"
+    "./preset/createHolypackPresetAsync.js": {
+      "types": "./dist/types/preset/createHolypackPresetAsync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetAsync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetAsync.cjs",
+      "default": "./src/preset/createHolypackPresetAsync.ts"
     },
-    "./preset.mjs": {
-      "types": "./dist/types/preset.d.ts",
-      "import": "./dist/esm/preset.mjs",
-      "require": "./dist/cjs/preset.cjs",
-      "default": "./src/preset.ts"
+    "./preset/createHolypackPresetAsync.mjs": {
+      "types": "./dist/types/preset/createHolypackPresetAsync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetAsync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetAsync.cjs",
+      "default": "./src/preset/createHolypackPresetAsync.ts"
     },
-    "./preset": {
-      "types": "./dist/types/preset.d.ts",
-      "import": "./dist/esm/preset.mjs",
-      "require": "./dist/cjs/preset.cjs",
-      "default": "./src/preset.ts"
+    "./preset/createHolypackPresetAsync": {
+      "types": "./dist/types/preset/createHolypackPresetAsync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetAsync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetAsync.cjs",
+      "default": "./src/preset/createHolypackPresetAsync.ts"
+    },
+    "./preset/createHolypackPresetSync.cjs": {
+      "types": "./dist/types/preset/createHolypackPresetSync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetSync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetSync.cjs",
+      "default": "./src/preset/createHolypackPresetSync.ts"
+    },
+    "./preset/createHolypackPresetSync.d.ts": {
+      "types": "./dist/types/preset/createHolypackPresetSync.d.ts",
+      "default": "./src/preset/createHolypackPresetSync.ts"
+    },
+    "./preset/createHolypackPresetSync.js": {
+      "types": "./dist/types/preset/createHolypackPresetSync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetSync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetSync.cjs",
+      "default": "./src/preset/createHolypackPresetSync.ts"
+    },
+    "./preset/createHolypackPresetSync.mjs": {
+      "types": "./dist/types/preset/createHolypackPresetSync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetSync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetSync.cjs",
+      "default": "./src/preset/createHolypackPresetSync.ts"
+    },
+    "./preset/createHolypackPresetSync": {
+      "types": "./dist/types/preset/createHolypackPresetSync.d.ts",
+      "import": "./dist/esm/preset/createHolypackPresetSync.mjs",
+      "require": "./dist/cjs/preset/createHolypackPresetSync.cjs",
+      "default": "./src/preset/createHolypackPresetSync.ts"
     },
     ".": {
       "types": "./dist/types/index.d.ts",

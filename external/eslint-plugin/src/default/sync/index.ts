@@ -1,0 +1,1 @@
+export { ESLINT_PLUGIN_HOLYPACK_SYNC as default } from "./ESLINT_PLUGIN_HOLYPACK_SYNC";

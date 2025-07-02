@@ -7,9 +7,23 @@
     "holypack-external"
   ],
   "scripts": {
-    "build": "yarn babel:build:clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn export-map-generator:update",
+    "build": "yarn build::types && yarn build::cjs && yarn build::esm && yarn build:update-exports",
+    "build::cjs": "yarn babel:build::cjs",
+    "build::esm": "yarn babel:build::esm",
+    "build::types": "yarn tsc:build::types",
     "build:clean": "yarn babel:build:clean",
-    "clean": "yarn build:clean"
+    "build:update-exports": "yarn export-map-generator:update",
+    "clean": "yarn build:clean && yarn build::debug:clean && yarn test:clean",
+    "coverage:clean": "yarn jest:coverage:clean",
+    "coverage:open": "yarn jest:coverage:open",
+    "debug:build": "yarn debug:build::esm && yarn debug:update-package-exports",
+    "debug:build::esm": "yarn babel:debug:build",
+    "debug:clean": "yarn babel:debug:build:clean",
+    "debug:update-package-exports": "yarn export-map-generator:debug",
+    "lint": "yarn eslint:lint",
+    "lint::fix": "yarn eslint:lint::fix",
+    "test": "yarn jest:test",
+    "test:clean": "yarn coverage:clean && yarn jest:cache:clean"
   },
   "devDependencies": {
     "@holypack/core": "workspace:^",
@@ -21,6 +35,17 @@
     "@holypack/integration-webpack": "*",
     "webpack": "*"
   },
+  "peerDependenciesMeta": {
+    "@holypack/core": {
+      "optional": false
+    },
+    "@holypack/integration-webpack": {
+      "optional": false
+    },
+    "webpack": {
+      "optional": false
+    }
+  },
   "files": [
     "./dist/",
     "./package.json"
@@ -29,129 +54,561 @@
   "module": "./dist/esm/index.mjs",
   "types": "./dist/types/index.d.ts",
   "exports": {
+    "./config/context/ConfigDefinitionContext.cjs": {
+      "types": "./dist/types/config/context/ConfigDefinitionContext.d.ts",
+      "import": "./dist/esm/config/context/ConfigDefinitionContext.mjs",
+      "require": "./dist/cjs/config/context/ConfigDefinitionContext.cjs",
+      "default": "./src/config/context/ConfigDefinitionContext.ts"
+    },
+    "./config/context/ConfigDefinitionContext.d.ts": {
+      "types": "./dist/types/config/context/ConfigDefinitionContext.d.ts",
+      "default": "./src/config/context/ConfigDefinitionContext.ts"
+    },
+    "./config/context/ConfigDefinitionContext.js": {
+      "types": "./dist/types/config/context/ConfigDefinitionContext.d.ts",
+      "import": "./dist/esm/config/context/ConfigDefinitionContext.mjs",
+      "require": "./dist/cjs/config/context/ConfigDefinitionContext.cjs",
+      "default": "./src/config/context/ConfigDefinitionContext.ts"
+    },
+    "./config/context/ConfigDefinitionContext.mjs": {
+      "types": "./dist/types/config/context/ConfigDefinitionContext.d.ts",
+      "import": "./dist/esm/config/context/ConfigDefinitionContext.mjs",
+      "require": "./dist/cjs/config/context/ConfigDefinitionContext.cjs",
+      "default": "./src/config/context/ConfigDefinitionContext.ts"
+    },
+    "./config/context/ConfigDefinitionContext": {
+      "types": "./dist/types/config/context/ConfigDefinitionContext.d.ts",
+      "import": "./dist/esm/config/context/ConfigDefinitionContext.mjs",
+      "require": "./dist/cjs/config/context/ConfigDefinitionContext.cjs",
+      "default": "./src/config/context/ConfigDefinitionContext.ts"
+    },
+    "./config/definition/ConfigDefinition.cjs": {
+      "types": "./dist/types/config/definition/ConfigDefinition.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinition.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinition.cjs",
+      "default": "./src/config/definition/ConfigDefinition.ts"
+    },
+    "./config/definition/ConfigDefinition.d.ts": {
+      "types": "./dist/types/config/definition/ConfigDefinition.d.ts",
+      "default": "./src/config/definition/ConfigDefinition.ts"
+    },
+    "./config/definition/ConfigDefinition.js": {
+      "types": "./dist/types/config/definition/ConfigDefinition.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinition.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinition.cjs",
+      "default": "./src/config/definition/ConfigDefinition.ts"
+    },
+    "./config/definition/ConfigDefinition.mjs": {
+      "types": "./dist/types/config/definition/ConfigDefinition.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinition.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinition.cjs",
+      "default": "./src/config/definition/ConfigDefinition.ts"
+    },
+    "./config/definition/ConfigDefinitionAsync.cjs": {
+      "types": "./dist/types/config/definition/ConfigDefinitionAsync.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinitionAsync.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinitionAsync.cjs",
+      "default": "./src/config/definition/ConfigDefinitionAsync.ts"
+    },
+    "./config/definition/ConfigDefinitionAsync.d.ts": {
+      "types": "./dist/types/config/definition/ConfigDefinitionAsync.d.ts",
+      "default": "./src/config/definition/ConfigDefinitionAsync.ts"
+    },
+    "./config/definition/ConfigDefinitionAsync.js": {
+      "types": "./dist/types/config/definition/ConfigDefinitionAsync.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinitionAsync.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinitionAsync.cjs",
+      "default": "./src/config/definition/ConfigDefinitionAsync.ts"
+    },
+    "./config/definition/ConfigDefinitionAsync.mjs": {
+      "types": "./dist/types/config/definition/ConfigDefinitionAsync.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinitionAsync.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinitionAsync.cjs",
+      "default": "./src/config/definition/ConfigDefinitionAsync.ts"
+    },
+    "./config/definition/ConfigDefinitionAsync": {
+      "types": "./dist/types/config/definition/ConfigDefinitionAsync.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinitionAsync.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinitionAsync.cjs",
+      "default": "./src/config/definition/ConfigDefinitionAsync.ts"
+    },
+    "./config/definition/ConfigDefinitionBase.cjs": {
+      "types": "./dist/types/config/definition/ConfigDefinitionBase.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinitionBase.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinitionBase.cjs",
+      "default": "./src/config/definition/ConfigDefinitionBase.ts"
+    },
+    "./config/definition/ConfigDefinitionBase.d.ts": {
+      "types": "./dist/types/config/definition/ConfigDefinitionBase.d.ts",
+      "default": "./src/config/definition/ConfigDefinitionBase.ts"
+    },
+    "./config/definition/ConfigDefinitionBase.js": {
+      "types": "./dist/types/config/definition/ConfigDefinitionBase.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinitionBase.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinitionBase.cjs",
+      "default": "./src/config/definition/ConfigDefinitionBase.ts"
+    },
+    "./config/definition/ConfigDefinitionBase.mjs": {
+      "types": "./dist/types/config/definition/ConfigDefinitionBase.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinitionBase.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinitionBase.cjs",
+      "default": "./src/config/definition/ConfigDefinitionBase.ts"
+    },
+    "./config/definition/ConfigDefinitionBase": {
+      "types": "./dist/types/config/definition/ConfigDefinitionBase.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinitionBase.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinitionBase.cjs",
+      "default": "./src/config/definition/ConfigDefinitionBase.ts"
+    },
+    "./config/definition/ConfigDefinitionSync.cjs": {
+      "types": "./dist/types/config/definition/ConfigDefinitionSync.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinitionSync.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinitionSync.cjs",
+      "default": "./src/config/definition/ConfigDefinitionSync.ts"
+    },
+    "./config/definition/ConfigDefinitionSync.d.ts": {
+      "types": "./dist/types/config/definition/ConfigDefinitionSync.d.ts",
+      "default": "./src/config/definition/ConfigDefinitionSync.ts"
+    },
+    "./config/definition/ConfigDefinitionSync.js": {
+      "types": "./dist/types/config/definition/ConfigDefinitionSync.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinitionSync.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinitionSync.cjs",
+      "default": "./src/config/definition/ConfigDefinitionSync.ts"
+    },
+    "./config/definition/ConfigDefinitionSync.mjs": {
+      "types": "./dist/types/config/definition/ConfigDefinitionSync.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinitionSync.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinitionSync.cjs",
+      "default": "./src/config/definition/ConfigDefinitionSync.ts"
+    },
+    "./config/definition/ConfigDefinitionSync": {
+      "types": "./dist/types/config/definition/ConfigDefinitionSync.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinitionSync.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinitionSync.cjs",
+      "default": "./src/config/definition/ConfigDefinitionSync.ts"
+    },
+    "./config/definition/ConfigDefinition": {
+      "types": "./dist/types/config/definition/ConfigDefinition.d.ts",
+      "import": "./dist/esm/config/definition/ConfigDefinition.mjs",
+      "require": "./dist/cjs/config/definition/ConfigDefinition.cjs",
+      "default": "./src/config/definition/ConfigDefinition.ts"
+    },
+    "./config/definition/defineConfigAsync.cjs": {
+      "types": "./dist/types/config/definition/defineConfigAsync.d.ts",
+      "import": "./dist/esm/config/definition/defineConfigAsync.mjs",
+      "require": "./dist/cjs/config/definition/defineConfigAsync.cjs",
+      "default": "./src/config/definition/defineConfigAsync.ts"
+    },
+    "./config/definition/defineConfigAsync.d.ts": {
+      "types": "./dist/types/config/definition/defineConfigAsync.d.ts",
+      "default": "./src/config/definition/defineConfigAsync.ts"
+    },
+    "./config/definition/defineConfigAsync.js": {
+      "types": "./dist/types/config/definition/defineConfigAsync.d.ts",
+      "import": "./dist/esm/config/definition/defineConfigAsync.mjs",
+      "require": "./dist/cjs/config/definition/defineConfigAsync.cjs",
+      "default": "./src/config/definition/defineConfigAsync.ts"
+    },
+    "./config/definition/defineConfigAsync.mjs": {
+      "types": "./dist/types/config/definition/defineConfigAsync.d.ts",
+      "import": "./dist/esm/config/definition/defineConfigAsync.mjs",
+      "require": "./dist/cjs/config/definition/defineConfigAsync.cjs",
+      "default": "./src/config/definition/defineConfigAsync.ts"
+    },
+    "./config/definition/defineConfigAsync": {
+      "types": "./dist/types/config/definition/defineConfigAsync.d.ts",
+      "import": "./dist/esm/config/definition/defineConfigAsync.mjs",
+      "require": "./dist/cjs/config/definition/defineConfigAsync.cjs",
+      "default": "./src/config/definition/defineConfigAsync.ts"
+    },
+    "./config/definition/defineConfigSync.cjs": {
+      "types": "./dist/types/config/definition/defineConfigSync.d.ts",
+      "import": "./dist/esm/config/definition/defineConfigSync.mjs",
+      "require": "./dist/cjs/config/definition/defineConfigSync.cjs",
+      "default": "./src/config/definition/defineConfigSync.ts"
+    },
+    "./config/definition/defineConfigSync.d.ts": {
+      "types": "./dist/types/config/definition/defineConfigSync.d.ts",
+      "default": "./src/config/definition/defineConfigSync.ts"
+    },
+    "./config/definition/defineConfigSync.js": {
+      "types": "./dist/types/config/definition/defineConfigSync.d.ts",
+      "import": "./dist/esm/config/definition/defineConfigSync.mjs",
+      "require": "./dist/cjs/config/definition/defineConfigSync.cjs",
+      "default": "./src/config/definition/defineConfigSync.ts"
+    },
+    "./config/definition/defineConfigSync.mjs": {
+      "types": "./dist/types/config/definition/defineConfigSync.d.ts",
+      "import": "./dist/esm/config/definition/defineConfigSync.mjs",
+      "require": "./dist/cjs/config/definition/defineConfigSync.cjs",
+      "default": "./src/config/definition/defineConfigSync.ts"
+    },
+    "./config/definition/defineConfigSync": {
+      "types": "./dist/types/config/definition/defineConfigSync.d.ts",
+      "import": "./dist/esm/config/definition/defineConfigSync.mjs",
+      "require": "./dist/cjs/config/definition/defineConfigSync.cjs",
+      "default": "./src/config/definition/defineConfigSync.ts"
+    },
     "./config/definition/definer.cjs": {
-      "types": "./dist/types/config/definition/definer.d.ts",
       "import": "./dist/esm/config/definition/definer.mjs",
       "require": "./dist/cjs/config/definition/definer.cjs",
       "default": "./src/config/definition/definer.ts"
     },
-    "./config/definition/definer.d.ts": {
-      "types": "./dist/types/config/definition/definer.d.ts",
-      "default": "./src/config/definition/definer.ts"
-    },
     "./config/definition/definer.js": {
-      "types": "./dist/types/config/definition/definer.d.ts",
       "import": "./dist/esm/config/definition/definer.mjs",
       "require": "./dist/cjs/config/definition/definer.cjs",
       "default": "./src/config/definition/definer.ts"
     },
     "./config/definition/definer.mjs": {
-      "types": "./dist/types/config/definition/definer.d.ts",
       "import": "./dist/esm/config/definition/definer.mjs",
       "require": "./dist/cjs/config/definition/definer.cjs",
       "default": "./src/config/definition/definer.ts"
     },
     "./config/definition/definer": {
-      "types": "./dist/types/config/definition/definer.d.ts",
       "import": "./dist/esm/config/definition/definer.mjs",
       "require": "./dist/cjs/config/definition/definer.cjs",
       "default": "./src/config/definition/definer.ts"
     },
     "./config/definition/definition.cjs": {
-      "types": "./dist/types/config/definition/definition.d.ts",
       "import": "./dist/esm/config/definition/definition.mjs",
       "require": "./dist/cjs/config/definition/definition.cjs",
       "default": "./src/config/definition/definition.ts"
     },
-    "./config/definition/definition.d.ts": {
-      "types": "./dist/types/config/definition/definition.d.ts",
-      "default": "./src/config/definition/definition.ts"
-    },
     "./config/definition/definition.js": {
-      "types": "./dist/types/config/definition/definition.d.ts",
       "import": "./dist/esm/config/definition/definition.mjs",
       "require": "./dist/cjs/config/definition/definition.cjs",
       "default": "./src/config/definition/definition.ts"
     },
     "./config/definition/definition.mjs": {
-      "types": "./dist/types/config/definition/definition.d.ts",
       "import": "./dist/esm/config/definition/definition.mjs",
       "require": "./dist/cjs/config/definition/definition.cjs",
       "default": "./src/config/definition/definition.ts"
     },
     "./config/definition/definition": {
-      "types": "./dist/types/config/definition/definition.d.ts",
       "import": "./dist/esm/config/definition/definition.mjs",
       "require": "./dist/cjs/config/definition/definition.cjs",
       "default": "./src/config/definition/definition.ts"
     },
     "./config/definition/index.cjs": {
-      "types": "./dist/types/config/definition/index.d.ts",
       "import": "./dist/esm/config/definition/index.mjs",
       "require": "./dist/cjs/config/definition/index.cjs",
       "default": "./src/config/definition/index.ts"
     },
-    "./config/definition/index.d.ts": {
-      "types": "./dist/types/config/definition/index.d.ts",
-      "default": "./src/config/definition/index.ts"
-    },
     "./config/definition/index.js": {
-      "types": "./dist/types/config/definition/index.d.ts",
       "import": "./dist/esm/config/definition/index.mjs",
       "require": "./dist/cjs/config/definition/index.cjs",
       "default": "./src/config/definition/index.ts"
     },
     "./config/definition/index.mjs": {
-      "types": "./dist/types/config/definition/index.d.ts",
       "import": "./dist/esm/config/definition/index.mjs",
       "require": "./dist/cjs/config/definition/index.cjs",
       "default": "./src/config/definition/index.ts"
     },
     "./config/definition/index": {
-      "types": "./dist/types/config/definition/index.d.ts",
       "import": "./dist/esm/config/definition/index.mjs",
       "require": "./dist/cjs/config/definition/index.cjs",
       "default": "./src/config/definition/index.ts"
     },
     "./config/definition": {
-      "types": "./dist/types/config/definition/index.d.ts",
       "import": "./dist/esm/config/definition/index.mjs",
       "require": "./dist/cjs/config/definition/index.cjs",
       "default": "./src/config/definition/index.ts"
     },
     "./config/index.cjs": {
-      "types": "./dist/types/config/index.d.ts",
       "import": "./dist/esm/config/index.mjs",
       "require": "./dist/cjs/config/index.cjs",
       "default": "./src/config/index.ts"
     },
-    "./config/index.d.ts": {
-      "types": "./dist/types/config/index.d.ts",
-      "default": "./src/config/index.ts"
-    },
     "./config/index.js": {
-      "types": "./dist/types/config/index.d.ts",
       "import": "./dist/esm/config/index.mjs",
       "require": "./dist/cjs/config/index.cjs",
       "default": "./src/config/index.ts"
     },
     "./config/index.mjs": {
-      "types": "./dist/types/config/index.d.ts",
       "import": "./dist/esm/config/index.mjs",
       "require": "./dist/cjs/config/index.cjs",
       "default": "./src/config/index.ts"
     },
     "./config/index": {
-      "types": "./dist/types/config/index.d.ts",
       "import": "./dist/esm/config/index.mjs",
       "require": "./dist/cjs/config/index.cjs",
       "default": "./src/config/index.ts"
     },
+    "./config/provider/ConfigDefinitionProvider.cjs": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProvider.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProvider.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProvider.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProvider.ts"
+    },
+    "./config/provider/ConfigDefinitionProvider.d.ts": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProvider.d.ts",
+      "default": "./src/config/provider/ConfigDefinitionProvider.ts"
+    },
+    "./config/provider/ConfigDefinitionProvider.js": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProvider.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProvider.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProvider.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProvider.ts"
+    },
+    "./config/provider/ConfigDefinitionProvider.mjs": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProvider.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProvider.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProvider.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProvider.ts"
+    },
+    "./config/provider/ConfigDefinitionProviderAsync.cjs": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProviderAsync.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProviderAsync.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProviderAsync.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProviderAsync.ts"
+    },
+    "./config/provider/ConfigDefinitionProviderAsync.d.ts": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProviderAsync.d.ts",
+      "default": "./src/config/provider/ConfigDefinitionProviderAsync.ts"
+    },
+    "./config/provider/ConfigDefinitionProviderAsync.js": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProviderAsync.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProviderAsync.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProviderAsync.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProviderAsync.ts"
+    },
+    "./config/provider/ConfigDefinitionProviderAsync.mjs": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProviderAsync.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProviderAsync.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProviderAsync.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProviderAsync.ts"
+    },
+    "./config/provider/ConfigDefinitionProviderAsync": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProviderAsync.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProviderAsync.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProviderAsync.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProviderAsync.ts"
+    },
+    "./config/provider/ConfigDefinitionProviderMaybeAsync.cjs": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProviderMaybeAsync.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProviderMaybeAsync.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProviderMaybeAsync.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProviderMaybeAsync.ts"
+    },
+    "./config/provider/ConfigDefinitionProviderMaybeAsync.d.ts": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProviderMaybeAsync.d.ts",
+      "default": "./src/config/provider/ConfigDefinitionProviderMaybeAsync.ts"
+    },
+    "./config/provider/ConfigDefinitionProviderMaybeAsync.js": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProviderMaybeAsync.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProviderMaybeAsync.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProviderMaybeAsync.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProviderMaybeAsync.ts"
+    },
+    "./config/provider/ConfigDefinitionProviderMaybeAsync.mjs": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProviderMaybeAsync.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProviderMaybeAsync.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProviderMaybeAsync.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProviderMaybeAsync.ts"
+    },
+    "./config/provider/ConfigDefinitionProviderMaybeAsync": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProviderMaybeAsync.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProviderMaybeAsync.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProviderMaybeAsync.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProviderMaybeAsync.ts"
+    },
+    "./config/provider/ConfigDefinitionProviderSync.cjs": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProviderSync.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProviderSync.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProviderSync.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProviderSync.ts"
+    },
+    "./config/provider/ConfigDefinitionProviderSync.d.ts": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProviderSync.d.ts",
+      "default": "./src/config/provider/ConfigDefinitionProviderSync.ts"
+    },
+    "./config/provider/ConfigDefinitionProviderSync.js": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProviderSync.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProviderSync.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProviderSync.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProviderSync.ts"
+    },
+    "./config/provider/ConfigDefinitionProviderSync.mjs": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProviderSync.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProviderSync.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProviderSync.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProviderSync.ts"
+    },
+    "./config/provider/ConfigDefinitionProviderSync": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProviderSync.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProviderSync.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProviderSync.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProviderSync.ts"
+    },
+    "./config/provider/ConfigDefinitionProvider": {
+      "types": "./dist/types/config/provider/ConfigDefinitionProvider.d.ts",
+      "import": "./dist/esm/config/provider/ConfigDefinitionProvider.mjs",
+      "require": "./dist/cjs/config/provider/ConfigDefinitionProvider.cjs",
+      "default": "./src/config/provider/ConfigDefinitionProvider.ts"
+    },
     "./config": {
-      "types": "./dist/types/config/index.d.ts",
       "import": "./dist/esm/config/index.mjs",
       "require": "./dist/cjs/config/index.cjs",
       "default": "./src/config/index.ts"
+    },
+    "./default/async/WEBPACK_CONFIG_ASYNC.cjs": {
+      "types": "./dist/types/default/async/WEBPACK_CONFIG_ASYNC.d.ts",
+      "import": "./dist/esm/default/async/WEBPACK_CONFIG_ASYNC.mjs",
+      "require": "./dist/cjs/default/async/WEBPACK_CONFIG_ASYNC.cjs",
+      "default": "./src/default/async/WEBPACK_CONFIG_ASYNC.ts"
+    },
+    "./default/async/WEBPACK_CONFIG_ASYNC.d.ts": {
+      "types": "./dist/types/default/async/WEBPACK_CONFIG_ASYNC.d.ts",
+      "default": "./src/default/async/WEBPACK_CONFIG_ASYNC.ts"
+    },
+    "./default/async/WEBPACK_CONFIG_ASYNC.js": {
+      "types": "./dist/types/default/async/WEBPACK_CONFIG_ASYNC.d.ts",
+      "import": "./dist/esm/default/async/WEBPACK_CONFIG_ASYNC.mjs",
+      "require": "./dist/cjs/default/async/WEBPACK_CONFIG_ASYNC.cjs",
+      "default": "./src/default/async/WEBPACK_CONFIG_ASYNC.ts"
+    },
+    "./default/async/WEBPACK_CONFIG_ASYNC.mjs": {
+      "types": "./dist/types/default/async/WEBPACK_CONFIG_ASYNC.d.ts",
+      "import": "./dist/esm/default/async/WEBPACK_CONFIG_ASYNC.mjs",
+      "require": "./dist/cjs/default/async/WEBPACK_CONFIG_ASYNC.cjs",
+      "default": "./src/default/async/WEBPACK_CONFIG_ASYNC.ts"
+    },
+    "./default/async/WEBPACK_CONFIG_ASYNC": {
+      "types": "./dist/types/default/async/WEBPACK_CONFIG_ASYNC.d.ts",
+      "import": "./dist/esm/default/async/WEBPACK_CONFIG_ASYNC.mjs",
+      "require": "./dist/cjs/default/async/WEBPACK_CONFIG_ASYNC.cjs",
+      "default": "./src/default/async/WEBPACK_CONFIG_ASYNC.ts"
+    },
+    "./default/async/index.cjs": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index.d.ts": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index.js": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index.mjs": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/index.cjs": {
+      "types": "./dist/types/default/index.d.ts",
+      "import": "./dist/esm/default/index.mjs",
+      "require": "./dist/cjs/default/index.cjs",
+      "default": "./src/default/index.ts"
+    },
+    "./default/index.d.ts": {
+      "types": "./dist/types/default/index.d.ts",
+      "default": "./src/default/index.ts"
+    },
+    "./default/index.js": {
+      "types": "./dist/types/default/index.d.ts",
+      "import": "./dist/esm/default/index.mjs",
+      "require": "./dist/cjs/default/index.cjs",
+      "default": "./src/default/index.ts"
+    },
+    "./default/index.mjs": {
+      "types": "./dist/types/default/index.d.ts",
+      "import": "./dist/esm/default/index.mjs",
+      "require": "./dist/cjs/default/index.cjs",
+      "default": "./src/default/index.ts"
+    },
+    "./default/index": {
+      "types": "./dist/types/default/index.d.ts",
+      "import": "./dist/esm/default/index.mjs",
+      "require": "./dist/cjs/default/index.cjs",
+      "default": "./src/default/index.ts"
+    },
+    "./default/sync/WEBPACK_CONFIG_SYNC.cjs": {
+      "types": "./dist/types/default/sync/WEBPACK_CONFIG_SYNC.d.ts",
+      "import": "./dist/esm/default/sync/WEBPACK_CONFIG_SYNC.mjs",
+      "require": "./dist/cjs/default/sync/WEBPACK_CONFIG_SYNC.cjs",
+      "default": "./src/default/sync/WEBPACK_CONFIG_SYNC.ts"
+    },
+    "./default/sync/WEBPACK_CONFIG_SYNC.d.ts": {
+      "types": "./dist/types/default/sync/WEBPACK_CONFIG_SYNC.d.ts",
+      "default": "./src/default/sync/WEBPACK_CONFIG_SYNC.ts"
+    },
+    "./default/sync/WEBPACK_CONFIG_SYNC.js": {
+      "types": "./dist/types/default/sync/WEBPACK_CONFIG_SYNC.d.ts",
+      "import": "./dist/esm/default/sync/WEBPACK_CONFIG_SYNC.mjs",
+      "require": "./dist/cjs/default/sync/WEBPACK_CONFIG_SYNC.cjs",
+      "default": "./src/default/sync/WEBPACK_CONFIG_SYNC.ts"
+    },
+    "./default/sync/WEBPACK_CONFIG_SYNC.mjs": {
+      "types": "./dist/types/default/sync/WEBPACK_CONFIG_SYNC.d.ts",
+      "import": "./dist/esm/default/sync/WEBPACK_CONFIG_SYNC.mjs",
+      "require": "./dist/cjs/default/sync/WEBPACK_CONFIG_SYNC.cjs",
+      "default": "./src/default/sync/WEBPACK_CONFIG_SYNC.ts"
+    },
+    "./default/sync/WEBPACK_CONFIG_SYNC": {
+      "types": "./dist/types/default/sync/WEBPACK_CONFIG_SYNC.d.ts",
+      "import": "./dist/esm/default/sync/WEBPACK_CONFIG_SYNC.mjs",
+      "require": "./dist/cjs/default/sync/WEBPACK_CONFIG_SYNC.cjs",
+      "default": "./src/default/sync/WEBPACK_CONFIG_SYNC.ts"
+    },
+    "./default/sync/index.cjs": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index.d.ts": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index.js": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index.mjs": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default": {
+      "types": "./dist/types/default/index.d.ts",
+      "import": "./dist/esm/default/index.mjs",
+      "require": "./dist/cjs/default/index.cjs",
+      "default": "./src/default/index.ts"
     },
     "./index.cjs": {
       "types": "./dist/types/index.d.ts",
@@ -185,29 +642,21 @@
       "default": "./package.json"
     },
     "./plugin-options.cjs": {
-      "types": "./dist/types/plugin-options.d.ts",
       "import": "./dist/esm/plugin-options.mjs",
       "require": "./dist/cjs/plugin-options.cjs",
       "default": "./src/plugin-options.ts"
     },
-    "./plugin-options.d.ts": {
-      "types": "./dist/types/plugin-options.d.ts",
-      "default": "./src/plugin-options.ts"
-    },
     "./plugin-options.js": {
-      "types": "./dist/types/plugin-options.d.ts",
       "import": "./dist/esm/plugin-options.mjs",
       "require": "./dist/cjs/plugin-options.cjs",
       "default": "./src/plugin-options.ts"
     },
     "./plugin-options.mjs": {
-      "types": "./dist/types/plugin-options.d.ts",
       "import": "./dist/esm/plugin-options.mjs",
       "require": "./dist/cjs/plugin-options.cjs",
       "default": "./src/plugin-options.ts"
     },
     "./plugin-options": {
-      "types": "./dist/types/plugin-options.d.ts",
       "import": "./dist/esm/plugin-options.mjs",
       "require": "./dist/cjs/plugin-options.cjs",
       "default": "./src/plugin-options.ts"

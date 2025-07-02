@@ -1,3 +1,2 @@
-export * from "./config";
-export { defineConfig as default } from "./config";
-export * from "./plugin-options";
+export { defineConfigAsync } from "./config/definition/defineConfigAsync";
+export { defineConfigSync } from "./config/definition/defineConfigSync";
