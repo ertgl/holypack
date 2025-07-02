@@ -35,3 +35,7 @@ indent_style = space
 [*.{yml,yaml}]
 indent_size = 2
 indent_style = space
+
+[*.code-snippets]
+indent_size = 2
+indent_style = space
