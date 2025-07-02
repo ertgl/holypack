@@ -4,8 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm",
-    "clean": "rm -fr dist",
-    "test": "yarn build"
+    "clean": "rm -fr dist"
   },
   "devDependencies": {
     "@babel/cli": "^7.28.0",
