@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.28.0",
+    "@holypack/babel-preset": "*",
     "@holypack/core": "*",
     "@holypack/integration-babel": "*",
     "holypack": "*"
