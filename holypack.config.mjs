@@ -1,100 +1,121 @@
-import { access } from "node:fs/promises";
-import {
-  dirname,
-  resolve as resolvePath,
-} from "node:path";
+// When building holypack, it uses itself during the process.
+// As a result, some extensions might not be available during the bootstrap phase.
+// For this reason, avoid importing extensions directly.
+// Use `suppressErrorSync` to safely fall back to `undefined`.
+//
+// Holypack supports both synchronous and asynchronous execution modes.
+// When running, if at least one integration using this config file does not
+// support asynchronous execution, ensure that only synchronous operations are
+// performed here. Thus both synchronous and asynchronous contexts can safely
+// make use of this config file.
+
+import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 
-import babel from "@holypack/integration-babel";
-import typescript from "@holypack/integration-typescript";
+import { requireDefaultExport } from "@holypack/core/lib/module/requireDefaultExport";
+import { suppressErrorSync } from "@holypack/core/lib/runtime/suppressErrorSync";
 import { defineConfig } from "holypack/config";
 
 const __filename = fileURLToPath(import.meta.url);
 
-const __dirname = dirname(__filename);
+const require = createRequire(__filename);
 
-const HOLYPACK_CONFIG = defineConfig(
-  async () =>
+/**
+ * @import {
+ *   type ESLintIntegration,
+ *   type ESLintIntegrationOptions,
+ * } from "@holypack/integration-eslint";
+ * @import {
+ *   type MarkdownFlavor,
+ * } from "@holypack/integration-eslint/plugins/eslint/markdown/flavor/MarkdownFlavor";
+ */
+
+const CI = process.env.CI === "true" || process.env.CI === "1";
+
+/**
+ * @template T
+ * @param {T} value
+ * @returns {T | undefined}
+ */
+const disableOnCI = (value) =>
+{
+  return CI ? undefined : value;
+};
+
+export default defineConfig(
+  (context) =>
   {
-    const isESLintIntegrationAvailable = await isIntegrationAvailable("eslint");
-
-    const eslint = (
-      isESLintIntegrationAvailable
-        ? (
-            await import(
-              "@holypack/integration-eslint",
-            ).then(
-              (module) => module.default,
-            ).catch(
-              () => null,
-            )
-          )
-        : null
-    );
-
-    const isJestIntegrationAvailable = await isIntegrationAvailable("jest");
-
-    const jest = (
-      isJestIntegrationAvailable
-        ? (
-            await import(
-              "@holypack/integration-jest",
-            ).then(
-              (module) => module.default,
-            ).catch(
-              () => null,
-            )
-          )
-        : null
-    );
-
     return {
-      integrations: [
-        typescript(),
-        babel(),
-        eslint?.({
-          ignores: {
-            commonDirectoryPatterns: [
-              ".bootstrap",
-              ".yarn",
-              "dist",
-              "node_modules",
-            ],
-          },
-        }),
-        jest?.(),
-      ],
-      project: {
-        subProjects: [
+      extensions: [
+        disableOnCI(
+          suppressErrorSync(
+            requireDefaultExport,
+            require,
+            "@holypack/tracing/plugins/hook-tracer",
+          ),
+        ),
+
+        suppressErrorSync(
+          requireDefaultExport,
+          require,
+          "@holypack/integration-typescript",
+        ),
+
+        suppressErrorSync(
+          requireDefaultExport,
+          require,
+          "@holypack/integration-babel",
+        ),
+
+        suppressErrorSync(
+          requireDefaultExport,
+          require,
+          "@holypack/integration-jest",
+        ),
+
+        suppressErrorSync(
+          () =>
           {
-            path: "./e2e",
+            /**
+             * @type {ESLintIntegration}
+             */
+            const eslint = requireDefaultExport(
+              require,
+              "@holypack/integration-eslint",
+            );
+
+            /**
+             * @type {MarkdownFlavor}
+             */
+            const MARKDOWN_FLAVOR_GFM = requireDefaultExport(
+              require,
+              "@holypack/integration-eslint/plugins/eslint/markdown/flavor/MARKDOWN_FLAVOR_GFM",
+            );
+
+            /**
+             * @satisfies {ESLintIntegrationOptions}
+             */
+            const options = {
+              plugins: {
+                ignores: {
+                  extra: [
+                    "**/.build/",
+                    "e2e/",
+                  ],
+                },
+                markdown: {
+                  flavor: MARKDOWN_FLAVOR_GFM,
+                },
+              },
+            };
+
+            return [
+              eslint,
+              options,
+            ];
           },
-        ],
-      },
+        ),
+      ],
     };
   },
 );
-
-/**
- * @param {string} integrationName
- * @returns {Promise<boolean>}
- */
-async function isIntegrationAvailable(
-  integrationName,
-)
-{
-  return access(
-    resolvePath(
-      __dirname,
-      "integrations",
-      integrationName,
-      "dist",
-      "esm",
-    ),
-  ).then(
-    () => true,
-    () => false,
-  );
-}
-
-export default HOLYPACK_CONFIG;
