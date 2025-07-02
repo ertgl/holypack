@@ -1,1 +1,0 @@
-export type HookSubscriptionID = string;

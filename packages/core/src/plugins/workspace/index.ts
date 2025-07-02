@@ -1,7 +1,4 @@
-export * from "./module-augmentation";
-export * from "./plugin";
-export { createWorkspacePlugin as default } from "./plugin";
-export * from "./plugin-metadata";
-export * from "./utils";
-export * from "./workspace";
-export * from "./workspace-registry";
+export { createWorkspacePlugin } from "./extension/createWorkspacePlugin";
+import { createWorkspacePlugin } from "./extension/createWorkspacePlugin";
+
+export default createWorkspacePlugin;
