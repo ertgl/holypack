@@ -3300,6 +3300,10 @@ __metadata:
     webpack: "*"
     webpack-cli: "*"
   peerDependenciesMeta:
+    "@holypack/core":
+      optional: false
+    webpack:
+      optional: false
     webpack-cli:
       optional: true
   languageName: unknown
