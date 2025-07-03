@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@holypack/core": "workspace:^",
-    "tapable-tracer": "^2.1.2"
+    "tapable-tracer": "^2.2.0"
   },
   "peerDependencies": {
     "@holypack/core": "*",
