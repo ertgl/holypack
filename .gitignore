@@ -11,9 +11,7 @@
 dist/
 
 # Environment-specific
-.env
 .env.*
-!.env.yarn
 
 # ESLint artifacts
 eslint.config.bundled_*.mjs
