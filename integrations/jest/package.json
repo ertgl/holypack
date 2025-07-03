@@ -22,7 +22,7 @@
     "eslint-plugin-istanbul": "^0.1.2",
     "eslint-plugin-jest": "^29.0.1",
     "globals": "^16.3.0",
-    "jest": "^30.0.3",
+    "jest": "^30.0.4",
     "jest-environment-jsdom": "^30.0.2",
     "tapable": "^2.2.2"
   },
