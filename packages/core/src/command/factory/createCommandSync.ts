@@ -1,10 +1,10 @@
-import type { Command } from "../Command";
+import type { CommandSync } from "../CommandSync";
 
 import type { CommandFactoryOptionsSync } from "./CommandFactoryOptionsSync";
 
 export function createCommandSync(
   options: CommandFactoryOptionsSync,
-): Command
+): CommandSync
 {
   return {
     descriptionLong: options.descriptionLong ?? "",

@@ -1,10 +1,10 @@
-import type { Command } from "../Command";
+import type { CommandAsync } from "../CommandAsync";
 
 import type { CommandFactoryOptionsAsync } from "./CommandFactoryOptionsAsync";
 
 export function createCommandAsync(
   options: CommandFactoryOptionsAsync,
-): Command
+): CommandAsync
 {
   return {
     descriptionLong: options.descriptionLong ?? "",

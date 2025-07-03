@@ -4,6 +4,7 @@ import { maybeSubscribeExtensionToHookAsync } from "../../../../extension/binder
 import type { ExtensionMaybeAsync } from "../../../../extension/ExtensionMaybeAsync";
 import type { ExtensionSync } from "../../../../extension/ExtensionSync";
 import { SYSTEM_HOOK_UID_AUGMENT_CONTEXT_ASYNC } from "../../../../hooks/augment-context/SYSTEM_HOOK_UID_AUGMENT_CONTEXT_ASYNC";
+import { SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_ASYNC } from "../../../../hooks/post-bind-context-command/SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_ASYNC";
 import { SYSTEM_HOOK_UID_POST_BIND_CONTEXT_HOOK_ASYNC } from "../../../../hooks/post-bind-context-hook/SYSTEM_HOOK_UID_POST_BIND_CONTEXT_HOOK_ASYNC";
 import { SYSTEM_HOOK_UID_POST_BIND_EXTENSION_HOOK_ASYNC } from "../../../../hooks/post-bind-extension-hook/SYSTEM_HOOK_UID_POST_BIND_EXTENSION_HOOK_ASYNC";
 import { SYSTEM_HOOK_UID_POST_BIND_EXTENSION_ASYNC } from "../../../../hooks/post-bind-extension/SYSTEM_HOOK_UID_POST_BIND_EXTENSION_ASYNC";
@@ -28,6 +29,12 @@ export function maybeSubscribeExtensionToSystemHooksAsync(
       SYSTEM_HOOK_UID_POST_BIND_CONTEXT_HOOK_ASYNC,
       extension,
       "$postBindContextHook",
+    ),
+    [SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_ASYNC]: subscribeAndReturnHook(
+      context,
+      SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_ASYNC,
+      extension,
+      "$postBindContextCommand",
     ),
     [SYSTEM_HOOK_UID_POST_BIND_EXTENSION_ASYNC]: subscribeAndReturnHook(
       context,

@@ -1,38 +1,42 @@
-import { SyncBailHook } from "tapable";
+import { jest } from "@jest/globals";
 
 import { resolveContextSync } from "../../../context/resolver/resolveContextSync";
-import { bindHookSync } from "../bindHookSync";
-import { HookIsAlreadyBoundError } from "../errors/HookIsAlreadyBoundError";
+import { createCommandSync } from "../../factory/createCommandSync";
+import { bindCommandSync } from "../bindCommandSync";
+import { CommandIsAlreadyBoundError } from "../errors/CommandIsAlreadyBoundError";
 
 describe(
-  "bindHookSync",
+  "bindCommandSync",
   () =>
   {
     it(
-      "should throw an error if the hook is already bound",
+      "should throw an error if the command is already bound",
       () =>
       {
-        const hook = new SyncBailHook<[], void>([], "test:sample");
+        const command = createCommandSync({
+          handler: jest.fn(),
+          uid: "test:sample",
+        });
 
         const context = resolveContextSync({
           loadConfigFile: false,
         });
 
-        bindHookSync(
+        bindCommandSync(
           context,
-          hook,
+          command,
         );
 
         expect(
           () =>
           {
-            bindHookSync(
+            bindCommandSync(
               context,
-              hook,
+              command,
             );
           },
         ).toThrow(
-          HookIsAlreadyBoundError,
+          CommandIsAlreadyBoundError,
         );
       },
     );
