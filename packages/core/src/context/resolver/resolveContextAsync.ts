@@ -25,6 +25,7 @@ export async function resolveContextAsync(
   const cwd = resolveCWD(options.cwd);
 
   const context: ContextAsync = {
+    commands: new Map(),
     cwd,
     extensions: new Map(),
     fs: {},
