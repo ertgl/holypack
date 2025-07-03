@@ -1,4 +1,4 @@
-import holypackESMPreset from "@holypack/babel-preset/sync";
+import holypackPreset from "@holypack/babel-preset/default/sync/esm";
 
 /**
  * @import { type TransformOptions } from "@babel/core";
@@ -10,7 +10,7 @@ import holypackESMPreset from "@holypack/babel-preset/sync";
 const BABEL_CONFIG = {
   presets: [
     [
-      holypackESMPreset,
+      holypackPreset,
       {},
     ],
   ],

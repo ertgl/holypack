@@ -1,4 +1,4 @@
-import holypackCJSPreset from "@holypack/babel-preset/cjs/sync";
+import holypackPreset from "@holypack/babel-preset/default/sync/cjs";
 
 /**
  * @import { type TransformOptions } from "@babel/core";
@@ -10,7 +10,7 @@ import holypackCJSPreset from "@holypack/babel-preset/cjs/sync";
 const BABEL_CONFIG = {
   presets: [
     [
-      holypackCJSPreset,
+      holypackPreset,
       {},
     ],
   ],
