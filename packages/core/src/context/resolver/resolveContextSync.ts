@@ -25,6 +25,7 @@ export function resolveContextSync(
   const cwd = resolveCWD(options.cwd);
 
   const context: ContextSync = {
+    commands: new Map(),
     cwd,
     extensions: new Map(),
     fs: {},
