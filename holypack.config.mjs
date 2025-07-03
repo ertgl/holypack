@@ -32,6 +32,8 @@ const require = createRequire(__filename);
 
 const CI = process.env.CI === "true" || process.env.CI === "1";
 
+const DEBUG = process.env.DEBUG === "true" || process.env.DEBUG === "1";
+
 /**
  * @template T
  * @param {T} value
@@ -42,16 +44,28 @@ const disableOnCI = (value) =>
   return CI ? undefined : value;
 };
 
+/**
+ * @template T
+ * @param {T} value
+ * @returns {T | undefined}
+ */
+const enableOnlyForDebugging = (value) =>
+{
+  return DEBUG ? value : undefined;
+};
+
 export default defineConfig(
   (context) =>
   {
     return {
       extensions: [
         disableOnCI(
-          suppressErrorSync(
-            requireDefaultExport,
-            require,
-            "@holypack/tracing/plugins/hook-tracer",
+          enableOnlyForDebugging(
+            suppressErrorSync(
+              requireDefaultExport,
+              require,
+              "@holypack/tracing/plugins/hook-tracer",
+            ),
           ),
         ),
 
