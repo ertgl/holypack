@@ -277,6 +277,62 @@
       "require": "./dist/cjs/command/binder/errors/ERROR_COMMAND_IS_ALREADY_BOUND.cjs",
       "default": "./src/command/binder/errors/ERROR_COMMAND_IS_ALREADY_BOUND.ts"
     },
+    "./command/data/CommandData.cjs": {
+      "types": "./dist/types/command/data/CommandData.d.ts",
+      "import": "./dist/esm/command/data/CommandData.mjs",
+      "require": "./dist/cjs/command/data/CommandData.cjs",
+      "default": "./src/command/data/CommandData.ts"
+    },
+    "./command/data/CommandData.d.ts": {
+      "types": "./dist/types/command/data/CommandData.d.ts",
+      "default": "./src/command/data/CommandData.ts"
+    },
+    "./command/data/CommandData.js": {
+      "types": "./dist/types/command/data/CommandData.d.ts",
+      "import": "./dist/esm/command/data/CommandData.mjs",
+      "require": "./dist/cjs/command/data/CommandData.cjs",
+      "default": "./src/command/data/CommandData.ts"
+    },
+    "./command/data/CommandData.mjs": {
+      "types": "./dist/types/command/data/CommandData.d.ts",
+      "import": "./dist/esm/command/data/CommandData.mjs",
+      "require": "./dist/cjs/command/data/CommandData.cjs",
+      "default": "./src/command/data/CommandData.ts"
+    },
+    "./command/data/CommandData": {
+      "types": "./dist/types/command/data/CommandData.d.ts",
+      "import": "./dist/esm/command/data/CommandData.mjs",
+      "require": "./dist/cjs/command/data/CommandData.cjs",
+      "default": "./src/command/data/CommandData.ts"
+    },
+    "./command/data/ExtractCommandData.cjs": {
+      "types": "./dist/types/command/data/ExtractCommandData.d.ts",
+      "import": "./dist/esm/command/data/ExtractCommandData.mjs",
+      "require": "./dist/cjs/command/data/ExtractCommandData.cjs",
+      "default": "./src/command/data/ExtractCommandData.ts"
+    },
+    "./command/data/ExtractCommandData.d.ts": {
+      "types": "./dist/types/command/data/ExtractCommandData.d.ts",
+      "default": "./src/command/data/ExtractCommandData.ts"
+    },
+    "./command/data/ExtractCommandData.js": {
+      "types": "./dist/types/command/data/ExtractCommandData.d.ts",
+      "import": "./dist/esm/command/data/ExtractCommandData.mjs",
+      "require": "./dist/cjs/command/data/ExtractCommandData.cjs",
+      "default": "./src/command/data/ExtractCommandData.ts"
+    },
+    "./command/data/ExtractCommandData.mjs": {
+      "types": "./dist/types/command/data/ExtractCommandData.d.ts",
+      "import": "./dist/esm/command/data/ExtractCommandData.mjs",
+      "require": "./dist/cjs/command/data/ExtractCommandData.cjs",
+      "default": "./src/command/data/ExtractCommandData.ts"
+    },
+    "./command/data/ExtractCommandData": {
+      "types": "./dist/types/command/data/ExtractCommandData.d.ts",
+      "import": "./dist/esm/command/data/ExtractCommandData.mjs",
+      "require": "./dist/cjs/command/data/ExtractCommandData.cjs",
+      "default": "./src/command/data/ExtractCommandData.ts"
+    },
     "./command/factory/CommandFactoryOptionsAsync.cjs": {
       "types": "./dist/types/command/factory/CommandFactoryOptionsAsync.d.ts",
       "import": "./dist/esm/command/factory/CommandFactoryOptionsAsync.mjs",
@@ -473,6 +529,230 @@
       "require": "./dist/cjs/command/handler/CommandHandlerSync.cjs",
       "default": "./src/command/handler/CommandHandlerSync.ts"
     },
+    "./command/handler/ExtractCommandHandlerReturnType.cjs": {
+      "types": "./dist/types/command/handler/ExtractCommandHandlerReturnType.d.ts",
+      "import": "./dist/esm/command/handler/ExtractCommandHandlerReturnType.mjs",
+      "require": "./dist/cjs/command/handler/ExtractCommandHandlerReturnType.cjs",
+      "default": "./src/command/handler/ExtractCommandHandlerReturnType.ts"
+    },
+    "./command/handler/ExtractCommandHandlerReturnType.d.ts": {
+      "types": "./dist/types/command/handler/ExtractCommandHandlerReturnType.d.ts",
+      "default": "./src/command/handler/ExtractCommandHandlerReturnType.ts"
+    },
+    "./command/handler/ExtractCommandHandlerReturnType.js": {
+      "types": "./dist/types/command/handler/ExtractCommandHandlerReturnType.d.ts",
+      "import": "./dist/esm/command/handler/ExtractCommandHandlerReturnType.mjs",
+      "require": "./dist/cjs/command/handler/ExtractCommandHandlerReturnType.cjs",
+      "default": "./src/command/handler/ExtractCommandHandlerReturnType.ts"
+    },
+    "./command/handler/ExtractCommandHandlerReturnType.mjs": {
+      "types": "./dist/types/command/handler/ExtractCommandHandlerReturnType.d.ts",
+      "import": "./dist/esm/command/handler/ExtractCommandHandlerReturnType.mjs",
+      "require": "./dist/cjs/command/handler/ExtractCommandHandlerReturnType.cjs",
+      "default": "./src/command/handler/ExtractCommandHandlerReturnType.ts"
+    },
+    "./command/handler/ExtractCommandHandlerReturnType": {
+      "types": "./dist/types/command/handler/ExtractCommandHandlerReturnType.d.ts",
+      "import": "./dist/esm/command/handler/ExtractCommandHandlerReturnType.mjs",
+      "require": "./dist/cjs/command/handler/ExtractCommandHandlerReturnType.cjs",
+      "default": "./src/command/handler/ExtractCommandHandlerReturnType.ts"
+    },
+    "./command/interop/UseCommandCallbackAsync.cjs": {
+      "types": "./dist/types/command/interop/UseCommandCallbackAsync.d.ts",
+      "import": "./dist/esm/command/interop/UseCommandCallbackAsync.mjs",
+      "require": "./dist/cjs/command/interop/UseCommandCallbackAsync.cjs",
+      "default": "./src/command/interop/UseCommandCallbackAsync.ts"
+    },
+    "./command/interop/UseCommandCallbackAsync.d.ts": {
+      "types": "./dist/types/command/interop/UseCommandCallbackAsync.d.ts",
+      "default": "./src/command/interop/UseCommandCallbackAsync.ts"
+    },
+    "./command/interop/UseCommandCallbackAsync.js": {
+      "types": "./dist/types/command/interop/UseCommandCallbackAsync.d.ts",
+      "import": "./dist/esm/command/interop/UseCommandCallbackAsync.mjs",
+      "require": "./dist/cjs/command/interop/UseCommandCallbackAsync.cjs",
+      "default": "./src/command/interop/UseCommandCallbackAsync.ts"
+    },
+    "./command/interop/UseCommandCallbackAsync.mjs": {
+      "types": "./dist/types/command/interop/UseCommandCallbackAsync.d.ts",
+      "import": "./dist/esm/command/interop/UseCommandCallbackAsync.mjs",
+      "require": "./dist/cjs/command/interop/UseCommandCallbackAsync.cjs",
+      "default": "./src/command/interop/UseCommandCallbackAsync.ts"
+    },
+    "./command/interop/UseCommandCallbackAsync": {
+      "types": "./dist/types/command/interop/UseCommandCallbackAsync.d.ts",
+      "import": "./dist/esm/command/interop/UseCommandCallbackAsync.mjs",
+      "require": "./dist/cjs/command/interop/UseCommandCallbackAsync.cjs",
+      "default": "./src/command/interop/UseCommandCallbackAsync.ts"
+    },
+    "./command/interop/UseCommandCallbackMaybeAsync.cjs": {
+      "types": "./dist/types/command/interop/UseCommandCallbackMaybeAsync.d.ts",
+      "import": "./dist/esm/command/interop/UseCommandCallbackMaybeAsync.mjs",
+      "require": "./dist/cjs/command/interop/UseCommandCallbackMaybeAsync.cjs",
+      "default": "./src/command/interop/UseCommandCallbackMaybeAsync.ts"
+    },
+    "./command/interop/UseCommandCallbackMaybeAsync.d.ts": {
+      "types": "./dist/types/command/interop/UseCommandCallbackMaybeAsync.d.ts",
+      "default": "./src/command/interop/UseCommandCallbackMaybeAsync.ts"
+    },
+    "./command/interop/UseCommandCallbackMaybeAsync.js": {
+      "types": "./dist/types/command/interop/UseCommandCallbackMaybeAsync.d.ts",
+      "import": "./dist/esm/command/interop/UseCommandCallbackMaybeAsync.mjs",
+      "require": "./dist/cjs/command/interop/UseCommandCallbackMaybeAsync.cjs",
+      "default": "./src/command/interop/UseCommandCallbackMaybeAsync.ts"
+    },
+    "./command/interop/UseCommandCallbackMaybeAsync.mjs": {
+      "types": "./dist/types/command/interop/UseCommandCallbackMaybeAsync.d.ts",
+      "import": "./dist/esm/command/interop/UseCommandCallbackMaybeAsync.mjs",
+      "require": "./dist/cjs/command/interop/UseCommandCallbackMaybeAsync.cjs",
+      "default": "./src/command/interop/UseCommandCallbackMaybeAsync.ts"
+    },
+    "./command/interop/UseCommandCallbackMaybeAsync": {
+      "types": "./dist/types/command/interop/UseCommandCallbackMaybeAsync.d.ts",
+      "import": "./dist/esm/command/interop/UseCommandCallbackMaybeAsync.mjs",
+      "require": "./dist/cjs/command/interop/UseCommandCallbackMaybeAsync.cjs",
+      "default": "./src/command/interop/UseCommandCallbackMaybeAsync.ts"
+    },
+    "./command/interop/UseCommandCallbackSync.cjs": {
+      "types": "./dist/types/command/interop/UseCommandCallbackSync.d.ts",
+      "import": "./dist/esm/command/interop/UseCommandCallbackSync.mjs",
+      "require": "./dist/cjs/command/interop/UseCommandCallbackSync.cjs",
+      "default": "./src/command/interop/UseCommandCallbackSync.ts"
+    },
+    "./command/interop/UseCommandCallbackSync.d.ts": {
+      "types": "./dist/types/command/interop/UseCommandCallbackSync.d.ts",
+      "default": "./src/command/interop/UseCommandCallbackSync.ts"
+    },
+    "./command/interop/UseCommandCallbackSync.js": {
+      "types": "./dist/types/command/interop/UseCommandCallbackSync.d.ts",
+      "import": "./dist/esm/command/interop/UseCommandCallbackSync.mjs",
+      "require": "./dist/cjs/command/interop/UseCommandCallbackSync.cjs",
+      "default": "./src/command/interop/UseCommandCallbackSync.ts"
+    },
+    "./command/interop/UseCommandCallbackSync.mjs": {
+      "types": "./dist/types/command/interop/UseCommandCallbackSync.d.ts",
+      "import": "./dist/esm/command/interop/UseCommandCallbackSync.mjs",
+      "require": "./dist/cjs/command/interop/UseCommandCallbackSync.cjs",
+      "default": "./src/command/interop/UseCommandCallbackSync.ts"
+    },
+    "./command/interop/UseCommandCallbackSync": {
+      "types": "./dist/types/command/interop/UseCommandCallbackSync.d.ts",
+      "import": "./dist/esm/command/interop/UseCommandCallbackSync.mjs",
+      "require": "./dist/cjs/command/interop/UseCommandCallbackSync.cjs",
+      "default": "./src/command/interop/UseCommandCallbackSync.ts"
+    },
+    "./command/interop/maybeUseCommandAsync.cjs": {
+      "types": "./dist/types/command/interop/maybeUseCommandAsync.d.ts",
+      "import": "./dist/esm/command/interop/maybeUseCommandAsync.mjs",
+      "require": "./dist/cjs/command/interop/maybeUseCommandAsync.cjs",
+      "default": "./src/command/interop/maybeUseCommandAsync.ts"
+    },
+    "./command/interop/maybeUseCommandAsync.d.ts": {
+      "types": "./dist/types/command/interop/maybeUseCommandAsync.d.ts",
+      "default": "./src/command/interop/maybeUseCommandAsync.ts"
+    },
+    "./command/interop/maybeUseCommandAsync.js": {
+      "types": "./dist/types/command/interop/maybeUseCommandAsync.d.ts",
+      "import": "./dist/esm/command/interop/maybeUseCommandAsync.mjs",
+      "require": "./dist/cjs/command/interop/maybeUseCommandAsync.cjs",
+      "default": "./src/command/interop/maybeUseCommandAsync.ts"
+    },
+    "./command/interop/maybeUseCommandAsync.mjs": {
+      "types": "./dist/types/command/interop/maybeUseCommandAsync.d.ts",
+      "import": "./dist/esm/command/interop/maybeUseCommandAsync.mjs",
+      "require": "./dist/cjs/command/interop/maybeUseCommandAsync.cjs",
+      "default": "./src/command/interop/maybeUseCommandAsync.ts"
+    },
+    "./command/interop/maybeUseCommandAsync": {
+      "types": "./dist/types/command/interop/maybeUseCommandAsync.d.ts",
+      "import": "./dist/esm/command/interop/maybeUseCommandAsync.mjs",
+      "require": "./dist/cjs/command/interop/maybeUseCommandAsync.cjs",
+      "default": "./src/command/interop/maybeUseCommandAsync.ts"
+    },
+    "./command/interop/maybeUseCommandSync.cjs": {
+      "types": "./dist/types/command/interop/maybeUseCommandSync.d.ts",
+      "import": "./dist/esm/command/interop/maybeUseCommandSync.mjs",
+      "require": "./dist/cjs/command/interop/maybeUseCommandSync.cjs",
+      "default": "./src/command/interop/maybeUseCommandSync.ts"
+    },
+    "./command/interop/maybeUseCommandSync.d.ts": {
+      "types": "./dist/types/command/interop/maybeUseCommandSync.d.ts",
+      "default": "./src/command/interop/maybeUseCommandSync.ts"
+    },
+    "./command/interop/maybeUseCommandSync.js": {
+      "types": "./dist/types/command/interop/maybeUseCommandSync.d.ts",
+      "import": "./dist/esm/command/interop/maybeUseCommandSync.mjs",
+      "require": "./dist/cjs/command/interop/maybeUseCommandSync.cjs",
+      "default": "./src/command/interop/maybeUseCommandSync.ts"
+    },
+    "./command/interop/maybeUseCommandSync.mjs": {
+      "types": "./dist/types/command/interop/maybeUseCommandSync.d.ts",
+      "import": "./dist/esm/command/interop/maybeUseCommandSync.mjs",
+      "require": "./dist/cjs/command/interop/maybeUseCommandSync.cjs",
+      "default": "./src/command/interop/maybeUseCommandSync.ts"
+    },
+    "./command/interop/maybeUseCommandSync": {
+      "types": "./dist/types/command/interop/maybeUseCommandSync.d.ts",
+      "import": "./dist/esm/command/interop/maybeUseCommandSync.mjs",
+      "require": "./dist/cjs/command/interop/maybeUseCommandSync.cjs",
+      "default": "./src/command/interop/maybeUseCommandSync.ts"
+    },
+    "./command/interop/useCommandAsync.cjs": {
+      "types": "./dist/types/command/interop/useCommandAsync.d.ts",
+      "import": "./dist/esm/command/interop/useCommandAsync.mjs",
+      "require": "./dist/cjs/command/interop/useCommandAsync.cjs",
+      "default": "./src/command/interop/useCommandAsync.ts"
+    },
+    "./command/interop/useCommandAsync.d.ts": {
+      "types": "./dist/types/command/interop/useCommandAsync.d.ts",
+      "default": "./src/command/interop/useCommandAsync.ts"
+    },
+    "./command/interop/useCommandAsync.js": {
+      "types": "./dist/types/command/interop/useCommandAsync.d.ts",
+      "import": "./dist/esm/command/interop/useCommandAsync.mjs",
+      "require": "./dist/cjs/command/interop/useCommandAsync.cjs",
+      "default": "./src/command/interop/useCommandAsync.ts"
+    },
+    "./command/interop/useCommandAsync.mjs": {
+      "types": "./dist/types/command/interop/useCommandAsync.d.ts",
+      "import": "./dist/esm/command/interop/useCommandAsync.mjs",
+      "require": "./dist/cjs/command/interop/useCommandAsync.cjs",
+      "default": "./src/command/interop/useCommandAsync.ts"
+    },
+    "./command/interop/useCommandAsync": {
+      "types": "./dist/types/command/interop/useCommandAsync.d.ts",
+      "import": "./dist/esm/command/interop/useCommandAsync.mjs",
+      "require": "./dist/cjs/command/interop/useCommandAsync.cjs",
+      "default": "./src/command/interop/useCommandAsync.ts"
+    },
+    "./command/interop/useCommandSync.cjs": {
+      "types": "./dist/types/command/interop/useCommandSync.d.ts",
+      "import": "./dist/esm/command/interop/useCommandSync.mjs",
+      "require": "./dist/cjs/command/interop/useCommandSync.cjs",
+      "default": "./src/command/interop/useCommandSync.ts"
+    },
+    "./command/interop/useCommandSync.d.ts": {
+      "types": "./dist/types/command/interop/useCommandSync.d.ts",
+      "default": "./src/command/interop/useCommandSync.ts"
+    },
+    "./command/interop/useCommandSync.js": {
+      "types": "./dist/types/command/interop/useCommandSync.d.ts",
+      "import": "./dist/esm/command/interop/useCommandSync.mjs",
+      "require": "./dist/cjs/command/interop/useCommandSync.cjs",
+      "default": "./src/command/interop/useCommandSync.ts"
+    },
+    "./command/interop/useCommandSync.mjs": {
+      "types": "./dist/types/command/interop/useCommandSync.d.ts",
+      "import": "./dist/esm/command/interop/useCommandSync.mjs",
+      "require": "./dist/cjs/command/interop/useCommandSync.cjs",
+      "default": "./src/command/interop/useCommandSync.ts"
+    },
+    "./command/interop/useCommandSync": {
+      "types": "./dist/types/command/interop/useCommandSync.d.ts",
+      "import": "./dist/esm/command/interop/useCommandSync.mjs",
+      "require": "./dist/cjs/command/interop/useCommandSync.cjs",
+      "default": "./src/command/interop/useCommandSync.ts"
+    },
     "./command/invocation/invokeCommandAsync.cjs": {
       "types": "./dist/types/command/invocation/invokeCommandAsync.d.ts",
       "import": "./dist/esm/command/invocation/invokeCommandAsync.mjs",
@@ -501,6 +781,62 @@
       "require": "./dist/cjs/command/invocation/invokeCommandAsync.cjs",
       "default": "./src/command/invocation/invokeCommandAsync.ts"
     },
+    "./command/invocation/invokeCommandByUIDAsync.cjs": {
+      "types": "./dist/types/command/invocation/invokeCommandByUIDAsync.d.ts",
+      "import": "./dist/esm/command/invocation/invokeCommandByUIDAsync.mjs",
+      "require": "./dist/cjs/command/invocation/invokeCommandByUIDAsync.cjs",
+      "default": "./src/command/invocation/invokeCommandByUIDAsync.ts"
+    },
+    "./command/invocation/invokeCommandByUIDAsync.d.ts": {
+      "types": "./dist/types/command/invocation/invokeCommandByUIDAsync.d.ts",
+      "default": "./src/command/invocation/invokeCommandByUIDAsync.ts"
+    },
+    "./command/invocation/invokeCommandByUIDAsync.js": {
+      "types": "./dist/types/command/invocation/invokeCommandByUIDAsync.d.ts",
+      "import": "./dist/esm/command/invocation/invokeCommandByUIDAsync.mjs",
+      "require": "./dist/cjs/command/invocation/invokeCommandByUIDAsync.cjs",
+      "default": "./src/command/invocation/invokeCommandByUIDAsync.ts"
+    },
+    "./command/invocation/invokeCommandByUIDAsync.mjs": {
+      "types": "./dist/types/command/invocation/invokeCommandByUIDAsync.d.ts",
+      "import": "./dist/esm/command/invocation/invokeCommandByUIDAsync.mjs",
+      "require": "./dist/cjs/command/invocation/invokeCommandByUIDAsync.cjs",
+      "default": "./src/command/invocation/invokeCommandByUIDAsync.ts"
+    },
+    "./command/invocation/invokeCommandByUIDAsync": {
+      "types": "./dist/types/command/invocation/invokeCommandByUIDAsync.d.ts",
+      "import": "./dist/esm/command/invocation/invokeCommandByUIDAsync.mjs",
+      "require": "./dist/cjs/command/invocation/invokeCommandByUIDAsync.cjs",
+      "default": "./src/command/invocation/invokeCommandByUIDAsync.ts"
+    },
+    "./command/invocation/invokeCommandByUIDSync.cjs": {
+      "types": "./dist/types/command/invocation/invokeCommandByUIDSync.d.ts",
+      "import": "./dist/esm/command/invocation/invokeCommandByUIDSync.mjs",
+      "require": "./dist/cjs/command/invocation/invokeCommandByUIDSync.cjs",
+      "default": "./src/command/invocation/invokeCommandByUIDSync.ts"
+    },
+    "./command/invocation/invokeCommandByUIDSync.d.ts": {
+      "types": "./dist/types/command/invocation/invokeCommandByUIDSync.d.ts",
+      "default": "./src/command/invocation/invokeCommandByUIDSync.ts"
+    },
+    "./command/invocation/invokeCommandByUIDSync.js": {
+      "types": "./dist/types/command/invocation/invokeCommandByUIDSync.d.ts",
+      "import": "./dist/esm/command/invocation/invokeCommandByUIDSync.mjs",
+      "require": "./dist/cjs/command/invocation/invokeCommandByUIDSync.cjs",
+      "default": "./src/command/invocation/invokeCommandByUIDSync.ts"
+    },
+    "./command/invocation/invokeCommandByUIDSync.mjs": {
+      "types": "./dist/types/command/invocation/invokeCommandByUIDSync.d.ts",
+      "import": "./dist/esm/command/invocation/invokeCommandByUIDSync.mjs",
+      "require": "./dist/cjs/command/invocation/invokeCommandByUIDSync.cjs",
+      "default": "./src/command/invocation/invokeCommandByUIDSync.ts"
+    },
+    "./command/invocation/invokeCommandByUIDSync": {
+      "types": "./dist/types/command/invocation/invokeCommandByUIDSync.d.ts",
+      "import": "./dist/esm/command/invocation/invokeCommandByUIDSync.mjs",
+      "require": "./dist/cjs/command/invocation/invokeCommandByUIDSync.cjs",
+      "default": "./src/command/invocation/invokeCommandByUIDSync.ts"
+    },
     "./command/invocation/invokeCommandSync.cjs": {
       "types": "./dist/types/command/invocation/invokeCommandSync.d.ts",
       "import": "./dist/esm/command/invocation/invokeCommandSync.mjs",
@@ -528,6 +864,62 @@
       "import": "./dist/esm/command/invocation/invokeCommandSync.mjs",
       "require": "./dist/cjs/command/invocation/invokeCommandSync.cjs",
       "default": "./src/command/invocation/invokeCommandSync.ts"
+    },
+    "./command/invocation/maybeInvokeCommandByUIDAsync.cjs": {
+      "types": "./dist/types/command/invocation/maybeInvokeCommandByUIDAsync.d.ts",
+      "import": "./dist/esm/command/invocation/maybeInvokeCommandByUIDAsync.mjs",
+      "require": "./dist/cjs/command/invocation/maybeInvokeCommandByUIDAsync.cjs",
+      "default": "./src/command/invocation/maybeInvokeCommandByUIDAsync.ts"
+    },
+    "./command/invocation/maybeInvokeCommandByUIDAsync.d.ts": {
+      "types": "./dist/types/command/invocation/maybeInvokeCommandByUIDAsync.d.ts",
+      "default": "./src/command/invocation/maybeInvokeCommandByUIDAsync.ts"
+    },
+    "./command/invocation/maybeInvokeCommandByUIDAsync.js": {
+      "types": "./dist/types/command/invocation/maybeInvokeCommandByUIDAsync.d.ts",
+      "import": "./dist/esm/command/invocation/maybeInvokeCommandByUIDAsync.mjs",
+      "require": "./dist/cjs/command/invocation/maybeInvokeCommandByUIDAsync.cjs",
+      "default": "./src/command/invocation/maybeInvokeCommandByUIDAsync.ts"
+    },
+    "./command/invocation/maybeInvokeCommandByUIDAsync.mjs": {
+      "types": "./dist/types/command/invocation/maybeInvokeCommandByUIDAsync.d.ts",
+      "import": "./dist/esm/command/invocation/maybeInvokeCommandByUIDAsync.mjs",
+      "require": "./dist/cjs/command/invocation/maybeInvokeCommandByUIDAsync.cjs",
+      "default": "./src/command/invocation/maybeInvokeCommandByUIDAsync.ts"
+    },
+    "./command/invocation/maybeInvokeCommandByUIDAsync": {
+      "types": "./dist/types/command/invocation/maybeInvokeCommandByUIDAsync.d.ts",
+      "import": "./dist/esm/command/invocation/maybeInvokeCommandByUIDAsync.mjs",
+      "require": "./dist/cjs/command/invocation/maybeInvokeCommandByUIDAsync.cjs",
+      "default": "./src/command/invocation/maybeInvokeCommandByUIDAsync.ts"
+    },
+    "./command/invocation/maybeInvokeCommandByUIDSync.cjs": {
+      "types": "./dist/types/command/invocation/maybeInvokeCommandByUIDSync.d.ts",
+      "import": "./dist/esm/command/invocation/maybeInvokeCommandByUIDSync.mjs",
+      "require": "./dist/cjs/command/invocation/maybeInvokeCommandByUIDSync.cjs",
+      "default": "./src/command/invocation/maybeInvokeCommandByUIDSync.ts"
+    },
+    "./command/invocation/maybeInvokeCommandByUIDSync.d.ts": {
+      "types": "./dist/types/command/invocation/maybeInvokeCommandByUIDSync.d.ts",
+      "default": "./src/command/invocation/maybeInvokeCommandByUIDSync.ts"
+    },
+    "./command/invocation/maybeInvokeCommandByUIDSync.js": {
+      "types": "./dist/types/command/invocation/maybeInvokeCommandByUIDSync.d.ts",
+      "import": "./dist/esm/command/invocation/maybeInvokeCommandByUIDSync.mjs",
+      "require": "./dist/cjs/command/invocation/maybeInvokeCommandByUIDSync.cjs",
+      "default": "./src/command/invocation/maybeInvokeCommandByUIDSync.ts"
+    },
+    "./command/invocation/maybeInvokeCommandByUIDSync.mjs": {
+      "types": "./dist/types/command/invocation/maybeInvokeCommandByUIDSync.d.ts",
+      "import": "./dist/esm/command/invocation/maybeInvokeCommandByUIDSync.mjs",
+      "require": "./dist/cjs/command/invocation/maybeInvokeCommandByUIDSync.cjs",
+      "default": "./src/command/invocation/maybeInvokeCommandByUIDSync.ts"
+    },
+    "./command/invocation/maybeInvokeCommandByUIDSync": {
+      "types": "./dist/types/command/invocation/maybeInvokeCommandByUIDSync.d.ts",
+      "import": "./dist/esm/command/invocation/maybeInvokeCommandByUIDSync.mjs",
+      "require": "./dist/cjs/command/invocation/maybeInvokeCommandByUIDSync.cjs",
+      "default": "./src/command/invocation/maybeInvokeCommandByUIDSync.ts"
     },
     "./command/payload/CommandPayload.cjs": {
       "types": "./dist/types/command/payload/CommandPayload.d.ts",

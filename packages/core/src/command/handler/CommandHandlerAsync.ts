@@ -1,5 +1,5 @@
 import type { CommandPayloadAsync } from "../payload/CommandPayloadAsync";
 
 export type CommandHandlerAsync = (
-  payload: CommandPayloadAsync,
+  payload: CommandPayloadAsync<any>,
 ) => Promise<unknown>;

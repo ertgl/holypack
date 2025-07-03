@@ -1,23 +1,31 @@
 import type { ContextAsync } from "../../context/ContextAsync";
-import { maybeAwait } from "../../lib/promise/maybeAwait";
 import type { CommandAsync } from "../CommandAsync";
 import type { ExtractCommandData } from "../data/ExtractCommandData";
 import type { ExtractCommandHandlerReturnType } from "../handler/ExtractCommandHandlerReturnType";
-import type { CommandPayloadAsync } from "../payload/CommandPayloadAsync";
+import { useCommandAsync } from "../interop/useCommandAsync";
+import type { CommandUID } from "../uid/CommandUID";
 
-export async function invokeCommandAsync<
+import { invokeCommandAsync } from "./invokeCommandAsync";
+
+export async function invokeCommandByUIDAsync<
   T_Command extends CommandAsync = CommandAsync,
   T_ReturnType extends ExtractCommandHandlerReturnType<T_Command> = ExtractCommandHandlerReturnType<T_Command>,
 >(
   context: ContextAsync,
-  command: T_Command,
+  commandUID: CommandUID,
   data: NoInfer<ExtractCommandData<T_Command>>,
 ): Promise<T_ReturnType>
 {
-  const payload: CommandPayloadAsync = {
+  return await useCommandAsync<T_Command>(
     context,
-    data,
-  };
-
-  return (await maybeAwait(command.handler(payload))) as T_ReturnType;
+    commandUID,
+    async (command) =>
+    {
+      return await invokeCommandAsync(
+        context,
+        command,
+        data,
+      );
+    },
+  ) as T_ReturnType;
 }
