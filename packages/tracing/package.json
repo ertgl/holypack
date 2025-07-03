@@ -11,7 +11,7 @@
     "build::types": "yarn tsc:build::types",
     "build:clean": "yarn babel:build:clean",
     "build:update-exports": "yarn export-map-generator:update",
-    "clean": "yarn build:clean && yarn build::debug:clean && yarn test:clean",
+    "clean": "yarn build:clean && yarn debug:clean && yarn test:clean",
     "coverage:clean": "yarn jest:coverage:clean",
     "coverage:open": "yarn jest:coverage:open",
     "debug:build": "yarn debug:build::esm && yarn debug:update-package-exports",

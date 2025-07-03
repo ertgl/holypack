@@ -329,26 +329,6 @@
     "./package.json": {
       "default": "./package.json"
     },
-    "./presets/tsconfig.output.debug.json": {
-      "import": "./dist/esm/presets/tsconfig.output.debug.json",
-      "require": "./dist/cjs/presets/tsconfig.output.debug.json",
-      "default": "./src/presets/tsconfig.output.debug.json"
-    },
-    "./presets/tsconfig.output.debug.types.json": {
-      "import": "./dist/esm/presets/tsconfig.output.debug.types.json",
-      "require": "./dist/cjs/presets/tsconfig.output.debug.types.json",
-      "default": "./src/presets/tsconfig.output.debug.types.json"
-    },
-    "./presets/tsconfig.output.debug.types": {
-      "import": "./dist/esm/presets/tsconfig.output.debug.types.json",
-      "require": "./dist/cjs/presets/tsconfig.output.debug.types.json",
-      "default": "./src/presets/tsconfig.output.debug.types.json"
-    },
-    "./presets/tsconfig.output.debug": {
-      "import": "./dist/esm/presets/tsconfig.output.debug.json",
-      "require": "./dist/cjs/presets/tsconfig.output.debug.json",
-      "default": "./src/presets/tsconfig.output.debug.json"
-    },
     "./presets/tsconfig.output.types.json": {
       "import": "./dist/esm/presets/tsconfig.output.types.json",
       "require": "./dist/cjs/presets/tsconfig.output.types.json",

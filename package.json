@@ -5,7 +5,7 @@
     "bootstrap": "node -e \"console.log('Bootstrapping...')\" && yarn w:foreach::parallel::topological run bootstrap",
     "build": "node -e \"console.log('Building...')\" && yarn w:foreach::parallel::topological run build",
     "build:update-exports": "node -e \"console.log('Updating package exports...')\" && yarn w:foreach::parallel run build:update-exports",
-    "clean": "node -e \"console.log('Cleaning...')\" && yarn w:foreach::parallel::interlaced run bootstrap",
+    "clean": "node -e \"console.log('Cleaning...')\" && yarn w:foreach::parallel::interlaced run clean",
     "dev": "yarn prepare && yarn bootstrap && yarn build",
     "dev::clean": "yarn clean && yarn dev",
     "e2e:build": "yarn e2e:yarn build",

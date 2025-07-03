@@ -46,13 +46,25 @@
     "typescript": "*"
   },
   "peerDependenciesMeta": {
+    "@babel/core": {
+      "optional": true
+    },
     "@babel/preset-env": {
       "optional": true
     },
     "@babel/preset-typescript": {
       "optional": true
     },
+    "@holypack/core": {
+      "optional": false
+    },
     "babel-plugin-transform-import-source": {
+      "optional": true
+    },
+    "tapable": {
+      "optional": false
+    },
+    "typescript": {
       "optional": true
     }
   },

@@ -13,7 +13,7 @@
     "build::types": "yarn tsc:build::types",
     "build:clean": "yarn babel:build:clean",
     "build:update-exports": "yarn export-map-generator:update",
-    "clean": "yarn build:clean && yarn build::debug:clean && yarn test:clean",
+    "clean": "yarn build:clean && yarn debug:clean && yarn test:clean",
     "coverage:clean": "yarn jest:coverage:clean",
     "coverage:open": "yarn jest:coverage:open",
     "debug:build": "yarn debug:build::esm && yarn debug:update-package-exports",
@@ -250,91 +250,6 @@
       "require": "./dist/cjs/config/definition/defineConfigSync.cjs",
       "default": "./src/config/definition/defineConfigSync.ts"
     },
-    "./config/definition/definer.cjs": {
-      "import": "./dist/esm/config/definition/definer.mjs",
-      "require": "./dist/cjs/config/definition/definer.cjs",
-      "default": "./src/config/definition/definer.ts"
-    },
-    "./config/definition/definer.js": {
-      "import": "./dist/esm/config/definition/definer.mjs",
-      "require": "./dist/cjs/config/definition/definer.cjs",
-      "default": "./src/config/definition/definer.ts"
-    },
-    "./config/definition/definer.mjs": {
-      "import": "./dist/esm/config/definition/definer.mjs",
-      "require": "./dist/cjs/config/definition/definer.cjs",
-      "default": "./src/config/definition/definer.ts"
-    },
-    "./config/definition/definer": {
-      "import": "./dist/esm/config/definition/definer.mjs",
-      "require": "./dist/cjs/config/definition/definer.cjs",
-      "default": "./src/config/definition/definer.ts"
-    },
-    "./config/definition/definition.cjs": {
-      "import": "./dist/esm/config/definition/definition.mjs",
-      "require": "./dist/cjs/config/definition/definition.cjs",
-      "default": "./src/config/definition/definition.ts"
-    },
-    "./config/definition/definition.js": {
-      "import": "./dist/esm/config/definition/definition.mjs",
-      "require": "./dist/cjs/config/definition/definition.cjs",
-      "default": "./src/config/definition/definition.ts"
-    },
-    "./config/definition/definition.mjs": {
-      "import": "./dist/esm/config/definition/definition.mjs",
-      "require": "./dist/cjs/config/definition/definition.cjs",
-      "default": "./src/config/definition/definition.ts"
-    },
-    "./config/definition/definition": {
-      "import": "./dist/esm/config/definition/definition.mjs",
-      "require": "./dist/cjs/config/definition/definition.cjs",
-      "default": "./src/config/definition/definition.ts"
-    },
-    "./config/definition/index.cjs": {
-      "import": "./dist/esm/config/definition/index.mjs",
-      "require": "./dist/cjs/config/definition/index.cjs",
-      "default": "./src/config/definition/index.ts"
-    },
-    "./config/definition/index.js": {
-      "import": "./dist/esm/config/definition/index.mjs",
-      "require": "./dist/cjs/config/definition/index.cjs",
-      "default": "./src/config/definition/index.ts"
-    },
-    "./config/definition/index.mjs": {
-      "import": "./dist/esm/config/definition/index.mjs",
-      "require": "./dist/cjs/config/definition/index.cjs",
-      "default": "./src/config/definition/index.ts"
-    },
-    "./config/definition/index": {
-      "import": "./dist/esm/config/definition/index.mjs",
-      "require": "./dist/cjs/config/definition/index.cjs",
-      "default": "./src/config/definition/index.ts"
-    },
-    "./config/definition": {
-      "import": "./dist/esm/config/definition/index.mjs",
-      "require": "./dist/cjs/config/definition/index.cjs",
-      "default": "./src/config/definition/index.ts"
-    },
-    "./config/index.cjs": {
-      "import": "./dist/esm/config/index.mjs",
-      "require": "./dist/cjs/config/index.cjs",
-      "default": "./src/config/index.ts"
-    },
-    "./config/index.js": {
-      "import": "./dist/esm/config/index.mjs",
-      "require": "./dist/cjs/config/index.cjs",
-      "default": "./src/config/index.ts"
-    },
-    "./config/index.mjs": {
-      "import": "./dist/esm/config/index.mjs",
-      "require": "./dist/cjs/config/index.cjs",
-      "default": "./src/config/index.ts"
-    },
-    "./config/index": {
-      "import": "./dist/esm/config/index.mjs",
-      "require": "./dist/cjs/config/index.cjs",
-      "default": "./src/config/index.ts"
-    },
     "./config/provider/ConfigDefinitionProvider.cjs": {
       "types": "./dist/types/config/provider/ConfigDefinitionProvider.d.ts",
       "import": "./dist/esm/config/provider/ConfigDefinitionProvider.mjs",
@@ -446,11 +361,6 @@
       "import": "./dist/esm/config/provider/ConfigDefinitionProvider.mjs",
       "require": "./dist/cjs/config/provider/ConfigDefinitionProvider.cjs",
       "default": "./src/config/provider/ConfigDefinitionProvider.ts"
-    },
-    "./config": {
-      "import": "./dist/esm/config/index.mjs",
-      "require": "./dist/cjs/config/index.cjs",
-      "default": "./src/config/index.ts"
     },
     "./default/async/WEBPACK_CONFIG_ASYNC.cjs": {
       "types": "./dist/types/default/async/WEBPACK_CONFIG_ASYNC.d.ts",
@@ -640,26 +550,6 @@
     },
     "./package.json": {
       "default": "./package.json"
-    },
-    "./plugin-options.cjs": {
-      "import": "./dist/esm/plugin-options.mjs",
-      "require": "./dist/cjs/plugin-options.cjs",
-      "default": "./src/plugin-options.ts"
-    },
-    "./plugin-options.js": {
-      "import": "./dist/esm/plugin-options.mjs",
-      "require": "./dist/cjs/plugin-options.cjs",
-      "default": "./src/plugin-options.ts"
-    },
-    "./plugin-options.mjs": {
-      "import": "./dist/esm/plugin-options.mjs",
-      "require": "./dist/cjs/plugin-options.cjs",
-      "default": "./src/plugin-options.ts"
-    },
-    "./plugin-options": {
-      "import": "./dist/esm/plugin-options.mjs",
-      "require": "./dist/cjs/plugin-options.cjs",
-      "default": "./src/plugin-options.ts"
     },
     ".": {
       "types": "./dist/types/index.d.ts",

@@ -9,7 +9,7 @@
   "scripts": {
     "build": "yarn babel:build:clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn export-map-generator:update",
     "build:clean": "yarn babel:build:clean",
-    "clean": "yarn build:clean && yarn build::debug:clean && yarn test:clean",
+    "clean": "yarn build:clean && yarn debug:clean && yarn test:clean",
     "coverage:clean": "yarn jest:coverage:clean",
     "coverage:open": "yarn jest:coverage:open",
     "debug:build": "yarn debug:build::esm && yarn debug:update-package-exports",
