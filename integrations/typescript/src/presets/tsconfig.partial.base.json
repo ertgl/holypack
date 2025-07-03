@@ -1,23 +1,35 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
     "alwaysStrict": true,
     "baseUrl": "${configDir}",
     "checkJs": true,
     "declaration": false,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "module": "NodeNext",
+    "module": "nodenext",
     "moduleResolution": "nodenext",
     "noEmit": true,
+    "noEmitOnError": true,
+    "noErrorTruncation": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": false,
+    "pretty": true,
     "resolveJsonModule": true,
+    "resolvePackageJsonExports": true,
+    "resolvePackageJsonImports": true,
     "rootDir": "${configDir}",
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext"
+    "strictPropertyInitialization": true,
+    "target": "esnext",
+    "verbatimModuleSyntax": true
   }
 }

@@ -17,18 +17,26 @@ import:
   - "@cspell/dict-shell/cspell-ext.json"
   - "@cspell/dict-typescript/cspell-ext.json"
 dictionaryDefinitions:
-  - name: custom
-    path: ./cspell.custom.txt
+  - name: holypack-code
+    path: ./config/cspell/code.txt
+    addWords: true
+  - name: holypack-usernames
+    path: ./config/cspell/usernames.txt
+    addWords: true
+  - name: holypack-words
+    path: ./config/cspell/words.txt
     addWords: true
 dictionaries:
   - bash
   - css
-  - custom
   - en-common-misspellings
   - en-gb
   - en_us
   - filetypes
   - git
+  - holypack-code
+  - holypack-usernames
+  - holypack-words
   - html
   - html-symbol-entities
   - markdown
@@ -36,6 +44,5 @@ dictionaries:
   - npm
   - shell
   - typescript
-globRoot: "${cwd}"
 useGitignore: true
 noConfigSearch: true

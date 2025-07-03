@@ -1,15 +1,27 @@
 {
   "name": "@holypack/integration-typescript",
   "scripts": {
-    "bootstrap": "yarn bootstrap:clean && yarn babel:bootstrap && yarn copy-presets-to-bootstrap && yarn export-map-generator:bootstrap",
+    "bootstrap": "yarn bootstrap:build && yarn bootstrap:copy-static && yarn bootstrap:update-exports",
+    "bootstrap:build": "yarn babel:bootstrap && yarn bootstrap:copy-static",
     "bootstrap:clean": "yarn babel:bootstrap:clean",
-    "build": "yarn build:clean && yarn babel:build::cjs && yarn babel:build::esm && yarn copy-presets-to-dist && yarn tsc:build::types && yarn export-map-generator:update",
+    "bootstrap:copy-static": "node -e \"const fs = require('node:fs'); fs.cpSync('./src/presets/', './.build/bootstrap/presets/', { recursive: true }); console.log('Successfully copied preset files for bootstrap phase.')\"",
+    "bootstrap:update-exports": "yarn export-map-generator:bootstrap",
+    "build": "yarn build::types && yarn build::cjs && yarn build::esm && yarn build:update-exports",
+    "build::cjs": "yarn babel:build::cjs && yarn build:copy-static::cjs",
+    "build::esm": "yarn babel:build::esm && yarn build:copy-static::esm",
+    "build::types": "yarn tsc:build::types",
     "build:clean": "yarn babel:build:clean",
-    "clean": "yarn bootstrap:clean && yarn build:clean",
-    "copy-presets-to-bootstrap": "node -e \"const fs = require('node:fs'); fs.cpSync('./src/presets/', './.bootstrap/presets/', { recursive: true }); console.log('Successfully copied preset files for bootstrap phase.')\"",
-    "copy-presets-to-dist": "yarn copy-presets-to-dist::cjs && yarn copy-presets-to-dist::esm",
-    "copy-presets-to-dist::cjs": "node -e \"const fs = require('node:fs'); fs.cpSync('./src/presets/', './dist/cjs/presets/', { recursive: true }); console.log('Successfully copied preset files for CJS distribution.')\"",
-    "copy-presets-to-dist::esm": "node -e \"const fs = require('node:fs'); fs.cpSync('./src/presets/', './dist/esm/presets/', { recursive: true }); console.log('Successfully copied preset files for ESM distribution.')\"",
+    "build:copy-static": "yarn build:copy-static::cjs && yarn build:copy-static::esm",
+    "build:copy-static::cjs": "node -e \"const fs = require('node:fs'); fs.cpSync('./src/presets/', './dist/cjs/presets/', { recursive: true }); console.log('Successfully copied preset files for CJS distribution.')\"",
+    "build:copy-static::esm": "node -e \"const fs = require('node:fs'); fs.cpSync('./src/presets/', './dist/esm/presets/', { recursive: true }); console.log('Successfully copied preset files for ESM distribution.')\"",
+    "build:update-exports": "yarn export-map-generator:update",
+    "clean": "yarn bootstrap:clean && yarn build:clean && yarn test:clean",
+    "coverage:clean": "yarn jest:coverage:clean",
+    "coverage:open": "yarn jest:coverage:open",
+    "lint": "yarn eslint:lint",
+    "lint::fix": "yarn eslint:lint::fix",
+    "test": "yarn jest:test",
+    "test:clean": "yarn coverage:clean && yarn jest:cache:clean",
     "tsc:build::types": "cd $INIT_CWD && tsc --project ./tsconfig.output.types.json && node -e \"console.log('Successfully built types.')\"",
     "tsc:check::types": "cd $INIT_CWD && tsc --noEmit"
   },
@@ -21,72 +33,270 @@
     "@holypack/core": "*",
     "typescript": "*"
   },
+  "peerDependenciesMeta": {
+    "@holypack/core": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": false
+    }
+  },
   "files": [
     "./dist/",
     "./package.json"
   ],
   "exports": {
-    "./context/context.cjs": {
-      "types": "./dist/types/context/context.d.ts",
-      "import": "./dist/esm/context/context.mjs",
-      "require": "./dist/cjs/context/context.cjs",
-      "default": "./src/context/context.ts"
+    "./context/TypeScriptContext.cjs": {
+      "types": "./dist/types/context/TypeScriptContext.d.ts",
+      "import": "./dist/esm/context/TypeScriptContext.mjs",
+      "require": "./dist/cjs/context/TypeScriptContext.cjs",
+      "default": "./src/context/TypeScriptContext.ts"
     },
-    "./context/context.d.ts": {
-      "types": "./dist/types/context/context.d.ts",
-      "default": "./src/context/context.ts"
+    "./context/TypeScriptContext.d.ts": {
+      "types": "./dist/types/context/TypeScriptContext.d.ts",
+      "default": "./src/context/TypeScriptContext.ts"
     },
-    "./context/context.js": {
-      "types": "./dist/types/context/context.d.ts",
-      "import": "./dist/esm/context/context.mjs",
-      "require": "./dist/cjs/context/context.cjs",
-      "default": "./src/context/context.ts"
+    "./context/TypeScriptContext.js": {
+      "types": "./dist/types/context/TypeScriptContext.d.ts",
+      "import": "./dist/esm/context/TypeScriptContext.mjs",
+      "require": "./dist/cjs/context/TypeScriptContext.cjs",
+      "default": "./src/context/TypeScriptContext.ts"
     },
-    "./context/context.mjs": {
-      "types": "./dist/types/context/context.d.ts",
-      "import": "./dist/esm/context/context.mjs",
-      "require": "./dist/cjs/context/context.cjs",
-      "default": "./src/context/context.ts"
+    "./context/TypeScriptContext.mjs": {
+      "types": "./dist/types/context/TypeScriptContext.d.ts",
+      "import": "./dist/esm/context/TypeScriptContext.mjs",
+      "require": "./dist/cjs/context/TypeScriptContext.cjs",
+      "default": "./src/context/TypeScriptContext.ts"
     },
-    "./context/context": {
-      "types": "./dist/types/context/context.d.ts",
-      "import": "./dist/esm/context/context.mjs",
-      "require": "./dist/cjs/context/context.cjs",
-      "default": "./src/context/context.ts"
+    "./context/TypeScriptContext": {
+      "types": "./dist/types/context/TypeScriptContext.d.ts",
+      "import": "./dist/esm/context/TypeScriptContext.mjs",
+      "require": "./dist/cjs/context/TypeScriptContext.cjs",
+      "default": "./src/context/TypeScriptContext.ts"
     },
-    "./context/index.cjs": {
-      "types": "./dist/types/context/index.d.ts",
-      "import": "./dist/esm/context/index.mjs",
-      "require": "./dist/cjs/context/index.cjs",
-      "default": "./src/context/index.ts"
+    "./context/resolver/resolveTypeScriptContextAsync.cjs": {
+      "types": "./dist/types/context/resolver/resolveTypeScriptContextAsync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveTypeScriptContextAsync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveTypeScriptContextAsync.cjs",
+      "default": "./src/context/resolver/resolveTypeScriptContextAsync.ts"
     },
-    "./context/index.d.ts": {
-      "types": "./dist/types/context/index.d.ts",
-      "default": "./src/context/index.ts"
+    "./context/resolver/resolveTypeScriptContextAsync.d.ts": {
+      "types": "./dist/types/context/resolver/resolveTypeScriptContextAsync.d.ts",
+      "default": "./src/context/resolver/resolveTypeScriptContextAsync.ts"
     },
-    "./context/index.js": {
-      "types": "./dist/types/context/index.d.ts",
-      "import": "./dist/esm/context/index.mjs",
-      "require": "./dist/cjs/context/index.cjs",
-      "default": "./src/context/index.ts"
+    "./context/resolver/resolveTypeScriptContextAsync.js": {
+      "types": "./dist/types/context/resolver/resolveTypeScriptContextAsync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveTypeScriptContextAsync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveTypeScriptContextAsync.cjs",
+      "default": "./src/context/resolver/resolveTypeScriptContextAsync.ts"
     },
-    "./context/index.mjs": {
-      "types": "./dist/types/context/index.d.ts",
-      "import": "./dist/esm/context/index.mjs",
-      "require": "./dist/cjs/context/index.cjs",
-      "default": "./src/context/index.ts"
+    "./context/resolver/resolveTypeScriptContextAsync.mjs": {
+      "types": "./dist/types/context/resolver/resolveTypeScriptContextAsync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveTypeScriptContextAsync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveTypeScriptContextAsync.cjs",
+      "default": "./src/context/resolver/resolveTypeScriptContextAsync.ts"
     },
-    "./context/index": {
-      "types": "./dist/types/context/index.d.ts",
-      "import": "./dist/esm/context/index.mjs",
-      "require": "./dist/cjs/context/index.cjs",
-      "default": "./src/context/index.ts"
+    "./context/resolver/resolveTypeScriptContextAsync": {
+      "types": "./dist/types/context/resolver/resolveTypeScriptContextAsync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveTypeScriptContextAsync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveTypeScriptContextAsync.cjs",
+      "default": "./src/context/resolver/resolveTypeScriptContextAsync.ts"
     },
-    "./context": {
-      "types": "./dist/types/context/index.d.ts",
-      "import": "./dist/esm/context/index.mjs",
-      "require": "./dist/cjs/context/index.cjs",
-      "default": "./src/context/index.ts"
+    "./context/resolver/resolveTypeScriptContextSync.cjs": {
+      "types": "./dist/types/context/resolver/resolveTypeScriptContextSync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveTypeScriptContextSync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveTypeScriptContextSync.cjs",
+      "default": "./src/context/resolver/resolveTypeScriptContextSync.ts"
+    },
+    "./context/resolver/resolveTypeScriptContextSync.d.ts": {
+      "types": "./dist/types/context/resolver/resolveTypeScriptContextSync.d.ts",
+      "default": "./src/context/resolver/resolveTypeScriptContextSync.ts"
+    },
+    "./context/resolver/resolveTypeScriptContextSync.js": {
+      "types": "./dist/types/context/resolver/resolveTypeScriptContextSync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveTypeScriptContextSync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveTypeScriptContextSync.cjs",
+      "default": "./src/context/resolver/resolveTypeScriptContextSync.ts"
+    },
+    "./context/resolver/resolveTypeScriptContextSync.mjs": {
+      "types": "./dist/types/context/resolver/resolveTypeScriptContextSync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveTypeScriptContextSync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveTypeScriptContextSync.cjs",
+      "default": "./src/context/resolver/resolveTypeScriptContextSync.ts"
+    },
+    "./context/resolver/resolveTypeScriptContextSync": {
+      "types": "./dist/types/context/resolver/resolveTypeScriptContextSync.d.ts",
+      "import": "./dist/esm/context/resolver/resolveTypeScriptContextSync.mjs",
+      "require": "./dist/cjs/context/resolver/resolveTypeScriptContextSync.cjs",
+      "default": "./src/context/resolver/resolveTypeScriptContextSync.ts"
+    },
+    "./extension/INTEGRATION_UID_TYPESCRIPT.cjs": {
+      "types": "./dist/types/extension/INTEGRATION_UID_TYPESCRIPT.d.ts",
+      "import": "./dist/esm/extension/INTEGRATION_UID_TYPESCRIPT.mjs",
+      "require": "./dist/cjs/extension/INTEGRATION_UID_TYPESCRIPT.cjs",
+      "default": "./src/extension/INTEGRATION_UID_TYPESCRIPT.ts"
+    },
+    "./extension/INTEGRATION_UID_TYPESCRIPT.d.ts": {
+      "types": "./dist/types/extension/INTEGRATION_UID_TYPESCRIPT.d.ts",
+      "default": "./src/extension/INTEGRATION_UID_TYPESCRIPT.ts"
+    },
+    "./extension/INTEGRATION_UID_TYPESCRIPT.js": {
+      "types": "./dist/types/extension/INTEGRATION_UID_TYPESCRIPT.d.ts",
+      "import": "./dist/esm/extension/INTEGRATION_UID_TYPESCRIPT.mjs",
+      "require": "./dist/cjs/extension/INTEGRATION_UID_TYPESCRIPT.cjs",
+      "default": "./src/extension/INTEGRATION_UID_TYPESCRIPT.ts"
+    },
+    "./extension/INTEGRATION_UID_TYPESCRIPT.mjs": {
+      "types": "./dist/types/extension/INTEGRATION_UID_TYPESCRIPT.d.ts",
+      "import": "./dist/esm/extension/INTEGRATION_UID_TYPESCRIPT.mjs",
+      "require": "./dist/cjs/extension/INTEGRATION_UID_TYPESCRIPT.cjs",
+      "default": "./src/extension/INTEGRATION_UID_TYPESCRIPT.ts"
+    },
+    "./extension/INTEGRATION_UID_TYPESCRIPT": {
+      "types": "./dist/types/extension/INTEGRATION_UID_TYPESCRIPT.d.ts",
+      "import": "./dist/esm/extension/INTEGRATION_UID_TYPESCRIPT.mjs",
+      "require": "./dist/cjs/extension/INTEGRATION_UID_TYPESCRIPT.cjs",
+      "default": "./src/extension/INTEGRATION_UID_TYPESCRIPT.ts"
+    },
+    "./extension/TypeScriptIntegration.cjs": {
+      "types": "./dist/types/extension/TypeScriptIntegration.d.ts",
+      "import": "./dist/esm/extension/TypeScriptIntegration.mjs",
+      "require": "./dist/cjs/extension/TypeScriptIntegration.cjs",
+      "default": "./src/extension/TypeScriptIntegration.ts"
+    },
+    "./extension/TypeScriptIntegration.d.ts": {
+      "types": "./dist/types/extension/TypeScriptIntegration.d.ts",
+      "default": "./src/extension/TypeScriptIntegration.ts"
+    },
+    "./extension/TypeScriptIntegration.js": {
+      "types": "./dist/types/extension/TypeScriptIntegration.d.ts",
+      "import": "./dist/esm/extension/TypeScriptIntegration.mjs",
+      "require": "./dist/cjs/extension/TypeScriptIntegration.cjs",
+      "default": "./src/extension/TypeScriptIntegration.ts"
+    },
+    "./extension/TypeScriptIntegration.mjs": {
+      "types": "./dist/types/extension/TypeScriptIntegration.d.ts",
+      "import": "./dist/esm/extension/TypeScriptIntegration.mjs",
+      "require": "./dist/cjs/extension/TypeScriptIntegration.cjs",
+      "default": "./src/extension/TypeScriptIntegration.ts"
+    },
+    "./extension/TypeScriptIntegrationFacets.cjs": {
+      "types": "./dist/types/extension/TypeScriptIntegrationFacets.d.ts",
+      "import": "./dist/esm/extension/TypeScriptIntegrationFacets.mjs",
+      "require": "./dist/cjs/extension/TypeScriptIntegrationFacets.cjs",
+      "default": "./src/extension/TypeScriptIntegrationFacets.ts"
+    },
+    "./extension/TypeScriptIntegrationFacets.d.ts": {
+      "types": "./dist/types/extension/TypeScriptIntegrationFacets.d.ts",
+      "default": "./src/extension/TypeScriptIntegrationFacets.ts"
+    },
+    "./extension/TypeScriptIntegrationFacets.js": {
+      "types": "./dist/types/extension/TypeScriptIntegrationFacets.d.ts",
+      "import": "./dist/esm/extension/TypeScriptIntegrationFacets.mjs",
+      "require": "./dist/cjs/extension/TypeScriptIntegrationFacets.cjs",
+      "default": "./src/extension/TypeScriptIntegrationFacets.ts"
+    },
+    "./extension/TypeScriptIntegrationFacets.mjs": {
+      "types": "./dist/types/extension/TypeScriptIntegrationFacets.d.ts",
+      "import": "./dist/esm/extension/TypeScriptIntegrationFacets.mjs",
+      "require": "./dist/cjs/extension/TypeScriptIntegrationFacets.cjs",
+      "default": "./src/extension/TypeScriptIntegrationFacets.ts"
+    },
+    "./extension/TypeScriptIntegrationFacets": {
+      "types": "./dist/types/extension/TypeScriptIntegrationFacets.d.ts",
+      "import": "./dist/esm/extension/TypeScriptIntegrationFacets.mjs",
+      "require": "./dist/cjs/extension/TypeScriptIntegrationFacets.cjs",
+      "default": "./src/extension/TypeScriptIntegrationFacets.ts"
+    },
+    "./extension/TypeScriptIntegration": {
+      "types": "./dist/types/extension/TypeScriptIntegration.d.ts",
+      "import": "./dist/esm/extension/TypeScriptIntegration.mjs",
+      "require": "./dist/cjs/extension/TypeScriptIntegration.cjs",
+      "default": "./src/extension/TypeScriptIntegration.ts"
+    },
+    "./extension/createTypeScriptIntegration.cjs": {
+      "types": "./dist/types/extension/createTypeScriptIntegration.d.ts",
+      "import": "./dist/esm/extension/createTypeScriptIntegration.mjs",
+      "require": "./dist/cjs/extension/createTypeScriptIntegration.cjs",
+      "default": "./src/extension/createTypeScriptIntegration.ts"
+    },
+    "./extension/createTypeScriptIntegration.d.ts": {
+      "types": "./dist/types/extension/createTypeScriptIntegration.d.ts",
+      "default": "./src/extension/createTypeScriptIntegration.ts"
+    },
+    "./extension/createTypeScriptIntegration.js": {
+      "types": "./dist/types/extension/createTypeScriptIntegration.d.ts",
+      "import": "./dist/esm/extension/createTypeScriptIntegration.mjs",
+      "require": "./dist/cjs/extension/createTypeScriptIntegration.cjs",
+      "default": "./src/extension/createTypeScriptIntegration.ts"
+    },
+    "./extension/createTypeScriptIntegration.mjs": {
+      "types": "./dist/types/extension/createTypeScriptIntegration.d.ts",
+      "import": "./dist/esm/extension/createTypeScriptIntegration.mjs",
+      "require": "./dist/cjs/extension/createTypeScriptIntegration.cjs",
+      "default": "./src/extension/createTypeScriptIntegration.ts"
+    },
+    "./extension/createTypeScriptIntegration": {
+      "types": "./dist/types/extension/createTypeScriptIntegration.d.ts",
+      "import": "./dist/esm/extension/createTypeScriptIntegration.mjs",
+      "require": "./dist/cjs/extension/createTypeScriptIntegration.cjs",
+      "default": "./src/extension/createTypeScriptIntegration.ts"
+    },
+    "./extension/facets/TSConfigRootFinderFacet.cjs": {
+      "types": "./dist/types/extension/facets/TSConfigRootFinderFacet.d.ts",
+      "import": "./dist/esm/extension/facets/TSConfigRootFinderFacet.mjs",
+      "require": "./dist/cjs/extension/facets/TSConfigRootFinderFacet.cjs",
+      "default": "./src/extension/facets/TSConfigRootFinderFacet.ts"
+    },
+    "./extension/facets/TSConfigRootFinderFacet.d.ts": {
+      "types": "./dist/types/extension/facets/TSConfigRootFinderFacet.d.ts",
+      "default": "./src/extension/facets/TSConfigRootFinderFacet.ts"
+    },
+    "./extension/facets/TSConfigRootFinderFacet.js": {
+      "types": "./dist/types/extension/facets/TSConfigRootFinderFacet.d.ts",
+      "import": "./dist/esm/extension/facets/TSConfigRootFinderFacet.mjs",
+      "require": "./dist/cjs/extension/facets/TSConfigRootFinderFacet.cjs",
+      "default": "./src/extension/facets/TSConfigRootFinderFacet.ts"
+    },
+    "./extension/facets/TSConfigRootFinderFacet.mjs": {
+      "types": "./dist/types/extension/facets/TSConfigRootFinderFacet.d.ts",
+      "import": "./dist/esm/extension/facets/TSConfigRootFinderFacet.mjs",
+      "require": "./dist/cjs/extension/facets/TSConfigRootFinderFacet.cjs",
+      "default": "./src/extension/facets/TSConfigRootFinderFacet.ts"
+    },
+    "./extension/facets/TSConfigRootFinderFacet": {
+      "types": "./dist/types/extension/facets/TSConfigRootFinderFacet.d.ts",
+      "import": "./dist/esm/extension/facets/TSConfigRootFinderFacet.mjs",
+      "require": "./dist/cjs/extension/facets/TSConfigRootFinderFacet.cjs",
+      "default": "./src/extension/facets/TSConfigRootFinderFacet.ts"
+    },
+    "./extension/facets/TypeScriptContextResolverFacet.cjs": {
+      "types": "./dist/types/extension/facets/TypeScriptContextResolverFacet.d.ts",
+      "import": "./dist/esm/extension/facets/TypeScriptContextResolverFacet.mjs",
+      "require": "./dist/cjs/extension/facets/TypeScriptContextResolverFacet.cjs",
+      "default": "./src/extension/facets/TypeScriptContextResolverFacet.ts"
+    },
+    "./extension/facets/TypeScriptContextResolverFacet.d.ts": {
+      "types": "./dist/types/extension/facets/TypeScriptContextResolverFacet.d.ts",
+      "default": "./src/extension/facets/TypeScriptContextResolverFacet.ts"
+    },
+    "./extension/facets/TypeScriptContextResolverFacet.js": {
+      "types": "./dist/types/extension/facets/TypeScriptContextResolverFacet.d.ts",
+      "import": "./dist/esm/extension/facets/TypeScriptContextResolverFacet.mjs",
+      "require": "./dist/cjs/extension/facets/TypeScriptContextResolverFacet.cjs",
+      "default": "./src/extension/facets/TypeScriptContextResolverFacet.ts"
+    },
+    "./extension/facets/TypeScriptContextResolverFacet.mjs": {
+      "types": "./dist/types/extension/facets/TypeScriptContextResolverFacet.d.ts",
+      "import": "./dist/esm/extension/facets/TypeScriptContextResolverFacet.mjs",
+      "require": "./dist/cjs/extension/facets/TypeScriptContextResolverFacet.cjs",
+      "default": "./src/extension/facets/TypeScriptContextResolverFacet.ts"
+    },
+    "./extension/facets/TypeScriptContextResolverFacet": {
+      "types": "./dist/types/extension/facets/TypeScriptContextResolverFacet.d.ts",
+      "import": "./dist/esm/extension/facets/TypeScriptContextResolverFacet.mjs",
+      "require": "./dist/cjs/extension/facets/TypeScriptContextResolverFacet.cjs",
+      "default": "./src/extension/facets/TypeScriptContextResolverFacet.ts"
     },
     "./index.cjs": {
       "types": "./dist/types/index.d.ts",
@@ -116,248 +326,6 @@
       "require": "./dist/cjs/index.cjs",
       "default": "./src/index.ts"
     },
-    "./integration-metadata/index.cjs": {
-      "types": "./dist/types/integration-metadata/index.d.ts",
-      "import": "./dist/esm/integration-metadata/index.mjs",
-      "require": "./dist/cjs/integration-metadata/index.cjs",
-      "default": "./src/integration-metadata/index.ts"
-    },
-    "./integration-metadata/index.d.ts": {
-      "types": "./dist/types/integration-metadata/index.d.ts",
-      "default": "./src/integration-metadata/index.ts"
-    },
-    "./integration-metadata/index.js": {
-      "types": "./dist/types/integration-metadata/index.d.ts",
-      "import": "./dist/esm/integration-metadata/index.mjs",
-      "require": "./dist/cjs/integration-metadata/index.cjs",
-      "default": "./src/integration-metadata/index.ts"
-    },
-    "./integration-metadata/index.mjs": {
-      "types": "./dist/types/integration-metadata/index.d.ts",
-      "import": "./dist/esm/integration-metadata/index.mjs",
-      "require": "./dist/cjs/integration-metadata/index.cjs",
-      "default": "./src/integration-metadata/index.ts"
-    },
-    "./integration-metadata/index": {
-      "types": "./dist/types/integration-metadata/index.d.ts",
-      "import": "./dist/esm/integration-metadata/index.mjs",
-      "require": "./dist/cjs/integration-metadata/index.cjs",
-      "default": "./src/integration-metadata/index.ts"
-    },
-    "./integration-metadata/name.cjs": {
-      "types": "./dist/types/integration-metadata/name.d.ts",
-      "import": "./dist/esm/integration-metadata/name.mjs",
-      "require": "./dist/cjs/integration-metadata/name.cjs",
-      "default": "./src/integration-metadata/name.ts"
-    },
-    "./integration-metadata/name.d.ts": {
-      "types": "./dist/types/integration-metadata/name.d.ts",
-      "default": "./src/integration-metadata/name.ts"
-    },
-    "./integration-metadata/name.js": {
-      "types": "./dist/types/integration-metadata/name.d.ts",
-      "import": "./dist/esm/integration-metadata/name.mjs",
-      "require": "./dist/cjs/integration-metadata/name.cjs",
-      "default": "./src/integration-metadata/name.ts"
-    },
-    "./integration-metadata/name.mjs": {
-      "types": "./dist/types/integration-metadata/name.d.ts",
-      "import": "./dist/esm/integration-metadata/name.mjs",
-      "require": "./dist/cjs/integration-metadata/name.cjs",
-      "default": "./src/integration-metadata/name.ts"
-    },
-    "./integration-metadata/name": {
-      "types": "./dist/types/integration-metadata/name.d.ts",
-      "import": "./dist/esm/integration-metadata/name.mjs",
-      "require": "./dist/cjs/integration-metadata/name.cjs",
-      "default": "./src/integration-metadata/name.ts"
-    },
-    "./integration-metadata": {
-      "types": "./dist/types/integration-metadata/index.d.ts",
-      "import": "./dist/esm/integration-metadata/index.mjs",
-      "require": "./dist/cjs/integration-metadata/index.cjs",
-      "default": "./src/integration-metadata/index.ts"
-    },
-    "./integration/index.cjs": {
-      "types": "./dist/types/integration/index.d.ts",
-      "import": "./dist/esm/integration/index.mjs",
-      "require": "./dist/cjs/integration/index.cjs",
-      "default": "./src/integration/index.ts"
-    },
-    "./integration/index.d.ts": {
-      "types": "./dist/types/integration/index.d.ts",
-      "default": "./src/integration/index.ts"
-    },
-    "./integration/index.js": {
-      "types": "./dist/types/integration/index.d.ts",
-      "import": "./dist/esm/integration/index.mjs",
-      "require": "./dist/cjs/integration/index.cjs",
-      "default": "./src/integration/index.ts"
-    },
-    "./integration/index.mjs": {
-      "types": "./dist/types/integration/index.d.ts",
-      "import": "./dist/esm/integration/index.mjs",
-      "require": "./dist/cjs/integration/index.cjs",
-      "default": "./src/integration/index.ts"
-    },
-    "./integration/index": {
-      "types": "./dist/types/integration/index.d.ts",
-      "import": "./dist/esm/integration/index.mjs",
-      "require": "./dist/cjs/integration/index.cjs",
-      "default": "./src/integration/index.ts"
-    },
-    "./integration/integration-api.cjs": {
-      "types": "./dist/types/integration/integration-api.d.ts",
-      "import": "./dist/esm/integration/integration-api.mjs",
-      "require": "./dist/cjs/integration/integration-api.cjs",
-      "default": "./src/integration/integration-api.ts"
-    },
-    "./integration/integration-api.d.ts": {
-      "types": "./dist/types/integration/integration-api.d.ts",
-      "default": "./src/integration/integration-api.ts"
-    },
-    "./integration/integration-api.js": {
-      "types": "./dist/types/integration/integration-api.d.ts",
-      "import": "./dist/esm/integration/integration-api.mjs",
-      "require": "./dist/cjs/integration/integration-api.cjs",
-      "default": "./src/integration/integration-api.ts"
-    },
-    "./integration/integration-api.mjs": {
-      "types": "./dist/types/integration/integration-api.d.ts",
-      "import": "./dist/esm/integration/integration-api.mjs",
-      "require": "./dist/cjs/integration/integration-api.cjs",
-      "default": "./src/integration/integration-api.ts"
-    },
-    "./integration/integration-api": {
-      "types": "./dist/types/integration/integration-api.d.ts",
-      "import": "./dist/esm/integration/integration-api.mjs",
-      "require": "./dist/cjs/integration/integration-api.cjs",
-      "default": "./src/integration/integration-api.ts"
-    },
-    "./integration/integration-options.cjs": {
-      "types": "./dist/types/integration/integration-options.d.ts",
-      "import": "./dist/esm/integration/integration-options.mjs",
-      "require": "./dist/cjs/integration/integration-options.cjs",
-      "default": "./src/integration/integration-options.ts"
-    },
-    "./integration/integration-options.d.ts": {
-      "types": "./dist/types/integration/integration-options.d.ts",
-      "default": "./src/integration/integration-options.ts"
-    },
-    "./integration/integration-options.js": {
-      "types": "./dist/types/integration/integration-options.d.ts",
-      "import": "./dist/esm/integration/integration-options.mjs",
-      "require": "./dist/cjs/integration/integration-options.cjs",
-      "default": "./src/integration/integration-options.ts"
-    },
-    "./integration/integration-options.mjs": {
-      "types": "./dist/types/integration/integration-options.d.ts",
-      "import": "./dist/esm/integration/integration-options.mjs",
-      "require": "./dist/cjs/integration/integration-options.cjs",
-      "default": "./src/integration/integration-options.ts"
-    },
-    "./integration/integration-options": {
-      "types": "./dist/types/integration/integration-options.d.ts",
-      "import": "./dist/esm/integration/integration-options.mjs",
-      "require": "./dist/cjs/integration/integration-options.cjs",
-      "default": "./src/integration/integration-options.ts"
-    },
-    "./integration/integration.cjs": {
-      "types": "./dist/types/integration/integration.d.ts",
-      "import": "./dist/esm/integration/integration.mjs",
-      "require": "./dist/cjs/integration/integration.cjs",
-      "default": "./src/integration/integration.ts"
-    },
-    "./integration/integration.d.ts": {
-      "types": "./dist/types/integration/integration.d.ts",
-      "default": "./src/integration/integration.ts"
-    },
-    "./integration/integration.js": {
-      "types": "./dist/types/integration/integration.d.ts",
-      "import": "./dist/esm/integration/integration.mjs",
-      "require": "./dist/cjs/integration/integration.cjs",
-      "default": "./src/integration/integration.ts"
-    },
-    "./integration/integration.mjs": {
-      "types": "./dist/types/integration/integration.d.ts",
-      "import": "./dist/esm/integration/integration.mjs",
-      "require": "./dist/cjs/integration/integration.cjs",
-      "default": "./src/integration/integration.ts"
-    },
-    "./integration/integration": {
-      "types": "./dist/types/integration/integration.d.ts",
-      "import": "./dist/esm/integration/integration.mjs",
-      "require": "./dist/cjs/integration/integration.cjs",
-      "default": "./src/integration/integration.ts"
-    },
-    "./integration": {
-      "types": "./dist/types/integration/index.d.ts",
-      "import": "./dist/esm/integration/index.mjs",
-      "require": "./dist/cjs/integration/index.cjs",
-      "default": "./src/integration/index.ts"
-    },
-    "./module-augmentation/context.cjs": {
-      "types": "./dist/types/module-augmentation/context.d.ts",
-      "import": "./dist/esm/module-augmentation/context.mjs",
-      "require": "./dist/cjs/module-augmentation/context.cjs",
-      "default": "./src/module-augmentation/context.ts"
-    },
-    "./module-augmentation/context.d.ts": {
-      "types": "./dist/types/module-augmentation/context.d.ts",
-      "default": "./src/module-augmentation/context.ts"
-    },
-    "./module-augmentation/context.js": {
-      "types": "./dist/types/module-augmentation/context.d.ts",
-      "import": "./dist/esm/module-augmentation/context.mjs",
-      "require": "./dist/cjs/module-augmentation/context.cjs",
-      "default": "./src/module-augmentation/context.ts"
-    },
-    "./module-augmentation/context.mjs": {
-      "types": "./dist/types/module-augmentation/context.d.ts",
-      "import": "./dist/esm/module-augmentation/context.mjs",
-      "require": "./dist/cjs/module-augmentation/context.cjs",
-      "default": "./src/module-augmentation/context.ts"
-    },
-    "./module-augmentation/context": {
-      "types": "./dist/types/module-augmentation/context.d.ts",
-      "import": "./dist/esm/module-augmentation/context.mjs",
-      "require": "./dist/cjs/module-augmentation/context.cjs",
-      "default": "./src/module-augmentation/context.ts"
-    },
-    "./module-augmentation/index.cjs": {
-      "types": "./dist/types/module-augmentation/index.d.ts",
-      "import": "./dist/esm/module-augmentation/index.mjs",
-      "require": "./dist/cjs/module-augmentation/index.cjs",
-      "default": "./src/module-augmentation/index.ts"
-    },
-    "./module-augmentation/index.d.ts": {
-      "types": "./dist/types/module-augmentation/index.d.ts",
-      "default": "./src/module-augmentation/index.ts"
-    },
-    "./module-augmentation/index.js": {
-      "types": "./dist/types/module-augmentation/index.d.ts",
-      "import": "./dist/esm/module-augmentation/index.mjs",
-      "require": "./dist/cjs/module-augmentation/index.cjs",
-      "default": "./src/module-augmentation/index.ts"
-    },
-    "./module-augmentation/index.mjs": {
-      "types": "./dist/types/module-augmentation/index.d.ts",
-      "import": "./dist/esm/module-augmentation/index.mjs",
-      "require": "./dist/cjs/module-augmentation/index.cjs",
-      "default": "./src/module-augmentation/index.ts"
-    },
-    "./module-augmentation/index": {
-      "types": "./dist/types/module-augmentation/index.d.ts",
-      "import": "./dist/esm/module-augmentation/index.mjs",
-      "require": "./dist/cjs/module-augmentation/index.cjs",
-      "default": "./src/module-augmentation/index.ts"
-    },
-    "./module-augmentation": {
-      "types": "./dist/types/module-augmentation/index.d.ts",
-      "import": "./dist/esm/module-augmentation/index.mjs",
-      "require": "./dist/cjs/module-augmentation/index.cjs",
-      "default": "./src/module-augmentation/index.ts"
-    },
     "./package.json": {
       "default": "./package.json"
     },
@@ -380,6 +348,26 @@
       "import": "./dist/esm/presets/tsconfig.partial.base.json",
       "require": "./dist/cjs/presets/tsconfig.partial.base.json",
       "default": "./src/presets/tsconfig.partial.base.json"
+    },
+    "./presets/tsconfig.partial.output.exclude.json": {
+      "import": "./dist/esm/presets/tsconfig.partial.output.exclude.json",
+      "require": "./dist/cjs/presets/tsconfig.partial.output.exclude.json",
+      "default": "./src/presets/tsconfig.partial.output.exclude.json"
+    },
+    "./presets/tsconfig.partial.output.exclude": {
+      "import": "./dist/esm/presets/tsconfig.partial.output.exclude.json",
+      "require": "./dist/cjs/presets/tsconfig.partial.output.exclude.json",
+      "default": "./src/presets/tsconfig.partial.output.exclude.json"
+    },
+    "./presets/tsconfig.scope.build.debug.json": {
+      "import": "./dist/esm/presets/tsconfig.scope.build.debug.json",
+      "require": "./dist/cjs/presets/tsconfig.scope.build.debug.json",
+      "default": "./src/presets/tsconfig.scope.build.debug.json"
+    },
+    "./presets/tsconfig.scope.build.debug": {
+      "import": "./dist/esm/presets/tsconfig.scope.build.debug.json",
+      "require": "./dist/cjs/presets/tsconfig.scope.build.debug.json",
+      "default": "./src/presets/tsconfig.scope.build.debug.json"
     },
     "./presets/tsconfig.scope.dist.cjs.json": {
       "import": "./dist/esm/presets/tsconfig.scope.dist.cjs.json",
@@ -451,157 +439,201 @@
       "require": "./dist/cjs/presets/tsconfig.scope.workspace.json",
       "default": "./src/presets/tsconfig.scope.workspace.json"
     },
-    "./utils/index.cjs": {
-      "types": "./dist/types/utils/index.d.ts",
-      "import": "./dist/esm/utils/index.mjs",
-      "require": "./dist/cjs/utils/index.cjs",
-      "default": "./src/utils/index.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.cjs": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.ts"
     },
-    "./utils/index.d.ts": {
-      "types": "./dist/types/utils/index.d.ts",
-      "default": "./src/utils/index.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.d.ts": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.d.ts",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.ts"
     },
-    "./utils/index.js": {
-      "types": "./dist/types/utils/index.d.ts",
-      "import": "./dist/esm/utils/index.mjs",
-      "require": "./dist/cjs/utils/index.cjs",
-      "default": "./src/utils/index.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.js": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.ts"
     },
-    "./utils/index.mjs": {
-      "types": "./dist/types/utils/index.d.ts",
-      "import": "./dist/esm/utils/index.mjs",
-      "require": "./dist/cjs/utils/index.cjs",
-      "default": "./src/utils/index.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.mjs": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.ts"
     },
-    "./utils/index": {
-      "types": "./dist/types/utils/index.d.ts",
-      "import": "./dist/esm/utils/index.mjs",
-      "require": "./dist/cjs/utils/index.cjs",
-      "default": "./src/utils/index.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/finder.cjs": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/finder.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/finder.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/finder.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/finder.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.cjs": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/finder.d.ts": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/finder.d.ts",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/finder.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.d.ts": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.d.ts",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/finder.js": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/finder.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/finder.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/finder.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/finder.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.js": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/finder.mjs": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/finder.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/finder.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/finder.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/finder.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.mjs": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/finder": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/finder.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/finder.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/finder.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/finder.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/fs.cjs": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/fs.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/fs.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/fs.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/fs.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.cjs": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/fs.d.ts": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/fs.d.ts",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/fs.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.d.ts": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.d.ts",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/fs.js": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/fs.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/fs.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/fs.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/fs.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.js": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/fs.mjs": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/fs.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/fs.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/fs.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/fs.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.mjs": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/fs": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/fs.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/fs.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/fs.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/fs.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/index.cjs": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/index.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/index.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/index.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/index.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.cjs": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/index.d.ts": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/index.d.ts",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/index.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.d.ts": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.d.ts",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/index.js": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/index.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/index.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/index.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/index.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.js": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/index.mjs": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/index.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/index.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/index.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/index.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.mjs": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/index": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/index.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/index.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/index.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/index.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/options.cjs": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/options.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/options.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/options.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/options.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.cjs": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/options.d.ts": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/options.d.ts",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/options.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.d.ts": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.d.ts",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/options.js": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/options.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/options.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/options.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/options.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.js": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/options.mjs": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/options.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/options.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/options.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/options.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.mjs": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder/options": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/options.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/options.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/options.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/options.ts"
+    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync": {
+      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.ts"
     },
-    "./utils/tsconfig-root-directory-path-finder": {
-      "types": "./dist/types/utils/tsconfig-root-directory-path-finder/index.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-directory-path-finder/index.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-directory-path-finder/index.cjs",
-      "default": "./src/utils/tsconfig-root-directory-path-finder/index.ts"
+    "./utils/tsconfig-root-finder/findTSConfigRootPathAsync.cjs": {
+      "types": "./dist/types/utils/tsconfig-root-finder/findTSConfigRootPathAsync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/findTSConfigRootPathAsync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/findTSConfigRootPathAsync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/findTSConfigRootPathAsync.ts"
     },
-    "./utils": {
-      "types": "./dist/types/utils/index.d.ts",
-      "import": "./dist/esm/utils/index.mjs",
-      "require": "./dist/cjs/utils/index.cjs",
-      "default": "./src/utils/index.ts"
+    "./utils/tsconfig-root-finder/findTSConfigRootPathAsync.d.ts": {
+      "types": "./dist/types/utils/tsconfig-root-finder/findTSConfigRootPathAsync.d.ts",
+      "default": "./src/utils/tsconfig-root-finder/findTSConfigRootPathAsync.ts"
+    },
+    "./utils/tsconfig-root-finder/findTSConfigRootPathAsync.js": {
+      "types": "./dist/types/utils/tsconfig-root-finder/findTSConfigRootPathAsync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/findTSConfigRootPathAsync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/findTSConfigRootPathAsync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/findTSConfigRootPathAsync.ts"
+    },
+    "./utils/tsconfig-root-finder/findTSConfigRootPathAsync.mjs": {
+      "types": "./dist/types/utils/tsconfig-root-finder/findTSConfigRootPathAsync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/findTSConfigRootPathAsync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/findTSConfigRootPathAsync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/findTSConfigRootPathAsync.ts"
+    },
+    "./utils/tsconfig-root-finder/findTSConfigRootPathAsync": {
+      "types": "./dist/types/utils/tsconfig-root-finder/findTSConfigRootPathAsync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/findTSConfigRootPathAsync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/findTSConfigRootPathAsync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/findTSConfigRootPathAsync.ts"
+    },
+    "./utils/tsconfig-root-finder/findTSConfigRootPathSync.cjs": {
+      "types": "./dist/types/utils/tsconfig-root-finder/findTSConfigRootPathSync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/findTSConfigRootPathSync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/findTSConfigRootPathSync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/findTSConfigRootPathSync.ts"
+    },
+    "./utils/tsconfig-root-finder/findTSConfigRootPathSync.d.ts": {
+      "types": "./dist/types/utils/tsconfig-root-finder/findTSConfigRootPathSync.d.ts",
+      "default": "./src/utils/tsconfig-root-finder/findTSConfigRootPathSync.ts"
+    },
+    "./utils/tsconfig-root-finder/findTSConfigRootPathSync.js": {
+      "types": "./dist/types/utils/tsconfig-root-finder/findTSConfigRootPathSync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/findTSConfigRootPathSync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/findTSConfigRootPathSync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/findTSConfigRootPathSync.ts"
+    },
+    "./utils/tsconfig-root-finder/findTSConfigRootPathSync.mjs": {
+      "types": "./dist/types/utils/tsconfig-root-finder/findTSConfigRootPathSync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/findTSConfigRootPathSync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/findTSConfigRootPathSync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/findTSConfigRootPathSync.ts"
+    },
+    "./utils/tsconfig-root-finder/findTSConfigRootPathSync": {
+      "types": "./dist/types/utils/tsconfig-root-finder/findTSConfigRootPathSync.d.ts",
+      "import": "./dist/esm/utils/tsconfig-root-finder/findTSConfigRootPathSync.mjs",
+      "require": "./dist/cjs/utils/tsconfig-root-finder/findTSConfigRootPathSync.cjs",
+      "default": "./src/utils/tsconfig-root-finder/findTSConfigRootPathSync.ts"
     },
     ".": {
       "types": "./dist/types/index.d.ts",

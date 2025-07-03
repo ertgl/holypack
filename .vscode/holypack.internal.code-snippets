@@ -1,0 +1,32 @@
+{
+  "createRequire": {
+    "body": [
+      "import { createRequire } from \"node:module\";",
+      "import { fileURLToPath } from \"node:url\";",
+      "",
+      "const __filename = fileURLToPath(import.meta.url);",
+      "",
+      "const require = createRequire(__filename);",
+    ],
+    "description": "Create a `NodeJS.Require` function.",
+    "prefix": "createRequire",
+    "scope": "javascript,typescript"
+  },
+  "createRequire with #[cjs(remove)]": {
+    "body": [
+      "// #[cjs(remove)]",
+      "import { createRequire } from \"node:module\";",
+      "// #[cjs(remove)]",
+      "import { fileURLToPath } from \"node:url\";",
+      "",
+      "// #[cjs(remove)]",
+      "const __filename = fileURLToPath(import.meta.url);",
+      "",
+      "// #[cjs(remove)]",
+      "const require = createRequire(__filename);",
+    ],
+    "description": "Create a `NodeJS.Require` function that will be eliminated during compilation targeting CommonJS format. This snippet depends on `babel-plugin-comment-attributes` to remove the `NodeJS.Require` construction code at build time.",
+    "prefix": "createRequire",
+    "scope": "javascript,typescript"
+  }
+}

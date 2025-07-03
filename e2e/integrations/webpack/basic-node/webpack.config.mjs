@@ -1,4 +1,4 @@
-import { defineConfig } from "@holypack/webpack-plugin";
+import { defineConfigAsync } from "@holypack/webpack-plugin";
 
 /**
  * @import { type Configuration } from "webpack";
@@ -7,8 +7,10 @@ import { defineConfig } from "@holypack/webpack-plugin";
 /**
  * @type {Configuration}
  */
-const WEBPACK_CONFIG = await defineConfig({
-  target: "node",
+const WEBPACK_CONFIG = await defineConfigAsync({
+  overrides: {
+    target: "node",
+  }
 });
 
 export default WEBPACK_CONFIG;

@@ -2,10 +2,13 @@
   "name": "@holypack/internal-integration-typescript",
   "private": true,
   "scripts": {
+    "lint": "yarn eslint:lint",
+    "lint::fix": "yarn eslint:lint::fix",
     "prepare": "yarn update-package-exports",
     "update-package-exports": "yarn export-map-generator:update"
   },
   "files": [
+    "./src/",
     "./package.json"
   ],
   "exports": {

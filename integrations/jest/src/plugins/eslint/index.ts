@@ -1,7 +1,2 @@
-export * from "./module-augmentation";
-export * from "./plugin";
-export { createJestIntegrationESLintPlugin as default } from "./plugin";
-export * from "./plugin-api";
-export * from "./plugin-name";
-export * from "./plugin-options";
-export * from "./plugin-options-resolver";
+export { createJestIntegrationPluginESLint as default } from "./extension/createJestIntegrationPluginESLint";
+export { createJestIntegrationPluginESLint } from "./extension/createJestIntegrationPluginESLint";

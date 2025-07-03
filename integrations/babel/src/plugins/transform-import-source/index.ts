@@ -1,0 +1,4 @@
+export { createBabelIntegrationPluginImportSourceTransformer } from "./extension/createBabelIntegrationPluginImportSourceTransformer";
+import { createBabelIntegrationPluginImportSourceTransformer } from "./extension/createBabelIntegrationPluginImportSourceTransformer";
+
+export default createBabelIntegrationPluginImportSourceTransformer;

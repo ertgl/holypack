@@ -1,0 +1,3 @@
+import { UID_PREFIX_WORKSPACE_HOOK } from "../../hook/constants/UID_PREFIX_WORKSPACE_HOOK";
+
+export const WORKSPACE_HOOK_UID_RESOLVE_ROOT_WORKSPACE_SYNC = `${UID_PREFIX_WORKSPACE_HOOK}resolveRootWorkspaceSync`;

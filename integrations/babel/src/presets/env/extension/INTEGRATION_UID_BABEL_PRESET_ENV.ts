@@ -1,0 +1,3 @@
+import { UID_PREFIX_FIRST_PARTY_INTEGRATION } from "@holypack/core/integration/constants/UID_PREFIX_FIRST_PARTY_INTEGRATION";
+
+export const INTEGRATION_UID_BABEL_PRESET_ENV = `${UID_PREFIX_FIRST_PARTY_INTEGRATION}babel/presets/env`;

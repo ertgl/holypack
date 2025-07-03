@@ -1,0 +1,1 @@
+export const ERROR_EXTENSION_HOOK_IS_ALREADY_BOUND = "ExtensionHookIsAlreadyBoundError";

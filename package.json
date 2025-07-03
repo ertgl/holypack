@@ -1,10 +1,10 @@
 {
   "name": "@holypack/__monorepo__",
   "private": true,
-  "type": "module",
   "scripts": {
-    "bootstrap": "node -e \"console.log('Bootstrapping...')\" && yarn w:foreach::parallel::topological::interlaced run bootstrap",
-    "build": "node -e \"console.log('Building...')\" && yarn w:foreach::parallel::topological::interlaced run build",
+    "bootstrap": "node -e \"console.log('Bootstrapping...')\" && yarn w:foreach::parallel::topological run bootstrap",
+    "build": "node -e \"console.log('Building...')\" && yarn w:foreach::parallel::topological run build",
+    "build:update-exports": "node -e \"console.log('Updating package exports...')\" && yarn w:foreach::parallel run build:update-exports",
     "clean": "node -e \"console.log('Cleaning...')\" && yarn w:foreach::parallel::interlaced run clean",
     "dev": "yarn prepare && yarn bootstrap && yarn build",
     "dev::clean": "yarn clean && yarn dev",
@@ -18,7 +18,8 @@
     "format": "yarn lint::fix",
     "lint": "yarn eslint:lint",
     "lint::fix": "yarn eslint:lint::fix",
-    "prepare": "node -e \"console.log('Preparing...')\" && yarn w:foreach::parallel::topological::interlaced run prepare",
+    "lint::parallel": "node -e \"console.log('Linting...')\" && yarn w:foreach::parallel run lint",
+    "prepare": "node -e \"console.log('Preparing...')\" && yarn w:foreach::parallel::topological run prepare",
     "test": "yarn w:foreach::parallel::topological run test"
   },
   "packageManager": "yarn@4.9.1",
@@ -41,10 +42,9 @@
     "@holypack/integration-jest": "workspace:^",
     "@holypack/integration-typescript": "workspace:^",
     "@holypack/internal-integration-babel": "workspace:^",
+    "@holypack/internal-integration-cspell": "workspace:^",
     "@holypack/internal-integration-export-map-generator": "workspace:^",
     "@holypack/internal-integration-typescript": "workspace:^",
-    "eslint": "^9.30.1",
-    "export-map-generator": "^2.1.1",
     "holypack": "workspace:^"
   },
   "resolutions": {
@@ -58,12 +58,21 @@
     "@holypack/integration-jest": "portal:./integrations/jest",
     "@holypack/integration-typescript": "portal:./integrations/typescript",
     "@holypack/internal-integration-babel": "portal:./internal/integrations/babel",
+    "@holypack/internal-integration-cspell": "portal:./internal/integrations/cspell",
     "@holypack/internal-integration-export-map-generator": "portal:./internal/integrations/export-map-generator",
-    "@holypack/internal-integration-typescript": "portal:./internal/integrations/typescript",
     "@holypack/internal-integration-node": "portal:./internal/integrations/node",
+    "@holypack/internal-integration-typescript": "portal:./internal/integrations/typescript",
     "@holypack/internal-integration-yarn": "portal:./internal/integrations/yarn",
     "@holypack/jest-preset": "portal:./external/jest-preset",
+    "@holypack/tracing": "portal:./packages/tracing",
     "@holypack/webpack-plugin": "portal:./external/webpack-plugin",
     "holypack": "portal:./packages/prelude"
+  },
+  "type": "module",
+  "files": [
+    "./package.json"
+  ],
+  "exports": {
+    "./package.json": "./package.json"
   }
 }

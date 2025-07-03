@@ -1,1 +1,1 @@
-export { configFunction as default } from "@holypack/internal-integration-babel/config";
+export { default } from "@holypack/internal-integration-babel/esm";

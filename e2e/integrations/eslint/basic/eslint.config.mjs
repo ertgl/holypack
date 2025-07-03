@@ -1,21 +1,8 @@
-import { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
-
-import createHolypackPlugin from "@holypack/eslint-plugin";
+import holypack from "@holypack/eslint-plugin/default/sync";
 
 /**
  * @import { type Linter } from "eslint";
  */
-
-const __filename = fileURLToPath(import.meta.url);
-
-const __dirname = dirname(__filename);
-
-const holypack = await createHolypackPlugin({
-  context: {
-    cwd: __dirname,
-  },
-});
 
 /**
  * @type {Linter.Config[]}

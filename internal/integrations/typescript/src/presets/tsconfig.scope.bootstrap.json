@@ -1,13 +1,13 @@
 {
   "extends": "@holypack/integration-typescript/presets/tsconfig.partial.base.json",
   "compilerOptions": {
-    "baseUrl": "${configDir}/.bootstrap",
+    "baseUrl": "${configDir}/.build/bootstrap",
     "module": "ESNext",
     "moduleResolution": "bundler",
     "noCheck": true,
-    "rootDir": "${configDir}/.bootstrap"
+    "rootDir": "${configDir}/.build/bootstrap"
   },
   "include": [
-    "${configDir}/.bootstrap/**/*"
+    "${configDir}/.build/bootstrap/**/*"
   ]
 }

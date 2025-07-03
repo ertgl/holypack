@@ -1,0 +1,261 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Babel preset - CJS target (async)",
+      "type": "node",
+      "request": "launch",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "DEBUG": "true"
+      },
+      "runtimeArgs": [
+        "--disable-warning=ExperimentalWarning",
+        "--experimental-require-module",
+        "--experimental-transform-types",
+        "--experimental-vm-modules"
+      ],
+      "cwd": "${workspaceFolder}/external/babel-preset",
+      "localRoot": "${workspaceFolder}/external/babel-preset/.build/debug",
+      "remoteRoot": "${workspaceFolder}/external/babel-preset/src",
+      "preLaunchTask": "npm: debug:build - external/babel-preset",
+      "program": "${workspaceFolder}/external/babel-preset/src/default/async/cjs/BABEL_PRESET_HOLYPACK_ASYNC_CJS.ts",
+      "stopOnEntry": true,
+      "smartStep": true,
+      "sourceMaps": true,
+      "sourceMapRenames": true,
+      "pauseForSourceMap": true,
+      "outFiles": [
+        "${workspaceFolder}/external/babel-preset/.build/debug/**/*.mjs"
+      ],
+      "skipFiles": [
+        "<node_internals>/**",
+        "node_modules/**"
+      ]
+    },
+    {
+      "name": "Babel preset - CJS target (sync)",
+      "type": "node",
+      "request": "launch",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "DEBUG": "true"
+      },
+      "runtimeArgs": [
+        "--disable-warning=ExperimentalWarning",
+        "--experimental-require-module",
+        "--experimental-transform-types",
+        "--experimental-vm-modules"
+      ],
+      "cwd": "${workspaceFolder}/external/babel-preset",
+      "localRoot": "${workspaceFolder}/external/babel-preset/.build/debug",
+      "remoteRoot": "${workspaceFolder}/external/babel-preset/src",
+      "preLaunchTask": "npm: debug:build - external/babel-preset",
+      "program": "${workspaceFolder}/external/babel-preset/src/default/sync/cjs/BABEL_PRESET_HOLYPACK_SYNC_CJS.ts",
+      "stopOnEntry": true,
+      "smartStep": true,
+      "sourceMaps": true,
+      "sourceMapRenames": true,
+      "pauseForSourceMap": true,
+      "outFiles": [
+        "${workspaceFolder}/external/babel-preset/.build/debug/**/*.mjs"
+      ],
+      "skipFiles": [
+        "<node_internals>/**",
+        "node_modules/**"
+      ]
+    },
+    {
+      "name": "Babel preset - ESM target (async)",
+      "type": "node",
+      "request": "launch",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "DEBUG": "true"
+      },
+      "runtimeArgs": [
+        "--disable-warning=ExperimentalWarning",
+        "--experimental-require-module",
+        "--experimental-transform-types",
+        "--experimental-vm-modules"
+      ],
+      "cwd": "${workspaceFolder}/external/babel-preset",
+      "localRoot": "${workspaceFolder}/external/babel-preset/.build/debug",
+      "remoteRoot": "${workspaceFolder}/external/babel-preset/src",
+      "preLaunchTask": "npm: debug:build - external/babel-preset",
+      "program": "${workspaceFolder}/external/babel-preset/src/default/async/esm/BABEL_PRESET_HOLYPACK_ASYNC_ESM.ts",
+      "stopOnEntry": true,
+      "smartStep": true,
+      "sourceMaps": true,
+      "sourceMapRenames": true,
+      "pauseForSourceMap": true,
+      "outFiles": [
+        "${workspaceFolder}/external/babel-preset/.build/debug/**/*.mjs"
+      ],
+      "skipFiles": [
+        "<node_internals>/**",
+        "node_modules/**"
+      ]
+    },
+    {
+      "name": "Babel preset - ESM target (sync)",
+      "type": "node",
+      "request": "launch",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "DEBUG": "true"
+      },
+      "runtimeArgs": [
+        "--disable-warning=ExperimentalWarning",
+        "--experimental-require-module",
+        "--experimental-transform-types",
+        "--experimental-vm-modules"
+      ],
+      "cwd": "${workspaceFolder}/external/babel-preset",
+      "localRoot": "${workspaceFolder}/external/babel-preset/.build/debug",
+      "remoteRoot": "${workspaceFolder}/external/babel-preset/src",
+      "preLaunchTask": "npm: debug:build - external/babel-preset",
+      "program": "${workspaceFolder}/external/babel-preset/src/default/sync/esm/BABEL_PRESET_HOLYPACK_SYNC_ESM.ts",
+      "stopOnEntry": true,
+      "smartStep": true,
+      "sourceMaps": true,
+      "sourceMapRenames": true,
+      "pauseForSourceMap": true,
+      "outFiles": [
+        "${workspaceFolder}/external/babel-preset/.build/debug/**/*.mjs"
+      ],
+      "skipFiles": [
+        "<node_internals>/**",
+        "node_modules/**"
+      ]
+    },
+    {
+      "name": "ESLint plugin (async)",
+      "type": "node",
+      "request": "launch",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "DEBUG": "true"
+      },
+      "runtimeArgs": [
+        "--disable-warning=ExperimentalWarning",
+        "--experimental-require-module",
+        "--experimental-transform-types",
+        "--experimental-vm-modules"
+      ],
+      "cwd": "${workspaceFolder}/external/eslint-plugin",
+      "localRoot": "${workspaceFolder}/external/eslint-plugin/.build/debug",
+      "remoteRoot": "${workspaceFolder}/external/eslint-plugin/src",
+      "preLaunchTask": "npm: debug:build - external/eslint-plugin",
+      "program": "${workspaceFolder}/external/eslint-plugin/src/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.ts",
+      "stopOnEntry": true,
+      "smartStep": true,
+      "sourceMaps": true,
+      "sourceMapRenames": true,
+      "pauseForSourceMap": true,
+      "outFiles": [
+        "${workspaceFolder}/external/eslint-plugin/.build/debug/**/*.mjs"
+      ],
+      "skipFiles": [
+        "<node_internals>/**",
+        "node_modules/**"
+      ]
+    },
+    {
+      "name": "ESLint plugin (sync)",
+      "type": "node",
+      "request": "launch",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "DEBUG": "true"
+      },
+      "runtimeArgs": [
+        "--disable-warning=ExperimentalWarning",
+        "--experimental-require-module",
+        "--experimental-transform-types",
+        "--experimental-vm-modules"
+      ],
+      "cwd": "${workspaceFolder}/external/eslint-plugin",
+      "localRoot": "${workspaceFolder}/external/eslint-plugin/.build/debug",
+      "remoteRoot": "${workspaceFolder}/external/eslint-plugin/src",
+      "preLaunchTask": "npm: debug:build - external/eslint-plugin",
+      "program": "${workspaceFolder}/external/eslint-plugin/src/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.ts",
+      "stopOnEntry": true,
+      "smartStep": true,
+      "sourceMaps": true,
+      "sourceMapRenames": true,
+      "pauseForSourceMap": true,
+      "outFiles": [
+        "${workspaceFolder}/external/eslint-plugin/.build/debug/**/*.mjs"
+      ],
+      "skipFiles": [
+        "<node_internals>/**",
+        "node_modules/**"
+      ]
+    },
+    {
+      "name": "Jest preset (async)",
+      "type": "node",
+      "request": "launch",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "DEBUG": "true"
+      },
+      "runtimeArgs": [
+        "--disable-warning=ExperimentalWarning",
+        "--experimental-require-module",
+        "--experimental-transform-types",
+        "--experimental-vm-modules"
+      ],
+      "cwd": "${workspaceFolder}/external/jest-preset",
+      "localRoot": "${workspaceFolder}/external/jest-preset/.build/debug",
+      "remoteRoot": "${workspaceFolder}/external/jest-preset/src",
+      "preLaunchTask": "npm: debug:build - external/jest-preset",
+      "program": "${workspaceFolder}/external/jest-preset/src/default/async/JEST_PRESET_HOLYPACK_ASYNC.ts",
+      "stopOnEntry": true,
+      "smartStep": true,
+      "sourceMaps": true,
+      "sourceMapRenames": true,
+      "pauseForSourceMap": true,
+      "outFiles": [
+        "${workspaceFolder}/external/jest-preset/.build/debug/**/*.mjs"
+      ],
+      "skipFiles": [
+        "<node_internals>/**",
+        "node_modules/**"
+      ]
+    },
+    {
+      "name": "Jest preset (sync)",
+      "type": "node",
+      "request": "launch",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "DEBUG": "true"
+      },
+      "runtimeArgs": [
+        "--disable-warning=ExperimentalWarning",
+        "--experimental-require-module",
+        "--experimental-transform-types",
+        "--experimental-vm-modules"
+      ],
+      "cwd": "${workspaceFolder}/external/jest-preset",
+      "localRoot": "${workspaceFolder}/external/jest-preset/.build/debug",
+      "remoteRoot": "${workspaceFolder}/external/jest-preset/src",
+      "preLaunchTask": "npm: debug:build - external/jest-preset",
+      "program": "${workspaceFolder}/external/jest-preset/src/default/sync/JEST_PRESET_HOLYPACK_SYNC.ts",
+      "stopOnEntry": true,
+      "smartStep": true,
+      "sourceMaps": true,
+      "sourceMapRenames": true,
+      "pauseForSourceMap": true,
+      "outFiles": [
+        "${workspaceFolder}/external/jest-preset/.build/debug/**/*.mjs"
+      ],
+      "skipFiles": [
+        "<node_internals>/**",
+        "node_modules/**"
+      ]
+    }
+  ]
+}

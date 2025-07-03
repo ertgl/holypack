@@ -2,7 +2,7 @@
   "extends": "./tsconfig.partial.base.json",
   "compilerOptions": {
     "baseUrl": "${configDir}",
-    "module": "ESNext",
+    "module": "esnext",
     "moduleResolution": "bundler",
     "rootDir": "${configDir}"
   },

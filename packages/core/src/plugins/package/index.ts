@@ -1,4 +1,4 @@
-export * from "./package-json";
-export * from "./plugin";
-export { createPackagePlugin as default } from "./plugin";
-export * from "./plugin-metadata";
+export { createPackagePlugin } from "./extension/createPackagePlugin";
+import { createPackagePlugin } from "./extension/createPackagePlugin";
+
+export default createPackagePlugin;

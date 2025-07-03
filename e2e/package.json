@@ -20,7 +20,7 @@
     "@holypack/core": "*",
     "@holypack/integration-typescript": "*",
     "holypack": "*",
-    "tapable": "^2.2.1"
+    "tapable": "^2.2.2"
   },
   "workspaces": [
     "../integrations/babel",
@@ -43,6 +43,7 @@
     "@holypack/internal-integration-node": "portal:../internal/integrations/node",
     "@holypack/internal-integration-yarn": "portal:../internal/integrations/yarn",
     "@holypack/jest-preset": "portal:../external/jest-preset",
+    "@holypack/tracing": "portal:../packages/tracing",
     "@holypack/webpack-plugin": "portal:../external/webpack-plugin",
     "holypack": "portal:../packages/prelude"
   }

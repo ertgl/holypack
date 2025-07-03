@@ -166,10 +166,10 @@ runs:
       with:
         key: ${{ steps.determine-cache-key-for-bootstrap.outputs.final-cache-key-for-bootstrap }}
         path: |
-          external/*/.bootstrap/
-          integrations/*/.bootstrap/
-          internal/*/*/.bootstrap/
-          packages/*/.bootstrap/
+          external/*/.build/bootstrap/
+          integrations/*/.build/bootstrap/
+          internal/*/*/.build/bootstrap/
+          packages/*/.build/bootstrap/
 
     - name: Restore build cache
       id: restore-cache-for-build
@@ -202,10 +202,10 @@ runs:
       with:
         key: ${{ steps.determine-cache-key-for-bootstrap.outputs.final-cache-key-for-bootstrap }}
         path: |
-          external/*/.bootstrap/
-          integrations/*/.bootstrap/
-          internal/*/*/.bootstrap/
-          packages/*/.bootstrap/
+          external/*/.build/bootstrap/
+          integrations/*/.build/bootstrap/
+          internal/*/*/.build/bootstrap/
+          packages/*/.build/bootstrap/
 
     - name: Build
       id: build

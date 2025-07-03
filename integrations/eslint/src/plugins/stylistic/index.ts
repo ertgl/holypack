@@ -1,8 +1,2 @@
-export * from "./config";
-
-export * from "./module-augmentation";
-export * from "./plugin";
-export { createESLintIntegrationStylisticPlugin as default } from "./plugin";
-export * from "./plugin-api";
-export * from "./plugin-options";
-export * from "./plugin-options-resolver";
+export { createESLintIntegrationPluginStylistic as default } from "./extension/createESLintIntegrationPluginStylistic";
+export { createESLintIntegrationPluginStylistic } from "./extension/createESLintIntegrationPluginStylistic";

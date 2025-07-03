@@ -1,0 +1,3 @@
+import { N_LINTER_CONFIG_NAME_PREFIX } from "../../constants/N_LINTER_CONFIG_NAME_PREFIX";
+
+export const LINTER_CONFIG_NAME_N_SETTINGS = `${N_LINTER_CONFIG_NAME_PREFIX}settings`;

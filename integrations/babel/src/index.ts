@@ -1,6 +1,4 @@
-export * from "./config";
-export * from "./integration";
-export { createBabelIntegration as default } from "./integration";
-export * from "./integration-metadata";
-export * from "./module-augmentation";
-export * from "./plugins";
+export { createBabelIntegration } from "./extension/createBabelIntegration";
+import { createBabelIntegration } from "./extension/createBabelIntegration";
+
+export default createBabelIntegration;

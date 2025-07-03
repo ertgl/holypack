@@ -1,6 +1,4 @@
-export * from "./config";
-export * from "./integration";
-export { createJestIntegration as default } from "./integration";
-export * from "./integration-metadata";
-export * from "./module-augmentation";
-export * from "./plugins";
+export { createJestIntegration as default } from "./extension/createJestIntegration";
+export { createJestIntegration } from "./extension/createJestIntegration";
+export { JestIntegration } from "./extension/JestIntegration";
+export type { JestIntegrationOptions } from "./options/JestIntegrationOptions";

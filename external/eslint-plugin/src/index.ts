@@ -1,3 +1,2 @@
-export * from "./plugin";
-export { createHolypackPlugin as default } from "./plugin";
-export * from "./plugin-options";
+export { createHolypackPluginAsync } from "./plugin/createHolypackPluginAsync";
+export { createHolypackPluginSync } from "./plugin/createHolypackPluginSync";

@@ -1,1 +1,1 @@
-export { bootstrapConfigProvider as default } from "@holypack/internal-integration-export-map-generator/bootstrap/config";
+export { default } from "@holypack/internal-integration-export-map-generator/bootstrap";

@@ -1,6 +1,2 @@
-export * from "./module-augmentation";
-export * from "./plugin";
-export { createESLintIntegrationTypeScriptPlugin as default } from "./plugin";
-export * from "./plugin-api";
-export * from "./plugin-options";
-export * from "./plugin-options-resolver";
+export { createESLintIntegrationPluginTypeScript as default } from "./extension/createESLintIntegrationPluginTypeScript";
+export { createESLintIntegrationPluginTypeScript } from "./extension/createESLintIntegrationPluginTypeScript";

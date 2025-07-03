@@ -1,0 +1,3 @@
+{
+  "extends": "@holypack/integration-typescript/presets/tsconfig.scope.build.debug.json"
+}

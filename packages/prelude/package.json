@@ -1,14 +1,26 @@
 {
   "name": "holypack",
   "scripts": {
-    "bootstrap": "yarn babel:bootstrap:clean && yarn babel:bootstrap && yarn export-map-generator:bootstrap",
+    "bootstrap": "yarn bootstrap:build && yarn bootstrap:update-exports",
+    "bootstrap:build": "yarn babel:bootstrap",
     "bootstrap:clean": "yarn babel:bootstrap:clean",
-    "build": "yarn babel:build:clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn export-map-generator:update",
+    "bootstrap:update-exports": "yarn export-map-generator:bootstrap",
+    "build": "yarn build::types && yarn build::cjs && yarn build::esm && yarn build:update-exports",
+    "build::cjs": "yarn babel:build::cjs",
+    "build::esm": "yarn babel:build::esm",
+    "build::types": "yarn tsc:build::types",
     "build:clean": "yarn babel:build:clean",
-    "clean": "yarn bootstrap:clean && yarn build:clean && yarn node-modules:clean",
-    "cmd:holypack": "cd $INIT_CWD && holypack",
-    "cmd:holypack-cjs": "cd $INIT_CWD && holypack-cjs",
-    "node-modules:clean": "rm -fr node_modules"
+    "build:update-exports": "yarn export-map-generator:update",
+    "clean": "yarn bootstrap:clean && yarn build:clean && yarn node-modules:clean && yarn test:clean",
+    "cmd:holypack": "cd $INIT_CWD && yarn cmd:node $(yarn workspace holypack bin holypack)",
+    "cmd:holypack-cjs": "cd $INIT_CWD && yarn cmd:node $(yarn workspace holypack bin holypack-cjs)",
+    "coverage:clean": "yarn jest:coverage:clean",
+    "coverage:open": "yarn jest:coverage:open",
+    "lint": "yarn eslint:lint",
+    "lint::fix": "yarn eslint:lint::fix",
+    "node-modules:clean": "rm -fr node_modules",
+    "test": "yarn jest:test",
+    "test:clean": "yarn coverage:clean && yarn jest:cache:clean"
   },
   "devDependencies": {
     "@holypack/cli": "workspace:^",
@@ -21,6 +33,9 @@
   "peerDependenciesMeta": {
     "@holypack/cli": {
       "optional": true
+    },
+    "@holypack/core": {
+      "optional": false
     }
   },
   "files": [
@@ -64,67 +79,33 @@
       "require": "./dist/cjs/bin/holypack.cjs",
       "default": "./src/bin/holypack.ts"
     },
-    "./config/definition/definition.cjs": {
-      "types": "./dist/types/config/definition/definition.d.ts",
-      "import": "./dist/esm/config/definition/definition.mjs",
-      "require": "./dist/cjs/config/definition/definition.cjs",
-      "default": "./src/config/definition/definition.ts"
+    "./config/defineConfig.cjs": {
+      "types": "./dist/types/config/defineConfig.d.ts",
+      "import": "./dist/esm/config/defineConfig.mjs",
+      "require": "./dist/cjs/config/defineConfig.cjs",
+      "default": "./src/config/defineConfig.ts"
     },
-    "./config/definition/definition.d.ts": {
-      "types": "./dist/types/config/definition/definition.d.ts",
-      "default": "./src/config/definition/definition.ts"
+    "./config/defineConfig.d.ts": {
+      "types": "./dist/types/config/defineConfig.d.ts",
+      "default": "./src/config/defineConfig.ts"
     },
-    "./config/definition/definition.js": {
-      "types": "./dist/types/config/definition/definition.d.ts",
-      "import": "./dist/esm/config/definition/definition.mjs",
-      "require": "./dist/cjs/config/definition/definition.cjs",
-      "default": "./src/config/definition/definition.ts"
+    "./config/defineConfig.js": {
+      "types": "./dist/types/config/defineConfig.d.ts",
+      "import": "./dist/esm/config/defineConfig.mjs",
+      "require": "./dist/cjs/config/defineConfig.cjs",
+      "default": "./src/config/defineConfig.ts"
     },
-    "./config/definition/definition.mjs": {
-      "types": "./dist/types/config/definition/definition.d.ts",
-      "import": "./dist/esm/config/definition/definition.mjs",
-      "require": "./dist/cjs/config/definition/definition.cjs",
-      "default": "./src/config/definition/definition.ts"
+    "./config/defineConfig.mjs": {
+      "types": "./dist/types/config/defineConfig.d.ts",
+      "import": "./dist/esm/config/defineConfig.mjs",
+      "require": "./dist/cjs/config/defineConfig.cjs",
+      "default": "./src/config/defineConfig.ts"
     },
-    "./config/definition/definition": {
-      "types": "./dist/types/config/definition/definition.d.ts",
-      "import": "./dist/esm/config/definition/definition.mjs",
-      "require": "./dist/cjs/config/definition/definition.cjs",
-      "default": "./src/config/definition/definition.ts"
-    },
-    "./config/definition/index.cjs": {
-      "types": "./dist/types/config/definition/index.d.ts",
-      "import": "./dist/esm/config/definition/index.mjs",
-      "require": "./dist/cjs/config/definition/index.cjs",
-      "default": "./src/config/definition/index.ts"
-    },
-    "./config/definition/index.d.ts": {
-      "types": "./dist/types/config/definition/index.d.ts",
-      "default": "./src/config/definition/index.ts"
-    },
-    "./config/definition/index.js": {
-      "types": "./dist/types/config/definition/index.d.ts",
-      "import": "./dist/esm/config/definition/index.mjs",
-      "require": "./dist/cjs/config/definition/index.cjs",
-      "default": "./src/config/definition/index.ts"
-    },
-    "./config/definition/index.mjs": {
-      "types": "./dist/types/config/definition/index.d.ts",
-      "import": "./dist/esm/config/definition/index.mjs",
-      "require": "./dist/cjs/config/definition/index.cjs",
-      "default": "./src/config/definition/index.ts"
-    },
-    "./config/definition/index": {
-      "types": "./dist/types/config/definition/index.d.ts",
-      "import": "./dist/esm/config/definition/index.mjs",
-      "require": "./dist/cjs/config/definition/index.cjs",
-      "default": "./src/config/definition/index.ts"
-    },
-    "./config/definition": {
-      "types": "./dist/types/config/definition/index.d.ts",
-      "import": "./dist/esm/config/definition/index.mjs",
-      "require": "./dist/cjs/config/definition/index.cjs",
-      "default": "./src/config/definition/index.ts"
+    "./config/defineConfig": {
+      "types": "./dist/types/config/defineConfig.d.ts",
+      "import": "./dist/esm/config/defineConfig.mjs",
+      "require": "./dist/cjs/config/defineConfig.cjs",
+      "default": "./src/config/defineConfig.ts"
     },
     "./config/index.cjs": {
       "types": "./dist/types/config/index.d.ts",

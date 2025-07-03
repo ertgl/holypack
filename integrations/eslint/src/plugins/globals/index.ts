@@ -1,6 +1,2 @@
-export * from "./module-augmentation";
-export * from "./plugin";
-export { createESLintIntegrationGlobalsPlugin as default } from "./plugin";
-export * from "./plugin-api";
-export * from "./plugin-options";
-export * from "./plugin-options-resolver";
+export { createESLintIntegrationPluginGlobals as default } from "./extension/createESLintIntegrationPluginGlobals";
+export { createESLintIntegrationPluginGlobals } from "./extension/createESLintIntegrationPluginGlobals";

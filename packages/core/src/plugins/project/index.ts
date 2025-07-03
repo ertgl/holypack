@@ -1,5 +1,4 @@
-export * from "./module-augmentation";
-export * from "./plugin";
-export { createProjectPlugin as default } from "./plugin";
-export * from "./plugin-metadata";
-export * from "./project";
+export { createProjectPlugin } from "./extension/createProjectPlugin";
+import { createProjectPlugin } from "./extension/createProjectPlugin";
+
+export default createProjectPlugin;

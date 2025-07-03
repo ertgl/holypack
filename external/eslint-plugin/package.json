@@ -8,9 +8,23 @@
     "holypack-external"
   ],
   "scripts": {
-    "build": "yarn babel:build:clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn export-map-generator:update",
+    "build": "yarn build::types && yarn build::cjs && yarn build::esm && yarn build:update-exports",
+    "build::cjs": "yarn babel:build::cjs",
+    "build::esm": "yarn babel:build::esm",
+    "build::types": "yarn tsc:build::types",
     "build:clean": "yarn babel:build:clean",
-    "clean": "yarn build:clean"
+    "build:update-exports": "yarn export-map-generator:update",
+    "clean": "yarn build:clean && yarn debug:clean && yarn test:clean",
+    "coverage:clean": "yarn jest:coverage:clean",
+    "coverage:open": "yarn jest:coverage:open",
+    "debug:build": "yarn debug:build::esm && yarn debug:update-package-exports",
+    "debug:build::esm": "yarn babel:debug:build",
+    "debug:clean": "yarn babel:debug:build:clean",
+    "debug:update-package-exports": "yarn export-map-generator:debug",
+    "lint": "yarn eslint:lint",
+    "lint::fix": "yarn eslint:lint::fix",
+    "test": "yarn jest:test",
+    "test:clean": "yarn coverage:clean && yarn jest:cache:clean"
   },
   "devDependencies": {
     "@holypack/core": "workspace:^",
@@ -22,6 +36,17 @@
     "@holypack/integration-eslint": "*",
     "eslint": "*"
   },
+  "peerDependenciesMeta": {
+    "@holypack/core": {
+      "optional": false
+    },
+    "@holypack/integration-eslint": {
+      "optional": false
+    },
+    "eslint": {
+      "optional": false
+    }
+  },
   "files": [
     "./dist/",
     "./package.json"
@@ -31,6 +56,164 @@
   "module": "./dist/esm/index.mjs",
   "types": "./dist/types/index.d.ts",
   "exports": {
+    "./default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.cjs": {
+      "types": "./dist/types/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.d.ts",
+      "import": "./dist/esm/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.mjs",
+      "require": "./dist/cjs/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.cjs",
+      "default": "./src/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.ts"
+    },
+    "./default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.d.ts": {
+      "types": "./dist/types/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.d.ts",
+      "default": "./src/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.ts"
+    },
+    "./default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.js": {
+      "types": "./dist/types/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.d.ts",
+      "import": "./dist/esm/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.mjs",
+      "require": "./dist/cjs/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.cjs",
+      "default": "./src/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.ts"
+    },
+    "./default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.mjs": {
+      "types": "./dist/types/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.d.ts",
+      "import": "./dist/esm/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.mjs",
+      "require": "./dist/cjs/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.cjs",
+      "default": "./src/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.ts"
+    },
+    "./default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC": {
+      "types": "./dist/types/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.d.ts",
+      "import": "./dist/esm/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.mjs",
+      "require": "./dist/cjs/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.cjs",
+      "default": "./src/default/async/ESLINT_PLUGIN_HOLYPACK_ASYNC.ts"
+    },
+    "./default/async/index.cjs": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index.d.ts": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index.js": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index.mjs": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async/index": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/async": {
+      "types": "./dist/types/default/async/index.d.ts",
+      "import": "./dist/esm/default/async/index.mjs",
+      "require": "./dist/cjs/default/async/index.cjs",
+      "default": "./src/default/async/index.ts"
+    },
+    "./default/index.cjs": {
+      "types": "./dist/types/default/index.d.ts",
+      "import": "./dist/esm/default/index.mjs",
+      "require": "./dist/cjs/default/index.cjs",
+      "default": "./src/default/index.ts"
+    },
+    "./default/index.d.ts": {
+      "types": "./dist/types/default/index.d.ts",
+      "default": "./src/default/index.ts"
+    },
+    "./default/index.js": {
+      "types": "./dist/types/default/index.d.ts",
+      "import": "./dist/esm/default/index.mjs",
+      "require": "./dist/cjs/default/index.cjs",
+      "default": "./src/default/index.ts"
+    },
+    "./default/index.mjs": {
+      "types": "./dist/types/default/index.d.ts",
+      "import": "./dist/esm/default/index.mjs",
+      "require": "./dist/cjs/default/index.cjs",
+      "default": "./src/default/index.ts"
+    },
+    "./default/index": {
+      "types": "./dist/types/default/index.d.ts",
+      "import": "./dist/esm/default/index.mjs",
+      "require": "./dist/cjs/default/index.cjs",
+      "default": "./src/default/index.ts"
+    },
+    "./default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.cjs": {
+      "types": "./dist/types/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.d.ts",
+      "import": "./dist/esm/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.mjs",
+      "require": "./dist/cjs/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.cjs",
+      "default": "./src/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.ts"
+    },
+    "./default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.d.ts": {
+      "types": "./dist/types/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.d.ts",
+      "default": "./src/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.ts"
+    },
+    "./default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.js": {
+      "types": "./dist/types/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.d.ts",
+      "import": "./dist/esm/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.mjs",
+      "require": "./dist/cjs/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.cjs",
+      "default": "./src/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.ts"
+    },
+    "./default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.mjs": {
+      "types": "./dist/types/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.d.ts",
+      "import": "./dist/esm/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.mjs",
+      "require": "./dist/cjs/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.cjs",
+      "default": "./src/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.ts"
+    },
+    "./default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC": {
+      "types": "./dist/types/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.d.ts",
+      "import": "./dist/esm/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.mjs",
+      "require": "./dist/cjs/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.cjs",
+      "default": "./src/default/sync/ESLINT_PLUGIN_HOLYPACK_SYNC.ts"
+    },
+    "./default/sync/index.cjs": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index.d.ts": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index.js": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index.mjs": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync/index": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default/sync": {
+      "types": "./dist/types/default/sync/index.d.ts",
+      "import": "./dist/esm/default/sync/index.mjs",
+      "require": "./dist/cjs/default/sync/index.cjs",
+      "default": "./src/default/sync/index.ts"
+    },
+    "./default": {
+      "types": "./dist/types/default/index.d.ts",
+      "import": "./dist/esm/default/index.mjs",
+      "require": "./dist/cjs/default/index.cjs",
+      "default": "./src/default/index.ts"
+    },
     "./index.cjs": {
       "types": "./dist/types/index.d.ts",
       "import": "./dist/esm/index.mjs",
@@ -59,64 +242,148 @@
       "require": "./dist/cjs/index.cjs",
       "default": "./src/index.ts"
     },
+    "./options/HolypackPluginOptionsAsync.cjs": {
+      "types": "./dist/types/options/HolypackPluginOptionsAsync.d.ts",
+      "import": "./dist/esm/options/HolypackPluginOptionsAsync.mjs",
+      "require": "./dist/cjs/options/HolypackPluginOptionsAsync.cjs",
+      "default": "./src/options/HolypackPluginOptionsAsync.ts"
+    },
+    "./options/HolypackPluginOptionsAsync.d.ts": {
+      "types": "./dist/types/options/HolypackPluginOptionsAsync.d.ts",
+      "default": "./src/options/HolypackPluginOptionsAsync.ts"
+    },
+    "./options/HolypackPluginOptionsAsync.js": {
+      "types": "./dist/types/options/HolypackPluginOptionsAsync.d.ts",
+      "import": "./dist/esm/options/HolypackPluginOptionsAsync.mjs",
+      "require": "./dist/cjs/options/HolypackPluginOptionsAsync.cjs",
+      "default": "./src/options/HolypackPluginOptionsAsync.ts"
+    },
+    "./options/HolypackPluginOptionsAsync.mjs": {
+      "types": "./dist/types/options/HolypackPluginOptionsAsync.d.ts",
+      "import": "./dist/esm/options/HolypackPluginOptionsAsync.mjs",
+      "require": "./dist/cjs/options/HolypackPluginOptionsAsync.cjs",
+      "default": "./src/options/HolypackPluginOptionsAsync.ts"
+    },
+    "./options/HolypackPluginOptionsAsync": {
+      "types": "./dist/types/options/HolypackPluginOptionsAsync.d.ts",
+      "import": "./dist/esm/options/HolypackPluginOptionsAsync.mjs",
+      "require": "./dist/cjs/options/HolypackPluginOptionsAsync.cjs",
+      "default": "./src/options/HolypackPluginOptionsAsync.ts"
+    },
+    "./options/HolypackPluginOptionsSync.cjs": {
+      "types": "./dist/types/options/HolypackPluginOptionsSync.d.ts",
+      "import": "./dist/esm/options/HolypackPluginOptionsSync.mjs",
+      "require": "./dist/cjs/options/HolypackPluginOptionsSync.cjs",
+      "default": "./src/options/HolypackPluginOptionsSync.ts"
+    },
+    "./options/HolypackPluginOptionsSync.d.ts": {
+      "types": "./dist/types/options/HolypackPluginOptionsSync.d.ts",
+      "default": "./src/options/HolypackPluginOptionsSync.ts"
+    },
+    "./options/HolypackPluginOptionsSync.js": {
+      "types": "./dist/types/options/HolypackPluginOptionsSync.d.ts",
+      "import": "./dist/esm/options/HolypackPluginOptionsSync.mjs",
+      "require": "./dist/cjs/options/HolypackPluginOptionsSync.cjs",
+      "default": "./src/options/HolypackPluginOptionsSync.ts"
+    },
+    "./options/HolypackPluginOptionsSync.mjs": {
+      "types": "./dist/types/options/HolypackPluginOptionsSync.d.ts",
+      "import": "./dist/esm/options/HolypackPluginOptionsSync.mjs",
+      "require": "./dist/cjs/options/HolypackPluginOptionsSync.cjs",
+      "default": "./src/options/HolypackPluginOptionsSync.ts"
+    },
+    "./options/HolypackPluginOptionsSync": {
+      "types": "./dist/types/options/HolypackPluginOptionsSync.d.ts",
+      "import": "./dist/esm/options/HolypackPluginOptionsSync.mjs",
+      "require": "./dist/cjs/options/HolypackPluginOptionsSync.cjs",
+      "default": "./src/options/HolypackPluginOptionsSync.ts"
+    },
     "./package.json": {
       "default": "./package.json"
     },
-    "./plugin-options.cjs": {
-      "types": "./dist/types/plugin-options.d.ts",
-      "import": "./dist/esm/plugin-options.mjs",
-      "require": "./dist/cjs/plugin-options.cjs",
-      "default": "./src/plugin-options.ts"
+    "./plugin/HolypackPlugin.cjs": {
+      "types": "./dist/types/plugin/HolypackPlugin.d.ts",
+      "import": "./dist/esm/plugin/HolypackPlugin.mjs",
+      "require": "./dist/cjs/plugin/HolypackPlugin.cjs",
+      "default": "./src/plugin/HolypackPlugin.ts"
     },
-    "./plugin-options.d.ts": {
-      "types": "./dist/types/plugin-options.d.ts",
-      "default": "./src/plugin-options.ts"
+    "./plugin/HolypackPlugin.d.ts": {
+      "types": "./dist/types/plugin/HolypackPlugin.d.ts",
+      "default": "./src/plugin/HolypackPlugin.ts"
     },
-    "./plugin-options.js": {
-      "types": "./dist/types/plugin-options.d.ts",
-      "import": "./dist/esm/plugin-options.mjs",
-      "require": "./dist/cjs/plugin-options.cjs",
-      "default": "./src/plugin-options.ts"
+    "./plugin/HolypackPlugin.js": {
+      "types": "./dist/types/plugin/HolypackPlugin.d.ts",
+      "import": "./dist/esm/plugin/HolypackPlugin.mjs",
+      "require": "./dist/cjs/plugin/HolypackPlugin.cjs",
+      "default": "./src/plugin/HolypackPlugin.ts"
     },
-    "./plugin-options.mjs": {
-      "types": "./dist/types/plugin-options.d.ts",
-      "import": "./dist/esm/plugin-options.mjs",
-      "require": "./dist/cjs/plugin-options.cjs",
-      "default": "./src/plugin-options.ts"
+    "./plugin/HolypackPlugin.mjs": {
+      "types": "./dist/types/plugin/HolypackPlugin.d.ts",
+      "import": "./dist/esm/plugin/HolypackPlugin.mjs",
+      "require": "./dist/cjs/plugin/HolypackPlugin.cjs",
+      "default": "./src/plugin/HolypackPlugin.ts"
     },
-    "./plugin-options": {
-      "types": "./dist/types/plugin-options.d.ts",
-      "import": "./dist/esm/plugin-options.mjs",
-      "require": "./dist/cjs/plugin-options.cjs",
-      "default": "./src/plugin-options.ts"
+    "./plugin/HolypackPlugin": {
+      "types": "./dist/types/plugin/HolypackPlugin.d.ts",
+      "import": "./dist/esm/plugin/HolypackPlugin.mjs",
+      "require": "./dist/cjs/plugin/HolypackPlugin.cjs",
+      "default": "./src/plugin/HolypackPlugin.ts"
     },
-    "./plugin.cjs": {
-      "types": "./dist/types/plugin.d.ts",
-      "import": "./dist/esm/plugin.mjs",
-      "require": "./dist/cjs/plugin.cjs",
-      "default": "./src/plugin.ts"
+    "./plugin/createHolypackPluginAsync.cjs": {
+      "types": "./dist/types/plugin/createHolypackPluginAsync.d.ts",
+      "import": "./dist/esm/plugin/createHolypackPluginAsync.mjs",
+      "require": "./dist/cjs/plugin/createHolypackPluginAsync.cjs",
+      "default": "./src/plugin/createHolypackPluginAsync.ts"
     },
-    "./plugin.d.ts": {
-      "types": "./dist/types/plugin.d.ts",
-      "default": "./src/plugin.ts"
+    "./plugin/createHolypackPluginAsync.d.ts": {
+      "types": "./dist/types/plugin/createHolypackPluginAsync.d.ts",
+      "default": "./src/plugin/createHolypackPluginAsync.ts"
     },
-    "./plugin.js": {
-      "types": "./dist/types/plugin.d.ts",
-      "import": "./dist/esm/plugin.mjs",
-      "require": "./dist/cjs/plugin.cjs",
-      "default": "./src/plugin.ts"
+    "./plugin/createHolypackPluginAsync.js": {
+      "types": "./dist/types/plugin/createHolypackPluginAsync.d.ts",
+      "import": "./dist/esm/plugin/createHolypackPluginAsync.mjs",
+      "require": "./dist/cjs/plugin/createHolypackPluginAsync.cjs",
+      "default": "./src/plugin/createHolypackPluginAsync.ts"
     },
-    "./plugin.mjs": {
-      "types": "./dist/types/plugin.d.ts",
-      "import": "./dist/esm/plugin.mjs",
-      "require": "./dist/cjs/plugin.cjs",
-      "default": "./src/plugin.ts"
+    "./plugin/createHolypackPluginAsync.mjs": {
+      "types": "./dist/types/plugin/createHolypackPluginAsync.d.ts",
+      "import": "./dist/esm/plugin/createHolypackPluginAsync.mjs",
+      "require": "./dist/cjs/plugin/createHolypackPluginAsync.cjs",
+      "default": "./src/plugin/createHolypackPluginAsync.ts"
     },
-    "./plugin": {
-      "types": "./dist/types/plugin.d.ts",
-      "import": "./dist/esm/plugin.mjs",
-      "require": "./dist/cjs/plugin.cjs",
-      "default": "./src/plugin.ts"
+    "./plugin/createHolypackPluginAsync": {
+      "types": "./dist/types/plugin/createHolypackPluginAsync.d.ts",
+      "import": "./dist/esm/plugin/createHolypackPluginAsync.mjs",
+      "require": "./dist/cjs/plugin/createHolypackPluginAsync.cjs",
+      "default": "./src/plugin/createHolypackPluginAsync.ts"
+    },
+    "./plugin/createHolypackPluginSync.cjs": {
+      "types": "./dist/types/plugin/createHolypackPluginSync.d.ts",
+      "import": "./dist/esm/plugin/createHolypackPluginSync.mjs",
+      "require": "./dist/cjs/plugin/createHolypackPluginSync.cjs",
+      "default": "./src/plugin/createHolypackPluginSync.ts"
+    },
+    "./plugin/createHolypackPluginSync.d.ts": {
+      "types": "./dist/types/plugin/createHolypackPluginSync.d.ts",
+      "default": "./src/plugin/createHolypackPluginSync.ts"
+    },
+    "./plugin/createHolypackPluginSync.js": {
+      "types": "./dist/types/plugin/createHolypackPluginSync.d.ts",
+      "import": "./dist/esm/plugin/createHolypackPluginSync.mjs",
+      "require": "./dist/cjs/plugin/createHolypackPluginSync.cjs",
+      "default": "./src/plugin/createHolypackPluginSync.ts"
+    },
+    "./plugin/createHolypackPluginSync.mjs": {
+      "types": "./dist/types/plugin/createHolypackPluginSync.d.ts",
+      "import": "./dist/esm/plugin/createHolypackPluginSync.mjs",
+      "require": "./dist/cjs/plugin/createHolypackPluginSync.cjs",
+      "default": "./src/plugin/createHolypackPluginSync.ts"
+    },
+    "./plugin/createHolypackPluginSync": {
+      "types": "./dist/types/plugin/createHolypackPluginSync.d.ts",
+      "import": "./dist/esm/plugin/createHolypackPluginSync.mjs",
+      "require": "./dist/cjs/plugin/createHolypackPluginSync.cjs",
+      "default": "./src/plugin/createHolypackPluginSync.ts"
     },
     ".": {
       "types": "./dist/types/index.d.ts",

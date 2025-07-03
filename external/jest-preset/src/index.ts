@@ -1,3 +1,2 @@
-export * from "./preset";
-export { createHolypackPreset as default } from "./preset";
-export * from "./preset-options";
+export { createHolypackPresetAsync } from "./preset/createHolypackPresetAsync";
+export { createHolypackPresetSync } from "./preset/createHolypackPresetSync";
