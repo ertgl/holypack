@@ -333,6 +333,62 @@
       "require": "./dist/cjs/command/data/ExtractCommandData.cjs",
       "default": "./src/command/data/ExtractCommandData.ts"
     },
+    "./command/encodable/EncodableCommand.cjs": {
+      "types": "./dist/types/command/encodable/EncodableCommand.d.ts",
+      "import": "./dist/esm/command/encodable/EncodableCommand.mjs",
+      "require": "./dist/cjs/command/encodable/EncodableCommand.cjs",
+      "default": "./src/command/encodable/EncodableCommand.ts"
+    },
+    "./command/encodable/EncodableCommand.d.ts": {
+      "types": "./dist/types/command/encodable/EncodableCommand.d.ts",
+      "default": "./src/command/encodable/EncodableCommand.ts"
+    },
+    "./command/encodable/EncodableCommand.js": {
+      "types": "./dist/types/command/encodable/EncodableCommand.d.ts",
+      "import": "./dist/esm/command/encodable/EncodableCommand.mjs",
+      "require": "./dist/cjs/command/encodable/EncodableCommand.cjs",
+      "default": "./src/command/encodable/EncodableCommand.ts"
+    },
+    "./command/encodable/EncodableCommand.mjs": {
+      "types": "./dist/types/command/encodable/EncodableCommand.d.ts",
+      "import": "./dist/esm/command/encodable/EncodableCommand.mjs",
+      "require": "./dist/cjs/command/encodable/EncodableCommand.cjs",
+      "default": "./src/command/encodable/EncodableCommand.ts"
+    },
+    "./command/encodable/EncodableCommand": {
+      "types": "./dist/types/command/encodable/EncodableCommand.d.ts",
+      "import": "./dist/esm/command/encodable/EncodableCommand.mjs",
+      "require": "./dist/cjs/command/encodable/EncodableCommand.cjs",
+      "default": "./src/command/encodable/EncodableCommand.ts"
+    },
+    "./command/encodable/toEncodableCommand.cjs": {
+      "types": "./dist/types/command/encodable/toEncodableCommand.d.ts",
+      "import": "./dist/esm/command/encodable/toEncodableCommand.mjs",
+      "require": "./dist/cjs/command/encodable/toEncodableCommand.cjs",
+      "default": "./src/command/encodable/toEncodableCommand.ts"
+    },
+    "./command/encodable/toEncodableCommand.d.ts": {
+      "types": "./dist/types/command/encodable/toEncodableCommand.d.ts",
+      "default": "./src/command/encodable/toEncodableCommand.ts"
+    },
+    "./command/encodable/toEncodableCommand.js": {
+      "types": "./dist/types/command/encodable/toEncodableCommand.d.ts",
+      "import": "./dist/esm/command/encodable/toEncodableCommand.mjs",
+      "require": "./dist/cjs/command/encodable/toEncodableCommand.cjs",
+      "default": "./src/command/encodable/toEncodableCommand.ts"
+    },
+    "./command/encodable/toEncodableCommand.mjs": {
+      "types": "./dist/types/command/encodable/toEncodableCommand.d.ts",
+      "import": "./dist/esm/command/encodable/toEncodableCommand.mjs",
+      "require": "./dist/cjs/command/encodable/toEncodableCommand.cjs",
+      "default": "./src/command/encodable/toEncodableCommand.ts"
+    },
+    "./command/encodable/toEncodableCommand": {
+      "types": "./dist/types/command/encodable/toEncodableCommand.d.ts",
+      "import": "./dist/esm/command/encodable/toEncodableCommand.mjs",
+      "require": "./dist/cjs/command/encodable/toEncodableCommand.cjs",
+      "default": "./src/command/encodable/toEncodableCommand.ts"
+    },
     "./command/factory/CommandFactoryOptionsAsync.cjs": {
       "types": "./dist/types/command/factory/CommandFactoryOptionsAsync.d.ts",
       "import": "./dist/esm/command/factory/CommandFactoryOptionsAsync.mjs",
