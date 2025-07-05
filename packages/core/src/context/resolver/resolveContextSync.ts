@@ -46,12 +46,15 @@ export function resolveContextSync(
 
   if (options.preConfig != null)
   {
-    configs.push(
-      configureContextSync(
-        context,
-        options.preConfig,
-      ),
-    );
+    for (const preConfig of options.preConfig)
+    {
+      configs.push(
+        configureContextSync(
+          context,
+          preConfig,
+        ),
+      );
+    }
   }
 
   if (options.loadConfigFile ?? true)
@@ -83,12 +86,15 @@ export function resolveContextSync(
 
   if (options.postConfig != null)
   {
-    configs.push(
-      configureContextSync(
-        context,
-        options.postConfig,
-      ),
-    );
+    for (const postConfig of options.postConfig)
+    {
+      configs.push(
+        configureContextSync(
+          context,
+          postConfig,
+        ),
+      );
+    }
   }
 
   if (configs.length === 0)

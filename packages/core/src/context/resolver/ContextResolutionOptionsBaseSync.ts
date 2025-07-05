@@ -13,8 +13,8 @@ export type ContextResolutionOptionsBaseSync = {
   configFilePathFinderOptions?: Optional<ConfigFilePathFinderOptionsSync>;
   cwd?: Optional<PathLike>;
   loadConfigFile?: Optional<boolean>;
-  postConfig?: Optional<ConfigDefinitionProviderSync | ConfigDefinitionSync>;
-  preConfig?: Optional<ConfigDefinitionProviderSync | ConfigDefinitionSync>;
+  postConfig?: Optional<Array<ConfigDefinitionProviderSync | ConfigDefinitionSync>>;
+  preConfig?: Optional<Array<ConfigDefinitionProviderSync | ConfigDefinitionSync>>;
   systemExtensionsBinder?: Optional<SystemExtensionsBinderSync>;
   systemHooksBinder?: Optional<SystemHooksBinderSync>;
 };

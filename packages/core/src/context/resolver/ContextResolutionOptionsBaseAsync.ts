@@ -13,8 +13,8 @@ export type ContextResolutionOptionsBaseAsync = {
   configFilePathFinderOptions?: Optional<ConfigFilePathFinderOptionsAsync>;
   cwd?: Optional<PathLike>;
   loadConfigFile?: Optional<boolean>;
-  postConfig?: Optional<ConfigDefinitionAsync | ConfigDefinitionProviderMaybeAsync>;
-  preConfig?: Optional<ConfigDefinitionAsync | ConfigDefinitionProviderMaybeAsync>;
+  postConfig?: Optional<Array<ConfigDefinitionAsync | ConfigDefinitionProviderMaybeAsync>>;
+  preConfig?: Optional<Array<ConfigDefinitionAsync | ConfigDefinitionProviderMaybeAsync>>;
   systemExtensionsBinder?: Optional<SystemExtensionsBinderAsync>;
   systemHooksBinder?: Optional<SystemHooksBinderAsync>;
 };

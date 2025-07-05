@@ -46,12 +46,15 @@ export async function resolveContextAsync(
 
   if (options.preConfig != null)
   {
-    configs.push(
-      await configureContextAsync(
-        context,
-        options.preConfig,
-      ),
-    );
+    for (const preConfig of options.preConfig)
+    {
+      configs.push(
+        await configureContextAsync(
+          context,
+          preConfig,
+        ),
+      );
+    }
   }
 
   if (options.loadConfigFile ?? true)
@@ -83,12 +86,15 @@ export async function resolveContextAsync(
 
   if (options.postConfig != null)
   {
-    configs.push(
-      await configureContextAsync(
-        context,
-        options.postConfig,
-      ),
-    );
+    for (const postConfig of options.postConfig)
+    {
+      configs.push(
+        await configureContextAsync(
+          context,
+          postConfig,
+        ),
+      );
+    }
   }
 
   if (configs.length === 0)
