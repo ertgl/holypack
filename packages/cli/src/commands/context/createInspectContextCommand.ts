@@ -1,7 +1,7 @@
 import { Command } from "commander";
 
 import { resolveContext } from "@holypack/core/context/resolver/resolveContext";
-import { sealContextMaybeAsync } from "@holypack/core/context/sealer/sealContextMaybeAsync";
+import { sealContext } from "@holypack/core/context/sealer/sealContext";
 import { maybeAwait } from "@holypack/core/lib/promise/maybeAwait";
 import { suppressErrorMaybeAsync } from "@holypack/core/lib/runtime/suppressErrorMaybeAsync";
 
@@ -65,7 +65,7 @@ export function createInspectContextCommand(
         return value;
       };
 
-      await sealContextMaybeAsync(
+      await sealContext(
         context,
         () =>
         {
