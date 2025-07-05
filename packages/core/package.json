@@ -3873,6 +3873,28 @@
       "require": "./dist/cjs/context/sealer/errors/ERROR_CONTEXT_IS_ALREADY_SEALED.cjs",
       "default": "./src/context/sealer/errors/ERROR_CONTEXT_IS_ALREADY_SEALED.ts"
     },
+    "./context/sealer/sealContext.cjs": {
+      "types": "./dist/types/context/sealer/sealContext.d.ts",
+      "import": "./dist/esm/context/sealer/sealContext.mjs",
+      "require": "./dist/cjs/context/sealer/sealContext.cjs",
+      "default": "./src/context/sealer/sealContext.ts"
+    },
+    "./context/sealer/sealContext.d.ts": {
+      "types": "./dist/types/context/sealer/sealContext.d.ts",
+      "default": "./src/context/sealer/sealContext.ts"
+    },
+    "./context/sealer/sealContext.js": {
+      "types": "./dist/types/context/sealer/sealContext.d.ts",
+      "import": "./dist/esm/context/sealer/sealContext.mjs",
+      "require": "./dist/cjs/context/sealer/sealContext.cjs",
+      "default": "./src/context/sealer/sealContext.ts"
+    },
+    "./context/sealer/sealContext.mjs": {
+      "types": "./dist/types/context/sealer/sealContext.d.ts",
+      "import": "./dist/esm/context/sealer/sealContext.mjs",
+      "require": "./dist/cjs/context/sealer/sealContext.cjs",
+      "default": "./src/context/sealer/sealContext.ts"
+    },
     "./context/sealer/sealContextAsync.cjs": {
       "types": "./dist/types/context/sealer/sealContextAsync.d.ts",
       "import": "./dist/esm/context/sealer/sealContextAsync.mjs",
@@ -3901,34 +3923,6 @@
       "require": "./dist/cjs/context/sealer/sealContextAsync.cjs",
       "default": "./src/context/sealer/sealContextAsync.ts"
     },
-    "./context/sealer/sealContextMaybeAsync.cjs": {
-      "types": "./dist/types/context/sealer/sealContextMaybeAsync.d.ts",
-      "import": "./dist/esm/context/sealer/sealContextMaybeAsync.mjs",
-      "require": "./dist/cjs/context/sealer/sealContextMaybeAsync.cjs",
-      "default": "./src/context/sealer/sealContextMaybeAsync.ts"
-    },
-    "./context/sealer/sealContextMaybeAsync.d.ts": {
-      "types": "./dist/types/context/sealer/sealContextMaybeAsync.d.ts",
-      "default": "./src/context/sealer/sealContextMaybeAsync.ts"
-    },
-    "./context/sealer/sealContextMaybeAsync.js": {
-      "types": "./dist/types/context/sealer/sealContextMaybeAsync.d.ts",
-      "import": "./dist/esm/context/sealer/sealContextMaybeAsync.mjs",
-      "require": "./dist/cjs/context/sealer/sealContextMaybeAsync.cjs",
-      "default": "./src/context/sealer/sealContextMaybeAsync.ts"
-    },
-    "./context/sealer/sealContextMaybeAsync.mjs": {
-      "types": "./dist/types/context/sealer/sealContextMaybeAsync.d.ts",
-      "import": "./dist/esm/context/sealer/sealContextMaybeAsync.mjs",
-      "require": "./dist/cjs/context/sealer/sealContextMaybeAsync.cjs",
-      "default": "./src/context/sealer/sealContextMaybeAsync.ts"
-    },
-    "./context/sealer/sealContextMaybeAsync": {
-      "types": "./dist/types/context/sealer/sealContextMaybeAsync.d.ts",
-      "import": "./dist/esm/context/sealer/sealContextMaybeAsync.mjs",
-      "require": "./dist/cjs/context/sealer/sealContextMaybeAsync.cjs",
-      "default": "./src/context/sealer/sealContextMaybeAsync.ts"
-    },
     "./context/sealer/sealContextSync.cjs": {
       "types": "./dist/types/context/sealer/sealContextSync.d.ts",
       "import": "./dist/esm/context/sealer/sealContextSync.mjs",
@@ -3956,6 +3950,12 @@
       "import": "./dist/esm/context/sealer/sealContextSync.mjs",
       "require": "./dist/cjs/context/sealer/sealContextSync.cjs",
       "default": "./src/context/sealer/sealContextSync.ts"
+    },
+    "./context/sealer/sealContext": {
+      "types": "./dist/types/context/sealer/sealContext.d.ts",
+      "import": "./dist/esm/context/sealer/sealContext.mjs",
+      "require": "./dist/cjs/context/sealer/sealContext.cjs",
+      "default": "./src/context/sealer/sealContext.ts"
     },
     "./error/ERROR_HOLYPACK.cjs": {
       "types": "./dist/types/error/ERROR_HOLYPACK.d.ts",
@@ -16113,34 +16113,6 @@
       "import": "./dist/esm/system/plugin/constants/UID_PREFIX_SYSTEM_PLUGIN.mjs",
       "require": "./dist/cjs/system/plugin/constants/UID_PREFIX_SYSTEM_PLUGIN.cjs",
       "default": "./src/system/plugin/constants/UID_PREFIX_SYSTEM_PLUGIN.ts"
-    },
-    "./system/preset/constants/UID_PREFIX_SYSTEM_PRESET.cjs": {
-      "types": "./dist/types/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.d.ts",
-      "import": "./dist/esm/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.mjs",
-      "require": "./dist/cjs/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.cjs",
-      "default": "./src/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.ts"
-    },
-    "./system/preset/constants/UID_PREFIX_SYSTEM_PRESET.d.ts": {
-      "types": "./dist/types/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.d.ts",
-      "default": "./src/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.ts"
-    },
-    "./system/preset/constants/UID_PREFIX_SYSTEM_PRESET.js": {
-      "types": "./dist/types/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.d.ts",
-      "import": "./dist/esm/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.mjs",
-      "require": "./dist/cjs/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.cjs",
-      "default": "./src/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.ts"
-    },
-    "./system/preset/constants/UID_PREFIX_SYSTEM_PRESET.mjs": {
-      "types": "./dist/types/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.d.ts",
-      "import": "./dist/esm/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.mjs",
-      "require": "./dist/cjs/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.cjs",
-      "default": "./src/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.ts"
-    },
-    "./system/preset/constants/UID_PREFIX_SYSTEM_PRESET": {
-      "types": "./dist/types/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.d.ts",
-      "import": "./dist/esm/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.mjs",
-      "require": "./dist/cjs/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.cjs",
-      "default": "./src/system/preset/constants/UID_PREFIX_SYSTEM_PRESET.ts"
     },
     ".": {
       "types": "./dist/types/index.d.ts",

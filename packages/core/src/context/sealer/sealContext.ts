@@ -7,39 +7,39 @@ import type { SealContextCallbackAsync } from "./SealContextCallbackAsync";
 import type { SealContextCallbackSync } from "./SealContextCallbackSync";
 import { sealContextSync } from "./sealContextSync";
 
-export async function sealContextMaybeAsync(
+export async function sealContext(
   context: Context,
   callback?: null,
 ): Promise<undefined>;
-export async function sealContextMaybeAsync<
+export async function sealContext<
   T_Callback extends SealContextCallbackAsync<any>,
   T_ReturnType extends Awaited<ReturnType<T_Callback>>,
 >(
   context: ContextAsync,
   callback: T_Callback,
 ): Promise<T_ReturnType>;
-export async function sealContextMaybeAsync<
+export async function sealContext<
   T_Callback extends SealContextCallbackSync<any>,
   T_ReturnType extends ReturnType<T_Callback>,
 >(
   context: ContextSync,
   callback: T_Callback,
 ): Promise<T_ReturnType>;
-export async function sealContextMaybeAsync<
+export async function sealContext<
   T_Callback extends SealContextCallbackAsync<any>,
   T_ReturnType extends Awaited<ReturnType<T_Callback>>,
 >(
   context: ContextAsync,
   callback?: null | T_Callback,
 ): Promise<T_ReturnType | undefined>;
-export async function sealContextMaybeAsync<
+export async function sealContext<
   T_Callback extends SealContextCallbackSync<any>,
   T_ReturnType extends ReturnType<T_Callback>,
 >(
   context: ContextSync,
   callback?: null | T_Callback,
 ): Promise<T_ReturnType | undefined>;
-export async function sealContextMaybeAsync<
+export async function sealContext<
   T_Callback extends SealContextCallbackAsync<any> | SealContextCallbackSync<any>,
   T_ReturnType extends (
     T_Callback extends SealContextCallbackAsync<any>
@@ -50,7 +50,7 @@ export async function sealContextMaybeAsync<
   context: ContextAsync | ContextSync,
   callback?: null | T_Callback,
 ): Promise<T_ReturnType | undefined>;
-export async function sealContextMaybeAsync<
+export async function sealContext<
   T_Callback extends SealContextCallbackAsync<any> | SealContextCallbackSync<any>,
   T_ReturnType extends (
     T_Callback extends SealContextCallbackAsync<any>
