@@ -5,8 +5,6 @@ import type { AnyHookSync } from "../../../hook/AnyHookSync";
 import { bindHookSync } from "../../../hook/binder/bindHookSync";
 import { createAugmentContextHookSync } from "../../../hooks/augment-context/createAugmentContextHookSync";
 import { SYSTEM_HOOK_UID_AUGMENT_CONTEXT_SYNC } from "../../../hooks/augment-context/SYSTEM_HOOK_UID_AUGMENT_CONTEXT_SYNC";
-import { createPostBindContextCommandHookSync } from "../../../hooks/post-bind-context-command/createPostBindContextCommandHookSync";
-import { SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_SYNC } from "../../../hooks/post-bind-context-command/SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_SYNC";
 import { createPostBindContextHookHookSync } from "../../../hooks/post-bind-context-hook/createPostBindContextHookHookSync";
 import { SYSTEM_HOOK_UID_POST_BIND_CONTEXT_HOOK_SYNC } from "../../../hooks/post-bind-context-hook/SYSTEM_HOOK_UID_POST_BIND_CONTEXT_HOOK_SYNC";
 import { createPostBindExtensionHookHookSync } from "../../../hooks/post-bind-extension-hook/createPostBindExtensionHookHookSync";
@@ -34,10 +32,6 @@ export function bindSystemHooksSync(
     [SYSTEM_HOOK_UID_POST_BIND_CONTEXT_HOOK_SYNC]: bindAndReturnHook(
       context,
       createPostBindContextHookHookSync(),
-    ),
-    [SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_SYNC]: bindAndReturnHook(
-      context,
-      createPostBindContextCommandHookSync(),
     ),
     [SYSTEM_HOOK_UID_POST_BIND_EXTENSION_SYNC]: bindAndReturnHook(
       context,

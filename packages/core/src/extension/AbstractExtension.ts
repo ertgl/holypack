@@ -1,5 +1,3 @@
-import type { CommandAsync } from "../command/CommandAsync";
-import type { CommandSync } from "../command/CommandSync";
 import type { ConfigAsync } from "../config/ConfigAsync";
 import type { ConfigSync } from "../config/ConfigSync";
 import type { ContextAsync } from "../context/ContextAsync";
@@ -42,16 +40,6 @@ implements
 
   $initializeSync?(
     context: ContextSync,
-  ): void;
-
-  $postBindContextCommand?(
-    context: ContextAsync,
-    command: CommandAsync,
-  ): Promise<void> | void;
-
-  $postBindContextCommandSync?(
-    context: ContextSync,
-    command: CommandSync,
   ): void;
 
   $postBindContextHook?(

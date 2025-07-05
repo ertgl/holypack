@@ -3,7 +3,6 @@ import type { ContextSync } from "../../../../context/ContextSync";
 import { maybeSubscribeExtensionToHookSync } from "../../../../extension/binder/hook/maybeSubscribeExtensionToHookSync";
 import type { ExtensionSync } from "../../../../extension/ExtensionSync";
 import { SYSTEM_HOOK_UID_AUGMENT_CONTEXT_SYNC } from "../../../../hooks/augment-context/SYSTEM_HOOK_UID_AUGMENT_CONTEXT_SYNC";
-import { SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_SYNC } from "../../../../hooks/post-bind-context-command/SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_SYNC";
 import { SYSTEM_HOOK_UID_POST_BIND_CONTEXT_HOOK_SYNC } from "../../../../hooks/post-bind-context-hook/SYSTEM_HOOK_UID_POST_BIND_CONTEXT_HOOK_SYNC";
 import { SYSTEM_HOOK_UID_POST_BIND_EXTENSION_HOOK_SYNC } from "../../../../hooks/post-bind-extension-hook/SYSTEM_HOOK_UID_POST_BIND_EXTENSION_HOOK_SYNC";
 import { SYSTEM_HOOK_UID_POST_BIND_EXTENSION_SYNC } from "../../../../hooks/post-bind-extension/SYSTEM_HOOK_UID_POST_BIND_EXTENSION_SYNC";
@@ -28,12 +27,6 @@ export function maybeSubscribeExtensionToSystemHooksSync(
       SYSTEM_HOOK_UID_POST_BIND_CONTEXT_HOOK_SYNC,
       extension,
       "$postBindContextHookSync",
-    ),
-    [SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_SYNC]: subscribeAndReturnHook(
-      context,
-      SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_SYNC,
-      extension,
-      "$postBindContextCommandSync",
     ),
     [SYSTEM_HOOK_UID_POST_BIND_EXTENSION_SYNC]: subscribeAndReturnHook(
       context,

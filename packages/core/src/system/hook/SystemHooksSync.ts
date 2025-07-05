@@ -2,8 +2,6 @@ import type { ResolveConfigHookSync } from "../../context/configurator/hooks/Res
 import type { SYSTEM_HOOK_UID_RESOLVE_CONFIG_SYNC } from "../../context/configurator/hooks/SYSTEM_HOOK_UID_RESOLVE_CONFIG_SYNC";
 import type { AugmentContextHookSync } from "../../hooks/augment-context/AugmentContextHookSync";
 import type { SYSTEM_HOOK_UID_AUGMENT_CONTEXT_SYNC } from "../../hooks/augment-context/SYSTEM_HOOK_UID_AUGMENT_CONTEXT_SYNC";
-import type { PostBindContextCommandHookSync } from "../../hooks/post-bind-context-command/PostBindContextCommandHookSync";
-import type { SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_SYNC } from "../../hooks/post-bind-context-command/SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_SYNC";
 import type { PostBindContextHookHookSync } from "../../hooks/post-bind-context-hook/PostBindContextHookHookSync";
 import type { SYSTEM_HOOK_UID_POST_BIND_CONTEXT_HOOK_SYNC } from "../../hooks/post-bind-context-hook/SYSTEM_HOOK_UID_POST_BIND_CONTEXT_HOOK_SYNC";
 import type { PostBindExtensionHookHookSync } from "../../hooks/post-bind-extension-hook/PostBindExtensionHookHookSync";
@@ -24,7 +22,6 @@ import type { SYSTEM_HOOK_UID_SETUP_SYNC } from "../../hooks/setup/SYSTEM_HOOK_U
 export type SystemHooksSync = {
   /* eslint-disable perfectionist/sort-object-types */
   [SYSTEM_HOOK_UID_POST_BIND_CONTEXT_HOOK_SYNC]: PostBindContextHookHookSync;
-  [SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_SYNC]: PostBindContextCommandHookSync;
   [SYSTEM_HOOK_UID_POST_BIND_EXTENSION_SYNC]: PostBindExtensionHookSync;
   [SYSTEM_HOOK_UID_POST_BIND_EXTENSION_HOOK_SYNC]: PostBindExtensionHookHookSync;
   [SYSTEM_HOOK_UID_RESOLVE_CONFIG_SYNC]: ResolveConfigHookSync;

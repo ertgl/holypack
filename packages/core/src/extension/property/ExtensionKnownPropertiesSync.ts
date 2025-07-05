@@ -1,7 +1,6 @@
 import type { ResolveConfigHookSync } from "../../context/configurator/hooks/ResolveConfigHookSync";
 import type { HookCallbackSync } from "../../hook/callback/HookCallbackSync";
 import type { AugmentContextHookSync } from "../../hooks/augment-context/AugmentContextHookSync";
-import type { PostBindContextCommandHookSync } from "../../hooks/post-bind-context-command/PostBindContextCommandHookSync";
 import type { PostBindContextHookHookSync } from "../../hooks/post-bind-context-hook/PostBindContextHookHookSync";
 import type { PostBindExtensionHookHookSync } from "../../hooks/post-bind-extension-hook/PostBindExtensionHookHookSync";
 import type { PostBindExtensionHookSync } from "../../hooks/post-bind-extension/PostBindExtensionHookSync";
@@ -20,7 +19,6 @@ export type ExtensionKnownPropertiesSync = (
   & {
     $augmentContextSync?: Optional<HookCallbackSync<AugmentContextHookSync>>;
     $initializeSync?: Optional<ExtensionInitializerSync>;
-    $postBindContextCommandSync?: Optional<HookCallbackSync<PostBindContextCommandHookSync>>;
     $postBindContextHookSync?: Optional<HookCallbackSync<PostBindContextHookHookSync>>;
     $postBindExtensionHookSync?: Optional<HookCallbackSync<PostBindExtensionHookHookSync>>;
     $postBindExtensionSync?: Optional<HookCallbackSync<PostBindExtensionHookSync>>;

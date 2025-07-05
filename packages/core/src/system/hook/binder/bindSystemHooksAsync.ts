@@ -5,8 +5,6 @@ import type { AnyHookAsync } from "../../../hook/AnyHookAsync";
 import { bindHookAsync } from "../../../hook/binder/bindHookAsync";
 import { createAugmentContextHookAsync } from "../../../hooks/augment-context/createAugmentContextHookAsync";
 import { SYSTEM_HOOK_UID_AUGMENT_CONTEXT_ASYNC } from "../../../hooks/augment-context/SYSTEM_HOOK_UID_AUGMENT_CONTEXT_ASYNC";
-import { createPostBindContextCommandHookAsync } from "../../../hooks/post-bind-context-command/createPostBindContextCommandHookAsync";
-import { SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_ASYNC } from "../../../hooks/post-bind-context-command/SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_ASYNC";
 import { createPostBindContextHookHookAsync } from "../../../hooks/post-bind-context-hook/createPostBindContextHookHookAsync";
 import { SYSTEM_HOOK_UID_POST_BIND_CONTEXT_HOOK_ASYNC } from "../../../hooks/post-bind-context-hook/SYSTEM_HOOK_UID_POST_BIND_CONTEXT_HOOK_ASYNC";
 import { createPostBindExtensionHookHookAsync } from "../../../hooks/post-bind-extension-hook/createPostBindExtensionHookHookAsync";
@@ -34,10 +32,6 @@ export async function bindSystemHooksAsync(
     [SYSTEM_HOOK_UID_POST_BIND_CONTEXT_HOOK_ASYNC]: await bindAndReturnHook(
       context,
       createPostBindContextHookHookAsync(),
-    ),
-    [SYSTEM_HOOK_UID_POST_BIND_CONTEXT_COMMAND_ASYNC]: await bindAndReturnHook(
-      context,
-      createPostBindContextCommandHookAsync(),
     ),
     [SYSTEM_HOOK_UID_POST_BIND_EXTENSION_ASYNC]: await bindAndReturnHook(
       context,

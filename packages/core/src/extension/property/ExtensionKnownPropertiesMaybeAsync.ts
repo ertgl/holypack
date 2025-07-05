@@ -1,7 +1,6 @@
 import type { ResolveConfigHookAsync } from "../../context/configurator/hooks/ResolveConfigHookAsync";
 import type { HookCallbackMaybeAsync } from "../../hook/callback/HookCallbackMaybeAsync";
 import type { AugmentContextHookAsync } from "../../hooks/augment-context/AugmentContextHookAsync";
-import type { PostBindContextCommandHookAsync } from "../../hooks/post-bind-context-command/PostBindContextCommandHookAsync";
 import type { PostBindContextHookHookAsync } from "../../hooks/post-bind-context-hook/PostBindContextHookHookAsync";
 import type { PostBindExtensionHookHookAsync } from "../../hooks/post-bind-extension-hook/PostBindExtensionHookHookAsync";
 import type { PostBindExtensionHookAsync } from "../../hooks/post-bind-extension/PostBindExtensionHookAsync";
@@ -20,7 +19,6 @@ export type ExtensionKnownPropertiesMaybeAsync = (
   & {
     $augmentContext?: Optional<HookCallbackMaybeAsync<AugmentContextHookAsync>>;
     $initialize?: Optional<ExtensionInitializerMaybeAsync>;
-    $postBindContextCommand?: Optional<HookCallbackMaybeAsync<PostBindContextCommandHookAsync>>;
     $postBindContextHook?: Optional<HookCallbackMaybeAsync<PostBindContextHookHookAsync>>;
     $postBindExtension?: Optional<HookCallbackMaybeAsync<PostBindExtensionHookAsync>>;
     $postBindExtensionHook?: Optional<HookCallbackMaybeAsync<PostBindExtensionHookHookAsync>>;
