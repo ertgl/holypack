@@ -42,15 +42,13 @@
 ## Overview
 
 Holypack is a backend-agnostic build system for accessible and scalable web
-projects. It focuses on transforming, optimizing, and bundling frontend assets
+projects. It focuses on transforming, optimizing, and bundling project assets
 with minimal setup and maximum flexibility.
 
-Designed with modern tooling and production needs in mind, it supports a wide
-range of project types without enforcing backend constraints.
-
-Starting with strong defaults, it ensures enterprise-grade reliability from day
-one. Thoughtful integrations handle linting, testing, and security, while the
-modular plugin system supports unlimited extension.
+Supporting a wide range of project types without enforcing backend constraints,
+it starts with strong defaults, and ensures enterprise-grade reliability from
+day one. The built-in thoughtful integrations handle linting, testing, and
+security, while the modular plugin system enables unlimited extension.
 
 ### Scope
 
