@@ -62,7 +62,7 @@ production: what reaches the end user is the true measure of quality.
 
 In brief:
 
-- **Production-ready**: Reliable output with minimal configuration.
+- **Production-ready**: Reliable output with minimal setup.
 - **Guided flexibility**: Balances "**convention over configuration**" and
   "**configuration over convention**."
 - **Workflow-aware**: Compatible with fast, modern developer tooling.
