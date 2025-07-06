@@ -27,9 +27,9 @@
 ## Table of Contents
 
 - [Overview](#overview)
-  - [Features](#features)
   - [Scope](#scope)
   - [Principles](#principles)
+  - [Features](#features)
 - [Integrations](#integrations)
 - [Packages](#packages)
 - [Installation](#installation)
@@ -39,10 +39,35 @@
 
 ## Overview
 
-Holypack is a backend-agnostic, production-ready build system designed for
-scalable, accessible web projects. It offers a minimal setup with strong
-defaults, enterprise-grade reliability, and flexibility to support diverse
-workflows without imposing backend constraints.
+Holypack is a production-focused build system designed for scalable, accessible
+web applications. It starts with a minimal setup, builds on strong defaults,
+and integrates essential practices like linting, testing, and security to
+support modern, backend-agnostic workflows.
+
+### Scope
+
+Most build tools today are either tightly coupled to a specific backend
+(typically JavaScript or TypeScript) or disregard progressive enhancement,
+which is essential for **accessibility** and **long-term resilience**.
+
+Holypack is built to address both. It supports **backend independence** and
+**rapid delivery** without compromising quality. Its scope is defined by the
+overlap of these priorities. No rigid architectural assumptions, no loss of
+flexibility.
+
+### Principles
+
+While developer experience matters, holypack is ultimately optimized for
+production: what reaches the end user is the true measure of quality.
+
+In brief:
+
+- **Production-ready**: Reliable output with minimal configuration.
+- **Guided flexibility**: Balances "**convention over configuration**" and
+  "**configuration over convention**."
+- **Workflow-aware**: Compatible with fast, modern developer tooling.
+- **Proven foundations**: Built on established, stable technologies.
+- **Unopinionated**: Adapts to diverse project structures without imposing constraints.
 
 ### Features
 
@@ -107,31 +132,6 @@ high-quality outcomes in modern web development.
 > Code obfuscation is **not a security mechanism** for intellectual properties.
 > It serves as a deterrent and may support legal standing by demonstrating that
 > violations were deliberate rather than accidental.
-
-### Scope
-
-Most build tools today are either tightly coupled to a specific backend
-(typically JavaScript or TypeScript) or disregard progressive enhancement,
-which is essential for **accessibility** and **long-term resilience**.
-
-Holypack is built to address both. It supports **backend independence** and
-**rapid delivery** without compromising quality. Its scope is defined by the
-overlap of these priorities. No rigid architectural assumptions, no loss of
-flexibility.
-
-### Principles
-
-While developer experience matters, holypack is ultimately optimized for
-production: what reaches the end user is the true measure of quality.
-
-In brief:
-
-- **Production-ready**: Reliable output with minimal configuration.
-- **Guided flexibility**: Balances "**convention over configuration**" and
-  "**configuration over convention**."
-- **Workflow-aware**: Compatible with fast, modern developer tooling.
-- **Proven foundations**: Built on established, stable technologies.
-- **Unopinionated**: Adapts to diverse project structures without imposing constraints.
 
 ## Integrations
 
