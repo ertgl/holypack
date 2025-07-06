@@ -46,8 +46,8 @@ projects. It focuses on transforming, optimizing, and bundling project assets
 with minimal setup and maximum flexibility.
 
 Supporting a wide range of project types without enforcing backend constraints,
-it starts with strong defaults, and ensures enterprise-grade reliability from
-day one. The built-in thoughtful integrations handle linting, testing, and
+it begins with strong defaults and delivers enterprise-grade reliability from
+day one. Thoughtful built-in integrations cover linting, testing, and
 security, while the modular plugin system enables unlimited extension.
 
 ### Scope
