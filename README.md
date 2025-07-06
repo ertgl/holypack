@@ -107,7 +107,7 @@ high-quality outcomes in modern web development.
 #### Lint & Test
 
 - Project standardization with [ESLint](https://eslint.org/)
-- Reliable testing with [Jest](https://jestjs.io/) and coverage with
+- Unit testing with [Jest](https://jestjs.io/) and coverage by
 [Istanbul](https://istanbul.js.org/)
 
 #### Security & Integrity
