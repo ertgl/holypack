@@ -20,13 +20,11 @@
 > [!CAUTION]
 > **This project is in early development.**
 >
-> The content in this README is more of a plan and might not reflect the final
-> product.
+> The content here reflects ongoing work, not a finished product.
 >
-> Development is ongoing very actively.
+> Development is active and fast-moving.
 >
-> If you are interested, I would like to hear your thoughts. Contact
-> information is available on my profile.
+> Feedback is welcome via the contact links on my profile.
 
 ## Table of Contents
 
@@ -43,61 +41,58 @@
 
 ## Overview
 
-Holypack is a backend-agnostic build system designed for accessible and
-scalable web projects. It focuses on transforming, optimizing, and bundling
-frontend assets with minimal setup and maximum flexibility. Built with modern
-tooling and enterprise-readiness in mind, it supports a wide range of project
-types (from progressive-enhancement-first architectures to single-page
-applications) without enforcing backend constraints. Holypack provides reliable
-defaults, thoughtful integrations for linting, testing, security and a modular
-plugin system for unrestricted extensibility.
+Holypack is a backend-agnostic build system for accessible and scalable web
+projects. It focuses on transforming, optimizing, and bundling frontend assets
+with minimal setup and maximum flexibility.
+
+Designed with modern tooling and production needs in mind, it supports a wide
+range of project types without enforcing backend constraints.
+
+Starting with strong defaults, it ensures enterprise-grade reliability from day
+one. Thoughtful integrations handle linting, testing, and security, while the
+modular plugin system supports unlimited extension.
 
 ### Scope
 
-Many modern tools either make strong assumptions about the backend environment
-(typically JavaScript or TypeScript) or overlook the needs of progressive
-enhancement, which is vital for accessibility and long-term scalability.
-Holypack is crafted to fill this gap by offering a backend-agnostic approach
-that prioritizes portability, flexibility, and production-readiness from the
-start. It supports diverse project types, including SPAs, PWAs, SSR setups, and
-CLI tools without dictating architectural choices.
+Today, most build tools either depend heavily on a specific backend setup
+(usually JavaScript or TypeScript) or they ignore progressive enhancement
+altogether, which is essential for **accessibility** and
+**long-term durability**.
+
+Holypack avoids choosing one over the other. It's designed to support both
+goals at once: **backend independence** and **rapid time to market** without
+compromising quality. The boundary is defined by the intersection of these two.
+No other architectural dictations, no need to trade flexibility for structure.
 
 ### Principles
 
-Holypack is designed to help achieve long-term maintainability, modern
-developer workflows, and a clear separation of concerns. It uses proven
-technologies to keep things simple but flexible enough to handle different use
-cases. The configuration approach strikes a balance, avoiding unnecessary
-complexity while still allowing customization when needed.
+During development of holypack, the aim is to deliver a good developer
+experience. But the main goal is to help provide the best production experience
+for the end users.
 
-The core principles behind holypack include:
+In brief, holypack:
 
-  - **Production-ready**: A straightforward setup by default.
-  - **Guided flexibility**: A mix of "**convention over configuration**" and
-    "**configuration over convention**."
-  - **Optimized for modern workflows**: Integrates with fast,
-    developer-friendly tools that improve productivity.
-  - **Built on proven technologies**: Combined with the best practices to
-    ensure sustainable efficiency.
-  - **Adaptable and non-restrictive**: Works with any project structure,
-    without being restrictive.
+- **Production-ready**: A straightforward setup by default.
+- **Guided flexibility**: A balance of "**convention over configuration**" and
+  "**configuration over convention**."
+- **Optimized for modern workflows**: Integrates with fast, developer-friendly
+  tools that boost productivity during development.
+- **Built on proven technologies**: Combined with the best practices to ensure
+  sustainable efficiency in production.
+- **Adaptable and non-restrictive**: Works with any project structure, without
+  being restrictive.
 
 ### Features
 
-Holypack offers a set of enterprise-friendly features that balance performance,
-security, and developer experience. All designed to adapt to projects of any
-scale.
+Holypack combines essential tools and capabilities to handle modern web
+development challenges.
 
-#### Foundation
+#### Project Templates
 
-- **Modular plugin system**, uses [tapable](https://github.com/webpack/tapable)
-  under the hood
-- **Backend-agnostic architecture**, supports any backend in any language
-- **Project templates** for:
-  - Frontend-only (assets)
-  - Single Page Applications (SPA)
-  - Progressive Web Applications (PWA, service workers, navigation preloading)
-  - Server-Side Rendering (SSR) with progressive enhancement
+- Assets-only (For monolithic backends)
+- Single Page Applications (SPA)
+- Progressive Web Applications (PWA, service workers, navigation preloading)
+- Server-Side Rendering (SSR) with progressive enhancement (PE)
 
 #### Build & Transform
 
@@ -109,6 +104,12 @@ scale.
 - Superpowered CSS, with [Sass](https://sass-lang.com/) and
   [SCSS](https://sass-lang.com/documentation/syntax/#scss)
 - First-class [CSS modules](https://github.com/css-modules/css-modules) support
+
+#### Lint & Test
+
+- Project standardization with [ESLint](https://eslint.org/)
+- Reliable testing with [Jest](https://jestjs.io/) and coverage with
+[Istanbul](https://istanbul.js.org/)
 
 #### Security & Integrity
 
@@ -303,7 +304,9 @@ scale.
   <tr>
     <td>cli</td>
     <td><a href="packages/cli">@holypack/cli</a></td>
-    <td align="center">Planned</td>
+    <td align="center">
+      Work in progress
+    </td>
   </tr>
   <tr>
     <td>prelude</td>
@@ -320,98 +323,13 @@ The packages will be available once the initial implementation is complete.
 
 The final view of the usage will be provided at a later stage.
 
-### Configuration
-
-Multiple file formats are supported for configuration, including JSON, YAML,
-JavaScript and TypeScript.
-
-Example of configuration in `holypack.config.mjs`:
-
-```js
-import eslint from "@holypack/integration-eslint";
-import { defineConfig } from "holypack/config";
-
-export default defineConfig({
-  integrations: [
-    eslint(),
-  ],
-});
-```
-
-<details>
-  <summary>
-    <b>
-      Toggle the <code>eslint.config.mjs</code> view for the above example
-    </b>
-  </summary>
-
-  ```js
-  import createHolypackPlugin from "@holypack/eslint-plugin";
-
-  const holypack = await createHolypackPlugin();
-
-  export default [
-    ...holypack.configs.recommended,
-  ];
-  ```
-</details>
-
-#### Configuration Exploration
-
-When a configuration file is provided, the system will use it as the main
-configuration file. Otherwise, it will look for a configuration file in the
-current working directory with the following priority:
-
-- `package.json` (`holypack.config` property)
-- `holypack.config.ts`
-- `holypack.config.js`
-- `holypack.config.mts`
-- `holypack.config.mjs`
-- `holypack.config.cts`
-- `holypack.config.cjs`
-- `.holypackrc.ts`
-- `.holypackrc.js`
-- `.holypackrc.mts`
-- `.holypackrc.mjs`
-- `.holypackrc.cts`
-- `.holypackrc.cjs`
-- `.holypackrc.json`
-- `.holypackrc.yml`
-- `.holypackrc.yaml`
-- `.holypackrc`
-- `.config/holypackrc.ts`
-- `.config/holypackrc.js`
-- `.config/holypackrc.mts`
-- `.config/holypackrc.mjs`
-- `.config/holypackrc.cts`
-- `.config/holypackrc.cjs`
-- `.config/holypackrc.json`
-- `.config/holypackrc.yml`
-- `.config/holypackrc.yaml`
-- `.config/holypackrc`
-
-### Low-level API
-
-The final view of the API will be provided at a later stage.
-
-#### Context Resolution
-
-Example:
-
-```ts
-import { resolveContext } from "@holypack/core";
-
-const context = await resolveContext();
-```
-
 ## Name
 
 The name first came from my reaction to how crowded the npm registry felt. But
 it now reflects my respect for the stack of technologies that I have used to
 build this project. Cats are also very surprising.
 
-Just same as webpack, I prefer not to capitalize it in the middle of a
-sentence.
+Just like webpack, I prefer not to capitalize it in the middle of a sentence.
 
 ## License
 
