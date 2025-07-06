@@ -58,12 +58,15 @@ high-quality outcomes in modern web development.
 - Single Page Applications
   ([SPA](https://en.wikipedia.org/wiki/Single-page_application))
 - Progressive Web Applications
-  ([PWA](https://en.wikipedia.org/wiki/Progressive_web_app),
-  [service workers](https://en.wikipedia.org/wiki/Progressive_web_app#Service_workers),
-  [navigation preloading](https://web.dev/blog/navigation-preload))
+  ([PWA](https://en.wikipedia.org/wiki/Progressive_web_app))
+  with
+  [service workers](https://en.wikipedia.org/wiki/Progressive_web_app#Service_workers)
+  and
+  [navigation preloading](https://web.dev/blog/navigation-preload)
 - Server-Side Rendering
   ([SSR](https://en.wikipedia.org/wiki/Server-side_scripting#Server-side_rendering))
-  with [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement)
+  with
+  [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement)
 
 #### Build & Transform
 
