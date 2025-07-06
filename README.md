@@ -51,10 +51,19 @@ high-quality outcomes in modern web development.
 
 #### Project Templates
 
-- Assets-only (For monolithic backends)
-- Single Page Applications (SPA)
-- Progressive Web Applications (PWA, service workers, navigation preloading)
-- Server-Side Rendering (SSR) with progressive enhancement (PE)
+- Assets-only
+  (For
+  [monolithic](https://en.wikipedia.org/wiki/Monolithic_application)
+  backends)
+- Single Page Applications
+  ([SPA](https://en.wikipedia.org/wiki/Single-page_application))
+- Progressive Web Applications
+  ([PWA](https://en.wikipedia.org/wiki/Progressive_web_app),
+  [service workers](https://en.wikipedia.org/wiki/Progressive_web_app#Service_workers),
+  [navigation preloading](https://web.dev/blog/navigation-preload))
+- Server-Side Rendering
+  ([SSR](https://en.wikipedia.org/wiki/Server-side_scripting#Server-side_rendering))
+  with [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement)
 
 #### Build & Transform
 
