@@ -4,5 +4,4 @@ export type ConfigFilePathFinderResultFoundBase = {
   found: true;
   path: Path;
   rootPath: Path;
-}
-;
+};
