@@ -20,9 +20,9 @@
 > [!CAUTION]
 > **This project is in early development.**
 >
-> Features and APIs are subject to change.
+> Features and APIs may change.
 >
-> Feedback is welcome via the contact links on my profile.
+> This document currently outlines the roadmap, not the finalized product.
 
 ## Table of Contents
 
@@ -39,35 +39,32 @@
 
 ## Overview
 
-Holypack is a production-focused build system designed for scalable, accessible
-web applications. It starts with a minimal setup, builds on strong defaults,
-and integrates essential practices like linting, testing, and security to
-support modern, backend-agnostic workflows.
+Holypack is a production-focused build system for scalable, accessible web
+applications. It begins with minimal setup, builds on strong defaults, and
+incorporates best practices like linting, testing, and security to support
+modern, backend-agnostic workflows.
 
 ### Scope
 
-Most build tools today are either tightly coupled to a specific backend
-(typically JavaScript or TypeScript) or disregard progressive enhancement,
-which is essential for **accessibility** and **long-term resilience**.
+Most build tools are either tightly coupled to a specific backend (often
+JavaScript or TypeScript) or overlook progressive enhancement, which is
+essential for **accessibility** and **long-term resilience**.
 
-Holypack is built to address both. It supports **backend independence** and
-**rapid delivery** without compromising quality. Its scope is defined by the
-overlap of these priorities. No rigid architectural assumptions, no loss of
+Holypack addresses both. It supports **backend independence** and
+**fast delivery** without compromising quality. Its scope is defined by the
+intersection of these priorities. No rigid architectures, no loss of
 flexibility.
 
 ### Principles
 
 While developer experience matters, holypack is ultimately optimized for
-production: what reaches the end user is the true measure of quality.
+production: What reaches the user is the true measure of quality.
 
-In brief:
-
-- **Production-ready**: Reliable output with minimal setup.
-- **Guided flexibility**: Balances "**convention over configuration**" and
-  "**configuration over convention**."
-- **Workflow-aware**: Compatible with fast, modern developer tooling.
-- **Proven foundations**: Built on established, stable technologies.
-- **Unopinionated**: Adapts to diverse project structures without imposing constraints.
+- **Production-ready**: Reliable output with minimal setup
+- **Guided flexibility**: Balances "**convention**" and "**configuration**"
+- **Workflow-aware**: Compatible with modern developer tooling
+- **Proven foundations**: Built on stable, trusted technologies
+- **Unopinionated**: Fits diverse project structures without constraints
 
 ### Features
 
@@ -106,7 +103,10 @@ high-quality outcomes in modern web development.
 
 #### Lint & Test
 
-- Project standardization with [ESLint](https://eslint.org/)
+- Code style standardization with
+  [ESLint](https://eslint.org/),
+  [axe-core](https://github.com/dequelabs/axe-core)
+  and [Stylelint](https://stylelint.io/)
 - Unit testing with [Jest](https://jestjs.io/) and coverage by
 [Istanbul](https://istanbul.js.org/)
 
@@ -328,11 +328,11 @@ The final view of the usage will be provided at a later stage.
 
 ## Name
 
-The name first came from my reaction to how crowded the npm registry felt. But
-it now reflects my respect for the stack of technologies that I have used to
-build this project. Cats are also very surprising.
+The name began as a reaction to how crowded the npm registry felt. Over time,
+it became a reflection of the technologies and principles behind the project.
+Also, cats are very surprising.
 
-Just like webpack, I prefer not to capitalize it in the middle of a sentence.
+Like webpack, holypack is not capitalized mid-sentence.
 
 ## License
 
