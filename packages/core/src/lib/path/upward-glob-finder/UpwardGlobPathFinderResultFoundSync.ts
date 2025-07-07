@@ -1,0 +1,5 @@
+import type { UpwardGlobPathFinderResultFoundBase } from "./UpwardGlobPathFinderResultFoundBase";
+
+export type UpwardGlobPathFinderResultFoundSync = (
+  & UpwardGlobPathFinderResultFoundBase
+);

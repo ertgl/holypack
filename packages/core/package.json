@@ -9585,6 +9585,426 @@
       "require": "./dist/cjs/lib/path/rooter/findRootPathSync.cjs",
       "default": "./src/lib/path/rooter/findRootPathSync.ts"
     },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.cjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.d.ts": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.d.ts",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.js": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.mjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderFSAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.cjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.d.ts": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.d.ts",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.js": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.mjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderFSSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.cjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.d.ts": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.d.ts",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.js": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.mjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.cjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.d.ts": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.d.ts",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.js": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.mjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsBase.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.cjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.d.ts": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.d.ts",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.js": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.mjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.cjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.d.ts": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.d.ts",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.js": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.mjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsFSTraitSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.cjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.d.ts": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.d.ts",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.js": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.mjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.cjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.d.ts": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.d.ts",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.js": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.mjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.cjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.d.ts": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.d.ts",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.js": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.mjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.cjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.d.ts": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.d.ts",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.js": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.mjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundBase.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.cjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.d.ts": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.d.ts",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.js": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.mjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultFoundSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.cjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.d.ts": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.d.ts",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.js": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.mjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultNotFound.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.cjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.d.ts": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.d.ts",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.js": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.mjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.ts"
+    },
+    "./lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync": {
+      "types": "./dist/types/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/UpwardGlobPathFinderResultSync.ts"
+    },
+    "./lib/path/upward-glob-finder/findPathUpwardGlobAsync.cjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/findPathUpwardGlobAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/findPathUpwardGlobAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/findPathUpwardGlobAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/findPathUpwardGlobAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/findPathUpwardGlobAsync.d.ts": {
+      "types": "./dist/types/lib/path/upward-glob-finder/findPathUpwardGlobAsync.d.ts",
+      "default": "./src/lib/path/upward-glob-finder/findPathUpwardGlobAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/findPathUpwardGlobAsync.js": {
+      "types": "./dist/types/lib/path/upward-glob-finder/findPathUpwardGlobAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/findPathUpwardGlobAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/findPathUpwardGlobAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/findPathUpwardGlobAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/findPathUpwardGlobAsync.mjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/findPathUpwardGlobAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/findPathUpwardGlobAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/findPathUpwardGlobAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/findPathUpwardGlobAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/findPathUpwardGlobAsync": {
+      "types": "./dist/types/lib/path/upward-glob-finder/findPathUpwardGlobAsync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/findPathUpwardGlobAsync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/findPathUpwardGlobAsync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/findPathUpwardGlobAsync.ts"
+    },
+    "./lib/path/upward-glob-finder/findPathUpwardGlobSync.cjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/findPathUpwardGlobSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/findPathUpwardGlobSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/findPathUpwardGlobSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/findPathUpwardGlobSync.ts"
+    },
+    "./lib/path/upward-glob-finder/findPathUpwardGlobSync.d.ts": {
+      "types": "./dist/types/lib/path/upward-glob-finder/findPathUpwardGlobSync.d.ts",
+      "default": "./src/lib/path/upward-glob-finder/findPathUpwardGlobSync.ts"
+    },
+    "./lib/path/upward-glob-finder/findPathUpwardGlobSync.js": {
+      "types": "./dist/types/lib/path/upward-glob-finder/findPathUpwardGlobSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/findPathUpwardGlobSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/findPathUpwardGlobSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/findPathUpwardGlobSync.ts"
+    },
+    "./lib/path/upward-glob-finder/findPathUpwardGlobSync.mjs": {
+      "types": "./dist/types/lib/path/upward-glob-finder/findPathUpwardGlobSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/findPathUpwardGlobSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/findPathUpwardGlobSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/findPathUpwardGlobSync.ts"
+    },
+    "./lib/path/upward-glob-finder/findPathUpwardGlobSync": {
+      "types": "./dist/types/lib/path/upward-glob-finder/findPathUpwardGlobSync.d.ts",
+      "import": "./dist/esm/lib/path/upward-glob-finder/findPathUpwardGlobSync.mjs",
+      "require": "./dist/cjs/lib/path/upward-glob-finder/findPathUpwardGlobSync.cjs",
+      "default": "./src/lib/path/upward-glob-finder/findPathUpwardGlobSync.ts"
+    },
     "./lib/process/cwd/getCWD.cjs": {
       "types": "./dist/types/lib/process/cwd/getCWD.d.ts",
       "import": "./dist/esm/lib/process/cwd/getCWD.mjs",
