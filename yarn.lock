@@ -1778,6 +1778,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cspell/dict-npm@npm:^5.2.10":
+  version: 5.2.10
+  resolution: "@cspell/dict-npm@npm:5.2.10"
+  checksum: 10c0/5e3f429960db89e8d20c07b2e5404f9118cebb3ac68a8ba3b949fb3682dea04ffddaac65fea70dd363e48a7b60050ba2c215f796c82fdc4d22c7b45f7ab2e3c8
+  languageName: node
+  linkType: hard
+
 "@cspell/dict-npm@npm:^5.2.9":
   version: 5.2.9
   resolution: "@cspell/dict-npm@npm:5.2.9"
@@ -2913,7 +2920,7 @@ __metadata:
     "@cspell/dict-html-symbol-entities": "npm:^4.0.3"
     "@cspell/dict-markdown": "npm:^2.0.11"
     "@cspell/dict-node": "npm:^5.0.7"
-    "@cspell/dict-npm": "npm:^5.2.9"
+    "@cspell/dict-npm": "npm:^5.2.10"
     "@cspell/dict-shell": "npm:^1.1.0"
     "@cspell/dict-typescript": "npm:^3.2.2"
   languageName: unknown
