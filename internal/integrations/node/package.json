@@ -7,7 +7,7 @@
     "lint::fix": "yarn eslint:lint::fix"
   },
   "devDependencies": {
-    "@types/node": "^24.0.10"
+    "@types/node": "^24.0.12"
   },
   "files": [
     "./package.json"
