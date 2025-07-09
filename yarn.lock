@@ -2985,7 +2985,7 @@ __metadata:
   resolution: "@holypack/tracing@workspace:packages/tracing"
   dependencies:
     "@holypack/core": "workspace:^"
-    tapable-tracer: "npm:^2.3.0"
+    tapable-tracer: "npm:^2.3.1"
   peerDependencies:
     "@holypack/core": "*"
     tapable-tracer: "*"
@@ -9484,9 +9484,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tapable-tracer@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "tapable-tracer@npm:2.3.0"
+"tapable-tracer@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "tapable-tracer@npm:2.3.1"
   peerDependencies:
     tapable: "*"
     webpack: "*"
@@ -9495,7 +9495,7 @@ __metadata:
       optional: true
     webpack:
       optional: true
-  checksum: 10c0/6b6462adb38ad93f6afadce698d3dc1e7cd0dd529a195ee3eeda931f73a3d858612d5357956208088c40afc4b9891d3aaec0641ffe72cb00645048a3147d30de
+  checksum: 10c0/7feda5905e6ccc408b7d74f12c09b02cc23c873d89ba3a0c31be820f8cec03e4f1fb26069575b5835de98b4694436beefebcf7052430985caa2404819c5422c9
   languageName: node
   linkType: hard
 
