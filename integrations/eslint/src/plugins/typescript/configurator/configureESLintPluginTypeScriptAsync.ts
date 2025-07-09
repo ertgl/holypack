@@ -114,6 +114,12 @@ export async function configureESLintPluginTypeScriptAsync(
       name: LINTER_CONFIG_NAME_TYPESCRIPT_CUSTOM,
       rules: {
         "@typescript-eslint/ban-ts-comment": "warn",
+        "@typescript-eslint/consistent-type-exports": [
+          "error",
+          {
+            fixMixedExportsWithInlineTypeSpecifier: false,
+          },
+        ],
         "@typescript-eslint/no-empty-object-type": "warn",
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-unnecessary-type-parameters": "off",
