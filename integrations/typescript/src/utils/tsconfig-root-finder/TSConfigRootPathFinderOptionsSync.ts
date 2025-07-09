@@ -1,11 +1,5 @@
-import type { Optional } from "@holypack/core/lib/object/Optional";
-
-import type { TSConfigRootPathFinderFSSync } from "./TSConfigRootPathFinderFSSync";
-import type { TSConfigRootPathFinderOptionsBase } from "./TSConfigRootPathFinderOptionsBase";
+import type { UpwardGlobPathFinderOptionsSync } from "@holypack/core/lib/path/upward-glob-finder/UpwardGlobPathFinderOptionsSync";
 
 export type TSConfigRootPathFinderOptionsSync = (
-  & TSConfigRootPathFinderOptionsBase
-  & {
-    fs?: Optional<TSConfigRootPathFinderFSSync>;
-  }
+  & UpwardGlobPathFinderOptionsSync
 );

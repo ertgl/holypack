@@ -439,62 +439,6 @@
       "require": "./dist/cjs/presets/tsconfig.scope.workspace.json",
       "default": "./src/presets/tsconfig.scope.workspace.json"
     },
-    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.cjs": {
-      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.cjs",
-      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.ts"
-    },
-    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.d.ts": {
-      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.d.ts",
-      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.ts"
-    },
-    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.js": {
-      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.cjs",
-      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.ts"
-    },
-    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.mjs": {
-      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.cjs",
-      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.ts"
-    },
-    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync": {
-      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.cjs",
-      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSAsync.ts"
-    },
-    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.cjs": {
-      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.cjs",
-      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.ts"
-    },
-    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.d.ts": {
-      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.d.ts",
-      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.ts"
-    },
-    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.js": {
-      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.cjs",
-      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.ts"
-    },
-    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.mjs": {
-      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.cjs",
-      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.ts"
-    },
-    "./utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync": {
-      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.cjs",
-      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderFSSync.ts"
-    },
     "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.cjs": {
       "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.d.ts",
       "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.mjs",
@@ -522,34 +466,6 @@
       "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.mjs",
       "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.cjs",
       "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.ts"
-    },
-    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.cjs": {
-      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.cjs",
-      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.ts"
-    },
-    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.d.ts": {
-      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.d.ts",
-      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.ts"
-    },
-    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.js": {
-      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.cjs",
-      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.ts"
-    },
-    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.mjs": {
-      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.cjs",
-      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.ts"
-    },
-    "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase": {
-      "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.cjs",
-      "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsBase.ts"
     },
     "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.cjs": {
       "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.d.ts",
