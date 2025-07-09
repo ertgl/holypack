@@ -37,7 +37,7 @@ export async function mutexLockAsync(
       mutex.bytes,
       0,
       1,
-      timeout,
+      remainingTime,
     );
 
     const resultValue = (

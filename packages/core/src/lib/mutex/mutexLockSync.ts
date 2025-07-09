@@ -36,7 +36,7 @@ export function mutexLockSync(
       mutex.bytes,
       0,
       1,
-      timeout,
+      remainingTime,
     );
 
     if (result === "timed-out")
