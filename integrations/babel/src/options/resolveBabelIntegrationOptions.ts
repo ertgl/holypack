@@ -1,6 +1,6 @@
 import type { Optional } from "@holypack/core/lib/object/Optional";
 
-import { MODULE_FORMAT_DEFAULT } from "../compilation/MODULE_FORMAT_DEFAULT";
+import { MODULE_FORMAT_DEFAULT } from "../build/module/format/MODULE_FORMAT_DEFAULT";
 
 import type { BabelIntegrationOptions } from "./BabelIntegrationOptions";
 import type { BabelIntegrationResolvedOptions } from "./BabelIntegrationResolvedOptions";

@@ -1,4 +1,4 @@
-import { MODULE_FORMAT_ESM } from "@holypack/integration-babel/compilation/MODULE_FORMAT_ESM";
+import { MODULE_FORMAT_ESM } from "@holypack/integration-babel/build/module/format/MODULE_FORMAT_ESM";
 
 import { createHolypackPresetAsync } from "../../../preset/createHolypackPresetAsync";
 

@@ -77,117 +77,173 @@
   "module": "./dist/esm/index.mjs",
   "types": "./dist/types/index.d.ts",
   "exports": {
-    "./compilation/MODULE_FORMAT_CJS.cjs": {
-      "types": "./dist/types/compilation/MODULE_FORMAT_CJS.d.ts",
-      "import": "./dist/esm/compilation/MODULE_FORMAT_CJS.mjs",
-      "require": "./dist/cjs/compilation/MODULE_FORMAT_CJS.cjs",
-      "default": "./src/compilation/MODULE_FORMAT_CJS.ts"
+    "./build/module/format/MODULE_FORMAT_CJS.cjs": {
+      "types": "./dist/types/build/module/format/MODULE_FORMAT_CJS.d.ts",
+      "import": "./dist/esm/build/module/format/MODULE_FORMAT_CJS.mjs",
+      "require": "./dist/cjs/build/module/format/MODULE_FORMAT_CJS.cjs",
+      "default": "./src/build/module/format/MODULE_FORMAT_CJS.ts"
     },
-    "./compilation/MODULE_FORMAT_CJS.d.ts": {
-      "types": "./dist/types/compilation/MODULE_FORMAT_CJS.d.ts",
-      "default": "./src/compilation/MODULE_FORMAT_CJS.ts"
+    "./build/module/format/MODULE_FORMAT_CJS.d.ts": {
+      "types": "./dist/types/build/module/format/MODULE_FORMAT_CJS.d.ts",
+      "default": "./src/build/module/format/MODULE_FORMAT_CJS.ts"
     },
-    "./compilation/MODULE_FORMAT_CJS.js": {
-      "types": "./dist/types/compilation/MODULE_FORMAT_CJS.d.ts",
-      "import": "./dist/esm/compilation/MODULE_FORMAT_CJS.mjs",
-      "require": "./dist/cjs/compilation/MODULE_FORMAT_CJS.cjs",
-      "default": "./src/compilation/MODULE_FORMAT_CJS.ts"
+    "./build/module/format/MODULE_FORMAT_CJS.js": {
+      "types": "./dist/types/build/module/format/MODULE_FORMAT_CJS.d.ts",
+      "import": "./dist/esm/build/module/format/MODULE_FORMAT_CJS.mjs",
+      "require": "./dist/cjs/build/module/format/MODULE_FORMAT_CJS.cjs",
+      "default": "./src/build/module/format/MODULE_FORMAT_CJS.ts"
     },
-    "./compilation/MODULE_FORMAT_CJS.mjs": {
-      "types": "./dist/types/compilation/MODULE_FORMAT_CJS.d.ts",
-      "import": "./dist/esm/compilation/MODULE_FORMAT_CJS.mjs",
-      "require": "./dist/cjs/compilation/MODULE_FORMAT_CJS.cjs",
-      "default": "./src/compilation/MODULE_FORMAT_CJS.ts"
+    "./build/module/format/MODULE_FORMAT_CJS.mjs": {
+      "types": "./dist/types/build/module/format/MODULE_FORMAT_CJS.d.ts",
+      "import": "./dist/esm/build/module/format/MODULE_FORMAT_CJS.mjs",
+      "require": "./dist/cjs/build/module/format/MODULE_FORMAT_CJS.cjs",
+      "default": "./src/build/module/format/MODULE_FORMAT_CJS.ts"
     },
-    "./compilation/MODULE_FORMAT_CJS": {
-      "types": "./dist/types/compilation/MODULE_FORMAT_CJS.d.ts",
-      "import": "./dist/esm/compilation/MODULE_FORMAT_CJS.mjs",
-      "require": "./dist/cjs/compilation/MODULE_FORMAT_CJS.cjs",
-      "default": "./src/compilation/MODULE_FORMAT_CJS.ts"
+    "./build/module/format/MODULE_FORMAT_CJS": {
+      "types": "./dist/types/build/module/format/MODULE_FORMAT_CJS.d.ts",
+      "import": "./dist/esm/build/module/format/MODULE_FORMAT_CJS.mjs",
+      "require": "./dist/cjs/build/module/format/MODULE_FORMAT_CJS.cjs",
+      "default": "./src/build/module/format/MODULE_FORMAT_CJS.ts"
     },
-    "./compilation/MODULE_FORMAT_DEFAULT.cjs": {
-      "types": "./dist/types/compilation/MODULE_FORMAT_DEFAULT.d.ts",
-      "import": "./dist/esm/compilation/MODULE_FORMAT_DEFAULT.mjs",
-      "require": "./dist/cjs/compilation/MODULE_FORMAT_DEFAULT.cjs",
-      "default": "./src/compilation/MODULE_FORMAT_DEFAULT.ts"
+    "./build/module/format/MODULE_FORMAT_DEFAULT.cjs": {
+      "types": "./dist/types/build/module/format/MODULE_FORMAT_DEFAULT.d.ts",
+      "import": "./dist/esm/build/module/format/MODULE_FORMAT_DEFAULT.mjs",
+      "require": "./dist/cjs/build/module/format/MODULE_FORMAT_DEFAULT.cjs",
+      "default": "./src/build/module/format/MODULE_FORMAT_DEFAULT.ts"
     },
-    "./compilation/MODULE_FORMAT_DEFAULT.d.ts": {
-      "types": "./dist/types/compilation/MODULE_FORMAT_DEFAULT.d.ts",
-      "default": "./src/compilation/MODULE_FORMAT_DEFAULT.ts"
+    "./build/module/format/MODULE_FORMAT_DEFAULT.d.ts": {
+      "types": "./dist/types/build/module/format/MODULE_FORMAT_DEFAULT.d.ts",
+      "default": "./src/build/module/format/MODULE_FORMAT_DEFAULT.ts"
     },
-    "./compilation/MODULE_FORMAT_DEFAULT.js": {
-      "types": "./dist/types/compilation/MODULE_FORMAT_DEFAULT.d.ts",
-      "import": "./dist/esm/compilation/MODULE_FORMAT_DEFAULT.mjs",
-      "require": "./dist/cjs/compilation/MODULE_FORMAT_DEFAULT.cjs",
-      "default": "./src/compilation/MODULE_FORMAT_DEFAULT.ts"
+    "./build/module/format/MODULE_FORMAT_DEFAULT.js": {
+      "types": "./dist/types/build/module/format/MODULE_FORMAT_DEFAULT.d.ts",
+      "import": "./dist/esm/build/module/format/MODULE_FORMAT_DEFAULT.mjs",
+      "require": "./dist/cjs/build/module/format/MODULE_FORMAT_DEFAULT.cjs",
+      "default": "./src/build/module/format/MODULE_FORMAT_DEFAULT.ts"
     },
-    "./compilation/MODULE_FORMAT_DEFAULT.mjs": {
-      "types": "./dist/types/compilation/MODULE_FORMAT_DEFAULT.d.ts",
-      "import": "./dist/esm/compilation/MODULE_FORMAT_DEFAULT.mjs",
-      "require": "./dist/cjs/compilation/MODULE_FORMAT_DEFAULT.cjs",
-      "default": "./src/compilation/MODULE_FORMAT_DEFAULT.ts"
+    "./build/module/format/MODULE_FORMAT_DEFAULT.mjs": {
+      "types": "./dist/types/build/module/format/MODULE_FORMAT_DEFAULT.d.ts",
+      "import": "./dist/esm/build/module/format/MODULE_FORMAT_DEFAULT.mjs",
+      "require": "./dist/cjs/build/module/format/MODULE_FORMAT_DEFAULT.cjs",
+      "default": "./src/build/module/format/MODULE_FORMAT_DEFAULT.ts"
     },
-    "./compilation/MODULE_FORMAT_DEFAULT": {
-      "types": "./dist/types/compilation/MODULE_FORMAT_DEFAULT.d.ts",
-      "import": "./dist/esm/compilation/MODULE_FORMAT_DEFAULT.mjs",
-      "require": "./dist/cjs/compilation/MODULE_FORMAT_DEFAULT.cjs",
-      "default": "./src/compilation/MODULE_FORMAT_DEFAULT.ts"
+    "./build/module/format/MODULE_FORMAT_DEFAULT": {
+      "types": "./dist/types/build/module/format/MODULE_FORMAT_DEFAULT.d.ts",
+      "import": "./dist/esm/build/module/format/MODULE_FORMAT_DEFAULT.mjs",
+      "require": "./dist/cjs/build/module/format/MODULE_FORMAT_DEFAULT.cjs",
+      "default": "./src/build/module/format/MODULE_FORMAT_DEFAULT.ts"
     },
-    "./compilation/MODULE_FORMAT_ESM.cjs": {
-      "types": "./dist/types/compilation/MODULE_FORMAT_ESM.d.ts",
-      "import": "./dist/esm/compilation/MODULE_FORMAT_ESM.mjs",
-      "require": "./dist/cjs/compilation/MODULE_FORMAT_ESM.cjs",
-      "default": "./src/compilation/MODULE_FORMAT_ESM.ts"
+    "./build/module/format/MODULE_FORMAT_ESM.cjs": {
+      "types": "./dist/types/build/module/format/MODULE_FORMAT_ESM.d.ts",
+      "import": "./dist/esm/build/module/format/MODULE_FORMAT_ESM.mjs",
+      "require": "./dist/cjs/build/module/format/MODULE_FORMAT_ESM.cjs",
+      "default": "./src/build/module/format/MODULE_FORMAT_ESM.ts"
     },
-    "./compilation/MODULE_FORMAT_ESM.d.ts": {
-      "types": "./dist/types/compilation/MODULE_FORMAT_ESM.d.ts",
-      "default": "./src/compilation/MODULE_FORMAT_ESM.ts"
+    "./build/module/format/MODULE_FORMAT_ESM.d.ts": {
+      "types": "./dist/types/build/module/format/MODULE_FORMAT_ESM.d.ts",
+      "default": "./src/build/module/format/MODULE_FORMAT_ESM.ts"
     },
-    "./compilation/MODULE_FORMAT_ESM.js": {
-      "types": "./dist/types/compilation/MODULE_FORMAT_ESM.d.ts",
-      "import": "./dist/esm/compilation/MODULE_FORMAT_ESM.mjs",
-      "require": "./dist/cjs/compilation/MODULE_FORMAT_ESM.cjs",
-      "default": "./src/compilation/MODULE_FORMAT_ESM.ts"
+    "./build/module/format/MODULE_FORMAT_ESM.js": {
+      "types": "./dist/types/build/module/format/MODULE_FORMAT_ESM.d.ts",
+      "import": "./dist/esm/build/module/format/MODULE_FORMAT_ESM.mjs",
+      "require": "./dist/cjs/build/module/format/MODULE_FORMAT_ESM.cjs",
+      "default": "./src/build/module/format/MODULE_FORMAT_ESM.ts"
     },
-    "./compilation/MODULE_FORMAT_ESM.mjs": {
-      "types": "./dist/types/compilation/MODULE_FORMAT_ESM.d.ts",
-      "import": "./dist/esm/compilation/MODULE_FORMAT_ESM.mjs",
-      "require": "./dist/cjs/compilation/MODULE_FORMAT_ESM.cjs",
-      "default": "./src/compilation/MODULE_FORMAT_ESM.ts"
+    "./build/module/format/MODULE_FORMAT_ESM.mjs": {
+      "types": "./dist/types/build/module/format/MODULE_FORMAT_ESM.d.ts",
+      "import": "./dist/esm/build/module/format/MODULE_FORMAT_ESM.mjs",
+      "require": "./dist/cjs/build/module/format/MODULE_FORMAT_ESM.cjs",
+      "default": "./src/build/module/format/MODULE_FORMAT_ESM.ts"
     },
-    "./compilation/MODULE_FORMAT_ESM": {
-      "types": "./dist/types/compilation/MODULE_FORMAT_ESM.d.ts",
-      "import": "./dist/esm/compilation/MODULE_FORMAT_ESM.mjs",
-      "require": "./dist/cjs/compilation/MODULE_FORMAT_ESM.cjs",
-      "default": "./src/compilation/MODULE_FORMAT_ESM.ts"
+    "./build/module/format/MODULE_FORMAT_ESM": {
+      "types": "./dist/types/build/module/format/MODULE_FORMAT_ESM.d.ts",
+      "import": "./dist/esm/build/module/format/MODULE_FORMAT_ESM.mjs",
+      "require": "./dist/cjs/build/module/format/MODULE_FORMAT_ESM.cjs",
+      "default": "./src/build/module/format/MODULE_FORMAT_ESM.ts"
     },
-    "./compilation/ModuleFormat.cjs": {
-      "types": "./dist/types/compilation/ModuleFormat.d.ts",
-      "import": "./dist/esm/compilation/ModuleFormat.mjs",
-      "require": "./dist/cjs/compilation/ModuleFormat.cjs",
-      "default": "./src/compilation/ModuleFormat.ts"
+    "./build/module/format/ModuleFormat.cjs": {
+      "types": "./dist/types/build/module/format/ModuleFormat.d.ts",
+      "import": "./dist/esm/build/module/format/ModuleFormat.mjs",
+      "require": "./dist/cjs/build/module/format/ModuleFormat.cjs",
+      "default": "./src/build/module/format/ModuleFormat.ts"
     },
-    "./compilation/ModuleFormat.d.ts": {
-      "types": "./dist/types/compilation/ModuleFormat.d.ts",
-      "default": "./src/compilation/ModuleFormat.ts"
+    "./build/module/format/ModuleFormat.d.ts": {
+      "types": "./dist/types/build/module/format/ModuleFormat.d.ts",
+      "default": "./src/build/module/format/ModuleFormat.ts"
     },
-    "./compilation/ModuleFormat.js": {
-      "types": "./dist/types/compilation/ModuleFormat.d.ts",
-      "import": "./dist/esm/compilation/ModuleFormat.mjs",
-      "require": "./dist/cjs/compilation/ModuleFormat.cjs",
-      "default": "./src/compilation/ModuleFormat.ts"
+    "./build/module/format/ModuleFormat.js": {
+      "types": "./dist/types/build/module/format/ModuleFormat.d.ts",
+      "import": "./dist/esm/build/module/format/ModuleFormat.mjs",
+      "require": "./dist/cjs/build/module/format/ModuleFormat.cjs",
+      "default": "./src/build/module/format/ModuleFormat.ts"
     },
-    "./compilation/ModuleFormat.mjs": {
-      "types": "./dist/types/compilation/ModuleFormat.d.ts",
-      "import": "./dist/esm/compilation/ModuleFormat.mjs",
-      "require": "./dist/cjs/compilation/ModuleFormat.cjs",
-      "default": "./src/compilation/ModuleFormat.ts"
+    "./build/module/format/ModuleFormat.mjs": {
+      "types": "./dist/types/build/module/format/ModuleFormat.d.ts",
+      "import": "./dist/esm/build/module/format/ModuleFormat.mjs",
+      "require": "./dist/cjs/build/module/format/ModuleFormat.cjs",
+      "default": "./src/build/module/format/ModuleFormat.ts"
     },
-    "./compilation/ModuleFormat": {
-      "types": "./dist/types/compilation/ModuleFormat.d.ts",
-      "import": "./dist/esm/compilation/ModuleFormat.mjs",
-      "require": "./dist/cjs/compilation/ModuleFormat.cjs",
-      "default": "./src/compilation/ModuleFormat.ts"
+    "./build/module/format/ModuleFormatString.cjs": {
+      "types": "./dist/types/build/module/format/ModuleFormatString.d.ts",
+      "import": "./dist/esm/build/module/format/ModuleFormatString.mjs",
+      "require": "./dist/cjs/build/module/format/ModuleFormatString.cjs",
+      "default": "./src/build/module/format/ModuleFormatString.ts"
+    },
+    "./build/module/format/ModuleFormatString.d.ts": {
+      "types": "./dist/types/build/module/format/ModuleFormatString.d.ts",
+      "default": "./src/build/module/format/ModuleFormatString.ts"
+    },
+    "./build/module/format/ModuleFormatString.js": {
+      "types": "./dist/types/build/module/format/ModuleFormatString.d.ts",
+      "import": "./dist/esm/build/module/format/ModuleFormatString.mjs",
+      "require": "./dist/cjs/build/module/format/ModuleFormatString.cjs",
+      "default": "./src/build/module/format/ModuleFormatString.ts"
+    },
+    "./build/module/format/ModuleFormatString.mjs": {
+      "types": "./dist/types/build/module/format/ModuleFormatString.d.ts",
+      "import": "./dist/esm/build/module/format/ModuleFormatString.mjs",
+      "require": "./dist/cjs/build/module/format/ModuleFormatString.cjs",
+      "default": "./src/build/module/format/ModuleFormatString.ts"
+    },
+    "./build/module/format/ModuleFormatString": {
+      "types": "./dist/types/build/module/format/ModuleFormatString.d.ts",
+      "import": "./dist/esm/build/module/format/ModuleFormatString.mjs",
+      "require": "./dist/cjs/build/module/format/ModuleFormatString.cjs",
+      "default": "./src/build/module/format/ModuleFormatString.ts"
+    },
+    "./build/module/format/ModuleFormat": {
+      "types": "./dist/types/build/module/format/ModuleFormat.d.ts",
+      "import": "./dist/esm/build/module/format/ModuleFormat.mjs",
+      "require": "./dist/cjs/build/module/format/ModuleFormat.cjs",
+      "default": "./src/build/module/format/ModuleFormat.ts"
+    },
+    "./build/module/format/castModuleFormat.cjs": {
+      "types": "./dist/types/build/module/format/castModuleFormat.d.ts",
+      "import": "./dist/esm/build/module/format/castModuleFormat.mjs",
+      "require": "./dist/cjs/build/module/format/castModuleFormat.cjs",
+      "default": "./src/build/module/format/castModuleFormat.ts"
+    },
+    "./build/module/format/castModuleFormat.d.ts": {
+      "types": "./dist/types/build/module/format/castModuleFormat.d.ts",
+      "default": "./src/build/module/format/castModuleFormat.ts"
+    },
+    "./build/module/format/castModuleFormat.js": {
+      "types": "./dist/types/build/module/format/castModuleFormat.d.ts",
+      "import": "./dist/esm/build/module/format/castModuleFormat.mjs",
+      "require": "./dist/cjs/build/module/format/castModuleFormat.cjs",
+      "default": "./src/build/module/format/castModuleFormat.ts"
+    },
+    "./build/module/format/castModuleFormat.mjs": {
+      "types": "./dist/types/build/module/format/castModuleFormat.d.ts",
+      "import": "./dist/esm/build/module/format/castModuleFormat.mjs",
+      "require": "./dist/cjs/build/module/format/castModuleFormat.cjs",
+      "default": "./src/build/module/format/castModuleFormat.ts"
+    },
+    "./build/module/format/castModuleFormat": {
+      "types": "./dist/types/build/module/format/castModuleFormat.d.ts",
+      "import": "./dist/esm/build/module/format/castModuleFormat.mjs",
+      "require": "./dist/cjs/build/module/format/castModuleFormat.cjs",
+      "default": "./src/build/module/format/castModuleFormat.ts"
     },
     "./configurator/fields/configureFieldSourceType.cjs": {
       "types": "./dist/types/configurator/fields/configureFieldSourceType.d.ts",

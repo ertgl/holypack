@@ -11,7 +11,7 @@ import type { Options as BabelPluginImportSourceTransformerOptions } from "babel
 
 import { suppressErrorSync } from "@holypack/core/lib/runtime/suppressErrorSync";
 
-import { MODULE_FORMAT_CJS } from "../../../compilation/MODULE_FORMAT_CJS";
+import { MODULE_FORMAT_CJS } from "../../../build/module/format/MODULE_FORMAT_CJS";
 import type { BabelContext } from "../../../context/BabelContext";
 import type { BabelIntegrationResolvedOptions } from "../../../options/BabelIntegrationResolvedOptions";
 import { PACKAGE_NAME_BABEL_PLUGIN_TRANSFORM_IMPORT_SOURCE } from "../constants/packages/PACKAGE_NAME_BABEL_PLUGIN_TRANSFORM_IMPORT_SOURCE";

@@ -1,6 +1,6 @@
 import type { TransformOptions } from "@babel/core";
 
-import { ModuleFormat } from "../compilation/ModuleFormat";
+import { ModuleFormat } from "../build/module/format/ModuleFormat";
 
 export type BabelIntegrationResolvedOptions = {
   format: ModuleFormat;

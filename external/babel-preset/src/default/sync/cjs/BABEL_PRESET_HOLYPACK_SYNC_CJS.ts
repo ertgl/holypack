@@ -1,4 +1,4 @@
-import { MODULE_FORMAT_CJS } from "@holypack/integration-babel/compilation/MODULE_FORMAT_CJS";
+import { MODULE_FORMAT_CJS } from "@holypack/integration-babel/build/module/format/MODULE_FORMAT_CJS";
 
 import { createHolypackPresetSync } from "../../../preset/createHolypackPresetSync";
 

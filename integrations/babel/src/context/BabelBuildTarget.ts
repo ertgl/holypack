@@ -1,4 +1,4 @@
-import type { ModuleFormat } from "../compilation/ModuleFormat";
+import type { ModuleFormat } from "../build/module/format/ModuleFormat";
 
 export type BabelBuildTarget = {
   format: ModuleFormat;
