@@ -2,8 +2,8 @@ import type { AnyKey } from "./AnyKey";
 import type { PatchedWithDefined } from "./PatchedWithDefined";
 
 export function patchDefined<
-  T_Initials = unknown,
-  T_Patches = unknown,
+  T_Initials,
+  T_Patches,
   T_ReturnType extends PatchedWithDefined<T_Initials, T_Patches> = PatchedWithDefined<T_Initials, T_Patches>,
 >(
   initials: T_Initials,

@@ -1,13 +1,14 @@
+import type { Optional } from "./Optional";
 import { patchDefined } from "./patchDefined";
 import type { PatchedWithDefined } from "./PatchedWithDefined";
 
 export function maybePatchDefined<
-  T_Initials = unknown,
-  T_Patches = unknown,
+  T_Initials,
+  T_Patches,
   T_ReturnType extends PatchedWithDefined<T_Initials, T_Patches> = PatchedWithDefined<T_Initials, T_Patches>,
 >(
-  initials: T_Initials,
-  patches: T_Patches,
+  initials: Optional<T_Initials>,
+  patches: Optional<T_Patches>,
 ): T_ReturnType
 {
   if (initials == null && patches == null)
