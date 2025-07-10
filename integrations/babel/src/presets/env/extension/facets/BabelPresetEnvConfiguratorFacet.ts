@@ -4,8 +4,8 @@ import type { ContextAsync } from "@holypack/core/context/ContextAsync";
 import type { ContextSync } from "@holypack/core/context/ContextSync";
 import { requireExtension } from "@holypack/core/extension/registry/requireExtension";
 
+import type { BabelConfiguratorResolvedOptions } from "../../../../configurator/options/BabelConfiguratorResolvedOptions";
 import type { BabelContext } from "../../../../context/BabelContext";
-import type { BabelIntegrationResolvedOptions } from "../../../../options/BabelIntegrationResolvedOptions";
 import { configureBabelPresetEnv } from "../../configurator/configureBabelPresetEnv";
 import { resolveBabelIntegrationPresetEnvOptions } from "../../options/resolveBabelIntegrationPresetEnvOptions";
 import type { BabelIntegrationPresetEnv } from "../BabelIntegrationPresetEnv";
@@ -17,7 +17,7 @@ export class BabelPresetEnvConfiguratorFacet
   async configureBabelPresetEnv(
     context: ContextAsync,
     babelContext: BabelContext,
-    options: BabelIntegrationResolvedOptions,
+    options: BabelConfiguratorResolvedOptions,
     transformOptions: TransformOptions,
   ): Promise<void>
   {
@@ -41,7 +41,7 @@ export class BabelPresetEnvConfiguratorFacet
   configureBabelPresetEnvSync(
     context: ContextSync,
     babelContext: BabelContext,
-    options: BabelIntegrationResolvedOptions,
+    options: BabelConfiguratorResolvedOptions,
     transformOptions: TransformOptions,
   ): void
   {

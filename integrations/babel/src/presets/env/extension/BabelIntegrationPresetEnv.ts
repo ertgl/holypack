@@ -8,12 +8,12 @@ import type { AnyHook } from "@holypack/core/hook/AnyHook";
 import type { AnyHookSync } from "@holypack/core/hook/AnyHookSync";
 import type { Optional } from "@holypack/core/lib/object/Optional";
 
+import type { BabelConfiguratorResolvedOptions } from "../../../configurator/options/BabelConfiguratorResolvedOptions";
 import type { BabelContext } from "../../../context/BabelContext";
 import { BABEL_INTEGRATION_HOOK_UID_GENERATE_TRANSFORM_OPTIONS_ASYNC } from "../../../hooks/generate-transform-options/BABEL_INTEGRATION_HOOK_UID_GENERATE_TRANSFORM_OPTIONS_ASYNC";
 import { BABEL_INTEGRATION_HOOK_UID_GENERATE_TRANSFORM_OPTIONS_SYNC } from "../../../hooks/generate-transform-options/BABEL_INTEGRATION_HOOK_UID_GENERATE_TRANSFORM_OPTIONS_SYNC";
 import type { GenerateTransformOptionsHookAsync } from "../../../hooks/generate-transform-options/GenerateTransformOptionsHookAsync";
 import type { GenerateTransformOptionsHookSync } from "../../../hooks/generate-transform-options/GenerateTransformOptionsHookSync";
-import type { BabelIntegrationResolvedOptions } from "../../../options/BabelIntegrationResolvedOptions";
 import type { BabelIntegrationPresetEnvOptions } from "../options/BabelIntegrationPresetEnvOptions";
 
 import type { BabelIntegrationPresetEnvFacets } from "./BabelIntegrationPresetEnvFacets";
@@ -90,14 +90,14 @@ export class BabelIntegrationPresetEnv extends AbstractExtension
   async configureBabelPresetEnv(
     context: ContextAsync,
     babelContext: BabelContext,
-    babelIntegrationOptions: BabelIntegrationResolvedOptions,
+    configuratorOptions: BabelConfiguratorResolvedOptions,
     transformOptions: TransformOptions,
   ): Promise<void>
   {
     await this.facets.configurator.configureBabelPresetEnv(
       context,
       babelContext,
-      babelIntegrationOptions,
+      configuratorOptions,
       transformOptions,
     );
   }
@@ -105,14 +105,14 @@ export class BabelIntegrationPresetEnv extends AbstractExtension
   configureBabelPresetEnvSync(
     context: ContextSync,
     babelContext: BabelContext,
-    babelIntegrationOptions: BabelIntegrationResolvedOptions,
+    configuratorOptions: BabelConfiguratorResolvedOptions,
     transformOptions: TransformOptions,
   ): void
   {
     this.facets.configurator.configureBabelPresetEnvSync(
       context,
       babelContext,
-      babelIntegrationOptions,
+      configuratorOptions,
       transformOptions,
     );
   }

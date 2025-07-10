@@ -10,8 +10,8 @@ import type {
 
 import { suppressErrorSync } from "@holypack/core/lib/runtime/suppressErrorSync";
 
+import type { BabelConfiguratorResolvedOptions } from "../../../configurator/options/BabelConfiguratorResolvedOptions";
 import type { BabelContext } from "../../../context/BabelContext";
-import type { BabelIntegrationResolvedOptions } from "../../../options/BabelIntegrationResolvedOptions";
 import { PACKAGE_NAME_BABEL_PRESET_TYPESCRIPT } from "../constants/PACKAGE_NAME_BABEL_PRESET_TYPESCRIPT";
 import type { BabelIntegrationPresetTypeScriptResolvedOptions } from "../options/BabelIntegrationPresetTypeScriptResolvedOptions";
 import type { BabelPresetTypeScriptOptions } from "../options/BabelPresetTypeScriptOptions";
@@ -24,7 +24,7 @@ const require = createRequire(__filename);
 
 export function configureBabelPresetTypeScript(
   babelContext: BabelContext,
-  options: BabelIntegrationResolvedOptions,
+  options: BabelConfiguratorResolvedOptions,
   presetTypeScriptOptions: BabelIntegrationPresetTypeScriptResolvedOptions,
   transformOptions: TransformOptions,
 ): void

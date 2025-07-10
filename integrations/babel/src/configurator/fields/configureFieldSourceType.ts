@@ -1,11 +1,11 @@
 import type { TransformOptions } from "@babel/core";
 
 import type { BabelContext } from "../../context/BabelContext";
-import type { BabelIntegrationResolvedOptions } from "../../options/BabelIntegrationResolvedOptions";
+import type { BabelConfiguratorResolvedOptions } from "../options/BabelConfiguratorResolvedOptions";
 
 export function configureFieldSourceType(
   babelContext: BabelContext,
-  options: BabelIntegrationResolvedOptions,
+  options: BabelConfiguratorResolvedOptions,
   transformOptions: TransformOptions,
 ): void
 {

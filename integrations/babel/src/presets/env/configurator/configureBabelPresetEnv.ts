@@ -12,8 +12,8 @@ import type { Options as BabelPresetEnvOptions } from "@babel/preset-env";
 import { suppressErrorSync } from "@holypack/core/lib/runtime/suppressErrorSync";
 
 import { MODULE_FORMAT_CJS } from "../../../build/module/format/MODULE_FORMAT_CJS";
+import type { BabelConfiguratorResolvedOptions } from "../../../configurator/options/BabelConfiguratorResolvedOptions";
 import type { BabelContext } from "../../../context/BabelContext";
-import type { BabelIntegrationResolvedOptions } from "../../../options/BabelIntegrationResolvedOptions";
 import { PACKAGE_NAME_BABEL_PRESET_ENV } from "../constants/PACKAGE_NAME_BABEL_PRESET_ENV";
 import type { BabelIntegrationPresetEnvResolvedOptions } from "../options/BabelIntegrationPresetEnvResolvedOptions";
 
@@ -25,7 +25,7 @@ const require = createRequire(__filename);
 
 export function configureBabelPresetEnv(
   babelContext: BabelContext,
-  options: BabelIntegrationResolvedOptions,
+  options: BabelConfiguratorResolvedOptions,
   presetEnvOptions: BabelIntegrationPresetEnvResolvedOptions,
   transformOptions: TransformOptions,
 ): void

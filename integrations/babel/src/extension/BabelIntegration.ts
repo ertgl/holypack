@@ -8,17 +8,22 @@ import { maybeBindExtensionSync } from "@holypack/core/extension/binder/maybeBin
 import { maybeBindExtensionHookAsync } from "@holypack/core/extension/hook/binder/maybeBindExtensionHookAsync";
 import { maybeBindExtensionHookSync } from "@holypack/core/extension/hook/binder/maybeBindExtensionHookSync";
 import type { Optional } from "@holypack/core/lib/object/Optional";
+import type { Path } from "@holypack/core/lib/path/Path";
 
+import type { BabelConfiguratorOptions } from "../configurator/options/BabelConfiguratorOptions";
 import { createGenerateTransformOptionsHookAsync } from "../hooks/generate-transform-options/createGenerateTransformOptionsHookAsync";
 import { createGenerateTransformOptionsHookSync } from "../hooks/generate-transform-options/createGenerateTransformOptionsHookSync";
-import type { BabelIntegrationOptions } from "../options/BabelIntegrationOptions";
 import { createBabelIntegrationPluginImportSourceTransformer } from "../plugins/transform-import-source/extension/createBabelIntegrationPluginImportSourceTransformer";
 import { createBabelIntegrationPresetEnv } from "../presets/env/extension/createBabelIntegrationPresetEnv";
 import { createBabelIntegrationPresetTypeScript } from "../presets/typescript/extension/createBabelIntegrationPresetTypeScript";
+import type { BabelConfigFilePathFinderOptionsAsync } from "../utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync";
+import type { BabelConfigFilePathFinderOptionsSync } from "../utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync";
 
 import type { BabelIntegrationFacets } from "./BabelIntegrationFacets";
+import { BabelConfigFilePathFinderFacet } from "./facets/BabelConfigFilePathFinderFacet";
 import { BabelConfiguratorFacet } from "./facets/BabelConfiguratorFacet";
 import { INTEGRATION_UID_BABEL } from "./INTEGRATION_UID_BABEL";
+import type { BabelIntegrationOptions } from "./options/BabelIntegrationOptions";
 
 export class BabelIntegration extends AbstractExtension
 {
@@ -35,6 +40,7 @@ export class BabelIntegration extends AbstractExtension
     super();
 
     this.facets = {
+      configFileFinder: new BabelConfigFilePathFinderFacet(),
       configurator: new BabelConfiguratorFacet(),
     };
 
@@ -103,17 +109,47 @@ export class BabelIntegration extends AbstractExtension
     );
   }
 
+  async findConfigFilePath(
+    context: ContextAsync,
+    options?: Optional<BabelConfigFilePathFinderOptionsAsync>,
+  ): Promise<null | Path>
+  {
+    return await this.facets.configFileFinder.find(
+      context,
+      options,
+    );
+  }
+
+  findConfigFilePathSync(
+    context: ContextSync,
+    options?: Optional<BabelConfigFilePathFinderOptionsSync>,
+  ): null | Path
+  {
+    return this.facets.configFileFinder.findSync(
+      context,
+      options,
+    );
+  }
+
   async generateTransformOptions(
     context: ContextAsync,
+    options?: Optional<BabelConfiguratorOptions>,
   ): Promise<TransformOptions>
   {
-    return await this.facets.configurator.generateTransformOptions(context);
+    return await this.facets.configurator.generateTransformOptions(
+      context,
+      options,
+    );
   }
 
   generateTransformOptionsSync(
     context: ContextSync,
+    options?: Optional<BabelConfiguratorOptions>,
   ): TransformOptions
   {
-    return this.facets.configurator.generateTransformOptionsSync(context);
+    return this.facets.configurator.generateTransformOptionsSync(
+      context,
+      options,
+    );
   }
 }

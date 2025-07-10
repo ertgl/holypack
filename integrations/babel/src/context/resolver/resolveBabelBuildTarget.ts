@@ -1,8 +1,8 @@
-import type { BabelIntegrationResolvedOptions } from "../../options/BabelIntegrationResolvedOptions";
+import type { BabelConfiguratorResolvedOptions } from "../../configurator/options/BabelConfiguratorResolvedOptions";
 import type { BabelBuildTarget } from "../BabelBuildTarget";
 
 export function resolveBabelBuildTarget(
-  options: BabelIntegrationResolvedOptions,
+  options: BabelConfiguratorResolvedOptions,
 ): BabelBuildTarget
 {
   return {

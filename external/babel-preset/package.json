@@ -374,6 +374,118 @@
       "require": "./dist/cjs/default/sync/index.cjs",
       "default": "./src/default/sync/index.ts"
     },
+    "./extension/BabelPreset.cjs": {
+      "types": "./dist/types/extension/BabelPreset.d.ts",
+      "import": "./dist/esm/extension/BabelPreset.mjs",
+      "require": "./dist/cjs/extension/BabelPreset.cjs",
+      "default": "./src/extension/BabelPreset.ts"
+    },
+    "./extension/BabelPreset.d.ts": {
+      "types": "./dist/types/extension/BabelPreset.d.ts",
+      "default": "./src/extension/BabelPreset.ts"
+    },
+    "./extension/BabelPreset.js": {
+      "types": "./dist/types/extension/BabelPreset.d.ts",
+      "import": "./dist/esm/extension/BabelPreset.mjs",
+      "require": "./dist/cjs/extension/BabelPreset.cjs",
+      "default": "./src/extension/BabelPreset.ts"
+    },
+    "./extension/BabelPreset.mjs": {
+      "types": "./dist/types/extension/BabelPreset.d.ts",
+      "import": "./dist/esm/extension/BabelPreset.mjs",
+      "require": "./dist/cjs/extension/BabelPreset.cjs",
+      "default": "./src/extension/BabelPreset.ts"
+    },
+    "./extension/BabelPreset": {
+      "types": "./dist/types/extension/BabelPreset.d.ts",
+      "import": "./dist/esm/extension/BabelPreset.mjs",
+      "require": "./dist/cjs/extension/BabelPreset.cjs",
+      "default": "./src/extension/BabelPreset.ts"
+    },
+    "./extension/EXTENSION_UID_BABEL_PRESET.cjs": {
+      "types": "./dist/types/extension/EXTENSION_UID_BABEL_PRESET.d.ts",
+      "import": "./dist/esm/extension/EXTENSION_UID_BABEL_PRESET.mjs",
+      "require": "./dist/cjs/extension/EXTENSION_UID_BABEL_PRESET.cjs",
+      "default": "./src/extension/EXTENSION_UID_BABEL_PRESET.ts"
+    },
+    "./extension/EXTENSION_UID_BABEL_PRESET.d.ts": {
+      "types": "./dist/types/extension/EXTENSION_UID_BABEL_PRESET.d.ts",
+      "default": "./src/extension/EXTENSION_UID_BABEL_PRESET.ts"
+    },
+    "./extension/EXTENSION_UID_BABEL_PRESET.js": {
+      "types": "./dist/types/extension/EXTENSION_UID_BABEL_PRESET.d.ts",
+      "import": "./dist/esm/extension/EXTENSION_UID_BABEL_PRESET.mjs",
+      "require": "./dist/cjs/extension/EXTENSION_UID_BABEL_PRESET.cjs",
+      "default": "./src/extension/EXTENSION_UID_BABEL_PRESET.ts"
+    },
+    "./extension/EXTENSION_UID_BABEL_PRESET.mjs": {
+      "types": "./dist/types/extension/EXTENSION_UID_BABEL_PRESET.d.ts",
+      "import": "./dist/esm/extension/EXTENSION_UID_BABEL_PRESET.mjs",
+      "require": "./dist/cjs/extension/EXTENSION_UID_BABEL_PRESET.cjs",
+      "default": "./src/extension/EXTENSION_UID_BABEL_PRESET.ts"
+    },
+    "./extension/EXTENSION_UID_BABEL_PRESET": {
+      "types": "./dist/types/extension/EXTENSION_UID_BABEL_PRESET.d.ts",
+      "import": "./dist/esm/extension/EXTENSION_UID_BABEL_PRESET.mjs",
+      "require": "./dist/cjs/extension/EXTENSION_UID_BABEL_PRESET.cjs",
+      "default": "./src/extension/EXTENSION_UID_BABEL_PRESET.ts"
+    },
+    "./extension/createBabelPreset.cjs": {
+      "types": "./dist/types/extension/createBabelPreset.d.ts",
+      "import": "./dist/esm/extension/createBabelPreset.mjs",
+      "require": "./dist/cjs/extension/createBabelPreset.cjs",
+      "default": "./src/extension/createBabelPreset.ts"
+    },
+    "./extension/createBabelPreset.d.ts": {
+      "types": "./dist/types/extension/createBabelPreset.d.ts",
+      "default": "./src/extension/createBabelPreset.ts"
+    },
+    "./extension/createBabelPreset.js": {
+      "types": "./dist/types/extension/createBabelPreset.d.ts",
+      "import": "./dist/esm/extension/createBabelPreset.mjs",
+      "require": "./dist/cjs/extension/createBabelPreset.cjs",
+      "default": "./src/extension/createBabelPreset.ts"
+    },
+    "./extension/createBabelPreset.mjs": {
+      "types": "./dist/types/extension/createBabelPreset.d.ts",
+      "import": "./dist/esm/extension/createBabelPreset.mjs",
+      "require": "./dist/cjs/extension/createBabelPreset.cjs",
+      "default": "./src/extension/createBabelPreset.ts"
+    },
+    "./extension/createBabelPreset": {
+      "types": "./dist/types/extension/createBabelPreset.d.ts",
+      "import": "./dist/esm/extension/createBabelPreset.mjs",
+      "require": "./dist/cjs/extension/createBabelPreset.cjs",
+      "default": "./src/extension/createBabelPreset.ts"
+    },
+    "./extension/options/BabelPresetOptions.cjs": {
+      "types": "./dist/types/extension/options/BabelPresetOptions.d.ts",
+      "import": "./dist/esm/extension/options/BabelPresetOptions.mjs",
+      "require": "./dist/cjs/extension/options/BabelPresetOptions.cjs",
+      "default": "./src/extension/options/BabelPresetOptions.ts"
+    },
+    "./extension/options/BabelPresetOptions.d.ts": {
+      "types": "./dist/types/extension/options/BabelPresetOptions.d.ts",
+      "default": "./src/extension/options/BabelPresetOptions.ts"
+    },
+    "./extension/options/BabelPresetOptions.js": {
+      "types": "./dist/types/extension/options/BabelPresetOptions.d.ts",
+      "import": "./dist/esm/extension/options/BabelPresetOptions.mjs",
+      "require": "./dist/cjs/extension/options/BabelPresetOptions.cjs",
+      "default": "./src/extension/options/BabelPresetOptions.ts"
+    },
+    "./extension/options/BabelPresetOptions.mjs": {
+      "types": "./dist/types/extension/options/BabelPresetOptions.d.ts",
+      "import": "./dist/esm/extension/options/BabelPresetOptions.mjs",
+      "require": "./dist/cjs/extension/options/BabelPresetOptions.cjs",
+      "default": "./src/extension/options/BabelPresetOptions.ts"
+    },
+    "./extension/options/BabelPresetOptions": {
+      "types": "./dist/types/extension/options/BabelPresetOptions.d.ts",
+      "import": "./dist/esm/extension/options/BabelPresetOptions.mjs",
+      "require": "./dist/cjs/extension/options/BabelPresetOptions.cjs",
+      "default": "./src/extension/options/BabelPresetOptions.ts"
+    },
     "./index.cjs": {
       "types": "./dist/types/index.d.ts",
       "import": "./dist/esm/index.mjs",

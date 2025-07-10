@@ -8,7 +8,7 @@ export function createGenerateTransformOptionsHookSync(): GenerateTransformOptio
   return new SyncHook(
     [
       "babelContext",
-      "babelIntegrationOptions",
+      "configuratorOptions",
       "transformOptions",
     ] as const,
     BABEL_INTEGRATION_HOOK_UID_GENERATE_TRANSFORM_OPTIONS_SYNC,

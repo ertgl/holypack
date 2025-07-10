@@ -12,8 +12,8 @@ import type { Options as BabelPluginImportSourceTransformerOptions } from "babel
 import { suppressErrorSync } from "@holypack/core/lib/runtime/suppressErrorSync";
 
 import { MODULE_FORMAT_CJS } from "../../../build/module/format/MODULE_FORMAT_CJS";
+import type { BabelConfiguratorResolvedOptions } from "../../../configurator/options/BabelConfiguratorResolvedOptions";
 import type { BabelContext } from "../../../context/BabelContext";
-import type { BabelIntegrationResolvedOptions } from "../../../options/BabelIntegrationResolvedOptions";
 import { PACKAGE_NAME_BABEL_PLUGIN_TRANSFORM_IMPORT_SOURCE } from "../constants/packages/PACKAGE_NAME_BABEL_PLUGIN_TRANSFORM_IMPORT_SOURCE";
 import { REGEXP_ANY_RELATIVE_PATH } from "../constants/regexp/REGEXP_ANY_RELATIVE_PATH";
 import { REGEXP_PATH_WITH_ANY_JS_EXTENSION_OR_NO_EXTENSION } from "../constants/regexp/REGEXP_PATH_WITH_ANY_JS_EXTENSION_OR_NO_EXTENSION";
@@ -27,7 +27,7 @@ const require = createRequire(__filename);
 
 export function configureBabelPluginImportSourceTransformer(
   babelContext: BabelContext,
-  babelIntegrationOptions: BabelIntegrationResolvedOptions,
+  configuratorOptions: BabelConfiguratorResolvedOptions,
   pluginImportSourceTransformerOptions: BabelIntegrationPluginImportSourceTransformerResolvedOptions,
   transformOptions: TransformOptions,
 ): void

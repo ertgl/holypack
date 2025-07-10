@@ -1,8 +1,7 @@
 import type { Optional } from "@holypack/core/lib/object/Optional";
 
-import type { BabelIntegrationOptions } from "../options/BabelIntegrationOptions";
-
 import { BabelIntegration } from "./BabelIntegration";
+import type { BabelIntegrationOptions } from "./options/BabelIntegrationOptions";
 
 export function createBabelIntegration(
   options?: Optional<BabelIntegrationOptions>,

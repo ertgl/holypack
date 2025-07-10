@@ -301,6 +301,90 @@
       "require": "./dist/cjs/configurator/generateBabelTransformOptions.cjs",
       "default": "./src/configurator/generateBabelTransformOptions.ts"
     },
+    "./configurator/options/BabelConfiguratorOptions.cjs": {
+      "types": "./dist/types/configurator/options/BabelConfiguratorOptions.d.ts",
+      "import": "./dist/esm/configurator/options/BabelConfiguratorOptions.mjs",
+      "require": "./dist/cjs/configurator/options/BabelConfiguratorOptions.cjs",
+      "default": "./src/configurator/options/BabelConfiguratorOptions.ts"
+    },
+    "./configurator/options/BabelConfiguratorOptions.d.ts": {
+      "types": "./dist/types/configurator/options/BabelConfiguratorOptions.d.ts",
+      "default": "./src/configurator/options/BabelConfiguratorOptions.ts"
+    },
+    "./configurator/options/BabelConfiguratorOptions.js": {
+      "types": "./dist/types/configurator/options/BabelConfiguratorOptions.d.ts",
+      "import": "./dist/esm/configurator/options/BabelConfiguratorOptions.mjs",
+      "require": "./dist/cjs/configurator/options/BabelConfiguratorOptions.cjs",
+      "default": "./src/configurator/options/BabelConfiguratorOptions.ts"
+    },
+    "./configurator/options/BabelConfiguratorOptions.mjs": {
+      "types": "./dist/types/configurator/options/BabelConfiguratorOptions.d.ts",
+      "import": "./dist/esm/configurator/options/BabelConfiguratorOptions.mjs",
+      "require": "./dist/cjs/configurator/options/BabelConfiguratorOptions.cjs",
+      "default": "./src/configurator/options/BabelConfiguratorOptions.ts"
+    },
+    "./configurator/options/BabelConfiguratorOptions": {
+      "types": "./dist/types/configurator/options/BabelConfiguratorOptions.d.ts",
+      "import": "./dist/esm/configurator/options/BabelConfiguratorOptions.mjs",
+      "require": "./dist/cjs/configurator/options/BabelConfiguratorOptions.cjs",
+      "default": "./src/configurator/options/BabelConfiguratorOptions.ts"
+    },
+    "./configurator/options/BabelConfiguratorResolvedOptions.cjs": {
+      "types": "./dist/types/configurator/options/BabelConfiguratorResolvedOptions.d.ts",
+      "import": "./dist/esm/configurator/options/BabelConfiguratorResolvedOptions.mjs",
+      "require": "./dist/cjs/configurator/options/BabelConfiguratorResolvedOptions.cjs",
+      "default": "./src/configurator/options/BabelConfiguratorResolvedOptions.ts"
+    },
+    "./configurator/options/BabelConfiguratorResolvedOptions.d.ts": {
+      "types": "./dist/types/configurator/options/BabelConfiguratorResolvedOptions.d.ts",
+      "default": "./src/configurator/options/BabelConfiguratorResolvedOptions.ts"
+    },
+    "./configurator/options/BabelConfiguratorResolvedOptions.js": {
+      "types": "./dist/types/configurator/options/BabelConfiguratorResolvedOptions.d.ts",
+      "import": "./dist/esm/configurator/options/BabelConfiguratorResolvedOptions.mjs",
+      "require": "./dist/cjs/configurator/options/BabelConfiguratorResolvedOptions.cjs",
+      "default": "./src/configurator/options/BabelConfiguratorResolvedOptions.ts"
+    },
+    "./configurator/options/BabelConfiguratorResolvedOptions.mjs": {
+      "types": "./dist/types/configurator/options/BabelConfiguratorResolvedOptions.d.ts",
+      "import": "./dist/esm/configurator/options/BabelConfiguratorResolvedOptions.mjs",
+      "require": "./dist/cjs/configurator/options/BabelConfiguratorResolvedOptions.cjs",
+      "default": "./src/configurator/options/BabelConfiguratorResolvedOptions.ts"
+    },
+    "./configurator/options/BabelConfiguratorResolvedOptions": {
+      "types": "./dist/types/configurator/options/BabelConfiguratorResolvedOptions.d.ts",
+      "import": "./dist/esm/configurator/options/BabelConfiguratorResolvedOptions.mjs",
+      "require": "./dist/cjs/configurator/options/BabelConfiguratorResolvedOptions.cjs",
+      "default": "./src/configurator/options/BabelConfiguratorResolvedOptions.ts"
+    },
+    "./configurator/options/resolveBabelConfiguratorOptions.cjs": {
+      "types": "./dist/types/configurator/options/resolveBabelConfiguratorOptions.d.ts",
+      "import": "./dist/esm/configurator/options/resolveBabelConfiguratorOptions.mjs",
+      "require": "./dist/cjs/configurator/options/resolveBabelConfiguratorOptions.cjs",
+      "default": "./src/configurator/options/resolveBabelConfiguratorOptions.ts"
+    },
+    "./configurator/options/resolveBabelConfiguratorOptions.d.ts": {
+      "types": "./dist/types/configurator/options/resolveBabelConfiguratorOptions.d.ts",
+      "default": "./src/configurator/options/resolveBabelConfiguratorOptions.ts"
+    },
+    "./configurator/options/resolveBabelConfiguratorOptions.js": {
+      "types": "./dist/types/configurator/options/resolveBabelConfiguratorOptions.d.ts",
+      "import": "./dist/esm/configurator/options/resolveBabelConfiguratorOptions.mjs",
+      "require": "./dist/cjs/configurator/options/resolveBabelConfiguratorOptions.cjs",
+      "default": "./src/configurator/options/resolveBabelConfiguratorOptions.ts"
+    },
+    "./configurator/options/resolveBabelConfiguratorOptions.mjs": {
+      "types": "./dist/types/configurator/options/resolveBabelConfiguratorOptions.d.ts",
+      "import": "./dist/esm/configurator/options/resolveBabelConfiguratorOptions.mjs",
+      "require": "./dist/cjs/configurator/options/resolveBabelConfiguratorOptions.cjs",
+      "default": "./src/configurator/options/resolveBabelConfiguratorOptions.ts"
+    },
+    "./configurator/options/resolveBabelConfiguratorOptions": {
+      "types": "./dist/types/configurator/options/resolveBabelConfiguratorOptions.d.ts",
+      "import": "./dist/esm/configurator/options/resolveBabelConfiguratorOptions.mjs",
+      "require": "./dist/cjs/configurator/options/resolveBabelConfiguratorOptions.cjs",
+      "default": "./src/configurator/options/resolveBabelConfiguratorOptions.ts"
+    },
     "./context/BabelBuild.cjs": {
       "types": "./dist/types/context/BabelBuild.d.ts",
       "import": "./dist/esm/context/BabelBuild.mjs",
@@ -637,6 +721,34 @@
       "require": "./dist/cjs/extension/createBabelIntegration.cjs",
       "default": "./src/extension/createBabelIntegration.ts"
     },
+    "./extension/facets/BabelConfigFilePathFinderFacet.cjs": {
+      "types": "./dist/types/extension/facets/BabelConfigFilePathFinderFacet.d.ts",
+      "import": "./dist/esm/extension/facets/BabelConfigFilePathFinderFacet.mjs",
+      "require": "./dist/cjs/extension/facets/BabelConfigFilePathFinderFacet.cjs",
+      "default": "./src/extension/facets/BabelConfigFilePathFinderFacet.ts"
+    },
+    "./extension/facets/BabelConfigFilePathFinderFacet.d.ts": {
+      "types": "./dist/types/extension/facets/BabelConfigFilePathFinderFacet.d.ts",
+      "default": "./src/extension/facets/BabelConfigFilePathFinderFacet.ts"
+    },
+    "./extension/facets/BabelConfigFilePathFinderFacet.js": {
+      "types": "./dist/types/extension/facets/BabelConfigFilePathFinderFacet.d.ts",
+      "import": "./dist/esm/extension/facets/BabelConfigFilePathFinderFacet.mjs",
+      "require": "./dist/cjs/extension/facets/BabelConfigFilePathFinderFacet.cjs",
+      "default": "./src/extension/facets/BabelConfigFilePathFinderFacet.ts"
+    },
+    "./extension/facets/BabelConfigFilePathFinderFacet.mjs": {
+      "types": "./dist/types/extension/facets/BabelConfigFilePathFinderFacet.d.ts",
+      "import": "./dist/esm/extension/facets/BabelConfigFilePathFinderFacet.mjs",
+      "require": "./dist/cjs/extension/facets/BabelConfigFilePathFinderFacet.cjs",
+      "default": "./src/extension/facets/BabelConfigFilePathFinderFacet.ts"
+    },
+    "./extension/facets/BabelConfigFilePathFinderFacet": {
+      "types": "./dist/types/extension/facets/BabelConfigFilePathFinderFacet.d.ts",
+      "import": "./dist/esm/extension/facets/BabelConfigFilePathFinderFacet.mjs",
+      "require": "./dist/cjs/extension/facets/BabelConfigFilePathFinderFacet.cjs",
+      "default": "./src/extension/facets/BabelConfigFilePathFinderFacet.ts"
+    },
     "./extension/facets/BabelConfiguratorFacet.cjs": {
       "types": "./dist/types/extension/facets/BabelConfiguratorFacet.d.ts",
       "import": "./dist/esm/extension/facets/BabelConfiguratorFacet.mjs",
@@ -664,6 +776,34 @@
       "import": "./dist/esm/extension/facets/BabelConfiguratorFacet.mjs",
       "require": "./dist/cjs/extension/facets/BabelConfiguratorFacet.cjs",
       "default": "./src/extension/facets/BabelConfiguratorFacet.ts"
+    },
+    "./extension/options/BabelIntegrationOptions.cjs": {
+      "types": "./dist/types/extension/options/BabelIntegrationOptions.d.ts",
+      "import": "./dist/esm/extension/options/BabelIntegrationOptions.mjs",
+      "require": "./dist/cjs/extension/options/BabelIntegrationOptions.cjs",
+      "default": "./src/extension/options/BabelIntegrationOptions.ts"
+    },
+    "./extension/options/BabelIntegrationOptions.d.ts": {
+      "types": "./dist/types/extension/options/BabelIntegrationOptions.d.ts",
+      "default": "./src/extension/options/BabelIntegrationOptions.ts"
+    },
+    "./extension/options/BabelIntegrationOptions.js": {
+      "types": "./dist/types/extension/options/BabelIntegrationOptions.d.ts",
+      "import": "./dist/esm/extension/options/BabelIntegrationOptions.mjs",
+      "require": "./dist/cjs/extension/options/BabelIntegrationOptions.cjs",
+      "default": "./src/extension/options/BabelIntegrationOptions.ts"
+    },
+    "./extension/options/BabelIntegrationOptions.mjs": {
+      "types": "./dist/types/extension/options/BabelIntegrationOptions.d.ts",
+      "import": "./dist/esm/extension/options/BabelIntegrationOptions.mjs",
+      "require": "./dist/cjs/extension/options/BabelIntegrationOptions.cjs",
+      "default": "./src/extension/options/BabelIntegrationOptions.ts"
+    },
+    "./extension/options/BabelIntegrationOptions": {
+      "types": "./dist/types/extension/options/BabelIntegrationOptions.d.ts",
+      "import": "./dist/esm/extension/options/BabelIntegrationOptions.mjs",
+      "require": "./dist/cjs/extension/options/BabelIntegrationOptions.cjs",
+      "default": "./src/extension/options/BabelIntegrationOptions.ts"
     },
     "./hook/constants/UID_PREFIX_BABEL_INTEGRATION_HOOK.cjs": {
       "types": "./dist/types/hook/constants/UID_PREFIX_BABEL_INTEGRATION_HOOK.d.ts",
@@ -888,90 +1028,6 @@
       "import": "./dist/esm/index.mjs",
       "require": "./dist/cjs/index.cjs",
       "default": "./src/index.ts"
-    },
-    "./options/BabelIntegrationOptions.cjs": {
-      "types": "./dist/types/options/BabelIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/BabelIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/BabelIntegrationOptions.cjs",
-      "default": "./src/options/BabelIntegrationOptions.ts"
-    },
-    "./options/BabelIntegrationOptions.d.ts": {
-      "types": "./dist/types/options/BabelIntegrationOptions.d.ts",
-      "default": "./src/options/BabelIntegrationOptions.ts"
-    },
-    "./options/BabelIntegrationOptions.js": {
-      "types": "./dist/types/options/BabelIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/BabelIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/BabelIntegrationOptions.cjs",
-      "default": "./src/options/BabelIntegrationOptions.ts"
-    },
-    "./options/BabelIntegrationOptions.mjs": {
-      "types": "./dist/types/options/BabelIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/BabelIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/BabelIntegrationOptions.cjs",
-      "default": "./src/options/BabelIntegrationOptions.ts"
-    },
-    "./options/BabelIntegrationOptions": {
-      "types": "./dist/types/options/BabelIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/BabelIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/BabelIntegrationOptions.cjs",
-      "default": "./src/options/BabelIntegrationOptions.ts"
-    },
-    "./options/BabelIntegrationResolvedOptions.cjs": {
-      "types": "./dist/types/options/BabelIntegrationResolvedOptions.d.ts",
-      "import": "./dist/esm/options/BabelIntegrationResolvedOptions.mjs",
-      "require": "./dist/cjs/options/BabelIntegrationResolvedOptions.cjs",
-      "default": "./src/options/BabelIntegrationResolvedOptions.ts"
-    },
-    "./options/BabelIntegrationResolvedOptions.d.ts": {
-      "types": "./dist/types/options/BabelIntegrationResolvedOptions.d.ts",
-      "default": "./src/options/BabelIntegrationResolvedOptions.ts"
-    },
-    "./options/BabelIntegrationResolvedOptions.js": {
-      "types": "./dist/types/options/BabelIntegrationResolvedOptions.d.ts",
-      "import": "./dist/esm/options/BabelIntegrationResolvedOptions.mjs",
-      "require": "./dist/cjs/options/BabelIntegrationResolvedOptions.cjs",
-      "default": "./src/options/BabelIntegrationResolvedOptions.ts"
-    },
-    "./options/BabelIntegrationResolvedOptions.mjs": {
-      "types": "./dist/types/options/BabelIntegrationResolvedOptions.d.ts",
-      "import": "./dist/esm/options/BabelIntegrationResolvedOptions.mjs",
-      "require": "./dist/cjs/options/BabelIntegrationResolvedOptions.cjs",
-      "default": "./src/options/BabelIntegrationResolvedOptions.ts"
-    },
-    "./options/BabelIntegrationResolvedOptions": {
-      "types": "./dist/types/options/BabelIntegrationResolvedOptions.d.ts",
-      "import": "./dist/esm/options/BabelIntegrationResolvedOptions.mjs",
-      "require": "./dist/cjs/options/BabelIntegrationResolvedOptions.cjs",
-      "default": "./src/options/BabelIntegrationResolvedOptions.ts"
-    },
-    "./options/resolveBabelIntegrationOptions.cjs": {
-      "types": "./dist/types/options/resolveBabelIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/resolveBabelIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/resolveBabelIntegrationOptions.cjs",
-      "default": "./src/options/resolveBabelIntegrationOptions.ts"
-    },
-    "./options/resolveBabelIntegrationOptions.d.ts": {
-      "types": "./dist/types/options/resolveBabelIntegrationOptions.d.ts",
-      "default": "./src/options/resolveBabelIntegrationOptions.ts"
-    },
-    "./options/resolveBabelIntegrationOptions.js": {
-      "types": "./dist/types/options/resolveBabelIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/resolveBabelIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/resolveBabelIntegrationOptions.cjs",
-      "default": "./src/options/resolveBabelIntegrationOptions.ts"
-    },
-    "./options/resolveBabelIntegrationOptions.mjs": {
-      "types": "./dist/types/options/resolveBabelIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/resolveBabelIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/resolveBabelIntegrationOptions.cjs",
-      "default": "./src/options/resolveBabelIntegrationOptions.ts"
-    },
-    "./options/resolveBabelIntegrationOptions": {
-      "types": "./dist/types/options/resolveBabelIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/resolveBabelIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/resolveBabelIntegrationOptions.cjs",
-      "default": "./src/options/resolveBabelIntegrationOptions.ts"
     },
     "./package.json": {
       "default": "./package.json"
@@ -2001,6 +2057,174 @@
       "import": "./dist/esm/presets/typescript/index.mjs",
       "require": "./dist/cjs/presets/typescript/index.cjs",
       "default": "./src/presets/typescript/index.ts"
+    },
+    "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.cjs": {
+      "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.cjs",
+      "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.ts"
+    },
+    "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.d.ts": {
+      "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.d.ts",
+      "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.ts"
+    },
+    "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.js": {
+      "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.cjs",
+      "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.ts"
+    },
+    "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.mjs": {
+      "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.cjs",
+      "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.ts"
+    },
+    "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync": {
+      "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.cjs",
+      "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.ts"
+    },
+    "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.cjs": {
+      "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.cjs",
+      "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.ts"
+    },
+    "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.d.ts": {
+      "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.d.ts",
+      "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.ts"
+    },
+    "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.js": {
+      "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.cjs",
+      "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.ts"
+    },
+    "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.mjs": {
+      "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.cjs",
+      "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.ts"
+    },
+    "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase": {
+      "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.cjs",
+      "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.ts"
+    },
+    "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.cjs": {
+      "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.cjs",
+      "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.ts"
+    },
+    "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.d.ts": {
+      "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.d.ts",
+      "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.ts"
+    },
+    "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.js": {
+      "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.cjs",
+      "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.ts"
+    },
+    "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.mjs": {
+      "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.cjs",
+      "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.ts"
+    },
+    "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync": {
+      "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.cjs",
+      "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.ts"
+    },
+    "./utils/config-file-path-finder/findBabelConfigFilePathAsync.cjs": {
+      "types": "./dist/types/utils/config-file-path-finder/findBabelConfigFilePathAsync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/findBabelConfigFilePathAsync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/findBabelConfigFilePathAsync.cjs",
+      "default": "./src/utils/config-file-path-finder/findBabelConfigFilePathAsync.ts"
+    },
+    "./utils/config-file-path-finder/findBabelConfigFilePathAsync.d.ts": {
+      "types": "./dist/types/utils/config-file-path-finder/findBabelConfigFilePathAsync.d.ts",
+      "default": "./src/utils/config-file-path-finder/findBabelConfigFilePathAsync.ts"
+    },
+    "./utils/config-file-path-finder/findBabelConfigFilePathAsync.js": {
+      "types": "./dist/types/utils/config-file-path-finder/findBabelConfigFilePathAsync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/findBabelConfigFilePathAsync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/findBabelConfigFilePathAsync.cjs",
+      "default": "./src/utils/config-file-path-finder/findBabelConfigFilePathAsync.ts"
+    },
+    "./utils/config-file-path-finder/findBabelConfigFilePathAsync.mjs": {
+      "types": "./dist/types/utils/config-file-path-finder/findBabelConfigFilePathAsync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/findBabelConfigFilePathAsync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/findBabelConfigFilePathAsync.cjs",
+      "default": "./src/utils/config-file-path-finder/findBabelConfigFilePathAsync.ts"
+    },
+    "./utils/config-file-path-finder/findBabelConfigFilePathAsync": {
+      "types": "./dist/types/utils/config-file-path-finder/findBabelConfigFilePathAsync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/findBabelConfigFilePathAsync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/findBabelConfigFilePathAsync.cjs",
+      "default": "./src/utils/config-file-path-finder/findBabelConfigFilePathAsync.ts"
+    },
+    "./utils/config-file-path-finder/findBabelConfigFilePathSync.cjs": {
+      "types": "./dist/types/utils/config-file-path-finder/findBabelConfigFilePathSync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/findBabelConfigFilePathSync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/findBabelConfigFilePathSync.cjs",
+      "default": "./src/utils/config-file-path-finder/findBabelConfigFilePathSync.ts"
+    },
+    "./utils/config-file-path-finder/findBabelConfigFilePathSync.d.ts": {
+      "types": "./dist/types/utils/config-file-path-finder/findBabelConfigFilePathSync.d.ts",
+      "default": "./src/utils/config-file-path-finder/findBabelConfigFilePathSync.ts"
+    },
+    "./utils/config-file-path-finder/findBabelConfigFilePathSync.js": {
+      "types": "./dist/types/utils/config-file-path-finder/findBabelConfigFilePathSync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/findBabelConfigFilePathSync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/findBabelConfigFilePathSync.cjs",
+      "default": "./src/utils/config-file-path-finder/findBabelConfigFilePathSync.ts"
+    },
+    "./utils/config-file-path-finder/findBabelConfigFilePathSync.mjs": {
+      "types": "./dist/types/utils/config-file-path-finder/findBabelConfigFilePathSync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/findBabelConfigFilePathSync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/findBabelConfigFilePathSync.cjs",
+      "default": "./src/utils/config-file-path-finder/findBabelConfigFilePathSync.ts"
+    },
+    "./utils/config-file-path-finder/findBabelConfigFilePathSync": {
+      "types": "./dist/types/utils/config-file-path-finder/findBabelConfigFilePathSync.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/findBabelConfigFilePathSync.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/findBabelConfigFilePathSync.cjs",
+      "default": "./src/utils/config-file-path-finder/findBabelConfigFilePathSync.ts"
+    },
+    "./utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.cjs": {
+      "types": "./dist/types/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.cjs",
+      "default": "./src/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.ts"
+    },
+    "./utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.d.ts": {
+      "types": "./dist/types/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.d.ts",
+      "default": "./src/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.ts"
+    },
+    "./utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.js": {
+      "types": "./dist/types/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.cjs",
+      "default": "./src/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.ts"
+    },
+    "./utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.mjs": {
+      "types": "./dist/types/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.cjs",
+      "default": "./src/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.ts"
+    },
+    "./utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns": {
+      "types": "./dist/types/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.d.ts",
+      "import": "./dist/esm/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.mjs",
+      "require": "./dist/cjs/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.cjs",
+      "default": "./src/utils/config-file-path-finder/getDefaultBabelConfigFilePathGlobPatterns.ts"
     },
     ".": {
       "types": "./dist/types/index.d.ts",

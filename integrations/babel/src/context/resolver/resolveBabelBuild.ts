@@ -1,10 +1,10 @@
-import type { BabelIntegrationResolvedOptions } from "../../options/BabelIntegrationResolvedOptions";
+import type { BabelConfiguratorResolvedOptions } from "../../configurator/options/BabelConfiguratorResolvedOptions";
 import type { BabelBuild } from "../BabelBuild";
 
 import { resolveBabelBuildTarget } from "./resolveBabelBuildTarget";
 
 export function resolveBabelBuild(
-  options: BabelIntegrationResolvedOptions,
+  options: BabelConfiguratorResolvedOptions,
 ): BabelBuild
 {
   return {

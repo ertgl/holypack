@@ -8,7 +8,7 @@ export function createGenerateTransformOptionsHookAsync(): GenerateTransformOpti
   return new AsyncParallelHook(
     [
       "babelContext",
-      "babelIntegrationOptions",
+      "configuratorOptions",
       "transformOptions",
     ] as const,
     BABEL_INTEGRATION_HOOK_UID_GENERATE_TRANSFORM_OPTIONS_ASYNC,

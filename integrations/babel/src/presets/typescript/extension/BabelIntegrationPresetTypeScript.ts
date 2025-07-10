@@ -8,12 +8,12 @@ import type { AnyHook } from "@holypack/core/hook/AnyHook";
 import type { AnyHookSync } from "@holypack/core/hook/AnyHookSync";
 import type { Optional } from "@holypack/core/lib/object/Optional";
 
+import type { BabelConfiguratorResolvedOptions } from "../../../configurator/options/BabelConfiguratorResolvedOptions";
 import type { BabelContext } from "../../../context/BabelContext";
 import { BABEL_INTEGRATION_HOOK_UID_GENERATE_TRANSFORM_OPTIONS_ASYNC } from "../../../hooks/generate-transform-options/BABEL_INTEGRATION_HOOK_UID_GENERATE_TRANSFORM_OPTIONS_ASYNC";
 import { BABEL_INTEGRATION_HOOK_UID_GENERATE_TRANSFORM_OPTIONS_SYNC } from "../../../hooks/generate-transform-options/BABEL_INTEGRATION_HOOK_UID_GENERATE_TRANSFORM_OPTIONS_SYNC";
 import type { GenerateTransformOptionsHookAsync } from "../../../hooks/generate-transform-options/GenerateTransformOptionsHookAsync";
 import type { GenerateTransformOptionsHookSync } from "../../../hooks/generate-transform-options/GenerateTransformOptionsHookSync";
-import type { BabelIntegrationResolvedOptions } from "../../../options/BabelIntegrationResolvedOptions";
 import type { BabelIntegrationPresetTypeScriptOptions } from "../options/BabelIntegrationPresetTypeScriptOptions";
 
 import type { BabelIntegrationPresetTypeScriptFacets } from "./BabelIntegrationPresetTypeScriptFacets";
@@ -90,14 +90,14 @@ export class BabelIntegrationPresetTypeScript extends AbstractExtension
   async configureBabelPresetTypeScript(
     context: ContextAsync,
     babelContext: BabelContext,
-    babelIntegrationOptions: BabelIntegrationResolvedOptions,
+    configuratorOptions: BabelConfiguratorResolvedOptions,
     transformOptions: TransformOptions,
   ): Promise<void>
   {
     await this.facets.configurator.configureBabelPresetTypeScript(
       context,
       babelContext,
-      babelIntegrationOptions,
+      configuratorOptions,
       transformOptions,
     );
   }
@@ -105,14 +105,14 @@ export class BabelIntegrationPresetTypeScript extends AbstractExtension
   configureBabelPresetTypeScriptSync(
     context: ContextSync,
     babelContext: BabelContext,
-    babelIntegrationOptions: BabelIntegrationResolvedOptions,
+    configuratorOptions: BabelConfiguratorResolvedOptions,
     transformOptions: TransformOptions,
   ): void
   {
     this.facets.configurator.configureBabelPresetTypeScriptSync(
       context,
       babelContext,
-      babelIntegrationOptions,
+      configuratorOptions,
       transformOptions,
     );
   }
