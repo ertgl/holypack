@@ -3,6 +3,8 @@
 import { createCLI } from "@holypack/cli/createCLI";
 import { runCLI } from "@holypack/cli/runCLI";
 
+Error.stackTraceLimit = Infinity;
+
 async function main(
   args?: null | readonly string[],
 ): Promise<void>
