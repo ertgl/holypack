@@ -5049,6 +5049,90 @@
       "require": "./dist/cjs/hook/interop/UseHookCallbackSync.cjs",
       "default": "./src/hook/interop/UseHookCallbackSync.ts"
     },
+    "./hook/interop/UseHookFallbackAsync.cjs": {
+      "types": "./dist/types/hook/interop/UseHookFallbackAsync.d.ts",
+      "import": "./dist/esm/hook/interop/UseHookFallbackAsync.mjs",
+      "require": "./dist/cjs/hook/interop/UseHookFallbackAsync.cjs",
+      "default": "./src/hook/interop/UseHookFallbackAsync.ts"
+    },
+    "./hook/interop/UseHookFallbackAsync.d.ts": {
+      "types": "./dist/types/hook/interop/UseHookFallbackAsync.d.ts",
+      "default": "./src/hook/interop/UseHookFallbackAsync.ts"
+    },
+    "./hook/interop/UseHookFallbackAsync.js": {
+      "types": "./dist/types/hook/interop/UseHookFallbackAsync.d.ts",
+      "import": "./dist/esm/hook/interop/UseHookFallbackAsync.mjs",
+      "require": "./dist/cjs/hook/interop/UseHookFallbackAsync.cjs",
+      "default": "./src/hook/interop/UseHookFallbackAsync.ts"
+    },
+    "./hook/interop/UseHookFallbackAsync.mjs": {
+      "types": "./dist/types/hook/interop/UseHookFallbackAsync.d.ts",
+      "import": "./dist/esm/hook/interop/UseHookFallbackAsync.mjs",
+      "require": "./dist/cjs/hook/interop/UseHookFallbackAsync.cjs",
+      "default": "./src/hook/interop/UseHookFallbackAsync.ts"
+    },
+    "./hook/interop/UseHookFallbackAsync": {
+      "types": "./dist/types/hook/interop/UseHookFallbackAsync.d.ts",
+      "import": "./dist/esm/hook/interop/UseHookFallbackAsync.mjs",
+      "require": "./dist/cjs/hook/interop/UseHookFallbackAsync.cjs",
+      "default": "./src/hook/interop/UseHookFallbackAsync.ts"
+    },
+    "./hook/interop/UseHookFallbackMaybeAsync.cjs": {
+      "types": "./dist/types/hook/interop/UseHookFallbackMaybeAsync.d.ts",
+      "import": "./dist/esm/hook/interop/UseHookFallbackMaybeAsync.mjs",
+      "require": "./dist/cjs/hook/interop/UseHookFallbackMaybeAsync.cjs",
+      "default": "./src/hook/interop/UseHookFallbackMaybeAsync.ts"
+    },
+    "./hook/interop/UseHookFallbackMaybeAsync.d.ts": {
+      "types": "./dist/types/hook/interop/UseHookFallbackMaybeAsync.d.ts",
+      "default": "./src/hook/interop/UseHookFallbackMaybeAsync.ts"
+    },
+    "./hook/interop/UseHookFallbackMaybeAsync.js": {
+      "types": "./dist/types/hook/interop/UseHookFallbackMaybeAsync.d.ts",
+      "import": "./dist/esm/hook/interop/UseHookFallbackMaybeAsync.mjs",
+      "require": "./dist/cjs/hook/interop/UseHookFallbackMaybeAsync.cjs",
+      "default": "./src/hook/interop/UseHookFallbackMaybeAsync.ts"
+    },
+    "./hook/interop/UseHookFallbackMaybeAsync.mjs": {
+      "types": "./dist/types/hook/interop/UseHookFallbackMaybeAsync.d.ts",
+      "import": "./dist/esm/hook/interop/UseHookFallbackMaybeAsync.mjs",
+      "require": "./dist/cjs/hook/interop/UseHookFallbackMaybeAsync.cjs",
+      "default": "./src/hook/interop/UseHookFallbackMaybeAsync.ts"
+    },
+    "./hook/interop/UseHookFallbackMaybeAsync": {
+      "types": "./dist/types/hook/interop/UseHookFallbackMaybeAsync.d.ts",
+      "import": "./dist/esm/hook/interop/UseHookFallbackMaybeAsync.mjs",
+      "require": "./dist/cjs/hook/interop/UseHookFallbackMaybeAsync.cjs",
+      "default": "./src/hook/interop/UseHookFallbackMaybeAsync.ts"
+    },
+    "./hook/interop/UseHookFallbackSync.cjs": {
+      "types": "./dist/types/hook/interop/UseHookFallbackSync.d.ts",
+      "import": "./dist/esm/hook/interop/UseHookFallbackSync.mjs",
+      "require": "./dist/cjs/hook/interop/UseHookFallbackSync.cjs",
+      "default": "./src/hook/interop/UseHookFallbackSync.ts"
+    },
+    "./hook/interop/UseHookFallbackSync.d.ts": {
+      "types": "./dist/types/hook/interop/UseHookFallbackSync.d.ts",
+      "default": "./src/hook/interop/UseHookFallbackSync.ts"
+    },
+    "./hook/interop/UseHookFallbackSync.js": {
+      "types": "./dist/types/hook/interop/UseHookFallbackSync.d.ts",
+      "import": "./dist/esm/hook/interop/UseHookFallbackSync.mjs",
+      "require": "./dist/cjs/hook/interop/UseHookFallbackSync.cjs",
+      "default": "./src/hook/interop/UseHookFallbackSync.ts"
+    },
+    "./hook/interop/UseHookFallbackSync.mjs": {
+      "types": "./dist/types/hook/interop/UseHookFallbackSync.d.ts",
+      "import": "./dist/esm/hook/interop/UseHookFallbackSync.mjs",
+      "require": "./dist/cjs/hook/interop/UseHookFallbackSync.cjs",
+      "default": "./src/hook/interop/UseHookFallbackSync.ts"
+    },
+    "./hook/interop/UseHookFallbackSync": {
+      "types": "./dist/types/hook/interop/UseHookFallbackSync.d.ts",
+      "import": "./dist/esm/hook/interop/UseHookFallbackSync.mjs",
+      "require": "./dist/cjs/hook/interop/UseHookFallbackSync.cjs",
+      "default": "./src/hook/interop/UseHookFallbackSync.ts"
+    },
     "./hook/interop/maybeUseHookAsync.cjs": {
       "types": "./dist/types/hook/interop/maybeUseHookAsync.d.ts",
       "import": "./dist/esm/hook/interop/maybeUseHookAsync.mjs",
