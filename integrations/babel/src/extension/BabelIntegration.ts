@@ -1,5 +1,7 @@
 import type { TransformOptions } from "@babel/core";
 
+import type { Program } from "@holypack/cli/program/Program.cjs";
+import type { CLIExtensionProtocol } from "@holypack/cli/protocol/CLIExtensionProtocol";
 import type { ContextAsync } from "@holypack/core/context/ContextAsync";
 import type { ContextSync } from "@holypack/core/context/ContextSync";
 import { AbstractExtension } from "@holypack/core/extension/AbstractExtension";
@@ -10,6 +12,7 @@ import { maybeBindExtensionHookSync } from "@holypack/core/extension/hook/binder
 import type { Optional } from "@holypack/core/lib/object/Optional";
 import type { Path } from "@holypack/core/lib/path/Path";
 
+import { createCLICommandBabel } from "../cli/createCLICommandBabel";
 import type { BabelConfiguratorOptions } from "../configurator/options/BabelConfiguratorOptions";
 import { createGenerateTransformOptionsHookAsync } from "../hooks/generate-transform-options/createGenerateTransformOptionsHookAsync";
 import { createGenerateTransformOptionsHookSync } from "../hooks/generate-transform-options/createGenerateTransformOptionsHookSync";
@@ -26,6 +29,7 @@ import { INTEGRATION_UID_BABEL } from "./INTEGRATION_UID_BABEL";
 import type { BabelIntegrationOptions } from "./options/BabelIntegrationOptions";
 
 export class BabelIntegration extends AbstractExtension
+  implements CLIExtensionProtocol
 {
   readonly $uid = INTEGRATION_UID_BABEL;
 
@@ -95,6 +99,32 @@ export class BabelIntegration extends AbstractExtension
       context,
       this,
       createGenerateTransformOptionsHookAsync(),
+    );
+  }
+
+  $setupCLI(
+    context: ContextAsync,
+    program: Program,
+  ): void
+  {
+    program.addCommand(
+      createCLICommandBabel(
+        context,
+        program,
+      ),
+    );
+  }
+
+  $setupCLISync(
+    context: ContextSync,
+    program: Program,
+  ): void
+  {
+    program.addCommand(
+      createCLICommandBabel(
+        context,
+        program,
+      ),
     );
   }
 

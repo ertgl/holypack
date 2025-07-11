@@ -29,6 +29,7 @@
     "@babel/core": "^7.28.0",
     "@babel/preset-env": "^7.28.0",
     "@babel/preset-typescript": "^7.27.1",
+    "@holypack/cli": "workspace:^",
     "@holypack/core": "workspace:^",
     "@types/babel__core": "^7.20.5",
     "@types/babel__preset-env": "^7.10.0",
@@ -244,6 +245,34 @@
       "import": "./dist/esm/build/module/format/castModuleFormat.mjs",
       "require": "./dist/cjs/build/module/format/castModuleFormat.cjs",
       "default": "./src/build/module/format/castModuleFormat.ts"
+    },
+    "./cli/createCLICommandBabel.cjs": {
+      "types": "./dist/types/cli/createCLICommandBabel.d.ts",
+      "import": "./dist/esm/cli/createCLICommandBabel.mjs",
+      "require": "./dist/cjs/cli/createCLICommandBabel.cjs",
+      "default": "./src/cli/createCLICommandBabel.ts"
+    },
+    "./cli/createCLICommandBabel.d.ts": {
+      "types": "./dist/types/cli/createCLICommandBabel.d.ts",
+      "default": "./src/cli/createCLICommandBabel.ts"
+    },
+    "./cli/createCLICommandBabel.js": {
+      "types": "./dist/types/cli/createCLICommandBabel.d.ts",
+      "import": "./dist/esm/cli/createCLICommandBabel.mjs",
+      "require": "./dist/cjs/cli/createCLICommandBabel.cjs",
+      "default": "./src/cli/createCLICommandBabel.ts"
+    },
+    "./cli/createCLICommandBabel.mjs": {
+      "types": "./dist/types/cli/createCLICommandBabel.d.ts",
+      "import": "./dist/esm/cli/createCLICommandBabel.mjs",
+      "require": "./dist/cjs/cli/createCLICommandBabel.cjs",
+      "default": "./src/cli/createCLICommandBabel.ts"
+    },
+    "./cli/createCLICommandBabel": {
+      "types": "./dist/types/cli/createCLICommandBabel.d.ts",
+      "import": "./dist/esm/cli/createCLICommandBabel.mjs",
+      "require": "./dist/cjs/cli/createCLICommandBabel.cjs",
+      "default": "./src/cli/createCLICommandBabel.ts"
     },
     "./configurator/fields/configureFieldSourceType.cjs": {
       "types": "./dist/types/configurator/fields/configureFieldSourceType.d.ts",
