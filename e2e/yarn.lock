@@ -2195,6 +2195,19 @@ __metadata:
   languageName: node
   linkType: soft
 
+"@holypack/cli@portal:../packages/cli::locator=%40holypack%2F__e2e__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/cli@portal:../packages/cli::locator=%40holypack%2F__e2e__%40workspace%3A."
+  peerDependencies:
+    "@holypack/core": "*"
+    commander: "*"
+    pretty-format: "*"
+  peerDependenciesMeta:
+    pretty-format:
+      optional: true
+  languageName: node
+  linkType: soft
+
 "@holypack/core@portal:../packages/core::locator=%40holypack%2F__e2e__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@holypack/core@portal:../packages/core::locator=%40holypack%2F__e2e__%40workspace%3A."
@@ -2344,6 +2357,7 @@ __metadata:
     "@babel/core": "npm:^7.28.0"
     "@babel/preset-env": "npm:^7.28.0"
     "@babel/preset-typescript": "npm:^7.27.1"
+    "@holypack/cli": "workspace:^"
     "@holypack/core": "workspace:^"
     "@types/babel__core": "npm:^7.20.5"
     "@types/babel__preset-env": "npm:^7.10.0"
