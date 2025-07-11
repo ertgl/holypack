@@ -72,6 +72,12 @@ export default defineConfig(
         suppressErrorSync(
           requireDefaultExport,
           require,
+          "@holypack/integration-babel",
+        ),
+
+        suppressErrorSync(
+          requireDefaultExport,
+          require,
           "@holypack/integration-typescript",
         ),
 
