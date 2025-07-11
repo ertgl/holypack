@@ -1,11 +1,11 @@
 import { styleText } from "node:util";
 
-import { Command } from "commander";
+import type { Command } from "commander";
 
-export function createCommand(): Command
+export function configureCommandHelp(
+  command: Command,
+): void
 {
-  const command = new Command();
-
   command.configureHelp({
     sortOptions: true,
     sortSubcommands: true,
@@ -16,6 +16,4 @@ export function createCommand(): Command
     styleTitle: (str) => styleText(["bold", "green"], str),
     styleUsage: (str) => styleText(["bold", "cyan"], str),
   });
-
-  return command;
 }

@@ -3,7 +3,7 @@ import HOLYPACK_CORE_PACKAGE from "@holypack/core/package.json" with { type: "js
 import type { CLI } from "./CLI";
 import { createConfigCommandsGroup } from "./commands/config/createConfigCommandsGroup";
 import { createContextCommandsGroup } from "./commands/context/createContextCommandsGroup";
-import { createCommand } from "./createCommand";
+import { Program } from "./program/Program";
 
 const DESCRIPTION = `
 Work with holypack from the command line.
@@ -19,7 +19,7 @@ https://github.com/ertgl/holypack/blob/main/LICENSE
 
 export function createCLI(): CLI
 {
-  const program = createCommand();
+  const program = new Program();
 
   program.name("holypack");
   program.description(DESCRIPTION);
@@ -39,6 +39,12 @@ export function createCLI(): CLI
   program.option(
     "--cwd <path>",
     "path to the current working directory",
+  );
+
+  program.option(
+    "--sync",
+    "run in synchronous mode",
+    false,
   );
 
   program.addCommand(

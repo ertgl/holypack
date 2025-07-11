@@ -71,6 +71,62 @@
       "require": "./dist/cjs/CLI.cjs",
       "default": "./src/CLI.ts"
     },
+    "./command/configureCommandHelp.cjs": {
+      "types": "./dist/types/command/configureCommandHelp.d.ts",
+      "import": "./dist/esm/command/configureCommandHelp.mjs",
+      "require": "./dist/cjs/command/configureCommandHelp.cjs",
+      "default": "./src/command/configureCommandHelp.ts"
+    },
+    "./command/configureCommandHelp.d.ts": {
+      "types": "./dist/types/command/configureCommandHelp.d.ts",
+      "default": "./src/command/configureCommandHelp.ts"
+    },
+    "./command/configureCommandHelp.js": {
+      "types": "./dist/types/command/configureCommandHelp.d.ts",
+      "import": "./dist/esm/command/configureCommandHelp.mjs",
+      "require": "./dist/cjs/command/configureCommandHelp.cjs",
+      "default": "./src/command/configureCommandHelp.ts"
+    },
+    "./command/configureCommandHelp.mjs": {
+      "types": "./dist/types/command/configureCommandHelp.d.ts",
+      "import": "./dist/esm/command/configureCommandHelp.mjs",
+      "require": "./dist/cjs/command/configureCommandHelp.cjs",
+      "default": "./src/command/configureCommandHelp.ts"
+    },
+    "./command/configureCommandHelp": {
+      "types": "./dist/types/command/configureCommandHelp.d.ts",
+      "import": "./dist/esm/command/configureCommandHelp.mjs",
+      "require": "./dist/cjs/command/configureCommandHelp.cjs",
+      "default": "./src/command/configureCommandHelp.ts"
+    },
+    "./command/createCommand.cjs": {
+      "types": "./dist/types/command/createCommand.d.ts",
+      "import": "./dist/esm/command/createCommand.mjs",
+      "require": "./dist/cjs/command/createCommand.cjs",
+      "default": "./src/command/createCommand.ts"
+    },
+    "./command/createCommand.d.ts": {
+      "types": "./dist/types/command/createCommand.d.ts",
+      "default": "./src/command/createCommand.ts"
+    },
+    "./command/createCommand.js": {
+      "types": "./dist/types/command/createCommand.d.ts",
+      "import": "./dist/esm/command/createCommand.mjs",
+      "require": "./dist/cjs/command/createCommand.cjs",
+      "default": "./src/command/createCommand.ts"
+    },
+    "./command/createCommand.mjs": {
+      "types": "./dist/types/command/createCommand.d.ts",
+      "import": "./dist/esm/command/createCommand.mjs",
+      "require": "./dist/cjs/command/createCommand.cjs",
+      "default": "./src/command/createCommand.ts"
+    },
+    "./command/createCommand": {
+      "types": "./dist/types/command/createCommand.d.ts",
+      "import": "./dist/esm/command/createCommand.mjs",
+      "require": "./dist/cjs/command/createCommand.cjs",
+      "default": "./src/command/createCommand.ts"
+    },
     "./commands/config/createConfigCommandsGroup.cjs": {
       "types": "./dist/types/commands/config/createConfigCommandsGroup.d.ts",
       "import": "./dist/esm/commands/config/createConfigCommandsGroup.mjs",
@@ -239,33 +295,257 @@
       "require": "./dist/cjs/createCLI.cjs",
       "default": "./src/createCLI.ts"
     },
-    "./createCommand.cjs": {
-      "types": "./dist/types/createCommand.d.ts",
-      "import": "./dist/esm/createCommand.mjs",
-      "require": "./dist/cjs/createCommand.cjs",
-      "default": "./src/createCommand.ts"
+    "./extension/CLIExtension.cjs": {
+      "types": "./dist/types/extension/CLIExtension.d.ts",
+      "import": "./dist/esm/extension/CLIExtension.mjs",
+      "require": "./dist/cjs/extension/CLIExtension.cjs",
+      "default": "./src/extension/CLIExtension.ts"
     },
-    "./createCommand.d.ts": {
-      "types": "./dist/types/createCommand.d.ts",
-      "default": "./src/createCommand.ts"
+    "./extension/CLIExtension.d.ts": {
+      "types": "./dist/types/extension/CLIExtension.d.ts",
+      "default": "./src/extension/CLIExtension.ts"
     },
-    "./createCommand.js": {
-      "types": "./dist/types/createCommand.d.ts",
-      "import": "./dist/esm/createCommand.mjs",
-      "require": "./dist/cjs/createCommand.cjs",
-      "default": "./src/createCommand.ts"
+    "./extension/CLIExtension.js": {
+      "types": "./dist/types/extension/CLIExtension.d.ts",
+      "import": "./dist/esm/extension/CLIExtension.mjs",
+      "require": "./dist/cjs/extension/CLIExtension.cjs",
+      "default": "./src/extension/CLIExtension.ts"
     },
-    "./createCommand.mjs": {
-      "types": "./dist/types/createCommand.d.ts",
-      "import": "./dist/esm/createCommand.mjs",
-      "require": "./dist/cjs/createCommand.cjs",
-      "default": "./src/createCommand.ts"
+    "./extension/CLIExtension.mjs": {
+      "types": "./dist/types/extension/CLIExtension.d.ts",
+      "import": "./dist/esm/extension/CLIExtension.mjs",
+      "require": "./dist/cjs/extension/CLIExtension.cjs",
+      "default": "./src/extension/CLIExtension.ts"
     },
-    "./createCommand": {
-      "types": "./dist/types/createCommand.d.ts",
-      "import": "./dist/esm/createCommand.mjs",
-      "require": "./dist/cjs/createCommand.cjs",
-      "default": "./src/createCommand.ts"
+    "./extension/CLIExtension": {
+      "types": "./dist/types/extension/CLIExtension.d.ts",
+      "import": "./dist/esm/extension/CLIExtension.mjs",
+      "require": "./dist/cjs/extension/CLIExtension.cjs",
+      "default": "./src/extension/CLIExtension.ts"
+    },
+    "./extension/EXTENSION_UID_CLI.cjs": {
+      "types": "./dist/types/extension/EXTENSION_UID_CLI.d.ts",
+      "import": "./dist/esm/extension/EXTENSION_UID_CLI.mjs",
+      "require": "./dist/cjs/extension/EXTENSION_UID_CLI.cjs",
+      "default": "./src/extension/EXTENSION_UID_CLI.ts"
+    },
+    "./extension/EXTENSION_UID_CLI.d.ts": {
+      "types": "./dist/types/extension/EXTENSION_UID_CLI.d.ts",
+      "default": "./src/extension/EXTENSION_UID_CLI.ts"
+    },
+    "./extension/EXTENSION_UID_CLI.js": {
+      "types": "./dist/types/extension/EXTENSION_UID_CLI.d.ts",
+      "import": "./dist/esm/extension/EXTENSION_UID_CLI.mjs",
+      "require": "./dist/cjs/extension/EXTENSION_UID_CLI.cjs",
+      "default": "./src/extension/EXTENSION_UID_CLI.ts"
+    },
+    "./extension/EXTENSION_UID_CLI.mjs": {
+      "types": "./dist/types/extension/EXTENSION_UID_CLI.d.ts",
+      "import": "./dist/esm/extension/EXTENSION_UID_CLI.mjs",
+      "require": "./dist/cjs/extension/EXTENSION_UID_CLI.cjs",
+      "default": "./src/extension/EXTENSION_UID_CLI.ts"
+    },
+    "./extension/EXTENSION_UID_CLI": {
+      "types": "./dist/types/extension/EXTENSION_UID_CLI.d.ts",
+      "import": "./dist/esm/extension/EXTENSION_UID_CLI.mjs",
+      "require": "./dist/cjs/extension/EXTENSION_UID_CLI.cjs",
+      "default": "./src/extension/EXTENSION_UID_CLI.ts"
+    },
+    "./extension/createCLIExtension.cjs": {
+      "types": "./dist/types/extension/createCLIExtension.d.ts",
+      "import": "./dist/esm/extension/createCLIExtension.mjs",
+      "require": "./dist/cjs/extension/createCLIExtension.cjs",
+      "default": "./src/extension/createCLIExtension.ts"
+    },
+    "./extension/createCLIExtension.d.ts": {
+      "types": "./dist/types/extension/createCLIExtension.d.ts",
+      "default": "./src/extension/createCLIExtension.ts"
+    },
+    "./extension/createCLIExtension.js": {
+      "types": "./dist/types/extension/createCLIExtension.d.ts",
+      "import": "./dist/esm/extension/createCLIExtension.mjs",
+      "require": "./dist/cjs/extension/createCLIExtension.cjs",
+      "default": "./src/extension/createCLIExtension.ts"
+    },
+    "./extension/createCLIExtension.mjs": {
+      "types": "./dist/types/extension/createCLIExtension.d.ts",
+      "import": "./dist/esm/extension/createCLIExtension.mjs",
+      "require": "./dist/cjs/extension/createCLIExtension.cjs",
+      "default": "./src/extension/createCLIExtension.ts"
+    },
+    "./extension/createCLIExtension": {
+      "types": "./dist/types/extension/createCLIExtension.d.ts",
+      "import": "./dist/esm/extension/createCLIExtension.mjs",
+      "require": "./dist/cjs/extension/createCLIExtension.cjs",
+      "default": "./src/extension/createCLIExtension.ts"
+    },
+    "./hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.cjs": {
+      "types": "./dist/types/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.cjs",
+      "default": "./src/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.ts"
+    },
+    "./hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.d.ts": {
+      "types": "./dist/types/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.d.ts",
+      "default": "./src/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.ts"
+    },
+    "./hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.js": {
+      "types": "./dist/types/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.cjs",
+      "default": "./src/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.ts"
+    },
+    "./hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.mjs": {
+      "types": "./dist/types/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.cjs",
+      "default": "./src/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.ts"
+    },
+    "./hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC": {
+      "types": "./dist/types/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.cjs",
+      "default": "./src/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_ASYNC.ts"
+    },
+    "./hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.cjs": {
+      "types": "./dist/types/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.cjs",
+      "default": "./src/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.ts"
+    },
+    "./hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.d.ts": {
+      "types": "./dist/types/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.d.ts",
+      "default": "./src/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.ts"
+    },
+    "./hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.js": {
+      "types": "./dist/types/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.cjs",
+      "default": "./src/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.ts"
+    },
+    "./hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.mjs": {
+      "types": "./dist/types/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.cjs",
+      "default": "./src/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.ts"
+    },
+    "./hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC": {
+      "types": "./dist/types/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.cjs",
+      "default": "./src/hooks/setup-cli/CLI_HOOK_UID_SETUP_CLI_SYNC.ts"
+    },
+    "./hooks/setup-cli/SetupCLIHookAsync.cjs": {
+      "types": "./dist/types/hooks/setup-cli/SetupCLIHookAsync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/SetupCLIHookAsync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/SetupCLIHookAsync.cjs",
+      "default": "./src/hooks/setup-cli/SetupCLIHookAsync.ts"
+    },
+    "./hooks/setup-cli/SetupCLIHookAsync.d.ts": {
+      "types": "./dist/types/hooks/setup-cli/SetupCLIHookAsync.d.ts",
+      "default": "./src/hooks/setup-cli/SetupCLIHookAsync.ts"
+    },
+    "./hooks/setup-cli/SetupCLIHookAsync.js": {
+      "types": "./dist/types/hooks/setup-cli/SetupCLIHookAsync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/SetupCLIHookAsync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/SetupCLIHookAsync.cjs",
+      "default": "./src/hooks/setup-cli/SetupCLIHookAsync.ts"
+    },
+    "./hooks/setup-cli/SetupCLIHookAsync.mjs": {
+      "types": "./dist/types/hooks/setup-cli/SetupCLIHookAsync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/SetupCLIHookAsync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/SetupCLIHookAsync.cjs",
+      "default": "./src/hooks/setup-cli/SetupCLIHookAsync.ts"
+    },
+    "./hooks/setup-cli/SetupCLIHookAsync": {
+      "types": "./dist/types/hooks/setup-cli/SetupCLIHookAsync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/SetupCLIHookAsync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/SetupCLIHookAsync.cjs",
+      "default": "./src/hooks/setup-cli/SetupCLIHookAsync.ts"
+    },
+    "./hooks/setup-cli/SetupCLIHookSync.cjs": {
+      "types": "./dist/types/hooks/setup-cli/SetupCLIHookSync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/SetupCLIHookSync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/SetupCLIHookSync.cjs",
+      "default": "./src/hooks/setup-cli/SetupCLIHookSync.ts"
+    },
+    "./hooks/setup-cli/SetupCLIHookSync.d.ts": {
+      "types": "./dist/types/hooks/setup-cli/SetupCLIHookSync.d.ts",
+      "default": "./src/hooks/setup-cli/SetupCLIHookSync.ts"
+    },
+    "./hooks/setup-cli/SetupCLIHookSync.js": {
+      "types": "./dist/types/hooks/setup-cli/SetupCLIHookSync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/SetupCLIHookSync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/SetupCLIHookSync.cjs",
+      "default": "./src/hooks/setup-cli/SetupCLIHookSync.ts"
+    },
+    "./hooks/setup-cli/SetupCLIHookSync.mjs": {
+      "types": "./dist/types/hooks/setup-cli/SetupCLIHookSync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/SetupCLIHookSync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/SetupCLIHookSync.cjs",
+      "default": "./src/hooks/setup-cli/SetupCLIHookSync.ts"
+    },
+    "./hooks/setup-cli/SetupCLIHookSync": {
+      "types": "./dist/types/hooks/setup-cli/SetupCLIHookSync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/SetupCLIHookSync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/SetupCLIHookSync.cjs",
+      "default": "./src/hooks/setup-cli/SetupCLIHookSync.ts"
+    },
+    "./hooks/setup-cli/createSetupCLIHookAsync.cjs": {
+      "types": "./dist/types/hooks/setup-cli/createSetupCLIHookAsync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/createSetupCLIHookAsync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/createSetupCLIHookAsync.cjs",
+      "default": "./src/hooks/setup-cli/createSetupCLIHookAsync.ts"
+    },
+    "./hooks/setup-cli/createSetupCLIHookAsync.d.ts": {
+      "types": "./dist/types/hooks/setup-cli/createSetupCLIHookAsync.d.ts",
+      "default": "./src/hooks/setup-cli/createSetupCLIHookAsync.ts"
+    },
+    "./hooks/setup-cli/createSetupCLIHookAsync.js": {
+      "types": "./dist/types/hooks/setup-cli/createSetupCLIHookAsync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/createSetupCLIHookAsync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/createSetupCLIHookAsync.cjs",
+      "default": "./src/hooks/setup-cli/createSetupCLIHookAsync.ts"
+    },
+    "./hooks/setup-cli/createSetupCLIHookAsync.mjs": {
+      "types": "./dist/types/hooks/setup-cli/createSetupCLIHookAsync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/createSetupCLIHookAsync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/createSetupCLIHookAsync.cjs",
+      "default": "./src/hooks/setup-cli/createSetupCLIHookAsync.ts"
+    },
+    "./hooks/setup-cli/createSetupCLIHookAsync": {
+      "types": "./dist/types/hooks/setup-cli/createSetupCLIHookAsync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/createSetupCLIHookAsync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/createSetupCLIHookAsync.cjs",
+      "default": "./src/hooks/setup-cli/createSetupCLIHookAsync.ts"
+    },
+    "./hooks/setup-cli/createSetupCLIHookSync.cjs": {
+      "types": "./dist/types/hooks/setup-cli/createSetupCLIHookSync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/createSetupCLIHookSync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/createSetupCLIHookSync.cjs",
+      "default": "./src/hooks/setup-cli/createSetupCLIHookSync.ts"
+    },
+    "./hooks/setup-cli/createSetupCLIHookSync.d.ts": {
+      "types": "./dist/types/hooks/setup-cli/createSetupCLIHookSync.d.ts",
+      "default": "./src/hooks/setup-cli/createSetupCLIHookSync.ts"
+    },
+    "./hooks/setup-cli/createSetupCLIHookSync.js": {
+      "types": "./dist/types/hooks/setup-cli/createSetupCLIHookSync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/createSetupCLIHookSync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/createSetupCLIHookSync.cjs",
+      "default": "./src/hooks/setup-cli/createSetupCLIHookSync.ts"
+    },
+    "./hooks/setup-cli/createSetupCLIHookSync.mjs": {
+      "types": "./dist/types/hooks/setup-cli/createSetupCLIHookSync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/createSetupCLIHookSync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/createSetupCLIHookSync.cjs",
+      "default": "./src/hooks/setup-cli/createSetupCLIHookSync.ts"
+    },
+    "./hooks/setup-cli/createSetupCLIHookSync": {
+      "types": "./dist/types/hooks/setup-cli/createSetupCLIHookSync.d.ts",
+      "import": "./dist/esm/hooks/setup-cli/createSetupCLIHookSync.mjs",
+      "require": "./dist/cjs/hooks/setup-cli/createSetupCLIHookSync.cjs",
+      "default": "./src/hooks/setup-cli/createSetupCLIHookSync.ts"
     },
     "./index.cjs": {
       "types": "./dist/types/index.d.ts",
@@ -297,6 +577,146 @@
     },
     "./package.json": {
       "default": "./package.json"
+    },
+    "./program/Program.cjs": {
+      "types": "./dist/types/program/Program.d.ts",
+      "import": "./dist/esm/program/Program.mjs",
+      "require": "./dist/cjs/program/Program.cjs",
+      "default": "./src/program/Program.ts"
+    },
+    "./program/Program.d.ts": {
+      "types": "./dist/types/program/Program.d.ts",
+      "default": "./src/program/Program.ts"
+    },
+    "./program/Program.js": {
+      "types": "./dist/types/program/Program.d.ts",
+      "import": "./dist/esm/program/Program.mjs",
+      "require": "./dist/cjs/program/Program.cjs",
+      "default": "./src/program/Program.ts"
+    },
+    "./program/Program.mjs": {
+      "types": "./dist/types/program/Program.d.ts",
+      "import": "./dist/esm/program/Program.mjs",
+      "require": "./dist/cjs/program/Program.cjs",
+      "default": "./src/program/Program.ts"
+    },
+    "./program/Program": {
+      "types": "./dist/types/program/Program.d.ts",
+      "import": "./dist/esm/program/Program.mjs",
+      "require": "./dist/cjs/program/Program.cjs",
+      "default": "./src/program/Program.ts"
+    },
+    "./protocol/CLIExtensionProtocol.cjs": {
+      "types": "./dist/types/protocol/CLIExtensionProtocol.d.ts",
+      "import": "./dist/esm/protocol/CLIExtensionProtocol.mjs",
+      "require": "./dist/cjs/protocol/CLIExtensionProtocol.cjs",
+      "default": "./src/protocol/CLIExtensionProtocol.ts"
+    },
+    "./protocol/CLIExtensionProtocol.d.ts": {
+      "types": "./dist/types/protocol/CLIExtensionProtocol.d.ts",
+      "default": "./src/protocol/CLIExtensionProtocol.ts"
+    },
+    "./protocol/CLIExtensionProtocol.js": {
+      "types": "./dist/types/protocol/CLIExtensionProtocol.d.ts",
+      "import": "./dist/esm/protocol/CLIExtensionProtocol.mjs",
+      "require": "./dist/cjs/protocol/CLIExtensionProtocol.cjs",
+      "default": "./src/protocol/CLIExtensionProtocol.ts"
+    },
+    "./protocol/CLIExtensionProtocol.mjs": {
+      "types": "./dist/types/protocol/CLIExtensionProtocol.d.ts",
+      "import": "./dist/esm/protocol/CLIExtensionProtocol.mjs",
+      "require": "./dist/cjs/protocol/CLIExtensionProtocol.cjs",
+      "default": "./src/protocol/CLIExtensionProtocol.ts"
+    },
+    "./protocol/CLIExtensionProtocolAsync.cjs": {
+      "types": "./dist/types/protocol/CLIExtensionProtocolAsync.d.ts",
+      "import": "./dist/esm/protocol/CLIExtensionProtocolAsync.mjs",
+      "require": "./dist/cjs/protocol/CLIExtensionProtocolAsync.cjs",
+      "default": "./src/protocol/CLIExtensionProtocolAsync.ts"
+    },
+    "./protocol/CLIExtensionProtocolAsync.d.ts": {
+      "types": "./dist/types/protocol/CLIExtensionProtocolAsync.d.ts",
+      "default": "./src/protocol/CLIExtensionProtocolAsync.ts"
+    },
+    "./protocol/CLIExtensionProtocolAsync.js": {
+      "types": "./dist/types/protocol/CLIExtensionProtocolAsync.d.ts",
+      "import": "./dist/esm/protocol/CLIExtensionProtocolAsync.mjs",
+      "require": "./dist/cjs/protocol/CLIExtensionProtocolAsync.cjs",
+      "default": "./src/protocol/CLIExtensionProtocolAsync.ts"
+    },
+    "./protocol/CLIExtensionProtocolAsync.mjs": {
+      "types": "./dist/types/protocol/CLIExtensionProtocolAsync.d.ts",
+      "import": "./dist/esm/protocol/CLIExtensionProtocolAsync.mjs",
+      "require": "./dist/cjs/protocol/CLIExtensionProtocolAsync.cjs",
+      "default": "./src/protocol/CLIExtensionProtocolAsync.ts"
+    },
+    "./protocol/CLIExtensionProtocolAsync": {
+      "types": "./dist/types/protocol/CLIExtensionProtocolAsync.d.ts",
+      "import": "./dist/esm/protocol/CLIExtensionProtocolAsync.mjs",
+      "require": "./dist/cjs/protocol/CLIExtensionProtocolAsync.cjs",
+      "default": "./src/protocol/CLIExtensionProtocolAsync.ts"
+    },
+    "./protocol/CLIExtensionProtocolSync.cjs": {
+      "types": "./dist/types/protocol/CLIExtensionProtocolSync.d.ts",
+      "import": "./dist/esm/protocol/CLIExtensionProtocolSync.mjs",
+      "require": "./dist/cjs/protocol/CLIExtensionProtocolSync.cjs",
+      "default": "./src/protocol/CLIExtensionProtocolSync.ts"
+    },
+    "./protocol/CLIExtensionProtocolSync.d.ts": {
+      "types": "./dist/types/protocol/CLIExtensionProtocolSync.d.ts",
+      "default": "./src/protocol/CLIExtensionProtocolSync.ts"
+    },
+    "./protocol/CLIExtensionProtocolSync.js": {
+      "types": "./dist/types/protocol/CLIExtensionProtocolSync.d.ts",
+      "import": "./dist/esm/protocol/CLIExtensionProtocolSync.mjs",
+      "require": "./dist/cjs/protocol/CLIExtensionProtocolSync.cjs",
+      "default": "./src/protocol/CLIExtensionProtocolSync.ts"
+    },
+    "./protocol/CLIExtensionProtocolSync.mjs": {
+      "types": "./dist/types/protocol/CLIExtensionProtocolSync.d.ts",
+      "import": "./dist/esm/protocol/CLIExtensionProtocolSync.mjs",
+      "require": "./dist/cjs/protocol/CLIExtensionProtocolSync.cjs",
+      "default": "./src/protocol/CLIExtensionProtocolSync.ts"
+    },
+    "./protocol/CLIExtensionProtocolSync": {
+      "types": "./dist/types/protocol/CLIExtensionProtocolSync.d.ts",
+      "import": "./dist/esm/protocol/CLIExtensionProtocolSync.mjs",
+      "require": "./dist/cjs/protocol/CLIExtensionProtocolSync.cjs",
+      "default": "./src/protocol/CLIExtensionProtocolSync.ts"
+    },
+    "./protocol/CLIExtensionProtocol": {
+      "types": "./dist/types/protocol/CLIExtensionProtocol.d.ts",
+      "import": "./dist/esm/protocol/CLIExtensionProtocol.mjs",
+      "require": "./dist/cjs/protocol/CLIExtensionProtocol.cjs",
+      "default": "./src/protocol/CLIExtensionProtocol.ts"
+    },
+    "./protocol/doesExtensionImplementCLIProtocol.cjs": {
+      "types": "./dist/types/protocol/doesExtensionImplementCLIProtocol.d.ts",
+      "import": "./dist/esm/protocol/doesExtensionImplementCLIProtocol.mjs",
+      "require": "./dist/cjs/protocol/doesExtensionImplementCLIProtocol.cjs",
+      "default": "./src/protocol/doesExtensionImplementCLIProtocol.ts"
+    },
+    "./protocol/doesExtensionImplementCLIProtocol.d.ts": {
+      "types": "./dist/types/protocol/doesExtensionImplementCLIProtocol.d.ts",
+      "default": "./src/protocol/doesExtensionImplementCLIProtocol.ts"
+    },
+    "./protocol/doesExtensionImplementCLIProtocol.js": {
+      "types": "./dist/types/protocol/doesExtensionImplementCLIProtocol.d.ts",
+      "import": "./dist/esm/protocol/doesExtensionImplementCLIProtocol.mjs",
+      "require": "./dist/cjs/protocol/doesExtensionImplementCLIProtocol.cjs",
+      "default": "./src/protocol/doesExtensionImplementCLIProtocol.ts"
+    },
+    "./protocol/doesExtensionImplementCLIProtocol.mjs": {
+      "types": "./dist/types/protocol/doesExtensionImplementCLIProtocol.d.ts",
+      "import": "./dist/esm/protocol/doesExtensionImplementCLIProtocol.mjs",
+      "require": "./dist/cjs/protocol/doesExtensionImplementCLIProtocol.cjs",
+      "default": "./src/protocol/doesExtensionImplementCLIProtocol.ts"
+    },
+    "./protocol/doesExtensionImplementCLIProtocol": {
+      "types": "./dist/types/protocol/doesExtensionImplementCLIProtocol.d.ts",
+      "import": "./dist/esm/protocol/doesExtensionImplementCLIProtocol.mjs",
+      "require": "./dist/cjs/protocol/doesExtensionImplementCLIProtocol.cjs",
+      "default": "./src/protocol/doesExtensionImplementCLIProtocol.ts"
     },
     "./runCLI.cjs": {
       "types": "./dist/types/runCLI.d.ts",

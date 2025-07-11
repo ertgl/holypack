@@ -5,7 +5,7 @@ import { sealContext } from "@holypack/core/context/sealer/sealContext";
 import { maybeAwait } from "@holypack/core/lib/promise/maybeAwait";
 import { suppressErrorMaybeAsync } from "@holypack/core/lib/runtime/suppressErrorMaybeAsync";
 
-import { createCommand } from "../../createCommand";
+import { createCommand } from "../../command/createCommand";
 
 export function createInspectContextCommand(
   program: Command,

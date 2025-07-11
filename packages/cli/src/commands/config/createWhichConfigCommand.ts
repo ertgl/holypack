@@ -2,7 +2,7 @@ import { Command } from "commander";
 
 import { findConfigFilePathAsync } from "@holypack/core/config/explorer/findConfigFilePathAsync";
 
-import { createCommand } from "../../createCommand";
+import { createCommand } from "../../command/createCommand";
 
 export function createWhichConfigCommand(
   program: Command,

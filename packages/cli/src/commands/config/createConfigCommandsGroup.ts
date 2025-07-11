@@ -1,6 +1,6 @@
 import { Command } from "commander";
 
-import { createCommand } from "../../createCommand";
+import { createCommand } from "../../command/createCommand";
 
 import { createInspectConfigCommand } from "./createInspectConfigCommand";
 import { createWhichConfigCommand } from "./createWhichConfigCommand";

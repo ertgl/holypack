@@ -4,7 +4,7 @@ import { findConfigFilePathAsync } from "@holypack/core/config/explorer/findConf
 import { loadConfigDefinitionAsync } from "@holypack/core/config/loader/loadConfigDefinitionAsync";
 import { suppressErrorMaybeAsync } from "@holypack/core/lib/runtime/suppressErrorMaybeAsync";
 
-import { createCommand } from "../../createCommand";
+import { createCommand } from "../../command/createCommand";
 
 export function createInspectConfigCommand(
   program: Command,

@@ -1,5 +1,5 @@
-import type { Command } from "commander";
+import type { Program } from "./program/Program";
 
 export type CLI = {
-  program: Command;
+  program: Program;
 };
