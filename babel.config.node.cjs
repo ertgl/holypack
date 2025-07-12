@@ -1,1 +1,1 @@
-module.exports = require("@holypack/internal-integration-babel/node");
+module.exports = require("@holypack/internal-integration-babel/configs/node");

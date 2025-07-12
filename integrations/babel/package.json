@@ -1,28 +1,10 @@
 {
   "name": "@holypack/integration-babel",
   "scripts": {
-    "babel:build": "cd $INIT_CWD && yarn babel:build::cjs && yarn babel:build::esm",
-    "babel:build:clean": "cd $INIT_CWD && rm -fr dist",
-    "babel:build::cjs": "cd $INIT_CWD && yarn cmd:babel src --config-file ./babel.config.cjs.mjs --extensions '.cjs,.cts,.js,.mjs,.mts,.ts' --ignore '**/__tests__/**/*' --ignore '**/*.d.ts' --ignore '**/*.spec.cjs' --ignore '**/*.spec.cjsx' --ignore '**/*.spec.cts' --ignore '**/*.spec.ctsx' --ignore '**/*.spec.js' --ignore '**/*.spec.jsx' --ignore '**/*.spec.mjs' --ignore '**/*.spec.mjsx' --ignore '**/*.spec.mts' --ignore '**/*.spec.mtsx' --ignore '**/*.spec.ts' --ignore '**/*.spec.tsx' --ignore '**/*.test.cjs' --ignore '**/*.test.cjsx' --ignore '**/*.test.cts' --ignore '**/*.test.ctsx' --ignore '**/*.test.js' --ignore '**/*.test.jsx' --ignore '**/*.test.mjs' --ignore '**/*.test.mjsx' --ignore '**/*.test.mts' --ignore '**/*.test.mtsx' --ignore '**/*.test.ts' --ignore '**/*.test.tsx' --no-copy-ignored --out-dir ./dist/cjs --out-file-extension '.cjs'",
-    "babel:build::esm": "cd $INIT_CWD && yarn cmd:babel src --config-file ./babel.config.esm.mjs --extensions '.cjs,.cts,.js,.mjs,.mts,.ts' --ignore '**/__tests__/**/*' --ignore '**/*.d.ts' --ignore '**/*.spec.cjs' --ignore '**/*.spec.cjsx' --ignore '**/*.spec.cts' --ignore '**/*.spec.ctsx' --ignore '**/*.spec.js' --ignore '**/*.spec.jsx' --ignore '**/*.spec.mjs' --ignore '**/*.spec.mjsx' --ignore '**/*.spec.mts' --ignore '**/*.spec.mtsx' --ignore '**/*.spec.ts' --ignore '**/*.spec.tsx' --ignore '**/*.test.cjs' --ignore '**/*.test.cjsx' --ignore '**/*.test.cts' --ignore '**/*.test.ctsx' --ignore '**/*.test.js' --ignore '**/*.test.jsx' --ignore '**/*.test.mjs' --ignore '**/*.test.mjsx' --ignore '**/*.test.mts' --ignore '**/*.test.mtsx' --ignore '**/*.test.ts' --ignore '**/*.test.tsx' --no-copy-ignored --out-dir ./dist/esm --out-file-extension '.mjs'",
-    "bootstrap": "yarn bootstrap:build && yarn bootstrap:update-exports",
-    "bootstrap:build": "yarn babel:bootstrap",
-    "bootstrap:clean": "yarn babel:bootstrap:clean",
-    "bootstrap:update-exports": "yarn export-map-generator:bootstrap",
-    "build": "yarn build::types && yarn build::cjs && yarn build::esm && yarn build:update-exports",
-    "build::cjs": "yarn babel:build::cjs",
-    "build::esm": "yarn babel:build::esm",
-    "build::types": "yarn tsc:build::types",
-    "build:clean": "yarn babel:build:clean",
-    "build:update-exports": "yarn export-map-generator:update",
-    "clean": "yarn bootstrap:clean && yarn build:clean && yarn test:clean",
-    "cmd:babel": "cd $INIT_CWD && yarn cmd:node $(yarn workspace @holypack/integration-babel bin babel)",
-    "coverage:clean": "yarn jest:coverage:clean",
-    "coverage:open": "yarn jest:coverage:open",
-    "lint": "yarn eslint:lint",
-    "lint::fix": "yarn eslint:lint::fix",
-    "test": "yarn jest:test",
-    "test:clean": "yarn coverage:clean && yarn jest:cache:clean"
+    "bootstrap": "node ../../hack/scripts/package/bootstrap.mjs",
+    "build": "node ../../hack/scripts/package/build.mjs",
+    "clean": "node ../../hack/scripts/package/clean.mjs",
+    "test": "node ../../hack/scripts/package/test.mjs"
   },
   "devDependencies": {
     "@babel/cli": "^7.28.0",
@@ -186,8 +168,6 @@
     },
     "./build/module/format/ModuleFormatString.cjs": {
       "types": "./dist/types/build/module/format/ModuleFormatString.d.ts",
-      "import": "./dist/esm/build/module/format/ModuleFormatString.mjs",
-      "require": "./dist/cjs/build/module/format/ModuleFormatString.cjs",
       "default": "./src/build/module/format/ModuleFormatString.ts"
     },
     "./build/module/format/ModuleFormatString.d.ts": {
@@ -196,20 +176,14 @@
     },
     "./build/module/format/ModuleFormatString.js": {
       "types": "./dist/types/build/module/format/ModuleFormatString.d.ts",
-      "import": "./dist/esm/build/module/format/ModuleFormatString.mjs",
-      "require": "./dist/cjs/build/module/format/ModuleFormatString.cjs",
       "default": "./src/build/module/format/ModuleFormatString.ts"
     },
     "./build/module/format/ModuleFormatString.mjs": {
       "types": "./dist/types/build/module/format/ModuleFormatString.d.ts",
-      "import": "./dist/esm/build/module/format/ModuleFormatString.mjs",
-      "require": "./dist/cjs/build/module/format/ModuleFormatString.cjs",
       "default": "./src/build/module/format/ModuleFormatString.ts"
     },
     "./build/module/format/ModuleFormatString": {
       "types": "./dist/types/build/module/format/ModuleFormatString.d.ts",
-      "import": "./dist/esm/build/module/format/ModuleFormatString.mjs",
-      "require": "./dist/cjs/build/module/format/ModuleFormatString.cjs",
       "default": "./src/build/module/format/ModuleFormatString.ts"
     },
     "./build/module/format/ModuleFormat": {
@@ -332,8 +306,6 @@
     },
     "./configurator/options/BabelConfiguratorOptions.cjs": {
       "types": "./dist/types/configurator/options/BabelConfiguratorOptions.d.ts",
-      "import": "./dist/esm/configurator/options/BabelConfiguratorOptions.mjs",
-      "require": "./dist/cjs/configurator/options/BabelConfiguratorOptions.cjs",
       "default": "./src/configurator/options/BabelConfiguratorOptions.ts"
     },
     "./configurator/options/BabelConfiguratorOptions.d.ts": {
@@ -342,26 +314,18 @@
     },
     "./configurator/options/BabelConfiguratorOptions.js": {
       "types": "./dist/types/configurator/options/BabelConfiguratorOptions.d.ts",
-      "import": "./dist/esm/configurator/options/BabelConfiguratorOptions.mjs",
-      "require": "./dist/cjs/configurator/options/BabelConfiguratorOptions.cjs",
       "default": "./src/configurator/options/BabelConfiguratorOptions.ts"
     },
     "./configurator/options/BabelConfiguratorOptions.mjs": {
       "types": "./dist/types/configurator/options/BabelConfiguratorOptions.d.ts",
-      "import": "./dist/esm/configurator/options/BabelConfiguratorOptions.mjs",
-      "require": "./dist/cjs/configurator/options/BabelConfiguratorOptions.cjs",
       "default": "./src/configurator/options/BabelConfiguratorOptions.ts"
     },
     "./configurator/options/BabelConfiguratorOptions": {
       "types": "./dist/types/configurator/options/BabelConfiguratorOptions.d.ts",
-      "import": "./dist/esm/configurator/options/BabelConfiguratorOptions.mjs",
-      "require": "./dist/cjs/configurator/options/BabelConfiguratorOptions.cjs",
       "default": "./src/configurator/options/BabelConfiguratorOptions.ts"
     },
     "./configurator/options/BabelConfiguratorResolvedOptions.cjs": {
       "types": "./dist/types/configurator/options/BabelConfiguratorResolvedOptions.d.ts",
-      "import": "./dist/esm/configurator/options/BabelConfiguratorResolvedOptions.mjs",
-      "require": "./dist/cjs/configurator/options/BabelConfiguratorResolvedOptions.cjs",
       "default": "./src/configurator/options/BabelConfiguratorResolvedOptions.ts"
     },
     "./configurator/options/BabelConfiguratorResolvedOptions.d.ts": {
@@ -370,20 +334,14 @@
     },
     "./configurator/options/BabelConfiguratorResolvedOptions.js": {
       "types": "./dist/types/configurator/options/BabelConfiguratorResolvedOptions.d.ts",
-      "import": "./dist/esm/configurator/options/BabelConfiguratorResolvedOptions.mjs",
-      "require": "./dist/cjs/configurator/options/BabelConfiguratorResolvedOptions.cjs",
       "default": "./src/configurator/options/BabelConfiguratorResolvedOptions.ts"
     },
     "./configurator/options/BabelConfiguratorResolvedOptions.mjs": {
       "types": "./dist/types/configurator/options/BabelConfiguratorResolvedOptions.d.ts",
-      "import": "./dist/esm/configurator/options/BabelConfiguratorResolvedOptions.mjs",
-      "require": "./dist/cjs/configurator/options/BabelConfiguratorResolvedOptions.cjs",
       "default": "./src/configurator/options/BabelConfiguratorResolvedOptions.ts"
     },
     "./configurator/options/BabelConfiguratorResolvedOptions": {
       "types": "./dist/types/configurator/options/BabelConfiguratorResolvedOptions.d.ts",
-      "import": "./dist/esm/configurator/options/BabelConfiguratorResolvedOptions.mjs",
-      "require": "./dist/cjs/configurator/options/BabelConfiguratorResolvedOptions.cjs",
       "default": "./src/configurator/options/BabelConfiguratorResolvedOptions.ts"
     },
     "./configurator/options/resolveBabelConfiguratorOptions.cjs": {
@@ -416,8 +374,6 @@
     },
     "./context/BabelBuild.cjs": {
       "types": "./dist/types/context/BabelBuild.d.ts",
-      "import": "./dist/esm/context/BabelBuild.mjs",
-      "require": "./dist/cjs/context/BabelBuild.cjs",
       "default": "./src/context/BabelBuild.ts"
     },
     "./context/BabelBuild.d.ts": {
@@ -426,20 +382,14 @@
     },
     "./context/BabelBuild.js": {
       "types": "./dist/types/context/BabelBuild.d.ts",
-      "import": "./dist/esm/context/BabelBuild.mjs",
-      "require": "./dist/cjs/context/BabelBuild.cjs",
       "default": "./src/context/BabelBuild.ts"
     },
     "./context/BabelBuild.mjs": {
       "types": "./dist/types/context/BabelBuild.d.ts",
-      "import": "./dist/esm/context/BabelBuild.mjs",
-      "require": "./dist/cjs/context/BabelBuild.cjs",
       "default": "./src/context/BabelBuild.ts"
     },
     "./context/BabelBuildTarget.cjs": {
       "types": "./dist/types/context/BabelBuildTarget.d.ts",
-      "import": "./dist/esm/context/BabelBuildTarget.mjs",
-      "require": "./dist/cjs/context/BabelBuildTarget.cjs",
       "default": "./src/context/BabelBuildTarget.ts"
     },
     "./context/BabelBuildTarget.d.ts": {
@@ -448,32 +398,22 @@
     },
     "./context/BabelBuildTarget.js": {
       "types": "./dist/types/context/BabelBuildTarget.d.ts",
-      "import": "./dist/esm/context/BabelBuildTarget.mjs",
-      "require": "./dist/cjs/context/BabelBuildTarget.cjs",
       "default": "./src/context/BabelBuildTarget.ts"
     },
     "./context/BabelBuildTarget.mjs": {
       "types": "./dist/types/context/BabelBuildTarget.d.ts",
-      "import": "./dist/esm/context/BabelBuildTarget.mjs",
-      "require": "./dist/cjs/context/BabelBuildTarget.cjs",
       "default": "./src/context/BabelBuildTarget.ts"
     },
     "./context/BabelBuildTarget": {
       "types": "./dist/types/context/BabelBuildTarget.d.ts",
-      "import": "./dist/esm/context/BabelBuildTarget.mjs",
-      "require": "./dist/cjs/context/BabelBuildTarget.cjs",
       "default": "./src/context/BabelBuildTarget.ts"
     },
     "./context/BabelBuild": {
       "types": "./dist/types/context/BabelBuild.d.ts",
-      "import": "./dist/esm/context/BabelBuild.mjs",
-      "require": "./dist/cjs/context/BabelBuild.cjs",
       "default": "./src/context/BabelBuild.ts"
     },
     "./context/BabelContext.cjs": {
       "types": "./dist/types/context/BabelContext.d.ts",
-      "import": "./dist/esm/context/BabelContext.mjs",
-      "require": "./dist/cjs/context/BabelContext.cjs",
       "default": "./src/context/BabelContext.ts"
     },
     "./context/BabelContext.d.ts": {
@@ -482,26 +422,18 @@
     },
     "./context/BabelContext.js": {
       "types": "./dist/types/context/BabelContext.d.ts",
-      "import": "./dist/esm/context/BabelContext.mjs",
-      "require": "./dist/cjs/context/BabelContext.cjs",
       "default": "./src/context/BabelContext.ts"
     },
     "./context/BabelContext.mjs": {
       "types": "./dist/types/context/BabelContext.d.ts",
-      "import": "./dist/esm/context/BabelContext.mjs",
-      "require": "./dist/cjs/context/BabelContext.cjs",
       "default": "./src/context/BabelContext.ts"
     },
     "./context/BabelContext": {
       "types": "./dist/types/context/BabelContext.d.ts",
-      "import": "./dist/esm/context/BabelContext.mjs",
-      "require": "./dist/cjs/context/BabelContext.cjs",
       "default": "./src/context/BabelContext.ts"
     },
     "./context/BabelEnv.cjs": {
       "types": "./dist/types/context/BabelEnv.d.ts",
-      "import": "./dist/esm/context/BabelEnv.mjs",
-      "require": "./dist/cjs/context/BabelEnv.cjs",
       "default": "./src/context/BabelEnv.ts"
     },
     "./context/BabelEnv.d.ts": {
@@ -510,20 +442,14 @@
     },
     "./context/BabelEnv.js": {
       "types": "./dist/types/context/BabelEnv.d.ts",
-      "import": "./dist/esm/context/BabelEnv.mjs",
-      "require": "./dist/cjs/context/BabelEnv.cjs",
       "default": "./src/context/BabelEnv.ts"
     },
     "./context/BabelEnv.mjs": {
       "types": "./dist/types/context/BabelEnv.d.ts",
-      "import": "./dist/esm/context/BabelEnv.mjs",
-      "require": "./dist/cjs/context/BabelEnv.cjs",
       "default": "./src/context/BabelEnv.ts"
     },
     "./context/BabelEnv": {
       "types": "./dist/types/context/BabelEnv.d.ts",
-      "import": "./dist/esm/context/BabelEnv.mjs",
-      "require": "./dist/cjs/context/BabelEnv.cjs",
       "default": "./src/context/BabelEnv.ts"
     },
     "./context/resolver/resolveBabelBuild.cjs": {
@@ -662,8 +588,6 @@
     },
     "./extension/BabelIntegrationFacets.cjs": {
       "types": "./dist/types/extension/BabelIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/BabelIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/BabelIntegrationFacets.cjs",
       "default": "./src/extension/BabelIntegrationFacets.ts"
     },
     "./extension/BabelIntegrationFacets.d.ts": {
@@ -672,20 +596,14 @@
     },
     "./extension/BabelIntegrationFacets.js": {
       "types": "./dist/types/extension/BabelIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/BabelIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/BabelIntegrationFacets.cjs",
       "default": "./src/extension/BabelIntegrationFacets.ts"
     },
     "./extension/BabelIntegrationFacets.mjs": {
       "types": "./dist/types/extension/BabelIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/BabelIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/BabelIntegrationFacets.cjs",
       "default": "./src/extension/BabelIntegrationFacets.ts"
     },
     "./extension/BabelIntegrationFacets": {
       "types": "./dist/types/extension/BabelIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/BabelIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/BabelIntegrationFacets.cjs",
       "default": "./src/extension/BabelIntegrationFacets.ts"
     },
     "./extension/BabelIntegration": {
@@ -808,8 +726,6 @@
     },
     "./extension/options/BabelIntegrationOptions.cjs": {
       "types": "./dist/types/extension/options/BabelIntegrationOptions.d.ts",
-      "import": "./dist/esm/extension/options/BabelIntegrationOptions.mjs",
-      "require": "./dist/cjs/extension/options/BabelIntegrationOptions.cjs",
       "default": "./src/extension/options/BabelIntegrationOptions.ts"
     },
     "./extension/options/BabelIntegrationOptions.d.ts": {
@@ -818,20 +734,14 @@
     },
     "./extension/options/BabelIntegrationOptions.js": {
       "types": "./dist/types/extension/options/BabelIntegrationOptions.d.ts",
-      "import": "./dist/esm/extension/options/BabelIntegrationOptions.mjs",
-      "require": "./dist/cjs/extension/options/BabelIntegrationOptions.cjs",
       "default": "./src/extension/options/BabelIntegrationOptions.ts"
     },
     "./extension/options/BabelIntegrationOptions.mjs": {
       "types": "./dist/types/extension/options/BabelIntegrationOptions.d.ts",
-      "import": "./dist/esm/extension/options/BabelIntegrationOptions.mjs",
-      "require": "./dist/cjs/extension/options/BabelIntegrationOptions.cjs",
       "default": "./src/extension/options/BabelIntegrationOptions.ts"
     },
     "./extension/options/BabelIntegrationOptions": {
       "types": "./dist/types/extension/options/BabelIntegrationOptions.d.ts",
-      "import": "./dist/esm/extension/options/BabelIntegrationOptions.mjs",
-      "require": "./dist/cjs/extension/options/BabelIntegrationOptions.cjs",
       "default": "./src/extension/options/BabelIntegrationOptions.ts"
     },
     "./hook/constants/UID_PREFIX_BABEL_INTEGRATION_HOOK.cjs": {
@@ -920,8 +830,6 @@
     },
     "./hooks/generate-transform-options/GenerateTransformOptionsHookAsync.cjs": {
       "types": "./dist/types/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.d.ts",
-      "import": "./dist/esm/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.mjs",
-      "require": "./dist/cjs/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.cjs",
       "default": "./src/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.ts"
     },
     "./hooks/generate-transform-options/GenerateTransformOptionsHookAsync.d.ts": {
@@ -930,26 +838,18 @@
     },
     "./hooks/generate-transform-options/GenerateTransformOptionsHookAsync.js": {
       "types": "./dist/types/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.d.ts",
-      "import": "./dist/esm/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.mjs",
-      "require": "./dist/cjs/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.cjs",
       "default": "./src/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.ts"
     },
     "./hooks/generate-transform-options/GenerateTransformOptionsHookAsync.mjs": {
       "types": "./dist/types/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.d.ts",
-      "import": "./dist/esm/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.mjs",
-      "require": "./dist/cjs/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.cjs",
       "default": "./src/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.ts"
     },
     "./hooks/generate-transform-options/GenerateTransformOptionsHookAsync": {
       "types": "./dist/types/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.d.ts",
-      "import": "./dist/esm/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.mjs",
-      "require": "./dist/cjs/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.cjs",
       "default": "./src/hooks/generate-transform-options/GenerateTransformOptionsHookAsync.ts"
     },
     "./hooks/generate-transform-options/GenerateTransformOptionsHookSync.cjs": {
       "types": "./dist/types/hooks/generate-transform-options/GenerateTransformOptionsHookSync.d.ts",
-      "import": "./dist/esm/hooks/generate-transform-options/GenerateTransformOptionsHookSync.mjs",
-      "require": "./dist/cjs/hooks/generate-transform-options/GenerateTransformOptionsHookSync.cjs",
       "default": "./src/hooks/generate-transform-options/GenerateTransformOptionsHookSync.ts"
     },
     "./hooks/generate-transform-options/GenerateTransformOptionsHookSync.d.ts": {
@@ -958,20 +858,14 @@
     },
     "./hooks/generate-transform-options/GenerateTransformOptionsHookSync.js": {
       "types": "./dist/types/hooks/generate-transform-options/GenerateTransformOptionsHookSync.d.ts",
-      "import": "./dist/esm/hooks/generate-transform-options/GenerateTransformOptionsHookSync.mjs",
-      "require": "./dist/cjs/hooks/generate-transform-options/GenerateTransformOptionsHookSync.cjs",
       "default": "./src/hooks/generate-transform-options/GenerateTransformOptionsHookSync.ts"
     },
     "./hooks/generate-transform-options/GenerateTransformOptionsHookSync.mjs": {
       "types": "./dist/types/hooks/generate-transform-options/GenerateTransformOptionsHookSync.d.ts",
-      "import": "./dist/esm/hooks/generate-transform-options/GenerateTransformOptionsHookSync.mjs",
-      "require": "./dist/cjs/hooks/generate-transform-options/GenerateTransformOptionsHookSync.cjs",
       "default": "./src/hooks/generate-transform-options/GenerateTransformOptionsHookSync.ts"
     },
     "./hooks/generate-transform-options/GenerateTransformOptionsHookSync": {
       "types": "./dist/types/hooks/generate-transform-options/GenerateTransformOptionsHookSync.d.ts",
-      "import": "./dist/esm/hooks/generate-transform-options/GenerateTransformOptionsHookSync.mjs",
-      "require": "./dist/cjs/hooks/generate-transform-options/GenerateTransformOptionsHookSync.cjs",
       "default": "./src/hooks/generate-transform-options/GenerateTransformOptionsHookSync.ts"
     },
     "./hooks/generate-transform-options/createGenerateTransformOptionsHookAsync.cjs": {
@@ -1197,8 +1091,6 @@
     },
     "./plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.cjs": {
       "types": "./dist/types/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.d.ts",
-      "import": "./dist/esm/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.mjs",
-      "require": "./dist/cjs/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.cjs",
       "default": "./src/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.ts"
     },
     "./plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.d.ts": {
@@ -1207,20 +1099,14 @@
     },
     "./plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.js": {
       "types": "./dist/types/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.d.ts",
-      "import": "./dist/esm/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.mjs",
-      "require": "./dist/cjs/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.cjs",
       "default": "./src/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.ts"
     },
     "./plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.mjs": {
       "types": "./dist/types/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.d.ts",
-      "import": "./dist/esm/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.mjs",
-      "require": "./dist/cjs/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.cjs",
       "default": "./src/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.ts"
     },
     "./plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets": {
       "types": "./dist/types/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.d.ts",
-      "import": "./dist/esm/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.mjs",
-      "require": "./dist/cjs/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.cjs",
       "default": "./src/plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformerFacets.ts"
     },
     "./plugins/transform-import-source/extension/BabelIntegrationPluginImportSourceTransformer": {
@@ -1343,8 +1229,6 @@
     },
     "./plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.cjs": {
       "types": "./dist/types/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.d.ts",
-      "import": "./dist/esm/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.mjs",
-      "require": "./dist/cjs/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.cjs",
       "default": "./src/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.ts"
     },
     "./plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.d.ts": {
@@ -1353,26 +1237,18 @@
     },
     "./plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.js": {
       "types": "./dist/types/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.d.ts",
-      "import": "./dist/esm/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.mjs",
-      "require": "./dist/cjs/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.cjs",
       "default": "./src/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.ts"
     },
     "./plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.mjs": {
       "types": "./dist/types/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.d.ts",
-      "import": "./dist/esm/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.mjs",
-      "require": "./dist/cjs/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.cjs",
       "default": "./src/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.ts"
     },
     "./plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions": {
       "types": "./dist/types/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.d.ts",
-      "import": "./dist/esm/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.mjs",
-      "require": "./dist/cjs/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.cjs",
       "default": "./src/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerOptions.ts"
     },
     "./plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.cjs": {
       "types": "./dist/types/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.cjs",
       "default": "./src/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.ts"
     },
     "./plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.d.ts": {
@@ -1381,20 +1257,14 @@
     },
     "./plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.js": {
       "types": "./dist/types/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.cjs",
       "default": "./src/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.ts"
     },
     "./plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.mjs": {
       "types": "./dist/types/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.cjs",
       "default": "./src/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.ts"
     },
     "./plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions": {
       "types": "./dist/types/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.cjs",
       "default": "./src/plugins/transform-import-source/options/BabelIntegrationPluginImportSourceTransformerResolvedOptions.ts"
     },
     "./plugins/transform-import-source/options/resolveBabelIntegrationPluginImportSourceTransformerOptions.cjs": {
@@ -1511,8 +1381,6 @@
     },
     "./presets/env/extension/BabelIntegrationPresetEnvFacets.cjs": {
       "types": "./dist/types/presets/env/extension/BabelIntegrationPresetEnvFacets.d.ts",
-      "import": "./dist/esm/presets/env/extension/BabelIntegrationPresetEnvFacets.mjs",
-      "require": "./dist/cjs/presets/env/extension/BabelIntegrationPresetEnvFacets.cjs",
       "default": "./src/presets/env/extension/BabelIntegrationPresetEnvFacets.ts"
     },
     "./presets/env/extension/BabelIntegrationPresetEnvFacets.d.ts": {
@@ -1521,20 +1389,14 @@
     },
     "./presets/env/extension/BabelIntegrationPresetEnvFacets.js": {
       "types": "./dist/types/presets/env/extension/BabelIntegrationPresetEnvFacets.d.ts",
-      "import": "./dist/esm/presets/env/extension/BabelIntegrationPresetEnvFacets.mjs",
-      "require": "./dist/cjs/presets/env/extension/BabelIntegrationPresetEnvFacets.cjs",
       "default": "./src/presets/env/extension/BabelIntegrationPresetEnvFacets.ts"
     },
     "./presets/env/extension/BabelIntegrationPresetEnvFacets.mjs": {
       "types": "./dist/types/presets/env/extension/BabelIntegrationPresetEnvFacets.d.ts",
-      "import": "./dist/esm/presets/env/extension/BabelIntegrationPresetEnvFacets.mjs",
-      "require": "./dist/cjs/presets/env/extension/BabelIntegrationPresetEnvFacets.cjs",
       "default": "./src/presets/env/extension/BabelIntegrationPresetEnvFacets.ts"
     },
     "./presets/env/extension/BabelIntegrationPresetEnvFacets": {
       "types": "./dist/types/presets/env/extension/BabelIntegrationPresetEnvFacets.d.ts",
-      "import": "./dist/esm/presets/env/extension/BabelIntegrationPresetEnvFacets.mjs",
-      "require": "./dist/cjs/presets/env/extension/BabelIntegrationPresetEnvFacets.cjs",
       "default": "./src/presets/env/extension/BabelIntegrationPresetEnvFacets.ts"
     },
     "./presets/env/extension/BabelIntegrationPresetEnv": {
@@ -1657,8 +1519,6 @@
     },
     "./presets/env/options/BabelIntegrationPresetEnvOptions.cjs": {
       "types": "./dist/types/presets/env/options/BabelIntegrationPresetEnvOptions.d.ts",
-      "import": "./dist/esm/presets/env/options/BabelIntegrationPresetEnvOptions.mjs",
-      "require": "./dist/cjs/presets/env/options/BabelIntegrationPresetEnvOptions.cjs",
       "default": "./src/presets/env/options/BabelIntegrationPresetEnvOptions.ts"
     },
     "./presets/env/options/BabelIntegrationPresetEnvOptions.d.ts": {
@@ -1667,26 +1527,18 @@
     },
     "./presets/env/options/BabelIntegrationPresetEnvOptions.js": {
       "types": "./dist/types/presets/env/options/BabelIntegrationPresetEnvOptions.d.ts",
-      "import": "./dist/esm/presets/env/options/BabelIntegrationPresetEnvOptions.mjs",
-      "require": "./dist/cjs/presets/env/options/BabelIntegrationPresetEnvOptions.cjs",
       "default": "./src/presets/env/options/BabelIntegrationPresetEnvOptions.ts"
     },
     "./presets/env/options/BabelIntegrationPresetEnvOptions.mjs": {
       "types": "./dist/types/presets/env/options/BabelIntegrationPresetEnvOptions.d.ts",
-      "import": "./dist/esm/presets/env/options/BabelIntegrationPresetEnvOptions.mjs",
-      "require": "./dist/cjs/presets/env/options/BabelIntegrationPresetEnvOptions.cjs",
       "default": "./src/presets/env/options/BabelIntegrationPresetEnvOptions.ts"
     },
     "./presets/env/options/BabelIntegrationPresetEnvOptions": {
       "types": "./dist/types/presets/env/options/BabelIntegrationPresetEnvOptions.d.ts",
-      "import": "./dist/esm/presets/env/options/BabelIntegrationPresetEnvOptions.mjs",
-      "require": "./dist/cjs/presets/env/options/BabelIntegrationPresetEnvOptions.cjs",
       "default": "./src/presets/env/options/BabelIntegrationPresetEnvOptions.ts"
     },
     "./presets/env/options/BabelIntegrationPresetEnvResolvedOptions.cjs": {
       "types": "./dist/types/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.d.ts",
-      "import": "./dist/esm/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.mjs",
-      "require": "./dist/cjs/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.cjs",
       "default": "./src/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.ts"
     },
     "./presets/env/options/BabelIntegrationPresetEnvResolvedOptions.d.ts": {
@@ -1695,20 +1547,14 @@
     },
     "./presets/env/options/BabelIntegrationPresetEnvResolvedOptions.js": {
       "types": "./dist/types/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.d.ts",
-      "import": "./dist/esm/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.mjs",
-      "require": "./dist/cjs/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.cjs",
       "default": "./src/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.ts"
     },
     "./presets/env/options/BabelIntegrationPresetEnvResolvedOptions.mjs": {
       "types": "./dist/types/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.d.ts",
-      "import": "./dist/esm/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.mjs",
-      "require": "./dist/cjs/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.cjs",
       "default": "./src/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.ts"
     },
     "./presets/env/options/BabelIntegrationPresetEnvResolvedOptions": {
       "types": "./dist/types/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.d.ts",
-      "import": "./dist/esm/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.mjs",
-      "require": "./dist/cjs/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.cjs",
       "default": "./src/presets/env/options/BabelIntegrationPresetEnvResolvedOptions.ts"
     },
     "./presets/env/options/resolveBabelIntegrationPresetEnvOptions.cjs": {
@@ -1825,8 +1671,6 @@
     },
     "./presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.cjs": {
       "types": "./dist/types/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.d.ts",
-      "import": "./dist/esm/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.mjs",
-      "require": "./dist/cjs/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.cjs",
       "default": "./src/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.ts"
     },
     "./presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.d.ts": {
@@ -1835,20 +1679,14 @@
     },
     "./presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.js": {
       "types": "./dist/types/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.d.ts",
-      "import": "./dist/esm/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.mjs",
-      "require": "./dist/cjs/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.cjs",
       "default": "./src/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.ts"
     },
     "./presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.mjs": {
       "types": "./dist/types/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.d.ts",
-      "import": "./dist/esm/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.mjs",
-      "require": "./dist/cjs/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.cjs",
       "default": "./src/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.ts"
     },
     "./presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets": {
       "types": "./dist/types/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.d.ts",
-      "import": "./dist/esm/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.mjs",
-      "require": "./dist/cjs/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.cjs",
       "default": "./src/presets/typescript/extension/BabelIntegrationPresetTypeScriptFacets.ts"
     },
     "./presets/typescript/extension/BabelIntegrationPresetTypeScript": {
@@ -1971,8 +1809,6 @@
     },
     "./presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.cjs": {
       "types": "./dist/types/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.d.ts",
-      "import": "./dist/esm/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.mjs",
-      "require": "./dist/cjs/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.cjs",
       "default": "./src/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.ts"
     },
     "./presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.d.ts": {
@@ -1981,26 +1817,18 @@
     },
     "./presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.js": {
       "types": "./dist/types/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.d.ts",
-      "import": "./dist/esm/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.mjs",
-      "require": "./dist/cjs/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.cjs",
       "default": "./src/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.ts"
     },
     "./presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.mjs": {
       "types": "./dist/types/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.d.ts",
-      "import": "./dist/esm/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.mjs",
-      "require": "./dist/cjs/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.cjs",
       "default": "./src/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.ts"
     },
     "./presets/typescript/options/BabelIntegrationPresetTypeScriptOptions": {
       "types": "./dist/types/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.d.ts",
-      "import": "./dist/esm/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.mjs",
-      "require": "./dist/cjs/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.cjs",
       "default": "./src/presets/typescript/options/BabelIntegrationPresetTypeScriptOptions.ts"
     },
     "./presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.cjs": {
       "types": "./dist/types/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.d.ts",
-      "import": "./dist/esm/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.mjs",
-      "require": "./dist/cjs/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.cjs",
       "default": "./src/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.ts"
     },
     "./presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.d.ts": {
@@ -2009,26 +1837,18 @@
     },
     "./presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.js": {
       "types": "./dist/types/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.d.ts",
-      "import": "./dist/esm/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.mjs",
-      "require": "./dist/cjs/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.cjs",
       "default": "./src/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.ts"
     },
     "./presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.mjs": {
       "types": "./dist/types/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.d.ts",
-      "import": "./dist/esm/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.mjs",
-      "require": "./dist/cjs/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.cjs",
       "default": "./src/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.ts"
     },
     "./presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions": {
       "types": "./dist/types/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.d.ts",
-      "import": "./dist/esm/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.mjs",
-      "require": "./dist/cjs/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.cjs",
       "default": "./src/presets/typescript/options/BabelIntegrationPresetTypeScriptResolvedOptions.ts"
     },
     "./presets/typescript/options/BabelPresetTypeScriptOptions.cjs": {
       "types": "./dist/types/presets/typescript/options/BabelPresetTypeScriptOptions.d.ts",
-      "import": "./dist/esm/presets/typescript/options/BabelPresetTypeScriptOptions.mjs",
-      "require": "./dist/cjs/presets/typescript/options/BabelPresetTypeScriptOptions.cjs",
       "default": "./src/presets/typescript/options/BabelPresetTypeScriptOptions.ts"
     },
     "./presets/typescript/options/BabelPresetTypeScriptOptions.d.ts": {
@@ -2037,20 +1857,14 @@
     },
     "./presets/typescript/options/BabelPresetTypeScriptOptions.js": {
       "types": "./dist/types/presets/typescript/options/BabelPresetTypeScriptOptions.d.ts",
-      "import": "./dist/esm/presets/typescript/options/BabelPresetTypeScriptOptions.mjs",
-      "require": "./dist/cjs/presets/typescript/options/BabelPresetTypeScriptOptions.cjs",
       "default": "./src/presets/typescript/options/BabelPresetTypeScriptOptions.ts"
     },
     "./presets/typescript/options/BabelPresetTypeScriptOptions.mjs": {
       "types": "./dist/types/presets/typescript/options/BabelPresetTypeScriptOptions.d.ts",
-      "import": "./dist/esm/presets/typescript/options/BabelPresetTypeScriptOptions.mjs",
-      "require": "./dist/cjs/presets/typescript/options/BabelPresetTypeScriptOptions.cjs",
       "default": "./src/presets/typescript/options/BabelPresetTypeScriptOptions.ts"
     },
     "./presets/typescript/options/BabelPresetTypeScriptOptions": {
       "types": "./dist/types/presets/typescript/options/BabelPresetTypeScriptOptions.d.ts",
-      "import": "./dist/esm/presets/typescript/options/BabelPresetTypeScriptOptions.mjs",
-      "require": "./dist/cjs/presets/typescript/options/BabelPresetTypeScriptOptions.cjs",
       "default": "./src/presets/typescript/options/BabelPresetTypeScriptOptions.ts"
     },
     "./presets/typescript/options/resolveBabelIntegrationPresetTypeScriptOptions.cjs": {
@@ -2089,8 +1903,6 @@
     },
     "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.cjs": {
       "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.d.ts",
-      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.mjs",
-      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.cjs",
       "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.ts"
     },
     "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.d.ts": {
@@ -2099,26 +1911,18 @@
     },
     "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.js": {
       "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.d.ts",
-      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.mjs",
-      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.cjs",
       "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.ts"
     },
     "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.mjs": {
       "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.d.ts",
-      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.mjs",
-      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.cjs",
       "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.ts"
     },
     "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync": {
       "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.d.ts",
-      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.mjs",
-      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.cjs",
       "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsAsync.ts"
     },
     "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.cjs": {
       "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.d.ts",
-      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.mjs",
-      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.cjs",
       "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.ts"
     },
     "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.d.ts": {
@@ -2127,26 +1931,18 @@
     },
     "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.js": {
       "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.d.ts",
-      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.mjs",
-      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.cjs",
       "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.ts"
     },
     "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.mjs": {
       "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.d.ts",
-      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.mjs",
-      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.cjs",
       "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.ts"
     },
     "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase": {
       "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.d.ts",
-      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.mjs",
-      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.cjs",
       "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsBase.ts"
     },
     "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.cjs": {
       "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.d.ts",
-      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.mjs",
-      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.cjs",
       "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.ts"
     },
     "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.d.ts": {
@@ -2155,20 +1951,14 @@
     },
     "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.js": {
       "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.d.ts",
-      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.mjs",
-      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.cjs",
       "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.ts"
     },
     "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.mjs": {
       "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.d.ts",
-      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.mjs",
-      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.cjs",
       "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.ts"
     },
     "./utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync": {
       "types": "./dist/types/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.d.ts",
-      "import": "./dist/esm/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.mjs",
-      "require": "./dist/cjs/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.cjs",
       "default": "./src/utils/config-file-path-finder/BabelConfigFilePathFinderOptionsSync.ts"
     },
     "./utils/config-file-path-finder/findBabelConfigFilePathAsync.cjs": {

@@ -2502,6 +2502,7 @@ __metadata:
     "@holypack/integration-export-map-generator": "workspace:^"
     "@holypack/integration-jest": "workspace:^"
     "@holypack/integration-typescript": "workspace:^"
+    "@holypack/internal-dev": "workspace:^"
     "@holypack/internal-integration-babel": "workspace:^"
     "@holypack/internal-integration-cspell": "workspace:^"
     "@holypack/internal-integration-export-map-generator": "workspace:^"
@@ -2968,6 +2969,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@holypack/internal-dev@portal:./internal/packages/dev::locator=%40holypack%2F__monorepo__%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@holypack/internal-dev@portal:./internal/packages/dev::locator=%40holypack%2F__monorepo__%40workspace%3A."
+  languageName: node
+  linkType: soft
+
+"@holypack/internal-dev@workspace:internal/packages/dev":
+  version: 0.0.0-use.local
+  resolution: "@holypack/internal-dev@workspace:internal/packages/dev"
+  languageName: unknown
+  linkType: soft
+
 "@holypack/internal-integration-babel@portal:./internal/integrations/babel::locator=%40holypack%2F__monorepo__%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@holypack/internal-integration-babel@portal:./internal/integrations/babel::locator=%40holypack%2F__monorepo__%40workspace%3A."
@@ -2983,10 +2996,12 @@ __metadata:
     "@babel/preset-typescript": "npm:^7.27.1"
     "@babel/register": "npm:^7.27.1"
     "@holypack/babel-preset": "workspace:^"
+    "@holypack/internal-dev": "workspace:^"
     "@types/babel__core": "npm:^7.20.5"
     "@types/babel__preset-env": "npm:^7.10.0"
     "@types/babel__register": "npm:^7.17.3"
     babel-plugin-comment-attributes: "npm:^1.0.0"
+    babel-plugin-report-runtime-free-files: "npm:^1.0.0"
     babel-plugin-transform-import-source: "npm:^2.1.0"
   languageName: unknown
   linkType: soft
@@ -4803,6 +4818,15 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
   checksum: 10c0/63aa8ed716df6a9277c6ab42b887858fa9f57a70cc1d0ae2b91bdf081e45d4502848cba306fb60b02f59f99b32fd02ff4753b373cac48ccdac9b7d19dd56f06d
+  languageName: node
+  linkType: hard
+
+"babel-plugin-report-runtime-free-files@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "babel-plugin-report-runtime-free-files@npm:1.0.0"
+  peerDependencies:
+    "@babel/helper-plugin-utils": "*"
+  checksum: 10c0/892260d6d53c39f4a5a66ac4881b791ebc23e6ae044083b361ec43b5f0dcbaaa98cea7e351492266a832a7f2161a21c4cdc441fe3253e761ee44d84817b10a06
   languageName: node
   linkType: hard
 

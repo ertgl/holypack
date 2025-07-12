@@ -8,23 +8,8 @@
     "holypack-external"
   ],
   "scripts": {
-    "build": "yarn build::types && yarn build::cjs && yarn build::esm && yarn build:update-exports",
-    "build::cjs": "yarn babel:build::cjs",
-    "build::esm": "yarn babel:build::esm",
-    "build::types": "yarn tsc:build::types",
-    "build:clean": "yarn babel:build:clean",
-    "build:update-exports": "yarn export-map-generator:update",
-    "clean": "yarn build:clean && yarn debug:clean && yarn test:clean",
-    "coverage:clean": "yarn jest:coverage:clean",
-    "coverage:open": "yarn jest:coverage:open",
-    "debug:build": "yarn debug:build::esm && yarn debug:update-package-exports",
-    "debug:build::esm": "yarn babel:debug:build",
-    "debug:clean": "yarn babel:debug:build:clean",
-    "debug:update-package-exports": "yarn export-map-generator:debug",
-    "lint": "yarn eslint:lint",
-    "lint::fix": "yarn eslint:lint::fix",
-    "test": "yarn jest:test",
-    "test:clean": "yarn coverage:clean && yarn jest:cache:clean"
+    "build": "node ../../hack/scripts/package/build.mjs",
+    "clean": "node ../../hack/scripts/package/clean.mjs"
   },
   "devDependencies": {
     "@holypack/core": "workspace:^",
@@ -244,8 +229,6 @@
     },
     "./options/HolypackPluginOptionsAsync.cjs": {
       "types": "./dist/types/options/HolypackPluginOptionsAsync.d.ts",
-      "import": "./dist/esm/options/HolypackPluginOptionsAsync.mjs",
-      "require": "./dist/cjs/options/HolypackPluginOptionsAsync.cjs",
       "default": "./src/options/HolypackPluginOptionsAsync.ts"
     },
     "./options/HolypackPluginOptionsAsync.d.ts": {
@@ -254,26 +237,18 @@
     },
     "./options/HolypackPluginOptionsAsync.js": {
       "types": "./dist/types/options/HolypackPluginOptionsAsync.d.ts",
-      "import": "./dist/esm/options/HolypackPluginOptionsAsync.mjs",
-      "require": "./dist/cjs/options/HolypackPluginOptionsAsync.cjs",
       "default": "./src/options/HolypackPluginOptionsAsync.ts"
     },
     "./options/HolypackPluginOptionsAsync.mjs": {
       "types": "./dist/types/options/HolypackPluginOptionsAsync.d.ts",
-      "import": "./dist/esm/options/HolypackPluginOptionsAsync.mjs",
-      "require": "./dist/cjs/options/HolypackPluginOptionsAsync.cjs",
       "default": "./src/options/HolypackPluginOptionsAsync.ts"
     },
     "./options/HolypackPluginOptionsAsync": {
       "types": "./dist/types/options/HolypackPluginOptionsAsync.d.ts",
-      "import": "./dist/esm/options/HolypackPluginOptionsAsync.mjs",
-      "require": "./dist/cjs/options/HolypackPluginOptionsAsync.cjs",
       "default": "./src/options/HolypackPluginOptionsAsync.ts"
     },
     "./options/HolypackPluginOptionsSync.cjs": {
       "types": "./dist/types/options/HolypackPluginOptionsSync.d.ts",
-      "import": "./dist/esm/options/HolypackPluginOptionsSync.mjs",
-      "require": "./dist/cjs/options/HolypackPluginOptionsSync.cjs",
       "default": "./src/options/HolypackPluginOptionsSync.ts"
     },
     "./options/HolypackPluginOptionsSync.d.ts": {
@@ -282,20 +257,14 @@
     },
     "./options/HolypackPluginOptionsSync.js": {
       "types": "./dist/types/options/HolypackPluginOptionsSync.d.ts",
-      "import": "./dist/esm/options/HolypackPluginOptionsSync.mjs",
-      "require": "./dist/cjs/options/HolypackPluginOptionsSync.cjs",
       "default": "./src/options/HolypackPluginOptionsSync.ts"
     },
     "./options/HolypackPluginOptionsSync.mjs": {
       "types": "./dist/types/options/HolypackPluginOptionsSync.d.ts",
-      "import": "./dist/esm/options/HolypackPluginOptionsSync.mjs",
-      "require": "./dist/cjs/options/HolypackPluginOptionsSync.cjs",
       "default": "./src/options/HolypackPluginOptionsSync.ts"
     },
     "./options/HolypackPluginOptionsSync": {
       "types": "./dist/types/options/HolypackPluginOptionsSync.d.ts",
-      "import": "./dist/esm/options/HolypackPluginOptionsSync.mjs",
-      "require": "./dist/cjs/options/HolypackPluginOptionsSync.cjs",
       "default": "./src/options/HolypackPluginOptionsSync.ts"
     },
     "./package.json": {
@@ -303,8 +272,6 @@
     },
     "./plugin/HolypackPlugin.cjs": {
       "types": "./dist/types/plugin/HolypackPlugin.d.ts",
-      "import": "./dist/esm/plugin/HolypackPlugin.mjs",
-      "require": "./dist/cjs/plugin/HolypackPlugin.cjs",
       "default": "./src/plugin/HolypackPlugin.ts"
     },
     "./plugin/HolypackPlugin.d.ts": {
@@ -313,20 +280,14 @@
     },
     "./plugin/HolypackPlugin.js": {
       "types": "./dist/types/plugin/HolypackPlugin.d.ts",
-      "import": "./dist/esm/plugin/HolypackPlugin.mjs",
-      "require": "./dist/cjs/plugin/HolypackPlugin.cjs",
       "default": "./src/plugin/HolypackPlugin.ts"
     },
     "./plugin/HolypackPlugin.mjs": {
       "types": "./dist/types/plugin/HolypackPlugin.d.ts",
-      "import": "./dist/esm/plugin/HolypackPlugin.mjs",
-      "require": "./dist/cjs/plugin/HolypackPlugin.cjs",
       "default": "./src/plugin/HolypackPlugin.ts"
     },
     "./plugin/HolypackPlugin": {
       "types": "./dist/types/plugin/HolypackPlugin.d.ts",
-      "import": "./dist/esm/plugin/HolypackPlugin.mjs",
-      "require": "./dist/cjs/plugin/HolypackPlugin.cjs",
       "default": "./src/plugin/HolypackPlugin.ts"
     },
     "./plugin/createHolypackPluginAsync.cjs": {

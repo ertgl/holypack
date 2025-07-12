@@ -2233,7 +2233,6 @@ __metadata:
     "@holypack/babel-preset": "npm:*"
     "@holypack/core": "npm:*"
     "@holypack/integration-babel": "npm:*"
-    holypack: "npm:*"
   languageName: unknown
   linkType: soft
 
@@ -2246,7 +2245,6 @@ __metadata:
     "@holypack/integration-eslint": "npm:*"
     "@holypack/integration-typescript": "npm:*"
     eslint: "npm:^9.30.1"
-    holypack: "npm:*"
   languageName: unknown
   linkType: soft
 
@@ -2276,7 +2274,6 @@ __metadata:
     "@holypack/integration-jest": "npm:*"
     "@holypack/integration-typescript": "npm:*"
     "@holypack/jest-preset": "npm:*"
-    holypack: "npm:*"
     jest: "npm:^30.0.4"
   languageName: unknown
   linkType: soft
@@ -2298,7 +2295,6 @@ __metadata:
     "@holypack/integration-typescript": "npm:*"
     "@holypack/integration-webpack": "npm:*"
     "@holypack/webpack-plugin": "npm:*"
-    holypack: "npm:*"
     webpack: "npm:^5.99.9"
   languageName: unknown
   linkType: soft

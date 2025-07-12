@@ -3,14 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "yarn clean && yarn webpack:build",
+    "build": "webpack --config webpack.config.mjs",
     "clean": "rm -fr dist"
   },
   "devDependencies": {
     "@holypack/integration-typescript": "*",
     "@holypack/integration-webpack": "*",
     "@holypack/webpack-plugin": "*",
-    "holypack": "*",
     "webpack": "^5.99.9"
   }
 }

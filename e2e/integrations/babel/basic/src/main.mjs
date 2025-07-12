@@ -1,7 +1,7 @@
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { resolveContext } from "@holypack/core";
+import { resolveContext } from "@holypack/core/context/resolver/resolveContext";
 
 // #[cjs(remove)]
 const __filename = fileURLToPath(import.meta.url);

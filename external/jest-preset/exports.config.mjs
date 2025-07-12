@@ -1,7 +1,7 @@
 import defineConfig from "export-map-generator/config";
 import extra from "export-map-generator/extensions/extra";
 
-import ts from "@holypack/internal-integration-export-map-generator/ts";
+import ts from "@holypack/internal-integration-export-map-generator/configs/ts";
 
 /**
  * @import { type Config } from "export-map-generator/config";

@@ -1,29 +1,10 @@
 {
   "name": "@holypack/integration-typescript",
   "scripts": {
-    "bootstrap": "yarn bootstrap:build && yarn bootstrap:copy-static && yarn bootstrap:update-exports",
-    "bootstrap:build": "yarn babel:bootstrap && yarn bootstrap:copy-static",
-    "bootstrap:clean": "yarn babel:bootstrap:clean",
-    "bootstrap:copy-static": "node -e \"const fs = require('node:fs'); fs.cpSync('./src/presets/', './.build/bootstrap/presets/', { recursive: true }); console.log('Successfully copied preset files for bootstrap phase.')\"",
-    "bootstrap:update-exports": "yarn export-map-generator:bootstrap",
-    "build": "yarn build::types && yarn build::cjs && yarn build::esm && yarn build:update-exports",
-    "build::cjs": "yarn babel:build::cjs && yarn build:copy-static::cjs",
-    "build::esm": "yarn babel:build::esm && yarn build:copy-static::esm",
-    "build::types": "yarn tsc:build::types",
-    "build:clean": "yarn babel:build:clean",
-    "build:copy-static": "yarn build:copy-static::cjs && yarn build:copy-static::esm",
-    "build:copy-static::cjs": "node -e \"const fs = require('node:fs'); fs.cpSync('./src/presets/', './dist/cjs/presets/', { recursive: true }); console.log('Successfully copied preset files for CJS distribution.')\"",
-    "build:copy-static::esm": "node -e \"const fs = require('node:fs'); fs.cpSync('./src/presets/', './dist/esm/presets/', { recursive: true }); console.log('Successfully copied preset files for ESM distribution.')\"",
-    "build:update-exports": "yarn export-map-generator:update",
-    "clean": "yarn bootstrap:clean && yarn build:clean && yarn test:clean",
-    "coverage:clean": "yarn jest:coverage:clean",
-    "coverage:open": "yarn jest:coverage:open",
-    "lint": "yarn eslint:lint",
-    "lint::fix": "yarn eslint:lint::fix",
-    "test": "yarn jest:test",
-    "test:clean": "yarn coverage:clean && yarn jest:cache:clean",
-    "tsc:build::types": "cd $INIT_CWD && tsc --project ./tsconfig.output.types.json && node -e \"console.log('Successfully built types.')\"",
-    "tsc:check::types": "cd $INIT_CWD && tsc --noEmit"
+    "bootstrap": "node ../../hack/scripts/package/bootstrap.mjs",
+    "build": "node ../../hack/scripts/package/build.mjs",
+    "clean": "node ../../hack/scripts/package/clean.mjs",
+    "test": "node ../../hack/scripts/package/test.mjs"
   },
   "devDependencies": {
     "@holypack/core": "workspace:^",
@@ -48,8 +29,6 @@
   "exports": {
     "./context/TypeScriptContext.cjs": {
       "types": "./dist/types/context/TypeScriptContext.d.ts",
-      "import": "./dist/esm/context/TypeScriptContext.mjs",
-      "require": "./dist/cjs/context/TypeScriptContext.cjs",
       "default": "./src/context/TypeScriptContext.ts"
     },
     "./context/TypeScriptContext.d.ts": {
@@ -58,20 +37,14 @@
     },
     "./context/TypeScriptContext.js": {
       "types": "./dist/types/context/TypeScriptContext.d.ts",
-      "import": "./dist/esm/context/TypeScriptContext.mjs",
-      "require": "./dist/cjs/context/TypeScriptContext.cjs",
       "default": "./src/context/TypeScriptContext.ts"
     },
     "./context/TypeScriptContext.mjs": {
       "types": "./dist/types/context/TypeScriptContext.d.ts",
-      "import": "./dist/esm/context/TypeScriptContext.mjs",
-      "require": "./dist/cjs/context/TypeScriptContext.cjs",
       "default": "./src/context/TypeScriptContext.ts"
     },
     "./context/TypeScriptContext": {
       "types": "./dist/types/context/TypeScriptContext.d.ts",
-      "import": "./dist/esm/context/TypeScriptContext.mjs",
-      "require": "./dist/cjs/context/TypeScriptContext.cjs",
       "default": "./src/context/TypeScriptContext.ts"
     },
     "./context/resolver/resolveTypeScriptContextAsync.cjs": {
@@ -182,8 +155,6 @@
     },
     "./extension/TypeScriptIntegrationFacets.cjs": {
       "types": "./dist/types/extension/TypeScriptIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/TypeScriptIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/TypeScriptIntegrationFacets.cjs",
       "default": "./src/extension/TypeScriptIntegrationFacets.ts"
     },
     "./extension/TypeScriptIntegrationFacets.d.ts": {
@@ -192,20 +163,14 @@
     },
     "./extension/TypeScriptIntegrationFacets.js": {
       "types": "./dist/types/extension/TypeScriptIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/TypeScriptIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/TypeScriptIntegrationFacets.cjs",
       "default": "./src/extension/TypeScriptIntegrationFacets.ts"
     },
     "./extension/TypeScriptIntegrationFacets.mjs": {
       "types": "./dist/types/extension/TypeScriptIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/TypeScriptIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/TypeScriptIntegrationFacets.cjs",
       "default": "./src/extension/TypeScriptIntegrationFacets.ts"
     },
     "./extension/TypeScriptIntegrationFacets": {
       "types": "./dist/types/extension/TypeScriptIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/TypeScriptIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/TypeScriptIntegrationFacets.cjs",
       "default": "./src/extension/TypeScriptIntegrationFacets.ts"
     },
     "./extension/TypeScriptIntegration": {
@@ -441,8 +406,6 @@
     },
     "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.cjs": {
       "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.cjs",
       "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.ts"
     },
     "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.d.ts": {
@@ -451,26 +414,18 @@
     },
     "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.js": {
       "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.cjs",
       "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.ts"
     },
     "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.mjs": {
       "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.cjs",
       "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.ts"
     },
     "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync": {
       "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.cjs",
       "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsAsync.ts"
     },
     "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.cjs": {
       "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.cjs",
       "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.ts"
     },
     "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.d.ts": {
@@ -479,20 +434,14 @@
     },
     "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.js": {
       "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.cjs",
       "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.ts"
     },
     "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.mjs": {
       "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.cjs",
       "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.ts"
     },
     "./utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync": {
       "types": "./dist/types/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.d.ts",
-      "import": "./dist/esm/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.mjs",
-      "require": "./dist/cjs/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.cjs",
       "default": "./src/utils/tsconfig-root-finder/TSConfigRootPathFinderOptionsSync.ts"
     },
     "./utils/tsconfig-root-finder/findTSConfigRootPathAsync.cjs": {

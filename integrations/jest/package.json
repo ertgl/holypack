@@ -1,22 +1,9 @@
 {
   "name": "@holypack/integration-jest",
   "scripts": {
-    "build": "yarn build:clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn export-map-generator:update",
-    "build:clean": "yarn babel:build:clean",
-    "clean": "yarn build:clean && yarn test:clean",
-    "cmd:jest": "cd $INIT_CWD && yarn cmd:node $(yarn workspace @holypack/integration-jest bin jest) --passWithNoTests",
-    "cmd:jest::expose-gc": "cd $INIT_CWD && yarn cmd:node --expose-gc --no-compilation-cache $(yarn workspace @holypack/integration-jest bin jest) --passWithNoTests",
-    "coverage:clean": "yarn jest:coverage:clean",
-    "coverage:open": "yarn jest:coverage:open",
-    "jest:cache:clean": "cd $INIT_CWD && rm -fr .cache/jest",
-    "jest:coverage:clean": "cd $INIT_CWD && rm -fr .coverage",
-    "jest:coverage:open": "cd $INIT_CWD && open .coverage/lcov-report/index.html",
-    "jest:test": "cd $INIT_CWD && yarn cmd:jest",
-    "jest:test::detect-leaks": "cd $INIT_CWD && yarn cmd:jest::expose-gc --detectLeaks",
-    "lint": "yarn eslint:lint",
-    "lint::fix": "yarn eslint:lint::fix",
-    "test": "yarn jest:test",
-    "test:clean": "yarn coverage:clean && yarn jest:cache:clean"
+    "build": "node ../../hack/scripts/package/build.mjs",
+    "clean": "node ../../hack/scripts/package/clean.mjs",
+    "test": "node ../../hack/scripts/package/test.mjs"
   },
   "devDependencies": {
     "@babel/core": "^7.28.0",
@@ -645,8 +632,6 @@
     },
     "./context/JestContext.cjs": {
       "types": "./dist/types/context/JestContext.d.ts",
-      "import": "./dist/esm/context/JestContext.mjs",
-      "require": "./dist/cjs/context/JestContext.cjs",
       "default": "./src/context/JestContext.ts"
     },
     "./context/JestContext.d.ts": {
@@ -655,26 +640,18 @@
     },
     "./context/JestContext.js": {
       "types": "./dist/types/context/JestContext.d.ts",
-      "import": "./dist/esm/context/JestContext.mjs",
-      "require": "./dist/cjs/context/JestContext.cjs",
       "default": "./src/context/JestContext.ts"
     },
     "./context/JestContext.mjs": {
       "types": "./dist/types/context/JestContext.d.ts",
-      "import": "./dist/esm/context/JestContext.mjs",
-      "require": "./dist/cjs/context/JestContext.cjs",
       "default": "./src/context/JestContext.ts"
     },
     "./context/JestContext": {
       "types": "./dist/types/context/JestContext.d.ts",
-      "import": "./dist/esm/context/JestContext.mjs",
-      "require": "./dist/cjs/context/JestContext.cjs",
       "default": "./src/context/JestContext.ts"
     },
     "./context/JestEnv.cjs": {
       "types": "./dist/types/context/JestEnv.d.ts",
-      "import": "./dist/esm/context/JestEnv.mjs",
-      "require": "./dist/cjs/context/JestEnv.cjs",
       "default": "./src/context/JestEnv.ts"
     },
     "./context/JestEnv.d.ts": {
@@ -683,26 +660,18 @@
     },
     "./context/JestEnv.js": {
       "types": "./dist/types/context/JestEnv.d.ts",
-      "import": "./dist/esm/context/JestEnv.mjs",
-      "require": "./dist/cjs/context/JestEnv.cjs",
       "default": "./src/context/JestEnv.ts"
     },
     "./context/JestEnv.mjs": {
       "types": "./dist/types/context/JestEnv.d.ts",
-      "import": "./dist/esm/context/JestEnv.mjs",
-      "require": "./dist/cjs/context/JestEnv.cjs",
       "default": "./src/context/JestEnv.ts"
     },
     "./context/JestEnv": {
       "types": "./dist/types/context/JestEnv.d.ts",
-      "import": "./dist/esm/context/JestEnv.mjs",
-      "require": "./dist/cjs/context/JestEnv.cjs",
       "default": "./src/context/JestEnv.ts"
     },
     "./context/JestPaths.cjs": {
       "types": "./dist/types/context/JestPaths.d.ts",
-      "import": "./dist/esm/context/JestPaths.mjs",
-      "require": "./dist/cjs/context/JestPaths.cjs",
       "default": "./src/context/JestPaths.ts"
     },
     "./context/JestPaths.d.ts": {
@@ -711,20 +680,14 @@
     },
     "./context/JestPaths.js": {
       "types": "./dist/types/context/JestPaths.d.ts",
-      "import": "./dist/esm/context/JestPaths.mjs",
-      "require": "./dist/cjs/context/JestPaths.cjs",
       "default": "./src/context/JestPaths.ts"
     },
     "./context/JestPaths.mjs": {
       "types": "./dist/types/context/JestPaths.d.ts",
-      "import": "./dist/esm/context/JestPaths.mjs",
-      "require": "./dist/cjs/context/JestPaths.cjs",
       "default": "./src/context/JestPaths.ts"
     },
     "./context/JestPaths": {
       "types": "./dist/types/context/JestPaths.d.ts",
-      "import": "./dist/esm/context/JestPaths.mjs",
-      "require": "./dist/cjs/context/JestPaths.cjs",
       "default": "./src/context/JestPaths.ts"
     },
     "./context/resolver/resolveJestContextAsync.cjs": {
@@ -919,8 +882,6 @@
     },
     "./extension/JestIntegrationFacets.cjs": {
       "types": "./dist/types/extension/JestIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/JestIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/JestIntegrationFacets.cjs",
       "default": "./src/extension/JestIntegrationFacets.ts"
     },
     "./extension/JestIntegrationFacets.d.ts": {
@@ -929,20 +890,14 @@
     },
     "./extension/JestIntegrationFacets.js": {
       "types": "./dist/types/extension/JestIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/JestIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/JestIntegrationFacets.cjs",
       "default": "./src/extension/JestIntegrationFacets.ts"
     },
     "./extension/JestIntegrationFacets.mjs": {
       "types": "./dist/types/extension/JestIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/JestIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/JestIntegrationFacets.cjs",
       "default": "./src/extension/JestIntegrationFacets.ts"
     },
     "./extension/JestIntegrationFacets": {
       "types": "./dist/types/extension/JestIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/JestIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/JestIntegrationFacets.cjs",
       "default": "./src/extension/JestIntegrationFacets.ts"
     },
     "./extension/JestIntegration": {
@@ -1037,8 +992,6 @@
     },
     "./hooks/generate-config/GenerateConfigHookAsync.cjs": {
       "types": "./dist/types/hooks/generate-config/GenerateConfigHookAsync.d.ts",
-      "import": "./dist/esm/hooks/generate-config/GenerateConfigHookAsync.mjs",
-      "require": "./dist/cjs/hooks/generate-config/GenerateConfigHookAsync.cjs",
       "default": "./src/hooks/generate-config/GenerateConfigHookAsync.ts"
     },
     "./hooks/generate-config/GenerateConfigHookAsync.d.ts": {
@@ -1047,26 +1000,18 @@
     },
     "./hooks/generate-config/GenerateConfigHookAsync.js": {
       "types": "./dist/types/hooks/generate-config/GenerateConfigHookAsync.d.ts",
-      "import": "./dist/esm/hooks/generate-config/GenerateConfigHookAsync.mjs",
-      "require": "./dist/cjs/hooks/generate-config/GenerateConfigHookAsync.cjs",
       "default": "./src/hooks/generate-config/GenerateConfigHookAsync.ts"
     },
     "./hooks/generate-config/GenerateConfigHookAsync.mjs": {
       "types": "./dist/types/hooks/generate-config/GenerateConfigHookAsync.d.ts",
-      "import": "./dist/esm/hooks/generate-config/GenerateConfigHookAsync.mjs",
-      "require": "./dist/cjs/hooks/generate-config/GenerateConfigHookAsync.cjs",
       "default": "./src/hooks/generate-config/GenerateConfigHookAsync.ts"
     },
     "./hooks/generate-config/GenerateConfigHookAsync": {
       "types": "./dist/types/hooks/generate-config/GenerateConfigHookAsync.d.ts",
-      "import": "./dist/esm/hooks/generate-config/GenerateConfigHookAsync.mjs",
-      "require": "./dist/cjs/hooks/generate-config/GenerateConfigHookAsync.cjs",
       "default": "./src/hooks/generate-config/GenerateConfigHookAsync.ts"
     },
     "./hooks/generate-config/GenerateConfigHookSync.cjs": {
       "types": "./dist/types/hooks/generate-config/GenerateConfigHookSync.d.ts",
-      "import": "./dist/esm/hooks/generate-config/GenerateConfigHookSync.mjs",
-      "require": "./dist/cjs/hooks/generate-config/GenerateConfigHookSync.cjs",
       "default": "./src/hooks/generate-config/GenerateConfigHookSync.ts"
     },
     "./hooks/generate-config/GenerateConfigHookSync.d.ts": {
@@ -1075,20 +1020,14 @@
     },
     "./hooks/generate-config/GenerateConfigHookSync.js": {
       "types": "./dist/types/hooks/generate-config/GenerateConfigHookSync.d.ts",
-      "import": "./dist/esm/hooks/generate-config/GenerateConfigHookSync.mjs",
-      "require": "./dist/cjs/hooks/generate-config/GenerateConfigHookSync.cjs",
       "default": "./src/hooks/generate-config/GenerateConfigHookSync.ts"
     },
     "./hooks/generate-config/GenerateConfigHookSync.mjs": {
       "types": "./dist/types/hooks/generate-config/GenerateConfigHookSync.d.ts",
-      "import": "./dist/esm/hooks/generate-config/GenerateConfigHookSync.mjs",
-      "require": "./dist/cjs/hooks/generate-config/GenerateConfigHookSync.cjs",
       "default": "./src/hooks/generate-config/GenerateConfigHookSync.ts"
     },
     "./hooks/generate-config/GenerateConfigHookSync": {
       "types": "./dist/types/hooks/generate-config/GenerateConfigHookSync.d.ts",
-      "import": "./dist/esm/hooks/generate-config/GenerateConfigHookSync.mjs",
-      "require": "./dist/cjs/hooks/generate-config/GenerateConfigHookSync.cjs",
       "default": "./src/hooks/generate-config/GenerateConfigHookSync.ts"
     },
     "./hooks/generate-config/JEST_INTEGRATION_HOOK_UID_GENERATE_CONFIG_ASYNC.cjs": {
@@ -1233,8 +1172,6 @@
     },
     "./options/JestIntegrationOptions.cjs": {
       "types": "./dist/types/options/JestIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/JestIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/JestIntegrationOptions.cjs",
       "default": "./src/options/JestIntegrationOptions.ts"
     },
     "./options/JestIntegrationOptions.d.ts": {
@@ -1243,26 +1180,18 @@
     },
     "./options/JestIntegrationOptions.js": {
       "types": "./dist/types/options/JestIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/JestIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/JestIntegrationOptions.cjs",
       "default": "./src/options/JestIntegrationOptions.ts"
     },
     "./options/JestIntegrationOptions.mjs": {
       "types": "./dist/types/options/JestIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/JestIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/JestIntegrationOptions.cjs",
       "default": "./src/options/JestIntegrationOptions.ts"
     },
     "./options/JestIntegrationOptions": {
       "types": "./dist/types/options/JestIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/JestIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/JestIntegrationOptions.cjs",
       "default": "./src/options/JestIntegrationOptions.ts"
     },
     "./options/JestIntegrationPluginOptionsMapping.cjs": {
       "types": "./dist/types/options/JestIntegrationPluginOptionsMapping.d.ts",
-      "import": "./dist/esm/options/JestIntegrationPluginOptionsMapping.mjs",
-      "require": "./dist/cjs/options/JestIntegrationPluginOptionsMapping.cjs",
       "default": "./src/options/JestIntegrationPluginOptionsMapping.ts"
     },
     "./options/JestIntegrationPluginOptionsMapping.d.ts": {
@@ -1271,26 +1200,18 @@
     },
     "./options/JestIntegrationPluginOptionsMapping.js": {
       "types": "./dist/types/options/JestIntegrationPluginOptionsMapping.d.ts",
-      "import": "./dist/esm/options/JestIntegrationPluginOptionsMapping.mjs",
-      "require": "./dist/cjs/options/JestIntegrationPluginOptionsMapping.cjs",
       "default": "./src/options/JestIntegrationPluginOptionsMapping.ts"
     },
     "./options/JestIntegrationPluginOptionsMapping.mjs": {
       "types": "./dist/types/options/JestIntegrationPluginOptionsMapping.d.ts",
-      "import": "./dist/esm/options/JestIntegrationPluginOptionsMapping.mjs",
-      "require": "./dist/cjs/options/JestIntegrationPluginOptionsMapping.cjs",
       "default": "./src/options/JestIntegrationPluginOptionsMapping.ts"
     },
     "./options/JestIntegrationPluginOptionsMapping": {
       "types": "./dist/types/options/JestIntegrationPluginOptionsMapping.d.ts",
-      "import": "./dist/esm/options/JestIntegrationPluginOptionsMapping.mjs",
-      "require": "./dist/cjs/options/JestIntegrationPluginOptionsMapping.cjs",
       "default": "./src/options/JestIntegrationPluginOptionsMapping.ts"
     },
     "./options/JestIntegrationResolvedOptions.cjs": {
       "types": "./dist/types/options/JestIntegrationResolvedOptions.d.ts",
-      "import": "./dist/esm/options/JestIntegrationResolvedOptions.mjs",
-      "require": "./dist/cjs/options/JestIntegrationResolvedOptions.cjs",
       "default": "./src/options/JestIntegrationResolvedOptions.ts"
     },
     "./options/JestIntegrationResolvedOptions.d.ts": {
@@ -1299,20 +1220,14 @@
     },
     "./options/JestIntegrationResolvedOptions.js": {
       "types": "./dist/types/options/JestIntegrationResolvedOptions.d.ts",
-      "import": "./dist/esm/options/JestIntegrationResolvedOptions.mjs",
-      "require": "./dist/cjs/options/JestIntegrationResolvedOptions.cjs",
       "default": "./src/options/JestIntegrationResolvedOptions.ts"
     },
     "./options/JestIntegrationResolvedOptions.mjs": {
       "types": "./dist/types/options/JestIntegrationResolvedOptions.d.ts",
-      "import": "./dist/esm/options/JestIntegrationResolvedOptions.mjs",
-      "require": "./dist/cjs/options/JestIntegrationResolvedOptions.cjs",
       "default": "./src/options/JestIntegrationResolvedOptions.ts"
     },
     "./options/JestIntegrationResolvedOptions": {
       "types": "./dist/types/options/JestIntegrationResolvedOptions.d.ts",
-      "import": "./dist/esm/options/JestIntegrationResolvedOptions.mjs",
-      "require": "./dist/cjs/options/JestIntegrationResolvedOptions.cjs",
       "default": "./src/options/JestIntegrationResolvedOptions.ts"
     },
     "./options/resolveJestIntegrationOptions.cjs": {
@@ -1538,8 +1453,6 @@
     },
     "./plugins/eslint/extension/JestIntegrationPluginESLintFacets.cjs": {
       "types": "./dist/types/plugins/eslint/extension/JestIntegrationPluginESLintFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/extension/JestIntegrationPluginESLintFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/extension/JestIntegrationPluginESLintFacets.cjs",
       "default": "./src/plugins/eslint/extension/JestIntegrationPluginESLintFacets.ts"
     },
     "./plugins/eslint/extension/JestIntegrationPluginESLintFacets.d.ts": {
@@ -1548,20 +1461,14 @@
     },
     "./plugins/eslint/extension/JestIntegrationPluginESLintFacets.js": {
       "types": "./dist/types/plugins/eslint/extension/JestIntegrationPluginESLintFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/extension/JestIntegrationPluginESLintFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/extension/JestIntegrationPluginESLintFacets.cjs",
       "default": "./src/plugins/eslint/extension/JestIntegrationPluginESLintFacets.ts"
     },
     "./plugins/eslint/extension/JestIntegrationPluginESLintFacets.mjs": {
       "types": "./dist/types/plugins/eslint/extension/JestIntegrationPluginESLintFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/extension/JestIntegrationPluginESLintFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/extension/JestIntegrationPluginESLintFacets.cjs",
       "default": "./src/plugins/eslint/extension/JestIntegrationPluginESLintFacets.ts"
     },
     "./plugins/eslint/extension/JestIntegrationPluginESLintFacets": {
       "types": "./dist/types/plugins/eslint/extension/JestIntegrationPluginESLintFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/extension/JestIntegrationPluginESLintFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/extension/JestIntegrationPluginESLintFacets.cjs",
       "default": "./src/plugins/eslint/extension/JestIntegrationPluginESLintFacets.ts"
     },
     "./plugins/eslint/extension/JestIntegrationPluginESLintState.cjs": {
@@ -1740,8 +1647,6 @@
     },
     "./plugins/eslint/options/JestIntegrationPluginESLintOptions.cjs": {
       "types": "./dist/types/plugins/eslint/options/JestIntegrationPluginESLintOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/options/JestIntegrationPluginESLintOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/options/JestIntegrationPluginESLintOptions.cjs",
       "default": "./src/plugins/eslint/options/JestIntegrationPluginESLintOptions.ts"
     },
     "./plugins/eslint/options/JestIntegrationPluginESLintOptions.d.ts": {
@@ -1750,26 +1655,18 @@
     },
     "./plugins/eslint/options/JestIntegrationPluginESLintOptions.js": {
       "types": "./dist/types/plugins/eslint/options/JestIntegrationPluginESLintOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/options/JestIntegrationPluginESLintOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/options/JestIntegrationPluginESLintOptions.cjs",
       "default": "./src/plugins/eslint/options/JestIntegrationPluginESLintOptions.ts"
     },
     "./plugins/eslint/options/JestIntegrationPluginESLintOptions.mjs": {
       "types": "./dist/types/plugins/eslint/options/JestIntegrationPluginESLintOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/options/JestIntegrationPluginESLintOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/options/JestIntegrationPluginESLintOptions.cjs",
       "default": "./src/plugins/eslint/options/JestIntegrationPluginESLintOptions.ts"
     },
     "./plugins/eslint/options/JestIntegrationPluginESLintOptions": {
       "types": "./dist/types/plugins/eslint/options/JestIntegrationPluginESLintOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/options/JestIntegrationPluginESLintOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/options/JestIntegrationPluginESLintOptions.cjs",
       "default": "./src/plugins/eslint/options/JestIntegrationPluginESLintOptions.ts"
     },
     "./plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.cjs": {
       "types": "./dist/types/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.cjs",
       "default": "./src/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.ts"
     },
     "./plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.d.ts": {
@@ -1778,20 +1675,14 @@
     },
     "./plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.js": {
       "types": "./dist/types/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.cjs",
       "default": "./src/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.ts"
     },
     "./plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.mjs": {
       "types": "./dist/types/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.cjs",
       "default": "./src/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.ts"
     },
     "./plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions": {
       "types": "./dist/types/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.cjs",
       "default": "./src/plugins/eslint/options/JestIntegrationPluginESLintResolvedOptions.ts"
     },
     "./plugins/eslint/options/resolveJestIntegrationPluginESLintOptions.cjs": {

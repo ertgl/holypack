@@ -1,12 +1,5 @@
 {
   "name": "@holypack/integration-export-map-generator",
-  "scripts": {
-    "cmd:export-map-generator": "cd $INIT_CWD && export-map-generator",
-    "export-map-generator:preview": "cd $INIT_CWD && yarn cmd:export-map-generator --config exports.config.mjs --dry-run generate --stdout",
-    "export-map-generator:update": "cd $INIT_CWD && yarn cmd:export-map-generator --config exports.config.mjs generate && node -e \"console.log('Successfully updated package exports.')\"",
-    "lint": "yarn eslint:lint",
-    "lint::fix": "yarn eslint:lint::fix"
-  },
   "dependencies": {
     "export-map-generator": "^2.1.1"
   },

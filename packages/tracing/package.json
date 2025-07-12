@@ -5,23 +5,8 @@
     "holypack-plugin"
   ],
   "scripts": {
-    "build": "yarn build::types && yarn build::cjs && yarn build::esm && yarn build:update-exports",
-    "build::cjs": "yarn babel:build::cjs",
-    "build::esm": "yarn babel:build::esm",
-    "build::types": "yarn tsc:build::types",
-    "build:clean": "yarn babel:build:clean",
-    "build:update-exports": "yarn export-map-generator:update",
-    "clean": "yarn build:clean && yarn debug:clean && yarn test:clean",
-    "coverage:clean": "yarn jest:coverage:clean",
-    "coverage:open": "yarn jest:coverage:open",
-    "debug:build": "yarn debug:build::esm && yarn debug:update-package-exports",
-    "debug:build::esm": "yarn babel:debug:build",
-    "debug:clean": "yarn babel:debug:build:clean",
-    "debug:update-package-exports": "yarn export-map-generator:debug",
-    "lint": "yarn eslint:lint",
-    "lint::fix": "yarn eslint:lint::fix",
-    "test": "yarn jest:test",
-    "test:clean": "yarn coverage:clean && yarn jest:cache:clean"
+    "build": "node ../../hack/scripts/package/build.mjs",
+    "clean": "node ../../hack/scripts/package/clean.mjs"
   },
   "devDependencies": {
     "@holypack/core": "workspace:^",
@@ -103,8 +88,6 @@
     },
     "./plugins/hook-tracer/extension/HookTracerPluginOptions.cjs": {
       "types": "./dist/types/plugins/hook-tracer/extension/HookTracerPluginOptions.d.ts",
-      "import": "./dist/esm/plugins/hook-tracer/extension/HookTracerPluginOptions.mjs",
-      "require": "./dist/cjs/plugins/hook-tracer/extension/HookTracerPluginOptions.cjs",
       "default": "./src/plugins/hook-tracer/extension/HookTracerPluginOptions.ts"
     },
     "./plugins/hook-tracer/extension/HookTracerPluginOptions.d.ts": {
@@ -113,20 +96,14 @@
     },
     "./plugins/hook-tracer/extension/HookTracerPluginOptions.js": {
       "types": "./dist/types/plugins/hook-tracer/extension/HookTracerPluginOptions.d.ts",
-      "import": "./dist/esm/plugins/hook-tracer/extension/HookTracerPluginOptions.mjs",
-      "require": "./dist/cjs/plugins/hook-tracer/extension/HookTracerPluginOptions.cjs",
       "default": "./src/plugins/hook-tracer/extension/HookTracerPluginOptions.ts"
     },
     "./plugins/hook-tracer/extension/HookTracerPluginOptions.mjs": {
       "types": "./dist/types/plugins/hook-tracer/extension/HookTracerPluginOptions.d.ts",
-      "import": "./dist/esm/plugins/hook-tracer/extension/HookTracerPluginOptions.mjs",
-      "require": "./dist/cjs/plugins/hook-tracer/extension/HookTracerPluginOptions.cjs",
       "default": "./src/plugins/hook-tracer/extension/HookTracerPluginOptions.ts"
     },
     "./plugins/hook-tracer/extension/HookTracerPluginOptions": {
       "types": "./dist/types/plugins/hook-tracer/extension/HookTracerPluginOptions.d.ts",
-      "import": "./dist/esm/plugins/hook-tracer/extension/HookTracerPluginOptions.mjs",
-      "require": "./dist/cjs/plugins/hook-tracer/extension/HookTracerPluginOptions.cjs",
       "default": "./src/plugins/hook-tracer/extension/HookTracerPluginOptions.ts"
     },
     "./plugins/hook-tracer/extension/HookTracerPlugin": {

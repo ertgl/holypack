@@ -3,11 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "cache:clean": "rm -fr .cache",
-    "clean": "yarn cache:clean && yarn coverage:clean",
-    "coverage:clean": "rm -fr coverage",
-    "jest": "yarn cmd:jest",
-    "test": "yarn coverage:clean && yarn jest"
+    "clean": "rm -fr .cache && rm -fr .coverage",
+    "test": "node --disable-warning=ExperimentalWarning --experimental-vm-modules $(yarn bin jest)"
   },
   "devDependencies": {
     "@holypack/babel-preset": "*",

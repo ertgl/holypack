@@ -1,1 +1,1 @@
-export { default } from "@holypack/internal-integration-export-map-generator/bootstrap";
+export { default } from "@holypack/internal-integration-export-map-generator/configs/bootstrap";

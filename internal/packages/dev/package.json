@@ -1,0 +1,142 @@
+{
+  "name": "@holypack/internal-dev",
+  "private": true,
+  "scripts": {
+    "prepare": "yarn update-exports",
+    "update-exports": "node ../../../hack/scripts/package/update-exports.mjs"
+  },
+  "files": [
+    "./src/",
+    "./package.json"
+  ],
+  "type": "module",
+  "module": "./src/index.mjs",
+  "exports": {
+    "./build/context/BuildContext.mjs": {
+      "default": "./src/build/context/BuildContext.mjs"
+    },
+    "./build/context/BuildContext": {
+      "default": "./src/build/context/BuildContext.mjs"
+    },
+    "./build/context/resolver/BuildContextResolutionOptions.mjs": {
+      "default": "./src/build/context/resolver/BuildContextResolutionOptions.mjs"
+    },
+    "./build/context/resolver/BuildContextResolutionOptions": {
+      "default": "./src/build/context/resolver/BuildContextResolutionOptions.mjs"
+    },
+    "./build/context/resolver/resolveBuildContext.mjs": {
+      "default": "./src/build/context/resolver/resolveBuildContext.mjs"
+    },
+    "./build/context/resolver/resolveBuildContext": {
+      "default": "./src/build/context/resolver/resolveBuildContext.mjs"
+    },
+    "./build/context/workspace/BuildContextResolvedWorkspace.mjs": {
+      "default": "./src/build/context/workspace/BuildContextResolvedWorkspace.mjs"
+    },
+    "./build/context/workspace/BuildContextResolvedWorkspace": {
+      "default": "./src/build/context/workspace/BuildContextResolvedWorkspace.mjs"
+    },
+    "./build/context/workspace/BuildContextWorkspace.mjs": {
+      "default": "./src/build/context/workspace/BuildContextWorkspace.mjs"
+    },
+    "./build/context/workspace/BuildContextWorkspace": {
+      "default": "./src/build/context/workspace/BuildContextWorkspace.mjs"
+    },
+    "./build/context/workspace/paths/BuildContextResolvedWorkspacePaths.mjs": {
+      "default": "./src/build/context/workspace/paths/BuildContextResolvedWorkspacePaths.mjs"
+    },
+    "./build/context/workspace/paths/BuildContextResolvedWorkspacePaths": {
+      "default": "./src/build/context/workspace/paths/BuildContextResolvedWorkspacePaths.mjs"
+    },
+    "./build/context/workspace/paths/BuildContextWorkspacePaths.mjs": {
+      "default": "./src/build/context/workspace/paths/BuildContextWorkspacePaths.mjs"
+    },
+    "./build/context/workspace/paths/BuildContextWorkspacePaths": {
+      "default": "./src/build/context/workspace/paths/BuildContextWorkspacePaths.mjs"
+    },
+    "./build/context/workspace/paths/resolveBuildContextWorkspacePaths.mjs": {
+      "default": "./src/build/context/workspace/paths/resolveBuildContextWorkspacePaths.mjs"
+    },
+    "./build/context/workspace/paths/resolveBuildContextWorkspacePaths": {
+      "default": "./src/build/context/workspace/paths/resolveBuildContextWorkspacePaths.mjs"
+    },
+    "./build/context/workspace/resolveBuildContextWorkspace.mjs": {
+      "default": "./src/build/context/workspace/resolveBuildContextWorkspace.mjs"
+    },
+    "./build/context/workspace/resolveBuildContextWorkspace": {
+      "default": "./src/build/context/workspace/resolveBuildContextWorkspace.mjs"
+    },
+    "./build/module/format/ModuleFormat.mjs": {
+      "default": "./src/build/module/format/ModuleFormat.mjs"
+    },
+    "./build/module/format/ModuleFormat": {
+      "default": "./src/build/module/format/ModuleFormat.mjs"
+    },
+    "./build/output/mapSrcPathToDist.mjs": {
+      "default": "./src/build/output/mapSrcPathToDist.mjs"
+    },
+    "./build/output/mapSrcPathToDist": {
+      "default": "./src/build/output/mapSrcPathToDist.mjs"
+    },
+    "./build/source/SourceFileDirentGlobOptions.mjs": {
+      "default": "./src/build/source/SourceFileDirentGlobOptions.mjs"
+    },
+    "./build/source/SourceFileDirentGlobOptions": {
+      "default": "./src/build/source/SourceFileDirentGlobOptions.mjs"
+    },
+    "./build/source/getDefaultExcludedSourceFilePathGlobPatterns.mjs": {
+      "default": "./src/build/source/getDefaultExcludedSourceFilePathGlobPatterns.mjs"
+    },
+    "./build/source/getDefaultExcludedSourceFilePathGlobPatterns": {
+      "default": "./src/build/source/getDefaultExcludedSourceFilePathGlobPatterns.mjs"
+    },
+    "./build/source/getSourceFileDirents.mjs": {
+      "default": "./src/build/source/getSourceFileDirents.mjs"
+    },
+    "./build/source/getSourceFileDirents": {
+      "default": "./src/build/source/getSourceFileDirents.mjs"
+    },
+    "./build/target/BuildTargetFileExtension.mjs": {
+      "default": "./src/build/target/BuildTargetFileExtension.mjs"
+    },
+    "./build/target/BuildTargetFileExtension": {
+      "default": "./src/build/target/BuildTargetFileExtension.mjs"
+    },
+    "./build/target/MODULE_FORMAT_TO_FILE_EXTENSION_MAPPING.mjs": {
+      "default": "./src/build/target/MODULE_FORMAT_TO_FILE_EXTENSION_MAPPING.mjs"
+    },
+    "./build/target/MODULE_FORMAT_TO_FILE_EXTENSION_MAPPING": {
+      "default": "./src/build/target/MODULE_FORMAT_TO_FILE_EXTENSION_MAPPING.mjs"
+    },
+    "./index.mjs": {
+      "default": "./src/index.mjs"
+    },
+    "./index": {
+      "default": "./src/index.mjs"
+    },
+    "./lib/fs/dirent/getDirentFullPath.mjs": {
+      "default": "./src/lib/fs/dirent/getDirentFullPath.mjs"
+    },
+    "./lib/fs/dirent/getDirentFullPath": {
+      "default": "./src/lib/fs/dirent/getDirentFullPath.mjs"
+    },
+    "./lib/path/absolutifyPath.mjs": {
+      "default": "./src/lib/path/absolutifyPath.mjs"
+    },
+    "./lib/path/absolutifyPath": {
+      "default": "./src/lib/path/absolutifyPath.mjs"
+    },
+    "./lib/process/cwd/resolveCWD.mjs": {
+      "default": "./src/lib/process/cwd/resolveCWD.mjs"
+    },
+    "./lib/process/cwd/resolveCWD": {
+      "default": "./src/lib/process/cwd/resolveCWD.mjs"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "default": "./src/index.mjs"
+    }
+  }
+}

@@ -3,14 +3,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "yarn clean && yarn babel:build::cjs && yarn babel:build::esm",
+    "build": "yarn build::cjs && yarn build::esm",
+    "build::cjs": "babel src --config-file ./babel.config.cjs.mjs --out-dir dist/cjs --out-file-extension '.cjs'",
+    "build::esm": "babel src --config-file ./babel.config.esm.mjs --out-dir dist/esm --out-file-extension '.mjs'",
     "clean": "rm -fr dist"
   },
   "devDependencies": {
     "@babel/cli": "^7.28.0",
     "@holypack/babel-preset": "*",
     "@holypack/core": "*",
-    "@holypack/integration-babel": "*",
-    "holypack": "*"
+    "@holypack/integration-babel": "*"
   }
 }

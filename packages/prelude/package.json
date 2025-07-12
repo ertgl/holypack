@@ -1,26 +1,9 @@
 {
   "name": "holypack",
   "scripts": {
-    "bootstrap": "yarn bootstrap:build && yarn bootstrap:update-exports",
-    "bootstrap:build": "yarn babel:bootstrap",
-    "bootstrap:clean": "yarn babel:bootstrap:clean",
-    "bootstrap:update-exports": "yarn export-map-generator:bootstrap",
-    "build": "yarn build::types && yarn build::cjs && yarn build::esm && yarn build:update-exports",
-    "build::cjs": "yarn babel:build::cjs",
-    "build::esm": "yarn babel:build::esm",
-    "build::types": "yarn tsc:build::types",
-    "build:clean": "yarn babel:build:clean",
-    "build:update-exports": "yarn export-map-generator:update",
-    "clean": "yarn bootstrap:clean && yarn build:clean && yarn node-modules:clean && yarn test:clean",
-    "cmd:holypack": "cd $INIT_CWD && yarn cmd:node $(yarn workspace holypack bin holypack)",
-    "cmd:holypack-cjs": "cd $INIT_CWD && yarn cmd:node $(yarn workspace holypack bin holypack-cjs)",
-    "coverage:clean": "yarn jest:coverage:clean",
-    "coverage:open": "yarn jest:coverage:open",
-    "lint": "yarn eslint:lint",
-    "lint::fix": "yarn eslint:lint::fix",
-    "node-modules:clean": "rm -fr node_modules",
-    "test": "yarn jest:test",
-    "test:clean": "yarn coverage:clean && yarn jest:cache:clean"
+    "bootstrap": "node ../../hack/scripts/package/bootstrap.mjs",
+    "build": "node ../../hack/scripts/package/build.mjs",
+    "clean": "node ../../hack/scripts/package/clean.mjs"
   },
   "devDependencies": {
     "@holypack/cli": "workspace:^",

@@ -5,24 +5,9 @@
     "holypack-integration"
   ],
   "scripts": {
-    "build": "yarn build::types && yarn build::cjs && yarn build::esm && yarn build:update-exports",
-    "build::cjs": "yarn babel:build::cjs",
-    "build::esm": "yarn babel:build::esm",
-    "build::types": "yarn tsc:build::types",
-    "build:clean": "yarn babel:build:clean",
-    "build:update-exports": "yarn export-map-generator:update",
-    "clean": "yarn build:clean && yarn test:clean",
-    "cmd:eslint": "cd $INIT_CWD && yarn cmd:node $(yarn workspace @holypack/integration-eslint bin eslint)",
-    "cmd:eslint-config-inspector": "cd $INIT_CWD && yarn cmd:node $(yarn workspace @holypack/integration-eslint bin eslint-config-inspector)",
-    "coverage:clean": "yarn jest:coverage:clean",
-    "coverage:open": "yarn jest:coverage:open",
-    "eslint:config:inspect": "cd $INIT_CWD && yarn cmd:eslint-config-inspector",
-    "eslint:lint": "cd $INIT_CWD && yarn cmd:eslint",
-    "eslint:lint::fix": "cd $INIT_CWD && yarn cmd:eslint --fix",
-    "lint": "yarn eslint:lint",
-    "lint::fix": "yarn eslint:lint::fix",
-    "test": "yarn jest:test",
-    "test:clean": "yarn coverage:clean && yarn jest:cache:clean"
+    "build": "node ../../hack/scripts/package/build.mjs",
+    "clean": "node ../../hack/scripts/package/clean.mjs",
+    "test": "node ../../hack/scripts/package/test.mjs"
   },
   "dependencies": {
     "@cspell/eslint-plugin": "^9.1.3",
@@ -85,8 +70,6 @@
   "exports": {
     "./config/LinterConfigIndex.cjs": {
       "types": "./dist/types/config/LinterConfigIndex.d.ts",
-      "import": "./dist/esm/config/LinterConfigIndex.mjs",
-      "require": "./dist/cjs/config/LinterConfigIndex.cjs",
       "default": "./src/config/LinterConfigIndex.ts"
     },
     "./config/LinterConfigIndex.d.ts": {
@@ -95,26 +78,18 @@
     },
     "./config/LinterConfigIndex.js": {
       "types": "./dist/types/config/LinterConfigIndex.d.ts",
-      "import": "./dist/esm/config/LinterConfigIndex.mjs",
-      "require": "./dist/cjs/config/LinterConfigIndex.cjs",
       "default": "./src/config/LinterConfigIndex.ts"
     },
     "./config/LinterConfigIndex.mjs": {
       "types": "./dist/types/config/LinterConfigIndex.d.ts",
-      "import": "./dist/esm/config/LinterConfigIndex.mjs",
-      "require": "./dist/cjs/config/LinterConfigIndex.cjs",
       "default": "./src/config/LinterConfigIndex.ts"
     },
     "./config/LinterConfigIndex": {
       "types": "./dist/types/config/LinterConfigIndex.d.ts",
-      "import": "./dist/esm/config/LinterConfigIndex.mjs",
-      "require": "./dist/cjs/config/LinterConfigIndex.cjs",
       "default": "./src/config/LinterConfigIndex.ts"
     },
     "./config/LinterConfigName.cjs": {
       "types": "./dist/types/config/LinterConfigName.d.ts",
-      "import": "./dist/esm/config/LinterConfigName.mjs",
-      "require": "./dist/cjs/config/LinterConfigName.cjs",
       "default": "./src/config/LinterConfigName.ts"
     },
     "./config/LinterConfigName.d.ts": {
@@ -123,26 +98,18 @@
     },
     "./config/LinterConfigName.js": {
       "types": "./dist/types/config/LinterConfigName.d.ts",
-      "import": "./dist/esm/config/LinterConfigName.mjs",
-      "require": "./dist/cjs/config/LinterConfigName.cjs",
       "default": "./src/config/LinterConfigName.ts"
     },
     "./config/LinterConfigName.mjs": {
       "types": "./dist/types/config/LinterConfigName.d.ts",
-      "import": "./dist/esm/config/LinterConfigName.mjs",
-      "require": "./dist/cjs/config/LinterConfigName.cjs",
       "default": "./src/config/LinterConfigName.ts"
     },
     "./config/LinterConfigName": {
       "types": "./dist/types/config/LinterConfigName.d.ts",
-      "import": "./dist/esm/config/LinterConfigName.mjs",
-      "require": "./dist/cjs/config/LinterConfigName.cjs",
       "default": "./src/config/LinterConfigName.ts"
     },
     "./config/LinterConfigPredicate.cjs": {
       "types": "./dist/types/config/LinterConfigPredicate.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicate.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicate.cjs",
       "default": "./src/config/LinterConfigPredicate.ts"
     },
     "./config/LinterConfigPredicate.d.ts": {
@@ -151,20 +118,14 @@
     },
     "./config/LinterConfigPredicate.js": {
       "types": "./dist/types/config/LinterConfigPredicate.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicate.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicate.cjs",
       "default": "./src/config/LinterConfigPredicate.ts"
     },
     "./config/LinterConfigPredicate.mjs": {
       "types": "./dist/types/config/LinterConfigPredicate.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicate.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicate.cjs",
       "default": "./src/config/LinterConfigPredicate.ts"
     },
     "./config/LinterConfigPredicateID.cjs": {
       "types": "./dist/types/config/LinterConfigPredicateID.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicateID.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicateID.cjs",
       "default": "./src/config/LinterConfigPredicateID.ts"
     },
     "./config/LinterConfigPredicateID.d.ts": {
@@ -173,26 +134,18 @@
     },
     "./config/LinterConfigPredicateID.js": {
       "types": "./dist/types/config/LinterConfigPredicateID.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicateID.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicateID.cjs",
       "default": "./src/config/LinterConfigPredicateID.ts"
     },
     "./config/LinterConfigPredicateID.mjs": {
       "types": "./dist/types/config/LinterConfigPredicateID.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicateID.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicateID.cjs",
       "default": "./src/config/LinterConfigPredicateID.ts"
     },
     "./config/LinterConfigPredicateID": {
       "types": "./dist/types/config/LinterConfigPredicateID.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicateID.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicateID.cjs",
       "default": "./src/config/LinterConfigPredicateID.ts"
     },
     "./config/LinterConfigPredicateMapping.cjs": {
       "types": "./dist/types/config/LinterConfigPredicateMapping.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicateMapping.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicateMapping.cjs",
       "default": "./src/config/LinterConfigPredicateMapping.ts"
     },
     "./config/LinterConfigPredicateMapping.d.ts": {
@@ -201,26 +154,18 @@
     },
     "./config/LinterConfigPredicateMapping.js": {
       "types": "./dist/types/config/LinterConfigPredicateMapping.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicateMapping.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicateMapping.cjs",
       "default": "./src/config/LinterConfigPredicateMapping.ts"
     },
     "./config/LinterConfigPredicateMapping.mjs": {
       "types": "./dist/types/config/LinterConfigPredicateMapping.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicateMapping.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicateMapping.cjs",
       "default": "./src/config/LinterConfigPredicateMapping.ts"
     },
     "./config/LinterConfigPredicateMapping": {
       "types": "./dist/types/config/LinterConfigPredicateMapping.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicateMapping.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicateMapping.cjs",
       "default": "./src/config/LinterConfigPredicateMapping.ts"
     },
     "./config/LinterConfigPredicateResultMapping.cjs": {
       "types": "./dist/types/config/LinterConfigPredicateResultMapping.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicateResultMapping.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicateResultMapping.cjs",
       "default": "./src/config/LinterConfigPredicateResultMapping.ts"
     },
     "./config/LinterConfigPredicateResultMapping.d.ts": {
@@ -229,26 +174,18 @@
     },
     "./config/LinterConfigPredicateResultMapping.js": {
       "types": "./dist/types/config/LinterConfigPredicateResultMapping.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicateResultMapping.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicateResultMapping.cjs",
       "default": "./src/config/LinterConfigPredicateResultMapping.ts"
     },
     "./config/LinterConfigPredicateResultMapping.mjs": {
       "types": "./dist/types/config/LinterConfigPredicateResultMapping.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicateResultMapping.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicateResultMapping.cjs",
       "default": "./src/config/LinterConfigPredicateResultMapping.ts"
     },
     "./config/LinterConfigPredicateResultMapping": {
       "types": "./dist/types/config/LinterConfigPredicateResultMapping.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicateResultMapping.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicateResultMapping.cjs",
       "default": "./src/config/LinterConfigPredicateResultMapping.ts"
     },
     "./config/LinterConfigPredicate": {
       "types": "./dist/types/config/LinterConfigPredicate.d.ts",
-      "import": "./dist/esm/config/LinterConfigPredicate.mjs",
-      "require": "./dist/cjs/config/LinterConfigPredicate.cjs",
       "default": "./src/config/LinterConfigPredicate.ts"
     },
     "./config/constants/LINTER_CONFIG_NAME_PREFIX.cjs": {
@@ -729,8 +666,6 @@
     },
     "./context/ESLintContext.cjs": {
       "types": "./dist/types/context/ESLintContext.d.ts",
-      "import": "./dist/esm/context/ESLintContext.mjs",
-      "require": "./dist/cjs/context/ESLintContext.cjs",
       "default": "./src/context/ESLintContext.ts"
     },
     "./context/ESLintContext.d.ts": {
@@ -739,20 +674,14 @@
     },
     "./context/ESLintContext.js": {
       "types": "./dist/types/context/ESLintContext.d.ts",
-      "import": "./dist/esm/context/ESLintContext.mjs",
-      "require": "./dist/cjs/context/ESLintContext.cjs",
       "default": "./src/context/ESLintContext.ts"
     },
     "./context/ESLintContext.mjs": {
       "types": "./dist/types/context/ESLintContext.d.ts",
-      "import": "./dist/esm/context/ESLintContext.mjs",
-      "require": "./dist/cjs/context/ESLintContext.cjs",
       "default": "./src/context/ESLintContext.ts"
     },
     "./context/ESLintContext": {
       "types": "./dist/types/context/ESLintContext.d.ts",
-      "import": "./dist/esm/context/ESLintContext.mjs",
-      "require": "./dist/cjs/context/ESLintContext.cjs",
       "default": "./src/context/ESLintContext.ts"
     },
     "./context/resolver/resolveESLintContextAsync.cjs": {
@@ -891,8 +820,6 @@
     },
     "./extension/ESLintIntegrationFacets.cjs": {
       "types": "./dist/types/extension/ESLintIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/ESLintIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/ESLintIntegrationFacets.cjs",
       "default": "./src/extension/ESLintIntegrationFacets.ts"
     },
     "./extension/ESLintIntegrationFacets.d.ts": {
@@ -901,20 +828,14 @@
     },
     "./extension/ESLintIntegrationFacets.js": {
       "types": "./dist/types/extension/ESLintIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/ESLintIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/ESLintIntegrationFacets.cjs",
       "default": "./src/extension/ESLintIntegrationFacets.ts"
     },
     "./extension/ESLintIntegrationFacets.mjs": {
       "types": "./dist/types/extension/ESLintIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/ESLintIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/ESLintIntegrationFacets.cjs",
       "default": "./src/extension/ESLintIntegrationFacets.ts"
     },
     "./extension/ESLintIntegrationFacets": {
       "types": "./dist/types/extension/ESLintIntegrationFacets.d.ts",
-      "import": "./dist/esm/extension/ESLintIntegrationFacets.mjs",
-      "require": "./dist/cjs/extension/ESLintIntegrationFacets.cjs",
       "default": "./src/extension/ESLintIntegrationFacets.ts"
     },
     "./extension/ESLintIntegration": {
@@ -1093,8 +1014,6 @@
     },
     "./hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.cjs": {
       "types": "./dist/types/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.d.ts",
-      "import": "./dist/esm/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.mjs",
-      "require": "./dist/cjs/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.cjs",
       "default": "./src/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.ts"
     },
     "./hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.d.ts": {
@@ -1103,26 +1022,18 @@
     },
     "./hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.js": {
       "types": "./dist/types/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.d.ts",
-      "import": "./dist/esm/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.mjs",
-      "require": "./dist/cjs/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.cjs",
       "default": "./src/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.ts"
     },
     "./hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.mjs": {
       "types": "./dist/types/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.d.ts",
-      "import": "./dist/esm/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.mjs",
-      "require": "./dist/cjs/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.cjs",
       "default": "./src/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.ts"
     },
     "./hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync": {
       "types": "./dist/types/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.d.ts",
-      "import": "./dist/esm/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.mjs",
-      "require": "./dist/cjs/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.cjs",
       "default": "./src/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookAsync.ts"
     },
     "./hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.cjs": {
       "types": "./dist/types/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.d.ts",
-      "import": "./dist/esm/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.mjs",
-      "require": "./dist/cjs/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.cjs",
       "default": "./src/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.ts"
     },
     "./hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.d.ts": {
@@ -1131,20 +1042,14 @@
     },
     "./hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.js": {
       "types": "./dist/types/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.d.ts",
-      "import": "./dist/esm/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.mjs",
-      "require": "./dist/cjs/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.cjs",
       "default": "./src/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.ts"
     },
     "./hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.mjs": {
       "types": "./dist/types/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.d.ts",
-      "import": "./dist/esm/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.mjs",
-      "require": "./dist/cjs/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.cjs",
       "default": "./src/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.ts"
     },
     "./hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync": {
       "types": "./dist/types/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.d.ts",
-      "import": "./dist/esm/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.mjs",
-      "require": "./dist/cjs/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.cjs",
       "default": "./src/hooks/generate-linter-config-array/GenerateLinterConfigArrayHookSync.ts"
     },
     "./hooks/generate-linter-config-array/createGenerateLinterConfigArrayHookAsync.cjs": {
@@ -1233,8 +1138,6 @@
     },
     "./options/ESLintIntegrationOptions.cjs": {
       "types": "./dist/types/options/ESLintIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/ESLintIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/ESLintIntegrationOptions.cjs",
       "default": "./src/options/ESLintIntegrationOptions.ts"
     },
     "./options/ESLintIntegrationOptions.d.ts": {
@@ -1243,26 +1146,18 @@
     },
     "./options/ESLintIntegrationOptions.js": {
       "types": "./dist/types/options/ESLintIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/ESLintIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/ESLintIntegrationOptions.cjs",
       "default": "./src/options/ESLintIntegrationOptions.ts"
     },
     "./options/ESLintIntegrationOptions.mjs": {
       "types": "./dist/types/options/ESLintIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/ESLintIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/ESLintIntegrationOptions.cjs",
       "default": "./src/options/ESLintIntegrationOptions.ts"
     },
     "./options/ESLintIntegrationOptions": {
       "types": "./dist/types/options/ESLintIntegrationOptions.d.ts",
-      "import": "./dist/esm/options/ESLintIntegrationOptions.mjs",
-      "require": "./dist/cjs/options/ESLintIntegrationOptions.cjs",
       "default": "./src/options/ESLintIntegrationOptions.ts"
     },
     "./options/ESLintIntegrationPluginOptionsMapping.cjs": {
       "types": "./dist/types/options/ESLintIntegrationPluginOptionsMapping.d.ts",
-      "import": "./dist/esm/options/ESLintIntegrationPluginOptionsMapping.mjs",
-      "require": "./dist/cjs/options/ESLintIntegrationPluginOptionsMapping.cjs",
       "default": "./src/options/ESLintIntegrationPluginOptionsMapping.ts"
     },
     "./options/ESLintIntegrationPluginOptionsMapping.d.ts": {
@@ -1271,26 +1166,18 @@
     },
     "./options/ESLintIntegrationPluginOptionsMapping.js": {
       "types": "./dist/types/options/ESLintIntegrationPluginOptionsMapping.d.ts",
-      "import": "./dist/esm/options/ESLintIntegrationPluginOptionsMapping.mjs",
-      "require": "./dist/cjs/options/ESLintIntegrationPluginOptionsMapping.cjs",
       "default": "./src/options/ESLintIntegrationPluginOptionsMapping.ts"
     },
     "./options/ESLintIntegrationPluginOptionsMapping.mjs": {
       "types": "./dist/types/options/ESLintIntegrationPluginOptionsMapping.d.ts",
-      "import": "./dist/esm/options/ESLintIntegrationPluginOptionsMapping.mjs",
-      "require": "./dist/cjs/options/ESLintIntegrationPluginOptionsMapping.cjs",
       "default": "./src/options/ESLintIntegrationPluginOptionsMapping.ts"
     },
     "./options/ESLintIntegrationPluginOptionsMapping": {
       "types": "./dist/types/options/ESLintIntegrationPluginOptionsMapping.d.ts",
-      "import": "./dist/esm/options/ESLintIntegrationPluginOptionsMapping.mjs",
-      "require": "./dist/cjs/options/ESLintIntegrationPluginOptionsMapping.cjs",
       "default": "./src/options/ESLintIntegrationPluginOptionsMapping.ts"
     },
     "./options/ESLintIntegrationResolvedOptions.cjs": {
       "types": "./dist/types/options/ESLintIntegrationResolvedOptions.d.ts",
-      "import": "./dist/esm/options/ESLintIntegrationResolvedOptions.mjs",
-      "require": "./dist/cjs/options/ESLintIntegrationResolvedOptions.cjs",
       "default": "./src/options/ESLintIntegrationResolvedOptions.ts"
     },
     "./options/ESLintIntegrationResolvedOptions.d.ts": {
@@ -1299,20 +1186,14 @@
     },
     "./options/ESLintIntegrationResolvedOptions.js": {
       "types": "./dist/types/options/ESLintIntegrationResolvedOptions.d.ts",
-      "import": "./dist/esm/options/ESLintIntegrationResolvedOptions.mjs",
-      "require": "./dist/cjs/options/ESLintIntegrationResolvedOptions.cjs",
       "default": "./src/options/ESLintIntegrationResolvedOptions.ts"
     },
     "./options/ESLintIntegrationResolvedOptions.mjs": {
       "types": "./dist/types/options/ESLintIntegrationResolvedOptions.d.ts",
-      "import": "./dist/esm/options/ESLintIntegrationResolvedOptions.mjs",
-      "require": "./dist/cjs/options/ESLintIntegrationResolvedOptions.cjs",
       "default": "./src/options/ESLintIntegrationResolvedOptions.ts"
     },
     "./options/ESLintIntegrationResolvedOptions": {
       "types": "./dist/types/options/ESLintIntegrationResolvedOptions.d.ts",
-      "import": "./dist/esm/options/ESLintIntegrationResolvedOptions.mjs",
-      "require": "./dist/cjs/options/ESLintIntegrationResolvedOptions.cjs",
       "default": "./src/options/ESLintIntegrationResolvedOptions.ts"
     },
     "./options/resolveESLintIntegrationOptions.cjs": {
@@ -1510,8 +1391,6 @@
     },
     "./plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.cjs": {
       "types": "./dist/types/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.d.ts",
-      "import": "./dist/esm/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.mjs",
-      "require": "./dist/cjs/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.cjs",
       "default": "./src/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.ts"
     },
     "./plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.d.ts": {
@@ -1520,20 +1399,14 @@
     },
     "./plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.js": {
       "types": "./dist/types/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.d.ts",
-      "import": "./dist/esm/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.mjs",
-      "require": "./dist/cjs/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.cjs",
       "default": "./src/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.ts"
     },
     "./plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.mjs": {
       "types": "./dist/types/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.d.ts",
-      "import": "./dist/esm/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.mjs",
-      "require": "./dist/cjs/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.cjs",
       "default": "./src/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.ts"
     },
     "./plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets": {
       "types": "./dist/types/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.d.ts",
-      "import": "./dist/esm/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.mjs",
-      "require": "./dist/cjs/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.cjs",
       "default": "./src/plugins/cspell/extension/ESLintIntegrationPluginCSpellFacets.ts"
     },
     "./plugins/cspell/extension/ESLintIntegrationPluginCSpell": {
@@ -1684,8 +1557,6 @@
     },
     "./plugins/cspell/options/CSpellESLintPluginOptions.cjs": {
       "types": "./dist/types/plugins/cspell/options/CSpellESLintPluginOptions.d.ts",
-      "import": "./dist/esm/plugins/cspell/options/CSpellESLintPluginOptions.mjs",
-      "require": "./dist/cjs/plugins/cspell/options/CSpellESLintPluginOptions.cjs",
       "default": "./src/plugins/cspell/options/CSpellESLintPluginOptions.ts"
     },
     "./plugins/cspell/options/CSpellESLintPluginOptions.d.ts": {
@@ -1694,26 +1565,18 @@
     },
     "./plugins/cspell/options/CSpellESLintPluginOptions.js": {
       "types": "./dist/types/plugins/cspell/options/CSpellESLintPluginOptions.d.ts",
-      "import": "./dist/esm/plugins/cspell/options/CSpellESLintPluginOptions.mjs",
-      "require": "./dist/cjs/plugins/cspell/options/CSpellESLintPluginOptions.cjs",
       "default": "./src/plugins/cspell/options/CSpellESLintPluginOptions.ts"
     },
     "./plugins/cspell/options/CSpellESLintPluginOptions.mjs": {
       "types": "./dist/types/plugins/cspell/options/CSpellESLintPluginOptions.d.ts",
-      "import": "./dist/esm/plugins/cspell/options/CSpellESLintPluginOptions.mjs",
-      "require": "./dist/cjs/plugins/cspell/options/CSpellESLintPluginOptions.cjs",
       "default": "./src/plugins/cspell/options/CSpellESLintPluginOptions.ts"
     },
     "./plugins/cspell/options/CSpellESLintPluginOptions": {
       "types": "./dist/types/plugins/cspell/options/CSpellESLintPluginOptions.d.ts",
-      "import": "./dist/esm/plugins/cspell/options/CSpellESLintPluginOptions.mjs",
-      "require": "./dist/cjs/plugins/cspell/options/CSpellESLintPluginOptions.cjs",
       "default": "./src/plugins/cspell/options/CSpellESLintPluginOptions.ts"
     },
     "./plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.cjs": {
       "types": "./dist/types/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.d.ts",
-      "import": "./dist/esm/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.mjs",
-      "require": "./dist/cjs/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.cjs",
       "default": "./src/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.ts"
     },
     "./plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.d.ts": {
@@ -1722,26 +1585,18 @@
     },
     "./plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.js": {
       "types": "./dist/types/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.d.ts",
-      "import": "./dist/esm/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.mjs",
-      "require": "./dist/cjs/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.cjs",
       "default": "./src/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.ts"
     },
     "./plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.mjs": {
       "types": "./dist/types/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.d.ts",
-      "import": "./dist/esm/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.mjs",
-      "require": "./dist/cjs/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.cjs",
       "default": "./src/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.ts"
     },
     "./plugins/cspell/options/ESLintIntegrationPluginCSpellOptions": {
       "types": "./dist/types/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.d.ts",
-      "import": "./dist/esm/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.mjs",
-      "require": "./dist/cjs/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.cjs",
       "default": "./src/plugins/cspell/options/ESLintIntegrationPluginCSpellOptions.ts"
     },
     "./plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.cjs": {
       "types": "./dist/types/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.cjs",
       "default": "./src/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.ts"
     },
     "./plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.d.ts": {
@@ -1750,20 +1605,14 @@
     },
     "./plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.js": {
       "types": "./dist/types/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.cjs",
       "default": "./src/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.ts"
     },
     "./plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.mjs": {
       "types": "./dist/types/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.cjs",
       "default": "./src/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.ts"
     },
     "./plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions": {
       "types": "./dist/types/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.cjs",
       "default": "./src/plugins/cspell/options/ESLintIntegrationPluginCSpellResolvedOptions.ts"
     },
     "./plugins/cspell/options/resolveESLintIntegrationPluginCSpellOptions.cjs": {
@@ -1992,8 +1841,6 @@
     },
     "./plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.cjs": {
       "types": "./dist/types/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.cjs",
       "default": "./src/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.ts"
     },
     "./plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.d.ts": {
@@ -2002,20 +1849,14 @@
     },
     "./plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.js": {
       "types": "./dist/types/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.cjs",
       "default": "./src/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.ts"
     },
     "./plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.mjs": {
       "types": "./dist/types/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.cjs",
       "default": "./src/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.ts"
     },
     "./plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets": {
       "types": "./dist/types/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.cjs",
       "default": "./src/plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnoresFacets.ts"
     },
     "./plugins/eslint/global-ignores/extension/ESLintIntegrationPluginGlobalIgnores": {
@@ -2138,8 +1979,6 @@
     },
     "./plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.cjs": {
       "types": "./dist/types/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.cjs",
       "default": "./src/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.ts"
     },
     "./plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.d.ts": {
@@ -2148,26 +1987,18 @@
     },
     "./plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.js": {
       "types": "./dist/types/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.cjs",
       "default": "./src/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.ts"
     },
     "./plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.mjs": {
       "types": "./dist/types/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.cjs",
       "default": "./src/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.ts"
     },
     "./plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions": {
       "types": "./dist/types/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.cjs",
       "default": "./src/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresOptions.ts"
     },
     "./plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.cjs": {
       "types": "./dist/types/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.cjs",
       "default": "./src/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.ts"
     },
     "./plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.d.ts": {
@@ -2176,20 +2007,14 @@
     },
     "./plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.js": {
       "types": "./dist/types/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.cjs",
       "default": "./src/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.ts"
     },
     "./plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.mjs": {
       "types": "./dist/types/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.cjs",
       "default": "./src/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.ts"
     },
     "./plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions": {
       "types": "./dist/types/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.cjs",
       "default": "./src/plugins/eslint/global-ignores/options/ESLintIntegrationPluginGlobalIgnoresResolvedOptions.ts"
     },
     "./plugins/eslint/global-ignores/options/resolveESLintIntegrationPluginGlobalIgnoresOptions.cjs": {
@@ -2390,8 +2215,6 @@
     },
     "./plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.cjs": {
       "types": "./dist/types/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.cjs",
       "default": "./src/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.ts"
     },
     "./plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.d.ts": {
@@ -2400,20 +2223,14 @@
     },
     "./plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.js": {
       "types": "./dist/types/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.cjs",
       "default": "./src/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.ts"
     },
     "./plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.mjs": {
       "types": "./dist/types/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.cjs",
       "default": "./src/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.ts"
     },
     "./plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets": {
       "types": "./dist/types/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.cjs",
       "default": "./src/plugins/eslint/js/extension/ESLintIntegrationPluginJSFacets.ts"
     },
     "./plugins/eslint/js/extension/ESLintIntegrationPluginJS": {
@@ -2564,8 +2381,6 @@
     },
     "./plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.cjs": {
       "types": "./dist/types/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.cjs",
       "default": "./src/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.ts"
     },
     "./plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.d.ts": {
@@ -2574,26 +2389,18 @@
     },
     "./plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.js": {
       "types": "./dist/types/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.cjs",
       "default": "./src/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.ts"
     },
     "./plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.mjs": {
       "types": "./dist/types/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.cjs",
       "default": "./src/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.ts"
     },
     "./plugins/eslint/js/options/ESLintIntegrationPluginJSOptions": {
       "types": "./dist/types/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.cjs",
       "default": "./src/plugins/eslint/js/options/ESLintIntegrationPluginJSOptions.ts"
     },
     "./plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.cjs": {
       "types": "./dist/types/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.cjs",
       "default": "./src/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.ts"
     },
     "./plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.d.ts": {
@@ -2602,20 +2409,14 @@
     },
     "./plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.js": {
       "types": "./dist/types/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.cjs",
       "default": "./src/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.ts"
     },
     "./plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.mjs": {
       "types": "./dist/types/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.cjs",
       "default": "./src/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.ts"
     },
     "./plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions": {
       "types": "./dist/types/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.cjs",
       "default": "./src/plugins/eslint/js/options/ESLintIntegrationPluginJSResolvedOptions.ts"
     },
     "./plugins/eslint/js/options/resolveESLintIntegrationPluginJSOptions.cjs": {
@@ -2866,8 +2667,6 @@
     },
     "./plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.cjs": {
       "types": "./dist/types/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.cjs",
       "default": "./src/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.ts"
     },
     "./plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.d.ts": {
@@ -2876,20 +2675,14 @@
     },
     "./plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.js": {
       "types": "./dist/types/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.cjs",
       "default": "./src/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.ts"
     },
     "./plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.mjs": {
       "types": "./dist/types/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.cjs",
       "default": "./src/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.ts"
     },
     "./plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets": {
       "types": "./dist/types/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.cjs",
       "default": "./src/plugins/eslint/json/extension/ESLintIntegrationPluginJSONFacets.ts"
     },
     "./plugins/eslint/json/extension/ESLintIntegrationPluginJSON": {
@@ -3040,8 +2833,6 @@
     },
     "./plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.cjs": {
       "types": "./dist/types/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.cjs",
       "default": "./src/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.ts"
     },
     "./plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.d.ts": {
@@ -3050,26 +2841,18 @@
     },
     "./plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.js": {
       "types": "./dist/types/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.cjs",
       "default": "./src/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.ts"
     },
     "./plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.mjs": {
       "types": "./dist/types/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.cjs",
       "default": "./src/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.ts"
     },
     "./plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions": {
       "types": "./dist/types/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.cjs",
       "default": "./src/plugins/eslint/json/options/ESLintIntegrationPluginJSONOptions.ts"
     },
     "./plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.cjs": {
       "types": "./dist/types/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.cjs",
       "default": "./src/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.ts"
     },
     "./plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.d.ts": {
@@ -3078,20 +2861,14 @@
     },
     "./plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.js": {
       "types": "./dist/types/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.cjs",
       "default": "./src/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.ts"
     },
     "./plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.mjs": {
       "types": "./dist/types/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.cjs",
       "default": "./src/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.ts"
     },
     "./plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions": {
       "types": "./dist/types/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.cjs",
       "default": "./src/plugins/eslint/json/options/ESLintIntegrationPluginJSONResolvedOptions.ts"
     },
     "./plugins/eslint/json/options/resolveESLintIntegrationPluginJSONOptions.cjs": {
@@ -3354,8 +3131,6 @@
     },
     "./plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.cjs": {
       "types": "./dist/types/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.cjs",
       "default": "./src/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.ts"
     },
     "./plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.d.ts": {
@@ -3364,20 +3139,14 @@
     },
     "./plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.js": {
       "types": "./dist/types/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.cjs",
       "default": "./src/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.ts"
     },
     "./plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.mjs": {
       "types": "./dist/types/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.cjs",
       "default": "./src/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.ts"
     },
     "./plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets": {
       "types": "./dist/types/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.d.ts",
-      "import": "./dist/esm/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.mjs",
-      "require": "./dist/cjs/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.cjs",
       "default": "./src/plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdownFacets.ts"
     },
     "./plugins/eslint/markdown/extension/ESLintIntegrationPluginMarkdown": {
@@ -3640,8 +3409,6 @@
     },
     "./plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.cjs": {
       "types": "./dist/types/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.cjs",
       "default": "./src/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.ts"
     },
     "./plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.d.ts": {
@@ -3650,26 +3417,18 @@
     },
     "./plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.js": {
       "types": "./dist/types/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.cjs",
       "default": "./src/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.ts"
     },
     "./plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.mjs": {
       "types": "./dist/types/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.cjs",
       "default": "./src/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.ts"
     },
     "./plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions": {
       "types": "./dist/types/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.cjs",
       "default": "./src/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownOptions.ts"
     },
     "./plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.cjs": {
       "types": "./dist/types/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.cjs",
       "default": "./src/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.ts"
     },
     "./plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.d.ts": {
@@ -3678,20 +3437,14 @@
     },
     "./plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.js": {
       "types": "./dist/types/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.cjs",
       "default": "./src/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.ts"
     },
     "./plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.mjs": {
       "types": "./dist/types/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.cjs",
       "default": "./src/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.ts"
     },
     "./plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions": {
       "types": "./dist/types/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.cjs",
       "default": "./src/plugins/eslint/markdown/options/ESLintIntegrationPluginMarkdownResolvedOptions.ts"
     },
     "./plugins/eslint/markdown/options/resolveESLintIntegrationPluginMarkdownOptions.cjs": {
@@ -3920,8 +3673,6 @@
     },
     "./plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.cjs": {
       "types": "./dist/types/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.d.ts",
-      "import": "./dist/esm/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.mjs",
-      "require": "./dist/cjs/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.cjs",
       "default": "./src/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.ts"
     },
     "./plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.d.ts": {
@@ -3930,20 +3681,14 @@
     },
     "./plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.js": {
       "types": "./dist/types/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.d.ts",
-      "import": "./dist/esm/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.mjs",
-      "require": "./dist/cjs/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.cjs",
       "default": "./src/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.ts"
     },
     "./plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.mjs": {
       "types": "./dist/types/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.d.ts",
-      "import": "./dist/esm/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.mjs",
-      "require": "./dist/cjs/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.cjs",
       "default": "./src/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.ts"
     },
     "./plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets": {
       "types": "./dist/types/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.d.ts",
-      "import": "./dist/esm/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.mjs",
-      "require": "./dist/cjs/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.cjs",
       "default": "./src/plugins/globals/extension/ESLintIntegrationPluginGlobalsFacets.ts"
     },
     "./plugins/globals/extension/ESLintIntegrationPluginGlobals": {
@@ -4094,8 +3839,6 @@
     },
     "./plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.cjs": {
       "types": "./dist/types/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.d.ts",
-      "import": "./dist/esm/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.mjs",
-      "require": "./dist/cjs/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.cjs",
       "default": "./src/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.ts"
     },
     "./plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.d.ts": {
@@ -4104,26 +3847,18 @@
     },
     "./plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.js": {
       "types": "./dist/types/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.d.ts",
-      "import": "./dist/esm/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.mjs",
-      "require": "./dist/cjs/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.cjs",
       "default": "./src/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.ts"
     },
     "./plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.mjs": {
       "types": "./dist/types/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.d.ts",
-      "import": "./dist/esm/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.mjs",
-      "require": "./dist/cjs/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.cjs",
       "default": "./src/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.ts"
     },
     "./plugins/globals/options/ESLintIntegrationPluginGlobalsOptions": {
       "types": "./dist/types/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.d.ts",
-      "import": "./dist/esm/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.mjs",
-      "require": "./dist/cjs/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.cjs",
       "default": "./src/plugins/globals/options/ESLintIntegrationPluginGlobalsOptions.ts"
     },
     "./plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.cjs": {
       "types": "./dist/types/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.cjs",
       "default": "./src/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.ts"
     },
     "./plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.d.ts": {
@@ -4132,20 +3867,14 @@
     },
     "./plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.js": {
       "types": "./dist/types/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.cjs",
       "default": "./src/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.ts"
     },
     "./plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.mjs": {
       "types": "./dist/types/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.cjs",
       "default": "./src/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.ts"
     },
     "./plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions": {
       "types": "./dist/types/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.cjs",
       "default": "./src/plugins/globals/options/ESLintIntegrationPluginGlobalsResolvedOptions.ts"
     },
     "./plugins/globals/options/resolveESLintIntegrationPluginGlobalsOptions.cjs": {
@@ -4402,8 +4131,6 @@
     },
     "./plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.cjs": {
       "types": "./dist/types/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.d.ts",
-      "import": "./dist/esm/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.mjs",
-      "require": "./dist/cjs/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.cjs",
       "default": "./src/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.ts"
     },
     "./plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.d.ts": {
@@ -4412,20 +4139,14 @@
     },
     "./plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.js": {
       "types": "./dist/types/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.d.ts",
-      "import": "./dist/esm/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.mjs",
-      "require": "./dist/cjs/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.cjs",
       "default": "./src/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.ts"
     },
     "./plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.mjs": {
       "types": "./dist/types/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.d.ts",
-      "import": "./dist/esm/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.mjs",
-      "require": "./dist/cjs/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.cjs",
       "default": "./src/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.ts"
     },
     "./plugins/import-x/extension/ESLintIntegrationPluginImportXFacets": {
       "types": "./dist/types/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.d.ts",
-      "import": "./dist/esm/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.mjs",
-      "require": "./dist/cjs/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.cjs",
       "default": "./src/plugins/import-x/extension/ESLintIntegrationPluginImportXFacets.ts"
     },
     "./plugins/import-x/extension/ESLintIntegrationPluginImportX": {
@@ -4604,8 +4325,6 @@
     },
     "./plugins/import-x/options/ESLintIntegrationPluginImportXOptions.cjs": {
       "types": "./dist/types/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.cjs",
       "default": "./src/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.ts"
     },
     "./plugins/import-x/options/ESLintIntegrationPluginImportXOptions.d.ts": {
@@ -4614,26 +4333,18 @@
     },
     "./plugins/import-x/options/ESLintIntegrationPluginImportXOptions.js": {
       "types": "./dist/types/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.cjs",
       "default": "./src/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.ts"
     },
     "./plugins/import-x/options/ESLintIntegrationPluginImportXOptions.mjs": {
       "types": "./dist/types/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.cjs",
       "default": "./src/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.ts"
     },
     "./plugins/import-x/options/ESLintIntegrationPluginImportXOptions": {
       "types": "./dist/types/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.cjs",
       "default": "./src/plugins/import-x/options/ESLintIntegrationPluginImportXOptions.ts"
     },
     "./plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.cjs": {
       "types": "./dist/types/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.cjs",
       "default": "./src/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.ts"
     },
     "./plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.d.ts": {
@@ -4642,26 +4353,18 @@
     },
     "./plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.js": {
       "types": "./dist/types/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.cjs",
       "default": "./src/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.ts"
     },
     "./plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.mjs": {
       "types": "./dist/types/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.cjs",
       "default": "./src/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.ts"
     },
     "./plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions": {
       "types": "./dist/types/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.cjs",
       "default": "./src/plugins/import-x/options/ESLintIntegrationPluginImportXResolvedOptions.ts"
     },
     "./plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.cjs": {
       "types": "./dist/types/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.cjs",
       "default": "./src/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.ts"
     },
     "./plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.d.ts": {
@@ -4670,26 +4373,18 @@
     },
     "./plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.js": {
       "types": "./dist/types/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.cjs",
       "default": "./src/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.ts"
     },
     "./plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.mjs": {
       "types": "./dist/types/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.cjs",
       "default": "./src/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.ts"
     },
     "./plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex": {
       "types": "./dist/types/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.cjs",
       "default": "./src/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXOptionInternalRegex.ts"
     },
     "./plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.cjs": {
       "types": "./dist/types/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.cjs",
       "default": "./src/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.ts"
     },
     "./plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.d.ts": {
@@ -4698,20 +4393,14 @@
     },
     "./plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.js": {
       "types": "./dist/types/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.cjs",
       "default": "./src/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.ts"
     },
     "./plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.mjs": {
       "types": "./dist/types/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.cjs",
       "default": "./src/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.ts"
     },
     "./plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex": {
       "types": "./dist/types/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.d.ts",
-      "import": "./dist/esm/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.mjs",
-      "require": "./dist/cjs/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.cjs",
       "default": "./src/plugins/import-x/options/internal-regex/ESLintIntegrationPluginImportXResolvedOptionInternalRegex.ts"
     },
     "./plugins/import-x/options/resolveESLintIntegrationPluginImportXOptions.cjs": {
@@ -4996,8 +4685,6 @@
     },
     "./plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.cjs": {
       "types": "./dist/types/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.d.ts",
-      "import": "./dist/esm/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.mjs",
-      "require": "./dist/cjs/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.cjs",
       "default": "./src/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.ts"
     },
     "./plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.d.ts": {
@@ -5006,20 +4693,14 @@
     },
     "./plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.js": {
       "types": "./dist/types/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.d.ts",
-      "import": "./dist/esm/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.mjs",
-      "require": "./dist/cjs/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.cjs",
       "default": "./src/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.ts"
     },
     "./plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.mjs": {
       "types": "./dist/types/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.d.ts",
-      "import": "./dist/esm/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.mjs",
-      "require": "./dist/cjs/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.cjs",
       "default": "./src/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.ts"
     },
     "./plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets": {
       "types": "./dist/types/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.d.ts",
-      "import": "./dist/esm/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.mjs",
-      "require": "./dist/cjs/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.cjs",
       "default": "./src/plugins/jsdoc/extension/ESLintIntegrationPluginJSDocFacets.ts"
     },
     "./plugins/jsdoc/extension/ESLintIntegrationPluginJSDoc": {
@@ -5170,8 +4851,6 @@
     },
     "./plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.cjs": {
       "types": "./dist/types/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.d.ts",
-      "import": "./dist/esm/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.mjs",
-      "require": "./dist/cjs/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.cjs",
       "default": "./src/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.ts"
     },
     "./plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.d.ts": {
@@ -5180,26 +4859,18 @@
     },
     "./plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.js": {
       "types": "./dist/types/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.d.ts",
-      "import": "./dist/esm/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.mjs",
-      "require": "./dist/cjs/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.cjs",
       "default": "./src/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.ts"
     },
     "./plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.mjs": {
       "types": "./dist/types/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.d.ts",
-      "import": "./dist/esm/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.mjs",
-      "require": "./dist/cjs/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.cjs",
       "default": "./src/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.ts"
     },
     "./plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions": {
       "types": "./dist/types/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.d.ts",
-      "import": "./dist/esm/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.mjs",
-      "require": "./dist/cjs/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.cjs",
       "default": "./src/plugins/jsdoc/options/ESLintIntegrationPluginJSDocOptions.ts"
     },
     "./plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.cjs": {
       "types": "./dist/types/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.cjs",
       "default": "./src/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.ts"
     },
     "./plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.d.ts": {
@@ -5208,20 +4879,14 @@
     },
     "./plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.js": {
       "types": "./dist/types/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.cjs",
       "default": "./src/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.ts"
     },
     "./plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.mjs": {
       "types": "./dist/types/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.cjs",
       "default": "./src/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.ts"
     },
     "./plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions": {
       "types": "./dist/types/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.cjs",
       "default": "./src/plugins/jsdoc/options/ESLintIntegrationPluginJSDocResolvedOptions.ts"
     },
     "./plugins/jsdoc/options/resolveESLintIntegrationPluginJSDocOptions.cjs": {
@@ -5506,8 +5171,6 @@
     },
     "./plugins/n/extension/ESLintIntegrationPluginNFacets.cjs": {
       "types": "./dist/types/plugins/n/extension/ESLintIntegrationPluginNFacets.d.ts",
-      "import": "./dist/esm/plugins/n/extension/ESLintIntegrationPluginNFacets.mjs",
-      "require": "./dist/cjs/plugins/n/extension/ESLintIntegrationPluginNFacets.cjs",
       "default": "./src/plugins/n/extension/ESLintIntegrationPluginNFacets.ts"
     },
     "./plugins/n/extension/ESLintIntegrationPluginNFacets.d.ts": {
@@ -5516,20 +5179,14 @@
     },
     "./plugins/n/extension/ESLintIntegrationPluginNFacets.js": {
       "types": "./dist/types/plugins/n/extension/ESLintIntegrationPluginNFacets.d.ts",
-      "import": "./dist/esm/plugins/n/extension/ESLintIntegrationPluginNFacets.mjs",
-      "require": "./dist/cjs/plugins/n/extension/ESLintIntegrationPluginNFacets.cjs",
       "default": "./src/plugins/n/extension/ESLintIntegrationPluginNFacets.ts"
     },
     "./plugins/n/extension/ESLintIntegrationPluginNFacets.mjs": {
       "types": "./dist/types/plugins/n/extension/ESLintIntegrationPluginNFacets.d.ts",
-      "import": "./dist/esm/plugins/n/extension/ESLintIntegrationPluginNFacets.mjs",
-      "require": "./dist/cjs/plugins/n/extension/ESLintIntegrationPluginNFacets.cjs",
       "default": "./src/plugins/n/extension/ESLintIntegrationPluginNFacets.ts"
     },
     "./plugins/n/extension/ESLintIntegrationPluginNFacets": {
       "types": "./dist/types/plugins/n/extension/ESLintIntegrationPluginNFacets.d.ts",
-      "import": "./dist/esm/plugins/n/extension/ESLintIntegrationPluginNFacets.mjs",
-      "require": "./dist/cjs/plugins/n/extension/ESLintIntegrationPluginNFacets.cjs",
       "default": "./src/plugins/n/extension/ESLintIntegrationPluginNFacets.ts"
     },
     "./plugins/n/extension/ESLintIntegrationPluginN": {
@@ -5680,8 +5337,6 @@
     },
     "./plugins/n/options/ESLintIntegrationPluginNOptions.cjs": {
       "types": "./dist/types/plugins/n/options/ESLintIntegrationPluginNOptions.d.ts",
-      "import": "./dist/esm/plugins/n/options/ESLintIntegrationPluginNOptions.mjs",
-      "require": "./dist/cjs/plugins/n/options/ESLintIntegrationPluginNOptions.cjs",
       "default": "./src/plugins/n/options/ESLintIntegrationPluginNOptions.ts"
     },
     "./plugins/n/options/ESLintIntegrationPluginNOptions.d.ts": {
@@ -5690,26 +5345,18 @@
     },
     "./plugins/n/options/ESLintIntegrationPluginNOptions.js": {
       "types": "./dist/types/plugins/n/options/ESLintIntegrationPluginNOptions.d.ts",
-      "import": "./dist/esm/plugins/n/options/ESLintIntegrationPluginNOptions.mjs",
-      "require": "./dist/cjs/plugins/n/options/ESLintIntegrationPluginNOptions.cjs",
       "default": "./src/plugins/n/options/ESLintIntegrationPluginNOptions.ts"
     },
     "./plugins/n/options/ESLintIntegrationPluginNOptions.mjs": {
       "types": "./dist/types/plugins/n/options/ESLintIntegrationPluginNOptions.d.ts",
-      "import": "./dist/esm/plugins/n/options/ESLintIntegrationPluginNOptions.mjs",
-      "require": "./dist/cjs/plugins/n/options/ESLintIntegrationPluginNOptions.cjs",
       "default": "./src/plugins/n/options/ESLintIntegrationPluginNOptions.ts"
     },
     "./plugins/n/options/ESLintIntegrationPluginNOptions": {
       "types": "./dist/types/plugins/n/options/ESLintIntegrationPluginNOptions.d.ts",
-      "import": "./dist/esm/plugins/n/options/ESLintIntegrationPluginNOptions.mjs",
-      "require": "./dist/cjs/plugins/n/options/ESLintIntegrationPluginNOptions.cjs",
       "default": "./src/plugins/n/options/ESLintIntegrationPluginNOptions.ts"
     },
     "./plugins/n/options/ESLintIntegrationPluginNResolvedOptions.cjs": {
       "types": "./dist/types/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.cjs",
       "default": "./src/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.ts"
     },
     "./plugins/n/options/ESLintIntegrationPluginNResolvedOptions.d.ts": {
@@ -5718,20 +5365,14 @@
     },
     "./plugins/n/options/ESLintIntegrationPluginNResolvedOptions.js": {
       "types": "./dist/types/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.cjs",
       "default": "./src/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.ts"
     },
     "./plugins/n/options/ESLintIntegrationPluginNResolvedOptions.mjs": {
       "types": "./dist/types/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.cjs",
       "default": "./src/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.ts"
     },
     "./plugins/n/options/ESLintIntegrationPluginNResolvedOptions": {
       "types": "./dist/types/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.cjs",
       "default": "./src/plugins/n/options/ESLintIntegrationPluginNResolvedOptions.ts"
     },
     "./plugins/n/options/resolveESLintIntegrationPluginNOptions.cjs": {
@@ -5932,8 +5573,6 @@
     },
     "./plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.cjs": {
       "types": "./dist/types/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.cjs",
       "default": "./src/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.ts"
     },
     "./plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.d.ts": {
@@ -5942,20 +5581,14 @@
     },
     "./plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.js": {
       "types": "./dist/types/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.cjs",
       "default": "./src/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.ts"
     },
     "./plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.mjs": {
       "types": "./dist/types/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.cjs",
       "default": "./src/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.ts"
     },
     "./plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets": {
       "types": "./dist/types/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.cjs",
       "default": "./src/plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionistFacets.ts"
     },
     "./plugins/perfectionist/extension/ESLintIntegrationPluginPerfectionist": {
@@ -6106,8 +5739,6 @@
     },
     "./plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.cjs": {
       "types": "./dist/types/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.cjs",
       "default": "./src/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.ts"
     },
     "./plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.d.ts": {
@@ -6116,26 +5747,18 @@
     },
     "./plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.js": {
       "types": "./dist/types/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.cjs",
       "default": "./src/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.ts"
     },
     "./plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.mjs": {
       "types": "./dist/types/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.cjs",
       "default": "./src/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.ts"
     },
     "./plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions": {
       "types": "./dist/types/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.cjs",
       "default": "./src/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistOptions.ts"
     },
     "./plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.cjs": {
       "types": "./dist/types/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.cjs",
       "default": "./src/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.ts"
     },
     "./plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.d.ts": {
@@ -6144,26 +5767,18 @@
     },
     "./plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.js": {
       "types": "./dist/types/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.cjs",
       "default": "./src/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.ts"
     },
     "./plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.mjs": {
       "types": "./dist/types/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.cjs",
       "default": "./src/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.ts"
     },
     "./plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions": {
       "types": "./dist/types/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.cjs",
       "default": "./src/plugins/perfectionist/options/ESLintIntegrationPluginPerfectionistResolvedOptions.ts"
     },
     "./plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.cjs": {
       "types": "./dist/types/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.cjs",
       "default": "./src/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.ts"
     },
     "./plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.d.ts": {
@@ -6172,26 +5787,18 @@
     },
     "./plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.js": {
       "types": "./dist/types/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.cjs",
       "default": "./src/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.ts"
     },
     "./plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.mjs": {
       "types": "./dist/types/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.cjs",
       "default": "./src/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.ts"
     },
     "./plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern": {
       "types": "./dist/types/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.cjs",
       "default": "./src/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistOptionInternalPattern.ts"
     },
     "./plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.cjs": {
       "types": "./dist/types/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.cjs",
       "default": "./src/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.ts"
     },
     "./plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.d.ts": {
@@ -6200,20 +5807,14 @@
     },
     "./plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.js": {
       "types": "./dist/types/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.cjs",
       "default": "./src/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.ts"
     },
     "./plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.mjs": {
       "types": "./dist/types/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.cjs",
       "default": "./src/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.ts"
     },
     "./plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern": {
       "types": "./dist/types/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.d.ts",
-      "import": "./dist/esm/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.mjs",
-      "require": "./dist/cjs/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.cjs",
       "default": "./src/plugins/perfectionist/options/internal-pattern/ESLintIntegrationPluginPerfectionistResolvedOptionInternalPattern.ts"
     },
     "./plugins/perfectionist/options/resolveESLintIntegrationPluginPerfectionistOptions.cjs": {
@@ -6470,8 +6071,6 @@
     },
     "./plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.cjs": {
       "types": "./dist/types/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.d.ts",
-      "import": "./dist/esm/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.mjs",
-      "require": "./dist/cjs/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.cjs",
       "default": "./src/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.ts"
     },
     "./plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.d.ts": {
@@ -6480,20 +6079,14 @@
     },
     "./plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.js": {
       "types": "./dist/types/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.d.ts",
-      "import": "./dist/esm/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.mjs",
-      "require": "./dist/cjs/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.cjs",
       "default": "./src/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.ts"
     },
     "./plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.mjs": {
       "types": "./dist/types/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.d.ts",
-      "import": "./dist/esm/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.mjs",
-      "require": "./dist/cjs/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.cjs",
       "default": "./src/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.ts"
     },
     "./plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets": {
       "types": "./dist/types/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.d.ts",
-      "import": "./dist/esm/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.mjs",
-      "require": "./dist/cjs/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.cjs",
       "default": "./src/plugins/stylistic/extension/ESLintIntegrationPluginStylisticFacets.ts"
     },
     "./plugins/stylistic/extension/ESLintIntegrationPluginStylistic": {
@@ -6644,8 +6237,6 @@
     },
     "./plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.cjs": {
       "types": "./dist/types/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.d.ts",
-      "import": "./dist/esm/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.mjs",
-      "require": "./dist/cjs/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.cjs",
       "default": "./src/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.ts"
     },
     "./plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.d.ts": {
@@ -6654,26 +6245,18 @@
     },
     "./plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.js": {
       "types": "./dist/types/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.d.ts",
-      "import": "./dist/esm/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.mjs",
-      "require": "./dist/cjs/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.cjs",
       "default": "./src/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.ts"
     },
     "./plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.mjs": {
       "types": "./dist/types/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.d.ts",
-      "import": "./dist/esm/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.mjs",
-      "require": "./dist/cjs/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.cjs",
       "default": "./src/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.ts"
     },
     "./plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions": {
       "types": "./dist/types/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.d.ts",
-      "import": "./dist/esm/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.mjs",
-      "require": "./dist/cjs/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.cjs",
       "default": "./src/plugins/stylistic/options/ESLintIntegrationPluginStylisticOptions.ts"
     },
     "./plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.cjs": {
       "types": "./dist/types/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.cjs",
       "default": "./src/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.ts"
     },
     "./plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.d.ts": {
@@ -6682,20 +6265,14 @@
     },
     "./plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.js": {
       "types": "./dist/types/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.cjs",
       "default": "./src/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.ts"
     },
     "./plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.mjs": {
       "types": "./dist/types/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.cjs",
       "default": "./src/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.ts"
     },
     "./plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions": {
       "types": "./dist/types/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.cjs",
       "default": "./src/plugins/stylistic/options/ESLintIntegrationPluginStylisticResolvedOptions.ts"
     },
     "./plugins/stylistic/options/resolveESLintIntegrationPluginStylisticOptions.cjs": {
@@ -7036,8 +6613,6 @@
     },
     "./plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.cjs": {
       "types": "./dist/types/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.d.ts",
-      "import": "./dist/esm/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.mjs",
-      "require": "./dist/cjs/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.cjs",
       "default": "./src/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.ts"
     },
     "./plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.d.ts": {
@@ -7046,20 +6621,14 @@
     },
     "./plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.js": {
       "types": "./dist/types/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.d.ts",
-      "import": "./dist/esm/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.mjs",
-      "require": "./dist/cjs/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.cjs",
       "default": "./src/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.ts"
     },
     "./plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.mjs": {
       "types": "./dist/types/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.d.ts",
-      "import": "./dist/esm/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.mjs",
-      "require": "./dist/cjs/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.cjs",
       "default": "./src/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.ts"
     },
     "./plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets": {
       "types": "./dist/types/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.d.ts",
-      "import": "./dist/esm/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.mjs",
-      "require": "./dist/cjs/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.cjs",
       "default": "./src/plugins/typescript/extension/ESLintIntegrationPluginTypeScriptFacets.ts"
     },
     "./plugins/typescript/extension/ESLintIntegrationPluginTypeScript": {
@@ -7210,8 +6779,6 @@
     },
     "./plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.cjs": {
       "types": "./dist/types/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.d.ts",
-      "import": "./dist/esm/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.mjs",
-      "require": "./dist/cjs/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.cjs",
       "default": "./src/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.ts"
     },
     "./plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.d.ts": {
@@ -7220,26 +6787,18 @@
     },
     "./plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.js": {
       "types": "./dist/types/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.d.ts",
-      "import": "./dist/esm/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.mjs",
-      "require": "./dist/cjs/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.cjs",
       "default": "./src/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.ts"
     },
     "./plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.mjs": {
       "types": "./dist/types/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.d.ts",
-      "import": "./dist/esm/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.mjs",
-      "require": "./dist/cjs/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.cjs",
       "default": "./src/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.ts"
     },
     "./plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions": {
       "types": "./dist/types/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.d.ts",
-      "import": "./dist/esm/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.mjs",
-      "require": "./dist/cjs/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.cjs",
       "default": "./src/plugins/typescript/options/ESLintIntegrationPluginTypeScriptOptions.ts"
     },
     "./plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.cjs": {
       "types": "./dist/types/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.cjs",
       "default": "./src/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.ts"
     },
     "./plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.d.ts": {
@@ -7248,20 +6807,14 @@
     },
     "./plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.js": {
       "types": "./dist/types/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.cjs",
       "default": "./src/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.ts"
     },
     "./plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.mjs": {
       "types": "./dist/types/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.cjs",
       "default": "./src/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.ts"
     },
     "./plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions": {
       "types": "./dist/types/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.cjs",
       "default": "./src/plugins/typescript/options/ESLintIntegrationPluginTypeScriptResolvedOptions.ts"
     },
     "./plugins/typescript/options/resolveESLintIntegrationPluginTypeScriptOptions.cjs": {
@@ -7518,8 +7071,6 @@
     },
     "./plugins/yml/extension/ESLintIntegrationPluginYMLFacets.cjs": {
       "types": "./dist/types/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.d.ts",
-      "import": "./dist/esm/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.mjs",
-      "require": "./dist/cjs/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.cjs",
       "default": "./src/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.ts"
     },
     "./plugins/yml/extension/ESLintIntegrationPluginYMLFacets.d.ts": {
@@ -7528,20 +7079,14 @@
     },
     "./plugins/yml/extension/ESLintIntegrationPluginYMLFacets.js": {
       "types": "./dist/types/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.d.ts",
-      "import": "./dist/esm/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.mjs",
-      "require": "./dist/cjs/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.cjs",
       "default": "./src/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.ts"
     },
     "./plugins/yml/extension/ESLintIntegrationPluginYMLFacets.mjs": {
       "types": "./dist/types/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.d.ts",
-      "import": "./dist/esm/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.mjs",
-      "require": "./dist/cjs/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.cjs",
       "default": "./src/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.ts"
     },
     "./plugins/yml/extension/ESLintIntegrationPluginYMLFacets": {
       "types": "./dist/types/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.d.ts",
-      "import": "./dist/esm/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.mjs",
-      "require": "./dist/cjs/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.cjs",
       "default": "./src/plugins/yml/extension/ESLintIntegrationPluginYMLFacets.ts"
     },
     "./plugins/yml/extension/ESLintIntegrationPluginYML": {
@@ -7692,8 +7237,6 @@
     },
     "./plugins/yml/options/ESLintIntegrationPluginYMLOptions.cjs": {
       "types": "./dist/types/plugins/yml/options/ESLintIntegrationPluginYMLOptions.d.ts",
-      "import": "./dist/esm/plugins/yml/options/ESLintIntegrationPluginYMLOptions.mjs",
-      "require": "./dist/cjs/plugins/yml/options/ESLintIntegrationPluginYMLOptions.cjs",
       "default": "./src/plugins/yml/options/ESLintIntegrationPluginYMLOptions.ts"
     },
     "./plugins/yml/options/ESLintIntegrationPluginYMLOptions.d.ts": {
@@ -7702,26 +7245,18 @@
     },
     "./plugins/yml/options/ESLintIntegrationPluginYMLOptions.js": {
       "types": "./dist/types/plugins/yml/options/ESLintIntegrationPluginYMLOptions.d.ts",
-      "import": "./dist/esm/plugins/yml/options/ESLintIntegrationPluginYMLOptions.mjs",
-      "require": "./dist/cjs/plugins/yml/options/ESLintIntegrationPluginYMLOptions.cjs",
       "default": "./src/plugins/yml/options/ESLintIntegrationPluginYMLOptions.ts"
     },
     "./plugins/yml/options/ESLintIntegrationPluginYMLOptions.mjs": {
       "types": "./dist/types/plugins/yml/options/ESLintIntegrationPluginYMLOptions.d.ts",
-      "import": "./dist/esm/plugins/yml/options/ESLintIntegrationPluginYMLOptions.mjs",
-      "require": "./dist/cjs/plugins/yml/options/ESLintIntegrationPluginYMLOptions.cjs",
       "default": "./src/plugins/yml/options/ESLintIntegrationPluginYMLOptions.ts"
     },
     "./plugins/yml/options/ESLintIntegrationPluginYMLOptions": {
       "types": "./dist/types/plugins/yml/options/ESLintIntegrationPluginYMLOptions.d.ts",
-      "import": "./dist/esm/plugins/yml/options/ESLintIntegrationPluginYMLOptions.mjs",
-      "require": "./dist/cjs/plugins/yml/options/ESLintIntegrationPluginYMLOptions.cjs",
       "default": "./src/plugins/yml/options/ESLintIntegrationPluginYMLOptions.ts"
     },
     "./plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.cjs": {
       "types": "./dist/types/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.cjs",
       "default": "./src/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.ts"
     },
     "./plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.d.ts": {
@@ -7730,20 +7265,14 @@
     },
     "./plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.js": {
       "types": "./dist/types/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.cjs",
       "default": "./src/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.ts"
     },
     "./plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.mjs": {
       "types": "./dist/types/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.cjs",
       "default": "./src/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.ts"
     },
     "./plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions": {
       "types": "./dist/types/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.d.ts",
-      "import": "./dist/esm/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.mjs",
-      "require": "./dist/cjs/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.cjs",
       "default": "./src/plugins/yml/options/ESLintIntegrationPluginYMLResolvedOptions.ts"
     },
     "./plugins/yml/options/resolveESLintIntegrationPluginYMLOptions.cjs": {

@@ -7,19 +7,8 @@
     "holypack-external"
   ],
   "scripts": {
-    "build": "yarn babel:build:clean && yarn babel:build::cjs && yarn babel:build::esm && yarn tsc:build::types && yarn export-map-generator:update",
-    "build:clean": "yarn babel:build:clean",
-    "clean": "yarn build:clean && yarn debug:clean && yarn test:clean",
-    "coverage:clean": "yarn jest:coverage:clean",
-    "coverage:open": "yarn jest:coverage:open",
-    "debug:build": "yarn debug:build::esm && yarn debug:update-package-exports",
-    "debug:build::esm": "yarn babel:debug:build",
-    "debug:clean": "yarn babel:debug:build:clean",
-    "debug:update-package-exports": "yarn export-map-generator:debug",
-    "lint": "yarn eslint:lint",
-    "lint::fix": "yarn eslint:lint::fix",
-    "test": "yarn jest:test",
-    "test:clean": "yarn coverage:clean && yarn jest:cache:clean"
+    "build": "node ../../hack/scripts/package/build.mjs",
+    "clean": "node ../../hack/scripts/package/clean.mjs"
   },
   "devDependencies": {
     "@holypack/core": "workspace:^",
@@ -199,8 +188,6 @@
     },
     "./options/HolypackPresetOptionsAsync.cjs": {
       "types": "./dist/types/options/HolypackPresetOptionsAsync.d.ts",
-      "import": "./dist/esm/options/HolypackPresetOptionsAsync.mjs",
-      "require": "./dist/cjs/options/HolypackPresetOptionsAsync.cjs",
       "default": "./src/options/HolypackPresetOptionsAsync.ts"
     },
     "./options/HolypackPresetOptionsAsync.d.ts": {
@@ -209,26 +196,18 @@
     },
     "./options/HolypackPresetOptionsAsync.js": {
       "types": "./dist/types/options/HolypackPresetOptionsAsync.d.ts",
-      "import": "./dist/esm/options/HolypackPresetOptionsAsync.mjs",
-      "require": "./dist/cjs/options/HolypackPresetOptionsAsync.cjs",
       "default": "./src/options/HolypackPresetOptionsAsync.ts"
     },
     "./options/HolypackPresetOptionsAsync.mjs": {
       "types": "./dist/types/options/HolypackPresetOptionsAsync.d.ts",
-      "import": "./dist/esm/options/HolypackPresetOptionsAsync.mjs",
-      "require": "./dist/cjs/options/HolypackPresetOptionsAsync.cjs",
       "default": "./src/options/HolypackPresetOptionsAsync.ts"
     },
     "./options/HolypackPresetOptionsAsync": {
       "types": "./dist/types/options/HolypackPresetOptionsAsync.d.ts",
-      "import": "./dist/esm/options/HolypackPresetOptionsAsync.mjs",
-      "require": "./dist/cjs/options/HolypackPresetOptionsAsync.cjs",
       "default": "./src/options/HolypackPresetOptionsAsync.ts"
     },
     "./options/HolypackPresetOptionsSync.cjs": {
       "types": "./dist/types/options/HolypackPresetOptionsSync.d.ts",
-      "import": "./dist/esm/options/HolypackPresetOptionsSync.mjs",
-      "require": "./dist/cjs/options/HolypackPresetOptionsSync.cjs",
       "default": "./src/options/HolypackPresetOptionsSync.ts"
     },
     "./options/HolypackPresetOptionsSync.d.ts": {
@@ -237,20 +216,14 @@
     },
     "./options/HolypackPresetOptionsSync.js": {
       "types": "./dist/types/options/HolypackPresetOptionsSync.d.ts",
-      "import": "./dist/esm/options/HolypackPresetOptionsSync.mjs",
-      "require": "./dist/cjs/options/HolypackPresetOptionsSync.cjs",
       "default": "./src/options/HolypackPresetOptionsSync.ts"
     },
     "./options/HolypackPresetOptionsSync.mjs": {
       "types": "./dist/types/options/HolypackPresetOptionsSync.d.ts",
-      "import": "./dist/esm/options/HolypackPresetOptionsSync.mjs",
-      "require": "./dist/cjs/options/HolypackPresetOptionsSync.cjs",
       "default": "./src/options/HolypackPresetOptionsSync.ts"
     },
     "./options/HolypackPresetOptionsSync": {
       "types": "./dist/types/options/HolypackPresetOptionsSync.d.ts",
-      "import": "./dist/esm/options/HolypackPresetOptionsSync.mjs",
-      "require": "./dist/cjs/options/HolypackPresetOptionsSync.cjs",
       "default": "./src/options/HolypackPresetOptionsSync.ts"
     },
     "./package.json": {
@@ -258,8 +231,6 @@
     },
     "./preset/HolypackPreset.cjs": {
       "types": "./dist/types/preset/HolypackPreset.d.ts",
-      "import": "./dist/esm/preset/HolypackPreset.mjs",
-      "require": "./dist/cjs/preset/HolypackPreset.cjs",
       "default": "./src/preset/HolypackPreset.ts"
     },
     "./preset/HolypackPreset.d.ts": {
@@ -268,20 +239,14 @@
     },
     "./preset/HolypackPreset.js": {
       "types": "./dist/types/preset/HolypackPreset.d.ts",
-      "import": "./dist/esm/preset/HolypackPreset.mjs",
-      "require": "./dist/cjs/preset/HolypackPreset.cjs",
       "default": "./src/preset/HolypackPreset.ts"
     },
     "./preset/HolypackPreset.mjs": {
       "types": "./dist/types/preset/HolypackPreset.d.ts",
-      "import": "./dist/esm/preset/HolypackPreset.mjs",
-      "require": "./dist/cjs/preset/HolypackPreset.cjs",
       "default": "./src/preset/HolypackPreset.ts"
     },
     "./preset/HolypackPreset": {
       "types": "./dist/types/preset/HolypackPreset.d.ts",
-      "import": "./dist/esm/preset/HolypackPreset.mjs",
-      "require": "./dist/cjs/preset/HolypackPreset.cjs",
       "default": "./src/preset/HolypackPreset.ts"
     },
     "./preset/createHolypackPresetAsync.cjs": {

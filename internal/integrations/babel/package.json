@@ -2,15 +2,8 @@
   "name": "@holypack/internal-integration-babel",
   "private": true,
   "scripts": {
-    "babel:bootstrap": "cd $INIT_CWD && yarn cmd:babel src --config-file ./babel.config.bootstrap.mjs --extensions '.cjs,.cts,.js,.mjs,.mts,.ts' --ignore '**/__tests__/**/*' --ignore '**/*.d.ts' --ignore '**/*.spec.cjs' --ignore '**/*.spec.cjsx' --ignore '**/*.spec.cts' --ignore '**/*.spec.ctsx' --ignore '**/*.spec.js' --ignore '**/*.spec.jsx' --ignore '**/*.spec.mjs' --ignore '**/*.spec.mjsx' --ignore '**/*.spec.mts' --ignore '**/*.spec.mtsx' --ignore '**/*.spec.ts' --ignore '**/*.spec.tsx' --ignore '**/*.test.cjs' --ignore '**/*.test.cjsx' --ignore '**/*.test.cts' --ignore '**/*.test.ctsx' --ignore '**/*.test.js' --ignore '**/*.test.jsx' --ignore '**/*.test.mjs' --ignore '**/*.test.mjsx' --ignore '**/*.test.mts' --ignore '**/*.test.mtsx' --ignore '**/*.test.ts' --ignore '**/*.test.tsx' --no-copy-ignored --out-dir ./.build/bootstrap --out-file-extension '.cjs'",
-    "babel:bootstrap:clean": "cd $INIT_CWD && rm -fr .build/bootstrap",
-    "babel:debug:build": "cd $INIT_CWD && yarn cmd:babel src --config-file ./babel.config.debug.mjs --extensions '.cjs,.cts,.js,.mjs,.mts,.ts' --ignore '**/__tests__/**/*' --ignore '**/*.d.ts' --ignore '**/*.spec.cjs' --ignore '**/*.spec.cjsx' --ignore '**/*.spec.cts' --ignore '**/*.spec.ctsx' --ignore '**/*.spec.js' --ignore '**/*.spec.jsx' --ignore '**/*.spec.mjs' --ignore '**/*.spec.mjsx' --ignore '**/*.spec.mts' --ignore '**/*.spec.mtsx' --ignore '**/*.spec.ts' --ignore '**/*.spec.tsx' --ignore '**/*.test.cjs' --ignore '**/*.test.cjsx' --ignore '**/*.test.cts' --ignore '**/*.test.ctsx' --ignore '**/*.test.js' --ignore '**/*.test.jsx' --ignore '**/*.test.mjs' --ignore '**/*.test.mjsx' --ignore '**/*.test.mts' --ignore '**/*.test.mtsx' --ignore '**/*.test.ts' --ignore '**/*.test.tsx' --no-copy-ignored --out-dir ./.build/debug --out-file-extension '.mjs'",
-    "babel:debug:build:clean": "cd $INIT_CWD && rm -fr .build/debug",
-    "cmd:node::babel": "cd $INIT_CWD && yarn cmd:node --require ${PROJECT_CWD}/internal/integrations/babel/src/node/register.cjs",
-    "lint": "yarn eslint:lint",
-    "lint::fix": "yarn eslint:lint::fix",
-    "prepare": "yarn update-package-exports",
-    "update-package-exports": "yarn export-map-generator:update"
+    "prepare": "yarn update-exports",
+    "update-exports": "node ../../../hack/scripts/package/update-exports.mjs"
   },
   "devDependencies": {
     "@babel/core": "^7.28.0",
@@ -18,10 +11,12 @@
     "@babel/preset-typescript": "^7.27.1",
     "@babel/register": "^7.27.1",
     "@holypack/babel-preset": "workspace:^",
+    "@holypack/internal-dev": "workspace:^",
     "@types/babel__core": "^7.20.5",
     "@types/babel__preset-env": "^7.10.0",
     "@types/babel__register": "^7.17.3",
     "babel-plugin-comment-attributes": "^1.0.0",
+    "babel-plugin-report-runtime-free-files": "^1.0.0",
     "babel-plugin-transform-import-source": "^2.1.0"
   },
   "files": [
@@ -31,101 +26,122 @@
   "type": "module",
   "module": "./src/index.mjs",
   "exports": {
-    "./bootstrap/generateBootstrapConfigFunction.mjs": {
-      "default": "./src/bootstrap/generateBootstrapConfigFunction.mjs"
+    "./build/module/format/ModuleFormat.mjs": {
+      "default": "./src/build/module/format/ModuleFormat.mjs"
     },
-    "./bootstrap/generateBootstrapConfigFunction": {
-      "default": "./src/bootstrap/generateBootstrapConfigFunction.mjs"
+    "./build/module/format/ModuleFormat": {
+      "default": "./src/build/module/format/ModuleFormat.mjs"
     },
-    "./bootstrap/index.mjs": {
-      "default": "./src/bootstrap/index.mjs"
+    "./builder/build.mjs": {
+      "default": "./src/builder/build.mjs"
     },
-    "./bootstrap/index": {
-      "default": "./src/bootstrap/index.mjs"
+    "./builder/build": {
+      "default": "./src/builder/build.mjs"
     },
-    "./bootstrap": {
-      "default": "./src/bootstrap/index.mjs"
+    "./builder/options/BuilderOptions.mjs": {
+      "default": "./src/builder/options/BuilderOptions.mjs"
     },
-    "./cjs/generateCJSConfigFunction.mjs": {
-      "default": "./src/cjs/generateCJSConfigFunction.mjs"
+    "./builder/options/BuilderOptions": {
+      "default": "./src/builder/options/BuilderOptions.mjs"
     },
-    "./cjs/generateCJSConfigFunction": {
-      "default": "./src/cjs/generateCJSConfigFunction.mjs"
+    "./builder/options/BuilderResolvedOptions.mjs": {
+      "default": "./src/builder/options/BuilderResolvedOptions.mjs"
     },
-    "./cjs/index.mjs": {
-      "default": "./src/cjs/index.mjs"
+    "./builder/options/BuilderResolvedOptions": {
+      "default": "./src/builder/options/BuilderResolvedOptions.mjs"
     },
-    "./cjs/index": {
-      "default": "./src/cjs/index.mjs"
+    "./builder/options/resolveBuilderOptions.mjs": {
+      "default": "./src/builder/options/resolveBuilderOptions.mjs"
     },
-    "./cjs": {
-      "default": "./src/cjs/index.mjs"
+    "./builder/options/resolveBuilderOptions": {
+      "default": "./src/builder/options/resolveBuilderOptions.mjs"
     },
-    "./contrib/comment-attributes/META_LIB.cjs": {
-      "default": "./src/contrib/comment-attributes/META_LIB.cjs"
+    "./builder/stats/BuildStats.mjs": {
+      "default": "./src/builder/stats/BuildStats.mjs"
     },
-    "./contrib/comment-attributes/META_LIB": {
-      "default": "./src/contrib/comment-attributes/META_LIB.cjs"
+    "./builder/stats/BuildStats": {
+      "default": "./src/builder/stats/BuildStats.mjs"
     },
-    "./contrib/comment-attributes/meta-operators/cjs.cjs": {
-      "default": "./src/contrib/comment-attributes/meta-operators/cjs.cjs"
+    "./configs/bootstrap/cjs/generateBootstrapCJSConfigFunction.mjs": {
+      "default": "./src/configs/bootstrap/cjs/generateBootstrapCJSConfigFunction.mjs"
     },
-    "./contrib/comment-attributes/meta-operators/cjs": {
-      "default": "./src/contrib/comment-attributes/meta-operators/cjs.cjs"
+    "./configs/bootstrap/cjs/generateBootstrapCJSConfigFunction": {
+      "default": "./src/configs/bootstrap/cjs/generateBootstrapCJSConfigFunction.mjs"
     },
-    "./contrib/comment-attributes/meta-operators/esm.cjs": {
-      "default": "./src/contrib/comment-attributes/meta-operators/esm.cjs"
+    "./configs/bootstrap/cjs/index.mjs": {
+      "default": "./src/configs/bootstrap/cjs/index.mjs"
     },
-    "./contrib/comment-attributes/meta-operators/esm": {
-      "default": "./src/contrib/comment-attributes/meta-operators/esm.cjs"
+    "./configs/bootstrap/cjs/index": {
+      "default": "./src/configs/bootstrap/cjs/index.mjs"
     },
-    "./contrib/comment-attributes/meta-operators/remove.cjs": {
-      "default": "./src/contrib/comment-attributes/meta-operators/remove.cjs"
+    "./configs/bootstrap/cjs": {
+      "default": "./src/configs/bootstrap/cjs/index.mjs"
     },
-    "./contrib/comment-attributes/meta-operators/remove": {
-      "default": "./src/contrib/comment-attributes/meta-operators/remove.cjs"
+    "./configs/cjs/generateCJSConfigFunction.mjs": {
+      "default": "./src/configs/cjs/generateCJSConfigFunction.mjs"
     },
-    "./contrib/comment-attributes/meta-operators/skip.cjs": {
-      "default": "./src/contrib/comment-attributes/meta-operators/skip.cjs"
+    "./configs/cjs/generateCJSConfigFunction": {
+      "default": "./src/configs/cjs/generateCJSConfigFunction.mjs"
     },
-    "./contrib/comment-attributes/meta-operators/skip": {
-      "default": "./src/contrib/comment-attributes/meta-operators/skip.cjs"
+    "./configs/cjs/index.mjs": {
+      "default": "./src/configs/cjs/index.mjs"
     },
-    "./contrib/comment-attributes/meta-operators/voidify.cjs": {
-      "default": "./src/contrib/comment-attributes/meta-operators/voidify.cjs"
+    "./configs/cjs/index": {
+      "default": "./src/configs/cjs/index.mjs"
     },
-    "./contrib/comment-attributes/meta-operators/voidify": {
-      "default": "./src/contrib/comment-attributes/meta-operators/voidify.cjs"
+    "./configs/cjs": {
+      "default": "./src/configs/cjs/index.mjs"
     },
-    "./debug/generateDebugConfigFunction.mjs": {
-      "default": "./src/debug/generateDebugConfigFunction.mjs"
+    "./configs/debug/generateDebugConfigFunction.mjs": {
+      "default": "./src/configs/debug/generateDebugConfigFunction.mjs"
     },
-    "./debug/generateDebugConfigFunction": {
-      "default": "./src/debug/generateDebugConfigFunction.mjs"
+    "./configs/debug/generateDebugConfigFunction": {
+      "default": "./src/configs/debug/generateDebugConfigFunction.mjs"
     },
-    "./debug/index.mjs": {
-      "default": "./src/debug/index.mjs"
+    "./configs/debug/index.mjs": {
+      "default": "./src/configs/debug/index.mjs"
     },
-    "./debug/index": {
-      "default": "./src/debug/index.mjs"
+    "./configs/debug/index": {
+      "default": "./src/configs/debug/index.mjs"
     },
-    "./debug": {
-      "default": "./src/debug/index.mjs"
+    "./configs/debug": {
+      "default": "./src/configs/debug/index.mjs"
     },
-    "./esm/generateESMConfigFunction.mjs": {
-      "default": "./src/esm/generateESMConfigFunction.mjs"
+    "./configs/esm/generateESMConfigFunction.mjs": {
+      "default": "./src/configs/esm/generateESMConfigFunction.mjs"
     },
-    "./esm/generateESMConfigFunction": {
-      "default": "./src/esm/generateESMConfigFunction.mjs"
+    "./configs/esm/generateESMConfigFunction": {
+      "default": "./src/configs/esm/generateESMConfigFunction.mjs"
     },
-    "./esm/index.mjs": {
-      "default": "./src/esm/index.mjs"
+    "./configs/esm/index.mjs": {
+      "default": "./src/configs/esm/index.mjs"
     },
-    "./esm/index": {
-      "default": "./src/esm/index.mjs"
+    "./configs/esm/index": {
+      "default": "./src/configs/esm/index.mjs"
     },
-    "./esm": {
-      "default": "./src/esm/index.mjs"
+    "./configs/esm": {
+      "default": "./src/configs/esm/index.mjs"
+    },
+    "./configs/node/generateNodeConfigFunction.cjs": {
+      "default": "./src/configs/node/generateNodeConfigFunction.cjs"
+    },
+    "./configs/node/generateNodeConfigFunction": {
+      "default": "./src/configs/node/generateNodeConfigFunction.cjs"
+    },
+    "./configs/node/index.cjs": {
+      "default": "./src/configs/node/index.cjs"
+    },
+    "./configs/node/index": {
+      "default": "./src/configs/node/index.cjs"
+    },
+    "./configs/node/register.cjs": {
+      "default": "./src/configs/node/register.cjs"
+    },
+    "./configs/node/register": {
+      "default": "./src/configs/node/register.cjs"
+    },
+    "./configs/node": {
+      "default": "./src/configs/node/index.cjs"
     },
     "./index.mjs": {
       "default": "./src/index.mjs"
@@ -133,29 +149,62 @@
     "./index": {
       "default": "./src/index.mjs"
     },
-    "./node/generateNodeConfigFunction.cjs": {
-      "default": "./src/node/generateNodeConfigFunction.cjs"
+    "./lib/comment-attributes/META_GLOBALS.cjs": {
+      "default": "./src/lib/comment-attributes/META_GLOBALS.cjs"
     },
-    "./node/generateNodeConfigFunction": {
-      "default": "./src/node/generateNodeConfigFunction.cjs"
+    "./lib/comment-attributes/META_GLOBALS": {
+      "default": "./src/lib/comment-attributes/META_GLOBALS.cjs"
     },
-    "./node/index.cjs": {
-      "default": "./src/node/index.cjs"
+    "./lib/comment-attributes/meta-operators/cjs.cjs": {
+      "default": "./src/lib/comment-attributes/meta-operators/cjs.cjs"
     },
-    "./node/index": {
-      "default": "./src/node/index.cjs"
+    "./lib/comment-attributes/meta-operators/cjs": {
+      "default": "./src/lib/comment-attributes/meta-operators/cjs.cjs"
     },
-    "./node/register.cjs": {
-      "default": "./src/node/register.cjs"
+    "./lib/comment-attributes/meta-operators/esm.cjs": {
+      "default": "./src/lib/comment-attributes/meta-operators/esm.cjs"
     },
-    "./node/register": {
-      "default": "./src/node/register.cjs"
+    "./lib/comment-attributes/meta-operators/esm": {
+      "default": "./src/lib/comment-attributes/meta-operators/esm.cjs"
     },
-    "./node": {
-      "default": "./src/node/index.cjs"
+    "./lib/comment-attributes/meta-operators/remove.cjs": {
+      "default": "./src/lib/comment-attributes/meta-operators/remove.cjs"
+    },
+    "./lib/comment-attributes/meta-operators/remove": {
+      "default": "./src/lib/comment-attributes/meta-operators/remove.cjs"
+    },
+    "./lib/comment-attributes/meta-operators/skip.cjs": {
+      "default": "./src/lib/comment-attributes/meta-operators/skip.cjs"
+    },
+    "./lib/comment-attributes/meta-operators/skip": {
+      "default": "./src/lib/comment-attributes/meta-operators/skip.cjs"
+    },
+    "./lib/comment-attributes/meta-operators/voidify.cjs": {
+      "default": "./src/lib/comment-attributes/meta-operators/voidify.cjs"
+    },
+    "./lib/comment-attributes/meta-operators/voidify": {
+      "default": "./src/lib/comment-attributes/meta-operators/voidify.cjs"
     },
     "./package.json": {
       "default": "./package.json"
+    },
+    "./plugins/report-runtime-free-files/createRuntimeFreeFileReporterOptions.mjs": {
+      "default": "./src/plugins/report-runtime-free-files/createRuntimeFreeFileReporterOptions.mjs"
+    },
+    "./plugins/report-runtime-free-files/createRuntimeFreeFileReporterOptions": {
+      "default": "./src/plugins/report-runtime-free-files/createRuntimeFreeFileReporterOptions.mjs"
+    },
+    "./plugins/report-runtime-free-files/enableRuntimeFreeFileReporterPlugin.mjs": {
+      "default": "./src/plugins/report-runtime-free-files/enableRuntimeFreeFileReporterPlugin.mjs"
+    },
+    "./plugins/report-runtime-free-files/enableRuntimeFreeFileReporterPlugin": {
+      "default": "./src/plugins/report-runtime-free-files/enableRuntimeFreeFileReporterPlugin.mjs"
+    },
+    "./plugins/report-runtime-free-files/isBabelFileResultRuntimeFree.mjs": {
+      "default": "./src/plugins/report-runtime-free-files/isBabelFileResultRuntimeFree.mjs"
+    },
+    "./plugins/report-runtime-free-files/isBabelFileResultRuntimeFree": {
+      "default": "./src/plugins/report-runtime-free-files/isBabelFileResultRuntimeFree.mjs"
     },
     ".": {
       "default": "./src/index.mjs"

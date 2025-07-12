@@ -1,10 +1,6 @@
 {
   "name": "@holypack/internal-integration-cspell",
   "private": true,
-  "scripts": {
-    "lint": "yarn eslint:lint",
-    "lint::fix": "yarn eslint:lint::fix"
-  },
   "devDependencies": {
     "@cspell/dict-bash": "^4.2.1",
     "@cspell/dict-css": "^4.0.18",

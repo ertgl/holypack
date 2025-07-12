@@ -1,1 +1,1 @@
-export { default } from "@holypack/internal-integration-babel/esm";
+export { default } from "@holypack/internal-integration-babel/configs/esm";

@@ -2,14 +2,8 @@
   "name": "@holypack/internal-integration-export-map-generator",
   "private": true,
   "scripts": {
-    "export-map-generator:bootstrap": "cd $INIT_CWD && yarn cmd:export-map-generator --config exports.config.bootstrap.mjs generate && node -e \"console.log('Successfully updated package exports for bootstrap phase.')\"",
-    "export-map-generator:bootstrap::preview": "cd $INIT_CWD && yarn cmd:export-map-generator --config exports.config.bootstrap.mjs --dry-run generate --stdout",
-    "export-map-generator:debug": "cd $INIT_CWD && yarn cmd:export-map-generator --config exports.config.debug.mjs generate && node -e \"console.log('Successfully updated package exports for debugging.')\"",
-    "export-map-generator:debug::preview": "cd $INIT_CWD && yarn cmd:export-map-generator --config exports.config.debug.mjs --dry-run generate --stdout",
-    "lint": "yarn eslint:lint",
-    "lint::fix": "yarn eslint:lint::fix",
-    "prepare": "yarn update-package-exports",
-    "update-package-exports": "yarn export-map-generator:update"
+    "prepare": "yarn update-exports",
+    "update-exports": "node ../../../hack/scripts/package/update-exports.mjs"
   },
   "devDependencies": {
     "export-map-generator": "^2.1.1"
@@ -19,35 +13,80 @@
     "./package.json"
   ],
   "exports": {
-    "./bootstrap/bootstrapConfigProvider.mjs": {
-      "default": "./src/bootstrap/bootstrapConfigProvider.mjs"
+    "./configs/bootstrap/bootstrapConfigProvider.mjs": {
+      "default": "./src/configs/bootstrap/bootstrapConfigProvider.mjs"
     },
-    "./bootstrap/bootstrapConfigProvider": {
-      "default": "./src/bootstrap/bootstrapConfigProvider.mjs"
+    "./configs/bootstrap/bootstrapConfigProvider": {
+      "default": "./src/configs/bootstrap/bootstrapConfigProvider.mjs"
     },
-    "./bootstrap/index.mjs": {
-      "default": "./src/bootstrap/index.mjs"
+    "./configs/bootstrap/index.mjs": {
+      "default": "./src/configs/bootstrap/index.mjs"
     },
-    "./bootstrap/index": {
-      "default": "./src/bootstrap/index.mjs"
+    "./configs/bootstrap/index": {
+      "default": "./src/configs/bootstrap/index.mjs"
     },
-    "./bootstrap": {
-      "default": "./src/bootstrap/index.mjs"
+    "./configs/bootstrap": {
+      "default": "./src/configs/bootstrap/index.mjs"
     },
-    "./debug/debugConfigProvider.mjs": {
-      "default": "./src/debug/debugConfigProvider.mjs"
+    "./configs/debug/debugConfigProvider.mjs": {
+      "default": "./src/configs/debug/debugConfigProvider.mjs"
     },
-    "./debug/debugConfigProvider": {
-      "default": "./src/debug/debugConfigProvider.mjs"
+    "./configs/debug/debugConfigProvider": {
+      "default": "./src/configs/debug/debugConfigProvider.mjs"
     },
-    "./debug/index.mjs": {
-      "default": "./src/debug/index.mjs"
+    "./configs/debug/index.mjs": {
+      "default": "./src/configs/debug/index.mjs"
     },
-    "./debug/index": {
-      "default": "./src/debug/index.mjs"
+    "./configs/debug/index": {
+      "default": "./src/configs/debug/index.mjs"
     },
-    "./debug": {
-      "default": "./src/debug/index.mjs"
+    "./configs/debug": {
+      "default": "./src/configs/debug/index.mjs"
+    },
+    "./configs/js/index.mjs": {
+      "default": "./src/configs/js/index.mjs"
+    },
+    "./configs/js/index": {
+      "default": "./src/configs/js/index.mjs"
+    },
+    "./configs/js/jsPackageConfigProvider.mjs": {
+      "default": "./src/configs/js/jsPackageConfigProvider.mjs"
+    },
+    "./configs/js/jsPackageConfigProvider": {
+      "default": "./src/configs/js/jsPackageConfigProvider.mjs"
+    },
+    "./configs/json/index.mjs": {
+      "default": "./src/configs/json/index.mjs"
+    },
+    "./configs/json/index": {
+      "default": "./src/configs/json/index.mjs"
+    },
+    "./configs/json/jsonPackageConfigProvider.mjs": {
+      "default": "./src/configs/json/jsonPackageConfigProvider.mjs"
+    },
+    "./configs/json/jsonPackageConfigProvider": {
+      "default": "./src/configs/json/jsonPackageConfigProvider.mjs"
+    },
+    "./configs/json": {
+      "default": "./src/configs/json/index.mjs"
+    },
+    "./configs/js": {
+      "default": "./src/configs/js/index.mjs"
+    },
+    "./configs/ts/index.mjs": {
+      "default": "./src/configs/ts/index.mjs"
+    },
+    "./configs/ts/index": {
+      "default": "./src/configs/ts/index.mjs"
+    },
+    "./configs/ts/tsConfigProvider.mjs": {
+      "default": "./src/configs/ts/tsConfigProvider.mjs"
+    },
+    "./configs/ts/tsConfigProvider": {
+      "default": "./src/configs/ts/tsConfigProvider.mjs"
+    },
+    "./configs/ts": {
+      "default": "./src/configs/ts/index.mjs"
     },
     "./index.mjs": {
       "default": "./src/index.mjs"
@@ -55,53 +94,8 @@
     "./index": {
       "default": "./src/index.mjs"
     },
-    "./js/index.mjs": {
-      "default": "./src/js/index.mjs"
-    },
-    "./js/index": {
-      "default": "./src/js/index.mjs"
-    },
-    "./js/jsPackageConfigProvider.mjs": {
-      "default": "./src/js/jsPackageConfigProvider.mjs"
-    },
-    "./js/jsPackageConfigProvider": {
-      "default": "./src/js/jsPackageConfigProvider.mjs"
-    },
-    "./json/index.mjs": {
-      "default": "./src/json/index.mjs"
-    },
-    "./json/index": {
-      "default": "./src/json/index.mjs"
-    },
-    "./json/jsonPackageConfigProvider.mjs": {
-      "default": "./src/json/jsonPackageConfigProvider.mjs"
-    },
-    "./json/jsonPackageConfigProvider": {
-      "default": "./src/json/jsonPackageConfigProvider.mjs"
-    },
-    "./json": {
-      "default": "./src/json/index.mjs"
-    },
-    "./js": {
-      "default": "./src/js/index.mjs"
-    },
     "./package.json": {
       "default": "./package.json"
-    },
-    "./ts/index.mjs": {
-      "default": "./src/ts/index.mjs"
-    },
-    "./ts/index": {
-      "default": "./src/ts/index.mjs"
-    },
-    "./ts/tsConfigProvider.mjs": {
-      "default": "./src/ts/tsConfigProvider.mjs"
-    },
-    "./ts/tsConfigProvider": {
-      "default": "./src/ts/tsConfigProvider.mjs"
-    },
-    "./ts": {
-      "default": "./src/ts/index.mjs"
     },
     ".": {
       "default": "./src/index.mjs"

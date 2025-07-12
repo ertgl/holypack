@@ -2,8 +2,6 @@
   "name": "@holypack/internal-integration-yarn",
   "private": true,
   "scripts": {
-    "lint": "yarn eslint:lint",
-    "lint::fix": "yarn eslint:lint::fix",
     "w:foreach": "cd $PROJECT_CWD && yarn workspaces foreach --all --exclude '@holypack/__monorepo__' -vv",
     "w:foreach::parallel": "cd $INIT_CWD && yarn w:foreach --parallel",
     "w:foreach::parallel::interlaced": "cd $INIT_CWD && yarn w:foreach::parallel --interlaced",

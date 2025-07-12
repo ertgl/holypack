@@ -1,1 +1,1 @@
-export { default } from "@holypack/internal-integration-export-map-generator/json";
+export { default } from "@holypack/internal-integration-export-map-generator/configs/json";
