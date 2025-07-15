@@ -5,7 +5,7 @@
     "cmd:node": "cd $INIT_CWD && node --disable-warning=ExperimentalWarning --experimental-require-module --experimental-transform-types --experimental-vm-modules"
   },
   "devDependencies": {
-    "@types/node": "^24.0.13"
+    "@types/node": "^24.0.14"
   },
   "files": [
     "./package.json"
