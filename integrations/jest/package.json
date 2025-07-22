@@ -12,7 +12,7 @@
     "@jest/globals": "30.0.4",
     "@types/babel__core": "^7.20.5",
     "@types/jest": "^30.0.0",
-    "babel-jest": "^30.0.4",
+    "babel-jest": "^30.0.5",
     "eslint": "^9.31.0",
     "eslint-plugin-istanbul": "^0.1.2",
     "eslint-plugin-jest": "^29.0.1",

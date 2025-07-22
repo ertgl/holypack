@@ -2762,7 +2762,7 @@ __metadata:
     "@jest/globals": "npm:30.0.4"
     "@types/babel__core": "npm:^7.20.5"
     "@types/jest": "npm:^30.0.0"
-    babel-jest: "npm:^30.0.4"
+    babel-jest: "npm:^30.0.5"
     eslint: "npm:^9.31.0"
     eslint-plugin-istanbul: "npm:^0.1.2"
     eslint-plugin-jest: "npm:^29.0.1"
@@ -4747,7 +4747,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-jest@npm:30.0.5":
+"babel-jest@npm:30.0.5, babel-jest@npm:^30.0.5":
   version: 30.0.5
   resolution: "babel-jest@npm:30.0.5"
   dependencies:
@@ -4761,23 +4761,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.11.0
   checksum: 10c0/48fcdbf97519216f8897c4d83c0d2a64dffd90e4876b386e4ea4530021aaedbd7253de65a71d554cb57fdeb7bd8509bed43a6c016eb150e49e1fbe1236248f0f
-  languageName: node
-  linkType: hard
-
-"babel-jest@npm:^30.0.4":
-  version: 30.0.4
-  resolution: "babel-jest@npm:30.0.4"
-  dependencies:
-    "@jest/transform": "npm:30.0.4"
-    "@types/babel__core": "npm:^7.20.5"
-    babel-plugin-istanbul: "npm:^7.0.0"
-    babel-preset-jest: "npm:30.0.1"
-    chalk: "npm:^4.1.2"
-    graceful-fs: "npm:^4.2.11"
-    slash: "npm:^3.0.0"
-  peerDependencies:
-    "@babel/core": ^7.11.0
-  checksum: 10c0/ee1df917c02e94431fa0229942609678ca255d2de97663316dd26deeaca9e9c64d4c4fc817d26d20ecab572f7aab1509d9c40803a49fb7cb0f6484fae315da07
   languageName: node
   linkType: hard
 
