@@ -2767,7 +2767,7 @@ __metadata:
     eslint-plugin-istanbul: "npm:^0.1.2"
     eslint-plugin-jest: "npm:^29.0.1"
     jest: "npm:^30.0.5"
-    jest-environment-jsdom: "npm:30.0.4"
+    jest-environment-jsdom: "npm:30.0.5"
     tapable: "npm:^2.2.2"
   peerDependencies:
     "@babel/core": "*"
@@ -3172,24 +3172,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/environment-jsdom-abstract@npm:30.0.4":
-  version: 30.0.4
-  resolution: "@jest/environment-jsdom-abstract@npm:30.0.4"
+"@jest/environment-jsdom-abstract@npm:30.0.5":
+  version: 30.0.5
+  resolution: "@jest/environment-jsdom-abstract@npm:30.0.5"
   dependencies:
-    "@jest/environment": "npm:30.0.4"
-    "@jest/fake-timers": "npm:30.0.4"
-    "@jest/types": "npm:30.0.1"
+    "@jest/environment": "npm:30.0.5"
+    "@jest/fake-timers": "npm:30.0.5"
+    "@jest/types": "npm:30.0.5"
     "@types/jsdom": "npm:^21.1.7"
     "@types/node": "npm:*"
-    jest-mock: "npm:30.0.2"
-    jest-util: "npm:30.0.2"
+    jest-mock: "npm:30.0.5"
+    jest-util: "npm:30.0.5"
   peerDependencies:
     canvas: ^3.0.0
     jsdom: "*"
   peerDependenciesMeta:
     canvas:
       optional: true
-  checksum: 10c0/d0c3d8764646ba3bbda0abfc249af722233206923384724b3d05bc7db7e5e83834c3872d66701053fdc6c13e66a061a6bc52496ffbef6b9975a3432c422c001d
+  checksum: 10c0/6fe651c26d3d7605e9cbc00a51c747a37924ca5e0815d8091c78eee5cac6f79b1e48b7609af7b55ea5981eea4b51379dd0840882284a6fa63c87d6a99e61e9bf
   languageName: node
   linkType: hard
 
@@ -7265,12 +7265,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-environment-jsdom@npm:30.0.4":
-  version: 30.0.4
-  resolution: "jest-environment-jsdom@npm:30.0.4"
+"jest-environment-jsdom@npm:30.0.5":
+  version: 30.0.5
+  resolution: "jest-environment-jsdom@npm:30.0.5"
   dependencies:
-    "@jest/environment": "npm:30.0.4"
-    "@jest/environment-jsdom-abstract": "npm:30.0.4"
+    "@jest/environment": "npm:30.0.5"
+    "@jest/environment-jsdom-abstract": "npm:30.0.5"
     "@types/jsdom": "npm:^21.1.7"
     "@types/node": "npm:*"
     jsdom: "npm:^26.1.0"
@@ -7279,7 +7279,7 @@ __metadata:
   peerDependenciesMeta:
     canvas:
       optional: true
-  checksum: 10c0/cba455c7ced998146d870df1a63bfe990e962a01195a071c79d24827b232f6c166816ef0024553a02c67c7652bf93f2c868990fac974aae6f79e8c61e0f4a8ab
+  checksum: 10c0/bb4db51e5fac2d646e1b7bf8f56033f45c1926df34ebb64925bd61bf574dc179b9ffdf0f33c8602ee285297f12817aead09ce0568d9a758392b64111473f61be
   languageName: node
   linkType: hard
 
