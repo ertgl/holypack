@@ -12,9 +12,9 @@
   "dependencies": {
     "@cspell/eslint-plugin": "^9.2.0",
     "@eslint/js": "^9.31.0",
-    "@eslint/json": "^0.13.0",
-    "@eslint/markdown": "^7.0.0",
-    "@stylistic/eslint-plugin": "^5.2.1",
+    "@eslint/json": "^0.13.1",
+    "@eslint/markdown": "^7.1.0",
+    "@stylistic/eslint-plugin": "^5.2.2",
     "eslint": "^9.31.0",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import-x": "^4.16.1",
