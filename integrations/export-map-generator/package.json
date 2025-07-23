@@ -6,7 +6,7 @@
   "devDependencies": {
     "commander": "^14.0.0",
     "cosmiconfig": "^9.0.0",
-    "pretty-format": "^30.0.2"
+    "pretty-format": "^30.0.5"
   },
   "peerDependencies": {
     "commander": "*",
