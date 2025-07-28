@@ -13,7 +13,7 @@
     "@cspell/dict-html-symbol-entities": "^4.0.4",
     "@cspell/dict-markdown": "^2.0.12",
     "@cspell/dict-node": "^5.0.8",
-    "@cspell/dict-npm": "^5.2.12",
+    "@cspell/dict-npm": "^5.2.13",
     "@cspell/dict-shell": "^1.1.1",
     "@cspell/dict-typescript": "^3.2.3"
   },
