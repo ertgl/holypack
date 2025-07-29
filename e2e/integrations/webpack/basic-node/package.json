@@ -10,6 +10,6 @@
     "@holypack/integration-typescript": "*",
     "@holypack/integration-webpack": "*",
     "@holypack/webpack-plugin": "*",
-    "webpack": "^5.100.1"
+    "webpack": "^5.101.0"
   }
 }
