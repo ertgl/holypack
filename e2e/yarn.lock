@@ -2361,7 +2361,7 @@ __metadata:
     eslint: "npm:^9.32.0"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-import-x: "npm:^4.16.1"
-    eslint-plugin-jsdoc: "npm:^52.0.1"
+    eslint-plugin-jsdoc: "npm:^52.0.2"
     eslint-plugin-n: "npm:^17.21.3"
     eslint-plugin-perfectionist: "npm:^4.15.0"
     eslint-plugin-yml: "npm:^1.18.0"
@@ -5040,7 +5040,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:^52.0.1":
+"eslint-plugin-jsdoc@npm:^52.0.2":
   version: 52.0.2
   resolution: "eslint-plugin-jsdoc@npm:52.0.2"
   dependencies:
