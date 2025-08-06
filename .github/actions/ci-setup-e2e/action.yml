@@ -101,7 +101,7 @@ runs:
       id: e2e-install-dependencies
       if: ${{ steps.e2e-restore-cache-for-node-modules.outputs.cache-hit != 'true' }}
       shell: bash
-      run: yarn e2e:yarn install
+      run: yarn e2e:yarn install --no-immutable
 
     - name: Cache yarn
       id: e2e-generate-cache-for-yarn
