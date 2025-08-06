@@ -1,9 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directories:
-      - "/"
-      - "/e2e"
+    directory: "/"
     schedule:
       interval: "daily"
       time: "10:00"
@@ -18,8 +16,30 @@ updates:
         patterns:
           - "@cspell/*"
           - "@eslint/*"
-          - "@types/node"
-          - "@types/picomatch"
+          - "@types/*"
+          - "eslint"
+          - "eslint-*"
+          - "*-eslint"
+          - "*/eslint-*"
+          - "globals"
+
+  - package-ecosystem: "npm"
+    directory: "/e2e"
+    schedule:
+      interval: "daily"
+      time: "10:00"
+      timezone: "Europe/Istanbul"
+    groups:
+      babel:
+        patterns:
+          - "@babel/*"
+          - "@types/babel__*"
+          - "babel-*"
+      eslint:
+        patterns:
+          - "@cspell/*"
+          - "@eslint/*"
+          - "@types/*"
           - "eslint"
           - "eslint-*"
           - "*-eslint"
