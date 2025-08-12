@@ -1,5 +1,10 @@
+import type { ModuleWithDefaultExport } from "./ModuleWithDefaultExport";
+
 export type ImportFunction<
-  T = unknown,
+  T,
 > = (
   path: string,
-) => Promise<T>;
+) => Promise<
+  | ModuleWithDefaultExport<T>
+  | T
+>;

@@ -1,13 +1,15 @@
 import type { PathLike } from "../path/PathLike";
 import { pathLikeToPath } from "../path/pathLikeToPath";
 
+import type { ExtractDefaultExport } from "./ExtractDefaultExport";
 import type { ImportFunction } from "./ImportFunction";
 
 export async function importDefaultExport<
   T = unknown,
-  T_ReturnType = T,
+  T_Function extends ImportFunction<T> = ImportFunction<T>,
+  T_ReturnType extends ExtractDefaultExport<Awaited<ReturnType<T_Function>>> = ExtractDefaultExport<Awaited<ReturnType<T_Function>>>,
 >(
-  importFunction: ImportFunction<T | { default: T }>,
+  importFunction: T_Function,
   pathLike: PathLike,
 ): Promise<T_ReturnType>
 {
