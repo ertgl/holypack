@@ -6768,6 +6768,26 @@
       "require": "./dist/cjs/lib/iterator/consumeOnceSync.cjs",
       "default": "./src/lib/iterator/consumeOnceSync.ts"
     },
+    "./lib/module/ExtractDefaultExport.cjs": {
+      "types": "./dist/types/lib/module/ExtractDefaultExport.d.ts",
+      "default": "./src/lib/module/ExtractDefaultExport.ts"
+    },
+    "./lib/module/ExtractDefaultExport.d.ts": {
+      "types": "./dist/types/lib/module/ExtractDefaultExport.d.ts",
+      "default": "./src/lib/module/ExtractDefaultExport.ts"
+    },
+    "./lib/module/ExtractDefaultExport.js": {
+      "types": "./dist/types/lib/module/ExtractDefaultExport.d.ts",
+      "default": "./src/lib/module/ExtractDefaultExport.ts"
+    },
+    "./lib/module/ExtractDefaultExport.mjs": {
+      "types": "./dist/types/lib/module/ExtractDefaultExport.d.ts",
+      "default": "./src/lib/module/ExtractDefaultExport.ts"
+    },
+    "./lib/module/ExtractDefaultExport": {
+      "types": "./dist/types/lib/module/ExtractDefaultExport.d.ts",
+      "default": "./src/lib/module/ExtractDefaultExport.ts"
+    },
     "./lib/module/ImportFunction.cjs": {
       "types": "./dist/types/lib/module/ImportFunction.d.ts",
       "default": "./src/lib/module/ImportFunction.ts"
@@ -6787,6 +6807,26 @@
     "./lib/module/ImportFunction": {
       "types": "./dist/types/lib/module/ImportFunction.d.ts",
       "default": "./src/lib/module/ImportFunction.ts"
+    },
+    "./lib/module/ModuleWithDefaultExport.cjs": {
+      "types": "./dist/types/lib/module/ModuleWithDefaultExport.d.ts",
+      "default": "./src/lib/module/ModuleWithDefaultExport.ts"
+    },
+    "./lib/module/ModuleWithDefaultExport.d.ts": {
+      "types": "./dist/types/lib/module/ModuleWithDefaultExport.d.ts",
+      "default": "./src/lib/module/ModuleWithDefaultExport.ts"
+    },
+    "./lib/module/ModuleWithDefaultExport.js": {
+      "types": "./dist/types/lib/module/ModuleWithDefaultExport.d.ts",
+      "default": "./src/lib/module/ModuleWithDefaultExport.ts"
+    },
+    "./lib/module/ModuleWithDefaultExport.mjs": {
+      "types": "./dist/types/lib/module/ModuleWithDefaultExport.d.ts",
+      "default": "./src/lib/module/ModuleWithDefaultExport.ts"
+    },
+    "./lib/module/ModuleWithDefaultExport": {
+      "types": "./dist/types/lib/module/ModuleWithDefaultExport.d.ts",
+      "default": "./src/lib/module/ModuleWithDefaultExport.ts"
     },
     "./lib/module/RequireFunction.cjs": {
       "types": "./dist/types/lib/module/RequireFunction.d.ts",
@@ -8767,6 +8807,86 @@
       "import": "./dist/esm/lib/regexp/getRegExpSource.mjs",
       "require": "./dist/cjs/lib/regexp/getRegExpSource.cjs",
       "default": "./src/lib/regexp/getRegExpSource.ts"
+    },
+    "./lib/runtime/ErrorProneFunction.cjs": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunction.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunction.ts"
+    },
+    "./lib/runtime/ErrorProneFunction.d.ts": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunction.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunction.ts"
+    },
+    "./lib/runtime/ErrorProneFunction.js": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunction.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunction.ts"
+    },
+    "./lib/runtime/ErrorProneFunction.mjs": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunction.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunction.ts"
+    },
+    "./lib/runtime/ErrorProneFunctionAsync.cjs": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunctionAsync.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunctionAsync.ts"
+    },
+    "./lib/runtime/ErrorProneFunctionAsync.d.ts": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunctionAsync.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunctionAsync.ts"
+    },
+    "./lib/runtime/ErrorProneFunctionAsync.js": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunctionAsync.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunctionAsync.ts"
+    },
+    "./lib/runtime/ErrorProneFunctionAsync.mjs": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunctionAsync.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunctionAsync.ts"
+    },
+    "./lib/runtime/ErrorProneFunctionAsync": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunctionAsync.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunctionAsync.ts"
+    },
+    "./lib/runtime/ErrorProneFunctionMaybeAsync.cjs": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunctionMaybeAsync.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunctionMaybeAsync.ts"
+    },
+    "./lib/runtime/ErrorProneFunctionMaybeAsync.d.ts": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunctionMaybeAsync.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunctionMaybeAsync.ts"
+    },
+    "./lib/runtime/ErrorProneFunctionMaybeAsync.js": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunctionMaybeAsync.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunctionMaybeAsync.ts"
+    },
+    "./lib/runtime/ErrorProneFunctionMaybeAsync.mjs": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunctionMaybeAsync.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunctionMaybeAsync.ts"
+    },
+    "./lib/runtime/ErrorProneFunctionMaybeAsync": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunctionMaybeAsync.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunctionMaybeAsync.ts"
+    },
+    "./lib/runtime/ErrorProneFunctionSync.cjs": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunctionSync.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunctionSync.ts"
+    },
+    "./lib/runtime/ErrorProneFunctionSync.d.ts": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunctionSync.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunctionSync.ts"
+    },
+    "./lib/runtime/ErrorProneFunctionSync.js": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunctionSync.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunctionSync.ts"
+    },
+    "./lib/runtime/ErrorProneFunctionSync.mjs": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunctionSync.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunctionSync.ts"
+    },
+    "./lib/runtime/ErrorProneFunctionSync": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunctionSync.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunctionSync.ts"
+    },
+    "./lib/runtime/ErrorProneFunction": {
+      "types": "./dist/types/lib/runtime/ErrorProneFunction.d.ts",
+      "default": "./src/lib/runtime/ErrorProneFunction.ts"
     },
     "./lib/runtime/ExecutionModeTrait.cjs": {
       "types": "./dist/types/lib/runtime/ExecutionModeTrait.d.ts",

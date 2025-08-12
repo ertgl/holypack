@@ -207,7 +207,7 @@ export function configureESLintPluginStylisticSync(
           "error",
           quotes,
           {
-            allowTemplateLiterals: true,
+            allowTemplateLiterals: "always",
             avoidEscape: false,
             ignoreStringLiterals: false,
           },

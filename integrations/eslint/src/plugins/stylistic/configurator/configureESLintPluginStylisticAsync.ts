@@ -197,7 +197,7 @@ export async function configureESLintPluginStylisticAsync(
           "error",
           quotes,
           {
-            allowTemplateLiterals: true,
+            allowTemplateLiterals: "always",
             avoidEscape: false,
             ignoreStringLiterals: false,
           },
