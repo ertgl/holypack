@@ -27,7 +27,7 @@
     "typescript-eslint": "^8.39.1"
   },
   "devDependencies": {
-    "@eslint/config-inspector": "^1.1.0",
+    "@eslint/config-inspector": "^1.2.0",
     "@holypack/core": "workspace:^",
     "@holypack/integration-typescript": "workspace:^",
     "@types/lodash.escaperegexp": "^4.1.9",
