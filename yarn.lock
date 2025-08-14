@@ -2263,9 +2263,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/config-inspector@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@eslint/config-inspector@npm:1.1.0"
+"@eslint/config-inspector@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@eslint/config-inspector@npm:1.2.0"
   dependencies:
     "@nodelib/fs.walk": "npm:^3.0.1"
     ansis: "npm:^4.1.0"
@@ -2287,7 +2287,7 @@ __metadata:
   bin:
     config-inspector: bin.mjs
     eslint-config-inspector: bin.mjs
-  checksum: 10c0/351ab549929fc83e88ecb4f5b8980a06952b0327bc28875693ce1be37a03054065470fb743117658cdbdea242800de3ddf04c1bfebb6a73d2917b30a3efa20eb
+  checksum: 10c0/6fe2972576a9592433ff00de3c5d6bba126ba42af652d8fd31ca6c3a80288d02b8ec684ff1671db29149d393d1538e864dc29c915c808a52895c49f11e3f2ed1
   languageName: node
   linkType: hard
 
@@ -2669,7 +2669,7 @@ __metadata:
   resolution: "@holypack/integration-eslint@workspace:integrations/eslint"
   dependencies:
     "@cspell/eslint-plugin": "npm:^9.2.0"
-    "@eslint/config-inspector": "npm:^1.1.0"
+    "@eslint/config-inspector": "npm:^1.2.0"
     "@eslint/js": "npm:^9.33.0"
     "@eslint/json": "npm:^0.13.1"
     "@eslint/markdown": "npm:^7.1.0"
