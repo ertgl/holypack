@@ -11,7 +11,7 @@
     "clean": "node ../../hack/scripts/package/clean.mjs"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.0",
+    "@babel/core": "^7.28.3",
     "@holypack/core": "workspace:^",
     "@holypack/integration-babel": "workspace:^"
   },
