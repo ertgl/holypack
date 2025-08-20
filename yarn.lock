@@ -1710,10 +1710,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cspell/dict-en-gb@npm:^5.0.11":
-  version: 5.0.11
-  resolution: "@cspell/dict-en-gb@npm:5.0.11"
-  checksum: 10c0/e6a53b8f5099e36a10f2cb7c2c053b4015aabf7f94f2437f537f071436646388cecb28ec4d88b748e163affc5990dc498dd465e6050ccba80c647dd3271158d6
+"@cspell/dict-en-gb@npm:^5.0.12":
+  version: 5.0.12
+  resolution: "@cspell/dict-en-gb@npm:5.0.12"
+  checksum: 10c0/e8e90146534c4491348e16fdcd3eb933f9e79d6744df4d8f412d85b70e736cf7647e93d687760f1e64a0223dc37eb47cc3be6fb98caffecd1fedb0fdf78cc4b4
   languageName: node
   linkType: hard
 
@@ -1724,10 +1724,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cspell/dict-en_us@npm:^4.4.16":
-  version: 4.4.16
-  resolution: "@cspell/dict-en_us@npm:4.4.16"
-  checksum: 10c0/dfb13591594636b09154ebcb5a2aabd23b6560ea6279619af0bc600fc11950ee8e0f989850d2a996c4a5634292e43d605350d1432c53c2fd86b11feeaa1749e2
+"@cspell/dict-en_us@npm:^4.4.17":
+  version: 4.4.17
+  resolution: "@cspell/dict-en_us@npm:4.4.17"
+  checksum: 10c0/f21d021128970de9cc8968ff5e1a3959ef9f004d6dc73ac001c7da2a565e3989ade9e1bd5e776748d17ee8791a33248354a440655e2da9f7ca7df4950d6bfbc8
   languageName: node
   linkType: hard
 
@@ -2749,7 +2749,7 @@ __metadata:
     eslint: "npm:^9.33.0"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-import-x: "npm:^4.16.1"
-    eslint-plugin-jsdoc: "npm:^54.1.0"
+    eslint-plugin-jsdoc: "npm:^54.1.1"
     eslint-plugin-n: "npm:^17.21.3"
     eslint-plugin-perfectionist: "npm:^4.15.0"
     eslint-plugin-yml: "npm:^1.18.0"
@@ -2792,7 +2792,7 @@ __metadata:
     eslint: "npm:^9.33.0"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-import-x: "npm:^4.16.1"
-    eslint-plugin-jsdoc: "npm:^54.1.0"
+    eslint-plugin-jsdoc: "npm:^54.1.1"
     eslint-plugin-n: "npm:^17.21.3"
     eslint-plugin-perfectionist: "npm:^4.15.0"
     eslint-plugin-yml: "npm:^1.18.0"
@@ -3029,8 +3029,8 @@ __metadata:
     "@cspell/dict-bash": "npm:^4.2.1"
     "@cspell/dict-css": "npm:^4.0.18"
     "@cspell/dict-en-common-misspellings": "npm:^2.1.3"
-    "@cspell/dict-en-gb": "npm:^5.0.11"
-    "@cspell/dict-en_us": "npm:^4.4.16"
+    "@cspell/dict-en-gb": "npm:^5.0.12"
+    "@cspell/dict-en_us": "npm:^4.4.17"
     "@cspell/dict-filetypes": "npm:^3.0.13"
     "@cspell/dict-git": "npm:^3.0.7"
     "@cspell/dict-html": "npm:^4.0.12"
@@ -6007,9 +6007,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:^54.1.0":
-  version: 54.1.0
-  resolution: "eslint-plugin-jsdoc@npm:54.1.0"
+"eslint-plugin-jsdoc@npm:^54.1.1":
+  version: 54.1.1
+  resolution: "eslint-plugin-jsdoc@npm:54.1.1"
   dependencies:
     "@es-joy/jsdoccomment": "npm:~0.53.0"
     are-docs-informative: "npm:^0.0.2"
@@ -6023,7 +6023,7 @@ __metadata:
     spdx-expression-parse: "npm:^4.0.0"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
-  checksum: 10c0/6543f34d3dcaa5034ba767dd83e88621c8a5d411fdd01c9b2d0423806bf1acc77210847daff9e31505c41dd9112545273ee1fe7295d57be5a8718fbeb4293eda
+  checksum: 10c0/1c3bb7d396401eebfae8e112f93e3a638643ae183476ba676df3ceb8a844948356c5e7fadcab8646415f656447509e1789f290f2b6a8ca0dcd72b47eedb68edd
   languageName: node
   linkType: hard
 
