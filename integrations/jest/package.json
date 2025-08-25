@@ -18,7 +18,7 @@
     "eslint-plugin-jest": "^29.0.1",
     "jest": "^30.0.5",
     "jest-environment-jsdom": "30.0.5",
-    "tapable": "^2.2.2"
+    "tapable": "^2.2.3"
   },
   "peerDependencies": {
     "@babel/core": "*",
