@@ -32,7 +32,7 @@
     "@holypack/integration-typescript": "workspace:^",
     "@types/lodash.escaperegexp": "^4.1.9",
     "lodash.escaperegexp": "^4.1.2",
-    "tapable": "^2.2.2",
+    "tapable": "^2.2.3",
     "typescript": "^5.9.2"
   },
   "peerDependencies": {
