@@ -2870,7 +2870,7 @@ __metadata:
     "@babel/core": "npm:^7.28.3"
     "@holypack/core": "workspace:^"
     "@holypack/integration-eslint": "workspace:^"
-    "@jest/globals": "npm:30.1.0"
+    "@jest/globals": "npm:30.1.1"
     "@types/babel__core": "npm:^7.20.5"
     "@types/jest": "npm:^30.0.0"
     babel-jest: "npm:^30.1.0"
@@ -3337,31 +3337,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/expect-utils@npm:30.1.0":
-  version: 30.1.0
-  resolution: "@jest/expect-utils@npm:30.1.0"
-  dependencies:
-    "@jest/get-type": "npm:30.1.0"
-  checksum: 10c0/d8f91261b43397edda9d016076f6b662dde685509a5286c5b0420bf4ebe7a71d0847d2463290754c5ff0175d4bfea9556c391b18660b3dd6bfce8946fcd12194
-  languageName: node
-  linkType: hard
-
 "@jest/expect-utils@npm:30.1.1":
   version: 30.1.1
   resolution: "@jest/expect-utils@npm:30.1.1"
   dependencies:
     "@jest/get-type": "npm:30.1.0"
   checksum: 10c0/152fa519ab0041f5ac9618ce39a6aa0d4be0feb7c0ff71a6f9fd43001c274051f996194e5561bae55b1553f1ea0d69ed0ec3e3675dcdf38790948111e32fc200
-  languageName: node
-  linkType: hard
-
-"@jest/expect@npm:30.1.0":
-  version: 30.1.0
-  resolution: "@jest/expect@npm:30.1.0"
-  dependencies:
-    expect: "npm:30.1.0"
-    jest-snapshot: "npm:30.1.0"
-  checksum: 10c0/fbf1610a7b633883e86cf1f969d4047b6dfae04db1210bfaa711f5134a5cbc7d4d45216eee05099e8340a7a20e2d0a6e1a11f736f8177da0595977f6b722d510
   languageName: node
   linkType: hard
 
@@ -3414,18 +3395,6 @@ __metadata:
   version: 30.1.0
   resolution: "@jest/get-type@npm:30.1.0"
   checksum: 10c0/3e65fd5015f551c51ec68fca31bbd25b466be0e8ee8075d9610fa1c686ea1e70a942a0effc7b10f4ea9a338c24337e1ad97ff69d3ebacc4681b7e3e80d1b24ac
-  languageName: node
-  linkType: hard
-
-"@jest/globals@npm:30.1.0":
-  version: 30.1.0
-  resolution: "@jest/globals@npm:30.1.0"
-  dependencies:
-    "@jest/environment": "npm:30.1.0"
-    "@jest/expect": "npm:30.1.0"
-    "@jest/types": "npm:30.0.5"
-    jest-mock: "npm:30.0.5"
-  checksum: 10c0/1436f53185fb25566e42e45735390a7cc22503d011c4518eb8d87bdfcfa58844f3fbf6acbf4d03772e28f448b26057d6ce2bfdaffbc8f4f4bfbe4f843ff3c8db
   languageName: node
   linkType: hard
 
@@ -3502,18 +3471,6 @@ __metadata:
   dependencies:
     "@sinclair/typebox": "npm:^0.34.0"
   checksum: 10c0/449dcd7ec5c6505e9ac3169d1143937e67044ae3e66a729ce4baf31812dfd30535f2b3b2934393c97cfdf5984ff581120e6b38f62b8560c8b5b7cc07f4175f65
-  languageName: node
-  linkType: hard
-
-"@jest/snapshot-utils@npm:30.1.0":
-  version: 30.1.0
-  resolution: "@jest/snapshot-utils@npm:30.1.0"
-  dependencies:
-    "@jest/types": "npm:30.0.5"
-    chalk: "npm:^4.1.2"
-    graceful-fs: "npm:^4.2.11"
-    natural-compare: "npm:^1.4.0"
-  checksum: 10c0/3f5ca658deee4537dc1af6b56fecbbd9691fcc3ca9b4625aff6f4e611a4c9a32bcec6856290c2d4c2eb84abafe04cd21b37385171f4041d1ee9dac6960ea4fba
   languageName: node
   linkType: hard
 
@@ -6347,20 +6304,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expect@npm:30.1.0":
-  version: 30.1.0
-  resolution: "expect@npm:30.1.0"
-  dependencies:
-    "@jest/expect-utils": "npm:30.1.0"
-    "@jest/get-type": "npm:30.1.0"
-    jest-matcher-utils: "npm:30.1.0"
-    jest-message-util: "npm:30.1.0"
-    jest-mock: "npm:30.0.5"
-    jest-util: "npm:30.0.5"
-  checksum: 10c0/a7ec55701b8aec3b9d5996562cda4a5d29e301fad4e3bf5e434e055cd4911185503a4aba13c9e213c62fa3d9c70bb37598b90d0ace7a1e6cf3270ac0cfab0b82
-  languageName: node
-  linkType: hard
-
 "expect@npm:30.1.1":
   version: 30.1.1
   resolution: "expect@npm:30.1.1"
@@ -7414,18 +7357,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-diff@npm:30.1.0":
-  version: 30.1.0
-  resolution: "jest-diff@npm:30.1.0"
-  dependencies:
-    "@jest/diff-sequences": "npm:30.0.1"
-    "@jest/get-type": "npm:30.1.0"
-    chalk: "npm:^4.1.2"
-    pretty-format: "npm:30.0.5"
-  checksum: 10c0/b7939b204ede584e07d69381cb4f4e2268cae9ef1526e0dd1f144bf09807c4758f915e883fad24dc6eae8605a0082c4c9cf2093eb43b2a387868826f6382345a
-  languageName: node
-  linkType: hard
-
 "jest-diff@npm:30.1.1":
   version: 30.1.1
   resolution: "jest-diff@npm:30.1.1"
@@ -7534,18 +7465,6 @@ __metadata:
     jest-diff: "npm:30.0.3"
     pretty-format: "npm:30.0.2"
   checksum: 10c0/4d354f6d8d3992228ba5f0ecc728ec0c46f3693805927253d67e461e754deadc1e1b48ae80918e3f029c22da4abed9aaadb5049da1a1697f6714b0f6076eeafa
-  languageName: node
-  linkType: hard
-
-"jest-matcher-utils@npm:30.1.0":
-  version: 30.1.0
-  resolution: "jest-matcher-utils@npm:30.1.0"
-  dependencies:
-    "@jest/get-type": "npm:30.1.0"
-    chalk: "npm:^4.1.2"
-    jest-diff: "npm:30.1.0"
-    pretty-format: "npm:30.0.5"
-  checksum: 10c0/b003ae0d831e3135dd344a81ee86c6820948b9a4c26d130e588f87fca12516c1d7c4c3224d9ced534936460e319d4dab9724082c015eef4190211a33bed0b553
   languageName: node
   linkType: hard
 
@@ -7719,35 +7638,6 @@ __metadata:
     slash: "npm:^3.0.0"
     strip-bom: "npm:^4.0.0"
   checksum: 10c0/769b0938c1b4ed1a6287830eed1b33d46a92096a5118ae33f1c24621ef563a2adfa36586360aa742b778028d272770fb30b9231243c1430f51a19c802c1af47f
-  languageName: node
-  linkType: hard
-
-"jest-snapshot@npm:30.1.0":
-  version: 30.1.0
-  resolution: "jest-snapshot@npm:30.1.0"
-  dependencies:
-    "@babel/core": "npm:^7.27.4"
-    "@babel/generator": "npm:^7.27.5"
-    "@babel/plugin-syntax-jsx": "npm:^7.27.1"
-    "@babel/plugin-syntax-typescript": "npm:^7.27.1"
-    "@babel/types": "npm:^7.27.3"
-    "@jest/expect-utils": "npm:30.1.0"
-    "@jest/get-type": "npm:30.1.0"
-    "@jest/snapshot-utils": "npm:30.1.0"
-    "@jest/transform": "npm:30.1.0"
-    "@jest/types": "npm:30.0.5"
-    babel-preset-current-node-syntax: "npm:^1.1.0"
-    chalk: "npm:^4.1.2"
-    expect: "npm:30.1.0"
-    graceful-fs: "npm:^4.2.11"
-    jest-diff: "npm:30.1.0"
-    jest-matcher-utils: "npm:30.1.0"
-    jest-message-util: "npm:30.1.0"
-    jest-util: "npm:30.0.5"
-    pretty-format: "npm:30.0.5"
-    semver: "npm:^7.7.2"
-    synckit: "npm:^0.11.8"
-  checksum: 10c0/38466ef2c9c4ecc4a87a80adb441ae423066d8734fed2ef0e975aa117344cb114e4aac383254c8c71f04056fe23c4223c501a1c9922122bf02cf0fc5dc326533
   languageName: node
   linkType: hard
 
