@@ -2540,15 +2540,15 @@ __metadata:
     "@babel/core": "npm:^7.28.3"
     "@holypack/core": "workspace:^"
     "@holypack/integration-eslint": "workspace:^"
-    "@jest/globals": "npm:30.1.1"
+    "@jest/globals": "npm:30.1.2"
     "@types/babel__core": "npm:^7.20.5"
     "@types/jest": "npm:^30.0.0"
-    babel-jest: "npm:^30.1.1"
+    babel-jest: "npm:^30.1.2"
     eslint: "npm:^9.34.0"
     eslint-plugin-istanbul: "npm:^0.1.2"
     eslint-plugin-jest: "npm:^29.0.1"
     jest: "npm:^30.1.2"
-    jest-environment-jsdom: "npm:30.1.1"
+    jest-environment-jsdom: "npm:30.1.2"
     tapable: "npm:^2.2.3"
   peerDependencies:
     "@babel/core": "*"
@@ -2911,6 +2911,27 @@ __metadata:
     canvas:
       optional: true
   checksum: 10c0/7d91b40a0ada87587d83e037f3745c06c7c12799bddfd4157602022a665865f21ed3b2d7369ff80dcfb73af037d7b10b25acd6be6846ed85fe5788d8bc55eab7
+  languageName: node
+  linkType: hard
+
+"@jest/environment-jsdom-abstract@npm:30.1.2":
+  version: 30.1.2
+  resolution: "@jest/environment-jsdom-abstract@npm:30.1.2"
+  dependencies:
+    "@jest/environment": "npm:30.1.2"
+    "@jest/fake-timers": "npm:30.1.2"
+    "@jest/types": "npm:30.0.5"
+    "@types/jsdom": "npm:^21.1.7"
+    "@types/node": "npm:*"
+    jest-mock: "npm:30.0.5"
+    jest-util: "npm:30.0.5"
+  peerDependencies:
+    canvas: ^3.0.0
+    jsdom: "*"
+  peerDependenciesMeta:
+    canvas:
+      optional: true
+  checksum: 10c0/442803c3268581c6bf53377f703b5f4c860511e38a66daf9a1ab2bf7849631fe3a41614eafe612f20d415ab70624b4c9fa70b901456e7d654371ba35b1debef3
   languageName: node
   linkType: hard
 
@@ -4444,7 +4465,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-jest@npm:30.1.1, babel-jest@npm:^30.1.1":
+"babel-jest@npm:30.1.1":
   version: 30.1.1
   resolution: "babel-jest@npm:30.1.1"
   dependencies:
@@ -4461,7 +4482,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-jest@npm:30.1.2":
+"babel-jest@npm:30.1.2, babel-jest@npm:^30.1.2":
   version: 30.1.2
   resolution: "babel-jest@npm:30.1.2"
   dependencies:
@@ -6704,7 +6725,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-environment-jsdom@npm:30.1.1, jest-environment-jsdom@npm:^30.1.1":
+"jest-environment-jsdom@npm:30.1.2":
+  version: 30.1.2
+  resolution: "jest-environment-jsdom@npm:30.1.2"
+  dependencies:
+    "@jest/environment": "npm:30.1.2"
+    "@jest/environment-jsdom-abstract": "npm:30.1.2"
+    "@types/jsdom": "npm:^21.1.7"
+    "@types/node": "npm:*"
+    jsdom: "npm:^26.1.0"
+  peerDependencies:
+    canvas: ^3.0.0
+  peerDependenciesMeta:
+    canvas:
+      optional: true
+  checksum: 10c0/2b5e9ee8202192d9bc71303dcfca32cd172eeabff54820e25d0b9cd486a2f486493efcc6d8cb638e4db7c0b1a881d454cb39c8afde0efe6c1f92083fb2359014
+  languageName: node
+  linkType: hard
+
+"jest-environment-jsdom@npm:^30.1.1":
   version: 30.1.1
   resolution: "jest-environment-jsdom@npm:30.1.1"
   dependencies:
