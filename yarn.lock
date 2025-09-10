@@ -2785,12 +2785,12 @@ __metadata:
     eslint: "npm:^9.35.0"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-import-x: "npm:^4.16.1"
-    eslint-plugin-jsdoc: "npm:^55.0.3"
+    eslint-plugin-jsdoc: "npm:^55.1.2"
     eslint-plugin-n: "npm:^17.21.3"
     eslint-plugin-perfectionist: "npm:^4.15.0"
     eslint-plugin-yml: "npm:^1.18.0"
     fast-glob: "npm:^3.3.3"
-    globals: "npm:^16.3.0"
+    globals: "npm:^16.4.0"
     typescript-eslint: "npm:^8.43.0"
   peerDependencies:
     "@holypack/core": "*"
@@ -2828,12 +2828,12 @@ __metadata:
     eslint: "npm:^9.35.0"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-import-x: "npm:^4.16.1"
-    eslint-plugin-jsdoc: "npm:^55.0.3"
+    eslint-plugin-jsdoc: "npm:^55.1.2"
     eslint-plugin-n: "npm:^17.21.3"
     eslint-plugin-perfectionist: "npm:^4.15.0"
     eslint-plugin-yml: "npm:^1.18.0"
     fast-glob: "npm:^3.3.3"
-    globals: "npm:^16.3.0"
+    globals: "npm:^16.4.0"
     lodash.escaperegexp: "npm:^4.1.2"
     tapable: "npm:^2.2.3"
     typescript: "npm:^5.9.2"
@@ -6060,9 +6060,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:^55.0.3":
-  version: 55.0.3
-  resolution: "eslint-plugin-jsdoc@npm:55.0.3"
+"eslint-plugin-jsdoc@npm:^55.1.2":
+  version: 55.1.2
+  resolution: "eslint-plugin-jsdoc@npm:55.1.2"
   dependencies:
     "@es-joy/jsdoccomment": "npm:~0.56.0"
     are-docs-informative: "npm:^0.0.2"
@@ -6077,7 +6077,7 @@ __metadata:
     spdx-expression-parse: "npm:^4.0.0"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
-  checksum: 10c0/9c6f9333a47f09284c292df423e0b5c41085b6dac045f75d9cda9c8be4b5030bcf7d915ea1de57f3214d8ac2a0590971463b9fe121f0883ae41a896631d7196e
+  checksum: 10c0/3b9c90ccb7f2bd44978655371f8b1928d17c702c2eb966069326f919bcacae11185f23e5971dba01367a8161cabd7d70f049e085ac82c1a02f1bf5765668b902
   languageName: node
   linkType: hard
 
@@ -6759,10 +6759,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^16.3.0":
-  version: 16.3.0
-  resolution: "globals@npm:16.3.0"
-  checksum: 10c0/c62dc20357d1c0bf2be4545d6c4141265d1a229bf1c3294955efb5b5ef611145391895e3f2729f8603809e81b30b516c33e6c2597573844449978606aad6eb38
+"globals@npm:^16.4.0":
+  version: 16.4.0
+  resolution: "globals@npm:16.4.0"
+  checksum: 10c0/a14b447a78b664b42f6d324e8675fcae6fe5e57924fecc1f6328dce08af9b2ca3a3138501e1b1f244a49814a732dc60cfc1aa24e714e0b64ac8bd18910bfac90
   languageName: node
   linkType: hard
 
