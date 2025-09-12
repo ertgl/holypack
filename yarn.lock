@@ -2785,7 +2785,7 @@ __metadata:
     eslint: "npm:^9.35.0"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-import-x: "npm:^4.16.1"
-    eslint-plugin-jsdoc: "npm:^56.0.2"
+    eslint-plugin-jsdoc: "npm:^56.1.2"
     eslint-plugin-n: "npm:^17.21.3"
     eslint-plugin-perfectionist: "npm:^4.15.0"
     eslint-plugin-yml: "npm:^1.18.0"
@@ -2828,7 +2828,7 @@ __metadata:
     eslint: "npm:^9.35.0"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-import-x: "npm:^4.16.1"
-    eslint-plugin-jsdoc: "npm:^56.0.2"
+    eslint-plugin-jsdoc: "npm:^56.1.2"
     eslint-plugin-n: "npm:^17.21.3"
     eslint-plugin-perfectionist: "npm:^4.15.0"
     eslint-plugin-yml: "npm:^1.18.0"
@@ -6053,9 +6053,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:^56.0.2":
-  version: 56.0.2
-  resolution: "eslint-plugin-jsdoc@npm:56.0.2"
+"eslint-plugin-jsdoc@npm:^56.1.2":
+  version: 56.1.2
+  resolution: "eslint-plugin-jsdoc@npm:56.1.2"
   dependencies:
     "@es-joy/jsdoccomment": "npm:~0.58.0"
     are-docs-informative: "npm:^0.0.2"
@@ -6070,7 +6070,7 @@ __metadata:
     spdx-expression-parse: "npm:^4.0.0"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
-  checksum: 10c0/5968e4428af1bb641a316fef73ccd0ddd6d5b72a88ef2899d31d358339829d8e51c0933b031f274e4561fa62d7abbf92a98bed472f9ae1c9d709cdbebfc4734d
+  checksum: 10c0/5f5f379ab2a2868049e793341a851fb9fd6d5541a9cdc87d61556defc55a94ff281435cf6bff6f7e9ce8b8426723ce6b063240a81c8d311f12180c9bdb306c6e
   languageName: node
   linkType: hard
 
