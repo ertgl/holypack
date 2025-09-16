@@ -32,7 +32,7 @@ import { resolveBuilderOptions } from "./options/resolveBuilderOptions.mjs";
  * @param {BuildContext} context
  * @param {BuilderOptions | null} [options]
  * @returns {Promise<BuildStats>}
- * @throws
+ * @throws {Error}
  */
 export async function build(
   context,
