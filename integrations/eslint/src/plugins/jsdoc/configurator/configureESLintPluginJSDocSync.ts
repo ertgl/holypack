@@ -73,7 +73,6 @@ export function configureESLintPluginJSDocSync(
     return;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const pluginJSDoc = suppressErrorSync(
     requireDefaultExport<typeof ESLintPluginJSDoc>,
     require,
@@ -95,7 +94,6 @@ export function configureESLintPluginJSDocSync(
       ],
       name: LINTER_CONFIG_NAME_JSDOC_PLUGIN,
       plugins: {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         jsdoc: pluginJSDoc,
       },
     });
@@ -103,9 +101,7 @@ export function configureESLintPluginJSDocSync(
 
   if (!recommendedJavaScriptConfigExists)
   {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     linterConfigArray.push({
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       ...pluginJSDoc.configs["flat/recommended"],
       files: [
         GLOB_PATTERN_CJS_JS_MJS,
@@ -117,9 +113,7 @@ export function configureESLintPluginJSDocSync(
 
   if (!recommendedTypeScriptConfigExists)
   {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     linterConfigArray.push({
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       ...pluginJSDoc.configs["flat/recommended-typescript"],
       files: [
         GLOB_PATTERN_CTS_MTS_TS,
