@@ -2785,7 +2785,7 @@ __metadata:
     eslint: "npm:^9.35.0"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-import-x: "npm:^4.16.1"
-    eslint-plugin-jsdoc: "npm:^58.1.0"
+    eslint-plugin-jsdoc: "npm:^58.1.1"
     eslint-plugin-n: "npm:^17.23.0"
     eslint-plugin-perfectionist: "npm:^4.15.0"
     eslint-plugin-yml: "npm:^1.18.0"
@@ -2828,7 +2828,7 @@ __metadata:
     eslint: "npm:^9.35.0"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-import-x: "npm:^4.16.1"
-    eslint-plugin-jsdoc: "npm:^58.1.0"
+    eslint-plugin-jsdoc: "npm:^58.1.1"
     eslint-plugin-n: "npm:^17.23.0"
     eslint-plugin-perfectionist: "npm:^4.15.0"
     eslint-plugin-yml: "npm:^1.18.0"
@@ -3097,7 +3097,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/internal-integration-node@workspace:internal/integrations/node"
   dependencies:
-    "@types/node": "npm:^24.5.1"
+    "@types/node": "npm:^24.5.2"
   languageName: unknown
   linkType: soft
 
@@ -4084,12 +4084,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.5.1":
-  version: 24.5.1
-  resolution: "@types/node@npm:24.5.1"
+"@types/node@npm:^24.5.2":
+  version: 24.5.2
+  resolution: "@types/node@npm:24.5.2"
   dependencies:
     undici-types: "npm:~7.12.0"
-  checksum: 10c0/5f0cb038be789b58170e616452ba1f8ebb85bf2fbce58a7e32b1eb08391f64f5e31a9cdbccefbfcd9e6d73b66b564b5e037a1d678ab20213559a32e1d7b6ce17
+  checksum: 10c0/96baaca6564d39c6f7f6eddd73ce41e2a7594ef37225cd52df3be36fad31712af8ae178387a72d0b80f2e2799e7fd30c014bc0ae9eb9f962d9079b691be00c48
   languageName: node
   linkType: hard
 
@@ -6072,9 +6072,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:^58.1.0":
-  version: 58.1.0
-  resolution: "eslint-plugin-jsdoc@npm:58.1.0"
+"eslint-plugin-jsdoc@npm:^58.1.1":
+  version: 58.1.1
+  resolution: "eslint-plugin-jsdoc@npm:58.1.1"
   dependencies:
     "@es-joy/jsdoccomment": "npm:~0.58.0"
     are-docs-informative: "npm:^0.0.2"
@@ -6089,7 +6089,7 @@ __metadata:
     spdx-expression-parse: "npm:^4.0.0"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
-  checksum: 10c0/823d8e2dc85cfdb75dc3d7590dd004da0cd454a742f6ec9f4f982468a88e8db653e2a72ced2d9c25cb73e81a0049f89f61b868c1cabdf8718812342fa4c04ff0
+  checksum: 10c0/73a0bf35c583f9e3373aeebb9f8c72f08131042dc043049e3229d0925e06cc1afe505de1785aaef97b2600eadfce2398999008699b3827f34d8a20a13c2110fe
   languageName: node
   linkType: hard
 
