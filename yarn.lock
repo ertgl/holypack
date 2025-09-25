@@ -2654,7 +2654,7 @@ __metadata:
   resolution: "@holypack/core@workspace:packages/core"
   dependencies:
     fast-glob: "npm:^3.3.3"
-    memfs: "npm:^4.43.0"
+    memfs: "npm:^4.46.0"
     tapable: "npm:^2.2.3"
     toml: "npm:^3.0.0"
     yaml: "npm:^2.8.1"
@@ -8279,9 +8279,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"memfs@npm:^4.43.0":
-  version: 4.43.0
-  resolution: "memfs@npm:4.43.0"
+"memfs@npm:^4.46.0":
+  version: 4.46.0
+  resolution: "memfs@npm:4.46.0"
   dependencies:
     "@jsonjoy.com/json-pack": "npm:^1.11.0"
     "@jsonjoy.com/util": "npm:^1.9.0"
@@ -8289,7 +8289,7 @@ __metadata:
     thingies: "npm:^2.5.0"
     tree-dump: "npm:^1.0.3"
     tslib: "npm:^2.0.0"
-  checksum: 10c0/9d8645f3229e80bb6a4ca0ef627926a4170c45234f1b332ec2f9b90b40d2de3cba78c303d6730f383a798f0fdbcc78369ae0fa7bcc6b9e1a4cec2b31215b5f29
+  checksum: 10c0/8ff6ed34d7b7eeba358f3b7edb808467c7c19a3c32daa6a579dbffcaf460b58caef4590594ac71367ce6c0a726d27d73a39f3f6eabd4661beccde09e500ff039
   languageName: node
   linkType: hard
 
