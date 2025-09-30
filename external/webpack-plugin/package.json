@@ -13,7 +13,7 @@
   "devDependencies": {
     "@holypack/core": "workspace:^",
     "@holypack/integration-webpack": "workspace:^",
-    "webpack": "^5.101.3"
+    "webpack": "^5.102.0"
   },
   "peerDependencies": {
     "@holypack/core": "*",
