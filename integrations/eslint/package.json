@@ -18,7 +18,7 @@
     "eslint": "^9.37.0",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import-x": "^4.16.1",
-    "eslint-plugin-jsdoc": "^60.8.3",
+    "eslint-plugin-jsdoc": "^61.0.0",
     "eslint-plugin-n": "^17.23.1",
     "eslint-plugin-perfectionist": "^4.15.1",
     "eslint-plugin-yml": "^1.19.0",
