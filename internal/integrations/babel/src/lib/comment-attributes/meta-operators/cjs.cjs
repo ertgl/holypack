@@ -1,3 +1,5 @@
+/* eslint-disable jsdoc/reject-function-type */
+
 const {
   defineMetaOperator,
   isMetaOperator,

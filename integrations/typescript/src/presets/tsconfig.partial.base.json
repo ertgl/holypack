@@ -5,7 +5,6 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "alwaysStrict": true,
-    "baseUrl": "${configDir}",
     "checkJs": true,
     "declaration": false,
     "esModuleInterop": true,
