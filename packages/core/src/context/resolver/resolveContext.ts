@@ -11,7 +11,7 @@ import { resolveContextAsync } from "./resolveContextAsync";
 import { resolveContextSync } from "./resolveContextSync";
 
 export function resolveContext(
-  options: ContextResolutionOptionsStrictSync
+  options: ContextResolutionOptionsStrictSync,
 ): ContextSync;
 export function resolveContext(
   options?: Optional<(
@@ -20,7 +20,7 @@ export function resolveContext(
   )>,
 ): Promise<ContextAsync>;
 export function resolveContext(
-  options: ContextResolutionOptionsAsyncOrSync
+  options: ContextResolutionOptionsAsyncOrSync,
 ): ContextSync | Promise<ContextAsync>;
 export function resolveContext(
   options?: Optional<ContextResolutionOptions | ContextResolutionOptionsAsyncOrSync>,
