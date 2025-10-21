@@ -1,7 +1,6 @@
 {
   "extends": "./tsconfig.partial.base.json",
   "compilerOptions": {
-    "baseUrl": "${configDir}/.build/debug",
     "module": "esnext",
     "moduleResolution": "bundler",
     "noCheck": true,
