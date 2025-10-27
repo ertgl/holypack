@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "@holypack/core": "workspace:^",
-    "commander": "^14.0.1",
+    "commander": "^14.0.2",
     "pretty-format": "^30.2.0"
   },
   "peerDependencies": {
