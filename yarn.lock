@@ -2311,10 +2311,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@es-joy/resolve.exports@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@es-joy/resolve.exports@npm:1.0.0"
-  checksum: 10c0/08f9483abba56ce3f7c9e7fea0ee44d6c46b679aa810bf1901e735d587ef8d5dcd2e72503487248612d2971056c09dbeb3f3413dded5b535626a4ccf77493ddc
+"@es-joy/resolve.exports@npm:1.2.0":
+  version: 1.2.0
+  resolution: "@es-joy/resolve.exports@npm:1.2.0"
+  checksum: 10c0/7e4713471f5eccb17a925a12415a2d9e372a42376813a19f6abd9c35e8d01ab1403777265817da67c6150cffd4f558d9ad51e26a8de6911dad89d9cb7eedacd8
   languageName: node
   linkType: hard
 
@@ -2924,7 +2924,7 @@ __metadata:
     eslint: "npm:^9.38.0"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-import-x: "npm:^4.16.1"
-    eslint-plugin-jsdoc: "npm:^61.1.9"
+    eslint-plugin-jsdoc: "npm:^61.1.10"
     eslint-plugin-n: "npm:^17.23.1"
     eslint-plugin-perfectionist: "npm:^4.15.1"
     eslint-plugin-yml: "npm:^1.19.0"
@@ -2967,7 +2967,7 @@ __metadata:
     eslint: "npm:^9.38.0"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-import-x: "npm:^4.16.1"
-    eslint-plugin-jsdoc: "npm:^61.1.9"
+    eslint-plugin-jsdoc: "npm:^61.1.10"
     eslint-plugin-n: "npm:^17.23.1"
     eslint-plugin-perfectionist: "npm:^4.15.1"
     eslint-plugin-yml: "npm:^1.19.0"
@@ -3236,7 +3236,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@holypack/internal-integration-node@workspace:internal/integrations/node"
   dependencies:
-    "@types/node": "npm:^24.9.1"
+    "@types/node": "npm:^24.9.2"
   languageName: unknown
   linkType: soft
 
@@ -4230,12 +4230,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.9.1":
-  version: 24.9.1
-  resolution: "@types/node@npm:24.9.1"
+"@types/node@npm:^24.9.2":
+  version: 24.9.2
+  resolution: "@types/node@npm:24.9.2"
   dependencies:
     undici-types: "npm:~7.16.0"
-  checksum: 10c0/c52f8168080ef9a7c3dc23d8ac6061fab5371aad89231a0f6f4c075869bc3de7e89b075b1f3e3171d9e5143d0dda1807c3dab8e32eac6d68f02e7480e7e78576
+  checksum: 10c0/7905d43f65cee72ef475fe76316e10bbf6ac5d08a7f0f6c38f2b6285d7ca3009e8fcafc8f8a1d2bf3f55889c9c278dbb203a9081fd0cf2d6d62161703924c6fa
   languageName: node
   linkType: hard
 
@@ -6344,12 +6344,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:^61.1.9":
-  version: 61.1.9
-  resolution: "eslint-plugin-jsdoc@npm:61.1.9"
+"eslint-plugin-jsdoc@npm:^61.1.10":
+  version: 61.1.10
+  resolution: "eslint-plugin-jsdoc@npm:61.1.10"
   dependencies:
     "@es-joy/jsdoccomment": "npm:~0.76.0"
-    "@es-joy/resolve.exports": "npm:1.0.0"
+    "@es-joy/resolve.exports": "npm:1.2.0"
     are-docs-informative: "npm:^0.0.2"
     comment-parser: "npm:1.4.1"
     debug: "npm:^4.4.3"
@@ -6364,7 +6364,7 @@ __metadata:
     to-valid-identifier: "npm:^1.0.0"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
-  checksum: 10c0/40aa8fad92c8f09ef9e8cf92b7f27763b706e04772b72f32956b0c4225d7d4b946376b4a262680ea813256573774831771ef4bf429065a1de81e0fff2713e7e8
+  checksum: 10c0/0fb56a7eb776fc1017bb43ae173a8c1effecb23f5de67aae265fe93468aa0efa01da4b830fa0ef6387ac48ca82ac682da9fa9b4989de91f78a36d8e71b89cb19
   languageName: node
   linkType: hard
 
