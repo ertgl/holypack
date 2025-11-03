@@ -14,7 +14,7 @@
   "devDependencies": {
     "@holypack/core": "workspace:^",
     "@holypack/integration-eslint": "workspace:^",
-    "eslint": "^9.38.0"
+    "eslint": "^9.39.0"
   },
   "peerDependencies": {
     "@holypack/core": "*",
