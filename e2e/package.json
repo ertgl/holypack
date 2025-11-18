@@ -20,7 +20,7 @@
     "@holypack/core": "*",
     "@holypack/integration-typescript": "*",
     "holypack": "*",
-    "tapable": "^2.2.3"
+    "tapable": "^2.3.0"
   },
   "workspaces": [
     "../integrations/babel",
