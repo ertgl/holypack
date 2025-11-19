@@ -14,7 +14,7 @@
     "@eslint/js": "^9.39.1",
     "@eslint/json": "^0.14.0",
     "@eslint/markdown": "^7.5.1",
-    "@stylistic/eslint-plugin": "^5.5.0",
+    "@stylistic/eslint-plugin": "^5.6.1",
     "eslint": "^9.39.1",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import-x": "^4.16.1",
@@ -27,7 +27,7 @@
     "typescript-eslint": "^8.47.0"
   },
   "devDependencies": {
-    "@eslint/config-inspector": "^1.3.0",
+    "@eslint/config-inspector": "^1.4.1",
     "@holypack/core": "workspace:^",
     "@holypack/integration-typescript": "workspace:^",
     "@types/lodash.escaperegexp": "^4.1.9",
