@@ -2022,6 +2022,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cspell/dict-npm@npm:^5.2.23":
+  version: 5.2.23
+  resolution: "@cspell/dict-npm@npm:5.2.23"
+  checksum: 10c0/f2d26a59ae5daa88120a0c616bae25e019f91ffea0f980696067060edf12890cf2e2da8993db6b25f3d13d1c690c6844eedfe3cab607fd81eb92f57b1903e179
+  languageName: node
+  linkType: hard
+
 "@cspell/dict-php@npm:^4.1.0":
   version: 4.1.0
   resolution: "@cspell/dict-php@npm:4.1.0"
@@ -2869,7 +2876,7 @@ __metadata:
     eslint: "npm:^9.39.1"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-import-x: "npm:^4.16.1"
-    eslint-plugin-jsdoc: "npm:^61.2.1"
+    eslint-plugin-jsdoc: "npm:^61.3.0"
     eslint-plugin-n: "npm:^17.23.1"
     eslint-plugin-perfectionist: "npm:^4.15.1"
     eslint-plugin-yml: "npm:^1.19.0"
@@ -2912,7 +2919,7 @@ __metadata:
     eslint: "npm:^9.39.1"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-import-x: "npm:^4.16.1"
-    eslint-plugin-jsdoc: "npm:^61.2.1"
+    eslint-plugin-jsdoc: "npm:^61.3.0"
     eslint-plugin-n: "npm:^17.23.1"
     eslint-plugin-perfectionist: "npm:^4.15.1"
     eslint-plugin-yml: "npm:^1.19.0"
@@ -3157,7 +3164,7 @@ __metadata:
     "@cspell/dict-html-symbol-entities": "npm:^4.0.4"
     "@cspell/dict-markdown": "npm:^2.0.12"
     "@cspell/dict-node": "npm:^5.0.8"
-    "@cspell/dict-npm": "npm:^5.2.22"
+    "@cspell/dict-npm": "npm:^5.2.23"
     "@cspell/dict-shell": "npm:^1.1.2"
     "@cspell/dict-typescript": "npm:^3.2.3"
   languageName: unknown
@@ -6215,9 +6222,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:^61.2.1":
-  version: 61.2.1
-  resolution: "eslint-plugin-jsdoc@npm:61.2.1"
+"eslint-plugin-jsdoc@npm:^61.3.0":
+  version: 61.3.0
+  resolution: "eslint-plugin-jsdoc@npm:61.3.0"
   dependencies:
     "@es-joy/jsdoccomment": "npm:~0.76.0"
     "@es-joy/resolve.exports": "npm:1.2.0"
@@ -6235,7 +6242,7 @@ __metadata:
     to-valid-identifier: "npm:^1.0.0"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
-  checksum: 10c0/c2288ab5cffcb8a21adc4b7baa26d253c616463367d52157bdcce322135fd9d141fa5f0d27bd1a8c9d93db16dc1727d9a5c58bf6d2008ed0849e6c4b2f811384
+  checksum: 10c0/5b4e700582acdd1e49ad37c862f82f2d1df9b296173cf0c11a7f751abb10874f18fa096b55cf21300a476d876544b56c7b49aa5945c34d5530dc512369055292
   languageName: node
   linkType: hard
 
