@@ -7,6 +7,7 @@ import {
   Volume,
 } from "memfs";
 
+import { patchMemFS } from "../../../lib/fs/__tests__/contrib/memfs/patchMemFS";
 import type { ConfigFilePathFinderFSAsync } from "../ConfigFilePathFinderFSAsync";
 import { findConfigFilePathAsync } from "../findConfigFilePathAsync";
 
@@ -65,10 +66,11 @@ describe(
 
         const volume = Volume.fromJSON(entries);
         const fs = createFsFromVolume(volume);
+        const patchedFS = patchMemFS(fs);
 
         const result = await findConfigFilePathAsync({
           cwd,
-          fs: fs as unknown as ConfigFilePathFinderFSAsync,
+          fs: patchedFS as unknown as ConfigFilePathFinderFSAsync,
         });
 
         expect(result).toBeDefined();
@@ -90,10 +92,11 @@ describe(
 
         const volume = Volume.fromJSON(entries);
         const fs = createFsFromVolume(volume);
+        const patchedFS = patchMemFS(fs);
 
         const result = await findConfigFilePathAsync({
           cwd,
-          fs: fs as unknown as ConfigFilePathFinderFSAsync,
+          fs: patchedFS as unknown as ConfigFilePathFinderFSAsync,
         });
 
         expect(result).toBeDefined();
