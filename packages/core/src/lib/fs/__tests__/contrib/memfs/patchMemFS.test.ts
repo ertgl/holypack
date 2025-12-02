@@ -3,32 +3,60 @@ import {
   Volume,
 } from "memfs";
 
-import { patchMemFS } from "./patchMemFS";
-
 describe(
   "patchMemFS",
   () =>
   {
     it(
-      "should return an array of file paths matching the glob pattern",
-      () =>
+      "glob APIs of memfs without patching should throw `TypeError` when given an array instead of string",
+      async () =>
       {
         const fs = createFsFromVolume(new Volume());
 
         expect(
-          // @ts-expect-error - memfs does not have glob method
-          fs.glob,
-        ).not.toBeDefined();
+          () =>
+          {
+            // @ts-expect-error - Mismatched types.
+            fs.globSync(["*"]);
+          },
+        ).toThrow(
+          /argument must be of type string\. Received an instance of Array/u,
+        );
 
-        expect(
-          // @ts-expect-error - memfs does not have globSync method
-          fs.globSync,
-        ).not.toBeDefined();
-
-        const patchedFS = patchMemFS(fs);
-
-        expect(patchedFS.glob).toBeDefined();
-        expect(patchedFS.globSync).toBeDefined();
+        await expect(
+          async () =>
+          {
+            await new Promise(
+              (
+                resolve,
+                reject,
+              ) =>
+              {
+                fs.glob(
+                  // @ts-expect-error - Mismatched types.
+                  ["*"],
+                  null,
+                  (
+                    err,
+                    data,
+                  ) =>
+                  {
+                    if (err != null)
+                    {
+                      reject(err);
+                    }
+                    else
+                    {
+                      resolve(data);
+                    }
+                  },
+                );
+              },
+            );
+          },
+        ).rejects.toThrow(
+          /argument must be of type string\. Received an instance of Array/u,
+        );
       },
     );
   },
