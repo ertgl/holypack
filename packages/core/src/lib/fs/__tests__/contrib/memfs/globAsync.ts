@@ -9,20 +9,25 @@ import type {
 } from "fast-glob";
 import type { IFs } from "memfs";
 
+import { resolveCWD } from "../../../../process/cwd/resolveCWD";
 import type { Dirent } from "../../../dirent/Dirent";
 
 export function globAsync(
   fs: IFs,
   patterns: Parameters<typeof GlobFunction>[0],
-  options: Parameters<typeof GlobFunction>[1],
+  options: null | Parameters<typeof GlobFunction>[1] | undefined,
   callback: Parameters<typeof GlobFunction>[2],
 ): void
 {
+  options ??= {};
+
+  const cwd = resolveCWD(options.cwd);
+
   fastGlob.default.glob(
-    patterns,
+    patterns as (string | string[]),
     {
       absolute: true,
-      cwd: options.cwd,
+      cwd,
       fs: fs as unknown as FileSystemAdapter,
       ignore: options.exclude as string[] | undefined,
       objectMode: options.withFileTypes,

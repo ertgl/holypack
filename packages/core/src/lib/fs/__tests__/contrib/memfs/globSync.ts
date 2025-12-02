@@ -9,6 +9,7 @@ import type {
 } from "fast-glob";
 import type { IFs } from "memfs";
 
+import { resolveCWD } from "../../../../process/cwd/resolveCWD";
 import type { Dirent } from "../../../dirent/Dirent";
 
 export function globSync<
@@ -16,14 +17,18 @@ export function globSync<
 >(
   fs: IFs,
   patterns: Parameters<typeof GlobSyncFunction>[0],
-  options: Parameters<typeof GlobSyncFunction>[1],
+  options?: null | Parameters<typeof GlobSyncFunction>[1],
 ): T_ReturnType
 {
+  options ??= {};
+
+  const cwd = resolveCWD(options.cwd);
+
   const result = fastGlob.default.globSync(
-    patterns,
+    patterns as (string | string[]),
     {
       absolute: true,
-      cwd: options.cwd,
+      cwd,
       fs: fs as unknown as FileSystemAdapter,
       ignore: options.exclude as string[] | undefined,
       objectMode: options.withFileTypes,
