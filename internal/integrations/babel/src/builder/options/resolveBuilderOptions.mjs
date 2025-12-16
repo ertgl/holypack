@@ -19,8 +19,8 @@ export function resolveBuilderOptions(
   options ??= {};
 
   let {
-    exclude = undefined,
-    format = undefined,
+    exclude,
+    format,
   } = options;
 
   exclude ??= undefined;
