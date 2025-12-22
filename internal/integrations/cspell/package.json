@@ -4,7 +4,7 @@
   "devDependencies": {
     "@cspell/dict-bash": "^4.2.2",
     "@cspell/dict-css": "^4.0.19",
-    "@cspell/dict-en-common-misspellings": "^2.1.9",
+    "@cspell/dict-en-common-misspellings": "^2.1.10",
     "@cspell/dict-en-gb": "^5.0.20",
     "@cspell/dict-en_us": "^4.4.26",
     "@cspell/dict-filetypes": "^3.0.15",
