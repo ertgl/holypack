@@ -66,7 +66,8 @@
     "@holypack/jest-preset": "portal:./external/jest-preset",
     "@holypack/tracing": "portal:./packages/tracing",
     "@holypack/webpack-plugin": "portal:./external/webpack-plugin",
-    "holypack": "portal:./packages/prelude"
+    "holypack": "portal:./packages/prelude",
+    "escape-string-regexp": "^4.0.0"
   },
   "type": "module",
   "files": [
