@@ -1,7 +1,8 @@
 import type {
   FsCallbackApi,
   FsSynchronousApi,
-} from "memfs/lib/node/types";
+// eslint-disable-next-line n/no-extraneous-import, @cspell/spellchecker
+} from "@jsonjoy.com/fs-node-utils";
 
 import type { PatchedWithDefined } from "../../../../object/PatchedWithDefined";
 
