@@ -12,20 +12,17 @@ export function defineConfig<
 >(
   config: F,
 ): F;
-
 export function defineConfig<
   C extends ConfigDefinitionSync = ConfigDefinitionSync,
   F extends ConfigDefinitionProviderSync<C> = ConfigDefinitionProviderSync<C>,
 >(
   config: F,
 ): F;
-
 export function defineConfig<
   C extends ConfigDefinition = ConfigDefinition,
 >(
   config: C,
 ): C;
-
 export function defineConfig<
   C extends ConfigDefinition,
   F extends ConfigDefinitionProvider,
