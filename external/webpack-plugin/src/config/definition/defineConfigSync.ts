@@ -18,13 +18,11 @@ export function defineConfigSync<
 >(
   config: F,
 ): Configuration;
-
 export function defineConfigSync<
   C extends ConfigDefinitionSync = ConfigDefinitionSync,
 >(
   config: C,
 ): Configuration;
-
 export function defineConfigSync<
   C extends ConfigDefinitionSync,
   F extends ConfigDefinitionProviderSync<C>,
@@ -33,7 +31,6 @@ export function defineConfigSync<
 >(
   input?: I,
 ): O;
-
 export function defineConfigSync<
   C extends ConfigDefinitionSync,
   F extends ConfigDefinitionProviderSync<C>,

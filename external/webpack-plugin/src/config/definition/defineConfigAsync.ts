@@ -19,13 +19,11 @@ export async function defineConfigAsync<
 >(
   config: F,
 ): Promise<Configuration>;
-
 export async function defineConfigAsync<
   C extends ConfigDefinitionAsync = ConfigDefinitionAsync,
 >(
   config: C,
 ): Promise<Configuration>;
-
 export async function defineConfigAsync<
   C extends ConfigDefinitionAsync,
   F extends ConfigDefinitionProviderMaybeAsync<C>,
@@ -34,7 +32,6 @@ export async function defineConfigAsync<
 >(
   input?: I,
 ): Promise<O>;
-
 export async function defineConfigAsync<
   C extends ConfigDefinitionAsync,
   F extends ConfigDefinitionProviderMaybeAsync<C>,
