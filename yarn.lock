@@ -3030,12 +3030,12 @@ __metadata:
     eslint: "npm:^9.39.2"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-import-x: "npm:^4.16.1"
-    eslint-plugin-jsdoc: "npm:^62.3.0"
+    eslint-plugin-jsdoc: "npm:^62.3.1"
     eslint-plugin-n: "npm:^17.23.2"
     eslint-plugin-perfectionist: "npm:^5.4.0"
     eslint-plugin-yml: "npm:^3.0.0"
     fast-glob: "npm:^3.3.3"
-    globals: "npm:^17.0.0"
+    globals: "npm:^17.1.0"
     typescript-eslint: "npm:^8.53.1"
   peerDependencies:
     "@holypack/core": "*"
@@ -3073,12 +3073,12 @@ __metadata:
     eslint: "npm:^9.39.2"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-import-x: "npm:^4.16.1"
-    eslint-plugin-jsdoc: "npm:^62.3.0"
+    eslint-plugin-jsdoc: "npm:^62.3.1"
     eslint-plugin-n: "npm:^17.23.2"
     eslint-plugin-perfectionist: "npm:^5.4.0"
     eslint-plugin-yml: "npm:^3.0.0"
     fast-glob: "npm:^3.3.3"
-    globals: "npm:^17.0.0"
+    globals: "npm:^17.1.0"
     lodash.escaperegexp: "npm:^4.1.2"
     tapable: "npm:^2.3.0"
     typescript: "npm:^5.9.3"
@@ -5784,6 +5784,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"comment-parser@npm:1.4.5":
+  version: 1.4.5
+  resolution: "comment-parser@npm:1.4.5"
+  checksum: 10c0/6a6a74697c79927e3bd42bde9608a471f1a9d4995affbc22fa3364cc42b4017f82ef477431a1558b0b6bef959f9bb6964c01c1bbfc06a58ba1730dec9c423b44
+  languageName: node
+  linkType: hard
+
 "comment-parser@npm:^1.4.1":
   version: 1.4.1
   resolution: "comment-parser@npm:1.4.1"
@@ -6440,14 +6447,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:^62.3.0":
-  version: 62.3.0
-  resolution: "eslint-plugin-jsdoc@npm:62.3.0"
+"eslint-plugin-jsdoc@npm:^62.3.1":
+  version: 62.3.1
+  resolution: "eslint-plugin-jsdoc@npm:62.3.1"
   dependencies:
     "@es-joy/jsdoccomment": "npm:~0.82.0"
     "@es-joy/resolve.exports": "npm:1.2.0"
     are-docs-informative: "npm:^0.0.2"
-    comment-parser: "npm:1.4.4"
+    comment-parser: "npm:1.4.5"
     debug: "npm:^4.4.3"
     escape-string-regexp: "npm:^4.0.0"
     espree: "npm:^11.1.0"
@@ -6460,7 +6467,7 @@ __metadata:
     to-valid-identifier: "npm:^1.0.0"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
-  checksum: 10c0/bc2013de9f4e38b3d681b7714c29d4b2565c8f9017955aeb83afd1683837d3e416a635d2ed4f151f5aa1749cbae171b83816f887fb63da6a10a94bd8dc1ce630
+  checksum: 10c0/0fb58a91e905004dae8513685372883db065ea7c7e6e132a74c46c1f426ba074d0d9dcd9e4cc9904d7b25d6072782161ac580a02d4e9f38348602e67f9ebdaa1
   languageName: node
   linkType: hard
 
@@ -7183,10 +7190,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^17.0.0":
-  version: 17.0.0
-  resolution: "globals@npm:17.0.0"
-  checksum: 10c0/e3c169fdcb0fc6755707b697afb367bea483eb29992cfc0de1637382eb893146e17f8f96db6d7453e3696b478a7863ae2000e6c71cd2f4061410285106d3847a
+"globals@npm:^17.1.0":
+  version: 17.1.0
+  resolution: "globals@npm:17.1.0"
+  checksum: 10c0/4a4a17847676a09f164b8bdce7df105a4f484d6d44586e374087ba9ec7089cbf4c578b8648838dee9917074199c542ce157ea3c07b266f708dfb1652010900c8
   languageName: node
   linkType: hard
 
