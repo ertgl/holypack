@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "fast-glob": "^3.3.3",
-    "memfs": "^4.56.9",
+    "memfs": "^4.56.10",
     "tapable": "^2.3.0",
     "toml": "^3.0.0",
     "yaml": "^2.8.2"
