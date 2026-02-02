@@ -23,7 +23,7 @@
     "eslint-plugin-perfectionist": "^5.4.0",
     "eslint-plugin-yml": "^3.0.0",
     "fast-glob": "^3.3.3",
-    "globals": "^17.2.0",
+    "globals": "^17.3.0",
     "typescript-eslint": "^8.54.0"
   },
   "devDependencies": {
