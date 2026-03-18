@@ -8,7 +8,7 @@
   "devDependencies": {
     "@holypack/core": "workspace:^",
     "webpack": "^5.105.4",
-    "webpack-cli": "^7.0.1"
+    "webpack-cli": "^7.0.2"
   },
   "peerDependencies": {
     "@holypack/core": "*",
