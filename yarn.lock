@@ -2913,7 +2913,7 @@ __metadata:
     fast-glob: "npm:^3.3.3"
     memfs: "npm:^4.57.1"
     tapable: "npm:^2.3.2"
-    toml: "npm:^3.0.0"
+    toml: "npm:^4.1.1"
     yaml: "npm:^2.8.3"
   peerDependencies:
     tapable: "*"
@@ -10405,10 +10405,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"toml@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "toml@npm:3.0.0"
-  checksum: 10c0/8d7ed3e700ca602e5419fca343e1c595eb7aa177745141f0761a5b20874b58ee5c878cd045c408da9d130cb2b611c639912210ba96ce2f78e443569aa8060c18
+"toml@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "toml@npm:4.1.1"
+  checksum: 10c0/077bc02ac1ce82091ea073f675d7e2a1df487d1b18bbc7e653daba4956d545954b7095e979b8792f0837339b901ee190ad4464342e5e377c36bbdeca8903e079
   languageName: node
   linkType: hard
 
