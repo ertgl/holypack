@@ -7,9 +7,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.2",
+    "@babel/preset-env": "^7.29.3",
     "@babel/preset-typescript": "^7.28.5",
-    "@babel/register": "^7.28.6",
+    "@babel/register": "^7.29.3",
     "@holypack/babel-preset": "workspace:^",
     "@holypack/internal-dev": "workspace:^",
     "@types/babel__core": "^7.20.5",
