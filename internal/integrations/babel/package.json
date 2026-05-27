@@ -6,10 +6,10 @@
     "update-exports": "node ../../../hack/scripts/package/update-exports.mjs"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.5",
-    "@babel/preset-typescript": "^7.28.5",
-    "@babel/register": "^7.29.3",
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@babel/preset-typescript": "^7.29.7",
+    "@babel/register": "^7.29.7",
     "@holypack/babel-preset": "workspace:^",
     "@holypack/internal-dev": "workspace:^",
     "@types/babel__core": "^7.20.5",
