@@ -4,7 +4,7 @@
     "export-map-generator": "^2.1.1"
   },
   "devDependencies": {
-    "commander": "^14.0.3",
+    "commander": "^15.0.0",
     "cosmiconfig": "^9.0.1",
     "pretty-format": "^30.4.1"
   },
