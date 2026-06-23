@@ -6,7 +6,7 @@
     "test": "node ../../hack/scripts/package/test.mjs"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.7",
+    "@babel/core": "^8.0.0",
     "@holypack/core": "workspace:^",
     "@holypack/integration-eslint": "workspace:^",
     "@jest/globals": "30.4.1",
